@@ -1,0 +1,1649 @@
+<profile>
+    <ReportVersion>
+        <Version>2022.2</Version>
+    </ReportVersion>
+    <UserAssignments>
+        <unit>ns</unit>
+        <ProductFamily>zynquplus</ProductFamily>
+        <Part>xczu7ev-ffvc1156-2-e</Part>
+        <TopModelName>concat</TopModelName>
+        <TargetClockPeriod>10.00</TargetClockPeriod>
+        <ClockUncertainty>2.70</ClockUncertainty>
+        <FlowTarget>vivado</FlowTarget>
+    </UserAssignments>
+    <PerformanceEstimates>
+        <PipelineType>dataflow</PipelineType>
+        <SummaryOfTimingAnalysis>
+            <unit>ns</unit>
+            <EstimatedClockPeriod>7.300</EstimatedClockPeriod>
+        </SummaryOfTimingAnalysis>
+        <SummaryOfOverallLatency>
+            <unit>clock cycles</unit>
+            <Best-caseLatency>undef</Best-caseLatency>
+            <Average-caseLatency>undef</Average-caseLatency>
+            <Worst-caseLatency>undef</Worst-caseLatency>
+            <Best-caseRealTimeLatency>undef</Best-caseRealTimeLatency>
+            <Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
+            <Worst-caseRealTimeLatency>undef</Worst-caseRealTimeLatency>
+            <DataflowPipelineThroughput>undef</DataflowPipelineThroughput>
+            <Interval-min>undef</Interval-min>
+            <Interval-max>undef</Interval-max>
+        </SummaryOfOverallLatency>
+    </PerformanceEstimates>
+    <AreaEstimates>
+        <Resources>
+            <BRAM_18K>15</BRAM_18K>
+            <DSP>6</DSP>
+            <FF>5495</FF>
+            <LUT>9564</LUT>
+            <URAM>0</URAM>
+        </Resources>
+        <AvailableResources>
+            <BRAM_18K>624</BRAM_18K>
+            <DSP>1728</DSP>
+            <FF>460800</FF>
+            <LUT>230400</LUT>
+            <URAM>96</URAM>
+        </AvailableResources>
+    </AreaEstimates>
+    <InterfaceSummary>
+        <RtlPorts>
+            <name>s_axi_concat_addr_AWVALID</name>
+            <Object>concat_addr</Object>
+            <Type>pointer</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>bool</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_concat_addr_AWREADY</name>
+            <Object>concat_addr</Object>
+            <Type>pointer</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>bool</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_concat_addr_AWADDR</name>
+            <Object>concat_addr</Object>
+            <Type>pointer</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>7</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>bool</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_concat_addr_WVALID</name>
+            <Object>concat_addr</Object>
+            <Type>pointer</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>bool</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_concat_addr_WREADY</name>
+            <Object>concat_addr</Object>
+            <Type>pointer</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>bool</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_concat_addr_WDATA</name>
+            <Object>concat_addr</Object>
+            <Type>pointer</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>32</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>bool</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_concat_addr_WSTRB</name>
+            <Object>concat_addr</Object>
+            <Type>pointer</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>4</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>bool</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_concat_addr_ARVALID</name>
+            <Object>concat_addr</Object>
+            <Type>pointer</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>bool</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_concat_addr_ARREADY</name>
+            <Object>concat_addr</Object>
+            <Type>pointer</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>bool</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_concat_addr_ARADDR</name>
+            <Object>concat_addr</Object>
+            <Type>pointer</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>7</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>bool</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_concat_addr_RVALID</name>
+            <Object>concat_addr</Object>
+            <Type>pointer</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>bool</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_concat_addr_RREADY</name>
+            <Object>concat_addr</Object>
+            <Type>pointer</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>bool</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_concat_addr_RDATA</name>
+            <Object>concat_addr</Object>
+            <Type>pointer</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>out</Dir>
+            <Bits>32</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>bool</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_concat_addr_RRESP</name>
+            <Object>concat_addr</Object>
+            <Type>pointer</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>out</Dir>
+            <Bits>2</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>bool</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_concat_addr_BVALID</name>
+            <Object>concat_addr</Object>
+            <Type>pointer</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>bool</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_concat_addr_BREADY</name>
+            <Object>concat_addr</Object>
+            <Type>pointer</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>bool</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_concat_addr_BRESP</name>
+            <Object>concat_addr</Object>
+            <Type>pointer</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>out</Dir>
+            <Bits>2</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>bool</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>ap_clk</name>
+            <Object>concat</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>ap_rst_n</name>
+            <Object>concat</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>interrupt</name>
+            <Object>concat</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_concat_data_AWVALID</name>
+            <Object>concat_data</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_concat_data_AWREADY</name>
+            <Object>concat_data</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_concat_data_AWADDR</name>
+            <Object>concat_data</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>64</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_concat_data_AWID</name>
+            <Object>concat_data</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_concat_data_AWLEN</name>
+            <Object>concat_data</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>8</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_concat_data_AWSIZE</name>
+            <Object>concat_data</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>3</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_concat_data_AWBURST</name>
+            <Object>concat_data</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>2</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_concat_data_AWLOCK</name>
+            <Object>concat_data</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>2</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_concat_data_AWCACHE</name>
+            <Object>concat_data</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>4</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_concat_data_AWPROT</name>
+            <Object>concat_data</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>3</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_concat_data_AWQOS</name>
+            <Object>concat_data</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>4</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_concat_data_AWREGION</name>
+            <Object>concat_data</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>4</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_concat_data_AWUSER</name>
+            <Object>concat_data</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_concat_data_WVALID</name>
+            <Object>concat_data</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_concat_data_WREADY</name>
+            <Object>concat_data</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_concat_data_WDATA</name>
+            <Object>concat_data</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>256</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_concat_data_WSTRB</name>
+            <Object>concat_data</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>32</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_concat_data_WLAST</name>
+            <Object>concat_data</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_concat_data_WID</name>
+            <Object>concat_data</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_concat_data_WUSER</name>
+            <Object>concat_data</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_concat_data_ARVALID</name>
+            <Object>concat_data</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_concat_data_ARREADY</name>
+            <Object>concat_data</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_concat_data_ARADDR</name>
+            <Object>concat_data</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>64</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_concat_data_ARID</name>
+            <Object>concat_data</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_concat_data_ARLEN</name>
+            <Object>concat_data</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>8</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_concat_data_ARSIZE</name>
+            <Object>concat_data</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>3</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_concat_data_ARBURST</name>
+            <Object>concat_data</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>2</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_concat_data_ARLOCK</name>
+            <Object>concat_data</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>2</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_concat_data_ARCACHE</name>
+            <Object>concat_data</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>4</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_concat_data_ARPROT</name>
+            <Object>concat_data</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>3</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_concat_data_ARQOS</name>
+            <Object>concat_data</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>4</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_concat_data_ARREGION</name>
+            <Object>concat_data</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>4</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_concat_data_ARUSER</name>
+            <Object>concat_data</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_concat_data_RVALID</name>
+            <Object>concat_data</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_concat_data_RREADY</name>
+            <Object>concat_data</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_concat_data_RDATA</name>
+            <Object>concat_data</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>256</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_concat_data_RLAST</name>
+            <Object>concat_data</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_concat_data_RID</name>
+            <Object>concat_data</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_concat_data_RUSER</name>
+            <Object>concat_data</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_concat_data_RRESP</name>
+            <Object>concat_data</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>2</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_concat_data_BVALID</name>
+            <Object>concat_data</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_concat_data_BREADY</name>
+            <Object>concat_data</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_concat_data_BRESP</name>
+            <Object>concat_data</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>2</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_concat_data_BID</name>
+            <Object>concat_data</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_concat_data_BUSER</name>
+            <Object>concat_data</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+    </InterfaceSummary>
+    <RTLDesignHierarchy>
+        <TopModule MAX_DEPTH="4">
+            <ModuleName>concat</ModuleName>
+            <InstancesList>
+                <Instance>
+                    <InstName>entry_proc_U0</InstName>
+                    <ModuleName>entry_proc</ModuleName>
+                    <IsCompInst>true</IsCompInst>
+                    <ID>168</ID>
+                </Instance>
+                <Instance>
+                    <InstName>read_inputs_ap_uint_256_ap_int_8_32u_U0</InstName>
+                    <ModuleName>read_inputs_ap_uint_256_ap_int_8_32u_s</ModuleName>
+                    <IsCompInst>true</IsCompInst>
+                    <ID>178</ID>
+                    <BindInstances>mul_32s_32s_32_1_1_U5 add_ln16_fu_443_p2 sub_ln16_fu_488_p2 empty_31_fu_509_p2 empty_34_fu_526_p2 empty_36_fu_558_p2 empty_37_fu_564_p2 empty_38_fu_573_p2 empty_39_fu_637_p2 empty_42_fu_666_p2 add_ln17_fu_604_p2 empty_81_fu_1928_p2 empty_83_fu_1966_p2 empty_84_fu_1976_p2 empty_85_fu_1985_p2 empty_86_fu_2000_p2 empty_89_fu_2005_p2 add_ln19_fu_3297_p2</BindInstances>
+                </Instance>
+                <Instance>
+                    <InstName>store_ap_uint_256_ap_int_8_ap_int_8_32u_U0</InstName>
+                    <ModuleName>store_ap_uint_256_ap_int_8_ap_int_8_32u_s</ModuleName>
+                    <IsCompInst>true</IsCompInst>
+                    <ID>197</ID>
+                    <InstancesList>
+                        <Instance>
+                            <InstName>grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_91_1_fu_102</InstName>
+                            <ModuleName>store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_91_1</ModuleName>
+                            <IsCompInst>true</IsCompInst>
+                            <ID>102</ID>
+                            <BindInstances>add_ln91_fu_162_p2 add_ln96_fu_179_p2 add_ln96_1_fu_196_p2 count_1_fu_211_p2</BindInstances>
+                        </Instance>
+                    </InstancesList>
+                    <BindInstances>mul_32s_32s_32_1_1_U22</BindInstances>
+                </Instance>
+            </InstancesList>
+            <BindInstances>outputs_c_U COLS_c_U ROWS_c_U output_data_addr3_c_U data_out_U</BindInstances>
+        </TopModule>
+    </RTLDesignHierarchy>
+    <ModuleInformation>
+        <Module>
+            <Name>entry_proc</Name>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>10.00</TargetClockPeriod>
+                    <ClockUncertainty>2.70</ClockUncertainty>
+                    <EstimatedClockPeriod>1.838</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>0</Best-caseLatency>
+                    <Average-caseLatency>0</Average-caseLatency>
+                    <Worst-caseLatency>0</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>0 ns</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>0 ns</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>0 ns</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>0</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>3</FF>
+                    <AVAIL_FF>460800</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>38</LUT>
+                    <AVAIL_LUT>230400</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>624</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>1728</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>96</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+        </Module>
+        <Module>
+            <Name>read_inputs_ap_uint_256_ap_int_8_32u_s</Name>
+            <Loops>
+                <Loop1/>
+                <Loop2/>
+                <Loop3/>
+                <Loop4/>
+                <VITIS_LOOP_19_1/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>10.00</TargetClockPeriod>
+                    <ClockUncertainty>2.70</ClockUncertainty>
+                    <TargetInitiationInterval>4294967295</TargetInitiationInterval>
+                    <EstimatedClockPeriod>7.300</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>undef</Best-caseLatency>
+                    <Average-caseLatency>undef</Average-caseLatency>
+                    <Worst-caseLatency>undef</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>undef</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>undef</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>undef</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <Loop1>
+                        <Name>Loop 1</Name>
+                        <Slack>7.30</Slack>
+                        <TripCount>undef</TripCount>
+                        <Latency>undef</Latency>
+                        <AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
+                        <IterationLatency>2</IterationLatency>
+                        <PipelineDepth>2</PipelineDepth>
+                        <PipelineType>no</PipelineType>
+                        <InstanceList/>
+                    </Loop1>
+                    <Loop2>
+                        <Name>Loop 2</Name>
+                        <Slack>7.30</Slack>
+                        <TripCount>
+                            <range>
+                                <min>0</min>
+                                <max>31</max>
+                            </range>
+                        </TripCount>
+                        <Latency>0 ~ 1271</Latency>
+                        <AbsoluteTimeLatency>0 ns ~ 12.710 us</AbsoluteTimeLatency>
+                        <IterationLatency>41</IterationLatency>
+                        <PipelineDepth>41</PipelineDepth>
+                        <PipelineType>no</PipelineType>
+                        <InstanceList/>
+                    </Loop2>
+                    <Loop3>
+                        <Name>Loop 3</Name>
+                        <Slack>7.30</Slack>
+                        <TripCount>undef</TripCount>
+                        <Latency>undef</Latency>
+                        <AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
+                        <IterationLatency>2</IterationLatency>
+                        <PipelineDepth>2</PipelineDepth>
+                        <PipelineType>no</PipelineType>
+                        <InstanceList/>
+                    </Loop3>
+                    <Loop4>
+                        <Name>Loop 4</Name>
+                        <Slack>7.30</Slack>
+                        <TripCount>
+                            <range>
+                                <min>0</min>
+                                <max>31</max>
+                            </range>
+                        </TripCount>
+                        <Latency>0 ~ 1271</Latency>
+                        <AbsoluteTimeLatency>0 ns ~ 12.710 us</AbsoluteTimeLatency>
+                        <IterationLatency>41</IterationLatency>
+                        <PipelineDepth>41</PipelineDepth>
+                        <PipelineType>no</PipelineType>
+                        <InstanceList/>
+                    </Loop4>
+                    <VITIS_LOOP_19_1>
+                        <Name>VITIS_LOOP_19_1</Name>
+                        <Slack>7.30</Slack>
+                        <TripCount>undef</TripCount>
+                        <Latency>undef</Latency>
+                        <AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
+                        <IterationLatency>2</IterationLatency>
+                        <PipelineDepth>2</PipelineDepth>
+                        <PipelineType>no</PipelineType>
+                        <InstanceList/>
+                    </VITIS_LOOP_19_1>
+                </SummaryOfLoopLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <DSP>3</DSP>
+                    <AVAIL_DSP>1728</AVAIL_DSP>
+                    <UTIL_DSP>~0</UTIL_DSP>
+                    <FF>2467</FF>
+                    <AVAIL_FF>460800</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>6297</LUT>
+                    <AVAIL_LUT>230400</AVAIL_LUT>
+                    <UTIL_LUT>2</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>624</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>96</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="3" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="mul" PRAGMA="" RTLNAME="mul_32s_32s_32_1_1_U5" SOURCE="Concat_HLS/src/../include/helpers.hpp:13" URAM="0" VARIABLE="mul_ln13"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln16_fu_443_p2" SOURCE="Concat_HLS/src/../include/helpers.hpp:16" URAM="0" VARIABLE="add_ln16"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln16_fu_488_p2" SOURCE="Concat_HLS/src/../include/helpers.hpp:16" URAM="0" VARIABLE="sub_ln16"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="Loop 1" OPTYPE="add" PRAGMA="" RTLNAME="empty_31_fu_509_p2" SOURCE="" URAM="0" VARIABLE="empty_31"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="empty_34_fu_526_p2" SOURCE="Concat_HLS/src/../include/helpers.hpp:16" URAM="0" VARIABLE="empty_34"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="Loop 2" OPTYPE="add" PRAGMA="" RTLNAME="empty_36_fu_558_p2" SOURCE="" URAM="0" VARIABLE="empty_36"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="Loop 2" OPTYPE="add" PRAGMA="" RTLNAME="empty_37_fu_564_p2" SOURCE="Concat_HLS/src/../include/helpers.hpp:16" URAM="0" VARIABLE="empty_37"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="Loop 2" OPTYPE="add" PRAGMA="" RTLNAME="empty_38_fu_573_p2" SOURCE="Concat_HLS/src/../include/helpers.hpp:16" URAM="0" VARIABLE="empty_38"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="Loop 2" OPTYPE="add" PRAGMA="" RTLNAME="empty_39_fu_637_p2" SOURCE="Concat_HLS/src/../include/helpers.hpp:16" URAM="0" VARIABLE="empty_39"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="Loop 2" OPTYPE="add" PRAGMA="" RTLNAME="empty_42_fu_666_p2" SOURCE="Concat_HLS/src/../include/helpers.hpp:16" URAM="0" VARIABLE="empty_42"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln17_fu_604_p2" SOURCE="Concat_HLS/src/../include/helpers.hpp:17" URAM="0" VARIABLE="add_ln17"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="Loop 3" OPTYPE="add" PRAGMA="" RTLNAME="empty_81_fu_1928_p2" SOURCE="" URAM="0" VARIABLE="empty_81"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="Loop 4" OPTYPE="add" PRAGMA="" RTLNAME="empty_83_fu_1966_p2" SOURCE="" URAM="0" VARIABLE="empty_83"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="Loop 4" OPTYPE="add" PRAGMA="" RTLNAME="empty_84_fu_1976_p2" SOURCE="Concat_HLS/src/../include/helpers.hpp:16" URAM="0" VARIABLE="empty_84"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="Loop 4" OPTYPE="add" PRAGMA="" RTLNAME="empty_85_fu_1985_p2" SOURCE="Concat_HLS/src/../include/helpers.hpp:16" URAM="0" VARIABLE="empty_85"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="Loop 4" OPTYPE="add" PRAGMA="" RTLNAME="empty_86_fu_2000_p2" SOURCE="Concat_HLS/src/../include/helpers.hpp:16" URAM="0" VARIABLE="empty_86"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="Loop 4" OPTYPE="add" PRAGMA="" RTLNAME="empty_89_fu_2005_p2" SOURCE="Concat_HLS/src/../include/helpers.hpp:16" URAM="0" VARIABLE="empty_89"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_19_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln19_fu_3297_p2" SOURCE="Concat_HLS/src/../include/helpers.hpp:19" URAM="0" VARIABLE="add_ln19"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_91_1</Name>
+            <Loops>
+                <VITIS_LOOP_91_1/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>10.00</TargetClockPeriod>
+                    <ClockUncertainty>2.70</ClockUncertainty>
+                    <EstimatedClockPeriod>7.300</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>2</Best-caseLatency>
+                    <Average-caseLatency>undef</Average-caseLatency>
+                    <Worst-caseLatency>134217767</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>20.000 ns</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>1.342 sec</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>2 ~ 134217767</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <VITIS_LOOP_91_1>
+                        <Name>VITIS_LOOP_91_1</Name>
+                        <Slack>7.30</Slack>
+                        <TripCount>
+                            <range>
+                                <min>0</min>
+                                <max>134217727</max>
+                            </range>
+                        </TripCount>
+                        <Latency>0 ~ 134217765</Latency>
+                        <AbsoluteTimeLatency>0 ns ~ 1.342 sec</AbsoluteTimeLatency>
+                        <PipelineII>1</PipelineII>
+                        <PipelineDepth>40</PipelineDepth>
+                        <PipelineType>yes</PipelineType>
+                        <InstanceList/>
+                    </VITIS_LOOP_91_1>
+                </SummaryOfLoopLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>893</FF>
+                    <AVAIL_FF>460800</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>357</LUT>
+                    <AVAIL_LUT>230400</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>624</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>1728</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>96</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_91_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln91_fu_162_p2" SOURCE="Concat_HLS/src/../include/helpers.hpp:91" URAM="0" VARIABLE="add_ln91"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_91_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln96_fu_179_p2" SOURCE="Concat_HLS/src/../include/helpers.hpp:96" URAM="0" VARIABLE="add_ln96"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_91_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln96_1_fu_196_p2" SOURCE="Concat_HLS/src/../include/helpers.hpp:96" URAM="0" VARIABLE="add_ln96_1"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_91_1" OPTYPE="add" PRAGMA="" RTLNAME="count_1_fu_211_p2" SOURCE="Concat_HLS/src/../include/helpers.hpp:97" URAM="0" VARIABLE="count_1"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>store_ap_uint_256_ap_int_8_ap_int_8_32u_s</Name>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>10.00</TargetClockPeriod>
+                    <ClockUncertainty>2.70</ClockUncertainty>
+                    <EstimatedClockPeriod>7.300</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>5</Best-caseLatency>
+                    <Average-caseLatency>undef</Average-caseLatency>
+                    <Worst-caseLatency>134217770</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>50.000 ns</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>1.342 sec</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>5 ~ 134217770</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <DSP>3</DSP>
+                    <AVAIL_DSP>1728</AVAIL_DSP>
+                    <UTIL_DSP>~0</UTIL_DSP>
+                    <FF>1018</FF>
+                    <AVAIL_FF>460800</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>515</LUT>
+                    <AVAIL_LUT>230400</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>624</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>96</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="3" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="mul" PRAGMA="" RTLNAME="mul_32s_32s_32_1_1_U22" SOURCE="Concat_HLS/src/../include/helpers.hpp:88" URAM="0" VARIABLE="mul_ln88"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>concat</Name>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>10.00</TargetClockPeriod>
+                    <ClockUncertainty>2.70</ClockUncertainty>
+                    <EstimatedClockPeriod>7.300</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>undef</Best-caseLatency>
+                    <Average-caseLatency>undef</Average-caseLatency>
+                    <Worst-caseLatency>undef</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>undef</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>undef</Worst-caseRealTimeLatency>
+                    <DataflowPipelineThroughput>undef</DataflowPipelineThroughput>
+                    <PipelineInitiationInterval>undef</PipelineInitiationInterval>
+                    <PipelineType>dataflow</PipelineType>
+                </SummaryOfOverallLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <BRAM_18K>15</BRAM_18K>
+                    <AVAIL_BRAM>624</AVAIL_BRAM>
+                    <UTIL_BRAM>2</UTIL_BRAM>
+                    <DSP>6</DSP>
+                    <AVAIL_DSP>1728</AVAIL_DSP>
+                    <UTIL_DSP>~0</UTIL_DSP>
+                    <FF>5495</FF>
+                    <AVAIL_FF>460800</AVAIL_FF>
+                    <UTIL_FF>1</UTIL_FF>
+                    <LUT>9564</LUT>
+                    <AVAIL_LUT>230400</AVAIL_LUT>
+                    <UTIL_LUT>4</UTIL_LUT>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>96</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="outputs_c_U" SOURCE="Concat_HLS/src/concat.cpp:38" URAM="0" VARIABLE="outputs_c"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="COLS_c_U" SOURCE="Concat_HLS/src/concat.cpp:38" URAM="0" VARIABLE="COLS_c"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="ROWS_c_U" SOURCE="Concat_HLS/src/concat.cpp:38" URAM="0" VARIABLE="ROWS_c"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="output_data_addr3_c_U" SOURCE="Concat_HLS/src/concat.cpp:38" URAM="0" VARIABLE="output_data_addr3_c"/>
+                <BindNode BINDTYPE="storage" BRAM="15" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="memory" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="data_out_U" SOURCE="Concat_HLS/src/concat.cpp:29" URAM="0" VARIABLE="data_out"/>
+            </BindNodes>
+        </Module>
+    </ModuleInformation>
+    <FIFOInformation>
+        <FIFOInst>
+            <Name>data_out_U</Name>
+            <ParentInst/>
+            <StaticDepth>128</StaticDepth>
+            <RuntimeDepth>mOutPtr</RuntimeDepth>
+            <InterfaceList>
+                <Interface>clk</Interface>
+                <Interface>reset</Interface>
+                <Interface>if_write</Interface>
+                <Interface>if_din</Interface>
+                <Interface>if_full_n</Interface>
+                <Interface>if_read</Interface>
+                <Interface>if_empty_n</Interface>
+            </InterfaceList>
+        </FIFOInst>
+    </FIFOInformation>
+    <UserConfigCommands>
+        <config_export flow="syn" vivado_clock="10"/>
+    </UserConfigCommands>
+    <Args>
+        <Arg ArgName="input_data_addr1" index="0" direction="in" srcType="unsigned int" srcSize="32">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_concat_addr" name="input_data_addr1" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="input_data_addr2" index="1" direction="in" srcType="unsigned int" srcSize="32">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_concat_addr" name="input_data_addr2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="output_data_addr3" index="2" direction="in" srcType="unsigned int" srcSize="32">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_concat_addr" name="output_data_addr3" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="ROWS" index="3" direction="in" srcType="unsigned int" srcSize="32">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_concat_addr" name="ROWS" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="COLS" index="4" direction="in" srcType="unsigned int" srcSize="32">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_concat_addr" name="COLS" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="inputs" index="5" direction="inout" srcType="ap_uint&lt;256&gt;*" srcSize="256">
+            <hwRefs>
+                <hwRef type="interface" interface="m_axi_concat_data" name="" usage="data" direction="inout"/>
+                <hwRef type="register" interface="s_axi_concat_addr" name="inputs_1" usage="address" direction="in"/>
+                <hwRef type="register" interface="s_axi_concat_addr" name="inputs_2" usage="address" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="outputs" index="6" direction="inout" srcType="ap_uint&lt;256&gt;*" srcSize="256">
+            <hwRefs>
+                <hwRef type="interface" interface="m_axi_concat_data" name="" usage="data" direction="inout"/>
+                <hwRef type="register" interface="s_axi_concat_addr" name="outputs_1" usage="address" direction="in"/>
+                <hwRef type="register" interface="s_axi_concat_addr" name="outputs_2" usage="address" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="concat_flag" index="7" direction="out" srcType="bool&amp;" srcSize="1">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_concat_addr" name="concat_flag" usage="data" direction="out"/>
+                <hwRef type="register" interface="s_axi_concat_addr" name="concat_flag_ctrl" usage="control" direction="out"/>
+            </hwRefs>
+        </Arg>
+    </Args>
+    <Interfaces>
+        <Interface InterfaceName="s_axi_concat_addr" type="axi4lite" busTypeName="aximm" mode="slave" dataWidth="32" addrWidth="7" portPrefix="s_axi_concat_addr_" paramPrefix="C_S_AXI_CONCAT_ADDR_">
+            <ports>
+                <port>s_axi_concat_addr_ARADDR</port>
+                <port>s_axi_concat_addr_ARREADY</port>
+                <port>s_axi_concat_addr_ARVALID</port>
+                <port>s_axi_concat_addr_AWADDR</port>
+                <port>s_axi_concat_addr_AWREADY</port>
+                <port>s_axi_concat_addr_AWVALID</port>
+                <port>s_axi_concat_addr_BREADY</port>
+                <port>s_axi_concat_addr_BRESP</port>
+                <port>s_axi_concat_addr_BVALID</port>
+                <port>s_axi_concat_addr_RDATA</port>
+                <port>s_axi_concat_addr_RREADY</port>
+                <port>s_axi_concat_addr_RRESP</port>
+                <port>s_axi_concat_addr_RVALID</port>
+                <port>s_axi_concat_addr_WDATA</port>
+                <port>s_axi_concat_addr_WREADY</port>
+                <port>s_axi_concat_addr_WSTRB</port>
+                <port>s_axi_concat_addr_WVALID</port>
+            </ports>
+            <registers>
+                <register offset="0x00" name="CTRL" access="RW" description="Control signals" range="32">
+                    <fields>
+                        <field offset="0" width="1" name="AP_START" access="RW" description="Control signal Register for 'ap_start'."/>
+                        <field offset="1" width="1" name="AP_DONE" access="R" description="Control signal Register for 'ap_done'."/>
+                        <field offset="2" width="1" name="AP_IDLE" access="R" description="Control signal Register for 'ap_idle'."/>
+                        <field offset="3" width="1" name="AP_READY" access="R" description="Control signal Register for 'ap_ready'."/>
+                        <field offset="4" width="3" name="RESERVED_1" access="R" description="Reserved.  0s on read."/>
+                        <field offset="7" width="1" name="AUTO_RESTART" access="RW" description="Control signal Register for 'auto_restart'."/>
+                        <field offset="8" width="1" name="RESERVED_2" access="R" description="Reserved.  0s on read."/>
+                        <field offset="9" width="1" name="INTERRUPT" access="R" description="Control signal Register for 'interrupt'."/>
+                        <field offset="10" width="22" name="RESERVED_3" access="R" description="Reserved.  0s on read."/>
+                    </fields>
+                </register>
+                <register offset="0x04" name="GIER" access="RW" description="Global Interrupt Enable Register" range="32">
+                    <fields>
+                        <field offset="0" width="1" name="Enable" access="RW" description="Master enable for the device interrupt output to the system interrupt controller: 0 = Disabled, 1 = Enabled"/>
+                        <field offset="1" width="31" name="RESERVED" access="R" description="Reserved.  0s on read."/>
+                    </fields>
+                </register>
+                <register offset="0x08" name="IP_IER" access="RW" description="IP Interrupt Enable Register" range="32">
+                    <fields>
+                        <field offset="0" width="1" name="CHAN0_INT_EN" access="RW" description="Enable Channel 0 (ap_done) Interrupt.  0 = Disabled, 1 = Enabled."/>
+                        <field offset="1" width="1" name="CHAN1_INT_EN" access="RW" description="Enable Channel 1 (ap_ready) Interrupt.  0 = Disabled, 1 = Enabled."/>
+                        <field offset="2" width="30" name="RESERVED_0" access="R" description="Reserved.  0s on read."/>
+                    </fields>
+                </register>
+                <register offset="0x0c" name="IP_ISR" access="RW" description="IP Interrupt Status Register" range="32">
+                    <fields>
+                        <field offset="0" width="1" name="CHAN0_INT_ST" access="RTOW" description="Channel 0 (ap_done) Interrupt Status. 0 = No Channel 0 interrupt, 1 = Channel 0 interrupt."/>
+                        <field offset="1" width="1" name="CHAN1_INT_ST" access="RTOW" description="Channel 1 (ap_ready) Interrupt Status. 0 = No Channel 1 interrupt, 1 = Channel 1 interrupt."/>
+                        <field offset="2" width="30" name="RESERVED_0" access="R" description="Reserved.  0s on read."/>
+                    </fields>
+                </register>
+                <register offset="0x10" name="input_data_addr1" access="W" description="Data signal of input_data_addr1" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="input_data_addr1" access="W" description="Bit 31 to 0 of input_data_addr1"/>
+                    </fields>
+                </register>
+                <register offset="0x18" name="input_data_addr2" access="W" description="Data signal of input_data_addr2" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="input_data_addr2" access="W" description="Bit 31 to 0 of input_data_addr2"/>
+                    </fields>
+                </register>
+                <register offset="0x20" name="output_data_addr3" access="W" description="Data signal of output_data_addr3" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="output_data_addr3" access="W" description="Bit 31 to 0 of output_data_addr3"/>
+                    </fields>
+                </register>
+                <register offset="0x28" name="ROWS" access="W" description="Data signal of ROWS" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="ROWS" access="W" description="Bit 31 to 0 of ROWS"/>
+                    </fields>
+                </register>
+                <register offset="0x30" name="COLS" access="W" description="Data signal of COLS" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="COLS" access="W" description="Bit 31 to 0 of COLS"/>
+                    </fields>
+                </register>
+                <register offset="0x38" name="inputs_1" access="W" description="Data signal of inputs" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="inputs" access="W" description="Bit 31 to 0 of inputs"/>
+                    </fields>
+                </register>
+                <register offset="0x3c" name="inputs_2" access="W" description="Data signal of inputs" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="inputs" access="W" description="Bit 63 to 32 of inputs"/>
+                    </fields>
+                </register>
+                <register offset="0x44" name="outputs_1" access="W" description="Data signal of outputs" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="outputs" access="W" description="Bit 31 to 0 of outputs"/>
+                    </fields>
+                </register>
+                <register offset="0x48" name="outputs_2" access="W" description="Data signal of outputs" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="outputs" access="W" description="Bit 63 to 32 of outputs"/>
+                    </fields>
+                </register>
+                <register offset="0x50" name="concat_flag" access="R" description="Data signal of concat_flag" range="32">
+                    <fields>
+                        <field offset="0" width="1" name="concat_flag" access="R" description="Bit 0 to 0 of concat_flag"/>
+                        <field offset="1" width="31" name="RESERVED" access="R" description="Reserved.  0s on read."/>
+                    </fields>
+                </register>
+                <register offset="0x54" name="concat_flag_ctrl" access="R" description="Control signal of concat_flag" range="32">
+                    <fields>
+                        <field offset="0" width="1" name="concat_flag_ap_vld" access="R" description="Control signal concat_flag_ap_vld"/>
+                        <field offset="1" width="31" name="RESERVED" access="R" description="Reserved.  0s on read."/>
+                    </fields>
+                </register>
+            </registers>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="16" argName="input_data_addr1"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="24" argName="input_data_addr2"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="32" argName="output_data_addr3"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="40" argName="ROWS"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="48" argName="COLS"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="56" argName="inputs"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="68" argName="outputs"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="80" argName="concat_flag"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="ap_clk" type="clock" busTypeName="clock" mode="slave">
+            <busParams>
+                <busParam busParamName="ASSOCIATED_BUSIF">s_axi_concat_addr:m_axi_concat_data</busParam>
+                <busParam busParamName="ASSOCIATED_RESET">ap_rst_n</busParam>
+            </busParams>
+            <portMaps>
+                <portMap portMapName="ap_clk">CLK</portMap>
+            </portMaps>
+            <ports>
+                <port>ap_clk</port>
+            </ports>
+        </Interface>
+        <Interface InterfaceName="ap_rst_n" type="reset" busTypeName="reset" mode="slave">
+            <busParams>
+                <busParam busParamName="POLARITY">ACTIVE_LOW</busParam>
+            </busParams>
+            <portMaps>
+                <portMap portMapName="ap_rst_n">RST</portMap>
+            </portMaps>
+            <ports>
+                <port>ap_rst_n</port>
+            </ports>
+        </Interface>
+        <Interface InterfaceName="interrupt" type="interrupt" busTypeName="interrupt" mode="master" dataWidth="1">
+            <busParams>
+                <busParam busParamName="SENSITIVITY">LEVEL_HIGH</busParam>
+            </busParams>
+            <portMaps>
+                <portMap portMapName="interrupt">INTERRUPT</portMap>
+            </portMaps>
+            <ports>
+                <port>interrupt</port>
+            </ports>
+        </Interface>
+        <Interface InterfaceName="m_axi_concat_data" type="axi4full" busTypeName="aximm" mode="master" dataWidth="256" addrWidth="64" portPrefix="m_axi_concat_data_" paramPrefix="C_M_AXI_CONCAT_DATA_" preferredUsageValue="MEMORY">
+            <busParams>
+                <busParam busParamName="NUM_READ_OUTSTANDING">16</busParam>
+                <busParam busParamName="NUM_WRITE_OUTSTANDING">16</busParam>
+                <busParam busParamName="MAX_READ_BURST_LENGTH">16</busParam>
+                <busParam busParamName="MAX_WRITE_BURST_LENGTH">16</busParam>
+                <busParam busParamName="MAX_BURST_LENGTH">256</busParam>
+                <busParam busParamName="PROTOCOL">AXI4</busParam>
+                <busParam busParamName="READ_WRITE_MODE">READ_WRITE</busParam>
+                <busParam busParamName="HAS_BURST">0</busParam>
+                <busParam busParamName="SUPPORTS_NARROW_BURST">0</busParam>
+            </busParams>
+            <ports>
+                <port>m_axi_concat_data_ARADDR</port>
+                <port>m_axi_concat_data_ARBURST</port>
+                <port>m_axi_concat_data_ARCACHE</port>
+                <port>m_axi_concat_data_ARID</port>
+                <port>m_axi_concat_data_ARLEN</port>
+                <port>m_axi_concat_data_ARLOCK</port>
+                <port>m_axi_concat_data_ARPROT</port>
+                <port>m_axi_concat_data_ARQOS</port>
+                <port>m_axi_concat_data_ARREADY</port>
+                <port>m_axi_concat_data_ARREGION</port>
+                <port>m_axi_concat_data_ARSIZE</port>
+                <port>m_axi_concat_data_ARUSER</port>
+                <port>m_axi_concat_data_ARVALID</port>
+                <port>m_axi_concat_data_AWADDR</port>
+                <port>m_axi_concat_data_AWBURST</port>
+                <port>m_axi_concat_data_AWCACHE</port>
+                <port>m_axi_concat_data_AWID</port>
+                <port>m_axi_concat_data_AWLEN</port>
+                <port>m_axi_concat_data_AWLOCK</port>
+                <port>m_axi_concat_data_AWPROT</port>
+                <port>m_axi_concat_data_AWQOS</port>
+                <port>m_axi_concat_data_AWREADY</port>
+                <port>m_axi_concat_data_AWREGION</port>
+                <port>m_axi_concat_data_AWSIZE</port>
+                <port>m_axi_concat_data_AWUSER</port>
+                <port>m_axi_concat_data_AWVALID</port>
+                <port>m_axi_concat_data_BID</port>
+                <port>m_axi_concat_data_BREADY</port>
+                <port>m_axi_concat_data_BRESP</port>
+                <port>m_axi_concat_data_BUSER</port>
+                <port>m_axi_concat_data_BVALID</port>
+                <port>m_axi_concat_data_RDATA</port>
+                <port>m_axi_concat_data_RID</port>
+                <port>m_axi_concat_data_RLAST</port>
+                <port>m_axi_concat_data_RREADY</port>
+                <port>m_axi_concat_data_RRESP</port>
+                <port>m_axi_concat_data_RUSER</port>
+                <port>m_axi_concat_data_RVALID</port>
+                <port>m_axi_concat_data_WDATA</port>
+                <port>m_axi_concat_data_WID</port>
+                <port>m_axi_concat_data_WLAST</port>
+                <port>m_axi_concat_data_WREADY</port>
+                <port>m_axi_concat_data_WSTRB</port>
+                <port>m_axi_concat_data_WUSER</port>
+                <port>m_axi_concat_data_WVALID</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="m_axi" register_option="0" offset="slave" latency="32" num_read_outstanding="16" num_write_outstanding="16" max_read_burst_length="16" max_write_burst_length="16" max_widen_bitwidth="0" argName="inputs"/>
+                <constraint constraint_type="bitwidth" orig_bitwidth="256" final_bitwidth="256" argName="inputs"/>
+                <constraint constraint_type="pragma interface" mode="m_axi" register_option="0" offset="slave" latency="32" num_read_outstanding="16" num_write_outstanding="16" max_read_burst_length="16" max_write_burst_length="16" max_widen_bitwidth="0" argName="outputs"/>
+                <constraint constraint_type="bitwidth" orig_bitwidth="256" final_bitwidth="256" argName="outputs"/>
+            </constraints>
+        </Interface>
+    </Interfaces>
+    <ReportHWInterface>
+        <section name="HW Interfaces" level="0">
+            <item name="M_AXI">
+                <table isCollapsed="0">
+                    <keys size="11">Interface, Data Width (SW-&gt;HW), Address Width, Latency, Offset, Register, Max Widen Bitwidth, Max Read Burst Length, Max Write Burst Length, Num Read Outstanding, Num Write Outstanding</keys>
+                    <column name="m_axi_concat_data">256 -&gt; 256, 64, 32, slave, 0, 0, 16, 16, 16, 16, , , , </column>
+                </table>
+            </item>
+            <item name="S_AXILITE Interfaces">
+                <table isCollapsed="0">
+                    <keys size="5">Interface, Data Width, Address Width, Offset, Register</keys>
+                    <column name="s_axi_concat_addr">32, 7, 16, 0, , , , , </column>
+                </table>
+            </item>
+            <item name="S_AXILITE Registers">
+                <table isCollapsed="0">
+                    <keys size="7">Interface, Register, Offset, Width, Access, Description, Bit Fields</keys>
+                    <column name="s_axi_concat_addr">CTRL, 0x00, 32, RW, Control signals, 0=AP_START 1=AP_DONE 2=AP_IDLE 3=AP_READY 7=AUTO_RESTART 9=INTERRUPT</column>
+                    <column name="s_axi_concat_addr">GIER, 0x04, 32, RW, Global Interrupt Enable Register, 0=Enable</column>
+                    <column name="s_axi_concat_addr">IP_IER, 0x08, 32, RW, IP Interrupt Enable Register, 0=CHAN0_INT_EN 1=CHAN1_INT_EN</column>
+                    <column name="s_axi_concat_addr">IP_ISR, 0x0c, 32, RW, IP Interrupt Status Register, 0=CHAN0_INT_ST 1=CHAN1_INT_ST</column>
+                    <column name="s_axi_concat_addr">input_data_addr1, 0x10, 32, W, Data signal of input_data_addr1, </column>
+                    <column name="s_axi_concat_addr">input_data_addr2, 0x18, 32, W, Data signal of input_data_addr2, </column>
+                    <column name="s_axi_concat_addr">output_data_addr3, 0x20, 32, W, Data signal of output_data_addr3, </column>
+                    <column name="s_axi_concat_addr">ROWS, 0x28, 32, W, Data signal of ROWS, </column>
+                    <column name="s_axi_concat_addr">COLS, 0x30, 32, W, Data signal of COLS, </column>
+                    <column name="s_axi_concat_addr">inputs_1, 0x38, 32, W, Data signal of inputs, </column>
+                    <column name="s_axi_concat_addr">inputs_2, 0x3c, 32, W, Data signal of inputs, </column>
+                    <column name="s_axi_concat_addr">outputs_1, 0x44, 32, W, Data signal of outputs, </column>
+                    <column name="s_axi_concat_addr">outputs_2, 0x48, 32, W, Data signal of outputs, </column>
+                    <column name="s_axi_concat_addr">concat_flag, 0x50, 32, R, Data signal of concat_flag, </column>
+                    <column name="s_axi_concat_addr">concat_flag_ctrl, 0x54, 32, R, Control signal of concat_flag, 0=concat_flag_ap_vld</column>
+                </table>
+            </item>
+            <item name="TOP LEVEL CONTROL">
+                <table isCollapsed="0">
+                    <keys size="3">Interface, Type, Ports</keys>
+                    <column name="ap_clk">clock, ap_clk, </column>
+                    <column name="ap_rst_n">reset, ap_rst_n, </column>
+                    <column name="interrupt">interrupt, interrupt, </column>
+                    <column name="ap_ctrl">ap_ctrl_hs, , </column>
+                </table>
+            </item>
+        </section>
+    </ReportHWInterface>
+    <ReportSWInterface>
+        <section name="SW I/O Information" level="0">
+            <item name="Top Function Arguments">
+                <table isCollapsed="1">
+                    <keys size="3">Argument, Direction, Datatype</keys>
+                    <column name="input_data_addr1">in, unsigned int</column>
+                    <column name="input_data_addr2">in, unsigned int</column>
+                    <column name="output_data_addr3">in, unsigned int</column>
+                    <column name="ROWS">in, unsigned int</column>
+                    <column name="COLS">in, unsigned int</column>
+                    <column name="inputs">inout, ap_uint&lt;256&gt;*</column>
+                    <column name="outputs">inout, ap_uint&lt;256&gt;*</column>
+                    <column name="concat_flag">out, bool&amp;</column>
+                </table>
+            </item>
+            <item name="SW-to-HW Mapping">
+                <table isCollapsed="1">
+                    <keys size="5">Argument, HW Interface, HW Type, HW Usage, HW Info</keys>
+                    <column name="input_data_addr1">s_axi_concat_addr, register, , name=input_data_addr1 offset=0x10 range=32</column>
+                    <column name="input_data_addr2">s_axi_concat_addr, register, , name=input_data_addr2 offset=0x18 range=32</column>
+                    <column name="output_data_addr3">s_axi_concat_addr, register, , name=output_data_addr3 offset=0x20 range=32</column>
+                    <column name="ROWS">s_axi_concat_addr, register, , name=ROWS offset=0x28 range=32</column>
+                    <column name="COLS">s_axi_concat_addr, register, , name=COLS offset=0x30 range=32</column>
+                    <column name="inputs">m_axi_concat_data, interface, , </column>
+                    <column name="inputs">s_axi_concat_addr, register, offset, name=inputs_1 offset=0x38 range=32</column>
+                    <column name="inputs">s_axi_concat_addr, register, offset, name=inputs_2 offset=0x3c range=32</column>
+                    <column name="outputs">m_axi_concat_data, interface, , </column>
+                    <column name="outputs">s_axi_concat_addr, register, offset, name=outputs_1 offset=0x44 range=32</column>
+                    <column name="outputs">s_axi_concat_addr, register, offset, name=outputs_2 offset=0x48 range=32</column>
+                    <column name="concat_flag">s_axi_concat_addr, register, , name=concat_flag offset=0x50 range=32</column>
+                    <column name="concat_flag">s_axi_concat_addr, register, , name=concat_flag_ctrl offset=0x54 range=32</column>
+                </table>
+            </item>
+        </section>
+    </ReportSWInterface>
+    <ReportBurst>
+        <section name="M_AXI Burst Information" level="0" HEADER_NOTE="Note: All burst requests might be further partitioned into multiple requests during RTL generation based on max_read_burst_length or max_write_burst_length settings.">
+            <item name="Inferred Bursts and Widening Missed">
+                <table>
+                    <keys size="6">HW Interface, Variable, Loop, Problem, Resolution, Location</keys>
+                    <column name="m_axi_concat_data">outputs, VITIS_LOOP_91_1, Access store is in the conditional branch, 214-232, Concat_HLS/src/../include/helpers.hpp:91:19</column>
+                </table>
+            </item>
+        </section>
+    </ReportBurst>
+    <PragmaReport>
+        <Pragma type="inline" location="Concat_HLS/src/../include/../include/types.hpp:53" status="valid" parentFunction="getval" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="Concat_HLS/src/../include/../include/types.hpp:60" status="valid" parentFunction="operator[]" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="Concat_HLS/src/../include/../include/types.hpp:67" status="valid" parentFunction="operator[]" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="Concat_HLS/src/../include/../include/types.hpp:74" status="valid" parentFunction="getvaladdr" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="Concat_HLS/src/../include/../include/types.hpp:79" status="valid" parentFunction="widetype&lt;t, t_width, t_datawidth, enable&gt;" variable="" isDirective="0" options=""/>
+        <Pragma type="array_partition" location="Concat_HLS/src/../include/../include/types.hpp:80" status="valid" parentFunction="widetype&lt;t, t_width, t_datawidth, enable&gt;" variable="" isDirective="0" options="variable = m_Val complete dim = 1"/>
+        <Pragma type="inline" location="Concat_HLS/src/../include/../include/types.hpp:84" status="valid" parentFunction="widetype&lt;t, t_width, t_datawidth, enable&gt;" variable="" isDirective="0" options=""/>
+        <Pragma type="array_partition" location="Concat_HLS/src/../include/../include/types.hpp:85" status="valid" parentFunction="widetype&lt;t, t_width, t_datawidth, enable&gt;" variable="" isDirective="0" options="variable = m_Val complete dim = 1"/>
+        <Pragma type="inline" location="Concat_HLS/src/../include/../include/types.hpp:90" status="valid" parentFunction="constructor" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="Concat_HLS/src/../include/../include/types.hpp:92" status="valid" parentFunction="constructor" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="Concat_HLS/src/../include/../include/types.hpp:97" status="valid" parentFunction="widetype&lt;t, t_width, t_datawidth, enable&gt;" variable="" isDirective="0" options=""/>
+        <Pragma type="array_partition" location="Concat_HLS/src/../include/../include/types.hpp:98" status="valid" parentFunction="widetype&lt;t, t_width, t_datawidth, enable&gt;" variable="" isDirective="0" options="variable = m_Val complete dim = 1"/>
+        <Pragma type="inline" location="Concat_HLS/src/../include/../include/types.hpp:102" status="valid" parentFunction="constructor" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="Concat_HLS/src/../include/../include/types.hpp:104" status="valid" parentFunction="constructor" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="Concat_HLS/src/../include/../include/types.hpp:111" status="valid" parentFunction="widetype&lt;t, t_width, t_datawidth, enable&gt;" variable="" isDirective="0" options=""/>
+        <Pragma type="array_partition" location="Concat_HLS/src/../include/../include/types.hpp:112" status="valid" parentFunction="widetype&lt;t, t_width, t_datawidth, enable&gt;" variable="" isDirective="0" options="variable = m_Val complete dim = 1"/>
+        <Pragma type="inline" location="Concat_HLS/src/../include/../include/types.hpp:116" status="valid" parentFunction="constructor" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="Concat_HLS/src/../include/../include/types.hpp:118" status="valid" parentFunction="constructor" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="Concat_HLS/src/../include/../include/types.hpp:126" status="valid" parentFunction="operator const ap_uint&lt;t_typewidth&gt;" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="Concat_HLS/src/../include/../include/types.hpp:143" status="valid" parentFunction="shift" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="Concat_HLS/src/../include/../include/types.hpp:147" status="valid" parentFunction="shift" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="Concat_HLS/src/../include/../include/types.hpp:156" status="valid" parentFunction="shift" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="Concat_HLS/src/../include/../include/types.hpp:159" status="valid" parentFunction="shift" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="Concat_HLS/src/../include/../include/types.hpp:167" status="valid" parentFunction="unshift" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="Concat_HLS/src/../include/../include/types.hpp:170" status="valid" parentFunction="unshift" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="Concat_HLS/src/../include/../include/types.hpp:178" status="valid" parentFunction="unshift" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="Concat_HLS/src/../include/../include/types.hpp:181" status="valid" parentFunction="unshift" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="Concat_HLS/src/../include/../include/types.hpp:192" status="valid" parentFunction="zero" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="Concat_HLS/src/../include/../include/types.hpp:227" status="valid" parentFunction="operator[]" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="Concat_HLS/src/../include/../include/types.hpp:235" status="valid" parentFunction="operator[]" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="Concat_HLS/src/../include/../include/types.hpp:243" status="valid" parentFunction="getvaladdr" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="Concat_HLS/src/../include/../include/types.hpp:296" status="valid" parentFunction="hlsreg" variable="" isDirective="0" options=""/>
+        <Pragma type="interface" location="Concat_HLS/src/../include/../include/types.hpp:297" status="valid" parentFunction="hlsreg" variable="" isDirective="0" options="ap_none port = return register"/>
+        <Pragma type="inline" location="Concat_HLS/src/../include/../include/types.hpp:317" status="valid" parentFunction="boolarr&lt;w&gt;" variable="" isDirective="0" options=""/>
+        <Pragma type="array_partition" location="Concat_HLS/src/../include/../include/types.hpp:318" status="valid" parentFunction="boolarr&lt;w&gt;" variable="" isDirective="0" options="variable = m_Val COMPLETE"/>
+        <Pragma type="inline" location="Concat_HLS/src/../include/../include/types.hpp:321" status="valid" parentFunction="boolarr&lt;w&gt;" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="Concat_HLS/src/../include/../include/types.hpp:323" status="valid" parentFunction="boolarr&lt;w&gt;" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="Concat_HLS/src/../include/../include/types.hpp:328" status="valid" parentFunction="operator[]" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="Concat_HLS/src/../include/../include/types.hpp:332" status="valid" parentFunction="and" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="Concat_HLS/src/../include/../include/types.hpp:335" status="valid" parentFunction="and" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="Concat_HLS/src/../include/../include/types.hpp:341" status="valid" parentFunction="or" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="Concat_HLS/src/../include/../include/types.hpp:344" status="valid" parentFunction="or" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="Concat_HLS/src/../include/../include/types.hpp:350" status="valid" parentFunction="reset" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="Concat_HLS/src/../include/../include/types.hpp:352" status="valid" parentFunction="reset" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="Concat_HLS/src/../include/../include/types.hpp:360" status="valid" parentFunction="streamsareempty" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="Concat_HLS/src/../include/../include/types.hpp:364" status="valid" parentFunction="streamsareempty" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="Concat_HLS/src/../include/../include/types.hpp:425" status="valid" parentFunction="convwideval2bits" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="Concat_HLS/src/../include/../include/types.hpp:433" status="valid" parentFunction="convwideval2bits" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="Concat_HLS/src/../include/../include/types.hpp:444" status="valid" parentFunction="convbits2widetype" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="Concat_HLS/src/../include/../include/types.hpp:452" status="valid" parentFunction="convbits2widetype" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="Concat_HLS/src/../include/../include/types.hpp:522" status="valid" parentFunction="getval" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="Concat_HLS/src/../include/../include/types.hpp:526" status="valid" parentFunction="getflush" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="Concat_HLS/src/../include/../include/types.hpp:530" status="valid" parentFunction="operator=" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="Concat_HLS/src/../include/../include/types.hpp:536" status="valid" parentFunction="operator()" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="Concat_HLS/src/../include/../include/types.hpp:575" status="valid" parentFunction="getval" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="Concat_HLS/src/../include/../include/types.hpp:579" status="valid" parentFunction="operator[]" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="Concat_HLS/src/../include/../include/types.hpp:586" status="valid" parentFunction="getvectoftaggedvalues" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="Concat_HLS/src/../include/../include/types.hpp:614" status="valid" parentFunction="triangsrl&lt;t, t_width&gt;" variable="" isDirective="0" options=""/>
+        <Pragma type="array_partition" location="Concat_HLS/src/../include/../include/types.hpp:615" status="valid" parentFunction="triangsrl&lt;t, t_width&gt;" variable="" isDirective="0" options="variable = m_Sreg dim = 1 complete"/>
+        <Pragma type="inline" location="Concat_HLS/src/../include/../include/types.hpp:618" status="valid" parentFunction="shift" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="Concat_HLS/src/../include/../include/types.hpp:622" status="valid" parentFunction="shift" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="Concat_HLS/src/../include/../include/types.hpp:628" status="valid" parentFunction="clear" variable="" isDirective="0" options=""/>
+        <Pragma type="pipeline" location="Concat_HLS/src/../include/../include/types.hpp:631" status="valid" parentFunction="clear" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="Concat_HLS/src/../include/../include/types.hpp:663" status="valid" parentFunction="windowrm&lt;t, t_rows, t_cols&gt;" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="Concat_HLS/src/../include/../include/types.hpp:666" status="valid" parentFunction="getval" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="Concat_HLS/src/../include/../include/types.hpp:670" status="valid" parentFunction="operator[]" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="Concat_HLS/src/../include/../include/types.hpp:676" status="valid" parentFunction="clear" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="Concat_HLS/src/../include/../include/types.hpp:679" status="valid" parentFunction="clear" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="Concat_HLS/src/../include/../include/types.hpp:686" status="valid" parentFunction="shift" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="Concat_HLS/src/../include/../include/types.hpp:691" status="valid" parentFunction="shift" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="Concat_HLS/src/../include/../include/types.hpp:696" status="valid" parentFunction="unshift" variable="" isDirective="0" options=""/>
+        <Pragma type="pipeline" location="Concat_HLS/src/../include/helpers.hpp:18" status="valid" parentFunction="read_inputs" variable="" isDirective="0" options=""/>
+        <Pragma type="pipeline" location="Concat_HLS/src/../include/helpers.hpp:93" status="valid" parentFunction="store" variable="" isDirective="0" options=""/>
+        <Pragma type="interface" location="Concat_HLS/src/concat.cpp:14" status="valid" parentFunction="concat" variable="" isDirective="0" options="mode = m_axi port = inputs bundle = concat_data latency = 32"/>
+        <Pragma type="interface" location="Concat_HLS/src/concat.cpp:15" status="valid" parentFunction="concat" variable="" isDirective="0" options="mode = m_axi port = outputs bundle = concat_data latency = 32"/>
+        <Pragma type="interface" location="Concat_HLS/src/concat.cpp:16" status="valid" parentFunction="concat" variable="" isDirective="0" options="mode = s_axilite port = input_data_addr1 bundle = concat_addr"/>
+        <Pragma type="interface" location="Concat_HLS/src/concat.cpp:17" status="valid" parentFunction="concat" variable="" isDirective="0" options="mode = s_axilite port = input_data_addr2 bundle = concat_addr"/>
+        <Pragma type="interface" location="Concat_HLS/src/concat.cpp:18" status="valid" parentFunction="concat" variable="" isDirective="0" options="mode = s_axilite port = output_data_addr3 bundle = concat_addr"/>
+        <Pragma type="interface" location="Concat_HLS/src/concat.cpp:19" status="valid" parentFunction="concat" variable="" isDirective="0" options="mode = s_axilite port = ROWS bundle = concat_addr"/>
+        <Pragma type="interface" location="Concat_HLS/src/concat.cpp:20" status="valid" parentFunction="concat" variable="" isDirective="0" options="mode = s_axilite port = COLS bundle = concat_addr"/>
+        <Pragma type="interface" location="Concat_HLS/src/concat.cpp:21" status="valid" parentFunction="concat" variable="" isDirective="0" options="mode = s_axilite port = concat_flag bundle = concat_addr"/>
+        <Pragma type="interface" location="Concat_HLS/src/concat.cpp:22" status="valid" parentFunction="concat" variable="" isDirective="0" options="mode = s_axilite port = return bundle = concat_addr"/>
+        <Pragma type="stream" location="Concat_HLS/src/concat.cpp:26" status="valid" parentFunction="concat" variable="" isDirective="0" options="variable = data_concat1 depth = 64"/>
+        <Pragma type="stream" location="Concat_HLS/src/concat.cpp:28" status="valid" parentFunction="concat" variable="" isDirective="0" options="variable = data_concat2 depth = 64"/>
+        <Pragma type="stream" location="Concat_HLS/src/concat.cpp:30" status="valid" parentFunction="concat" variable="" isDirective="0" options="variable = data_out depth = 128"/>
+        <Pragma type="dataflow" location="Concat_HLS/src/concat.cpp:38" status="valid" parentFunction="concat" variable="" isDirective="0" options=""/>
+    </PragmaReport>
+</profile>
+

@@ -1,0 +1,30 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Tue May 14 16:46:33 2024
+# Process ID: 5229
+# Current directory: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS
+# Command line: vivado
+# Log file: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/vivado.log
+# Journal file: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/vivado.jou
+# Running On: ytq, OS: Linux, CPU Frequency: 4658.098 MHz, CPU Physical cores: 8, Host memory: 67255 MB
+#-----------------------------------------------------------
+start_gui
+open_project /home/ytq/codeField/Prediction_Model_Accelerator/RTL/TEST_RTL/vta.xpr
+update_compile_order -fileset sources_1
+launch_simulation
+open_wave_config /home/ytq/codeField/Prediction_Model_Accelerator/RTL/TEST_RTL/control_tb_behav.wcfg
+source concat_tb.tcl
+run all
+relaunch_sim
+run all
+relaunch_sim
+run all
+relaunch_sim
+run all
+relaunch_sim
+run all
+relaunch_sim
+run all
+close_sim

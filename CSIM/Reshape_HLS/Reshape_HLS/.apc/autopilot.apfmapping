@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="types.hpp" path="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Reshape_HLS/include/types.hpp"/>
+    <originFiles name="reshape.hpp" path="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Reshape_HLS/src/reshape.hpp"/>
+    <originFiles name="reshape.cpp" path="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Reshape_HLS/src/reshape.cpp"/>
+  </source>
+  <testbench>
+    <originFiles name="reshape_tb.cpp" path="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Reshape_HLS/testbench/reshape_tb.cpp"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>

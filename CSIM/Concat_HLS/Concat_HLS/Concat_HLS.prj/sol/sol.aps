@@ -1,0 +1,26 @@
+<AutoPilot:solution xmlns:AutoPilot="com.autoesl.autopilot.solution">
+    <name>
+        <value string="sol"/>
+    </name>
+    <project>
+        <value string="Concat_HLS.prj"/>
+    </project>
+    <flowTarget value="vivado"/>
+    <config>
+        <config_interface m_axi_latency="0"/>
+        <config_export format="ip_catalog"/>
+    </config>
+    <targetInfo>
+        <TargetInfo value="xczu7ev:-ffvc1156:-2-e"/>
+    </targetInfo>
+    <libraryList>
+        <library value="xilinx/zynquplus/zynquplus" name="DefaultPlatform"/>
+    </libraryList>
+    <clockList>
+        <clock name="default" period="10" default="false"/>
+    </clockList>
+    <ExportDesign askAgain="true" evaluate="false" rtl="verilog" formatName="ip_catalog">
+        <Format formatName="ip_catalog" description="" vendor="" library="" ipname="concat" version="" display_name="" taxonomy=""/>
+    </ExportDesign>
+</AutoPilot:solution>
+

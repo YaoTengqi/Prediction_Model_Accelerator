@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <synLog/>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog>
+        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="Concat_HLS" solutionName="solution1" date="2024-05-14T22:11:38.284+0800"/>
+        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="Concat_HLS" solutionName="solution1" date="2024-05-14T21:53:42.063+0800"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="Concat_HLS" solutionName="solution1" date="2024-05-14T21:48:17.435+0800"/>
+        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="Concat_HLS" solutionName="solution1" date="2024-05-14T21:47:14.454+0800"/>
+        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="Concat_HLS" solutionName="solution1" date="2024-05-14T21:46:16.857+0800"/>
+        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="Concat_HLS" solutionName="solution1" date="2024-05-14T21:45:29.132+0800"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="Concat_HLS" solutionName="solution1" date="2024-05-14T16:42:10.237+0800"/>
+        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="Concat_HLS" solutionName="solution1" date="2024-05-14T16:41:33.152+0800"/>
+      </csimLog>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <synLog>
+        <logs message="WARNING: [RTGEN 206-101] Design contains AXI ports. Reset is fixed to synchronous and active low." projectName="Concat_HLS" solutionName="solution1" date="2024-05-14T16:05:28.587+0800" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-65] Unable to satisfy pipeline directive for function 'read_inputs&lt;ap_uint&lt;256>, ap_int&lt;8>, 32u>': contains subloop(s) that are not unrolled." projectName="Concat_HLS" solutionName="solution1" date="2024-05-14T16:05:26.779+0800" type="Warning"/>
+        <logs message="WARNING: [SYN 201-103] Legalizing function name 'store&lt;ap_uint&lt;256>, ap_int&lt;8>, ap_int&lt;8>, 32u>' to 'store_ap_uint_256_ap_int_8_ap_int_8_32u_s'." projectName="Concat_HLS" solutionName="solution1" date="2024-05-14T16:05:26.591+0800" type="Warning"/>
+        <logs message="WARNING: [SYN 201-103] Legalizing function name 'store&lt;ap_uint&lt;256>, ap_int&lt;8>, ap_int&lt;8>, 32u>_Pipeline_VITIS_LOOP_91_1' to 'store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_91_1'." projectName="Concat_HLS" solutionName="solution1" date="2024-05-14T16:05:26.587+0800" type="Warning"/>
+        <logs message="WARNING: [SYN 201-103] Legalizing function name 'read_inputs&lt;ap_uint&lt;256>, ap_int&lt;8>, 32u>' to 'read_inputs_ap_uint_256_ap_int_8_32u_s'." projectName="Concat_HLS" solutionName="solution1" date="2024-05-14T16:05:26.583+0800" type="Warning"/>
+        <logs message="WARNING: [HLS 200-936] Cannot unroll loop 'VITIS_LOOP_19_1' (Concat_HLS/src/../include/helpers.hpp:19) in function 'read_inputs&lt;ap_uint&lt;256>, ap_int&lt;8>, 32u>': cannot completely unroll a loop with a variable trip count.&#xA;Resolution: For help on HLS 200-936 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-936.html" projectName="Concat_HLS" solutionName="solution1" date="2024-05-14T16:05:26.390+0800" type="Warning"/>
+        <logs message="WARNING: [HLS 200-936] Cannot unroll loop 'Loop-4' in function 'read_inputs&lt;ap_uint&lt;256>, ap_int&lt;8>, 32u>': cannot completely unroll a loop with a variable trip count.&#xA;Resolution: For help on HLS 200-936 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-936.html" projectName="Concat_HLS" solutionName="solution1" date="2024-05-14T16:05:26.353+0800" type="Warning"/>
+        <logs message="WARNING: [HLS 200-936] Cannot unroll loop 'Loop-3' in function 'read_inputs&lt;ap_uint&lt;256>, ap_int&lt;8>, 32u>': cannot completely unroll a loop with a variable trip count.&#xA;Resolution: For help on HLS 200-936 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-936.html" projectName="Concat_HLS" solutionName="solution1" date="2024-05-14T16:05:26.351+0800" type="Warning"/>
+        <logs message="WARNING: [HLS 200-936] Cannot unroll loop 'Loop-2' in function 'read_inputs&lt;ap_uint&lt;256>, ap_int&lt;8>, 32u>': cannot completely unroll a loop with a variable trip count.&#xA;Resolution: For help on HLS 200-936 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-936.html" projectName="Concat_HLS" solutionName="solution1" date="2024-05-14T16:05:26.349+0800" type="Warning"/>
+        <logs message="WARNING: [HLS 200-936] Cannot unroll loop 'Loop-1' in function 'read_inputs&lt;ap_uint&lt;256>, ap_int&lt;8>, 32u>': cannot completely unroll a loop with a variable trip count.&#xA;Resolution: For help on HLS 200-936 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-936.html" projectName="Concat_HLS" solutionName="solution1" date="2024-05-14T16:05:26.346+0800" type="Warning"/>
+        <logs message="WARNING: [HLS 207-5292] unused parameter 'p_Idx' (Concat_HLS/src/../include/../include/types.hpp:234:38)" projectName="Concat_HLS" solutionName="solution1" date="2024-05-14T16:05:24.029+0800" type="Warning"/>
+        <logs message="WARNING: [HLS 207-5292] unused parameter 'p_Idx' (Concat_HLS/src/../include/../include/types.hpp:226:32)" projectName="Concat_HLS" solutionName="solution1" date="2024-05-14T16:05:24.018+0800" type="Warning"/>
+      </synLog>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>

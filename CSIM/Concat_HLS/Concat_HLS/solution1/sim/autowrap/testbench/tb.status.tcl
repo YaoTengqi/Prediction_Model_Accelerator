@@ -1,0 +1,1 @@
+set ::AESL_AUTOSIM::gTopFileName /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/solution1/./sim/autowrap/testbench/concat.cpp_pre.cpp.tb.cpp

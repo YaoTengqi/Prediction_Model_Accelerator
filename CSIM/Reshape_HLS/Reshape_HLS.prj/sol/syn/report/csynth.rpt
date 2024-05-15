@@ -1,0 +1,446 @@
+
+
+================================================================
+== Synthesis Summary Report of 'reshape'
+================================================================
++ General Information: 
+    * Date:           Tue May 14 17:39:09 2024
+    * Version:        2022.2 (Build 3670227 on Oct 13 2022)
+    * Project:        Reshape_HLS.prj
+    * Solution:       sol (Vivado IP Flow Target)
+    * Product family: zynquplus
+    * Target device:  xczu7ev-ffvc1156-2-e
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +---------------------------------------------------------------------------------+------+------+---------+-----------+----------+---------+------+----------+---------+---------+------------+-------------+-----+
+    |                                     Modules                                     | Issue|      | Latency |  Latency  | Iteration|         | Trip |          |         |         |            |             |     |
+    |                                     & Loops                                     | Type | Slack| (cycles)|    (ns)   |  Latency | Interval| Count| Pipelined|  BRAM   |   DSP   |     FF     |     LUT     | URAM|
+    +---------------------------------------------------------------------------------+------+------+---------+-----------+----------+---------+------+----------+---------+---------+------------+-------------+-----+
+    |+ reshape*                                                                       |     -|  0.00|        -|          -|         -|        -|     -|  dataflow|  39 (6%)|  9 (~0%)|  17649 (3%)|  49042 (21%)|    -|
+    | + entry_proc                                                                    |     -|  5.46|        0|      0.000|         -|        0|     -|        no|        -|        -|     3 (~0%)|     29 (~0%)|    -|
+    | + read_inputs_ap_uint_256_ap_int_8_32u_s                                        |     -|  0.00|        -|          -|         -|        -|     -|        no|   8 (1%)|  3 (~0%)|   971 (~0%)|    2709 (1%)|    -|
+    |  o Loop 1                                                                       |     -|  7.30|        -|          -|         3|        -|     -|        no|        -|        -|           -|            -|    -|
+    |  o Loop 2                                                                       |     -|  7.30|      310|  3.100e+03|        10|        -|    31|        no|        -|        -|           -|            -|    -|
+    |  o VITIS_LOOP_17_1                                                              |     -|  7.30|        -|          -|         2|        -|     -|        no|        -|        -|           -|            -|    -|
+    | + reshape_stream_ap_int_8_ap_int_8_32u_s                                        |     -|  0.02|        -|          -|         -|        -|     -|        no|  1 (~0%)|  3 (~0%)|  2158 (~0%)|    5369 (2%)|    -|
+    |  + reshape_stream_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_33_1                |     -|  0.65|        -|          -|         -|        -|     -|        no|        -|        -|  1016 (~0%)|    3625 (1%)|    -|
+    |   o VITIS_LOOP_33_1                                                             |    II|  7.30|        -|          -|        32|       32|     -|       yes|        -|        -|           -|            -|    -|
+    |  + reshape_stream_ap_int_ap_int_8_32u_Pipeline_VITIS_LOOP_51_3_VITIS_LOOP_52_4  |     -|  3.81|        -|          -|         -|        -|     -|        no|        -|        -|   429 (~0%)|    416 (~0%)|    -|
+    |   o VITIS_LOOP_51_3_VITIS_LOOP_52_4                                             |     -|  7.30|        -|          -|         3|        1|     -|       yes|        -|        -|           -|            -|    -|
+    | + store_ap_uint_256_ap_int_8_ap_int_8_32u_s                                     |     -|  0.00|        -|          -|         -|        -|     -|        no|        -|  3 (~0%)|  12243 (2%)|  38177 (16%)|    -|
+    |  + store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_75_1             |     -|  0.00|        -|          -|         -|        -|     -|        no|        -|        -|  10706 (2%)|  34536 (14%)|    -|
+    |   o VITIS_LOOP_75_1                                                             |    II|  7.30|        -|          -|        39|       32|     -|       yes|        -|        -|           -|            -|    -|
+    +---------------------------------------------------------------------------------+------+------+---------+-----------+----------+---------+------+----------+---------+---------+------------+-------------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* M_AXI
++--------------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+
+| Interface          | Data Width | Address Width | Latency | Offset | Register | Max Widen | Max Read     | Max Write    | Num Read    | Num Write   |
+|                    | (SW->HW)   |               |         |        |          | Bitwidth  | Burst Length | Burst Length | Outstanding | Outstanding |
++--------------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+
+| m_axi_reshape_data | 256 -> 256 | 64            | 0       | slave  | 0        | 0         | 16           | 16           | 16          | 16          |
++--------------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+
+
+* S_AXILITE Interfaces
++--------------------+------------+---------------+--------+----------+
+| Interface          | Data Width | Address Width | Offset | Register |
++--------------------+------------+---------------+--------+----------+
+| s_axi_reshape_addr | 32         | 7             | 16     | 0        |
++--------------------+------------+---------------+--------+----------+
+
+* S_AXILITE Registers
++--------------------+-------------------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+| Interface          | Register          | Offset | Width | Access | Description                      | Bit Fields                                                           |
++--------------------+-------------------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+| s_axi_reshape_addr | CTRL              | 0x00   | 32    | RW     | Control signals                  | 0=AP_START 1=AP_DONE 2=AP_IDLE 3=AP_READY 7=AUTO_RESTART 9=INTERRUPT |
+| s_axi_reshape_addr | GIER              | 0x04   | 32    | RW     | Global Interrupt Enable Register | 0=Enable                                                             |
+| s_axi_reshape_addr | IP_IER            | 0x08   | 32    | RW     | IP Interrupt Enable Register     | 0=CHAN0_INT_EN 1=CHAN1_INT_EN                                        |
+| s_axi_reshape_addr | IP_ISR            | 0x0c   | 32    | RW     | IP Interrupt Status Register     | 0=CHAN0_INT_ST 1=CHAN1_INT_ST                                        |
+| s_axi_reshape_addr | input_data_addr   | 0x10   | 32    | W      | Data signal of input_data_addr   |                                                                      |
+| s_axi_reshape_addr | inputs_1          | 0x18   | 32    | W      | Data signal of inputs            |                                                                      |
+| s_axi_reshape_addr | inputs_2          | 0x1c   | 32    | W      | Data signal of inputs            |                                                                      |
+| s_axi_reshape_addr | outputs_1         | 0x24   | 32    | W      | Data signal of outputs           |                                                                      |
+| s_axi_reshape_addr | outputs_2         | 0x28   | 32    | W      | Data signal of outputs           |                                                                      |
+| s_axi_reshape_addr | ROWS              | 0x30   | 32    | W      | Data signal of ROWS              |                                                                      |
+| s_axi_reshape_addr | COLS              | 0x38   | 32    | W      | Data signal of COLS              |                                                                      |
+| s_axi_reshape_addr | reshape_flag      | 0x40   | 32    | R      | Data signal of reshape_flag      |                                                                      |
+| s_axi_reshape_addr | reshape_flag_ctrl | 0x44   | 32    | R      | Control signal of reshape_flag   | 0=reshape_flag_ap_vld                                                |
++--------------------+-------------------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+
+* TOP LEVEL CONTROL
++-----------+------------+-----------+
+| Interface | Type       | Ports     |
++-----------+------------+-----------+
+| ap_clk    | clock      | ap_clk    |
+| ap_rst_n  | reset      | ap_rst_n  |
+| interrupt | interrupt  | interrupt |
+| ap_ctrl   | ap_ctrl_hs |           |
++-----------+------------+-----------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++-----------------+-----------+---------------+
+| Argument        | Direction | Datatype      |
++-----------------+-----------+---------------+
+| input_data_addr | in        | unsigned int  |
+| inputs          | inout     | ap_uint<256>* |
+| outputs         | inout     | ap_uint<256>* |
+| ROWS            | in        | unsigned int  |
+| COLS            | in        | unsigned int  |
+| reshape_flag    | out       | bool&         |
++-----------------+-----------+---------------+
+
+* SW-to-HW Mapping
++-----------------+--------------------+-----------+----------+---------------------------------------------+
+| Argument        | HW Interface       | HW Type   | HW Usage | HW Info                                     |
++-----------------+--------------------+-----------+----------+---------------------------------------------+
+| input_data_addr | s_axi_reshape_addr | register  |          | name=input_data_addr offset=0x10 range=32   |
+| inputs          | m_axi_reshape_data | interface |          |                                             |
+| inputs          | s_axi_reshape_addr | register  | offset   | name=inputs_1 offset=0x18 range=32          |
+| inputs          | s_axi_reshape_addr | register  | offset   | name=inputs_2 offset=0x1c range=32          |
+| outputs         | m_axi_reshape_data | interface |          |                                             |
+| outputs         | s_axi_reshape_addr | register  | offset   | name=outputs_1 offset=0x24 range=32         |
+| outputs         | s_axi_reshape_addr | register  | offset   | name=outputs_2 offset=0x28 range=32         |
+| ROWS            | s_axi_reshape_addr | register  |          | name=ROWS offset=0x30 range=32              |
+| COLS            | s_axi_reshape_addr | register  |          | name=COLS offset=0x38 range=32              |
+| reshape_flag    | s_axi_reshape_addr | register  |          | name=reshape_flag offset=0x40 range=32      |
+| reshape_flag    | s_axi_reshape_addr | register  |          | name=reshape_flag_ctrl offset=0x44 range=32 |
++-----------------+--------------------+-----------+----------+---------------------------------------------+
+
+
+================================================================
+== M_AXI Burst Information
+================================================================
+ Note: All burst requests might be further partitioned into multiple requests during RTL generation based on max_read_burst_length or max_write_burst_length settings.
+
+* Inferred Bursts and Widening Missed
++--------------------+----------+-----------------+------------------------------------------------------------------------------------------------------+------------+----------------------------------------------------------------------------------------------------+
+| HW Interface       | Variable | Loop            | Problem                                                                                              | Resolution | Location                                                                                           |
++--------------------+----------+-----------------+------------------------------------------------------------------------------------------------------+------------+----------------------------------------------------------------------------------------------------+
+| m_axi_reshape_data | outputs  | VITIS_LOOP_75_1 | Could not widen since type i8 size is greater than or equal to the max_widen_bitwidth threshold of 0 | 214-353    | /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Reshape_HLS/src/../include/helpers.hpp:75:22 |
++--------------------+----------+-----------------+------------------------------------------------------------------------------------------------------+------------+----------------------------------------------------------------------------------------------------+
+
+    * Resolution URL: www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=XXX-YYY.html (replace XXX-YYY with column value)
+
+================================================================
+== Bind Op Report
+================================================================
++---------------------------------------------------------------------------------+-----+--------+-------------+-----+--------+---------+
+| Name                                                                            | DSP | Pragma | Variable    | Op  | Impl   | Latency |
++---------------------------------------------------------------------------------+-----+--------+-------------+-----+--------+---------+
+| + reshape                                                                       | 9   |        |             |     |        |         |
+|  + read_inputs_ap_uint_256_ap_int_8_32u_s                                       | 3   |        |             |     |        |         |
+|    mul_32s_32s_32_1_1_U3                                                        | 3   |        | mul_ln13    | mul | auto   | 0       |
+|    add_ln15_fu_261_p2                                                           | -   |        | add_ln15    | add | fabric | 0       |
+|    sub_ln15_fu_306_p2                                                           | -   |        | sub_ln15    | sub | fabric | 0       |
+|    empty_110_fu_332_p2                                                          | -   |        | empty_110   | add | fabric | 0       |
+|    empty_113_fu_367_p2                                                          | -   |        | empty_113   | add | fabric | 0       |
+|    empty_114_fu_373_p2                                                          | -   |        | empty_114   | add | fabric | 0       |
+|    tmp_fu_378_p2                                                                | -   |        | tmp         | add | fabric | 0       |
+|    empty_115_fu_387_p2                                                          | -   |        | empty_115   | add | fabric | 0       |
+|    empty_119_fu_412_p2                                                          | -   |        | empty_119   | add | fabric | 0       |
+|    add_ln17_fu_516_p2                                                           | -   |        | add_ln17    | add | fabric | 0       |
+|  + reshape_stream_ap_int_8_ap_int_8_32u_s                                       | 3   |        |             |     |        |         |
+|    add_ln37_fu_710_p2                                                           | -   |        | add_ln37    | add | fabric | 0       |
+|    add_ln37_1_fu_737_p2                                                         | -   |        | add_ln37_1  | add | fabric | 0       |
+|    add_ln37_2_fu_760_p2                                                         | -   |        | add_ln37_2  | add | fabric | 0       |
+|    add_ln37_3_fu_782_p2                                                         | -   |        | add_ln37_3  | add | fabric | 0       |
+|    add_ln37_4_fu_805_p2                                                         | -   |        | add_ln37_4  | add | fabric | 0       |
+|    add_ln37_5_fu_832_p2                                                         | -   |        | add_ln37_5  | add | fabric | 0       |
+|    add_ln37_6_fu_853_p2                                                         | -   |        | add_ln37_6  | add | fabric | 0       |
+|    add_ln37_7_fu_876_p2                                                         | -   |        | add_ln37_7  | add | fabric | 0       |
+|    add_ln37_8_fu_899_p2                                                         | -   |        | add_ln37_8  | add | fabric | 0       |
+|    add_ln37_9_fu_920_p2                                                         | -   |        | add_ln37_9  | add | fabric | 0       |
+|    add_ln37_10_fu_943_p2                                                        | -   |        | add_ln37_10 | add | fabric | 0       |
+|    add_ln37_11_fu_966_p2                                                        | -   |        | add_ln37_11 | add | fabric | 0       |
+|    add_ln37_12_fu_987_p2                                                        | -   |        | add_ln37_12 | add | fabric | 0       |
+|    add_ln37_13_fu_1014_p2                                                       | -   |        | add_ln37_13 | add | fabric | 0       |
+|    add_ln37_14_fu_1037_p2                                                       | -   |        | add_ln37_14 | add | fabric | 0       |
+|    add_ln37_15_fu_1058_p2                                                       | -   |        | add_ln37_15 | add | fabric | 0       |
+|    add_ln37_16_fu_1081_p2                                                       | -   |        | add_ln37_16 | add | fabric | 0       |
+|    add_ln37_17_fu_1104_p2                                                       | -   |        | add_ln37_17 | add | fabric | 0       |
+|    add_ln37_18_fu_1125_p2                                                       | -   |        | add_ln37_18 | add | fabric | 0       |
+|    add_ln37_19_fu_1148_p2                                                       | -   |        | add_ln37_19 | add | fabric | 0       |
+|    add_ln37_20_fu_1171_p2                                                       | -   |        | add_ln37_20 | add | fabric | 0       |
+|    add_ln37_21_fu_1192_p2                                                       | -   |        | add_ln37_21 | add | fabric | 0       |
+|    add_ln37_22_fu_1215_p2                                                       | -   |        | add_ln37_22 | add | fabric | 0       |
+|    add_ln37_23_fu_1238_p2                                                       | -   |        | add_ln37_23 | add | fabric | 0       |
+|    add_ln37_24_fu_1259_p2                                                       | -   |        | add_ln37_24 | add | fabric | 0       |
+|    add_ln37_25_fu_1282_p2                                                       | -   |        | add_ln37_25 | add | fabric | 0       |
+|    add_ln37_26_fu_1305_p2                                                       | -   |        | add_ln37_26 | add | fabric | 0       |
+|    add_ln37_27_fu_1565_p2                                                       | -   |        | add_ln37_27 | add | fabric | 0       |
+|    add_ln37_28_fu_1598_p2                                                       | -   |        | add_ln37_28 | add | fabric | 0       |
+|    add_ln37_29_fu_1635_p2                                                       | -   |        | add_ln37_29 | add | fabric | 0       |
+|    mul_32ns_32ns_64_1_1_U117                                                    | 3   |        | mul_ln51    | mul | auto   | 0       |
+|   + reshape_stream_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_33_1               | 0   |        |             |     |        |         |
+|     add_ln40_fu_1587_p2                                                         | -   |        | add_ln40    | add | fabric | 0       |
+|     add_ln36_fu_1604_p2                                                         | -   |        | add_ln36    | add | fabric | 0       |
+|     add_ln40_1_fu_1609_p2                                                       | -   |        | add_ln40_1  | add | fabric | 0       |
+|     add_ln36_1_fu_1626_p2                                                       | -   |        | add_ln36_1  | add | fabric | 0       |
+|     add_ln40_2_fu_1631_p2                                                       | -   |        | add_ln40_2  | add | fabric | 0       |
+|     add_ln36_2_fu_1648_p2                                                       | -   |        | add_ln36_2  | add | fabric | 0       |
+|     add_ln40_3_fu_1653_p2                                                       | -   |        | add_ln40_3  | add | fabric | 0       |
+|     add_ln36_3_fu_1670_p2                                                       | -   |        | add_ln36_3  | add | fabric | 0       |
+|     add_ln40_4_fu_1683_p2                                                       | -   |        | add_ln40_4  | add | fabric | 0       |
+|     add_ln36_4_fu_1698_p2                                                       | -   |        | add_ln36_4  | add | fabric | 0       |
+|     add_ln40_5_fu_1703_p2                                                       | -   |        | add_ln40_5  | add | fabric | 0       |
+|     add_ln36_5_fu_1720_p2                                                       | -   |        | add_ln36_5  | add | fabric | 0       |
+|     add_ln40_6_fu_1725_p2                                                       | -   |        | add_ln40_6  | add | fabric | 0       |
+|     add_ln36_6_fu_1742_p2                                                       | -   |        | add_ln36_6  | add | fabric | 0       |
+|     add_ln40_7_fu_1747_p2                                                       | -   |        | add_ln40_7  | add | fabric | 0       |
+|     add_ln36_7_fu_1764_p2                                                       | -   |        | add_ln36_7  | add | fabric | 0       |
+|     add_ln40_8_fu_1777_p2                                                       | -   |        | add_ln40_8  | add | fabric | 0       |
+|     add_ln36_8_fu_1792_p2                                                       | -   |        | add_ln36_8  | add | fabric | 0       |
+|     add_ln40_9_fu_1797_p2                                                       | -   |        | add_ln40_9  | add | fabric | 0       |
+|     add_ln36_9_fu_1814_p2                                                       | -   |        | add_ln36_9  | add | fabric | 0       |
+|     add_ln40_10_fu_1819_p2                                                      | -   |        | add_ln40_10 | add | fabric | 0       |
+|     add_ln36_10_fu_1836_p2                                                      | -   |        | add_ln36_10 | add | fabric | 0       |
+|     add_ln40_11_fu_1841_p2                                                      | -   |        | add_ln40_11 | add | fabric | 0       |
+|     add_ln36_11_fu_1858_p2                                                      | -   |        | add_ln36_11 | add | fabric | 0       |
+|     add_ln40_12_fu_1871_p2                                                      | -   |        | add_ln40_12 | add | fabric | 0       |
+|     add_ln36_12_fu_1886_p2                                                      | -   |        | add_ln36_12 | add | fabric | 0       |
+|     add_ln40_13_fu_1891_p2                                                      | -   |        | add_ln40_13 | add | fabric | 0       |
+|     add_ln36_13_fu_1908_p2                                                      | -   |        | add_ln36_13 | add | fabric | 0       |
+|     add_ln40_14_fu_1913_p2                                                      | -   |        | add_ln40_14 | add | fabric | 0       |
+|     add_ln36_14_fu_1930_p2                                                      | -   |        | add_ln36_14 | add | fabric | 0       |
+|     add_ln40_15_fu_1935_p2                                                      | -   |        | add_ln40_15 | add | fabric | 0       |
+|     add_ln36_15_fu_1952_p2                                                      | -   |        | add_ln36_15 | add | fabric | 0       |
+|     add_ln40_16_fu_1965_p2                                                      | -   |        | add_ln40_16 | add | fabric | 0       |
+|     add_ln36_16_fu_1980_p2                                                      | -   |        | add_ln36_16 | add | fabric | 0       |
+|     add_ln40_17_fu_1985_p2                                                      | -   |        | add_ln40_17 | add | fabric | 0       |
+|     add_ln36_17_fu_2002_p2                                                      | -   |        | add_ln36_17 | add | fabric | 0       |
+|     add_ln40_18_fu_2007_p2                                                      | -   |        | add_ln40_18 | add | fabric | 0       |
+|     add_ln36_18_fu_2024_p2                                                      | -   |        | add_ln36_18 | add | fabric | 0       |
+|     add_ln40_19_fu_2029_p2                                                      | -   |        | add_ln40_19 | add | fabric | 0       |
+|     add_ln36_19_fu_2046_p2                                                      | -   |        | add_ln36_19 | add | fabric | 0       |
+|     add_ln40_20_fu_2059_p2                                                      | -   |        | add_ln40_20 | add | fabric | 0       |
+|     add_ln36_20_fu_2074_p2                                                      | -   |        | add_ln36_20 | add | fabric | 0       |
+|     add_ln40_21_fu_2079_p2                                                      | -   |        | add_ln40_21 | add | fabric | 0       |
+|     add_ln36_21_fu_2096_p2                                                      | -   |        | add_ln36_21 | add | fabric | 0       |
+|     add_ln40_22_fu_2101_p2                                                      | -   |        | add_ln40_22 | add | fabric | 0       |
+|     add_ln36_22_fu_2118_p2                                                      | -   |        | add_ln36_22 | add | fabric | 0       |
+|     add_ln40_23_fu_2123_p2                                                      | -   |        | add_ln40_23 | add | fabric | 0       |
+|     add_ln36_23_fu_2140_p2                                                      | -   |        | add_ln36_23 | add | fabric | 0       |
+|     add_ln40_24_fu_2153_p2                                                      | -   |        | add_ln40_24 | add | fabric | 0       |
+|     add_ln36_24_fu_2168_p2                                                      | -   |        | add_ln36_24 | add | fabric | 0       |
+|     add_ln40_25_fu_2173_p2                                                      | -   |        | add_ln40_25 | add | fabric | 0       |
+|     add_ln36_25_fu_2190_p2                                                      | -   |        | add_ln36_25 | add | fabric | 0       |
+|     add_ln40_26_fu_2195_p2                                                      | -   |        | add_ln40_26 | add | fabric | 0       |
+|     add_ln36_26_fu_2212_p2                                                      | -   |        | add_ln36_26 | add | fabric | 0       |
+|     add_ln40_27_fu_2217_p2                                                      | -   |        | add_ln40_27 | add | fabric | 0       |
+|     add_ln36_27_fu_2234_p2                                                      | -   |        | add_ln36_27 | add | fabric | 0       |
+|     add_ln40_28_fu_2419_p2                                                      | -   |        | add_ln40_28 | add | fabric | 0       |
+|     add_ln36_28_fu_2434_p2                                                      | -   |        | add_ln36_28 | add | fabric | 0       |
+|     add_ln40_29_fu_2448_p2                                                      | -   |        | add_ln40_29 | add | fabric | 0       |
+|     add_ln36_29_fu_2463_p2                                                      | -   |        | add_ln36_29 | add | fabric | 0       |
+|     add_ln40_30_fu_2477_p2                                                      | -   |        | add_ln40_30 | add | fabric | 0       |
+|     add_ln36_30_fu_2492_p2                                                      | -   |        | add_ln36_30 | add | fabric | 0       |
+|     add_ln40_31_fu_2502_p2                                                      | -   |        | add_ln40_31 | add | fabric | 0       |
+|   + reshape_stream_ap_int_ap_int_8_32u_Pipeline_VITIS_LOOP_51_3_VITIS_LOOP_52_4 | 0   |        |             |     |        |         |
+|     add_ln51_1_fu_315_p2                                                        | -   |        | add_ln51_1  | add | fabric | 0       |
+|     add_ln51_fu_327_p2                                                          | -   |        | add_ln51    | add | fabric | 0       |
+|     add_ln53_fu_370_p2                                                          | -   |        | add_ln53    | add | fabric | 0       |
+|     out_addr_3_fu_385_p2                                                        | -   |        | out_addr_3  | add | fabric | 0       |
+|     add_ln52_fu_407_p2                                                          | -   |        | add_ln52    | add | fabric | 0       |
+|  + store_ap_uint_256_ap_int_8_ap_int_8_32u_s                                    | 3   |        |             |     |        |         |
+|    add_ln75_fu_774_p2                                                           | -   |        | add_ln75    | add | fabric | 0       |
+|    add_ln75_1_fu_241_p2                                                         | -   |        | add_ln75_1  | add | fabric | 0       |
+|    add_ln75_2_fu_247_p2                                                         | -   |        | add_ln75_2  | add | fabric | 0       |
+|    add_ln75_3_fu_253_p2                                                         | -   |        | add_ln75_3  | add | fabric | 0       |
+|    add_ln75_4_fu_259_p2                                                         | -   |        | add_ln75_4  | add | fabric | 0       |
+|    add_ln75_5_fu_265_p2                                                         | -   |        | add_ln75_5  | add | fabric | 0       |
+|    add_ln75_6_fu_271_p2                                                         | -   |        | add_ln75_6  | add | fabric | 0       |
+|    add_ln75_7_fu_277_p2                                                         | -   |        | add_ln75_7  | add | fabric | 0       |
+|    add_ln75_8_fu_283_p2                                                         | -   |        | add_ln75_8  | add | fabric | 0       |
+|    add_ln75_9_fu_289_p2                                                         | -   |        | add_ln75_9  | add | fabric | 0       |
+|    add_ln75_10_fu_295_p2                                                        | -   |        | add_ln75_10 | add | fabric | 0       |
+|    add_ln75_11_fu_301_p2                                                        | -   |        | add_ln75_11 | add | fabric | 0       |
+|    add_ln75_12_fu_307_p2                                                        | -   |        | add_ln75_12 | add | fabric | 0       |
+|    add_ln75_13_fu_313_p2                                                        | -   |        | add_ln75_13 | add | fabric | 0       |
+|    add_ln75_14_fu_319_p2                                                        | -   |        | add_ln75_14 | add | fabric | 0       |
+|    add_ln75_15_fu_325_p2                                                        | -   |        | add_ln75_15 | add | fabric | 0       |
+|    add_ln75_16_fu_337_p2                                                        | -   |        | add_ln75_16 | add | fabric | 0       |
+|    add_ln75_17_fu_343_p2                                                        | -   |        | add_ln75_17 | add | fabric | 0       |
+|    add_ln75_18_fu_349_p2                                                        | -   |        | add_ln75_18 | add | fabric | 0       |
+|    add_ln75_19_fu_355_p2                                                        | -   |        | add_ln75_19 | add | fabric | 0       |
+|    add_ln75_20_fu_361_p2                                                        | -   |        | add_ln75_20 | add | fabric | 0       |
+|    add_ln75_21_fu_367_p2                                                        | -   |        | add_ln75_21 | add | fabric | 0       |
+|    add_ln75_22_fu_373_p2                                                        | -   |        | add_ln75_22 | add | fabric | 0       |
+|    add_ln75_23_fu_379_p2                                                        | -   |        | add_ln75_23 | add | fabric | 0       |
+|    add_ln75_24_fu_385_p2                                                        | -   |        | add_ln75_24 | add | fabric | 0       |
+|    add_ln75_25_fu_391_p2                                                        | -   |        | add_ln75_25 | add | fabric | 0       |
+|    add_ln75_26_fu_397_p2                                                        | -   |        | add_ln75_26 | add | fabric | 0       |
+|    add_ln75_27_fu_403_p2                                                        | -   |        | add_ln75_27 | add | fabric | 0       |
+|    add_ln75_28_fu_409_p2                                                        | -   |        | add_ln75_28 | add | fabric | 0       |
+|    add_ln75_29_fu_415_p2                                                        | -   |        | add_ln75_29 | add | fabric | 0       |
+|    add_ln75_30_fu_421_p2                                                        | -   |        | add_ln75_30 | add | fabric | 0       |
+|    mul_32s_32s_32_1_1_U197                                                      | 3   |        | mul_ln75    | mul | auto   | 0       |
+|   + store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_75_1            | 0   |        |             |     |        |         |
+|     add_ln75_1_fu_1418_p2                                                       | -   |        | add_ln75_1  | add | fabric | 0       |
+|     add_ln78_fu_1439_p2                                                         | -   |        | add_ln78    | add | fabric | 0       |
+|     add_ln78_1_fu_1807_p2                                                       | -   |        | add_ln78_1  | add | fabric | 0       |
+|     add_ln78_2_fu_1849_p2                                                       | -   |        | add_ln78_2  | add | fabric | 0       |
+|     add_ln78_3_fu_1896_p2                                                       | -   |        | add_ln78_3  | add | fabric | 0       |
+|     add_ln78_4_fu_1938_p2                                                       | -   |        | add_ln78_4  | add | fabric | 0       |
+|     add_ln78_5_fu_1980_p2                                                       | -   |        | add_ln78_5  | add | fabric | 0       |
+|     add_ln78_6_fu_2022_p2                                                       | -   |        | add_ln78_6  | add | fabric | 0       |
+|     add_ln78_7_fu_2064_p2                                                       | -   |        | add_ln78_7  | add | fabric | 0       |
+|     add_ln78_8_fu_2106_p2                                                       | -   |        | add_ln78_8  | add | fabric | 0       |
+|     add_ln78_9_fu_2148_p2                                                       | -   |        | add_ln78_9  | add | fabric | 0       |
+|     add_ln78_10_fu_2190_p2                                                      | -   |        | add_ln78_10 | add | fabric | 0       |
+|     add_ln78_11_fu_2232_p2                                                      | -   |        | add_ln78_11 | add | fabric | 0       |
+|     add_ln78_12_fu_2274_p2                                                      | -   |        | add_ln78_12 | add | fabric | 0       |
+|     add_ln78_13_fu_2316_p2                                                      | -   |        | add_ln78_13 | add | fabric | 0       |
+|     add_ln78_14_fu_2358_p2                                                      | -   |        | add_ln78_14 | add | fabric | 0       |
+|     add_ln78_15_fu_2400_p2                                                      | -   |        | add_ln78_15 | add | fabric | 0       |
+|     add_ln78_16_fu_2442_p2                                                      | -   |        | add_ln78_16 | add | fabric | 0       |
+|     add_ln78_17_fu_2484_p2                                                      | -   |        | add_ln78_17 | add | fabric | 0       |
+|     add_ln78_18_fu_2526_p2                                                      | -   |        | add_ln78_18 | add | fabric | 0       |
+|     add_ln78_19_fu_2568_p2                                                      | -   |        | add_ln78_19 | add | fabric | 0       |
+|     add_ln78_20_fu_2610_p2                                                      | -   |        | add_ln78_20 | add | fabric | 0       |
+|     add_ln78_21_fu_2652_p2                                                      | -   |        | add_ln78_21 | add | fabric | 0       |
+|     add_ln78_22_fu_2694_p2                                                      | -   |        | add_ln78_22 | add | fabric | 0       |
+|     add_ln78_23_fu_2736_p2                                                      | -   |        | add_ln78_23 | add | fabric | 0       |
+|     add_ln78_24_fu_2778_p2                                                      | -   |        | add_ln78_24 | add | fabric | 0       |
+|     add_ln78_25_fu_2820_p2                                                      | -   |        | add_ln78_25 | add | fabric | 0       |
+|     add_ln78_26_fu_2862_p2                                                      | -   |        | add_ln78_26 | add | fabric | 0       |
+|     add_ln78_27_fu_2904_p2                                                      | -   |        | add_ln78_27 | add | fabric | 0       |
+|     add_ln78_28_fu_2946_p2                                                      | -   |        | add_ln78_28 | add | fabric | 0       |
+|     add_ln78_29_fu_2988_p2                                                      | -   |        | add_ln78_29 | add | fabric | 0       |
+|     add_ln78_30_fu_3039_p2                                                      | -   |        | add_ln78_30 | add | fabric | 0       |
+|     add_ln78_31_fu_3054_p2                                                      | -   |        | add_ln78_31 | add | fabric | 0       |
+|     add_32ns_32ns_32_3_1_U126                                                   | -   | yes    | dst_idx_1   | add | fabric | 0       |
++---------------------------------------------------------------------------------+-----+--------+-------------+-----+--------+---------+
+
+
+================================================================
+== Bind Storage Report
+================================================================
++-------------------------------------------+------+------+--------+-------------------+---------+--------+---------+
+| Name                                      | BRAM | URAM | Pragma | Variable          | Storage | Impl   | Latency |
++-------------------------------------------+------+------+--------+-------------------+---------+--------+---------+
+| + reshape                                 | 39   | 0    |        |                   |         |        |         |
+|   COLS_c10_U                              | -    | -    |        | COLS_c10          | fifo    | srl    | 0       |
+|   COLS_c_U                                | -    | -    |        | COLS_c            | fifo    | srl    | 0       |
+|   ROWS_c9_U                               | -    | -    |        | ROWS_c9           | fifo    | srl    | 0       |
+|   ROWS_c_U                                | -    | -    |        | ROWS_c            | fifo    | srl    | 0       |
+|   outputs_c_U                             | -    | -    |        | outputs_c         | fifo    | srl    | 0       |
+|   input_data_addr_c_U                     | -    | -    |        | input_data_addr_c | fifo    | srl    | 0       |
+|   data_in_U                               | 15   | -    |        | data_in           | fifo    | memory | 0       |
+|   data_out_U                              | 15   | -    |        | data_out          | fifo    | memory | 0       |
+|  + read_inputs_ap_uint_256_ap_int_8_32u_s | 8    | 0    |        |                   |         |        |         |
+|    ram_U                                  | 8    | -    |        | ram               | ram_1p  | auto   | 1       |
+|  + reshape_stream_ap_int_8_ap_int_8_32u_s | 1    | 0    |        |                   |         |        |         |
+|    buffer_V_U                             | 1    | -    |        | buffer_V          | ram_1p  | auto   | 1       |
++-------------------------------------------+------+------+--------+-------------------+---------+--------+---------+
+
+
+================================================================
+== Pragma Report
+================================================================
+* Valid Pragma Syntax
++-----------------+---------------------------------------------------------+--------------------------------------------------------------------+
+| Type            | Options                                                 | Location                                                           |
++-----------------+---------------------------------------------------------+--------------------------------------------------------------------+
+| pipeline        |                                                         | include/helpers.hpp:16 in read_inputs                              |
+| pipeline        |                                                         | include/helpers.hpp:76 in store                                    |
+| bind_op         | variable=dst_idx op=add impl=fabric latency=2           | include/helpers.hpp:80 in store, dst_idx                           |
+| dataflow        |                                                         | include/transpose.hpp:49 in process                                |
+| array_partition | variable = l_buffer dim = 1 complete                    | include/transpose.hpp:58 in buffer                                 |
+| pipeline        |                                                         | include/transpose.hpp:63 in buffer                                 |
+| pipeline        |                                                         | include/transpose.hpp:72 in buffer                                 |
+| pipeline        |                                                         | include/transpose.hpp:86 in split                                  |
+| pipeline        |                                                         | include/transpose.hpp:101 in merge                                 |
+| inline          |                                                         | include/types.hpp:53 in getval                                     |
+| inline          |                                                         | include/types.hpp:60 in operator[]                                 |
+| inline          |                                                         | include/types.hpp:67 in operator[]                                 |
+| inline          |                                                         | include/types.hpp:74 in getvaladdr                                 |
+| inline          |                                                         | include/types.hpp:79 in widetype<t, t_width, t_datawidth, enable>  |
+| array_partition | variable = m_Val complete dim = 1                       | include/types.hpp:80 in widetype<t, t_width, t_datawidth, enable>  |
+| inline          |                                                         | include/types.hpp:84 in widetype<t, t_width, t_datawidth, enable>  |
+| array_partition | variable = m_Val complete dim = 1                       | include/types.hpp:85 in widetype<t, t_width, t_datawidth, enable>  |
+| inline          |                                                         | include/types.hpp:90 in constructor                                |
+| unroll          |                                                         | include/types.hpp:92 in constructor                                |
+| inline          |                                                         | include/types.hpp:97 in widetype<t, t_width, t_datawidth, enable>  |
+| array_partition | variable = m_Val complete dim = 1                       | include/types.hpp:98 in widetype<t, t_width, t_datawidth, enable>  |
+| inline          |                                                         | include/types.hpp:102 in constructor                               |
+| unroll          |                                                         | include/types.hpp:104 in constructor                               |
+| inline          |                                                         | include/types.hpp:111 in widetype<t, t_width, t_datawidth, enable> |
+| array_partition | variable = m_Val complete dim = 1                       | include/types.hpp:112 in widetype<t, t_width, t_datawidth, enable> |
+| inline          |                                                         | include/types.hpp:116 in constructor                               |
+| unroll          |                                                         | include/types.hpp:118 in constructor                               |
+| unroll          |                                                         | include/types.hpp:126 in operator const ap_uint<t_typewidth>       |
+| inline          |                                                         | include/types.hpp:143 in shift                                     |
+| unroll          |                                                         | include/types.hpp:147 in shift                                     |
+| inline          |                                                         | include/types.hpp:156 in shift                                     |
+| unroll          |                                                         | include/types.hpp:159 in shift                                     |
+| inline          |                                                         | include/types.hpp:167 in unshift                                   |
+| unroll          |                                                         | include/types.hpp:170 in unshift                                   |
+| inline          |                                                         | include/types.hpp:178 in unshift                                   |
+| unroll          |                                                         | include/types.hpp:181 in unshift                                   |
+| unroll          |                                                         | include/types.hpp:192 in zero                                      |
+| inline          |                                                         | include/types.hpp:227 in operator[]                                |
+| inline          |                                                         | include/types.hpp:235 in operator[]                                |
+| inline          |                                                         | include/types.hpp:243 in getvaladdr                                |
+| inline          |                                                         | include/types.hpp:296 in hlsreg                                    |
+| interface       | ap_none port = return register                          | include/types.hpp:297 in hlsreg                                    |
+| inline          |                                                         | include/types.hpp:317 in boolarr<w>                                |
+| array_partition | variable = m_Val COMPLETE                               | include/types.hpp:318 in boolarr<w>                                |
+| inline          |                                                         | include/types.hpp:321 in boolarr<w>                                |
+| unroll          |                                                         | include/types.hpp:323 in boolarr<w>                                |
+| inline          |                                                         | include/types.hpp:328 in operator[]                                |
+| inline          |                                                         | include/types.hpp:332 in and                                       |
+| unroll          |                                                         | include/types.hpp:335 in and                                       |
+| inline          |                                                         | include/types.hpp:341 in or                                        |
+| unroll          |                                                         | include/types.hpp:344 in or                                        |
+| inline          |                                                         | include/types.hpp:350 in reset                                     |
+| unroll          |                                                         | include/types.hpp:352 in reset                                     |
+| inline          |                                                         | include/types.hpp:360 in streamsareempty                           |
+| unroll          |                                                         | include/types.hpp:364 in streamsareempty                           |
+| inline          |                                                         | include/types.hpp:425 in convwideval2bits                          |
+| unroll          |                                                         | include/types.hpp:433 in convwideval2bits                          |
+| inline          |                                                         | include/types.hpp:444 in convbits2widetype                         |
+| unroll          |                                                         | include/types.hpp:452 in convbits2widetype                         |
+| inline          |                                                         | include/types.hpp:522 in getval                                    |
+| inline          |                                                         | include/types.hpp:526 in getflush                                  |
+| inline          |                                                         | include/types.hpp:530 in operator=                                 |
+| inline          |                                                         | include/types.hpp:536 in operator()                                |
+| inline          |                                                         | include/types.hpp:575 in getval                                    |
+| inline          |                                                         | include/types.hpp:579 in operator[]                                |
+| inline          |                                                         | include/types.hpp:586 in getvectoftaggedvalues                     |
+| inline          |                                                         | include/types.hpp:614 in triangsrl<t, t_width>                     |
+| array_partition | variable = m_Sreg dim = 1 complete                      | include/types.hpp:615 in triangsrl<t, t_width>                     |
+| inline          |                                                         | include/types.hpp:618 in shift                                     |
+| unroll          |                                                         | include/types.hpp:622 in shift                                     |
+| inline          |                                                         | include/types.hpp:628 in clear                                     |
+| pipeline        |                                                         | include/types.hpp:631 in clear                                     |
+| inline          |                                                         | include/types.hpp:663 in windowrm<t, t_rows, t_cols>               |
+| inline          |                                                         | include/types.hpp:666 in getval                                    |
+| inline          |                                                         | include/types.hpp:670 in operator[]                                |
+| unroll          |                                                         | include/types.hpp:676 in clear                                     |
+| unroll          |                                                         | include/types.hpp:679 in clear                                     |
+| inline          |                                                         | include/types.hpp:686 in shift                                     |
+| inline          |                                                         | include/types.hpp:691 in shift                                     |
+| inline          |                                                         | include/types.hpp:696 in unshift                                   |
+| interface       | mode=m_axi port=inputs bundle=reshape_data              | src/reshape.cpp:11 in reshape, inputs                              |
+| interface       | mode=m_axi port=outputs bundle=reshape_data             | src/reshape.cpp:12 in reshape, outputs                             |
+| interface       | mode=s_axilite port=input_data_addr bundle=reshape_addr | src/reshape.cpp:13 in reshape, input_data_addr                     |
+| interface       | mode=s_axilite port=ROWS bundle=reshape_addr            | src/reshape.cpp:14 in reshape, ROWS                                |
+| interface       | mode=s_axilite port=COLS bundle=reshape_addr            | src/reshape.cpp:15 in reshape, COLS                                |
+| interface       | mode=s_axilite port=reshape_flag bundle=reshape_addr    | src/reshape.cpp:16 in reshape, reshape_flag                        |
+| interface       | mode=s_axilite port=return bundle=reshape_addr          | src/reshape.cpp:17 in reshape, return                              |
+| stream          | variable=data_in depth = 16                             | src/reshape.cpp:20 in reshape, data_in                             |
+| stream          | variable=data_out depth = 16                            | src/reshape.cpp:22 in reshape, data_out                            |
+| dataflow        |                                                         | src/reshape.cpp:30 in reshape                                      |
++-----------------+---------------------------------------------------------+--------------------------------------------------------------------+
+
+
