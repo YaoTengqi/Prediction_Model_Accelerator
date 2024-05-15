@@ -50,8 +50,8 @@ Concatenated Tensor:
 
 | 函数名                                                       | 返回值 | 解释                                                         |
 | ------------------------------------------------------------ | ------ | ------------------------------------------------------------ |
-| template<typename t_AXI_DataType, typename t_INP_ROW_DataType, typename t_OUT_ROW_DataType, unsigned int ROWS, uint32_t COLS><br/>void **read_inputs**(t_AXI_DataType *inputs,hls::stream<t_OUT_ROW_DataType> &data_stream,unsigned int input_data_addr1,unsigned int input_data_addr2) | /      | 将数据从DRR中读出来，其中tensor1从addr1读出；tensor2从addr2读出；每次读出一行数据，用memcpy完成拼接后写入data_stream数据流中 |
-| template<typename t_AXI_DataType, typename t_OUT_ROW_DataType, uint32_t ROWS, uint32_t COLS><br/>void **store**(hls::stream<t_OUT_ROW_DataType> &data_stream_out,t_AXI_DataType *outputs,unsigned int output_data_addr3) | /      | 将read_inputs()写好的data_stream数据流在此函数中按行取出(有对应的数据位宽**t_OUT_ROW_DataType**)，存入临时buffer中后再用memcpy将数据从临时buffer存入outputs[addr3]中，其中addr3为起始地址 |
+| template <typename t_AXI_DataType, typename t_DataType_OUT, unsigned int nPE>void read_inputs(t_AXI_DataType *inputs, hls::stream<typename WideType<t_DataType_OUT, nPE>::t_TypeInt> &data_stream_out, uint32_t input_data_addr1, uint32_t input_data_addr2, unsigned int ROWS, unsigned int COLS) | /      | 将数据从DRR中读出来，其中ram1从addr1读出；ram2从addr2读出；每次读出一行数据，用memcpy完成拼接后写入data_stream_out数据流中 |
+| template <typename t_AXI_DataType, typename t_DataType_IN, typename t_DataType_OUT, unsigned int nPE>void **store**(hls::stream<typename WideType<t_DataType_OUT, nPE>::t_TypeInt> &data_stream_out, t_AXI_DataType *outputs,uint32_t output_data_addr3, unsigned int ROWS,unsigned int COLS, bool &concat_flag) | /      | 将read_inputs()写好的data_stream数据流在此函数中按行取出(有对应的数据位宽**t_OUT_ROW_DataType**)，存入临时buffer中后再用memcpy将数据从临时buffer存入outputs[addr3]中，其中addr3为起始地址 |
 
 ### 4.C仿真问题
 
@@ -71,7 +71,7 @@ RTL仿真问题
 
 
 
-## Reshape
+## ~~Reshape~~(2024.5.14弃用)
 
 ```cpp
 void reshape(
@@ -178,19 +178,21 @@ Reshape Tensor:
 | 输入/输出 | 解释                                            |
 | --------- | ----------------------------------------------- |
 | inputs    | DDR的输入数据，为要进行sparse操作的两个矩阵数据 |
-| addr1     | 邻接矩阵的addr                                  |
-| addr2     | 特征矩阵的addr                                  |
-| addr3     | 输出矩阵的addr                                  |
+| addr1     | 邻接矩阵am的addr                                |
+| addr2     | 特征矩阵fm的addr                                |
+| addr3     | 输出矩阵outputs的addr                           |
 
 ### 3. 函数设计
 
 | 函数名                                                       | 返回值 | 解释                                                         |
 | ------------------------------------------------------------ | ------ | ------------------------------------------------------------ |
-| void **read_inputs**(t_AXI_DataType *inputs,hls::stream<t_OUT_ROW_DataType> &data_stream,unsigned int input_data_addr) | /      | 将inputs中的数据按列进行循环，每次取这一列的每一行的数据，每个数据大小类型为int8，拼成``WideType<t_DataType_Item, ROWS> ``大小后写入流中完成reshape |
-| template<typename t_AXI_DataType, typename t_OUT_ROW_DataType, uint32_t ROWS, uint32_t COLS><br/>void **store**(hls::stream<t_OUT_ROW_DataType> &data_stream_out,t_AXI_DataType *outputs,unsigned int output_data_addr) | /      | 将数据流中的数据存回DDR，存回的地址为原地址addr              |
+| void **load**(t_AXI_DataType *inputs,hls::stream<typename WideType<t_DataType_IN, nPE>::t_TypeInt> &data_stream_am, t_DataType_IN fm_ram[ROWS\][COLS],uint32_t input_data_addr1, uint32_t input_data_addr2, unsigned int ROWS, unsigned int COLS) | /      | 邻接矩阵am将以流的形式接受inputs里的数据；特征矩阵fm将以ram[][\]的形式从inputs中接受数据 |
+| void **decode**(t_DataType_IN am_ram[ROWS\][COLS], hls::stream<typename WideType<uint8_t, 128>::t_TypeInt> &idx_stream, hls::stream<typename WideType<uint8_t, 32>::t_TypeInt> &count_stream) | /      | 根据邻接矩阵am得出哪一列不为0，并计数count，处理完邻接矩阵am的一行后将count写入count_stream，并将处理好的idx(哪一列数据不为0)写入idx_stream |
+| void **mul**(hls::stream<typename WideType<t_DataType_IN, nPE>::t_TypeInt> &data_stream_am, t_DataType_IN am_ram[ROWS\][COLS], hls::stream<typename WideType<uint8_t, 128>::t_TypeInt> &idx_stream, hls::stream<typename WideType<uint8_t, 32>::t_TypeInt> &count_stream, hls::stream<typename WideType<t_DataType_OUT, nPE>::t_TypeInt> &data_stream_out) | /      | 共四层循环最外层(1st.)为循环COLS(结果的行数为32)；第2nd.层循环为分为了几块(fm_COLS/PE = 512/32);第3rd.层为这一行有几个不为0的数据(count数)；最后一层(4th.)为PE的大小(为32)，取相应的result[pe] += ram[idx][pe\].<br/>data_out_stream在第3rd.层写入``result(data_out_stream.write(result))`` |
+| void **store**(hls::stream<typename WideType<t_DataType_OUT, nPE>::t_TypeInt> &data_stream_out, t_AXI_DataType *outputs,uint32_t output_data_addr3, unsigned int ROWS,unsigned int COLS, bool &sparse_flag) | /      | 将写好的data_stream数据流在此函数中按行取出(有对应的数据位宽**t_OUT_ROW_DataType**)，用memcpy将数据从临时buffer存入outputs[addr3]中，其中addr3为起始地址 |
 
 ### 4. 问题
 
-| 问题                 | 解决方法 |
-| -------------------- | -------- |
-| 使用**traspose.hpp** |          |
+| 问题 | 解决方法 |
+| ---- | -------- |
+|      |          |
