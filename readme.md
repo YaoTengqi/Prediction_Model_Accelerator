@@ -186,7 +186,7 @@ Reshape Tensor:
 
 | 函数名                                                       | 返回值 | 解释                                                         |
 | ------------------------------------------------------------ | ------ | ------------------------------------------------------------ |
-| template<typename t_AXI_DataType, typename t_DataType_Item, typename t_OUT_ROW_DataType, unsigned int ROWS, uint32_t COLS><br/>void **read_inputs**(t_AXI_DataType *inputs,hls::stream<t_OUT_ROW_DataType> &data_stream,unsigned int input_data_addr) | /      | 将inputs中的数据按列进行循环，每次取这一列的每一行的数据，每个数据大小类型为int8，拼成``WideType<t_DataType_Item, ROWS> ``大小后写入流中完成reshape |
+| void **read_inputs**(t_AXI_DataType *inputs,hls::stream<t_OUT_ROW_DataType> &data_stream,unsigned int input_data_addr) | /      | 将inputs中的数据按列进行循环，每次取这一列的每一行的数据，每个数据大小类型为int8，拼成``WideType<t_DataType_Item, ROWS> ``大小后写入流中完成reshape |
 | template<typename t_AXI_DataType, typename t_OUT_ROW_DataType, uint32_t ROWS, uint32_t COLS><br/>void **store**(hls::stream<t_OUT_ROW_DataType> &data_stream_out,t_AXI_DataType *outputs,unsigned int output_data_addr) | /      | 将数据流中的数据存回DDR，存回的地址为原地址addr              |
 
 ### 4. 问题
