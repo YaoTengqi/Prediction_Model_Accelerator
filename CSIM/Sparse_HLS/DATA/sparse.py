@@ -29,7 +29,7 @@ else:
     matrix_A = np.zeros((matrix_size_A, matrix_size_B), dtype=np.int8)
 
     # 随机选择100个位置
-    random_indices = np.random.choice(matrix_size_A * matrix_size_B, size=60, replace=True)
+    random_indices = np.random.choice(matrix_size_A * matrix_size_B, size=4, replace=True)
 
     # 使用列表推导式来更新这些随机位置的值为指定的非零值
     matrix_A[np.unravel_index(random_indices, (matrix_size_A, matrix_size_B))] = 1
@@ -56,7 +56,7 @@ if not use_data:
         # 读取第二个文件的全部内容
         data2 = file2.read()
 
-    combined_data = data1 + data2 + data2
+    combined_data = data1 + data2
     # 打开新文件用于写入
     with open('./data/dram.bin', 'wb') as outfile:
         outfile.write(combined_data)

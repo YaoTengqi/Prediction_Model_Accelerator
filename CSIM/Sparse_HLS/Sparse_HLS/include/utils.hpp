@@ -79,8 +79,8 @@ bool compare(unsigned int n, T* x, T* ref, int& err, bool verbose = false) {
             }
         } else {
             for (unsigned int i = 0; i < n; i++) {
-//            	std::cout << i << " outValue = " << std::hex << std::uppercase << x[i] << " refValue = " << std::hex << std::uppercase << ref[i] << std::endl;
                 if (!compare(x[i], ref[i])) {
+                	std::cout << "Mismatch at entry " << i << " outValue = " << x[i] << " refValue = " << ref[i] << std::endl;
                     if (verbose) {
                         std::cout << "Mismatch at entry " << i << " outValue = " << x[i] << " refValue = " << ref[i]
                                   << std::endl;

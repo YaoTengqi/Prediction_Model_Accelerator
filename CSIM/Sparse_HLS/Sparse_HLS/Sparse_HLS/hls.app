@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="com.autoesl.autopilot.project" top="">
+<project xmlns="com.autoesl.autopilot.project" name="Sparse_HLS" top="">
   <files>
+    <file name="../../testbench/sparse_tb.cpp" sc="0" tb="1" cflags=" -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas" blackbox="false" csimflags=" -Wno-unknown-pragmas"/>
     <file name="src/sparse.cpp" sc="0" tb="false" cflags="" blackbox="false" csimflags=""/>
     <file name="src/sparse.hpp" sc="0" tb="false" cflags="" blackbox="false" csimflags=""/>
-    <file name="../../testbench/sparse_tb.cpp" sc="0" tb="1" cflags="" csimflags=""/>
   </files>
   <solutions>
     <solution name="solution1" status="active"/>
@@ -11,6 +11,6 @@
   <includePaths/>
   <libraryPaths/>
   <Simulation>
-    <SimFlow name="csim"/>
+    <SimFlow name="csim" csimMode="0" lastCsimMode="2"/>
   </Simulation>
 </project>
