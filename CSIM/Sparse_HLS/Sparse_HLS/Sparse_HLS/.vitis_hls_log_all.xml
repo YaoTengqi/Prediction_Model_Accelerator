@@ -3,6 +3,13 @@
   <errorLogs>
     <logs>
       <csimLog>
+        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="Sparse_HLS" solutionName="solution1" date="2024-05-21T17:36:46.020+0800"/>
+        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="Sparse_HLS" solutionName="solution1" date="2024-05-21T17:35:51.850+0800"/>
+        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="Sparse_HLS" solutionName="solution1" date="2024-05-21T17:34:47.308+0800"/>
+        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="Sparse_HLS" solutionName="solution1" date="2024-05-21T17:30:22.822+0800"/>
+        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="Sparse_HLS" solutionName="solution1" date="2024-05-21T15:52:55.946+0800"/>
+        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="Sparse_HLS" solutionName="solution1" date="2024-05-21T15:15:01.634+0800"/>
+        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="Sparse_HLS" solutionName="solution1" date="2024-05-21T15:13:59.747+0800"/>
         <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="Sparse_HLS" solutionName="solution1" date="2024-05-16T19:55:32.960+0800"/>
         <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="Sparse_HLS" solutionName="solution1" date="2024-05-16T18:45:44.758+0800"/>
         <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="Sparse_HLS" solutionName="solution1" date="2024-05-16T18:38:42.421+0800"/>

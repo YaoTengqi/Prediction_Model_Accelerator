@@ -12,13 +12,13 @@ int main(){
 	vector<t_AXI_DataType> input_data, golden;
 	vector<t_AXI_DataType> output_data(am_ROWS * fm_COLS * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType), 0);
 	ap_uint<32> input_data_addr1 = 0;
-	ap_uint<32> input_data_addr2 = (am_ROWS * am_COLS) * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
+	ap_uint<32> input_data_addr2 = (fm_ROWS * fm_COLS) * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
 //	ap_uint<32> input_data_addr2 = 4096 * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
-	ap_uint<32> input_data_addr3 = 0;
+	ap_uint<32> input_data_addr3 = 20480  * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
 	bool sparse_flag = false;
 
-	readBin(basedir + "dram.bin", sizeof(t_DataType_IN) * am_ROWS * (am_COLS + fm_COLS), input_data);
-	readBin(basedir + "matrix_C.bin", sizeof(t_DataType_IN) * am_ROWS * fm_COLS, golden);
+	readBin(basedir + "dram_before.bin", sizeof(t_DataType_IN) * am_ROWS * (am_COLS + fm_COLS), input_data);
+	readBin(basedir + "dram_after.bin", sizeof(t_DataType_IN) * am_ROWS * fm_COLS, golden);
 	sparse( input_data_addr1,
 			input_data_addr2,
 			input_data_addr3,
@@ -30,10 +30,10 @@ int main(){
 			output_data.data(),
 			sparse_flag
 			);
-	int err = 0;
-    bool concat_compare = compare(am_ROWS * fm_COLS  * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType), golden.data(), output_data.data(), err);
 
-    if (concat_compare && sparse_flag) {
+	int err = memcmp(&output_data[0], &golden[input_data_addr3], am_ROWS * fm_COLS  * sizeof(t_DataType_IN));
+
+    if (err == 0 && sparse_flag) {
         cout << "Pass!\n";
         return 0;
     } else {
@@ -41,3 +41,4 @@ int main(){
         return -1;
     }
 }
+
