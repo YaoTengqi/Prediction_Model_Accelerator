@@ -56,8 +56,8 @@ Concatenated Tensor:
 
 | 函数名                                                       | 返回值 | 解释                                                         |
 | ------------------------------------------------------------ | ------ | ------------------------------------------------------------ |
-| template <typename t_AXI_DataType, typename t_DataType_OUT, unsigned int nPE>void read_inputs(t_AXI_DataType *inputs, hls::stream<typename WideType<t_DataType_OUT, nPE>::t_TypeInt> &data_stream_out, uint32_t input_data_addr1, uint32_t input_data_addr2, unsigned int ROWS, unsigned int COLS) | /      | 将数据从DRR中读出来，其中ram1从addr1读出；ram2从addr2读出；每次读出一行数据，用memcpy完成拼接后写入data_stream_out数据流中 |
-| template <typename t_AXI_DataType, typename t_DataType_IN, typename t_DataType_OUT, unsigned int nPE>void **store**(hls::stream<typename WideType<t_DataType_OUT, nPE>::t_TypeInt> &data_stream_out, t_AXI_DataType *outputs,uint32_t output_data_addr3, unsigned int ROWS,unsigned int COLS, bool &concat_flag) | /      | 将read_inputs()写好的data_stream数据流在此函数中按行取出(有对应的数据位宽**t_OUT_ROW_DataType**)，存入临时buffer中后再用memcpy将数据从临时buffer存入outputs[addr3]中，其中addr3为起始地址 |
+| void read_inputs(t_AXI_DataType *inputs,<br/>				 uint32_t input_data_addr1,<br/>				 uint32_t input_data_addr2,<br/>				 unsigned int ROWS,<br/>				 unsigned int COLS,<br/>				 t_AXI_DataType *outputs,<br/>				 bool &concat_flag) | /      | 将数据从DRR中读出来，其中ram1从addr1读出；ram2从addr2读出；分别读出后依次拼接到outputs中 |
+| ~~template <typename t_AXI_DataType, typename t_DataType_IN, typename t_DataType_OUT, unsigned int nPE>void **store**(hls::stream<typename WideType<t_DataType_OUT, nPE>::t_TypeInt> &data_stream_out, t_AXI_DataType *outputs,uint32_t output_data_addr3, unsigned int ROWS,unsigned int COLS, bool &concat_flag)~~ | /      | ~~将read_inputs()写好的data_stream数据流在此函数中按行取出(有对应的数据位宽**t_OUT_ROW_DataType**)，存入临时buffer中后再用memcpy将数据从临时buffer存入outputs[addr3]中，其中addr3为起始地址~~ |
 
 ### 4.C仿真问题
 
