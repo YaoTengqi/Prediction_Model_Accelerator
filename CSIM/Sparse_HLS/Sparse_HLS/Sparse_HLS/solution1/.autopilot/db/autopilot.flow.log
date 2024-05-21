@@ -8003,3 +8003,62 @@ Command   csim_design done; 7 sec.
 INFO: [HLS 200-111] Finished Command csim_design CPU user time: 6.55 seconds. CPU system time: 0.38 seconds. Elapsed time: 7 seconds; current allocated memory: 0.000 MB.
 Command ap_source done; 18.21 sec.
 Execute cleanup_all 
+INFO-FLOW: Workspace /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS/solution1 opened at Tue May 21 21:02:47 CST 2024
+Execute     ap_set_clock -name default -period 10 -default=false 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+Execute     set_part xcvu11p-flga2577-1-e 
+Execute       create_platform xcvu11p-flga2577-1-e -board  
+DBG:HLSDevice: Trying to load device library: /home/ytq/source/Xilinx/Vitis_HLS/2022.2/lib/lnx64.o/libxv_hlsvwrap.so
+DBG:HLSDevice: first parts/arch.xml in RDI_DATADIR: /home/ytq/source/Xilinx/Vivado/2022.2/data/parts/arch.xml
+DBG:HLSDevice: init success
+INFO: [HLS 200-1611] Setting target device to 'xcvu11p-flga2577-1-e'
+Command       create_platform done; 1.07 sec.
+Execute       source /home/ytq/source/Xilinx/Vitis_HLS/2022.2/common/technology/xilinx/common/xilinx.gen 
+Execute         source /home/ytq/source/Xilinx/Vitis_HLS/2022.2/common/technology/xilinx/interface/plb46.gen 
+Execute         source /home/ytq/source/Xilinx/Vitis_HLS/2022.2/common/technology/xilinx/interface/axi4.gen 
+Execute         source /home/ytq/source/Xilinx/Vitis_HLS/2022.2/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute           source /home/ytq/source/Xilinx/Vitis_HLS/2022.2/common/technology/xilinx/interface/saxilite.gen 
+Execute         source /home/ytq/source/Xilinx/Vitis_HLS/2022.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute         source /home/ytq/source/Xilinx/Vitis_HLS/2022.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute         source /home/ytq/source/Xilinx/Vitis_HLS/2022.2/common/technology/xilinx/ip/xfir.gen 
+Execute         source /home/ytq/source/Xilinx/Vitis_HLS/2022.2/common/technology/xilinx/ip/util.gen 
+Execute         source /home/ytq/source/Xilinx/Vitis_HLS/2022.2/common/technology/xilinx/ip/xfft.gen 
+Execute         source /home/ytq/source/Xilinx/Vitis_HLS/2022.2/common/technology/xilinx/ip/dds_compiler.gen 
+Execute         source /home/ytq/source/Xilinx/Vitis_HLS/2022.2/common/technology/xilinx/DSP48/dsp48.gen 
+Execute       ap_part_info -name xcvu11p-flga2577-1-e -data info 
+Execute       config_compile -quiet -complex-mul-dsp=0 
+Command     set_part done; 1.14 sec.
+Execute     send_msg_by_id INFO @200-1505@%s%s  vivado 
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Command   open_solution done; 1.19 sec.
+Execute   set_part xcvu11p-flga2577-1-e 
+INFO: [HLS 200-1510] Running: set_part xcvu11p-flga2577-1-e 
+Execute     create_platform xcvu11p-flga2577-1-e -board  
+Execute     source /home/ytq/source/Xilinx/Vitis_HLS/2022.2/common/technology/xilinx/common/xilinx.gen 
+Execute       source /home/ytq/source/Xilinx/Vitis_HLS/2022.2/common/technology/xilinx/interface/plb46.gen 
+Execute       source /home/ytq/source/Xilinx/Vitis_HLS/2022.2/common/technology/xilinx/interface/axi4.gen 
+Execute       source /home/ytq/source/Xilinx/Vitis_HLS/2022.2/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute         source /home/ytq/source/Xilinx/Vitis_HLS/2022.2/common/technology/xilinx/interface/saxilite.gen 
+Execute       source /home/ytq/source/Xilinx/Vitis_HLS/2022.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute       source /home/ytq/source/Xilinx/Vitis_HLS/2022.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute       source /home/ytq/source/Xilinx/Vitis_HLS/2022.2/common/technology/xilinx/ip/xfir.gen 
+Execute       source /home/ytq/source/Xilinx/Vitis_HLS/2022.2/common/technology/xilinx/ip/util.gen 
+Execute       source /home/ytq/source/Xilinx/Vitis_HLS/2022.2/common/technology/xilinx/ip/xfft.gen 
+Execute       source /home/ytq/source/Xilinx/Vitis_HLS/2022.2/common/technology/xilinx/ip/dds_compiler.gen 
+Execute       source /home/ytq/source/Xilinx/Vitis_HLS/2022.2/common/technology/xilinx/DSP48/dsp48.gen 
+Execute     ap_part_info -name xcvu11p-flga2577-1-e -data info 
+Execute     config_compile -quiet -complex-mul-dsp=0 
+Execute   create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+Execute   csim_design -setup -quiet 
+INFO: [HLS 200-1510] Running: csim_design -setup -quiet 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+Execute     source csim/.lst_opt.tcl 
+Execute     ap_part_info -name xcvu11p-flga2577-1-e -data info 
+INFO: [SIM 211-1] CSim file generation done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+Command   csim_design done; 6.56 sec.
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 6.26 seconds. CPU system time: 0.3 seconds. Elapsed time: 6.56 seconds; current allocated memory: 0.000 MB.
+Command ap_source done; 17.84 sec.
+Execute cleanup_all 

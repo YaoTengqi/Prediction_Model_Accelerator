@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
   <source>
-    <originFiles name="transpose.hpp" path="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/transpose.hpp"/>
     <originFiles name="concat.cpp" path="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/concat.cpp"/>
+    <originFiles name="transpose.hpp" path="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/transpose.hpp"/>
   </source>
   <testbench>
     <originFiles name="concat_tb.cpp" path="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/testbench/concat_tb.cpp"/>

@@ -7,6 +7,13 @@
       <mgLog/>
       <packageLog/>
       <csimLog>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="Concat_HLS" solutionName="solution1" date="2024-05-21T21:33:31.263+0800"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="Concat_HLS" solutionName="solution1" date="2024-05-21T21:30:04.554+0800"/>
+        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="Concat_HLS" solutionName="solution1" date="2024-05-21T21:28:32.842+0800"/>
+        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="Concat_HLS" solutionName="solution1" date="2024-05-21T21:26:10.620+0800"/>
+        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="Concat_HLS" solutionName="solution1" date="2024-05-21T21:18:27.948+0800"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="Concat_HLS" solutionName="solution1" date="2024-05-21T21:10:33.351+0800"/>
+        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="Concat_HLS" solutionName="solution1" date="2024-05-21T21:09:43.087+0800"/>
         <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="Concat_HLS" solutionName="solution1" date="2024-05-14T22:11:38.284+0800"/>
         <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="Concat_HLS" solutionName="solution1" date="2024-05-14T21:53:42.063+0800"/>
         <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="Concat_HLS" solutionName="solution1" date="2024-05-14T21:48:17.435+0800"/>

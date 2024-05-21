@@ -2,7 +2,7 @@
     <includePaths/>
     <libraryPaths/>
     <Simulation>
-        <SimFlow name="csim" csimMode="0" lastCsimMode="2"/>
+        <SimFlow name="csim" csimMode="2" lastCsimMode="0"/>
     </Simulation>
     <files xmlns="">
         <file name="../../testbench/sparse_tb.cpp" sc="0" tb="1" cflags=" -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas" csimflags=" -Wno-unknown-pragmas" blackbox="false"/>

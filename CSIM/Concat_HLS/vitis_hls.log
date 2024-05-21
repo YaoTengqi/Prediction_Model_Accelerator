@@ -1,5 +1,5 @@
 INFO: [HLS 200-10] Running '/home/ytq/source/Xilinx/Vitis_HLS/2022.2/bin/unwrapped/lnx64.o/vitis_hls'
-INFO: [HLS 200-10] For user 'ytq' on host 'ytq' (Linux_x86_64 version 5.4.0-152-generic) on Tue May 14 22:22:46 CST 2024
+INFO: [HLS 200-10] For user 'ytq' on host 'ytq' (Linux_x86_64 version 5.4.0-152-generic) on Tue May 21 21:36:48 CST 2024
 INFO: [HLS 200-10] On os Ubuntu 18.04.6 LTS
 INFO: [HLS 200-10] In directory '/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS'
 Sourcing Tcl script '/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/solution1/csim.tcl'
@@ -11,7 +11,7 @@ INFO: [HLS 200-1510] Running: add_files Concat_HLS/src/concat.cpp
 INFO: [HLS 200-10] Adding design file 'Concat_HLS/src/concat.cpp' to the project
 INFO: [HLS 200-1510] Running: add_files transpose.hpp 
 INFO: [HLS 200-10] Adding design file 'transpose.hpp' to the project
-INFO: [HLS 200-1510] Running: add_files -tb Concat_HLS/testbench/concat_tb.cpp -cflags -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -csimflags -Wno-unknown-pragmas 
+INFO: [HLS 200-1510] Running: add_files -tb Concat_HLS/testbench/concat_tb.cpp -cflags -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -csimflags -Wno-unknown-pragmas 
 INFO: [HLS 200-10] Adding test bench file 'Concat_HLS/testbench/concat_tb.cpp' to the project
 INFO: [HLS 200-1510] Running: open_solution solution1 -flow_target vivado 
 INFO: [HLS 200-10] Opening solution '/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/solution1'.
@@ -29,14 +29,15 @@ INFO: [HLS 200-1510] Running: config_export -flow syn -format ip_catalog -rtl ve
 INFO: [HLS 200-1510] Running: source ./Concat_HLS/solution1/directives.tcl
 INFO: [HLS 200-1510] Running: set_directive_top -name concat concat 
 INFO: [HLS 200-1510] Running: csim_design -quiet 
-Running Dispatch Server on port: 38779
+Running Dispatch Server on port: 37651
 INFO: [SIM 211-2] *************** CSIM start ***************
 INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
    Compiling ../../../testbench/concat_tb.cpp in debug mode
-   Compiling ../../../src/concat.cpp in debug mode
    Generating csim.exe
-All Pass!INFO [HLS SIM]: The maximum depth reached by any hls::stream() instance in the design is 64
+WARNNING: file /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/data/dram_before.bin size 167784448 doesn't match required size 2048
+WARNNING: file /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/data/dram_after.bin size 167784448 doesn't match required size 2048
+Pass!
 INFO: [SIM 211-1] CSim done with 0 errors.
 INFO: [SIM 211-3] *************** CSIM finish ***************
-INFO: [HLS 200-111] Finished Command csim_design CPU user time: 6.59 seconds. CPU system time: 0.55 seconds. Elapsed time: 7.13 seconds; current allocated memory: 0.000 MB.
-INFO: [HLS 200-112] Total CPU user time: 8.13 seconds. Total CPU system time: 0.74 seconds. Total elapsed time: 18.78 seconds; peak allocated memory: 756.934 MB.
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 3.7 seconds. CPU system time: 0.38 seconds. Elapsed time: 4.06 seconds; current allocated memory: 0.000 MB.
+INFO: [HLS 200-112] Total CPU user time: 5.26 seconds. Total CPU system time: 0.55 seconds. Total elapsed time: 15.71 seconds; peak allocated memory: 756.945 MB.
