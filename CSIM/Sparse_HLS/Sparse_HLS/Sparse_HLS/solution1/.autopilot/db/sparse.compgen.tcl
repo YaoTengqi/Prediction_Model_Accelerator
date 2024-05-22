@@ -178,7 +178,7 @@ dict set axilite_register_dict sparse_addr $port_sparse_addr
 if {${::AESL::PGuard_simmodel_gen}} {
 	if {[info proc ::AESL_LIB_XILADAPTER::s_axilite_gen] == "::AESL_LIB_XILADAPTER::s_axilite_gen"} {
 		eval "::AESL_LIB_XILADAPTER::s_axilite_gen { \
-			id 50 \
+			id 53 \
 			corename sparse_sparse_addr_axilite \
 			name sparse_sparse_addr_s_axi \
 			ports {$port_sparse_addr} \

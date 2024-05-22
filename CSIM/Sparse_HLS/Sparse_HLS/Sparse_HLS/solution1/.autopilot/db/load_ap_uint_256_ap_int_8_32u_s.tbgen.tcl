@@ -193,7 +193,7 @@ set NewPortList {[
  	{ "name": "ap_return_1", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "ap_return_1", "role": "default" }}  ]}
 
 set RtlHierarchyInfo {[
-	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2"],
+	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3", "4"],
 		"CDFG" : "load_ap_uint_256_ap_int_8_32u_s",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1", "real_start" : "0",
@@ -225,14 +225,16 @@ set RtlHierarchyInfo {[
 		"Loop" : [
 			{"Name" : "VITIS_LOOP_22_1", "PipelineType" : "no",
 				"LoopDec" : {"FSMBitwidth" : "86", "FirstState" : "ap_ST_fsm_state40", "LastState" : ["ap_ST_fsm_state42"], "QuitState" : ["ap_ST_fsm_state40"], "PreState" : ["ap_ST_fsm_state39"], "PostState" : ["ap_ST_fsm_state43"], "OneDepthLoop" : "0", "OneStateBlock": ""}},
-			{"Name" : "Loop 2", "PipelineType" : "no",
-				"LoopDec" : {"FSMBitwidth" : "86", "FirstState" : "ap_ST_fsm_state43", "LastState" : ["ap_ST_fsm_state83"], "QuitState" : ["ap_ST_fsm_state43"], "PreState" : ["ap_ST_fsm_state40"], "PostState" : ["ap_ST_fsm_state84"], "OneDepthLoop" : "0", "OneStateBlock": ""}},
-			{"Name" : "VITIS_LOOP_30_3", "PipelineType" : "no",
-				"LoopDec" : {"FSMBitwidth" : "86", "FirstState" : "ap_ST_fsm_state85", "LastState" : ["ap_ST_fsm_state86"], "QuitState" : ["ap_ST_fsm_state85"], "PreState" : ["ap_ST_fsm_state84"], "PostState" : ["ap_ST_fsm_state84"], "OneDepthLoop" : "0", "OneStateBlock": ""}},
-			{"Name" : "VITIS_LOOP_27_2", "PipelineType" : "no",
-				"LoopDec" : {"FSMBitwidth" : "86", "FirstState" : "ap_ST_fsm_state84", "LastState" : ["ap_ST_fsm_state85"], "QuitState" : ["ap_ST_fsm_state84"], "PreState" : ["ap_ST_fsm_state43"], "PostState" : ["ap_ST_fsm_state1"], "OneDepthLoop" : "0", "OneStateBlock": ""}}]},
-	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mul_32s_32s_32_1_1_U5", "Parent" : "0"},
-	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mul_32s_32s_32_1_1_U6", "Parent" : "0"}]}
+			{"Name" : "VITIS_LOOP_25_2", "PipelineType" : "no",
+				"LoopDec" : {"FSMBitwidth" : "86", "FirstState" : "ap_ST_fsm_state81", "LastState" : ["ap_ST_fsm_state83"], "QuitState" : ["ap_ST_fsm_state81"], "PreState" : ["ap_ST_fsm_state80"], "PostState" : ["ap_ST_fsm_state84"], "OneDepthLoop" : "0", "OneStateBlock": ""}},
+			{"Name" : "VITIS_LOOP_33_4", "PipelineType" : "no",
+				"LoopDec" : {"FSMBitwidth" : "86", "FirstState" : "ap_ST_fsm_state86", "LastState" : ["ap_ST_fsm_state86"], "QuitState" : ["ap_ST_fsm_state86"], "PreState" : ["ap_ST_fsm_state85"], "PostState" : ["ap_ST_fsm_state84"], "OneDepthLoop" : "1", "OneStateBlock": "ap_ST_fsm_state86_blk"}},
+			{"Name" : "VITIS_LOOP_29_3", "PipelineType" : "no",
+				"LoopDec" : {"FSMBitwidth" : "86", "FirstState" : "ap_ST_fsm_state84", "LastState" : ["ap_ST_fsm_state86"], "QuitState" : ["ap_ST_fsm_state84"], "PreState" : ["ap_ST_fsm_state81"], "PostState" : ["ap_ST_fsm_state1"], "OneDepthLoop" : "0", "OneStateBlock": ""}}]},
+	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.am_ram_V_U", "Parent" : "0"},
+	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mul_32s_32s_32_1_1_U5", "Parent" : "0"},
+	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mul_32s_32s_32_1_1_U6", "Parent" : "0"},
+	{"ID" : "4", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mux_325_8_1_1_U7", "Parent" : "0"}]}
 
 
 set ArgLastReadFirstWriteLatency {
@@ -243,8 +245,8 @@ set ArgLastReadFirstWriteLatency {
 		fm_COLS {Type I LastRead 0 FirstWrite -1}
 		sparse_data {Type I LastRead 79 FirstWrite -1}
 		inputs {Type I LastRead 0 FirstWrite -1}
-		idx_ram {Type O LastRead -1 FirstWrite 42}
-		count_ram {Type O LastRead -1 FirstWrite 42}
+		idx_ram {Type O LastRead -1 FirstWrite 81}
+		count_ram {Type O LastRead -1 FirstWrite 81}
 		fm_ram {Type O LastRead -1 FirstWrite 41}
 		input_data_addr1 {Type I LastRead 0 FirstWrite -1}
 		input_data_addr2 {Type I LastRead 38 FirstWrite -1}}}

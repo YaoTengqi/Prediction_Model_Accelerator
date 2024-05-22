@@ -70235,20 +70235,23 @@ void load(
   uint32_t input_data_addr1,
   uint32_t input_data_addr2)
 {
- t_DataType_IN am_ram[am_ROWS][am_COLS];
+ typename WideType<t_DataType_IN, nPE>::t_TypeInt am_ram[1024];
  int idx_count = 0, count_count = 0;
  int fm_loop_num = fm_ROWS * fm_COLS * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
- int addr1 = input_data_addr1 / sizeof(t_AXI_DataType);
+ int am_loop_num = am_ROWS * am_COLS * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
  VITIS_LOOP_22_1: for(int i = 0; i < fm_loop_num; i++){
-  fm_ram[i] = inputs[addr1 + i];
+  fm_ram[i] = inputs[input_data_addr1 + i];
  }
- memcpy(&am_ram[0], &inputs[input_data_addr2], am_ROWS * am_COLS * sizeof(t_DataType_IN));
+ VITIS_LOOP_25_2: for(int j = 0; j < am_loop_num; j++){
+  am_ram[j] = inputs[input_data_addr2 + j];
+ }
 #pragma HLS PIPELINE
- VITIS_LOOP_27_2: for(int row = 0; row < am_ROWS; row++){
+ VITIS_LOOP_29_3: for(int row = 0; row < am_ROWS; row++){
   int count = 0;
+  WideType<t_DataType_IN, nPE> am_value = am_ram[row];
 #pragma HLS UNROLL
- VITIS_LOOP_30_3: for(int col = 0; col < am_COLS; col++){
-   if(am_ram[row][col] != 0){
+ VITIS_LOOP_33_4: for(int col = 0; col < am_COLS; col++){
+   if(am_value[col] != 0){
     count++;
     idx_ram[idx_count++] = col;
    }
@@ -70269,17 +70272,17 @@ void mul(
   uint8_t count_ram[32],
   hls::stream<typename WideType<t_DataType_OUT, nPE>::t_TypeInt> &data_stream_out){
 #pragma HLS PIPELINE II = 1
- VITIS_LOOP_52_1: for(int block = 0; block < (fm_COLS / nPE); block++){
+ VITIS_LOOP_55_1: for(int block = 0; block < (fm_COLS / nPE); block++){
   int idx_ram_base = 0;
-  VITIS_LOOP_54_2: for(int row = 0; row < am_ROWS; row++){
+  VITIS_LOOP_57_2: for(int row = 0; row < am_ROWS; row++){
    int idx_count = count_ram[row];
    t_DataType_OUT ZERO = 0;
    WideType<t_DataType_OUT, nPE> result = ZERO;
 #pragma HLS UNROLL
- VITIS_LOOP_59_3: for(int count = 0; count < idx_count; count++){
+ VITIS_LOOP_62_3: for(int count = 0; count < idx_count; count++){
    uint8_t idx = idx_ram[idx_ram_base + count];
    WideType<t_DataType_IN, nPE> fm_value = fm_ram[block * nPE + idx];
-    VITIS_LOOP_62_4: for(int pe = 0; pe < nPE; pe++){
+    VITIS_LOOP_65_4: for(int pe = 0; pe < nPE; pe++){
      result[pe] = result[pe] + fm_value[pe];
     }
    }
@@ -70305,7 +70308,7 @@ void store(
  unsigned int loop_num = ROWS * COLS / nPE;
  WideType<t_DataType_IN, nPE> data;
  int count = 0;
- VITIS_LOOP_88_1: for(int i = 0; i < loop_num; i++)
+ VITIS_LOOP_91_1: for(int i = 0; i < loop_num; i++)
  {
 #pragma HLS PIPELINE
  data = data_stream_out.read();

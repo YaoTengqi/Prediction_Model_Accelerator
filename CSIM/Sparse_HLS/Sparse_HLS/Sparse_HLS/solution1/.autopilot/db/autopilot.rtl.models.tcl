@@ -3,10 +3,12 @@ set SynModuleInfo {
   {SRCNAME {load<ap_uint<256>, ap_int<8>, 32u>} MODELNAME load_ap_uint_256_ap_int_8_32u_s RTLNAME sparse_load_ap_uint_256_ap_int_8_32u_s
     SUBMODULES {
       {MODELNAME sparse_mul_32s_32s_32_1_1 RTLNAME sparse_mul_32s_32s_32_1_1 BINDTYPE op TYPE mul IMPL auto LATENCY 0 ALLOW_PRAGMA 1}
+      {MODELNAME sparse_mux_325_8_1_1 RTLNAME sparse_mux_325_8_1_1 BINDTYPE op TYPE mux IMPL auto LATENCY 0 ALLOW_PRAGMA 1}
+      {MODELNAME sparse_load_ap_uint_256_ap_int_8_32u_s_am_ram_V_RAM_AUTO_1R1W RTLNAME sparse_load_ap_uint_256_ap_int_8_32u_s_am_ram_V_RAM_AUTO_1R1W BINDTYPE storage TYPE ram IMPL auto LATENCY 2 ALLOW_PRAGMA 1}
     }
   }
   {SRCNAME {mul<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>} MODELNAME mul_ap_uint_256_ap_int_8_ap_int_8_32u_s RTLNAME sparse_mul_ap_uint_256_ap_int_8_ap_int_8_32u_s}
-  {SRCNAME {store<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>_Pipeline_VITIS_LOOP_88_1} MODELNAME store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_88_1 RTLNAME sparse_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_88_1
+  {SRCNAME {store<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>_Pipeline_VITIS_LOOP_91_1} MODELNAME store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_91_1 RTLNAME sparse_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_91_1
     SUBMODULES {
       {MODELNAME sparse_flow_control_loop_pipe_sequential_init RTLNAME sparse_flow_control_loop_pipe_sequential_init BINDTYPE interface TYPE internal_upc_flow_control INSTNAME sparse_flow_control_loop_pipe_sequential_init_U}
     }

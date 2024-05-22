@@ -1,6 +1,8 @@
 INFO: [SIM 2] *************** CSIM start ***************
 INFO: [SIM 4] CSIM will launch GCC as the compiler.
-make: 'csim.exe' is up to date.
+   Compiling ../../../../testbench/sparse_tb.cpp in debug mode
+   Compiling ../../../../src/sparse.cpp in debug mode
+   Generating csim.exe
 WARNNING: file /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/DATA/data/dram_before.bin size 167809024 doesn't match required size 17408
 WARNNING: file /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/DATA/data/dram_after.bin size 167809024 doesn't match required size 16384
 Pass!

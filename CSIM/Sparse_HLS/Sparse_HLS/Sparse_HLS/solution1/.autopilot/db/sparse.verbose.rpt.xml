@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'sparse'" level="0">
-<item name = "Date">Wed May 22 16:23:00 2024
+<item name = "Date">Wed May 22 16:51:44 2024
 </item>
 <item name = "Version">2022.2 (Build 3670227 on Oct 13 2022)</item>
 <item name = "Project">Sparse_HLS</item>
@@ -53,14 +53,14 @@
 <column name="DSP">-, -, -, -, -</column>
 <column name="Expression">-, -, 0, 36, -</column>
 <column name="FIFO">15, -, 749, 451, -</column>
-<column name="Instance">0, 9, 3821, 6357, 0</column>
+<column name="Instance">15, 9, 4006, 5507, 0</column>
 <column name="Memory">16, -, 8, 8, 0</column>
 <column name="Multiplexer">-, -, -, 63, -</column>
 <column name="Register">-, -, 7, -, -</column>
 <specialColumn name="Available SLR">1344, 3072, 864000, 432000, 320</specialColumn>
-<specialColumn name="Utilization SLR (%)">2, ~0, ~0, 1, 0</specialColumn>
+<specialColumn name="Utilization SLR (%)">3, ~0, ~0, 1, 0</specialColumn>
 <specialColumn name="Available">4032, 9216, 2592000, 1296000, 960</specialColumn>
-<specialColumn name="Utilization (%)">~0, ~0, ~0, ~0, 0</specialColumn>
+<specialColumn name="Utilization (%)">1, ~0, ~0, ~0, 0</specialColumn>
 </table>
 </item>
 <item name = "Detail">
@@ -68,7 +68,7 @@
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP, FF, LUT, URAM</keys>
 <column name="entry_proc_U0">entry_proc, 0, 0, 3, 38, 0</column>
-<column name="load_ap_uint_256_ap_int_8_32u_U0">load_ap_uint_256_ap_int_8_32u_s, 0, 6, 1233, 2066, 0</column>
+<column name="load_ap_uint_256_ap_int_8_32u_U0">load_ap_uint_256_ap_int_8_32u_s, 15, 6, 1418, 1216, 0</column>
 <column name="mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0">mul_ap_uint_256_ap_int_8_ap_int_8_32u_s, 0, 0, 487, 1095, 0</column>
 <column name="sparse_addr_s_axi_U">sparse_addr_s_axi, 0, 0, 449, 746, 0</column>
 <column name="sparse_data_m_axi_U">sparse_data_m_axi, 0, 0, 1079, 1740, 0</column>

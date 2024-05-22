@@ -4,7 +4,7 @@
 == Synthesis Summary Report of 'sparse'
 ================================================================
 + General Information: 
-    * Date:           Wed May 22 16:23:00 2024
+    * Date:           Wed May 22 16:51:44 2024
     * Version:        2022.2 (Build 3670227 on Oct 13 2022)
     * Project:        Sparse_HLS
     * Solution:       solution1 (Vivado IP Flow Target)
@@ -19,20 +19,20 @@
     |                                Modules                               | Issue|      | Latency |  Latency  | Iteration|         | Trip |          |          |         |            |            |     |
     |                                & Loops                               | Type | Slack| (cycles)|    (ns)   |  Latency | Interval| Count| Pipelined|   BRAM   |   DSP   |     FF     |     LUT    | URAM|
     +----------------------------------------------------------------------+------+------+---------+-----------+----------+---------+------+----------+----------+---------+------------+------------+-----+
-    |+ sparse*                                                             |     -|  0.00|        -|          -|         -|        -|     -|  dataflow|  31 (~0%)|  9 (~0%)|  4585 (~0%)|  6915 (~0%)|    -|
+    |+ sparse*                                                             |     -|  0.00|        -|          -|         -|        -|     -|  dataflow|   46 (1%)|  9 (~0%)|  4770 (~0%)|  6065 (~0%)|    -|
     | + entry_proc                                                         |     -|  5.20|        0|      0.000|         -|        0|     -|        no|         -|        -|     3 (~0%)|    38 (~0%)|    -|
-    | + load_ap_uint_256_ap_int_8_32u_s                                    |     -|  0.00|        -|          -|         -|        -|     -|        no|         -|  6 (~0%)|  1233 (~0%)|  2066 (~0%)|    -|
+    | + load_ap_uint_256_ap_int_8_32u_s                                    |     -|  0.00|        -|          -|         -|        -|     -|        no|  15 (~0%)|  6 (~0%)|  1418 (~0%)|  1216 (~0%)|    -|
     |  o VITIS_LOOP_22_1                                                   |     -|  7.30|        -|          -|         3|        -|     -|        no|         -|        -|           -|           -|    -|
-    |  o Loop 2                                                            |     -|  7.30|        -|          -|        41|        -|     -|        no|         -|        -|           -|           -|    -|
-    |  o VITIS_LOOP_27_2                                                   |     -|  7.30|        -|          -|         -|        -|     -|        no|         -|        -|           -|           -|    -|
-    |   o VITIS_LOOP_30_3                                                  |     -|  7.30|        -|          -|         2|        -|     -|        no|         -|        -|           -|           -|    -|
+    |  o VITIS_LOOP_25_2                                                   |     -|  7.30|        -|          -|         3|        -|     -|        no|         -|        -|           -|           -|    -|
+    |  o VITIS_LOOP_29_3                                                   |     -|  7.30|        -|          -|         -|        -|     -|        no|         -|        -|           -|           -|    -|
+    |   o VITIS_LOOP_33_4                                                  |     -|  7.30|        -|          -|         1|        -|     -|        no|         -|        -|           -|           -|    -|
     | + mul_ap_uint_256_ap_int_8_ap_int_8_32u_s                            |     -|  3.10|        -|          -|         -|        -|     -|        no|         -|        -|   487 (~0%)|  1095 (~0%)|    -|
-    |  o VITIS_LOOP_52_1                                                   |     -|  7.30|        -|          -|         -|        -|     -|        no|         -|        -|           -|           -|    -|
-    |   o VITIS_LOOP_54_2                                                  |     -|  7.30|        -|          -|       768|        -|     -|        no|         -|        -|           -|           -|    -|
-    |    o VITIS_LOOP_59_3                                                 |     -|  7.30|      765|  7.650e+03|         3|        -|   255|        no|         -|        -|           -|           -|    -|
+    |  o VITIS_LOOP_55_1                                                   |     -|  7.30|        -|          -|         -|        -|     -|        no|         -|        -|           -|           -|    -|
+    |   o VITIS_LOOP_57_2                                                  |     -|  7.30|        -|          -|       768|        -|     -|        no|         -|        -|           -|           -|    -|
+    |    o VITIS_LOOP_62_3                                                 |     -|  7.30|      765|  7.650e+03|         3|        -|   255|        no|         -|        -|           -|           -|    -|
     | + store_ap_uint_256_ap_int_8_ap_int_8_32u_s                          |     -|  0.00|        -|          -|         -|        -|     -|        no|         -|  3 (~0%)|   570 (~0%)|   672 (~0%)|    -|
-    |  + store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_88_1  |     -|  0.00|        -|          -|         -|        -|     -|        no|         -|        -|   289 (~0%)|   113 (~0%)|    -|
-    |   o VITIS_LOOP_88_1                                                  |     -|  7.30|        -|          -|         3|        1|     -|       yes|         -|        -|           -|           -|    -|
+    |  + store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_91_1  |     -|  0.00|        -|          -|         -|        -|     -|        no|         -|        -|   289 (~0%)|   113 (~0%)|    -|
+    |   o VITIS_LOOP_91_1                                                  |     -|  7.30|        -|          -|         3|        1|     -|       yes|         -|        -|           -|           -|    -|
     +----------------------------------------------------------------------+------+------+---------+-----------+----------+---------+------+----------+----------+---------+------------+------------+-----+
 
 
@@ -139,15 +139,17 @@
 | HW Interface      | Loop            | Direction | Length   | Width | Location                         |
 +-------------------+-----------------+-----------+----------+-------+----------------------------------+
 | m_axi_sparse_data | VITIS_LOOP_22_1 | read      | variable | 256   | src/../include/helpers.hpp:22:19 |
-| m_axi_sparse_data | VITIS_LOOP_88_1 | write     | variable | 256   | src/../include/helpers.hpp:88:19 |
+| m_axi_sparse_data | VITIS_LOOP_25_2 | read      | variable | 256   | src/../include/helpers.hpp:25:19 |
+| m_axi_sparse_data | VITIS_LOOP_91_1 | write     | variable | 256   | src/../include/helpers.hpp:91:19 |
 +-------------------+-----------------+-----------+----------+-------+----------------------------------+
 
 * Inferred Bursts and Widening Missed
 +-------------------+----------+-----------------+--------------------------------------------------------------------------------------------------------+------------+----------------------------------+
 | HW Interface      | Variable | Loop            | Problem                                                                                                | Resolution | Location                         |
 +-------------------+----------+-----------------+--------------------------------------------------------------------------------------------------------+------------+----------------------------------+
+| m_axi_sparse_data | inputs   | VITIS_LOOP_25_2 | Could not widen since type i256 size is greater than or equal to the max_widen_bitwidth threshold of 0 | 214-353    | src/../include/helpers.hpp:25:19 |
 | m_axi_sparse_data | inputs   | VITIS_LOOP_22_1 | Could not widen since type i256 size is greater than or equal to the max_widen_bitwidth threshold of 0 | 214-353    | src/../include/helpers.hpp:22:19 |
-| m_axi_sparse_data | outputs  | VITIS_LOOP_88_1 | Could not widen since type i256 size is greater than or equal to the max_widen_bitwidth threshold of 0 | 214-353    | src/../include/helpers.hpp:88:19 |
+| m_axi_sparse_data | outputs  | VITIS_LOOP_91_1 | Could not widen since type i256 size is greater than or equal to the max_widen_bitwidth threshold of 0 | 214-353    | src/../include/helpers.hpp:91:19 |
 +-------------------+----------+-----------------+--------------------------------------------------------------------------------------------------------+------------+----------------------------------+
 
     * Resolution URL: www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=XXX-YYY.html (replace XXX-YYY with column value)
@@ -163,80 +165,80 @@
 |   fm_COLS_c10_channel_U                                              | -   |        | fm_COLS_c10_channel | fifo | srl    | 0       |
 |  + load_ap_uint_256_ap_int_8_32u_s                                   | 6   |        |                     |      |        |         |
 |    mul_32s_32s_32_1_1_U5                                             | 3   |        | mul_ln20            | mul  | auto   | 0       |
-|    add_ln22_fu_291_p2                                                | -   |        | add_ln22            | add  | fabric | 0       |
-|    add_ln22_1_fu_338_p2                                              | -   |        | add_ln22_1          | add  | fabric | 0       |
-|    mul_32s_32s_32_1_1_U6                                             | 3   |        | mul_ln25            | mul  | auto   | 0       |
-|    empty_45_fu_384_p2                                                | -   |        | empty_45            | add  | fabric | 0       |
-|    tmp_fu_394_p2                                                     | -   |        | tmp                 | add  | fabric | 0       |
-|    empty_47_fu_403_p2                                                | -   |        | empty_47            | add  | fabric | 0       |
-|    empty_48_fu_418_p2                                                | -   |        | empty_48            | add  | fabric | 0       |
-|    add_ln36_fu_494_p2                                                | -   |        | add_ln36            | add  | fabric | 0       |
-|    add_ln30_fu_515_p2                                                | -   |        | add_ln30            | add  | fabric | 0       |
-|    count_2_fu_524_p2                                                 | -   |        | count_2             | add  | fabric | 0       |
-|    idx_count_1_fu_535_p2                                             | -   |        | idx_count_1         | add  | fabric | 0       |
+|    mul_32s_32s_32_1_1_U6                                             | 3   |        | mul_ln21            | mul  | auto   | 0       |
+|    add_ln22_fu_412_p2                                                | -   |        | add_ln22            | add  | fabric | 0       |
+|    add_ln22_1_fu_479_p2                                              | -   |        | add_ln22_1          | add  | fabric | 0       |
+|    add_ln25_fu_501_p2                                                | -   |        | add_ln25            | add  | fabric | 0       |
+|    add_ln25_1_fu_543_p2                                              | -   |        | add_ln25_1          | add  | fabric | 0       |
+|    add_ln39_fu_577_p2                                                | -   |        | add_ln39            | add  | fabric | 0       |
+|    add_ln33_fu_912_p2                                                | -   |        | add_ln33            | add  | fabric | 0       |
+|    count_2_fu_969_p2                                                 | -   |        | count_2             | add  | fabric | 0       |
+|    idx_count_1_fu_981_p2                                             | -   |        | idx_count_1         | add  | fabric | 0       |
 |  + mul_ap_uint_256_ap_int_8_ap_int_8_32u_s                           | 0   |        |                     |      |        |         |
 |    block_2_fu_721_p2                                                 | -   |        | block_2             | add  | fabric | 0       |
-|    add_ln54_fu_749_p2                                                | -   |        | add_ln54            | add  | fabric | 0       |
-|    add_ln59_fu_776_p2                                                | -   |        | add_ln59            | add  | fabric | 0       |
-|    add_ln60_fu_782_p2                                                | -   |        | add_ln60            | add  | fabric | 0       |
-|    add_ln61_fu_870_p2                                                | -   |        | add_ln61            | add  | fabric | 0       |
-|    add_ln63_fu_1194_p2                                               | -   |        | add_ln63            | add  | fabric | 0       |
-|    add_ln63_1_fu_1200_p2                                             | -   |        | add_ln63_1          | add  | fabric | 0       |
-|    add_ln63_2_fu_1206_p2                                             | -   |        | add_ln63_2          | add  | fabric | 0       |
-|    add_ln63_3_fu_1212_p2                                             | -   |        | add_ln63_3          | add  | fabric | 0       |
-|    add_ln63_4_fu_1218_p2                                             | -   |        | add_ln63_4          | add  | fabric | 0       |
-|    add_ln63_5_fu_1224_p2                                             | -   |        | add_ln63_5          | add  | fabric | 0       |
-|    add_ln63_6_fu_1230_p2                                             | -   |        | add_ln63_6          | add  | fabric | 0       |
-|    add_ln63_7_fu_1236_p2                                             | -   |        | add_ln63_7          | add  | fabric | 0       |
-|    add_ln63_8_fu_1242_p2                                             | -   |        | add_ln63_8          | add  | fabric | 0       |
-|    add_ln63_9_fu_1248_p2                                             | -   |        | add_ln63_9          | add  | fabric | 0       |
-|    add_ln63_10_fu_1254_p2                                            | -   |        | add_ln63_10         | add  | fabric | 0       |
-|    add_ln63_11_fu_1260_p2                                            | -   |        | add_ln63_11         | add  | fabric | 0       |
-|    add_ln63_12_fu_1266_p2                                            | -   |        | add_ln63_12         | add  | fabric | 0       |
-|    add_ln63_13_fu_1272_p2                                            | -   |        | add_ln63_13         | add  | fabric | 0       |
-|    add_ln63_14_fu_1278_p2                                            | -   |        | add_ln63_14         | add  | fabric | 0       |
-|    add_ln63_15_fu_1284_p2                                            | -   |        | add_ln63_15         | add  | fabric | 0       |
-|    add_ln63_16_fu_1290_p2                                            | -   |        | add_ln63_16         | add  | fabric | 0       |
-|    add_ln63_17_fu_1296_p2                                            | -   |        | add_ln63_17         | add  | fabric | 0       |
-|    add_ln63_18_fu_1302_p2                                            | -   |        | add_ln63_18         | add  | fabric | 0       |
-|    add_ln63_19_fu_1308_p2                                            | -   |        | add_ln63_19         | add  | fabric | 0       |
-|    add_ln63_20_fu_1314_p2                                            | -   |        | add_ln63_20         | add  | fabric | 0       |
-|    add_ln63_21_fu_1320_p2                                            | -   |        | add_ln63_21         | add  | fabric | 0       |
-|    add_ln63_22_fu_1326_p2                                            | -   |        | add_ln63_22         | add  | fabric | 0       |
-|    add_ln63_23_fu_1332_p2                                            | -   |        | add_ln63_23         | add  | fabric | 0       |
-|    add_ln63_24_fu_1338_p2                                            | -   |        | add_ln63_24         | add  | fabric | 0       |
-|    add_ln63_25_fu_1344_p2                                            | -   |        | add_ln63_25         | add  | fabric | 0       |
-|    add_ln63_26_fu_1350_p2                                            | -   |        | add_ln63_26         | add  | fabric | 0       |
-|    add_ln63_27_fu_1356_p2                                            | -   |        | add_ln63_27         | add  | fabric | 0       |
-|    add_ln63_28_fu_1362_p2                                            | -   |        | add_ln63_28         | add  | fabric | 0       |
-|    add_ln63_29_fu_1368_p2                                            | -   |        | add_ln63_29         | add  | fabric | 0       |
-|    add_ln63_30_fu_1374_p2                                            | -   |        | add_ln63_30         | add  | fabric | 0       |
-|    add_ln63_31_fu_1380_p2                                            | -   |        | add_ln63_31         | add  | fabric | 0       |
+|    add_ln57_fu_749_p2                                                | -   |        | add_ln57            | add  | fabric | 0       |
+|    add_ln62_fu_776_p2                                                | -   |        | add_ln62            | add  | fabric | 0       |
+|    add_ln63_fu_782_p2                                                | -   |        | add_ln63            | add  | fabric | 0       |
+|    add_ln64_fu_870_p2                                                | -   |        | add_ln64            | add  | fabric | 0       |
+|    add_ln66_fu_1194_p2                                               | -   |        | add_ln66            | add  | fabric | 0       |
+|    add_ln66_1_fu_1200_p2                                             | -   |        | add_ln66_1          | add  | fabric | 0       |
+|    add_ln66_2_fu_1206_p2                                             | -   |        | add_ln66_2          | add  | fabric | 0       |
+|    add_ln66_3_fu_1212_p2                                             | -   |        | add_ln66_3          | add  | fabric | 0       |
+|    add_ln66_4_fu_1218_p2                                             | -   |        | add_ln66_4          | add  | fabric | 0       |
+|    add_ln66_5_fu_1224_p2                                             | -   |        | add_ln66_5          | add  | fabric | 0       |
+|    add_ln66_6_fu_1230_p2                                             | -   |        | add_ln66_6          | add  | fabric | 0       |
+|    add_ln66_7_fu_1236_p2                                             | -   |        | add_ln66_7          | add  | fabric | 0       |
+|    add_ln66_8_fu_1242_p2                                             | -   |        | add_ln66_8          | add  | fabric | 0       |
+|    add_ln66_9_fu_1248_p2                                             | -   |        | add_ln66_9          | add  | fabric | 0       |
+|    add_ln66_10_fu_1254_p2                                            | -   |        | add_ln66_10         | add  | fabric | 0       |
+|    add_ln66_11_fu_1260_p2                                            | -   |        | add_ln66_11         | add  | fabric | 0       |
+|    add_ln66_12_fu_1266_p2                                            | -   |        | add_ln66_12         | add  | fabric | 0       |
+|    add_ln66_13_fu_1272_p2                                            | -   |        | add_ln66_13         | add  | fabric | 0       |
+|    add_ln66_14_fu_1278_p2                                            | -   |        | add_ln66_14         | add  | fabric | 0       |
+|    add_ln66_15_fu_1284_p2                                            | -   |        | add_ln66_15         | add  | fabric | 0       |
+|    add_ln66_16_fu_1290_p2                                            | -   |        | add_ln66_16         | add  | fabric | 0       |
+|    add_ln66_17_fu_1296_p2                                            | -   |        | add_ln66_17         | add  | fabric | 0       |
+|    add_ln66_18_fu_1302_p2                                            | -   |        | add_ln66_18         | add  | fabric | 0       |
+|    add_ln66_19_fu_1308_p2                                            | -   |        | add_ln66_19         | add  | fabric | 0       |
+|    add_ln66_20_fu_1314_p2                                            | -   |        | add_ln66_20         | add  | fabric | 0       |
+|    add_ln66_21_fu_1320_p2                                            | -   |        | add_ln66_21         | add  | fabric | 0       |
+|    add_ln66_22_fu_1326_p2                                            | -   |        | add_ln66_22         | add  | fabric | 0       |
+|    add_ln66_23_fu_1332_p2                                            | -   |        | add_ln66_23         | add  | fabric | 0       |
+|    add_ln66_24_fu_1338_p2                                            | -   |        | add_ln66_24         | add  | fabric | 0       |
+|    add_ln66_25_fu_1344_p2                                            | -   |        | add_ln66_25         | add  | fabric | 0       |
+|    add_ln66_26_fu_1350_p2                                            | -   |        | add_ln66_26         | add  | fabric | 0       |
+|    add_ln66_27_fu_1356_p2                                            | -   |        | add_ln66_27         | add  | fabric | 0       |
+|    add_ln66_28_fu_1362_p2                                            | -   |        | add_ln66_28         | add  | fabric | 0       |
+|    add_ln66_29_fu_1368_p2                                            | -   |        | add_ln66_29         | add  | fabric | 0       |
+|    add_ln66_30_fu_1374_p2                                            | -   |        | add_ln66_30         | add  | fabric | 0       |
+|    add_ln66_31_fu_1380_p2                                            | -   |        | add_ln66_31         | add  | fabric | 0       |
 |    idx_ram_base_1_fu_792_p2                                          | -   |        | idx_ram_base_1      | add  | fabric | 0       |
 |  + store_ap_uint_256_ap_int_8_ap_int_8_32u_s                         | 3   |        |                     |      |        |         |
-|    mul_32s_32s_32_1_1_U31                                            | 3   |        | mul_ln85            | mul  | auto   | 0       |
-|    add_ln88_fu_169_p2                                                | -   |        | add_ln88            | add  | fabric | 0       |
-|   + store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_88_1 | 0   |        |                     |      |        |         |
-|     add_ln88_fu_104_p2                                               | -   |        | add_ln88            | add  | fabric | 0       |
+|    mul_32s_32s_32_1_1_U34                                            | 3   |        | mul_ln88            | mul  | auto   | 0       |
+|    add_ln91_fu_169_p2                                                | -   |        | add_ln91            | add  | fabric | 0       |
+|   + store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_91_1 | 0   |        |                     |      |        |         |
+|     add_ln91_fu_104_p2                                               | -   |        | add_ln91            | add  | fabric | 0       |
 +----------------------------------------------------------------------+-----+--------+---------------------+------+--------+---------+
 
 
 ================================================================
 == Bind Storage Report
 ================================================================
-+-------------------------+------+------+--------+---------------------+---------+--------+---------+
-| Name                    | BRAM | URAM | Pragma | Variable            | Storage | Impl   | Latency |
-+-------------------------+------+------+--------+---------------------+---------+--------+---------+
-| + sparse                | 31   | 0    |        |                     |         |        |         |
-|   outputs_c_U           | -    | -    |        | outputs_c           | fifo    | srl    | 0       |
-|   fm_COLS_c_U           | -    | -    |        | fm_COLS_c           | fifo    | srl    | 0       |
-|   am_ROWS_c_U           | -    | -    |        | am_ROWS_c           | fifo    | srl    | 0       |
-|   output_data_addr3_c_U | -    | -    |        | output_data_addr3_c | fifo    | srl    | 0       |
-|   data_out_U            | 15   | -    |        | data_out            | fifo    | memory | 0       |
-|   fm_ram_V_U            | 15   | -    |        | fm_ram_V            | ram_1p  | auto   | 1       |
-|   idx_ram_U             | 1    | -    |        | idx_ram             | ram_1p  | auto   | 1       |
-|   count_ram_U           | -    | -    |        | count_ram           | ram_1p  | auto   | 1       |
-+-------------------------+------+------+--------+---------------------+---------+--------+---------+
++------------------------------------+------+------+--------+---------------------+---------+--------+---------+
+| Name                               | BRAM | URAM | Pragma | Variable            | Storage | Impl   | Latency |
++------------------------------------+------+------+--------+---------------------+---------+--------+---------+
+| + sparse                           | 46   | 0    |        |                     |         |        |         |
+|   outputs_c_U                      | -    | -    |        | outputs_c           | fifo    | srl    | 0       |
+|   fm_COLS_c_U                      | -    | -    |        | fm_COLS_c           | fifo    | srl    | 0       |
+|   am_ROWS_c_U                      | -    | -    |        | am_ROWS_c           | fifo    | srl    | 0       |
+|   output_data_addr3_c_U            | -    | -    |        | output_data_addr3_c | fifo    | srl    | 0       |
+|   data_out_U                       | 15   | -    |        | data_out            | fifo    | memory | 0       |
+|   fm_ram_V_U                       | 15   | -    |        | fm_ram_V            | ram_1p  | auto   | 1       |
+|   idx_ram_U                        | 1    | -    |        | idx_ram             | ram_1p  | auto   | 1       |
+|   count_ram_U                      | -    | -    |        | count_ram           | ram_1p  | auto   | 1       |
+|  + load_ap_uint_256_ap_int_8_32u_s | 15   | 0    |        |                     |         |        |         |
+|    am_ram_V_U                      | 15   | -    |        | am_ram_V            | ram_1p  | auto   | 1       |
++------------------------------------+------+------+--------+---------------------+---------+--------+---------+
 
 
 ================================================================
@@ -317,11 +319,11 @@
 | inline          |                                                                | src/../include/../include/types.hpp:686 in shift                                     |
 | inline          |                                                                | src/../include/../include/types.hpp:691 in shift                                     |
 | inline          |                                                                | src/../include/../include/types.hpp:696 in unshift                                   |
-| pipeline        |                                                                | src/../include/helpers.hpp:26 in load                                                |
-| unroll          |                                                                | src/../include/helpers.hpp:29 in load                                                |
-| pipeline        | II = 1                                                         | src/../include/helpers.hpp:51 in mul                                                 |
-| unroll          |                                                                | src/../include/helpers.hpp:58 in mul                                                 |
-| pipeline        |                                                                | src/../include/helpers.hpp:90 in store                                               |
+| pipeline        |                                                                | src/../include/helpers.hpp:28 in load                                                |
+| unroll          |                                                                | src/../include/helpers.hpp:32 in load                                                |
+| pipeline        | II = 1                                                         | src/../include/helpers.hpp:54 in mul                                                 |
+| unroll          |                                                                | src/../include/helpers.hpp:61 in mul                                                 |
+| pipeline        |                                                                | src/../include/helpers.hpp:93 in store                                               |
 | interface       | mode = m_axi port = inputs bundle = sparse_data latency = 32   | src/sparse.cpp:16 in sparse                                                          |
 | interface       | mode = m_axi port = outputs bundle = sparse_data latency = 32  | src/sparse.cpp:17 in sparse                                                          |
 | interface       | mode = s_axilite port = input_data_addr1 bundle = sparse_addr  | src/sparse.cpp:18 in sparse                                                          |

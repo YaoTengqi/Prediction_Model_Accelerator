@@ -15,20 +15,23 @@ void load(
 		uint32_t input_data_addr1,
 		uint32_t input_data_addr2)
 {
-	t_DataType_IN am_ram[am_ROWS][am_COLS];
+	typename WideType<t_DataType_IN, nPE>::t_TypeInt am_ram[1024];
 	int idx_count = 0, count_count = 0;
 	int fm_loop_num = fm_ROWS * fm_COLS * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
-	int addr1 = input_data_addr1 / sizeof(t_AXI_DataType);
+	int am_loop_num = am_ROWS * am_COLS * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
 	for(int i = 0; i < fm_loop_num; i++){
-		fm_ram[i] = inputs[addr1 + i]; // load feature matrix
+		fm_ram[i] = inputs[input_data_addr1 + i]; // load feature matrix
 	}
-	memcpy(&am_ram[0], &inputs[input_data_addr2], am_ROWS * am_COLS * sizeof(t_DataType_IN));
+	for(int j = 0; j < am_loop_num; j++){
+		am_ram[j] = inputs[input_data_addr2 + j]; // load adjacency matrix
+	}
 #pragma HLS PIPELINE
 	for(int row = 0; row < am_ROWS; row++){	// 获取idx和count
 		int count = 0;
+		WideType<t_DataType_IN, nPE> am_value = am_ram[row];
 #pragma HLS UNROLL
 		for(int col = 0; col < am_COLS; col++){
-			if(am_ram[row][col] != 0){
+			if(am_value[col] != 0){
 				count++;
 				idx_ram[idx_count++] = col;
 			}
