@@ -23,7 +23,7 @@ set CUR_DIR [pwd]
 set XF_PROJ_ROOT $CUR_DIR/
 set XPART xczu7ev-ffvc1156-2-e
 
-set PROJ "Concat_HLS.prj"
+set PROJ "Sparse_HLS.prj"
 set SOLN "sol"
 
 if {![info exists CLKP]} {
@@ -36,9 +36,9 @@ open_project -reset $PROJ
 # add_files -tb "${XF_PROJ_ROOT}/L1/tests/hw/gemm/test.cpp" -cflags "-std=c++11 -I${XF_PROJ_ROOT}/L1/include/hw -I${XF_PROJ_ROOT}/L1/tests/sw/include -I${XF_PROJ_ROOT}/L1/tests/hw/gemm -I${XF_PROJ_ROOT}/L1/include/hw/xf_blas/helpers/utils -I${XF_PROJ_ROOT}/L1/tests/hw/gemm/tests/Dfloat_m32_n16_k64_par8"
 # set_top uut_top
 
-add_files "${CUR_DIR}/src/concat.cpp" -cflags "-I${CUR_DIR}/include/"
-add_files -tb "${CUR_DIR}/testbench/concat_tb.cpp" -cflags "-std=c++11 "
-set_top concat
+add_files "${CUR_DIR}/src/sparse.cpp" -cflags "-I${CUR_DIR}/include/"
+add_files -tb "${CUR_DIR}/testbench/sparse_tb.cpp" -cflags "-std=c++11 "
+set_top sparse
 
 open_solution -reset $SOLN
 

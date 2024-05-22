@@ -1,0 +1,11 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+   Compiling ../../../../testbench/sparse_tb.cpp in debug mode
+   Compiling ../../../../src/sparse.cpp in debug mode
+   Generating csim.exe
+WARNNING: file /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/DATA/data/dram_before.bin size 167809024 doesn't match required size 17408
+WARNNING: file /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/DATA/data/dram_after.bin size 167809024 doesn't match required size 16384
+Pass!
+INFO [HLS SIM]: The maximum depth reached by any hls::stream() instance in the design is 512
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

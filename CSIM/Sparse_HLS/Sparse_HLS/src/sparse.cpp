@@ -27,14 +27,14 @@ void sparse(
 
 	// 输出矩阵
 	hls::stream<WideType<t_DataType_OUT, nPE>::t_TypeInt> data_out;
-#pragma HLS STREAM variable = data_out depth = 4
+#pragma HLS STREAM variable = data_out depth = 64
 	// 特征矩阵的RAM
-	t_DataType_IN fm_ram[fm_ROWS][fm_COLS];
+	typename WideType<t_DataType_IN, nPE>::t_TypeInt fm_ram[512];
 	uint8_t idx_ram[1024];
 	uint8_t count_ram[32];
 
 #pragma HLS DATAFLOW
-	load<t_AXI_DataType, t_DataType_OUT, nPE>(am_ROWS, am_COLS, fm_ROWS, fm_COLS, inputs, idx_ram, count_ram, *fm_ram, input_data_addr1, input_data_addr2);
-	mul<t_AXI_DataType, t_DataType_IN, t_DataType_OUT, nPE>( am_ROWS, am_COLS, fm_ROWS, fm_COLS, *fm_ram, idx_ram, count_ram, data_out, outputs);
+	load<t_AXI_DataType, t_DataType_OUT, nPE>(am_ROWS, am_COLS, fm_ROWS, fm_COLS, inputs, idx_ram, count_ram, fm_ram, input_data_addr1, input_data_addr2);
+	mul<t_AXI_DataType, t_DataType_IN, t_DataType_OUT, nPE>(am_ROWS, am_COLS, fm_ROWS, fm_COLS, fm_ram, idx_ram, count_ram, data_out);
 	store<t_AXI_DataType, t_DataType_IN, t_DataType_OUT, nPE>(data_out, outputs, output_data_addr3, am_ROWS, fm_COLS, sparse_flag);
 }

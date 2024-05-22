@@ -1,0 +1,1 @@
+set ::AESL_AUTOSIM::gTopFileName /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS/solution1/./sim/autowrap/testbench/sparse.cpp_pre.cpp.tb.cpp

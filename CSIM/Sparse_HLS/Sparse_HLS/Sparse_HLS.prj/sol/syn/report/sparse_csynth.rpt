@@ -1,0 +1,249 @@
+
+
+================================================================
+== Vitis HLS Report for 'sparse'
+================================================================
+* Date:           Wed May 22 15:26:03 2024
+
+* Version:        2022.2 (Build 3670227 on Oct 13 2022)
+* Project:        Sparse_HLS.prj
+* Solution:       sol (Vivado IP Flow Target)
+* Product family: zynquplus
+* Target device:  xczu7ev-ffvc1156-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  7.300 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+----------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline |
+    |   min   |   max   |    min   |    max   | min | max |   Type   |
+    +---------+---------+----------+----------+-----+-----+----------+
+    |        ?|        ?|         ?|         ?|    ?|    ?|  dataflow|
+    +---------+---------+----------+----------+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        +--------------------------------------------+-------------------------------------------+---------+---------+-----------+----------+-----+-----+---------+
+        |                                            |                                           |  Latency (cycles) |  Latency (absolute)  |  Interval | Pipeline|
+        |                  Instance                  |                   Module                  |   min   |   max   |    min    |    max   | min | max |   Type  |
+        +--------------------------------------------+-------------------------------------------+---------+---------+-----------+----------+-----+-----+---------+
+        |entry_proc_U0                               |entry_proc                                 |        0|        0|       0 ns|      0 ns|    0|    0|       no|
+        |load_ap_uint_256_ap_int_8_32u_U0            |load_ap_uint_256_ap_int_8_32u_s            |        ?|        ?|          ?|         ?|    ?|    ?|       no|
+        |mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0    |mul_ap_uint_256_ap_int_8_ap_int_8_32u_s    |        ?|        ?|          ?|         ?|    ?|    ?|       no|
+        |store_ap_uint_256_ap_int_8_ap_int_8_32u_U0  |store_ap_uint_256_ap_int_8_ap_int_8_32u_s  |        1|        ?|  10.000 ns|         ?|    1|    ?|       no|
+        +--------------------------------------------+-------------------------------------------+---------+---------+-----------+----------+-----+-----+---------+
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+------+--------+--------+-----+
+|       Name      | BRAM_18K|  DSP |   FF   |   LUT  | URAM|
++-----------------+---------+------+--------+--------+-----+
+|DSP              |        -|     -|       -|       -|    -|
+|Expression       |        -|     -|       0|      36|    -|
+|FIFO             |       15|     -|     755|     458|    -|
+|Instance         |        0|     9|    4027|    8063|    0|
+|Memory           |       17|     -|       8|       8|    0|
+|Multiplexer      |        -|     -|       -|      63|    -|
+|Register         |        -|     -|       7|       -|    -|
++-----------------+---------+------+--------+--------+-----+
+|Total            |       32|     9|    4797|    8628|    0|
++-----------------+---------+------+--------+--------+-----+
+|Available        |      624|  1728|  460800|  230400|   96|
++-----------------+---------+------+--------+--------+-----+
+|Utilization (%)  |        5|    ~0|       1|       3|    0|
++-----------------+---------+------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    +--------------------------------------------+-------------------------------------------+---------+----+------+------+-----+
+    |                  Instance                  |                   Module                  | BRAM_18K| DSP|  FF  |  LUT | URAM|
+    +--------------------------------------------+-------------------------------------------+---------+----+------+------+-----+
+    |entry_proc_U0                               |entry_proc                                 |        0|   0|     3|    38|    0|
+    |load_ap_uint_256_ap_int_8_32u_U0            |load_ap_uint_256_ap_int_8_32u_s            |        0|   6|  1272|  3099|    0|
+    |mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0    |mul_ap_uint_256_ap_int_8_ap_int_8_32u_s    |        0|   0|   751|  1764|    0|
+    |sparse_addr_s_axi_U                         |sparse_addr_s_axi                          |        0|   0|   449|   746|    0|
+    |sparse_data_m_axi_U                         |sparse_data_m_axi                          |        0|   0|  1079|  1746|    0|
+    |store_ap_uint_256_ap_int_8_ap_int_8_32u_U0  |store_ap_uint_256_ap_int_8_ap_int_8_32u_s  |        0|   3|   473|   670|    0|
+    +--------------------------------------------+-------------------------------------------+---------+----+------+------+-----+
+    |Total                                       |                                           |        0|   9|  4027|  8063|    0|
+    +--------------------------------------------+-------------------------------------------+---------+----+------+------+-----+
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    +-------------+-------------------------+---------+---+----+-----+-------+-----+------+-------------+
+    |    Memory   |          Module         | BRAM_18K| FF| LUT| URAM| Words | Bits| Banks| W*Bits*Banks|
+    +-------------+-------------------------+---------+---+----+-----+-------+-----+------+-------------+
+    |count_ram_U  |count_ram_RAM_AUTO_1R1W  |        0|  8|   8|    0|     32|    8|     1|          256|
+    |fm_ram_V_U   |fm_ram_V_RAM_AUTO_1R1W   |       16|  0|   0|    0|  16384|    8|     1|       131072|
+    |idx_ram_U    |idx_ram_RAM_AUTO_1R1W    |        1|  0|   0|    0|   1024|    8|     1|         8192|
+    +-------------+-------------------------+---------+---+----+-----+-------+-----+------+-------------+
+    |Total        |                         |       17|  8|   8|    0|  17440|   24|     3|       139520|
+    +-------------+-------------------------+---------+---+----+-----+-------+-----+------+-------------+
+
+    * FIFO: 
+    +-----------------------+---------+-----+----+-----+------+-----+---------+
+    |          Name         | BRAM_18K|  FF | LUT| URAM| Depth| Bits| Size:D*B|
+    +-----------------------+---------+-----+----+-----+------+-----+---------+
+    |am_ROWS_c9_channel_U   |        0|   99|   0|    -|     2|   32|       64|
+    |am_ROWS_c_U            |        0|   99|   0|    -|     2|   32|       64|
+    |data_out_U             |       15|  161|   0|    -|   512|  256|   131072|
+    |fm_COLS_c10_channel_U  |        0|   99|   0|    -|     2|   32|       64|
+    |fm_COLS_c_U            |        0|   99|   0|    -|     2|   32|       64|
+    |output_data_addr3_c_U  |        0|   99|   0|    -|     4|   32|      128|
+    |outputs_c_U            |        0|   99|   0|    -|     4|   64|      256|
+    +-----------------------+---------+-----+----+-----+------+-----+---------+
+    |Total                  |       15|  755|   0|    0|   528|  480|   131712|
+    +-----------------------+---------+-----+----+-----+------+-----+---------+
+
+    * Expression: 
+    +---------------------------------------------------+----------+----+---+----+------------+------------+
+    |                   Variable Name                   | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +---------------------------------------------------+----------+----+---+----+------------+------------+
+    |ap_channel_done_am_ROWS_c9_channel                 |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_count_ram                          |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_fm_COLS_c10_channel                |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_fm_ram_V                           |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_idx_ram                            |       and|   0|  0|   2|           1|           1|
+    |ap_idle                                            |       and|   0|  0|   2|           1|           1|
+    |ap_sync_ready                                      |       and|   0|  0|   2|           1|           1|
+    |entry_proc_U0_ap_start                             |       and|   0|  0|   2|           1|           1|
+    |load_ap_uint_256_ap_int_8_32u_U0_ap_continue       |       and|   0|  0|   2|           1|           1|
+    |load_ap_uint_256_ap_int_8_32u_U0_ap_start          |       and|   0|  0|   2|           1|           1|
+    |mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_start  |       and|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_am_ROWS_c9_channel           |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_count_ram                    |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_fm_COLS_c10_channel          |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_fm_ram_V                     |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_idx_ram                      |        or|   0|  0|   2|           1|           1|
+    |ap_sync_entry_proc_U0_ap_ready                     |        or|   0|  0|   2|           1|           1|
+    |ap_sync_load_ap_uint_256_ap_int_8_32u_U0_ap_ready  |        or|   0|  0|   2|           1|           1|
+    +---------------------------------------------------+----------+----+---+----+------------+------------+
+    |Total                                              |          |   0|  0|  36|          18|          18|
+    +---------------------------------------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-------------------------------------------------------+----+-----------+-----+-----------+
+    |                          Name                         | LUT| Input Size| Bits| Total Bits|
+    +-------------------------------------------------------+----+-----------+-----+-----------+
+    |ap_sync_reg_channel_write_am_ROWS_c9_channel           |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_count_ram                    |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_fm_COLS_c10_channel          |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_fm_ram_V                     |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_idx_ram                      |   9|          2|    1|          2|
+    |ap_sync_reg_entry_proc_U0_ap_ready                     |   9|          2|    1|          2|
+    |ap_sync_reg_load_ap_uint_256_ap_int_8_32u_U0_ap_ready  |   9|          2|    1|          2|
+    +-------------------------------------------------------+----+-----------+-----+-----------+
+    |Total                                                  |  63|         14|    7|         14|
+    +-------------------------------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-------------------------------------------------------+---+----+-----+-----------+
+    |                          Name                         | FF| LUT| Bits| Const Bits|
+    +-------------------------------------------------------+---+----+-----+-----------+
+    |ap_sync_reg_channel_write_am_ROWS_c9_channel           |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_count_ram                    |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_fm_COLS_c10_channel          |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_fm_ram_V                     |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_idx_ram                      |  1|   0|    1|          0|
+    |ap_sync_reg_entry_proc_U0_ap_ready                     |  1|   0|    1|          0|
+    |ap_sync_reg_load_ap_uint_256_ap_int_8_32u_U0_ap_ready  |  1|   0|    1|          0|
+    +-------------------------------------------------------+---+----+-----+-----------+
+    |Total                                                  |  7|   0|    7|          0|
+    +-------------------------------------------------------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++----------------------------+-----+-----+------------+--------------+--------------+
+|          RTL Ports         | Dir | Bits|  Protocol  | Source Object|    C Type    |
++----------------------------+-----+-----+------------+--------------+--------------+
+|s_axi_sparse_addr_AWVALID   |   in|    1|       s_axi|   sparse_addr|       pointer|
+|s_axi_sparse_addr_AWREADY   |  out|    1|       s_axi|   sparse_addr|       pointer|
+|s_axi_sparse_addr_AWADDR    |   in|    7|       s_axi|   sparse_addr|       pointer|
+|s_axi_sparse_addr_WVALID    |   in|    1|       s_axi|   sparse_addr|       pointer|
+|s_axi_sparse_addr_WREADY    |  out|    1|       s_axi|   sparse_addr|       pointer|
+|s_axi_sparse_addr_WDATA     |   in|   32|       s_axi|   sparse_addr|       pointer|
+|s_axi_sparse_addr_WSTRB     |   in|    4|       s_axi|   sparse_addr|       pointer|
+|s_axi_sparse_addr_ARVALID   |   in|    1|       s_axi|   sparse_addr|       pointer|
+|s_axi_sparse_addr_ARREADY   |  out|    1|       s_axi|   sparse_addr|       pointer|
+|s_axi_sparse_addr_ARADDR    |   in|    7|       s_axi|   sparse_addr|       pointer|
+|s_axi_sparse_addr_RVALID    |  out|    1|       s_axi|   sparse_addr|       pointer|
+|s_axi_sparse_addr_RREADY    |   in|    1|       s_axi|   sparse_addr|       pointer|
+|s_axi_sparse_addr_RDATA     |  out|   32|       s_axi|   sparse_addr|       pointer|
+|s_axi_sparse_addr_RRESP     |  out|    2|       s_axi|   sparse_addr|       pointer|
+|s_axi_sparse_addr_BVALID    |  out|    1|       s_axi|   sparse_addr|       pointer|
+|s_axi_sparse_addr_BREADY    |   in|    1|       s_axi|   sparse_addr|       pointer|
+|s_axi_sparse_addr_BRESP     |  out|    2|       s_axi|   sparse_addr|       pointer|
+|ap_clk                      |   in|    1|  ap_ctrl_hs|        sparse|  return value|
+|ap_rst_n                    |   in|    1|  ap_ctrl_hs|        sparse|  return value|
+|interrupt                   |  out|    1|  ap_ctrl_hs|        sparse|  return value|
+|m_axi_sparse_data_AWVALID   |  out|    1|       m_axi|   sparse_data|       pointer|
+|m_axi_sparse_data_AWREADY   |   in|    1|       m_axi|   sparse_data|       pointer|
+|m_axi_sparse_data_AWADDR    |  out|   64|       m_axi|   sparse_data|       pointer|
+|m_axi_sparse_data_AWID      |  out|    1|       m_axi|   sparse_data|       pointer|
+|m_axi_sparse_data_AWLEN     |  out|    8|       m_axi|   sparse_data|       pointer|
+|m_axi_sparse_data_AWSIZE    |  out|    3|       m_axi|   sparse_data|       pointer|
+|m_axi_sparse_data_AWBURST   |  out|    2|       m_axi|   sparse_data|       pointer|
+|m_axi_sparse_data_AWLOCK    |  out|    2|       m_axi|   sparse_data|       pointer|
+|m_axi_sparse_data_AWCACHE   |  out|    4|       m_axi|   sparse_data|       pointer|
+|m_axi_sparse_data_AWPROT    |  out|    3|       m_axi|   sparse_data|       pointer|
+|m_axi_sparse_data_AWQOS     |  out|    4|       m_axi|   sparse_data|       pointer|
+|m_axi_sparse_data_AWREGION  |  out|    4|       m_axi|   sparse_data|       pointer|
+|m_axi_sparse_data_AWUSER    |  out|    1|       m_axi|   sparse_data|       pointer|
+|m_axi_sparse_data_WVALID    |  out|    1|       m_axi|   sparse_data|       pointer|
+|m_axi_sparse_data_WREADY    |   in|    1|       m_axi|   sparse_data|       pointer|
+|m_axi_sparse_data_WDATA     |  out|  256|       m_axi|   sparse_data|       pointer|
+|m_axi_sparse_data_WSTRB     |  out|   32|       m_axi|   sparse_data|       pointer|
+|m_axi_sparse_data_WLAST     |  out|    1|       m_axi|   sparse_data|       pointer|
+|m_axi_sparse_data_WID       |  out|    1|       m_axi|   sparse_data|       pointer|
+|m_axi_sparse_data_WUSER     |  out|    1|       m_axi|   sparse_data|       pointer|
+|m_axi_sparse_data_ARVALID   |  out|    1|       m_axi|   sparse_data|       pointer|
+|m_axi_sparse_data_ARREADY   |   in|    1|       m_axi|   sparse_data|       pointer|
+|m_axi_sparse_data_ARADDR    |  out|   64|       m_axi|   sparse_data|       pointer|
+|m_axi_sparse_data_ARID      |  out|    1|       m_axi|   sparse_data|       pointer|
+|m_axi_sparse_data_ARLEN     |  out|    8|       m_axi|   sparse_data|       pointer|
+|m_axi_sparse_data_ARSIZE    |  out|    3|       m_axi|   sparse_data|       pointer|
+|m_axi_sparse_data_ARBURST   |  out|    2|       m_axi|   sparse_data|       pointer|
+|m_axi_sparse_data_ARLOCK    |  out|    2|       m_axi|   sparse_data|       pointer|
+|m_axi_sparse_data_ARCACHE   |  out|    4|       m_axi|   sparse_data|       pointer|
+|m_axi_sparse_data_ARPROT    |  out|    3|       m_axi|   sparse_data|       pointer|
+|m_axi_sparse_data_ARQOS     |  out|    4|       m_axi|   sparse_data|       pointer|
+|m_axi_sparse_data_ARREGION  |  out|    4|       m_axi|   sparse_data|       pointer|
+|m_axi_sparse_data_ARUSER    |  out|    1|       m_axi|   sparse_data|       pointer|
+|m_axi_sparse_data_RVALID    |   in|    1|       m_axi|   sparse_data|       pointer|
+|m_axi_sparse_data_RREADY    |  out|    1|       m_axi|   sparse_data|       pointer|
+|m_axi_sparse_data_RDATA     |   in|  256|       m_axi|   sparse_data|       pointer|
+|m_axi_sparse_data_RLAST     |   in|    1|       m_axi|   sparse_data|       pointer|
+|m_axi_sparse_data_RID       |   in|    1|       m_axi|   sparse_data|       pointer|
+|m_axi_sparse_data_RUSER     |   in|    1|       m_axi|   sparse_data|       pointer|
+|m_axi_sparse_data_RRESP     |   in|    2|       m_axi|   sparse_data|       pointer|
+|m_axi_sparse_data_BVALID    |   in|    1|       m_axi|   sparse_data|       pointer|
+|m_axi_sparse_data_BREADY    |  out|    1|       m_axi|   sparse_data|       pointer|
+|m_axi_sparse_data_BRESP     |   in|    2|       m_axi|   sparse_data|       pointer|
+|m_axi_sparse_data_BID       |   in|    1|       m_axi|   sparse_data|       pointer|
+|m_axi_sparse_data_BUSER     |   in|    1|       m_axi|   sparse_data|       pointer|
++----------------------------+-----+-----+------------+--------------+--------------+
+
