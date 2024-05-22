@@ -6,11 +6,6 @@ if {${::AESL::PGuard_rtl_comp_handler}} {
 }
 
 
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler concat_read_inputs_ap_uint_256_ap_int_8_32u_s_ram1_RAM_AUTO_1R1W BINDTYPE {storage} TYPE {ram} IMPL {auto} LATENCY 2 ALLOW_PRAGMA 1
-}
-
-
 # clear list
 if {${::AESL::PGuard_autoexp_gen}} {
     cg_default_interface_gen_dc_begin
@@ -21,10 +16,10 @@ if {${::AESL::PGuard_autoexp_gen}} {
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 8 \
+    id 27 \
     name concat_data \
     type other \
-    dir I \
+    dir IO \
     reset_level 1 \
     sync_rst true \
     corename dc_concat_data \
@@ -36,7 +31,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 9 \
+    id 28 \
     name inputs \
     type other \
     dir I \
@@ -51,22 +46,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 10 \
-    name data_out1 \
-    type fifo \
-    dir O \
-    reset_level 1 \
-    sync_rst true \
-    corename dc_data_out1 \
-    op interface \
-    ports { data_out1_din { O 256 vector } data_out1_num_data_valid { I 8 vector } data_out1_fifo_cap { I 8 vector } data_out1_full_n { I 1 bit } data_out1_write { O 1 bit } } \
-} "
-}
-
-# Direct connection:
-if {${::AESL::PGuard_autoexp_gen}} {
-eval "cg_default_interface_gen_dc { \
-    id 11 \
+    id 29 \
     name input_data_addr1 \
     type other \
     dir I \
@@ -81,7 +61,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 12 \
+    id 30 \
     name input_data_addr2 \
     type other \
     dir I \
@@ -96,7 +76,22 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 13 \
+    id 31 \
+    name input_data_addr3 \
+    type other \
+    dir I \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_input_data_addr3 \
+    op interface \
+    ports { input_data_addr3 { I 32 vector } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 32 \
     name ROWS \
     type other \
     dir I \
@@ -111,7 +106,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 14 \
+    id 33 \
     name COLS \
     type other \
     dir I \
@@ -126,30 +121,30 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 15 \
-    name ROWS_c \
-    type fifo \
-    dir O \
+    id 34 \
+    name outputs \
+    type other \
+    dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_ROWS_c \
+    corename dc_outputs \
     op interface \
-    ports { ROWS_c_din { O 32 vector } ROWS_c_num_data_valid { I 2 vector } ROWS_c_fifo_cap { I 2 vector } ROWS_c_full_n { I 1 bit } ROWS_c_write { O 1 bit } } \
+    ports { outputs { I 64 vector } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 16 \
-    name COLS_c \
-    type fifo \
+    id 35 \
+    name concat_flag \
+    type other \
     dir O \
     reset_level 1 \
     sync_rst true \
-    corename dc_COLS_c \
+    corename dc_concat_flag \
     op interface \
-    ports { COLS_c_din { O 32 vector } COLS_c_num_data_valid { I 2 vector } COLS_c_fifo_cap { I 2 vector } COLS_c_full_n { I 1 bit } COLS_c_write { O 1 bit } } \
+    ports { concat_flag { O 1 bit } concat_flag_ap_vld { O 1 bit } } \
 } "
 }
 

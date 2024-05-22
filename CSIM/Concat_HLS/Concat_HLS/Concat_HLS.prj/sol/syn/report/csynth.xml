@@ -19,23 +19,28 @@
         </SummaryOfTimingAnalysis>
         <SummaryOfOverallLatency>
             <unit>clock cycles</unit>
-            <Best-caseLatency>undef</Best-caseLatency>
+            <Best-caseLatency>5</Best-caseLatency>
             <Average-caseLatency>undef</Average-caseLatency>
             <Worst-caseLatency>undef</Worst-caseLatency>
-            <Best-caseRealTimeLatency>undef</Best-caseRealTimeLatency>
+            <Best-caseRealTimeLatency>50.000 ns</Best-caseRealTimeLatency>
             <Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
             <Worst-caseRealTimeLatency>undef</Worst-caseRealTimeLatency>
-            <DataflowPipelineThroughput>undef</DataflowPipelineThroughput>
-            <Interval-min>undef</Interval-min>
-            <Interval-max>undef</Interval-max>
+            <DataflowPipelineThroughput>
+                <range>
+                    <min>6</min>
+                    <max>-1</max>
+                </range>
+            </DataflowPipelineThroughput>
+            <Interval-min>6</Interval-min>
+            <Interval-max>-1</Interval-max>
         </SummaryOfOverallLatency>
     </PerformanceEstimates>
     <AreaEstimates>
         <Resources>
-            <BRAM_18K>31</BRAM_18K>
-            <DSP>6</DSP>
-            <FF>4420</FF>
-            <LUT>9279</LUT>
+            <BRAM_18K>0</BRAM_18K>
+            <DSP>3</DSP>
+            <FF>4739</FF>
+            <LUT>9551</LUT>
             <URAM>0</URAM>
         </Resources>
         <AvailableResources>
@@ -813,220 +818,50 @@
             <ModuleName>concat</ModuleName>
             <InstancesList>
                 <Instance>
-                    <InstName>entry_proc_U0</InstName>
-                    <ModuleName>entry_proc</ModuleName>
-                    <IsCompInst>true</IsCompInst>
-                    <ID>168</ID>
-                </Instance>
-                <Instance>
                     <InstName>read_inputs_ap_uint_256_ap_int_8_32u_U0</InstName>
                     <ModuleName>read_inputs_ap_uint_256_ap_int_8_32u_s</ModuleName>
                     <IsCompInst>true</IsCompInst>
-                    <ID>178</ID>
-                    <BindInstances>ram1_U ram2_U mul_32s_32s_32_1_1_U5 add_ln16_fu_321_p2 sub_ln16_fu_366_p2 empty_39_fu_392_p2 empty_41_fu_406_p2 empty_43_fu_432_p2 empty_44_fu_438_p2 tmp_fu_443_p2 empty_45_fu_452_p2 empty_46_fu_523_p2 empty_49_fu_552_p2 add_ln17_fu_493_p2 empty_53_fu_612_p2 empty_55_fu_644_p2 empty_56_fu_650_p2 tmp1_fu_655_p2 empty_57_fu_664_p2 empty_58_fu_679_p2 empty_61_fu_684_p2 add_ln19_fu_788_p2</BindInstances>
-                </Instance>
-                <Instance>
-                    <InstName>store_ap_uint_256_ap_int_8_ap_int_8_32u_U0</InstName>
-                    <ModuleName>store_ap_uint_256_ap_int_8_ap_int_8_32u_s</ModuleName>
-                    <IsCompInst>true</IsCompInst>
-                    <ID>197</ID>
+                    <ID>116</ID>
                     <InstancesList>
                         <Instance>
-                            <InstName>grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_91_1_fu_128</InstName>
-                            <ModuleName>store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_91_1</ModuleName>
+                            <InstName>grp_read_inputs_ap_uint_256_ap_int_8_32u_Pipeline_1_fu_150</InstName>
+                            <ModuleName>read_inputs_ap_uint_256_ap_int_8_32u_Pipeline_1</ModuleName>
                             <IsCompInst>true</IsCompInst>
-                            <ID>128</ID>
-                            <BindInstances>add_ln91_fu_104_p2</BindInstances>
+                            <ID>150</ID>
+                            <BindInstances>empty_fu_110_p2</BindInstances>
+                        </Instance>
+                        <Instance>
+                            <InstName>grp_read_inputs_ap_uint_256_ap_int_8_32u_Pipeline_2_fu_159</InstName>
+                            <ModuleName>read_inputs_ap_uint_256_ap_int_8_32u_Pipeline_2</ModuleName>
+                            <IsCompInst>true</IsCompInst>
+                            <ID>159</ID>
+                            <BindInstances>tmp_fu_167_p2 empty_fu_177_p2 empty_37_fu_193_p2 empty_43_fu_209_p2</BindInstances>
+                        </Instance>
+                        <Instance>
+                            <InstName>grp_read_inputs_ap_uint_256_ap_int_8_32u_Pipeline_3_fu_172</InstName>
+                            <ModuleName>read_inputs_ap_uint_256_ap_int_8_32u_Pipeline_3</ModuleName>
+                            <IsCompInst>true</IsCompInst>
+                            <ID>172</ID>
+                            <BindInstances>empty_fu_110_p2</BindInstances>
+                        </Instance>
+                        <Instance>
+                            <InstName>grp_read_inputs_ap_uint_256_ap_int_8_32u_Pipeline_4_fu_181</InstName>
+                            <ModuleName>read_inputs_ap_uint_256_ap_int_8_32u_Pipeline_4</ModuleName>
+                            <IsCompInst>true</IsCompInst>
+                            <ID>181</ID>
+                            <BindInstances>tmp4_fu_167_p2 empty_fu_177_p2 empty_25_fu_193_p2 empty_31_fu_209_p2</BindInstances>
                         </Instance>
                     </InstancesList>
-                    <BindInstances>mul_32s_32s_32_1_1_U21 add_ln91_fu_186_p2</BindInstances>
+                    <BindInstances>mul_32s_32s_32_1_1_U25 add_ln19_fu_265_p2 add_ln19_1_fu_230_p2 sub_ln19_fu_274_p2 add_ln20_fu_329_p2 add_ln20_1_fu_345_p2 add_ln20_2_fu_361_p2</BindInstances>
                 </Instance>
             </InstancesList>
-            <BindInstances>outputs_c_U COLS_c_U ROWS_c_U output_data_addr3_c_U data_out_U</BindInstances>
         </TopModule>
     </RTLDesignHierarchy>
     <ModuleInformation>
         <Module>
-            <Name>entry_proc</Name>
-            <PerformanceEstimates>
-                <SummaryOfTimingAnalysis>
-                    <TargetClockPeriod>10.00</TargetClockPeriod>
-                    <ClockUncertainty>2.70</ClockUncertainty>
-                    <EstimatedClockPeriod>1.838</EstimatedClockPeriod>
-                </SummaryOfTimingAnalysis>
-                <SummaryOfOverallLatency>
-                    <Best-caseLatency>0</Best-caseLatency>
-                    <Average-caseLatency>0</Average-caseLatency>
-                    <Worst-caseLatency>0</Worst-caseLatency>
-                    <Best-caseRealTimeLatency>0 ns</Best-caseRealTimeLatency>
-                    <Average-caseRealTimeLatency>0 ns</Average-caseRealTimeLatency>
-                    <Worst-caseRealTimeLatency>0 ns</Worst-caseRealTimeLatency>
-                    <PipelineInitiationInterval>0</PipelineInitiationInterval>
-                    <PipelineType>no</PipelineType>
-                </SummaryOfOverallLatency>
-            </PerformanceEstimates>
-            <AreaEstimates>
-                <Resources>
-                    <FF>3</FF>
-                    <AVAIL_FF>460800</AVAIL_FF>
-                    <UTIL_FF>~0</UTIL_FF>
-                    <LUT>38</LUT>
-                    <AVAIL_LUT>230400</AVAIL_LUT>
-                    <UTIL_LUT>~0</UTIL_LUT>
-                    <BRAM_18K>0</BRAM_18K>
-                    <AVAIL_BRAM>624</AVAIL_BRAM>
-                    <UTIL_BRAM>0</UTIL_BRAM>
-                    <DSP>0</DSP>
-                    <AVAIL_DSP>1728</AVAIL_DSP>
-                    <UTIL_DSP>0</UTIL_DSP>
-                    <URAM>0</URAM>
-                    <AVAIL_URAM>96</AVAIL_URAM>
-                    <UTIL_URAM>0</UTIL_URAM>
-                </Resources>
-            </AreaEstimates>
-        </Module>
-        <Module>
-            <Name>read_inputs_ap_uint_256_ap_int_8_32u_s</Name>
+            <Name>read_inputs_ap_uint_256_ap_int_8_32u_Pipeline_1</Name>
             <Loops>
                 <Loop1/>
-                <Loop2/>
-                <Loop3/>
-                <Loop4/>
-                <VITIS_LOOP_19_1/>
-            </Loops>
-            <PerformanceEstimates>
-                <SummaryOfTimingAnalysis>
-                    <TargetClockPeriod>10.00</TargetClockPeriod>
-                    <ClockUncertainty>2.70</ClockUncertainty>
-                    <TargetInitiationInterval>4294967295</TargetInitiationInterval>
-                    <EstimatedClockPeriod>7.300</EstimatedClockPeriod>
-                </SummaryOfTimingAnalysis>
-                <SummaryOfOverallLatency>
-                    <Best-caseLatency>undef</Best-caseLatency>
-                    <Average-caseLatency>undef</Average-caseLatency>
-                    <Worst-caseLatency>undef</Worst-caseLatency>
-                    <Best-caseRealTimeLatency>undef</Best-caseRealTimeLatency>
-                    <Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
-                    <Worst-caseRealTimeLatency>undef</Worst-caseRealTimeLatency>
-                    <PipelineInitiationInterval>undef</PipelineInitiationInterval>
-                    <PipelineType>no</PipelineType>
-                </SummaryOfOverallLatency>
-                <SummaryOfLoopLatency>
-                    <Loop1>
-                        <Name>Loop 1</Name>
-                        <Slack>7.30</Slack>
-                        <TripCount>undef</TripCount>
-                        <Latency>undef</Latency>
-                        <AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
-                        <IterationLatency>3</IterationLatency>
-                        <PipelineDepth>3</PipelineDepth>
-                        <PipelineType>no</PipelineType>
-                        <InstanceList/>
-                    </Loop1>
-                    <Loop2>
-                        <Name>Loop 2</Name>
-                        <Slack>7.30</Slack>
-                        <TripCount>
-                            <range>
-                                <min>0</min>
-                                <max>31</max>
-                            </range>
-                        </TripCount>
-                        <Latency>0 ~ 1271</Latency>
-                        <AbsoluteTimeLatency>0 ns ~ 12.710 us</AbsoluteTimeLatency>
-                        <IterationLatency>41</IterationLatency>
-                        <PipelineDepth>41</PipelineDepth>
-                        <PipelineType>no</PipelineType>
-                        <InstanceList/>
-                    </Loop2>
-                    <Loop3>
-                        <Name>Loop 3</Name>
-                        <Slack>7.30</Slack>
-                        <TripCount>undef</TripCount>
-                        <Latency>undef</Latency>
-                        <AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
-                        <IterationLatency>3</IterationLatency>
-                        <PipelineDepth>3</PipelineDepth>
-                        <PipelineType>no</PipelineType>
-                        <InstanceList/>
-                    </Loop3>
-                    <Loop4>
-                        <Name>Loop 4</Name>
-                        <Slack>7.30</Slack>
-                        <TripCount>
-                            <range>
-                                <min>0</min>
-                                <max>31</max>
-                            </range>
-                        </TripCount>
-                        <Latency>0 ~ 1271</Latency>
-                        <AbsoluteTimeLatency>0 ns ~ 12.710 us</AbsoluteTimeLatency>
-                        <IterationLatency>41</IterationLatency>
-                        <PipelineDepth>41</PipelineDepth>
-                        <PipelineType>no</PipelineType>
-                        <InstanceList/>
-                    </Loop4>
-                    <VITIS_LOOP_19_1>
-                        <Name>VITIS_LOOP_19_1</Name>
-                        <Slack>7.30</Slack>
-                        <TripCount>undef</TripCount>
-                        <Latency>undef</Latency>
-                        <AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
-                        <IterationLatency>3</IterationLatency>
-                        <PipelineDepth>3</PipelineDepth>
-                        <PipelineType>no</PipelineType>
-                        <InstanceList/>
-                    </VITIS_LOOP_19_1>
-                </SummaryOfLoopLatency>
-            </PerformanceEstimates>
-            <AreaEstimates>
-                <Resources>
-                    <BRAM_18K>16</BRAM_18K>
-                    <AVAIL_BRAM>624</AVAIL_BRAM>
-                    <UTIL_BRAM>2</UTIL_BRAM>
-                    <DSP>3</DSP>
-                    <AVAIL_DSP>1728</AVAIL_DSP>
-                    <UTIL_DSP>~0</UTIL_DSP>
-                    <FF>1937</FF>
-                    <AVAIL_FF>460800</AVAIL_FF>
-                    <UTIL_FF>~0</UTIL_FF>
-                    <LUT>5857</LUT>
-                    <AVAIL_LUT>230400</AVAIL_LUT>
-                    <UTIL_LUT>2</UTIL_LUT>
-                    <URAM>0</URAM>
-                    <AVAIL_URAM>96</AVAIL_URAM>
-                    <UTIL_URAM>0</UTIL_URAM>
-                </Resources>
-            </AreaEstimates>
-            <BindNodes>
-                <BindNode BINDTYPE="storage" BRAM="8" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="ram1_U" SOURCE="" URAM="0" VARIABLE="ram1"/>
-                <BindNode BINDTYPE="storage" BRAM="8" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="ram2_U" SOURCE="" URAM="0" VARIABLE="ram2"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="3" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="mul" PRAGMA="" RTLNAME="mul_32s_32s_32_1_1_U5" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:13" URAM="0" VARIABLE="mul_ln13"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln16_fu_321_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:16" URAM="0" VARIABLE="add_ln16"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln16_fu_366_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:16" URAM="0" VARIABLE="sub_ln16"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="Loop 1" OPTYPE="add" PRAGMA="" RTLNAME="empty_39_fu_392_p2" SOURCE="" URAM="0" VARIABLE="empty_39"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="empty_41_fu_406_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:16" URAM="0" VARIABLE="empty_41"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="Loop 2" OPTYPE="add" PRAGMA="" RTLNAME="empty_43_fu_432_p2" SOURCE="" URAM="0" VARIABLE="empty_43"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="Loop 2" OPTYPE="add" PRAGMA="" RTLNAME="empty_44_fu_438_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:16" URAM="0" VARIABLE="empty_44"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="Loop 2" OPTYPE="add" PRAGMA="" RTLNAME="tmp_fu_443_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:16" URAM="0" VARIABLE="tmp"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="Loop 2" OPTYPE="add" PRAGMA="" RTLNAME="empty_45_fu_452_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:16" URAM="0" VARIABLE="empty_45"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="Loop 2" OPTYPE="add" PRAGMA="" RTLNAME="empty_46_fu_523_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:16" URAM="0" VARIABLE="empty_46"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="Loop 2" OPTYPE="add" PRAGMA="" RTLNAME="empty_49_fu_552_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:16" URAM="0" VARIABLE="empty_49"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln17_fu_493_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:17" URAM="0" VARIABLE="add_ln17"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="Loop 3" OPTYPE="add" PRAGMA="" RTLNAME="empty_53_fu_612_p2" SOURCE="" URAM="0" VARIABLE="empty_53"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="Loop 4" OPTYPE="add" PRAGMA="" RTLNAME="empty_55_fu_644_p2" SOURCE="" URAM="0" VARIABLE="empty_55"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="Loop 4" OPTYPE="add" PRAGMA="" RTLNAME="empty_56_fu_650_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:16" URAM="0" VARIABLE="empty_56"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="Loop 4" OPTYPE="add" PRAGMA="" RTLNAME="tmp1_fu_655_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:16" URAM="0" VARIABLE="tmp1"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="Loop 4" OPTYPE="add" PRAGMA="" RTLNAME="empty_57_fu_664_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:16" URAM="0" VARIABLE="empty_57"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="Loop 4" OPTYPE="add" PRAGMA="" RTLNAME="empty_58_fu_679_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:16" URAM="0" VARIABLE="empty_58"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="Loop 4" OPTYPE="add" PRAGMA="" RTLNAME="empty_61_fu_684_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:16" URAM="0" VARIABLE="empty_61"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_19_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln19_fu_788_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:19" URAM="0" VARIABLE="add_ln19"/>
-            </BindNodes>
-        </Module>
-        <Module>
-            <Name>store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_91_1</Name>
-            <Loops>
-                <VITIS_LOOP_91_1/>
             </Loops>
             <PerformanceEstimates>
                 <SummaryOfTimingAnalysis>
@@ -1037,38 +872,33 @@
                 <SummaryOfOverallLatency>
                     <Best-caseLatency>4</Best-caseLatency>
                     <Average-caseLatency>undef</Average-caseLatency>
-                    <Worst-caseLatency>134217730</Worst-caseLatency>
+                    <Worst-caseLatency>undef</Worst-caseLatency>
                     <Best-caseRealTimeLatency>40.000 ns</Best-caseRealTimeLatency>
                     <Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
-                    <Worst-caseRealTimeLatency>1.342 sec</Worst-caseRealTimeLatency>
-                    <PipelineInitiationInterval>4 ~ 134217730</PipelineInitiationInterval>
+                    <Worst-caseRealTimeLatency>undef</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>4 ~ -1</PipelineInitiationInterval>
                     <PipelineType>no</PipelineType>
                 </SummaryOfOverallLatency>
                 <SummaryOfLoopLatency>
-                    <VITIS_LOOP_91_1>
-                        <Name>VITIS_LOOP_91_1</Name>
+                    <Loop1>
+                        <Name>Loop 1</Name>
                         <Slack>7.30</Slack>
-                        <TripCount>
-                            <range>
-                                <min>1</min>
-                                <max>134217727</max>
-                            </range>
-                        </TripCount>
-                        <Latency>2 ~ 134217728</Latency>
-                        <AbsoluteTimeLatency>20.000 ns ~ 1.342 sec</AbsoluteTimeLatency>
+                        <TripCount>undef</TripCount>
+                        <Latency>2 ~ ?</Latency>
+                        <AbsoluteTimeLatency>20.000 ns ~ ?</AbsoluteTimeLatency>
                         <PipelineII>1</PipelineII>
-                        <PipelineDepth>3</PipelineDepth>
+                        <PipelineDepth>2</PipelineDepth>
                         <PipelineType>yes</PipelineType>
                         <InstanceList/>
-                    </VITIS_LOOP_91_1>
+                    </Loop1>
                 </SummaryOfLoopLatency>
             </PerformanceEstimates>
             <AreaEstimates>
                 <Resources>
-                    <FF>289</FF>
+                    <FF>287</FF>
                     <AVAIL_FF>460800</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>113</LUT>
+                    <LUT>111</LUT>
                     <AVAIL_LUT>230400</AVAIL_LUT>
                     <UTIL_LUT>~0</UTIL_LUT>
                     <BRAM_18K>0</BRAM_18K>
@@ -1083,11 +913,14 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_91_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln91_fu_104_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:91" URAM="0" VARIABLE="add_ln91"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="Loop 1" OPTYPE="add" PRAGMA="" RTLNAME="empty_fu_110_p2" SOURCE="" URAM="0" VARIABLE="empty"/>
             </BindNodes>
         </Module>
         <Module>
-            <Name>store_ap_uint_256_ap_int_8_ap_int_8_32u_s</Name>
+            <Name>read_inputs_ap_uint_256_ap_int_8_32u_Pipeline_2</Name>
+            <Loops>
+                <Loop1/>
+            </Loops>
             <PerformanceEstimates>
                 <SummaryOfTimingAnalysis>
                     <TargetClockPeriod>10.00</TargetClockPeriod>
@@ -1095,13 +928,200 @@
                     <EstimatedClockPeriod>7.300</EstimatedClockPeriod>
                 </SummaryOfTimingAnalysis>
                 <SummaryOfOverallLatency>
-                    <Best-caseLatency>1</Best-caseLatency>
+                    <Best-caseLatency>80</Best-caseLatency>
                     <Average-caseLatency>undef</Average-caseLatency>
-                    <Worst-caseLatency>134217769</Worst-caseLatency>
-                    <Best-caseRealTimeLatency>10.000 ns</Best-caseRealTimeLatency>
+                    <Worst-caseLatency>110</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>0.800 us</Best-caseRealTimeLatency>
                     <Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
-                    <Worst-caseRealTimeLatency>1.342 sec</Worst-caseRealTimeLatency>
-                    <PipelineInitiationInterval>1 ~ 134217769</PipelineInitiationInterval>
+                    <Worst-caseRealTimeLatency>1.100 us</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>80 ~ 110</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <Loop1>
+                        <Name>Loop 1</Name>
+                        <Slack>7.30</Slack>
+                        <TripCount>
+                            <range>
+                                <min>1</min>
+                                <max>31</max>
+                            </range>
+                        </TripCount>
+                        <Latency>78 ~ 108</Latency>
+                        <AbsoluteTimeLatency>0.780 us ~ 1.080 us</AbsoluteTimeLatency>
+                        <PipelineII>1</PipelineII>
+                        <PipelineDepth>78</PipelineDepth>
+                        <PipelineType>yes</PipelineType>
+                        <InstanceList/>
+                    </Loop1>
+                </SummaryOfLoopLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>956</FF>
+                    <AVAIL_FF>460800</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>2391</LUT>
+                    <AVAIL_LUT>230400</AVAIL_LUT>
+                    <UTIL_LUT>1</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>624</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>1728</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>96</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="Loop 1" OPTYPE="add" PRAGMA="" RTLNAME="tmp_fu_167_p2" SOURCE="" URAM="0" VARIABLE="tmp"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="Loop 1" OPTYPE="add" PRAGMA="" RTLNAME="empty_fu_177_p2" SOURCE="" URAM="0" VARIABLE="empty"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="Loop 1" OPTYPE="add" PRAGMA="" RTLNAME="empty_37_fu_193_p2" SOURCE="" URAM="0" VARIABLE="empty_37"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="Loop 1" OPTYPE="add" PRAGMA="" RTLNAME="empty_43_fu_209_p2" SOURCE="" URAM="0" VARIABLE="empty_43"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>read_inputs_ap_uint_256_ap_int_8_32u_Pipeline_3</Name>
+            <Loops>
+                <Loop1/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>10.00</TargetClockPeriod>
+                    <ClockUncertainty>2.70</ClockUncertainty>
+                    <EstimatedClockPeriod>7.300</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>4</Best-caseLatency>
+                    <Average-caseLatency>undef</Average-caseLatency>
+                    <Worst-caseLatency>undef</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>40.000 ns</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>undef</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>4 ~ -1</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <Loop1>
+                        <Name>Loop 1</Name>
+                        <Slack>7.30</Slack>
+                        <TripCount>undef</TripCount>
+                        <Latency>2 ~ ?</Latency>
+                        <AbsoluteTimeLatency>20.000 ns ~ ?</AbsoluteTimeLatency>
+                        <PipelineII>1</PipelineII>
+                        <PipelineDepth>2</PipelineDepth>
+                        <PipelineType>yes</PipelineType>
+                        <InstanceList/>
+                    </Loop1>
+                </SummaryOfLoopLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>287</FF>
+                    <AVAIL_FF>460800</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>111</LUT>
+                    <AVAIL_LUT>230400</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>624</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>1728</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>96</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="Loop 1" OPTYPE="add" PRAGMA="" RTLNAME="empty_fu_110_p2" SOURCE="" URAM="0" VARIABLE="empty"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>read_inputs_ap_uint_256_ap_int_8_32u_Pipeline_4</Name>
+            <Loops>
+                <Loop1/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>10.00</TargetClockPeriod>
+                    <ClockUncertainty>2.70</ClockUncertainty>
+                    <EstimatedClockPeriod>7.300</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>80</Best-caseLatency>
+                    <Average-caseLatency>undef</Average-caseLatency>
+                    <Worst-caseLatency>110</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>0.800 us</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>1.100 us</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>80 ~ 110</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <Loop1>
+                        <Name>Loop 1</Name>
+                        <Slack>7.30</Slack>
+                        <TripCount>
+                            <range>
+                                <min>1</min>
+                                <max>31</max>
+                            </range>
+                        </TripCount>
+                        <Latency>78 ~ 108</Latency>
+                        <AbsoluteTimeLatency>0.780 us ~ 1.080 us</AbsoluteTimeLatency>
+                        <PipelineII>1</PipelineII>
+                        <PipelineDepth>78</PipelineDepth>
+                        <PipelineType>yes</PipelineType>
+                        <InstanceList/>
+                    </Loop1>
+                </SummaryOfLoopLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>956</FF>
+                    <AVAIL_FF>460800</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>2391</LUT>
+                    <AVAIL_LUT>230400</AVAIL_LUT>
+                    <UTIL_LUT>1</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>624</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>1728</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>96</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="Loop 1" OPTYPE="add" PRAGMA="" RTLNAME="tmp4_fu_167_p2" SOURCE="" URAM="0" VARIABLE="tmp4"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="Loop 1" OPTYPE="add" PRAGMA="" RTLNAME="empty_fu_177_p2" SOURCE="" URAM="0" VARIABLE="empty"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="Loop 1" OPTYPE="add" PRAGMA="" RTLNAME="empty_25_fu_193_p2" SOURCE="" URAM="0" VARIABLE="empty_25"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="Loop 1" OPTYPE="add" PRAGMA="" RTLNAME="empty_31_fu_209_p2" SOURCE="" URAM="0" VARIABLE="empty_31"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>read_inputs_ap_uint_256_ap_int_8_32u_s</Name>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>10.00</TargetClockPeriod>
+                    <ClockUncertainty>2.70</ClockUncertainty>
+                    <EstimatedClockPeriod>7.300</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>5</Best-caseLatency>
+                    <Average-caseLatency>undef</Average-caseLatency>
+                    <Worst-caseLatency>undef</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>50.000 ns</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>undef</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>5 ~ -1</PipelineInitiationInterval>
                     <PipelineType>no</PipelineType>
                 </SummaryOfOverallLatency>
             </PerformanceEstimates>
@@ -1110,12 +1130,12 @@
                     <DSP>3</DSP>
                     <AVAIL_DSP>1728</AVAIL_DSP>
                     <UTIL_DSP>~0</UTIL_DSP>
-                    <FF>473</FF>
+                    <FF>3287</FF>
                     <AVAIL_FF>460800</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>670</LUT>
+                    <LUT>7187</LUT>
                     <AVAIL_LUT>230400</AVAIL_LUT>
-                    <UTIL_LUT>~0</UTIL_LUT>
+                    <UTIL_LUT>3</UTIL_LUT>
                     <BRAM_18K>0</BRAM_18K>
                     <AVAIL_BRAM>624</AVAIL_BRAM>
                     <UTIL_BRAM>0</UTIL_BRAM>
@@ -1125,8 +1145,13 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="3" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="mul" PRAGMA="" RTLNAME="mul_32s_32s_32_1_1_U21" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:88" URAM="0" VARIABLE="mul_ln88"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln91_fu_186_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:91" URAM="0" VARIABLE="add_ln91"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="3" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="mul" PRAGMA="" RTLNAME="mul_32s_32s_32_1_1_U25" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:18" URAM="0" VARIABLE="mul_ln18"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln19_fu_265_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:19" URAM="0" VARIABLE="add_ln19"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln19_1_fu_230_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:19" URAM="0" VARIABLE="add_ln19_1"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln19_fu_274_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:19" URAM="0" VARIABLE="sub_ln19"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln20_fu_329_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:20" URAM="0" VARIABLE="add_ln20"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln20_1_fu_345_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:20" URAM="0" VARIABLE="add_ln20_1"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln20_2_fu_361_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:20" URAM="0" VARIABLE="add_ln20_2"/>
             </BindNodes>
         </Module>
         <Module>
@@ -1138,29 +1163,34 @@
                     <EstimatedClockPeriod>7.300</EstimatedClockPeriod>
                 </SummaryOfTimingAnalysis>
                 <SummaryOfOverallLatency>
-                    <Best-caseLatency>undef</Best-caseLatency>
+                    <Best-caseLatency>5</Best-caseLatency>
                     <Average-caseLatency>undef</Average-caseLatency>
                     <Worst-caseLatency>undef</Worst-caseLatency>
-                    <Best-caseRealTimeLatency>undef</Best-caseRealTimeLatency>
+                    <Best-caseRealTimeLatency>50.000 ns</Best-caseRealTimeLatency>
                     <Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
                     <Worst-caseRealTimeLatency>undef</Worst-caseRealTimeLatency>
-                    <DataflowPipelineThroughput>undef</DataflowPipelineThroughput>
-                    <PipelineInitiationInterval>undef</PipelineInitiationInterval>
+                    <DataflowPipelineThroughput>
+                        <range>
+                            <min>6</min>
+                            <max>-1</max>
+                        </range>
+                    </DataflowPipelineThroughput>
+                    <PipelineInitiationInterval>6 ~ -1</PipelineInitiationInterval>
                     <PipelineType>dataflow</PipelineType>
                 </SummaryOfOverallLatency>
             </PerformanceEstimates>
             <AreaEstimates>
                 <Resources>
-                    <BRAM_18K>31</BRAM_18K>
+                    <BRAM_18K>0</BRAM_18K>
                     <AVAIL_BRAM>624</AVAIL_BRAM>
-                    <UTIL_BRAM>4</UTIL_BRAM>
-                    <DSP>6</DSP>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>3</DSP>
                     <AVAIL_DSP>1728</AVAIL_DSP>
                     <UTIL_DSP>~0</UTIL_DSP>
-                    <FF>4420</FF>
+                    <FF>4739</FF>
                     <AVAIL_FF>460800</AVAIL_FF>
-                    <UTIL_FF>~0</UTIL_FF>
-                    <LUT>9279</LUT>
+                    <UTIL_FF>1</UTIL_FF>
+                    <LUT>9551</LUT>
                     <AVAIL_LUT>230400</AVAIL_LUT>
                     <UTIL_LUT>4</UTIL_LUT>
                     <URAM>0</URAM>
@@ -1168,32 +1198,9 @@
                     <UTIL_URAM>0</UTIL_URAM>
                 </Resources>
             </AreaEstimates>
-            <BindNodes>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="outputs_c_U" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/concat.cpp:38" URAM="0" VARIABLE="outputs_c"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="COLS_c_U" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/concat.cpp:38" URAM="0" VARIABLE="COLS_c"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="ROWS_c_U" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/concat.cpp:38" URAM="0" VARIABLE="ROWS_c"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="output_data_addr3_c_U" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/concat.cpp:38" URAM="0" VARIABLE="output_data_addr3_c"/>
-                <BindNode BINDTYPE="storage" BRAM="15" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="memory" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="data_out_U" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/concat.cpp:29" URAM="0" VARIABLE="data_out"/>
-            </BindNodes>
         </Module>
     </ModuleInformation>
-    <FIFOInformation>
-        <FIFOInst>
-            <Name>data_out_U</Name>
-            <ParentInst/>
-            <StaticDepth>128</StaticDepth>
-            <RuntimeDepth>mOutPtr</RuntimeDepth>
-            <InterfaceList>
-                <Interface>clk</Interface>
-                <Interface>reset</Interface>
-                <Interface>if_write</Interface>
-                <Interface>if_din</Interface>
-                <Interface>if_full_n</Interface>
-                <Interface>if_read</Interface>
-                <Interface>if_empty_n</Interface>
-            </InterfaceList>
-        </FIFOInst>
-    </FIFOInformation>
+    <FIFOInformation/>
     <UserConfigCommands/>
     <Args>
         <Arg ArgName="input_data_addr1" index="0" direction="in" srcType="unsigned int" srcSize="32">
@@ -1548,24 +1555,9 @@
         </section>
     </ReportSWInterface>
     <ReportBurst>
-        <section name="M_AXI Burst Information" level="0" HEADER_NOTE="Note: All burst requests might be further partitioned into multiple requests during RTL generation based on max_read_burst_length or max_write_burst_length settings.">
-            <item name="Inferred Burst Summary">
-                <table>
-                    <keys size="6">HW Interface, Loop, Direction, Length, Width, Location</keys>
-                    <column name="m_axi_concat_data">VITIS_LOOP_91_1, write, variable, 256, /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:91:19</column>
-                </table>
-            </item>
-            <item name="Inferred Bursts and Widening Missed">
-                <table>
-                    <keys size="6">HW Interface, Variable, Loop, Problem, Resolution, Location</keys>
-                    <column name="m_axi_concat_data">outputs, VITIS_LOOP_91_1, Could not widen since type i256 size is greater than or equal to the max_widen_bitwidth threshold of 0, 214-353, /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:91:19</column>
-                </table>
-            </item>
-        </section>
+        <section name="M_AXI Burst Information" level="0" HEADER_NOTE="Note: All burst requests might be further partitioned into multiple requests during RTL generation based on max_read_burst_length or max_write_burst_length settings."/>
     </ReportBurst>
     <PragmaReport>
-        <Pragma type="pipeline" location="include/helpers.hpp:18" status="valid" parentFunction="read_inputs" variable="" isDirective="0" options=""/>
-        <Pragma type="pipeline" location="include/helpers.hpp:93" status="valid" parentFunction="store" variable="" isDirective="0" options=""/>
         <Pragma type="inline" location="include/types.hpp:53" status="valid" parentFunction="getval" variable="" isDirective="0" options=""/>
         <Pragma type="inline" location="include/types.hpp:60" status="valid" parentFunction="operator[]" variable="" isDirective="0" options=""/>
         <Pragma type="inline" location="include/types.hpp:67" status="valid" parentFunction="operator[]" variable="" isDirective="0" options=""/>
@@ -1646,10 +1638,7 @@
         <Pragma type="interface" location="src/concat.cpp:20" status="valid" parentFunction="concat" variable="" isDirective="0" options="mode = s_axilite port = COLS bundle = concat_addr"/>
         <Pragma type="interface" location="src/concat.cpp:21" status="valid" parentFunction="concat" variable="" isDirective="0" options="mode = s_axilite port = concat_flag bundle = concat_addr"/>
         <Pragma type="interface" location="src/concat.cpp:22" status="valid" parentFunction="concat" variable="" isDirective="0" options="mode = s_axilite port = return bundle = concat_addr"/>
-        <Pragma type="stream" location="src/concat.cpp:26" status="valid" parentFunction="concat" variable="" isDirective="0" options="variable = data_concat1 depth = 64"/>
-        <Pragma type="stream" location="src/concat.cpp:28" status="valid" parentFunction="concat" variable="" isDirective="0" options="variable = data_concat2 depth = 64"/>
-        <Pragma type="stream" location="src/concat.cpp:30" status="valid" parentFunction="concat" variable="" isDirective="0" options="variable = data_out depth = 128"/>
-        <Pragma type="dataflow" location="src/concat.cpp:38" status="valid" parentFunction="concat" variable="" isDirective="0" options=""/>
+        <Pragma type="dataflow" location="src/concat.cpp:24" status="valid" parentFunction="concat" variable="" isDirective="0" options=""/>
     </PragmaReport>
 </profile>
 

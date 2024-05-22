@@ -61,5 +61,4 @@ obj/concat_tb.o: ../../../../testbench/concat_tb.cpp \
  /home/ytq/source/Xilinx/Vitis_HLS/2022.2/include/ap_shift_reg.h \
  ../../../../testbench/../src/../include/params.hpp \
  ../../../../testbench/../src/../include/types.hpp \
- ../../../../testbench/../include/binFiles.hpp \
- ../../../../testbench/../include/utils.hpp
+ ../../../../testbench/../include/binFiles.hpp

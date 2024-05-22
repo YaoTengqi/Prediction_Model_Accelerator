@@ -70224,48 +70224,21 @@ class DualTaggedType {
 
 template <typename t_AXI_DataType, typename t_DataType_OUT, unsigned int nPE>
 void read_inputs(t_AXI_DataType *inputs,
-     hls::stream<typename WideType<t_DataType_OUT, nPE>::t_TypeInt> &data_stream_out,
      uint32_t input_data_addr1,
      uint32_t input_data_addr2,
+     uint32_t input_data_addr3,
      unsigned int ROWS,
-     unsigned int COLS)
+     unsigned int COLS,
+     t_AXI_DataType *outputs,
+     bool &concat_flag)
 {
  unsigned int ram_depth = ROWS * COLS / nPE;
- typename WideType<t_DataType_OUT, nPE>::t_TypeInt ram1[32];
- typename WideType<t_DataType_OUT, nPE>::t_TypeInt ram2[32];
- memcpy(&ram1[0], (const t_AXI_DataType *)&inputs[input_data_addr1], ROWS * COLS * sizeof(t_DataType_OUT));
- memcpy(&ram2[0], (const t_AXI_DataType *)&inputs[input_data_addr2], ROWS * COLS * sizeof(t_DataType_OUT));
-#pragma HLS PIPELINE
- VITIS_LOOP_19_1: for(int i = 0; i < ram_depth; i++){
-  data_stream_out.write(ram1[i]);
-  data_stream_out.write(ram2[i]);
- }
-}
-# 77 "/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp"
-template <typename t_AXI_DataType, typename t_DataType_IN, typename t_DataType_OUT, unsigned int nPE>
-void store(
- hls::stream<typename WideType<t_DataType_OUT, nPE>::t_TypeInt> &data_stream_out,
- t_AXI_DataType *outputs,
- uint32_t output_data_addr3,
- unsigned int ROWS,
- unsigned int COLS,
- bool &concat_flag)
-{
- unsigned int dst_idx = output_data_addr3 / sizeof(t_AXI_DataType);
- unsigned int loop_idx = nPE * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
- unsigned int loop_num = ROWS * COLS * 2 / nPE;
- WideType<t_DataType_IN, nPE> data;
- int count = 0;
- VITIS_LOOP_91_1: for(int i = 0; i < loop_num; i++)
- {
-#pragma HLS PIPELINE
- data = data_stream_out.read();
-  outputs[dst_idx + i] = data;
-  count++;
- }
- if(count == loop_num){
-  concat_flag = true;
- }
+ typename WideType<t_DataType_OUT, nPE>::t_TypeInt ram1[1024];
+ typename WideType<t_DataType_OUT, nPE>::t_TypeInt ram2[1024];
+ int output_addr = ROWS * COLS * sizeof(t_DataType_OUT) / sizeof(t_AXI_DataType);
+ memcpy(&outputs[input_data_addr3], (const t_AXI_DataType *)&inputs[input_data_addr1], ROWS * COLS * sizeof(t_DataType_OUT));
+ memcpy(&outputs[input_data_addr3 + output_addr], (const t_AXI_DataType *)&inputs[input_data_addr2], ROWS * COLS * sizeof(t_DataType_OUT));
+ concat_flag = true;
 }
 # 12 "/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/concat.hpp" 2
 # 1 "/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/params.hpp" 1
@@ -70312,22 +70285,6 @@ __attribute__((sdx_kernel("concat", 0))) void concat(
 #pragma HLS INTERFACE mode = s_axilite port = concat_flag bundle = concat_addr
 #pragma HLS INTERFACE mode = s_axilite port = return bundle = concat_addr
 
-
- hls::stream<WideType<ap_int<8>, 32>::t_TypeInt> data_concat1;
-#pragma HLS STREAM variable = data_concat1 depth = 64
- hls::stream<WideType<ap_int<8>, 32>::t_TypeInt> data_concat2;
-#pragma HLS STREAM variable = data_concat2 depth = 64
- hls::stream<WideType<ap_int<8>, 32>::t_TypeInt> data_out;
-#pragma HLS STREAM variable = data_out depth = 128
-
-
-
-
-
-
-
 #pragma HLS DATAFLOW
- read_inputs<ap_uint<256>, ap_int<8>, 32>(inputs, data_out, input_data_addr1, input_data_addr2, ROWS, COLS);
-
- store<ap_uint<256>, ap_int<8>, ap_int<8>, 32>(data_out, outputs, output_data_addr3, ROWS, COLS, concat_flag);
+ read_inputs<ap_uint<256>, ap_int<8>, 32>(inputs, input_data_addr1, input_data_addr2, output_data_addr3, ROWS, COLS, outputs, concat_flag);
 }

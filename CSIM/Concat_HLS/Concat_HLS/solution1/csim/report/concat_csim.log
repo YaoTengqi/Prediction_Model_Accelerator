@@ -2,8 +2,5 @@ INFO: [SIM 2] *************** CSIM start ***************
 INFO: [SIM 4] CSIM will launch GCC as the compiler.
    Compiling ../../../testbench/concat_tb.cpp in debug mode
    Generating csim.exe
-WARNNING: file /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/data/dram_before.bin size 167784448 doesn't match required size 2048
-WARNNING: file /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/data/dram_after.bin size 167784448 doesn't match required size 2048
-Pass!
-INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 1] CSim file generation done with 0 errors.
 INFO: [SIM 3] *************** CSIM finish ***************

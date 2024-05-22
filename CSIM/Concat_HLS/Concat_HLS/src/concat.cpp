@@ -22,5 +22,5 @@ void concat(
 #pragma HLS INTERFACE mode = s_axilite port = return bundle = concat_addr // 开始信号
 
 #pragma HLS DATAFLOW
-	read_inputs<t_AXI_DataType, t_DataType_OUT, nPE>(inputs, input_data_addr1, input_data_addr2, ROWS, COLS, outputs, concat_flag);
+	read_inputs<t_AXI_DataType, t_DataType_OUT, nPE>(inputs, input_data_addr1, input_data_addr2, output_data_addr3, ROWS, COLS, outputs, concat_flag);
 }

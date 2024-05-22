@@ -1526,22 +1526,4 @@ Diagnostics:
         Offset:          2793483
         Length:          0
         ReplacementText: 'VITIS_LOOP_710_1: '
-  - DiagnosticName:  xilinx-label-all-loops
-    Message:         'Added loop label VITIS_LOOP_19_1:  '
-    FileOffset:      19
-    FilePath:        /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/include/helpers.hpp
-    Replacements:    
-      - FilePath:        /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/Concat_HLS.prj/sol/.autopilot/db/concat.pp.0.cpp
-        Offset:          2795573
-        Length:          0
-        ReplacementText: 'VITIS_LOOP_19_1: '
-  - DiagnosticName:  xilinx-label-all-loops
-    Message:         'Added loop label VITIS_LOOP_91_1:  '
-    FileOffset:      91
-    FilePath:        /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/include/helpers.hpp
-    Replacements:    
-      - FilePath:        /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/Concat_HLS.prj/sol/.autopilot/db/concat.pp.0.cpp
-        Offset:          2796353
-        Length:          0
-        ReplacementText: 'VITIS_LOOP_91_1: '
 ...

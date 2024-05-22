@@ -851,13 +851,3 @@
         ^~~
         VITIS_LOOP_710_1: 
 /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/Concat_HLS.prj/sol/.autopilot/db/concat.pp.0.cpp:70176:9: note: FIX-IT applied suggested code changes
-/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/Concat_HLS.prj/sol/.autopilot/db/concat.pp.0.cpp:70239:2: warning: Added loop label VITIS_LOOP_19_1:   [xilinx-label-all-loops]
- for(int i = 0; i < ram_depth; i++){
- ^~~
- VITIS_LOOP_19_1: 
-/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/Concat_HLS.prj/sol/.autopilot/db/concat.pp.0.cpp:70239:2: note: FIX-IT applied suggested code changes
-/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/Concat_HLS.prj/sol/.autopilot/db/concat.pp.0.cpp:70259:2: warning: Added loop label VITIS_LOOP_91_1:   [xilinx-label-all-loops]
- for(int i = 0; i < loop_num; i++)
- ^~~
- VITIS_LOOP_91_1: 
-/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/Concat_HLS.prj/sol/.autopilot/db/concat.pp.0.cpp:70259:2: note: FIX-IT applied suggested code changes

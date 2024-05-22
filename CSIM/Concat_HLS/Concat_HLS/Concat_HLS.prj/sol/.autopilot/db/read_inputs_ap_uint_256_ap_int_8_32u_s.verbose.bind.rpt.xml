@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'read_inputs_ap_uint_256_ap_int_8_32u_s'" level="0">
-<item name = "Date">Tue May 14 16:31:22 2024
+<item name = "Date">Wed May 22 10:27:44 2024
 </item>
 <item name = "Version">2022.2 (Build 3670227 on Oct 13 2022)</item>
 <item name = "Project">Concat_HLS.prj</item>
@@ -24,22 +24,21 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">?, ?, ?, ?, ?, ?, no</column>
+<column name="">5, ?, 50.000 ns, ?, 5, ?, no</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
+<column name="grp_read_inputs_ap_uint_256_ap_int_8_32u_Pipeline_1_fu_150">read_inputs_ap_uint_256_ap_int_8_32u_Pipeline_1, 4, ?, 40.000 ns, ?, 4, ?, no</column>
+<column name="grp_read_inputs_ap_uint_256_ap_int_8_32u_Pipeline_2_fu_159">read_inputs_ap_uint_256_ap_int_8_32u_Pipeline_2, 80, 110, 0.800 us, 1.100 us, 80, 110, no</column>
+<column name="grp_read_inputs_ap_uint_256_ap_int_8_32u_Pipeline_3_fu_172">read_inputs_ap_uint_256_ap_int_8_32u_Pipeline_3, 4, ?, 40.000 ns, ?, 4, ?, no</column>
+<column name="grp_read_inputs_ap_uint_256_ap_int_8_32u_Pipeline_4_fu_181">read_inputs_ap_uint_256_ap_int_8_32u_Pipeline_4, 80, 110, 0.800 us, 1.100 us, 80, 110, no</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- Loop 1">?, ?, 3, -, -, ?, no</column>
-<column name="- Loop 2">0, 1271, 41, -, -, 0 ~ 31, no</column>
-<column name="- Loop 3">?, ?, 3, -, -, ?, no</column>
-<column name="- Loop 4">0, 1271, 41, -, -, 0 ~ 31, no</column>
-<column name="- VITIS_LOOP_19_1">?, ?, 3, -, -, ?, no</column>
 </table>
 </item>
 </section>

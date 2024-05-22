@@ -4,7 +4,7 @@
 == Synthesis Summary Report of 'concat'
 ================================================================
 + General Information: 
-    * Date:           Tue May 14 16:31:23 2024
+    * Date:           Wed May 22 10:27:45 2024
     * Version:        2022.2 (Build 3670227 on Oct 13 2022)
     * Project:        Concat_HLS.prj
     * Solution:       sol (Vivado IP Flow Target)
@@ -15,22 +15,21 @@
 + Performance & Resource Estimates: 
     
     PS: '+' for module; 'o' for loop; '*' for dataflow
-    +----------------------------------------------------------------------+------+------+-----------+-----------+----------+-----------+-----------+----------+---------+---------+------------+-----------+-----+
-    |                                Modules                               | Issue|      |  Latency  |  Latency  | Iteration|           |    Trip   |          |         |         |            |           |     |
-    |                                & Loops                               | Type | Slack|  (cycles) |    (ns)   |  Latency |  Interval |   Count   | Pipelined|  BRAM   |   DSP   |     FF     |    LUT    | URAM|
-    +----------------------------------------------------------------------+------+------+-----------+-----------+----------+-----------+-----------+----------+---------+---------+------------+-----------+-----+
-    |+ concat*                                                             |     -|  0.00|          -|          -|         -|          -|          -|  dataflow|  31 (4%)|  6 (~0%)|  4420 (~0%)|  9279 (4%)|    -|
-    | + entry_proc                                                         |     -|  5.46|          0|      0.000|         -|          0|          -|        no|        -|        -|     3 (~0%)|   38 (~0%)|    -|
-    | + read_inputs_ap_uint_256_ap_int_8_32u_s                             |     -|  0.00|          -|          -|         -|          -|          -|        no|  16 (2%)|  3 (~0%)|  1937 (~0%)|  5857 (2%)|    -|
-    |  o Loop 1                                                            |     -|  7.30|          -|          -|         3|          -|          -|        no|        -|        -|           -|          -|    -|
-    |  o Loop 2                                                            |     -|  7.30|       1271|  1.271e+04|        41|          -|         31|        no|        -|        -|           -|          -|    -|
-    |  o Loop 3                                                            |     -|  7.30|          -|          -|         3|          -|          -|        no|        -|        -|           -|          -|    -|
-    |  o Loop 4                                                            |     -|  7.30|       1271|  1.271e+04|        41|          -|         31|        no|        -|        -|           -|          -|    -|
-    |  o VITIS_LOOP_19_1                                                   |     -|  7.30|          -|          -|         3|          -|          -|        no|        -|        -|           -|          -|    -|
-    | + store_ap_uint_256_ap_int_8_ap_int_8_32u_s                          |     -|  0.00|  134217769|  1.342e+09|         -|  134217769|          -|        no|        -|  3 (~0%)|   473 (~0%)|  670 (~0%)|    -|
-    |  + store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_91_1  |     -|  0.00|  134217730|  1.342e+09|         -|  134217730|          -|        no|        -|        -|   289 (~0%)|  113 (~0%)|    -|
-    |   o VITIS_LOOP_91_1                                                  |     -|  7.30|  134217728|  1.342e+09|         3|          1|  134217727|       yes|        -|        -|           -|          -|    -|
-    +----------------------------------------------------------------------+------+------+-----------+-----------+----------+-----------+-----------+----------+---------+---------+------------+-----------+-----+
+    +-----------------------------------------------------+------+------+---------+-----------+----------+---------+------+----------+------+---------+------------+-----------+-----+
+    |                       Modules                       | Issue|      | Latency |  Latency  | Iteration|         | Trip |          |      |         |            |           |     |
+    |                       & Loops                       | Type | Slack| (cycles)|    (ns)   |  Latency | Interval| Count| Pipelined| BRAM |   DSP   |     FF     |    LUT    | URAM|
+    +-----------------------------------------------------+------+------+---------+-----------+----------+---------+------+----------+------+---------+------------+-----------+-----+
+    |+ concat*                                            |     -|  0.00|        -|          -|         -|        -|     -|  dataflow|     -|  3 (~0%)|   4739 (1%)|  9551 (4%)|    -|
+    | + read_inputs_ap_uint_256_ap_int_8_32u_s            |     -|  0.00|        -|          -|         -|        -|     -|        no|     -|  3 (~0%)|  3287 (~0%)|  7187 (3%)|    -|
+    |  + read_inputs_ap_uint_256_ap_int_8_32u_Pipeline_1  |     -|  0.00|        -|          -|         -|        -|     -|        no|     -|        -|   287 (~0%)|  111 (~0%)|    -|
+    |   o Loop 1                                          |     -|  7.30|        -|          -|         2|        1|     -|       yes|     -|        -|           -|          -|    -|
+    |  + read_inputs_ap_uint_256_ap_int_8_32u_Pipeline_2  |     -|  0.00|      110|  1.100e+03|         -|      110|     -|        no|     -|        -|   956 (~0%)|  2391 (1%)|    -|
+    |   o Loop 1                                          |     -|  7.30|      108|  1.080e+03|        78|        1|    31|       yes|     -|        -|           -|          -|    -|
+    |  + read_inputs_ap_uint_256_ap_int_8_32u_Pipeline_3  |     -|  0.00|        -|          -|         -|        -|     -|        no|     -|        -|   287 (~0%)|  111 (~0%)|    -|
+    |   o Loop 1                                          |     -|  7.30|        -|          -|         2|        1|     -|       yes|     -|        -|           -|          -|    -|
+    |  + read_inputs_ap_uint_256_ap_int_8_32u_Pipeline_4  |     -|  0.00|      110|  1.100e+03|         -|      110|     -|        no|     -|        -|   956 (~0%)|  2391 (1%)|    -|
+    |   o Loop 1                                          |     -|  7.30|      108|  1.080e+03|        78|        1|    31|       yes|     -|        -|           -|          -|    -|
+    +-----------------------------------------------------+------+------+---------+-----------+----------+---------+------+----------+------+---------+------------+-----------+-----+
 
 
 ================================================================
@@ -125,75 +124,44 @@
 ================================================================
  Note: All burst requests might be further partitioned into multiple requests during RTL generation based on max_read_burst_length or max_write_burst_length settings.
 
-* Inferred Burst Summary
-+-------------------+-----------------+-----------+----------+-------+--------------------------------------------------------------------------------------------------------------+
-| HW Interface      | Loop            | Direction | Length   | Width | Location                                                                                                     |
-+-------------------+-----------------+-----------+----------+-------+--------------------------------------------------------------------------------------------------------------+
-| m_axi_concat_data | VITIS_LOOP_91_1 | write     | variable | 256   | /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:91:19 |
-+-------------------+-----------------+-----------+----------+-------+--------------------------------------------------------------------------------------------------------------+
-
-* Inferred Bursts and Widening Missed
-+-------------------+----------+-----------------+--------------------------------------------------------------------------------------------------------+------------+--------------------------------------------------------------------------------------------------------------+
-| HW Interface      | Variable | Loop            | Problem                                                                                                | Resolution | Location                                                                                                     |
-+-------------------+----------+-----------------+--------------------------------------------------------------------------------------------------------+------------+--------------------------------------------------------------------------------------------------------------+
-| m_axi_concat_data | outputs  | VITIS_LOOP_91_1 | Could not widen since type i256 size is greater than or equal to the max_widen_bitwidth threshold of 0 | 214-353    | /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:91:19 |
-+-------------------+----------+-----------------+--------------------------------------------------------------------------------------------------------+------------+--------------------------------------------------------------------------------------------------------------+
-
-    * Resolution URL: www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=XXX-YYY.html (replace XXX-YYY with column value)
+  No burst in design
 
 ================================================================
 == Bind Op Report
 ================================================================
-+----------------------------------------------------------------------+-----+--------+----------+-----+--------+---------+
-| Name                                                                 | DSP | Pragma | Variable | Op  | Impl   | Latency |
-+----------------------------------------------------------------------+-----+--------+----------+-----+--------+---------+
-| + concat                                                             | 6   |        |          |     |        |         |
-|  + read_inputs_ap_uint_256_ap_int_8_32u_s                            | 3   |        |          |     |        |         |
-|    mul_32s_32s_32_1_1_U5                                             | 3   |        | mul_ln13 | mul | auto   | 0       |
-|    add_ln16_fu_321_p2                                                | -   |        | add_ln16 | add | fabric | 0       |
-|    sub_ln16_fu_366_p2                                                | -   |        | sub_ln16 | sub | fabric | 0       |
-|    empty_39_fu_392_p2                                                | -   |        | empty_39 | add | fabric | 0       |
-|    empty_41_fu_406_p2                                                | -   |        | empty_41 | add | fabric | 0       |
-|    empty_43_fu_432_p2                                                | -   |        | empty_43 | add | fabric | 0       |
-|    empty_44_fu_438_p2                                                | -   |        | empty_44 | add | fabric | 0       |
-|    tmp_fu_443_p2                                                     | -   |        | tmp      | add | fabric | 0       |
-|    empty_45_fu_452_p2                                                | -   |        | empty_45 | add | fabric | 0       |
-|    empty_46_fu_523_p2                                                | -   |        | empty_46 | add | fabric | 0       |
-|    empty_49_fu_552_p2                                                | -   |        | empty_49 | add | fabric | 0       |
-|    add_ln17_fu_493_p2                                                | -   |        | add_ln17 | add | fabric | 0       |
-|    empty_53_fu_612_p2                                                | -   |        | empty_53 | add | fabric | 0       |
-|    empty_55_fu_644_p2                                                | -   |        | empty_55 | add | fabric | 0       |
-|    empty_56_fu_650_p2                                                | -   |        | empty_56 | add | fabric | 0       |
-|    tmp1_fu_655_p2                                                    | -   |        | tmp1     | add | fabric | 0       |
-|    empty_57_fu_664_p2                                                | -   |        | empty_57 | add | fabric | 0       |
-|    empty_58_fu_679_p2                                                | -   |        | empty_58 | add | fabric | 0       |
-|    empty_61_fu_684_p2                                                | -   |        | empty_61 | add | fabric | 0       |
-|    add_ln19_fu_788_p2                                                | -   |        | add_ln19 | add | fabric | 0       |
-|  + store_ap_uint_256_ap_int_8_ap_int_8_32u_s                         | 3   |        |          |     |        |         |
-|    mul_32s_32s_32_1_1_U21                                            | 3   |        | mul_ln88 | mul | auto   | 0       |
-|    add_ln91_fu_186_p2                                                | -   |        | add_ln91 | add | fabric | 0       |
-|   + store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_91_1 | 0   |        |          |     |        |         |
-|     add_ln91_fu_104_p2                                               | -   |        | add_ln91 | add | fabric | 0       |
-+----------------------------------------------------------------------+-----+--------+----------+-----+--------+---------+
++-----------------------------------------------------+-----+--------+------------+-----+--------+---------+
+| Name                                                | DSP | Pragma | Variable   | Op  | Impl   | Latency |
++-----------------------------------------------------+-----+--------+------------+-----+--------+---------+
+| + concat                                            | 3   |        |            |     |        |         |
+|  + read_inputs_ap_uint_256_ap_int_8_32u_s           | 3   |        |            |     |        |         |
+|    mul_32s_32s_32_1_1_U25                           | 3   |        | mul_ln18   | mul | auto   | 0       |
+|    add_ln19_fu_265_p2                               | -   |        | add_ln19   | add | fabric | 0       |
+|    add_ln19_1_fu_230_p2                             | -   |        | add_ln19_1 | add | fabric | 0       |
+|    sub_ln19_fu_274_p2                               | -   |        | sub_ln19   | sub | fabric | 0       |
+|    add_ln20_fu_329_p2                               | -   |        | add_ln20   | add | fabric | 0       |
+|    add_ln20_1_fu_345_p2                             | -   |        | add_ln20_1 | add | fabric | 0       |
+|    add_ln20_2_fu_361_p2                             | -   |        | add_ln20_2 | add | fabric | 0       |
+|   + read_inputs_ap_uint_256_ap_int_8_32u_Pipeline_1 | 0   |        |            |     |        |         |
+|     empty_fu_110_p2                                 | -   |        | empty      | add | fabric | 0       |
+|   + read_inputs_ap_uint_256_ap_int_8_32u_Pipeline_2 | 0   |        |            |     |        |         |
+|     tmp_fu_167_p2                                   | -   |        | tmp        | add | fabric | 0       |
+|     empty_fu_177_p2                                 | -   |        | empty      | add | fabric | 0       |
+|     empty_37_fu_193_p2                              | -   |        | empty_37   | add | fabric | 0       |
+|     empty_43_fu_209_p2                              | -   |        | empty_43   | add | fabric | 0       |
+|   + read_inputs_ap_uint_256_ap_int_8_32u_Pipeline_3 | 0   |        |            |     |        |         |
+|     empty_fu_110_p2                                 | -   |        | empty      | add | fabric | 0       |
+|   + read_inputs_ap_uint_256_ap_int_8_32u_Pipeline_4 | 0   |        |            |     |        |         |
+|     tmp4_fu_167_p2                                  | -   |        | tmp4       | add | fabric | 0       |
+|     empty_fu_177_p2                                 | -   |        | empty      | add | fabric | 0       |
+|     empty_25_fu_193_p2                              | -   |        | empty_25   | add | fabric | 0       |
+|     empty_31_fu_209_p2                              | -   |        | empty_31   | add | fabric | 0       |
++-----------------------------------------------------+-----+--------+------------+-----+--------+---------+
 
 
 ================================================================
 == Bind Storage Report
 ================================================================
-+-------------------------------------------+------+------+--------+---------------------+---------+--------+---------+
-| Name                                      | BRAM | URAM | Pragma | Variable            | Storage | Impl   | Latency |
-+-------------------------------------------+------+------+--------+---------------------+---------+--------+---------+
-| + concat                                  | 31   | 0    |        |                     |         |        |         |
-|   outputs_c_U                             | -    | -    |        | outputs_c           | fifo    | srl    | 0       |
-|   COLS_c_U                                | -    | -    |        | COLS_c              | fifo    | srl    | 0       |
-|   ROWS_c_U                                | -    | -    |        | ROWS_c              | fifo    | srl    | 0       |
-|   output_data_addr3_c_U                   | -    | -    |        | output_data_addr3_c | fifo    | srl    | 0       |
-|   data_out_U                              | 15   | -    |        | data_out            | fifo    | memory | 0       |
-|  + read_inputs_ap_uint_256_ap_int_8_32u_s | 16   | 0    |        |                     |         |        |         |
-|    ram1_U                                 | 8    | -    |        | ram1                | ram_1p  | auto   | 1       |
-|    ram2_U                                 | 8    | -    |        | ram2                | ram_1p  | auto   | 1       |
-+-------------------------------------------+------+------+--------+---------------------+---------+--------+---------+
-
+  No bind storage info in design
 
 ================================================================
 == Pragma Report
@@ -202,8 +170,6 @@
 +-----------------+----------------------------------------------------------------+--------------------------------------------------------------------+
 | Type            | Options                                                        | Location                                                           |
 +-----------------+----------------------------------------------------------------+--------------------------------------------------------------------+
-| pipeline        |                                                                | include/helpers.hpp:18 in read_inputs                              |
-| pipeline        |                                                                | include/helpers.hpp:93 in store                                    |
 | inline          |                                                                | include/types.hpp:53 in getval                                     |
 | inline          |                                                                | include/types.hpp:60 in operator[]                                 |
 | inline          |                                                                | include/types.hpp:67 in operator[]                                 |
@@ -284,10 +250,7 @@
 | interface       | mode = s_axilite port = COLS bundle = concat_addr              | src/concat.cpp:20 in concat                                        |
 | interface       | mode = s_axilite port = concat_flag bundle = concat_addr       | src/concat.cpp:21 in concat                                        |
 | interface       | mode = s_axilite port = return bundle = concat_addr            | src/concat.cpp:22 in concat                                        |
-| stream          | variable = data_concat1 depth = 64                             | src/concat.cpp:26 in concat                                        |
-| stream          | variable = data_concat2 depth = 64                             | src/concat.cpp:28 in concat                                        |
-| stream          | variable = data_out depth = 128                                | src/concat.cpp:30 in concat                                        |
-| dataflow        |                                                                | src/concat.cpp:38 in concat                                        |
+| dataflow        |                                                                | src/concat.cpp:24 in concat                                        |
 +-----------------+----------------------------------------------------------------+--------------------------------------------------------------------+
 
 

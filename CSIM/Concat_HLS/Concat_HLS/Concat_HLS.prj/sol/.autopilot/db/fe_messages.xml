@@ -842,12 +842,6 @@
     <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/include/./../include/types.hpp:696:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="unshift" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:18:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="read_inputs" ARG_PragmaIsValid="1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:93:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="store" ARG_PragmaIsValid="1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
     <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/run_hls.tcl:55:9" msg_body="HLS pragma dump">
         <args ARG_PragmaContext="directive" ARG_PragmaFunction="concat" ARG_PragmaIsValid="1" ARG_PragmaOptions="name=concat" ARG_PragmaType="top" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
@@ -878,71 +872,8 @@
     <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/concat.cpp:22:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="concat" ARG_PragmaIsValid="1" ARG_PragmaOptions="mode = s_axilite port = return bundle = concat_addr" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/concat.cpp:26:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="concat" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = data_concat1 depth = 64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/concat.cpp:28:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="concat" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = data_concat2 depth = 64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/concat.cpp:30:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="concat" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = data_out depth = 128" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/concat.cpp:38:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/concat.cpp:24:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="concat" ARG_PragmaIsValid="1" ARG_PragmaType="dataflow" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/include/./../include/types.hpp:99:2" msg_body="Inlining function 'WideType&lt;ap_int&lt;8&gt;, 32u, 8u, void&gt;::constructor(ap_uint&lt;256&gt; const&amp;)' into 'WideType&lt;ap_int&lt;8&gt;, 32u, 8u, void&gt;::WideType(ap_uint&lt;256&gt; const&amp;)'">
-        <args Callee="WideType&lt;ap_int&lt;8&gt;, 32u, 8u, void&gt;::constructor(ap_uint&lt;256&gt; const&amp;)" Caller="WideType&lt;ap_int&lt;8&gt;, 32u, 8u, void&gt;::WideType(ap_uint&lt;256&gt; const&amp;)"/>
-    </msg>
-    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:89:31" msg_body="Inlining function 'WideType&lt;ap_int&lt;8&gt;, 32u, 8u, void&gt;::WideType()' into 'void store&lt;ap_uint&lt;256&gt;, ap_int&lt;8&gt;, ap_int&lt;8&gt;, 32u&gt;(hls::stream&lt;WideType&lt;ap_int&lt;8&gt;, 32u, (sizeof (ap_int&lt;8&gt;)) * (8), void&gt;::t_TypeInt, 0&gt;&amp;, ap_uint&lt;256&gt;*, unsigned int, unsigned int, unsigned int, bool&amp;)'">
-        <args Callee="WideType&lt;ap_int&lt;8&gt;, 32u, 8u, void&gt;::WideType()" Caller="void store&lt;ap_uint&lt;256&gt;, ap_int&lt;8&gt;, ap_int&lt;8&gt;, 32u&gt;(hls::stream&lt;WideType&lt;ap_int&lt;8&gt;, 32u, (sizeof (ap_int&lt;8&gt;)) * (8), void&gt;::t_TypeInt, 0&gt;&amp;, ap_uint&lt;256&gt;*, unsigned int, unsigned int, unsigned int, bool&amp;)"/>
-    </msg>
-    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:94:9" msg_body="Inlining function 'WideType&lt;ap_int&lt;8&gt;, 32u, 8u, void&gt;::WideType(ap_uint&lt;256&gt; const&amp;)' into 'void store&lt;ap_uint&lt;256&gt;, ap_int&lt;8&gt;, ap_int&lt;8&gt;, 32u&gt;(hls::stream&lt;WideType&lt;ap_int&lt;8&gt;, 32u, (sizeof (ap_int&lt;8&gt;)) * (8), void&gt;::t_TypeInt, 0&gt;&amp;, ap_uint&lt;256&gt;*, unsigned int, unsigned int, unsigned int, bool&amp;)'">
-        <args Callee="WideType&lt;ap_int&lt;8&gt;, 32u, 8u, void&gt;::WideType(ap_uint&lt;256&gt; const&amp;)" Caller="void store&lt;ap_uint&lt;256&gt;, ap_int&lt;8&gt;, ap_int&lt;8&gt;, 32u&gt;(hls::stream&lt;WideType&lt;ap_int&lt;8&gt;, 32u, (sizeof (ap_int&lt;8&gt;)) * (8), void&gt;::t_TypeInt, 0&gt;&amp;, ap_uint&lt;256&gt;*, unsigned int, unsigned int, unsigned int, bool&amp;)"/>
-    </msg>
-    <msg msg_groups="PRAGMA_DISAGGREGATE" msg_id="214-377" msg_severity="INFO" msg_loc="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/include/./../include/types.hpp:98:9" msg_body="Adding 'ref.tmp' into disaggregation list because there's array-partition pragma applied on the struct field">
-        <args Name="ref.tmp"/>
-    </msg>
-    <msg msg_groups="PRAGMA_DISAGGREGATE" msg_id="214-377" msg_severity="INFO" msg_loc="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/include/./../include/types.hpp:80:9" msg_body="Adding 'data' into disaggregation list because there's array-partition pragma applied on the struct field">
-        <args Name="data"/>
-    </msg>
-    <msg msg_groups="PRAGMA_DISAGGREGATE" msg_id="214-210" msg_severity="INFO" msg_loc="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:89:31" msg_body="Disaggregating variable 'data'">
-        <args Name="data"/>
-    </msg>
-    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/include/./../include/types.hpp:96:5" msg_body="Loop 'anonymous' is marked as complete unroll implied by the pipeline pragma">
-        <args LoopName="anonymous"/>
-    </msg>
-    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/include/./../include/types.hpp:103:20" msg_body="Loop 'VITIS_LOOP_103_1' is marked as complete unroll implied by the pipeline pragma">
-        <args LoopName="VITIS_LOOP_103_1"/>
-    </msg>
-    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/include/./../include/types.hpp:125:27" msg_body="Loop 'VITIS_LOOP_125_1' is marked as complete unroll implied by the pipeline pragma">
-        <args LoopName="VITIS_LOOP_125_1"/>
-    </msg>
-    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:19:19" msg_body="Loop 'VITIS_LOOP_19_1' is marked as complete unroll implied by the pipeline pragma">
-        <args LoopName="VITIS_LOOP_19_1"/>
-    </msg>
-    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:15:52" msg_body="Loop 'anonymous' is marked as complete unroll implied by the pipeline pragma">
-        <args LoopName="anonymous"/>
-    </msg>
-    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:14:52" msg_body="Loop 'anonymous' is marked as complete unroll implied by the pipeline pragma">
-        <args LoopName="anonymous"/>
-    </msg>
-    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:85:0" msg_body="Unrolling loop 'anonymous' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/include/./../include/types.hpp:96:5) in function 'store&lt;ap_uint&lt;256&gt;, ap_int&lt;8&gt;, ap_int&lt;8&gt;, 32u&gt;' completely with a factor of 32">
-        <args Factor="32" LoopLoc="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/include/./../include/types.hpp:96:5" LoopName="anonymous"/>
-    </msg>
-    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:85:0" msg_body="Unrolling loop 'VITIS_LOOP_103_1' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/include/./../include/types.hpp:103:20) in function 'store&lt;ap_uint&lt;256&gt;, ap_int&lt;8&gt;, ap_int&lt;8&gt;, 32u&gt;' completely with a factor of 32">
-        <args Factor="32" LoopLoc="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/include/./../include/types.hpp:103:20" LoopName="VITIS_LOOP_103_1"/>
-    </msg>
-    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/include/./../include/types.hpp:123:0" msg_body="Unrolling loop 'VITIS_LOOP_125_1' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/include/./../include/types.hpp:125:27) in function 'WideType&lt;ap_int&lt;8&gt;, 32u, 8u, void&gt;::operator ap_uint&lt;256&gt; const' completely with a factor of 32">
-        <args Factor="32" LoopLoc="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/include/./../include/types.hpp:125:27" LoopName="VITIS_LOOP_125_1"/>
-    </msg>
-    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:12:0" msg_body="Unrolling loop 'anonymous' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:15:52) in function 'read_inputs&lt;ap_uint&lt;256&gt;, ap_int&lt;8&gt;, 32u&gt;' completely with a factor of 32">
-        <args Factor="32" LoopLoc="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:15:52" LoopName="anonymous"/>
-    </msg>
-    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:12:0" msg_body="Unrolling loop 'anonymous' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:14:52) in function 'read_inputs&lt;ap_uint&lt;256&gt;, ap_int&lt;8&gt;, 32u&gt;' completely with a factor of 32">
-        <args Factor="32" LoopLoc="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:14:52" LoopName="anonymous"/>
-    </msg>
-    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:85:0" msg_body="Inlining function 'WideType&lt;ap_int&lt;8&gt;, 32u, 8u, void&gt;::operator ap_uint&lt;256&gt; const()' into 'void store&lt;ap_uint&lt;256&gt;, ap_int&lt;8&gt;, ap_int&lt;8&gt;, 32u&gt;(hls::stream&lt;WideType&lt;ap_int&lt;8&gt;, 32u, (sizeof (ap_int&lt;8&gt;)) * (8), void&gt;::t_TypeInt, 0&gt;&amp;, ap_uint&lt;256&gt;*, unsigned int, unsigned int, unsigned int, bool&amp;)'">
-        <args Callee="WideType&lt;ap_int&lt;8&gt;, 32u, 8u, void&gt;::operator ap_uint&lt;256&gt; const()" Caller="void store&lt;ap_uint&lt;256&gt;, ap_int&lt;8&gt;, ap_int&lt;8&gt;, 32u&gt;(hls::stream&lt;WideType&lt;ap_int&lt;8&gt;, 32u, (sizeof (ap_int&lt;8&gt;)) * (8), void&gt;::t_TypeInt, 0&gt;&amp;, ap_uint&lt;256&gt;*, unsigned int, unsigned int, unsigned int, bool&amp;)"/>
     </msg>
 </xilinx:hls_fe_msgs>
 

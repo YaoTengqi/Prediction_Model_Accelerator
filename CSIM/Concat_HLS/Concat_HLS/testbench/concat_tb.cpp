@@ -14,8 +14,8 @@ int main(){
 	ap_uint<32> input_data_addr3 = 8192 * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
 	bool concat_flag = false;
 
-	readBin(basedir + "dram_before.bin", sizeof(t_DataType_IN) * ROWS * COLS * 2, input_data);
-	readBin(basedir + "dram_after.bin", sizeof(t_DataType_OUT) * ROWS * COLS * 2, golden);
+	readBin(basedir + "dram.bin", sizeof(t_DataType_IN) * ROWS * COLS * 2, input_data);
+	readBin(basedir + "output_data.bin", sizeof(t_DataType_OUT) * ROWS * COLS * 2, golden);
 	concat( input_data_addr1,
 			input_data_addr2,
 			input_data_addr3,
@@ -26,7 +26,7 @@ int main(){
 			concat_flag
 			);
 
-	int err = memcmp(&output_data[0], &golden[input_data_addr3], ROWS * COLS * 2 * sizeof(t_DataType_IN));
+	int err = memcmp(&output_data[input_data_addr3], &golden[input_data_addr3], ROWS * COLS * 2 * sizeof(t_DataType_IN));
     if (err == 0 && concat_flag) {
         cout << "Pass!\n";
         return 0;
