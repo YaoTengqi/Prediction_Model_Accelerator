@@ -70231,19 +70231,23 @@ void load(
   t_AXI_DataType *inputs,
   uint8_t idx_ram[1024],
   uint8_t count_ram[32],
-  t_DataType_IN fm_ram[512][32],
+  typename WideType<t_DataType_IN, nPE>::t_TypeInt fm_ram[512],
   uint32_t input_data_addr1,
   uint32_t input_data_addr2)
 {
  t_DataType_IN am_ram[am_ROWS][am_COLS];
  int idx_count = 0, count_count = 0;
- memcpy(&fm_ram[0][0], (const t_AXI_DataType *)&inputs[input_data_addr1], fm_ROWS * fm_COLS * sizeof(t_DataType_IN));
- memcpy(&am_ram[0], (const t_AXI_DataType *)&inputs[input_data_addr2], am_ROWS * am_COLS * sizeof(t_DataType_IN));
+ int fm_loop_num = fm_ROWS * fm_COLS * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
+ int addr1 = input_data_addr1 / sizeof(t_AXI_DataType);
+ VITIS_LOOP_22_1: for(int i = 0; i < fm_loop_num; i++){
+  fm_ram[i] = inputs[addr1 + i];
+ }
+ memcpy(&am_ram[0], &inputs[input_data_addr2], am_ROWS * am_COLS * sizeof(t_DataType_IN));
 #pragma HLS PIPELINE
- VITIS_LOOP_23_1: for(int row = 0; row < am_ROWS; row++){
+ VITIS_LOOP_27_2: for(int row = 0; row < am_ROWS; row++){
   int count = 0;
 #pragma HLS UNROLL
- VITIS_LOOP_26_2: for(int col = 0; col < am_COLS; col++){
+ VITIS_LOOP_30_3: for(int col = 0; col < am_COLS; col++){
    if(am_ram[row][col] != 0){
     count++;
     idx_ram[idx_count++] = col;
@@ -70260,23 +70264,23 @@ void mul(
   unsigned int am_COLS,
   unsigned int fm_ROWS,
   unsigned int fm_COLS,
-  t_DataType_IN fm_ram[512][32],
+  typename WideType<t_DataType_IN, nPE>::t_TypeInt fm_ram[512],
   uint8_t idx_ram[1024],
   uint8_t count_ram[32],
-  hls::stream<typename WideType<t_DataType_OUT, nPE>::t_TypeInt> &data_stream_out,
-  t_AXI_DataType *outputs){
+  hls::stream<typename WideType<t_DataType_OUT, nPE>::t_TypeInt> &data_stream_out){
 #pragma HLS PIPELINE II = 1
- VITIS_LOOP_49_1: for(int block = 0; block < (fm_COLS / nPE); block++){
+ VITIS_LOOP_52_1: for(int block = 0; block < (fm_COLS / nPE); block++){
   int idx_ram_base = 0;
-  VITIS_LOOP_51_2: for(int row = 0; row < am_ROWS; row++){
+  VITIS_LOOP_54_2: for(int row = 0; row < am_ROWS; row++){
    int idx_count = count_ram[row];
    t_DataType_OUT ZERO = 0;
    WideType<t_DataType_OUT, nPE> result = ZERO;
 #pragma HLS UNROLL
- VITIS_LOOP_56_3: for(int count = 0; count < idx_count; count++){
+ VITIS_LOOP_59_3: for(int count = 0; count < idx_count; count++){
    uint8_t idx = idx_ram[idx_ram_base + count];
-    VITIS_LOOP_58_4: for(int pe = 0; pe < nPE; pe++){
-     result[pe] = result[pe] + fm_ram[block * nPE + idx][pe];
+   WideType<t_DataType_IN, nPE> fm_value = fm_ram[block * nPE + idx];
+    VITIS_LOOP_62_4: for(int pe = 0; pe < nPE; pe++){
+     result[pe] = result[pe] + fm_value[pe];
     }
    }
    idx_ram_base = idx_ram_base + idx_count;
@@ -70301,7 +70305,7 @@ void store(
  unsigned int loop_num = ROWS * COLS / nPE;
  WideType<t_DataType_IN, nPE> data;
  int count = 0;
- VITIS_LOOP_84_1: for(int i = 0; i < loop_num; i++)
+ VITIS_LOOP_88_1: for(int i = 0; i < loop_num; i++)
  {
 #pragma HLS PIPELINE
  data = data_stream_out.read();
@@ -70365,14 +70369,14 @@ __attribute__((sdx_kernel("sparse", 0))) void sparse(
 
 
  hls::stream<WideType<ap_int<8>, 32>::t_TypeInt> data_out;
-#pragma HLS STREAM variable = data_out depth = 512
+#pragma HLS STREAM variable = data_out depth = 64
 
- ap_int<8> fm_ram[512][32];
+ typename WideType<ap_int<8>, 32>::t_TypeInt fm_ram[512];
  uint8_t idx_ram[1024];
  uint8_t count_ram[32];
 
 #pragma HLS DATAFLOW
  load<ap_uint<256>, ap_int<8>, 32>(am_ROWS, am_COLS, fm_ROWS, fm_COLS, inputs, idx_ram, count_ram, fm_ram, input_data_addr1, input_data_addr2);
- mul<ap_uint<256>, ap_int<8>, ap_int<8>, 32>(am_ROWS, am_COLS, fm_ROWS, fm_COLS, fm_ram, idx_ram, count_ram, data_out, outputs);
+ mul<ap_uint<256>, ap_int<8>, ap_int<8>, 32>(am_ROWS, am_COLS, fm_ROWS, fm_COLS, fm_ram, idx_ram, count_ram, data_out);
  store<ap_uint<256>, ap_int<8>, ap_int<8>, 32>(data_out, outputs, output_data_addr3, am_ROWS, fm_COLS, sparse_flag);
 }

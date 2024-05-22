@@ -6,7 +6,7 @@ set SynModuleInfo {
     }
   }
   {SRCNAME {mul<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>} MODELNAME mul_ap_uint_256_ap_int_8_ap_int_8_32u_s RTLNAME sparse_mul_ap_uint_256_ap_int_8_ap_int_8_32u_s}
-  {SRCNAME {store<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>_Pipeline_VITIS_LOOP_84_1} MODELNAME store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_84_1 RTLNAME sparse_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_84_1
+  {SRCNAME {store<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>_Pipeline_VITIS_LOOP_88_1} MODELNAME store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_88_1 RTLNAME sparse_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_88_1
     SUBMODULES {
       {MODELNAME sparse_flow_control_loop_pipe_sequential_init RTLNAME sparse_flow_control_loop_pipe_sequential_init BINDTYPE interface TYPE internal_upc_flow_control INSTNAME sparse_flow_control_loop_pipe_sequential_init_U}
     }
@@ -24,7 +24,7 @@ set SynModuleInfo {
       {MODELNAME sparse_fifo_w64_d4_S RTLNAME sparse_fifo_w64_d4_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME outputs_c_U}
       {MODELNAME sparse_fifo_w32_d2_S RTLNAME sparse_fifo_w32_d2_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME am_ROWS_c9_channel_U}
       {MODELNAME sparse_fifo_w32_d2_S RTLNAME sparse_fifo_w32_d2_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fm_COLS_c10_channel_U}
-      {MODELNAME sparse_fifo_w256_d512_A RTLNAME sparse_fifo_w256_d512_A BINDTYPE storage TYPE fifo IMPL memory ALLOW_PRAGMA 1 INSTNAME data_out_U}
+      {MODELNAME sparse_fifo_w256_d64_A RTLNAME sparse_fifo_w256_d64_A BINDTYPE storage TYPE fifo IMPL memory ALLOW_PRAGMA 1 INSTNAME data_out_U}
       {MODELNAME sparse_fifo_w32_d2_S RTLNAME sparse_fifo_w32_d2_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME am_ROWS_c_U}
       {MODELNAME sparse_fifo_w32_d2_S RTLNAME sparse_fifo_w32_d2_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fm_COLS_c_U}
       {MODELNAME sparse_start_for_store_ap_uint_256_ap_int_8_ap_int_8_32u_U0 RTLNAME sparse_start_for_store_ap_uint_256_ap_int_8_ap_int_8_32u_U0 BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME start_for_store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_U}

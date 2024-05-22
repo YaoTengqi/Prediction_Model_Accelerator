@@ -29,8 +29,8 @@
 <ID>250</ID>
 <InstancesList>
 <Instance>
-<InstName>grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_84_1_fu_124</InstName>
-<ModuleName>store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_84_1</ModuleName>
+<InstName>grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_88_1_fu_124</InstName>
+<ModuleName>store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_88_1</ModuleName>
 <IsCompInst>true</IsCompInst>
 <ID>124</ID>
 </Instance>
@@ -327,11 +327,11 @@
 <Module>
 <Name>load_ap_uint_256_ap_int_8_32u_s</Name>
 <Loops>
-<Loop1></Loop1>
+<VITIS_LOOP_22_1></VITIS_LOOP_22_1>
 <Loop2></Loop2>
-<VITIS_LOOP_23_1>
-<VITIS_LOOP_26_2></VITIS_LOOP_26_2>
-</VITIS_LOOP_23_1>
+<VITIS_LOOP_27_2>
+<VITIS_LOOP_30_3></VITIS_LOOP_30_3>
+</VITIS_LOOP_27_2>
 </Loops>
 <PerformanceEstimates>
 <SummaryOfTimingAnalysis>
@@ -351,18 +351,18 @@
 <PipelineType>no</PipelineType>
 </SummaryOfOverallLatency>
 <SummaryOfLoopLatency>
-<Loop1>
-<Name>Loop 1</Name>
+<VITIS_LOOP_22_1>
+<Name>VITIS_LOOP_22_1</Name>
 <Slack>7.30</Slack>
 <TripCount>undef</TripCount>
 <Latency>undef</Latency>
 <AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
-<IterationLatency>41</IterationLatency>
-<PipelineDepth>41</PipelineDepth>
+<IterationLatency>3</IterationLatency>
+<PipelineDepth>3</PipelineDepth>
 <PipelineType>no</PipelineType>
 <InstanceList>
 </InstanceList>
-</Loop1>
+</VITIS_LOOP_22_1>
 <Loop2>
 <Name>Loop 2</Name>
 <Slack>7.30</Slack>
@@ -375,8 +375,8 @@
 <InstanceList>
 </InstanceList>
 </Loop2>
-<VITIS_LOOP_23_1>
-<Name>VITIS_LOOP_23_1</Name>
+<VITIS_LOOP_27_2>
+<Name>VITIS_LOOP_27_2</Name>
 <Slack>7.30</Slack>
 <TripCount>undef</TripCount>
 <Latency>undef</Latency>
@@ -386,8 +386,8 @@
 <PipelineType>no</PipelineType>
 <InstanceList>
 </InstanceList>
-<VITIS_LOOP_26_2>
-<Name>VITIS_LOOP_26_2</Name>
+<VITIS_LOOP_30_3>
+<Name>VITIS_LOOP_30_3</Name>
 <Slack>7.30</Slack>
 <TripCount>undef</TripCount>
 <Latency>undef</Latency>
@@ -397,8 +397,8 @@
 <PipelineType>no</PipelineType>
 <InstanceList>
 </InstanceList>
-</VITIS_LOOP_26_2>
-</VITIS_LOOP_23_1>
+</VITIS_LOOP_30_3>
+</VITIS_LOOP_27_2>
 </SummaryOfLoopLatency>
 </PerformanceEstimates>
 <AreaEstimates>
@@ -406,12 +406,12 @@
 <DSP>6</DSP>
 <AVAIL_DSP>1728</AVAIL_DSP>
 <UTIL_DSP>~0</UTIL_DSP>
-<FF>1272</FF>
+<FF>1233</FF>
 <AVAIL_FF>460800</AVAIL_FF>
 <UTIL_FF>~0</UTIL_FF>
-<LUT>3099</LUT>
+<LUT>2098</LUT>
 <AVAIL_LUT>230400</AVAIL_LUT>
-<UTIL_LUT>1</UTIL_LUT>
+<UTIL_LUT>~0</UTIL_LUT>
 <BRAM_18K>0</BRAM_18K>
 <AVAIL_BRAM>624</AVAIL_BRAM>
 <UTIL_BRAM>0</UTIL_BRAM>
@@ -1177,7 +1177,7 @@
 <IOProtocol>ap_memory</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>out</Dir>
-<Bits>14</Bits>
+<Bits>9</Bits>
 <Attribute>address</Attribute>
 </RtlPorts>
 <RtlPorts>
@@ -1210,7 +1210,7 @@
 <IOProtocol>ap_memory</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>out</Dir>
-<Bits>8</Bits>
+<Bits>256</Bits>
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
@@ -1240,11 +1240,11 @@
 <Module>
 <Name>mul_ap_uint_256_ap_int_8_ap_int_8_32u_s</Name>
 <Loops>
-<VITIS_LOOP_49_1>
-<VITIS_LOOP_51_2>
-<VITIS_LOOP_56_3></VITIS_LOOP_56_3>
-</VITIS_LOOP_51_2>
-</VITIS_LOOP_49_1>
+<VITIS_LOOP_52_1>
+<VITIS_LOOP_54_2>
+<VITIS_LOOP_59_3></VITIS_LOOP_59_3>
+</VITIS_LOOP_54_2>
+</VITIS_LOOP_52_1>
 </Loops>
 <PerformanceEstimates>
 <SummaryOfTimingAnalysis>
@@ -1264,8 +1264,8 @@
 <PipelineType>no</PipelineType>
 </SummaryOfOverallLatency>
 <SummaryOfLoopLatency>
-<VITIS_LOOP_49_1>
-<Name>VITIS_LOOP_49_1</Name>
+<VITIS_LOOP_52_1>
+<Name>VITIS_LOOP_52_1</Name>
 <Slack>7.30</Slack>
 <TripCount>undef</TripCount>
 <Latency>undef</Latency>
@@ -1275,8 +1275,8 @@
 <PipelineType>no</PipelineType>
 <InstanceList>
 </InstanceList>
-<VITIS_LOOP_51_2>
-<Name>VITIS_LOOP_51_2</Name>
+<VITIS_LOOP_54_2>
+<Name>VITIS_LOOP_54_2</Name>
 <Slack>7.30</Slack>
 <TripCount>undef</TripCount>
 <Latency>undef</Latency>
@@ -1284,15 +1284,15 @@
 <IterationLatency>
 <range>
 <min>3</min>
-<max>4593</max>
+<max>768</max>
 </range>
 </IterationLatency>
-<PipelineDepth>3 ~ 4593</PipelineDepth>
+<PipelineDepth>3 ~ 768</PipelineDepth>
 <PipelineType>no</PipelineType>
 <InstanceList>
 </InstanceList>
-<VITIS_LOOP_56_3>
-<Name>VITIS_LOOP_56_3</Name>
+<VITIS_LOOP_59_3>
+<Name>VITIS_LOOP_59_3</Name>
 <Slack>7.30</Slack>
 <TripCount>
 <range>
@@ -1300,24 +1300,24 @@
 <max>255</max>
 </range>
 </TripCount>
-<Latency>0 ~ 4590</Latency>
-<AbsoluteTimeLatency>0 ns ~ 45.900 us</AbsoluteTimeLatency>
-<IterationLatency>18</IterationLatency>
-<PipelineDepth>18</PipelineDepth>
+<Latency>0 ~ 765</Latency>
+<AbsoluteTimeLatency>0 ns ~ 7.650 us</AbsoluteTimeLatency>
+<IterationLatency>3</IterationLatency>
+<PipelineDepth>3</PipelineDepth>
 <PipelineType>no</PipelineType>
 <InstanceList>
 </InstanceList>
-</VITIS_LOOP_56_3>
-</VITIS_LOOP_51_2>
-</VITIS_LOOP_49_1>
+</VITIS_LOOP_59_3>
+</VITIS_LOOP_54_2>
+</VITIS_LOOP_52_1>
 </SummaryOfLoopLatency>
 </PerformanceEstimates>
 <AreaEstimates>
 <Resources>
-<FF>751</FF>
+<FF>487</FF>
 <AVAIL_FF>460800</AVAIL_FF>
 <UTIL_FF>~0</UTIL_FF>
-<LUT>1764</LUT>
+<LUT>1095</LUT>
 <AVAIL_LUT>230400</AVAIL_LUT>
 <UTIL_LUT>~0</UTIL_LUT>
 <BRAM_18K>0</BRAM_18K>
@@ -1439,7 +1439,7 @@
 <IOProtocol>ap_memory</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>out</Dir>
-<Bits>14</Bits>
+<Bits>9</Bits>
 <Attribute>address</Attribute>
 </RtlPorts>
 <RtlPorts>
@@ -1461,40 +1461,7 @@
 <IOProtocol>ap_memory</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>in</Dir>
-<Bits>8</Bits>
-<Attribute>data</Attribute>
-</RtlPorts>
-<RtlPorts>
-<name>fm_ram_address1</name>
-<Object>fm_ram</Object>
-<Type>array</Type>
-<Scope></Scope>
-<IOProtocol>ap_memory</IOProtocol>
-<IOConfig></IOConfig>
-<Dir>out</Dir>
-<Bits>14</Bits>
-<Attribute>address</Attribute>
-</RtlPorts>
-<RtlPorts>
-<name>fm_ram_ce1</name>
-<Object>fm_ram</Object>
-<Type>array</Type>
-<Scope></Scope>
-<IOProtocol>ap_memory</IOProtocol>
-<IOConfig></IOConfig>
-<Dir>out</Dir>
-<Bits>1</Bits>
-<Attribute>control</Attribute>
-</RtlPorts>
-<RtlPorts>
-<name>fm_ram_q1</name>
-<Object>fm_ram</Object>
-<Type>array</Type>
-<Scope></Scope>
-<IOProtocol>ap_memory</IOProtocol>
-<IOConfig></IOConfig>
-<Dir>in</Dir>
-<Bits>8</Bits>
+<Bits>256</Bits>
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
@@ -1582,7 +1549,7 @@
 <IOProtocol>ap_fifo</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>in</Dir>
-<Bits>10</Bits>
+<Bits>7</Bits>
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
@@ -1593,7 +1560,7 @@
 <IOProtocol>ap_fifo</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>in</Dir>
-<Bits>10</Bits>
+<Bits>7</Bits>
 <Attribute>unknown</Attribute>
 </RtlPorts>
 <RtlPorts>
@@ -1731,9 +1698,9 @@
 </InterfaceSummary>
 </Module>
 <Module>
-<Name>store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_84_1</Name>
+<Name>store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_88_1</Name>
 <Loops>
-<VITIS_LOOP_84_1></VITIS_LOOP_84_1>
+<VITIS_LOOP_88_1></VITIS_LOOP_88_1>
 </Loops>
 <PerformanceEstimates>
 <SummaryOfTimingAnalysis>
@@ -1752,8 +1719,8 @@
 <PipelineType>no</PipelineType>
 </SummaryOfOverallLatency>
 <SummaryOfLoopLatency>
-<VITIS_LOOP_84_1>
-<Name>VITIS_LOOP_84_1</Name>
+<VITIS_LOOP_88_1>
+<Name>VITIS_LOOP_88_1</Name>
 <Slack>7.30</Slack>
 <TripCount>undef</TripCount>
 <Latency>2 ~ ?</Latency>
@@ -1763,7 +1730,7 @@
 <PipelineType>yes</PipelineType>
 <InstanceList>
 </InstanceList>
-</VITIS_LOOP_84_1>
+</VITIS_LOOP_88_1>
 </SummaryOfLoopLatency>
 </PerformanceEstimates>
 <AreaEstimates>
@@ -1788,7 +1755,7 @@
 <InterfaceSummary>
 <RtlPorts>
 <name>ap_clk</name>
-<Object>store&lt;ap_uint&lt;256&gt;, ap_int&lt;8&gt;, ap_int&lt;8&gt;, 32u&gt;_Pipeline_VITIS_LOOP_84_1</Object>
+<Object>store&lt;ap_uint&lt;256&gt;, ap_int&lt;8&gt;, ap_int&lt;8&gt;, 32u&gt;_Pipeline_VITIS_LOOP_88_1</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -1799,7 +1766,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_rst</name>
-<Object>store&lt;ap_uint&lt;256&gt;, ap_int&lt;8&gt;, ap_int&lt;8&gt;, 32u&gt;_Pipeline_VITIS_LOOP_84_1</Object>
+<Object>store&lt;ap_uint&lt;256&gt;, ap_int&lt;8&gt;, ap_int&lt;8&gt;, 32u&gt;_Pipeline_VITIS_LOOP_88_1</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -1810,7 +1777,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_start</name>
-<Object>store&lt;ap_uint&lt;256&gt;, ap_int&lt;8&gt;, ap_int&lt;8&gt;, 32u&gt;_Pipeline_VITIS_LOOP_84_1</Object>
+<Object>store&lt;ap_uint&lt;256&gt;, ap_int&lt;8&gt;, ap_int&lt;8&gt;, 32u&gt;_Pipeline_VITIS_LOOP_88_1</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -1821,7 +1788,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_done</name>
-<Object>store&lt;ap_uint&lt;256&gt;, ap_int&lt;8&gt;, ap_int&lt;8&gt;, 32u&gt;_Pipeline_VITIS_LOOP_84_1</Object>
+<Object>store&lt;ap_uint&lt;256&gt;, ap_int&lt;8&gt;, ap_int&lt;8&gt;, 32u&gt;_Pipeline_VITIS_LOOP_88_1</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -1832,7 +1799,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_idle</name>
-<Object>store&lt;ap_uint&lt;256&gt;, ap_int&lt;8&gt;, ap_int&lt;8&gt;, 32u&gt;_Pipeline_VITIS_LOOP_84_1</Object>
+<Object>store&lt;ap_uint&lt;256&gt;, ap_int&lt;8&gt;, ap_int&lt;8&gt;, 32u&gt;_Pipeline_VITIS_LOOP_88_1</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -1843,7 +1810,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_ready</name>
-<Object>store&lt;ap_uint&lt;256&gt;, ap_int&lt;8&gt;, ap_int&lt;8&gt;, 32u&gt;_Pipeline_VITIS_LOOP_84_1</Object>
+<Object>store&lt;ap_uint&lt;256&gt;, ap_int&lt;8&gt;, ap_int&lt;8&gt;, 32u&gt;_Pipeline_VITIS_LOOP_88_1</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -1871,7 +1838,7 @@
 <IOProtocol>ap_fifo</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>in</Dir>
-<Bits>10</Bits>
+<Bits>7</Bits>
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
@@ -1882,7 +1849,7 @@
 <IOProtocol>ap_fifo</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>in</Dir>
-<Bits>10</Bits>
+<Bits>7</Bits>
 <Attribute>unknown</Attribute>
 </RtlPorts>
 <RtlPorts>
@@ -2414,8 +2381,8 @@
 <Attribute>unknown</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>sext_ln84</name>
-<Object>sext_ln84</Object>
+<name>sext_ln88</name>
+<Object>sext_ln88</Object>
 <Type>scalar</Type>
 <Scope></Scope>
 <IOProtocol>ap_none</IOProtocol>
@@ -2572,7 +2539,7 @@
 <IOProtocol>ap_fifo</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>in</Dir>
-<Bits>10</Bits>
+<Bits>7</Bits>
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
@@ -2583,7 +2550,7 @@
 <IOProtocol>ap_fifo</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>in</Dir>
-<Bits>10</Bits>
+<Bits>7</Bits>
 <Attribute>unknown</Attribute>
 </RtlPorts>
 <RtlPorts>
@@ -3380,16 +3347,16 @@
 </PerformanceEstimates>
 <AreaEstimates>
 <Resources>
-<BRAM_18K>32</BRAM_18K>
+<BRAM_18K>31</BRAM_18K>
 <AVAIL_BRAM>624</AVAIL_BRAM>
-<UTIL_BRAM>5</UTIL_BRAM>
+<UTIL_BRAM>4</UTIL_BRAM>
 <DSP>9</DSP>
 <AVAIL_DSP>1728</AVAIL_DSP>
 <UTIL_DSP>~0</UTIL_DSP>
-<FF>4797</FF>
+<FF>4488</FF>
 <AVAIL_FF>460800</AVAIL_FF>
-<UTIL_FF>1</UTIL_FF>
-<LUT>8628</LUT>
+<UTIL_FF>~0</UTIL_FF>
+<LUT>6951</LUT>
 <AVAIL_LUT>230400</AVAIL_LUT>
 <UTIL_LUT>3</UTIL_LUT>
 <URAM>0</URAM>
@@ -4166,7 +4133,7 @@
 <FIFOInst>
 <Name>data_out_U</Name>
 <ParentInst></ParentInst>
-<StaticDepth>512</StaticDepth>
+<StaticDepth>64</StaticDepth>
 <RuntimeDepth>mOutPtr</RuntimeDepth>
 <InterfaceList>
 <Interface>clk</Interface>

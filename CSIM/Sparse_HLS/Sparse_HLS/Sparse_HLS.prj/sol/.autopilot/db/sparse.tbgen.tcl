@@ -268,13 +268,13 @@ set RtlHierarchyInfo {[
 			{"Name" : "input_data_addr1", "Type" : "None", "Direction" : "I"},
 			{"Name" : "input_data_addr2", "Type" : "None", "Direction" : "I"}],
 		"Loop" : [
-			{"Name" : "Loop 1", "PipelineType" : "no",
-				"LoopDec" : {"FSMBitwidth" : "86", "FirstState" : "ap_ST_fsm_state2", "LastState" : ["ap_ST_fsm_state42"], "QuitState" : ["ap_ST_fsm_state2"], "PreState" : ["ap_ST_fsm_state1"], "PostState" : ["ap_ST_fsm_state43"], "OneDepthLoop" : "0", "OneStateBlock": ""}},
+			{"Name" : "VITIS_LOOP_22_1", "PipelineType" : "no",
+				"LoopDec" : {"FSMBitwidth" : "86", "FirstState" : "ap_ST_fsm_state40", "LastState" : ["ap_ST_fsm_state42"], "QuitState" : ["ap_ST_fsm_state40"], "PreState" : ["ap_ST_fsm_state39"], "PostState" : ["ap_ST_fsm_state43"], "OneDepthLoop" : "0", "OneStateBlock": ""}},
 			{"Name" : "Loop 2", "PipelineType" : "no",
-				"LoopDec" : {"FSMBitwidth" : "86", "FirstState" : "ap_ST_fsm_state43", "LastState" : ["ap_ST_fsm_state83"], "QuitState" : ["ap_ST_fsm_state43"], "PreState" : ["ap_ST_fsm_state2"], "PostState" : ["ap_ST_fsm_state84"], "OneDepthLoop" : "0", "OneStateBlock": ""}},
-			{"Name" : "VITIS_LOOP_26_2", "PipelineType" : "no",
+				"LoopDec" : {"FSMBitwidth" : "86", "FirstState" : "ap_ST_fsm_state43", "LastState" : ["ap_ST_fsm_state83"], "QuitState" : ["ap_ST_fsm_state43"], "PreState" : ["ap_ST_fsm_state40"], "PostState" : ["ap_ST_fsm_state84"], "OneDepthLoop" : "0", "OneStateBlock": ""}},
+			{"Name" : "VITIS_LOOP_30_3", "PipelineType" : "no",
 				"LoopDec" : {"FSMBitwidth" : "86", "FirstState" : "ap_ST_fsm_state85", "LastState" : ["ap_ST_fsm_state86"], "QuitState" : ["ap_ST_fsm_state85"], "PreState" : ["ap_ST_fsm_state84"], "PostState" : ["ap_ST_fsm_state84"], "OneDepthLoop" : "0", "OneStateBlock": ""}},
-			{"Name" : "VITIS_LOOP_23_1", "PipelineType" : "no",
+			{"Name" : "VITIS_LOOP_27_2", "PipelineType" : "no",
 				"LoopDec" : {"FSMBitwidth" : "86", "FirstState" : "ap_ST_fsm_state84", "LastState" : ["ap_ST_fsm_state85"], "QuitState" : ["ap_ST_fsm_state84"], "PreState" : ["ap_ST_fsm_state43"], "PostState" : ["ap_ST_fsm_state1"], "OneDepthLoop" : "0", "OneStateBlock": ""}}]},
 	{"ID" : "8", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.load_ap_uint_256_ap_int_8_32u_U0.mul_32s_32s_32_1_1_U5", "Parent" : "7"},
 	{"ID" : "9", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.load_ap_uint_256_ap_int_8_32u_U0.mul_32s_32s_32_1_1_U6", "Parent" : "7"},
@@ -298,7 +298,7 @@ set RtlHierarchyInfo {[
 			{"Name" : "fm_ram", "Type" : "Memory", "Direction" : "I", "DependentProc" : ["7"], "DependentChan" : "1"},
 			{"Name" : "idx_ram", "Type" : "Memory", "Direction" : "I", "DependentProc" : ["7"], "DependentChan" : "2"},
 			{"Name" : "count_ram", "Type" : "Memory", "Direction" : "I", "DependentProc" : ["7"], "DependentChan" : "3"},
-			{"Name" : "data_out1", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["11"], "DependentChan" : "19", "DependentChanDepth" : "512", "DependentChanType" : "0",
+			{"Name" : "data_out1", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["11"], "DependentChan" : "19", "DependentChanDepth" : "64", "DependentChanType" : "0",
 				"BlockSignal" : [
 					{"Name" : "data_out1_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "am_ROWS_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["11"], "DependentChan" : "20", "DependentChanDepth" : "2", "DependentChanType" : "2",
@@ -308,12 +308,12 @@ set RtlHierarchyInfo {[
 				"BlockSignal" : [
 					{"Name" : "fm_COLS_c_blk_n", "Type" : "RtlSignal"}]}],
 		"Loop" : [
-			{"Name" : "VITIS_LOOP_56_3", "PipelineType" : "no",
-				"LoopDec" : {"FSMBitwidth" : "22", "FirstState" : "ap_ST_fsm_state5", "LastState" : ["ap_ST_fsm_state22"], "QuitState" : ["ap_ST_fsm_state5"], "PreState" : ["ap_ST_fsm_state4"], "PostState" : ["ap_ST_fsm_state3"], "OneDepthLoop" : "0", "OneStateBlock": ""}},
-			{"Name" : "VITIS_LOOP_51_2", "PipelineType" : "no",
-				"LoopDec" : {"FSMBitwidth" : "22", "FirstState" : "ap_ST_fsm_state3", "LastState" : ["ap_ST_fsm_state5"], "QuitState" : ["ap_ST_fsm_state3"], "PreState" : ["ap_ST_fsm_state2"], "PostState" : ["ap_ST_fsm_state2"], "OneDepthLoop" : "0", "OneStateBlock": ""}},
-			{"Name" : "VITIS_LOOP_49_1", "PipelineType" : "no",
-				"LoopDec" : {"FSMBitwidth" : "22", "FirstState" : "ap_ST_fsm_state2", "LastState" : ["ap_ST_fsm_state3"], "QuitState" : ["ap_ST_fsm_state2"], "PreState" : ["ap_ST_fsm_state1"], "PostState" : ["ap_ST_fsm_state1"], "OneDepthLoop" : "0", "OneStateBlock": ""}}]},
+			{"Name" : "VITIS_LOOP_59_3", "PipelineType" : "no",
+				"LoopDec" : {"FSMBitwidth" : "7", "FirstState" : "ap_ST_fsm_state5", "LastState" : ["ap_ST_fsm_state7"], "QuitState" : ["ap_ST_fsm_state5"], "PreState" : ["ap_ST_fsm_state4"], "PostState" : ["ap_ST_fsm_state3"], "OneDepthLoop" : "0", "OneStateBlock": ""}},
+			{"Name" : "VITIS_LOOP_54_2", "PipelineType" : "no",
+				"LoopDec" : {"FSMBitwidth" : "7", "FirstState" : "ap_ST_fsm_state3", "LastState" : ["ap_ST_fsm_state5"], "QuitState" : ["ap_ST_fsm_state3"], "PreState" : ["ap_ST_fsm_state2"], "PostState" : ["ap_ST_fsm_state2"], "OneDepthLoop" : "0", "OneStateBlock": ""}},
+			{"Name" : "VITIS_LOOP_52_1", "PipelineType" : "no",
+				"LoopDec" : {"FSMBitwidth" : "7", "FirstState" : "ap_ST_fsm_state2", "LastState" : ["ap_ST_fsm_state3"], "QuitState" : ["ap_ST_fsm_state2"], "PreState" : ["ap_ST_fsm_state1"], "PostState" : ["ap_ST_fsm_state1"], "OneDepthLoop" : "0", "OneStateBlock": ""}}]},
 	{"ID" : "11", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.store_ap_uint_256_ap_int_8_ap_int_8_32u_U0", "Parent" : "0", "Child" : ["12", "14"],
 		"CDFG" : "store_ap_uint_256_ap_int_8_ap_int_8_32u_s",
 		"Protocol" : "ap_ctrl_hs",
@@ -331,15 +331,15 @@ set RtlHierarchyInfo {[
 		"StartSource" : "6",
 		"StartFifo" : "start_for_store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_U",
 		"Port" : [
-			{"Name" : "data_out1", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["10"], "DependentChan" : "19", "DependentChanDepth" : "512", "DependentChanType" : "0",
+			{"Name" : "data_out1", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["10"], "DependentChan" : "19", "DependentChanDepth" : "64", "DependentChanType" : "0",
 				"SubConnect" : [
-					{"ID" : "12", "SubInstance" : "grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_84_1_fu_124", "Port" : "data_out1", "Inst_start_state" : "3", "Inst_end_state" : "4"}]},
+					{"ID" : "12", "SubInstance" : "grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_88_1_fu_124", "Port" : "data_out1", "Inst_start_state" : "3", "Inst_end_state" : "4"}]},
 			{"Name" : "sparse_data", "Type" : "MAXI", "Direction" : "O",
 				"BlockSignal" : [
 					{"Name" : "sparse_data_blk_n_AW", "Type" : "RtlSignal"},
 					{"Name" : "sparse_data_blk_n_B", "Type" : "RtlSignal"}],
 				"SubConnect" : [
-					{"ID" : "12", "SubInstance" : "grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_84_1_fu_124", "Port" : "sparse_data", "Inst_start_state" : "3", "Inst_end_state" : "4"}]},
+					{"ID" : "12", "SubInstance" : "grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_88_1_fu_124", "Port" : "sparse_data", "Inst_start_state" : "3", "Inst_end_state" : "4"}]},
 			{"Name" : "outputs", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["6"], "DependentChan" : "16", "DependentChanDepth" : "4", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "outputs_blk_n", "Type" : "RtlSignal"}]},
@@ -353,8 +353,8 @@ set RtlHierarchyInfo {[
 				"BlockSignal" : [
 					{"Name" : "COLS_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "sparse_flag", "Type" : "Vld", "Direction" : "O"}]},
-	{"ID" : "12", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.store_ap_uint_256_ap_int_8_ap_int_8_32u_U0.grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_84_1_fu_124", "Parent" : "11", "Child" : ["13"],
-		"CDFG" : "store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_84_1",
+	{"ID" : "12", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.store_ap_uint_256_ap_int_8_ap_int_8_32u_U0.grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_88_1_fu_124", "Parent" : "11", "Child" : ["13"],
+		"CDFG" : "store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_88_1",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
@@ -371,15 +371,15 @@ set RtlHierarchyInfo {[
 			{"Name" : "sparse_data", "Type" : "MAXI", "Direction" : "O",
 				"BlockSignal" : [
 					{"Name" : "sparse_data_blk_n_W", "Type" : "RtlSignal"}]},
-			{"Name" : "sext_ln84", "Type" : "None", "Direction" : "I"},
+			{"Name" : "sext_ln88", "Type" : "None", "Direction" : "I"},
 			{"Name" : "loop_num", "Type" : "None", "Direction" : "I"},
 			{"Name" : "data_out1", "Type" : "Fifo", "Direction" : "I",
 				"BlockSignal" : [
 					{"Name" : "data_out1_blk_n", "Type" : "RtlSignal"}]}],
 		"Loop" : [
-			{"Name" : "VITIS_LOOP_84_1", "PipelineType" : "UPC",
+			{"Name" : "VITIS_LOOP_88_1", "PipelineType" : "UPC",
 				"LoopDec" : {"FSMBitwidth" : "1", "FirstState" : "ap_ST_fsm_pp0_stage0", "FirstStateIter" : "ap_enable_reg_pp0_iter0", "FirstStateBlock" : "ap_block_pp0_stage0_subdone", "LastState" : "ap_ST_fsm_pp0_stage0", "LastStateIter" : "ap_enable_reg_pp0_iter2", "LastStateBlock" : "ap_block_pp0_stage0_subdone", "QuitState" : "ap_ST_fsm_pp0_stage0", "QuitStateIter" : "ap_enable_reg_pp0_iter1", "QuitStateBlock" : "ap_block_pp0_stage0_subdone", "OneDepthLoop" : "0", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
-	{"ID" : "13", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.store_ap_uint_256_ap_int_8_ap_int_8_32u_U0.grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_84_1_fu_124.flow_control_loop_pipe_sequential_init_U", "Parent" : "12"},
+	{"ID" : "13", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.store_ap_uint_256_ap_int_8_ap_int_8_32u_U0.grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_88_1_fu_124.flow_control_loop_pipe_sequential_init_U", "Parent" : "12"},
 	{"ID" : "14", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.store_ap_uint_256_ap_int_8_ap_int_8_32u_U0.mul_32s_32s_32_1_1_U31", "Parent" : "11"},
 	{"ID" : "15", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.output_data_addr3_c_U", "Parent" : "0"},
 	{"ID" : "16", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.outputs_c_U", "Parent" : "0"},
@@ -393,7 +393,7 @@ set RtlHierarchyInfo {[
 
 set ArgLastReadFirstWriteLatency {
 	sparse {
-		sparse_data {Type IO LastRead 41 FirstWrite -1}
+		sparse_data {Type IO LastRead 79 FirstWrite -1}
 		input_data_addr1 {Type I LastRead 0 FirstWrite -1}
 		input_data_addr2 {Type I LastRead 0 FirstWrite -1}
 		output_data_addr3 {Type I LastRead 0 FirstWrite -1}
@@ -410,21 +410,21 @@ set ArgLastReadFirstWriteLatency {
 		outputs {Type I LastRead 0 FirstWrite -1}
 		outputs_c {Type O LastRead -1 FirstWrite 0}}
 	load_ap_uint_256_ap_int_8_32u_s {
-		am_ROWS {Type I LastRead 0 FirstWrite -1}
-		am_COLS {Type I LastRead 0 FirstWrite -1}
+		am_ROWS {Type I LastRead 38 FirstWrite -1}
+		am_COLS {Type I LastRead 38 FirstWrite -1}
 		fm_ROWS {Type I LastRead 0 FirstWrite -1}
 		fm_COLS {Type I LastRead 0 FirstWrite -1}
-		sparse_data {Type I LastRead 41 FirstWrite -1}
+		sparse_data {Type I LastRead 79 FirstWrite -1}
 		inputs {Type I LastRead 0 FirstWrite -1}
-		idx_ram {Type O LastRead -1 FirstWrite 4}
-		count_ram {Type O LastRead -1 FirstWrite 4}
+		idx_ram {Type O LastRead -1 FirstWrite 42}
+		count_ram {Type O LastRead -1 FirstWrite 42}
 		fm_ram {Type O LastRead -1 FirstWrite 41}
 		input_data_addr1 {Type I LastRead 0 FirstWrite -1}
-		input_data_addr2 {Type I LastRead 0 FirstWrite -1}}
+		input_data_addr2 {Type I LastRead 38 FirstWrite -1}}
 	mul_ap_uint_256_ap_int_8_ap_int_8_32u_s {
 		p_read {Type I LastRead 0 FirstWrite -1}
 		p_read1 {Type I LastRead 0 FirstWrite -1}
-		fm_ram {Type I LastRead 21 FirstWrite -1}
+		fm_ram {Type I LastRead 5 FirstWrite -1}
 		idx_ram {Type I LastRead 4 FirstWrite -1}
 		count_ram {Type I LastRead 2 FirstWrite -1}
 		data_out1 {Type O LastRead -1 FirstWrite 4}
@@ -438,9 +438,9 @@ set ArgLastReadFirstWriteLatency {
 		ROWS {Type I LastRead 0 FirstWrite -1}
 		COLS {Type I LastRead 0 FirstWrite -1}
 		sparse_flag {Type O LastRead -1 FirstWrite 39}}
-	store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_84_1 {
+	store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_88_1 {
 		sparse_data {Type O LastRead -1 FirstWrite 2}
-		sext_ln84 {Type I LastRead 0 FirstWrite -1}
+		sext_ln88 {Type I LastRead 0 FirstWrite -1}
 		loop_num {Type I LastRead 0 FirstWrite -1}
 		data_out1 {Type I LastRead 1 FirstWrite -1}}}
 

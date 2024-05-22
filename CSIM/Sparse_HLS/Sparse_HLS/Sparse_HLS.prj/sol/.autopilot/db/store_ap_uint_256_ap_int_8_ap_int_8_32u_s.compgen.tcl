@@ -18,7 +18,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_data_out1 \
     op interface \
-    ports { data_out1_dout { I 256 vector } data_out1_num_data_valid { I 10 vector } data_out1_fifo_cap { I 10 vector } data_out1_empty_n { I 1 bit } data_out1_read { O 1 bit } } \
+    ports { data_out1_dout { I 256 vector } data_out1_num_data_valid { I 7 vector } data_out1_fifo_cap { I 7 vector } data_out1_empty_n { I 1 bit } data_out1_read { O 1 bit } } \
 } "
 }
 

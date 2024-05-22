@@ -62,7 +62,7 @@ eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
     dir O \
     corename fm_ram \
     op interface \
-    ports { fm_ram_address0 { O 14 vector } fm_ram_ce0 { O 1 bit } fm_ram_we0 { O 1 bit } fm_ram_d0 { O 8 vector } } \
+    ports { fm_ram_address0 { O 9 vector } fm_ram_ce0 { O 1 bit } fm_ram_we0 { O 1 bit } fm_ram_d0 { O 256 vector } } \
 } "
 } else {
 puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'fm_ram'"

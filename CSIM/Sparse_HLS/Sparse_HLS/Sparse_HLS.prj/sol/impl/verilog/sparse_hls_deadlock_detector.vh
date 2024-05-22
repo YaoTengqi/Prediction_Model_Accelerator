@@ -307,7 +307,7 @@ end
         .token_out_vec(token_out_vec_3),
         .dl_detect_out(dl_in_vec[3]));
 
-    assign proc_3_data_FIFO_blk[0] = 1'b0 | (~store_ap_uint_256_ap_int_8_ap_int_8_32u_U0.grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_84_1_fu_124.data_out1_blk_n) | (~store_ap_uint_256_ap_int_8_ap_int_8_32u_U0.ROWS_blk_n) | (~store_ap_uint_256_ap_int_8_ap_int_8_32u_U0.COLS_blk_n);
+    assign proc_3_data_FIFO_blk[0] = 1'b0 | (~store_ap_uint_256_ap_int_8_ap_int_8_32u_U0.grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_88_1_fu_124.data_out1_blk_n) | (~store_ap_uint_256_ap_int_8_ap_int_8_32u_U0.ROWS_blk_n) | (~store_ap_uint_256_ap_int_8_ap_int_8_32u_U0.COLS_blk_n);
     assign proc_3_data_PIPO_blk[0] = 1'b0;
     assign proc_3_start_FIFO_blk[0] = 1'b0;
     assign proc_3_TLF_FIFO_blk[0] = 1'b0;

@@ -7,7 +7,7 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="sparse_sparse,hls_ip_2022_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xczu7ev-ffvc1156-2-e,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=7.300000,HLS_SYN_LAT=-1,HLS_SYN_TPT=-1,HLS_SYN_MEM=32,HLS_SYN_DSP=0,HLS_SYN_FF=4797,HLS_SYN_LUT=8628,HLS_VERSION=2022_2}" *)
+(* CORE_GENERATION_INFO="sparse_sparse,hls_ip_2022_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xczu7ev-ffvc1156-2-e,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=7.300000,HLS_SYN_LAT=-1,HLS_SYN_TPT=-1,HLS_SYN_MEM=31,HLS_SYN_DSP=0,HLS_SYN_FF=4488,HLS_SYN_LUT=6951,HLS_VERSION=2022_2}" *)
 
 module sparse (
         ap_clk,
@@ -165,10 +165,8 @@ input  [C_M_AXI_SPARSE_DATA_ID_WIDTH - 1:0] m_axi_sparse_data_BID;
 input  [C_M_AXI_SPARSE_DATA_BUSER_WIDTH - 1:0] m_axi_sparse_data_BUSER;
 
  reg    ap_rst_n_inv;
-wire   [7:0] fm_ram_V_i_q0;
-wire   [7:0] fm_ram_V_i_q1;
-wire   [7:0] fm_ram_V_t_q0;
-wire   [7:0] fm_ram_V_t_q1;
+wire   [255:0] fm_ram_V_i_q0;
+wire   [255:0] fm_ram_V_t_q0;
 wire   [7:0] idx_ram_i_q0;
 wire   [7:0] idx_ram_t_q0;
 wire   [7:0] count_ram_i_q0;
@@ -257,10 +255,10 @@ wire   [4:0] load_ap_uint_256_ap_int_8_32u_U0_count_ram_address0;
 wire    load_ap_uint_256_ap_int_8_32u_U0_count_ram_ce0;
 wire    load_ap_uint_256_ap_int_8_32u_U0_count_ram_we0;
 wire   [7:0] load_ap_uint_256_ap_int_8_32u_U0_count_ram_d0;
-wire   [13:0] load_ap_uint_256_ap_int_8_32u_U0_fm_ram_address0;
+wire   [8:0] load_ap_uint_256_ap_int_8_32u_U0_fm_ram_address0;
 wire    load_ap_uint_256_ap_int_8_32u_U0_fm_ram_ce0;
 wire    load_ap_uint_256_ap_int_8_32u_U0_fm_ram_we0;
-wire   [7:0] load_ap_uint_256_ap_int_8_32u_U0_fm_ram_d0;
+wire   [255:0] load_ap_uint_256_ap_int_8_32u_U0_fm_ram_d0;
 wire   [31:0] load_ap_uint_256_ap_int_8_32u_U0_ap_return_0;
 wire   [31:0] load_ap_uint_256_ap_int_8_32u_U0_ap_return_1;
 wire    ap_channel_done_fm_COLS_c10_channel;
@@ -288,10 +286,8 @@ wire    mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_done;
 wire    mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_continue;
 wire    mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_idle;
 wire    mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_ready;
-wire   [13:0] mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_ram_address0;
+wire   [8:0] mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_ram_address0;
 wire    mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_ram_ce0;
-wire   [13:0] mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_ram_address1;
-wire    mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_ram_ce1;
 wire   [9:0] mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_idx_ram_address0;
 wire    mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_idx_ram_ce0;
 wire   [4:0] mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_count_ram_address0;
@@ -372,8 +368,8 @@ wire   [1:0] fm_COLS_c10_channel_fifo_cap;
 wire    fm_COLS_c10_channel_empty_n;
 wire    data_out_full_n;
 wire   [255:0] data_out_dout;
-wire   [9:0] data_out_num_data_valid;
-wire   [9:0] data_out_fifo_cap;
+wire   [6:0] data_out_num_data_valid;
+wire   [6:0] data_out_fifo_cap;
 wire    data_out_empty_n;
 wire    am_ROWS_c_full_n;
 wire   [31:0] am_ROWS_c_dout;
@@ -408,9 +404,9 @@ initial begin
 end
 
 sparse_fm_ram_V_RAM_AUTO_1R1W #(
-    .DataWidth( 8 ),
-    .AddressRange( 16384 ),
-    .AddressWidth( 14 ))
+    .DataWidth( 256 ),
+    .AddressRange( 512 ),
+    .AddressWidth( 9 ))
 fm_ram_V_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
@@ -419,17 +415,11 @@ fm_ram_V_U(
     .i_we0(load_ap_uint_256_ap_int_8_32u_U0_fm_ram_we0),
     .i_d0(load_ap_uint_256_ap_int_8_32u_U0_fm_ram_d0),
     .i_q0(fm_ram_V_i_q0),
-    .i_address1(14'd0),
-    .i_ce1(1'b0),
-    .i_q1(fm_ram_V_i_q1),
     .t_address0(mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_ram_address0),
     .t_ce0(mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_ram_ce0),
     .t_we0(1'b0),
-    .t_d0(8'd0),
+    .t_d0(256'd0),
     .t_q0(fm_ram_V_t_q0),
-    .t_address1(mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_ram_address1),
-    .t_ce1(mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_ram_ce1),
-    .t_q1(fm_ram_V_t_q1),
     .i_ce(1'b1),
     .t_ce(1'b1),
     .i_full_n(fm_ram_V_i_full_n),
@@ -735,9 +725,6 @@ sparse_mul_ap_uint_256_ap_int_8_ap_int_8_32u_s mul_ap_uint_256_ap_int_8_ap_int_8
     .fm_ram_address0(mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_ram_address0),
     .fm_ram_ce0(mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_ram_ce0),
     .fm_ram_q0(fm_ram_V_t_q0),
-    .fm_ram_address1(mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_ram_address1),
-    .fm_ram_ce1(mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_ram_ce1),
-    .fm_ram_q1(fm_ram_V_t_q1),
     .idx_ram_address0(mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_idx_ram_address0),
     .idx_ram_ce0(mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_idx_ram_ce0),
     .idx_ram_q0(idx_ram_t_q0),
@@ -904,7 +891,7 @@ sparse_fifo_w32_d2_S fm_COLS_c10_channel_U(
     .if_read(mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_ready)
 );
 
-sparse_fifo_w256_d512_A data_out_U(
+sparse_fifo_w256_d64_A data_out_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
     .if_read_ce(1'b1),

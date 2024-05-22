@@ -11,14 +11,14 @@ module sparse_fm_ram_V_RAM_AUTO_1R1W_memcore (
     q0, 
       
     address1, ce1,
-    
+    d1, we1, 
     q1, 
      
     reset, clk);
 
-parameter DataWidth = 8;
-parameter AddressWidth = 14;
-parameter AddressRange = 16384;
+parameter DataWidth = 256;
+parameter AddressWidth = 10;
+parameter AddressRange = 1024;
  
 input[AddressWidth-1:0] address0;
 input ce0;
@@ -28,7 +28,8 @@ output reg[DataWidth-1:0] q0;
  
 input[AddressWidth-1:0] address1;
 input ce1;
-
+input[DataWidth-1:0] d1;
+input we1; 
 output reg[DataWidth-1:0] q1; 
 
 input reset;
@@ -58,13 +59,18 @@ end
 
 
 
-always @(posedge clk) 
+
+
+//read first
+always @(posedge clk)  
 begin 
     if (ce1) begin
+        if (we1) 
+            ram[address1] <= d1; 
         q1 <= ram[address1];
+
     end
 end 
-
  
  
 

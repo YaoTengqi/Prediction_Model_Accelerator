@@ -21,7 +21,7 @@ set C_modelArgList {
 	{ inputs int 64 regular  }
 	{ idx_ram int 8 regular {array 1024 { 0 3 } 0 1 }  }
 	{ count_ram int 8 regular {array 32 { 0 3 } 0 1 }  }
-	{ fm_ram int 8 regular {array 16384 { 0 3 } 0 1 }  }
+	{ fm_ram int 256 regular {array 512 { 0 3 } 0 1 }  }
 	{ input_data_addr1 int 32 regular  }
 	{ input_data_addr2 int 32 regular  }
 }
@@ -34,7 +34,7 @@ set C_modelArgMapList {[
  	{ "Name" : "inputs", "interface" : "wire", "bitwidth" : 64, "direction" : "READONLY"} , 
  	{ "Name" : "idx_ram", "interface" : "memory", "bitwidth" : 8, "direction" : "WRITEONLY"} , 
  	{ "Name" : "count_ram", "interface" : "memory", "bitwidth" : 8, "direction" : "WRITEONLY"} , 
- 	{ "Name" : "fm_ram", "interface" : "memory", "bitwidth" : 8, "direction" : "WRITEONLY"} , 
+ 	{ "Name" : "fm_ram", "interface" : "memory", "bitwidth" : 256, "direction" : "WRITEONLY"} , 
  	{ "Name" : "input_data_addr1", "interface" : "wire", "bitwidth" : 32, "direction" : "READONLY"} , 
  	{ "Name" : "input_data_addr2", "interface" : "wire", "bitwidth" : 32, "direction" : "READONLY"} , 
  	{ "Name" : "ap_return", "interface" : "wire", "bitwidth" : 64} ]}
@@ -107,10 +107,10 @@ set portList {
 	{ count_ram_ce0 sc_out sc_logic 1 signal 7 } 
 	{ count_ram_we0 sc_out sc_logic 1 signal 7 } 
 	{ count_ram_d0 sc_out sc_lv 8 signal 7 } 
-	{ fm_ram_address0 sc_out sc_lv 14 signal 8 } 
+	{ fm_ram_address0 sc_out sc_lv 9 signal 8 } 
 	{ fm_ram_ce0 sc_out sc_logic 1 signal 8 } 
 	{ fm_ram_we0 sc_out sc_logic 1 signal 8 } 
-	{ fm_ram_d0 sc_out sc_lv 8 signal 8 } 
+	{ fm_ram_d0 sc_out sc_lv 256 signal 8 } 
 	{ input_data_addr1 sc_in sc_lv 32 signal 9 } 
 	{ input_data_addr2 sc_in sc_lv 32 signal 10 } 
 	{ ap_return_0 sc_out sc_lv 32 signal -1 } 
@@ -183,10 +183,10 @@ set NewPortList {[
  	{ "name": "count_ram_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "count_ram", "role": "ce0" }} , 
  	{ "name": "count_ram_we0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "count_ram", "role": "we0" }} , 
  	{ "name": "count_ram_d0", "direction": "out", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "count_ram", "role": "d0" }} , 
- 	{ "name": "fm_ram_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":14, "type": "signal", "bundle":{"name": "fm_ram", "role": "address0" }} , 
+ 	{ "name": "fm_ram_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":9, "type": "signal", "bundle":{"name": "fm_ram", "role": "address0" }} , 
  	{ "name": "fm_ram_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "fm_ram", "role": "ce0" }} , 
  	{ "name": "fm_ram_we0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "fm_ram", "role": "we0" }} , 
- 	{ "name": "fm_ram_d0", "direction": "out", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "fm_ram", "role": "d0" }} , 
+ 	{ "name": "fm_ram_d0", "direction": "out", "datatype": "sc_lv", "bitwidth":256, "type": "signal", "bundle":{"name": "fm_ram", "role": "d0" }} , 
  	{ "name": "input_data_addr1", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "input_data_addr1", "role": "default" }} , 
  	{ "name": "input_data_addr2", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "input_data_addr2", "role": "default" }} , 
  	{ "name": "ap_return_0", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "ap_return_0", "role": "default" }} , 
@@ -223,13 +223,13 @@ set RtlHierarchyInfo {[
 			{"Name" : "input_data_addr1", "Type" : "None", "Direction" : "I"},
 			{"Name" : "input_data_addr2", "Type" : "None", "Direction" : "I"}],
 		"Loop" : [
-			{"Name" : "Loop 1", "PipelineType" : "no",
-				"LoopDec" : {"FSMBitwidth" : "86", "FirstState" : "ap_ST_fsm_state2", "LastState" : ["ap_ST_fsm_state42"], "QuitState" : ["ap_ST_fsm_state2"], "PreState" : ["ap_ST_fsm_state1"], "PostState" : ["ap_ST_fsm_state43"], "OneDepthLoop" : "0", "OneStateBlock": ""}},
+			{"Name" : "VITIS_LOOP_22_1", "PipelineType" : "no",
+				"LoopDec" : {"FSMBitwidth" : "86", "FirstState" : "ap_ST_fsm_state40", "LastState" : ["ap_ST_fsm_state42"], "QuitState" : ["ap_ST_fsm_state40"], "PreState" : ["ap_ST_fsm_state39"], "PostState" : ["ap_ST_fsm_state43"], "OneDepthLoop" : "0", "OneStateBlock": ""}},
 			{"Name" : "Loop 2", "PipelineType" : "no",
-				"LoopDec" : {"FSMBitwidth" : "86", "FirstState" : "ap_ST_fsm_state43", "LastState" : ["ap_ST_fsm_state83"], "QuitState" : ["ap_ST_fsm_state43"], "PreState" : ["ap_ST_fsm_state2"], "PostState" : ["ap_ST_fsm_state84"], "OneDepthLoop" : "0", "OneStateBlock": ""}},
-			{"Name" : "VITIS_LOOP_26_2", "PipelineType" : "no",
+				"LoopDec" : {"FSMBitwidth" : "86", "FirstState" : "ap_ST_fsm_state43", "LastState" : ["ap_ST_fsm_state83"], "QuitState" : ["ap_ST_fsm_state43"], "PreState" : ["ap_ST_fsm_state40"], "PostState" : ["ap_ST_fsm_state84"], "OneDepthLoop" : "0", "OneStateBlock": ""}},
+			{"Name" : "VITIS_LOOP_30_3", "PipelineType" : "no",
 				"LoopDec" : {"FSMBitwidth" : "86", "FirstState" : "ap_ST_fsm_state85", "LastState" : ["ap_ST_fsm_state86"], "QuitState" : ["ap_ST_fsm_state85"], "PreState" : ["ap_ST_fsm_state84"], "PostState" : ["ap_ST_fsm_state84"], "OneDepthLoop" : "0", "OneStateBlock": ""}},
-			{"Name" : "VITIS_LOOP_23_1", "PipelineType" : "no",
+			{"Name" : "VITIS_LOOP_27_2", "PipelineType" : "no",
 				"LoopDec" : {"FSMBitwidth" : "86", "FirstState" : "ap_ST_fsm_state84", "LastState" : ["ap_ST_fsm_state85"], "QuitState" : ["ap_ST_fsm_state84"], "PreState" : ["ap_ST_fsm_state43"], "PostState" : ["ap_ST_fsm_state1"], "OneDepthLoop" : "0", "OneStateBlock": ""}}]},
 	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mul_32s_32s_32_1_1_U5", "Parent" : "0"},
 	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mul_32s_32s_32_1_1_U6", "Parent" : "0"}]}
@@ -237,17 +237,17 @@ set RtlHierarchyInfo {[
 
 set ArgLastReadFirstWriteLatency {
 	load_ap_uint_256_ap_int_8_32u_s {
-		am_ROWS {Type I LastRead 0 FirstWrite -1}
-		am_COLS {Type I LastRead 0 FirstWrite -1}
+		am_ROWS {Type I LastRead 38 FirstWrite -1}
+		am_COLS {Type I LastRead 38 FirstWrite -1}
 		fm_ROWS {Type I LastRead 0 FirstWrite -1}
 		fm_COLS {Type I LastRead 0 FirstWrite -1}
-		sparse_data {Type I LastRead 41 FirstWrite -1}
+		sparse_data {Type I LastRead 79 FirstWrite -1}
 		inputs {Type I LastRead 0 FirstWrite -1}
-		idx_ram {Type O LastRead -1 FirstWrite 4}
-		count_ram {Type O LastRead -1 FirstWrite 4}
+		idx_ram {Type O LastRead -1 FirstWrite 42}
+		count_ram {Type O LastRead -1 FirstWrite 42}
 		fm_ram {Type O LastRead -1 FirstWrite 41}
 		input_data_addr1 {Type I LastRead 0 FirstWrite -1}
-		input_data_addr2 {Type I LastRead 0 FirstWrite -1}}}
+		input_data_addr2 {Type I LastRead 38 FirstWrite -1}}}
 
 set hasDtUnsupportedChannel 0
 
@@ -268,7 +268,7 @@ set Spec2ImplPortList {
 	inputs { ap_none {  { inputs in_data 0 64 } } }
 	idx_ram { ap_memory {  { idx_ram_address0 mem_address 1 10 }  { idx_ram_ce0 mem_ce 1 1 }  { idx_ram_we0 mem_we 1 1 }  { idx_ram_d0 mem_din 1 8 } } }
 	count_ram { ap_memory {  { count_ram_address0 mem_address 1 5 }  { count_ram_ce0 mem_ce 1 1 }  { count_ram_we0 mem_we 1 1 }  { count_ram_d0 mem_din 1 8 } } }
-	fm_ram { ap_memory {  { fm_ram_address0 mem_address 1 14 }  { fm_ram_ce0 mem_ce 1 1 }  { fm_ram_we0 mem_we 1 1 }  { fm_ram_d0 mem_din 1 8 } } }
+	fm_ram { ap_memory {  { fm_ram_address0 mem_address 1 9 }  { fm_ram_ce0 mem_ce 1 1 }  { fm_ram_we0 mem_we 1 1 }  { fm_ram_d0 mem_din 1 256 } } }
 	input_data_addr1 { ap_none {  { input_data_addr1 in_data 0 32 } } }
 	input_data_addr2 { ap_none {  { input_data_addr2 in_data 0 32 } } }
 }

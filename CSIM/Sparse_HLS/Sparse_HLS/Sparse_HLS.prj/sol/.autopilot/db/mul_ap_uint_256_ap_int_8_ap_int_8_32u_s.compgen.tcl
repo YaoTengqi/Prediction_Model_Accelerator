@@ -18,7 +18,7 @@ eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
     dir I \
     corename fm_ram \
     op interface \
-    ports { fm_ram_address0 { O 14 vector } fm_ram_ce0 { O 1 bit } fm_ram_q0 { I 8 vector } fm_ram_address1 { O 14 vector } fm_ram_ce1 { O 1 bit } fm_ram_q1 { I 8 vector } } \
+    ports { fm_ram_address0 { O 9 vector } fm_ram_ce0 { O 1 bit } fm_ram_q0 { I 256 vector } } \
 } "
 } else {
 puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'fm_ram'"
@@ -105,7 +105,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_data_out1 \
     op interface \
-    ports { data_out1_din { O 256 vector } data_out1_num_data_valid { I 10 vector } data_out1_fifo_cap { I 10 vector } data_out1_full_n { I 1 bit } data_out1_write { O 1 bit } } \
+    ports { data_out1_din { O 256 vector } data_out1_num_data_valid { I 7 vector } data_out1_fifo_cap { I 7 vector } data_out1_full_n { I 1 bit } data_out1_write { O 1 bit } } \
 } "
 }
 

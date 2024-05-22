@@ -96,24 +96,21 @@ end;
 architecture behav of sparse is 
     attribute CORE_GENERATION_INFO : STRING;
     attribute CORE_GENERATION_INFO of behav : architecture is
-    "sparse_sparse,hls_ip_2022_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xczu7ev-ffvc1156-2-e,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=7.300000,HLS_SYN_LAT=-1,HLS_SYN_TPT=-1,HLS_SYN_MEM=32,HLS_SYN_DSP=0,HLS_SYN_FF=4797,HLS_SYN_LUT=8628,HLS_VERSION=2022_2}";
+    "sparse_sparse,hls_ip_2022_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xczu7ev-ffvc1156-2-e,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=7.300000,HLS_SYN_LAT=-1,HLS_SYN_TPT=-1,HLS_SYN_MEM=31,HLS_SYN_DSP=0,HLS_SYN_FF=4488,HLS_SYN_LUT=6951,HLS_VERSION=2022_2}";
     constant ap_const_logic_1 : STD_LOGIC := '1';
     constant C_S_AXI_DATA_WIDTH : INTEGER range 63 downto 0 := 20;
     constant C_M_AXI_DATA_WIDTH : INTEGER range 63 downto 0 := 20;
     constant ap_const_logic_0 : STD_LOGIC := '0';
     constant ap_const_lv8_0 : STD_LOGIC_VECTOR (7 downto 0) := "00000000";
-    constant ap_const_lv14_0 : STD_LOGIC_VECTOR (13 downto 0) := "00000000000000";
+    constant ap_const_lv256_lc_1 : STD_LOGIC_VECTOR (255 downto 0) := "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
     constant ap_const_lv1_0 : STD_LOGIC_VECTOR (0 downto 0) := "0";
     constant ap_const_lv2_0 : STD_LOGIC_VECTOR (1 downto 0) := "00";
-    constant ap_const_lv256_lc_1 : STD_LOGIC_VECTOR (255 downto 0) := "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
     constant ap_const_lv9_0 : STD_LOGIC_VECTOR (8 downto 0) := "000000000";
     constant ap_const_boolean_1 : BOOLEAN := true;
 
     signal ap_rst_n_inv : STD_LOGIC;
-    signal fm_ram_V_i_q0 : STD_LOGIC_VECTOR (7 downto 0);
-    signal fm_ram_V_i_q1 : STD_LOGIC_VECTOR (7 downto 0);
-    signal fm_ram_V_t_q0 : STD_LOGIC_VECTOR (7 downto 0);
-    signal fm_ram_V_t_q1 : STD_LOGIC_VECTOR (7 downto 0);
+    signal fm_ram_V_i_q0 : STD_LOGIC_VECTOR (255 downto 0);
+    signal fm_ram_V_t_q0 : STD_LOGIC_VECTOR (255 downto 0);
     signal idx_ram_i_q0 : STD_LOGIC_VECTOR (7 downto 0);
     signal idx_ram_t_q0 : STD_LOGIC_VECTOR (7 downto 0);
     signal count_ram_i_q0 : STD_LOGIC_VECTOR (7 downto 0);
@@ -202,10 +199,10 @@ architecture behav of sparse is
     signal load_ap_uint_256_ap_int_8_32u_U0_count_ram_ce0 : STD_LOGIC;
     signal load_ap_uint_256_ap_int_8_32u_U0_count_ram_we0 : STD_LOGIC;
     signal load_ap_uint_256_ap_int_8_32u_U0_count_ram_d0 : STD_LOGIC_VECTOR (7 downto 0);
-    signal load_ap_uint_256_ap_int_8_32u_U0_fm_ram_address0 : STD_LOGIC_VECTOR (13 downto 0);
+    signal load_ap_uint_256_ap_int_8_32u_U0_fm_ram_address0 : STD_LOGIC_VECTOR (8 downto 0);
     signal load_ap_uint_256_ap_int_8_32u_U0_fm_ram_ce0 : STD_LOGIC;
     signal load_ap_uint_256_ap_int_8_32u_U0_fm_ram_we0 : STD_LOGIC;
-    signal load_ap_uint_256_ap_int_8_32u_U0_fm_ram_d0 : STD_LOGIC_VECTOR (7 downto 0);
+    signal load_ap_uint_256_ap_int_8_32u_U0_fm_ram_d0 : STD_LOGIC_VECTOR (255 downto 0);
     signal load_ap_uint_256_ap_int_8_32u_U0_ap_return_0 : STD_LOGIC_VECTOR (31 downto 0);
     signal load_ap_uint_256_ap_int_8_32u_U0_ap_return_1 : STD_LOGIC_VECTOR (31 downto 0);
     signal ap_channel_done_fm_COLS_c10_channel : STD_LOGIC;
@@ -233,10 +230,8 @@ architecture behav of sparse is
     signal mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_continue : STD_LOGIC;
     signal mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_idle : STD_LOGIC;
     signal mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_ready : STD_LOGIC;
-    signal mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_ram_address0 : STD_LOGIC_VECTOR (13 downto 0);
+    signal mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_ram_address0 : STD_LOGIC_VECTOR (8 downto 0);
     signal mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_ram_ce0 : STD_LOGIC;
-    signal mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_ram_address1 : STD_LOGIC_VECTOR (13 downto 0);
-    signal mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_ram_ce1 : STD_LOGIC;
     signal mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_idx_ram_address0 : STD_LOGIC_VECTOR (9 downto 0);
     signal mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_idx_ram_ce0 : STD_LOGIC;
     signal mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_count_ram_address0 : STD_LOGIC_VECTOR (4 downto 0);
@@ -317,8 +312,8 @@ architecture behav of sparse is
     signal fm_COLS_c10_channel_empty_n : STD_LOGIC;
     signal data_out_full_n : STD_LOGIC;
     signal data_out_dout : STD_LOGIC_VECTOR (255 downto 0);
-    signal data_out_num_data_valid : STD_LOGIC_VECTOR (9 downto 0);
-    signal data_out_fifo_cap : STD_LOGIC_VECTOR (9 downto 0);
+    signal data_out_num_data_valid : STD_LOGIC_VECTOR (6 downto 0);
+    signal data_out_fifo_cap : STD_LOGIC_VECTOR (6 downto 0);
     signal data_out_empty_n : STD_LOGIC;
     signal am_ROWS_c_full_n : STD_LOGIC;
     signal am_ROWS_c_dout : STD_LOGIC_VECTOR (31 downto 0);
@@ -436,10 +431,10 @@ architecture behav of sparse is
         count_ram_ce0 : OUT STD_LOGIC;
         count_ram_we0 : OUT STD_LOGIC;
         count_ram_d0 : OUT STD_LOGIC_VECTOR (7 downto 0);
-        fm_ram_address0 : OUT STD_LOGIC_VECTOR (13 downto 0);
+        fm_ram_address0 : OUT STD_LOGIC_VECTOR (8 downto 0);
         fm_ram_ce0 : OUT STD_LOGIC;
         fm_ram_we0 : OUT STD_LOGIC;
-        fm_ram_d0 : OUT STD_LOGIC_VECTOR (7 downto 0);
+        fm_ram_d0 : OUT STD_LOGIC_VECTOR (255 downto 0);
         input_data_addr1 : IN STD_LOGIC_VECTOR (31 downto 0);
         input_data_addr2 : IN STD_LOGIC_VECTOR (31 downto 0);
         ap_return_0 : OUT STD_LOGIC_VECTOR (31 downto 0);
@@ -458,12 +453,9 @@ architecture behav of sparse is
         ap_ready : OUT STD_LOGIC;
         p_read : IN STD_LOGIC_VECTOR (31 downto 0);
         p_read1 : IN STD_LOGIC_VECTOR (31 downto 0);
-        fm_ram_address0 : OUT STD_LOGIC_VECTOR (13 downto 0);
+        fm_ram_address0 : OUT STD_LOGIC_VECTOR (8 downto 0);
         fm_ram_ce0 : OUT STD_LOGIC;
-        fm_ram_q0 : IN STD_LOGIC_VECTOR (7 downto 0);
-        fm_ram_address1 : OUT STD_LOGIC_VECTOR (13 downto 0);
-        fm_ram_ce1 : OUT STD_LOGIC;
-        fm_ram_q1 : IN STD_LOGIC_VECTOR (7 downto 0);
+        fm_ram_q0 : IN STD_LOGIC_VECTOR (255 downto 0);
         idx_ram_address0 : OUT STD_LOGIC_VECTOR (9 downto 0);
         idx_ram_ce0 : OUT STD_LOGIC;
         idx_ram_q0 : IN STD_LOGIC_VECTOR (7 downto 0);
@@ -471,8 +463,8 @@ architecture behav of sparse is
         count_ram_ce0 : OUT STD_LOGIC;
         count_ram_q0 : IN STD_LOGIC_VECTOR (7 downto 0);
         data_out1_din : OUT STD_LOGIC_VECTOR (255 downto 0);
-        data_out1_num_data_valid : IN STD_LOGIC_VECTOR (9 downto 0);
-        data_out1_fifo_cap : IN STD_LOGIC_VECTOR (9 downto 0);
+        data_out1_num_data_valid : IN STD_LOGIC_VECTOR (6 downto 0);
+        data_out1_fifo_cap : IN STD_LOGIC_VECTOR (6 downto 0);
         data_out1_full_n : IN STD_LOGIC;
         data_out1_write : OUT STD_LOGIC;
         am_ROWS_c_din : OUT STD_LOGIC_VECTOR (31 downto 0);
@@ -498,8 +490,8 @@ architecture behav of sparse is
         ap_idle : OUT STD_LOGIC;
         ap_ready : OUT STD_LOGIC;
         data_out1_dout : IN STD_LOGIC_VECTOR (255 downto 0);
-        data_out1_num_data_valid : IN STD_LOGIC_VECTOR (9 downto 0);
-        data_out1_fifo_cap : IN STD_LOGIC_VECTOR (9 downto 0);
+        data_out1_num_data_valid : IN STD_LOGIC_VECTOR (6 downto 0);
+        data_out1_fifo_cap : IN STD_LOGIC_VECTOR (6 downto 0);
         data_out1_empty_n : IN STD_LOGIC;
         data_out1_read : OUT STD_LOGIC;
         m_axi_sparse_data_AWVALID : OUT STD_LOGIC;
@@ -581,22 +573,16 @@ architecture behav of sparse is
     port (
         clk : IN STD_LOGIC;
         reset : IN STD_LOGIC;
-        i_address0 : IN STD_LOGIC_VECTOR (13 downto 0);
+        i_address0 : IN STD_LOGIC_VECTOR (8 downto 0);
         i_ce0 : IN STD_LOGIC;
         i_we0 : IN STD_LOGIC;
-        i_d0 : IN STD_LOGIC_VECTOR (7 downto 0);
-        i_q0 : OUT STD_LOGIC_VECTOR (7 downto 0);
-        i_address1 : IN STD_LOGIC_VECTOR (13 downto 0);
-        i_ce1 : IN STD_LOGIC;
-        i_q1 : OUT STD_LOGIC_VECTOR (7 downto 0);
-        t_address0 : IN STD_LOGIC_VECTOR (13 downto 0);
+        i_d0 : IN STD_LOGIC_VECTOR (255 downto 0);
+        i_q0 : OUT STD_LOGIC_VECTOR (255 downto 0);
+        t_address0 : IN STD_LOGIC_VECTOR (8 downto 0);
         t_ce0 : IN STD_LOGIC;
         t_we0 : IN STD_LOGIC;
-        t_d0 : IN STD_LOGIC_VECTOR (7 downto 0);
-        t_q0 : OUT STD_LOGIC_VECTOR (7 downto 0);
-        t_address1 : IN STD_LOGIC_VECTOR (13 downto 0);
-        t_ce1 : IN STD_LOGIC;
-        t_q1 : OUT STD_LOGIC_VECTOR (7 downto 0);
+        t_d0 : IN STD_LOGIC_VECTOR (255 downto 0);
+        t_q0 : OUT STD_LOGIC_VECTOR (255 downto 0);
         i_ce : IN STD_LOGIC;
         t_ce : IN STD_LOGIC;
         i_full_n : OUT STD_LOGIC;
@@ -711,7 +697,7 @@ architecture behav of sparse is
     end component;
 
 
-    component sparse_fifo_w256_d512_A IS
+    component sparse_fifo_w256_d64_A IS
     port (
         clk : IN STD_LOGIC;
         reset : IN STD_LOGIC;
@@ -721,8 +707,8 @@ architecture behav of sparse is
         if_full_n : OUT STD_LOGIC;
         if_write : IN STD_LOGIC;
         if_dout : OUT STD_LOGIC_VECTOR (255 downto 0);
-        if_num_data_valid : OUT STD_LOGIC_VECTOR (9 downto 0);
-        if_fifo_cap : OUT STD_LOGIC_VECTOR (9 downto 0);
+        if_num_data_valid : OUT STD_LOGIC_VECTOR (6 downto 0);
+        if_fifo_cap : OUT STD_LOGIC_VECTOR (6 downto 0);
         if_empty_n : OUT STD_LOGIC;
         if_read : IN STD_LOGIC );
     end component;
@@ -883,9 +869,9 @@ architecture behav of sparse is
 begin
     fm_ram_V_U : component sparse_fm_ram_V_RAM_AUTO_1R1W
     generic map (
-        DataWidth => 8,
-        AddressRange => 16384,
-        AddressWidth => 14)
+        DataWidth => 256,
+        AddressRange => 512,
+        AddressWidth => 9)
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,
@@ -894,17 +880,11 @@ begin
         i_we0 => load_ap_uint_256_ap_int_8_32u_U0_fm_ram_we0,
         i_d0 => load_ap_uint_256_ap_int_8_32u_U0_fm_ram_d0,
         i_q0 => fm_ram_V_i_q0,
-        i_address1 => ap_const_lv14_0,
-        i_ce1 => ap_const_logic_0,
-        i_q1 => fm_ram_V_i_q1,
         t_address0 => mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_ram_address0,
         t_ce0 => mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_ram_ce0,
         t_we0 => ap_const_logic_0,
-        t_d0 => ap_const_lv8_0,
+        t_d0 => ap_const_lv256_lc_1,
         t_q0 => fm_ram_V_t_q0,
-        t_address1 => mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_ram_address1,
-        t_ce1 => mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_ram_ce1,
-        t_q1 => fm_ram_V_t_q1,
         i_ce => ap_const_logic_1,
         t_ce => ap_const_logic_1,
         i_full_n => fm_ram_V_i_full_n,
@@ -1210,9 +1190,6 @@ begin
         fm_ram_address0 => mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_ram_address0,
         fm_ram_ce0 => mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_ram_ce0,
         fm_ram_q0 => fm_ram_V_t_q0,
-        fm_ram_address1 => mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_ram_address1,
-        fm_ram_ce1 => mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_ram_ce1,
-        fm_ram_q1 => fm_ram_V_t_q1,
         idx_ram_address0 => mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_idx_ram_address0,
         idx_ram_ce0 => mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_idx_ram_ce0,
         idx_ram_q0 => idx_ram_t_q0,
@@ -1378,7 +1355,7 @@ begin
         if_empty_n => fm_COLS_c10_channel_empty_n,
         if_read => mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_ready);
 
-    data_out_U : component sparse_fifo_w256_d512_A
+    data_out_U : component sparse_fifo_w256_d64_A
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,

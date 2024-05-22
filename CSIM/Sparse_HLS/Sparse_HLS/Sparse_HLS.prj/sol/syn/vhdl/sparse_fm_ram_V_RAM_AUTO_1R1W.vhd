@@ -8,9 +8,9 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 entity sparse_fm_ram_V_RAM_AUTO_1R1W  is
     generic (
-        DataWidth    : integer := 8;
-        AddressRange : integer := 16384;
-        AddressWidth : integer := 14;
+        DataWidth    : integer := 256;
+        AddressRange : integer := 512;
+        AddressWidth : integer := 9;
         BufferCount  : integer := 2;
         MemLatency   : integer := 1;
         IndexWidth   : integer := 1
@@ -25,9 +25,6 @@ entity sparse_fm_ram_V_RAM_AUTO_1R1W  is
         i_address0 : in  std_logic_vector(AddressWidth-1 downto 0);
         i_d0       : in  std_logic_vector(DataWidth-1 downto 0);
         i_q0       : out std_logic_vector(DataWidth-1 downto 0);
-        i_ce1      : in  std_logic;
-        i_address1 : in  std_logic_vector(AddressWidth-1 downto 0);
-        i_q1       : out std_logic_vector(DataWidth-1 downto 0);
         -- target"
         t_ce       : in  std_logic;
         t_read     : in  std_logic;
@@ -37,9 +34,6 @@ entity sparse_fm_ram_V_RAM_AUTO_1R1W  is
         t_address0 : in  std_logic_vector(AddressWidth-1 downto 0);
         t_d0       : in  std_logic_vector(DataWidth-1 downto 0);
         t_q0       : out std_logic_vector(DataWidth-1 downto 0);
-        t_ce1      : in  std_logic;
-        t_address1 : in  std_logic_vector(AddressWidth-1 downto 0);
-        t_q1       : out std_logic_vector(DataWidth-1 downto 0);
         -- system signals
         clk        : in std_logic;
         reset      : in std_logic
@@ -51,13 +45,16 @@ architecture rtl of sparse_fm_ram_V_RAM_AUTO_1R1W is
 component sparse_fm_ram_V_RAM_AUTO_1R1W_memcore is
 port (
     ce0      : in  std_logic;
-    address0 : in  std_logic_vector(AddressWidth-1 downto 0);
+    address0 : in  std_logic_vector(9 downto 0);
     we0      : in  std_logic;
     d0       : in  std_logic_vector(DataWidth-1 downto 0);
-    q0       : out std_logic_vector(DataWidth-1 downto 0);      
+    q0       : out std_logic_vector(DataWidth-1 downto 0);   
+    
     ce1      : in  std_logic;
-    address1 : in  std_logic_vector(AddressWidth-1 downto 0);
-    q1       : out std_logic_vector(DataWidth-1 downto 0);
+    address1 : in  std_logic_vector(9 downto 0);
+    we1      : in  std_logic;
+    d1       : in  std_logic_vector(DataWidth-1 downto 0);
+    q1       : out std_logic_vector(DataWidth-1 downto 0);   
     clk      : in  std_logic;
     reset    : in  std_logic
 );
@@ -66,75 +63,40 @@ end component;
 -- control/status
 signal iptr     : unsigned(IndexWidth-1 downto 0) := (others => '0'); -- initiator index
 signal tptr     : unsigned(IndexWidth-1 downto 0) := (others => '0'); -- target index
-signal prev_iptr     : unsigned(IndexWidth-1 downto 0) := (others => '0'); -- previous initiator index
-signal prev_tptr     : unsigned(IndexWidth-1 downto 0) := (others => '0'); -- previous target index
-signal reg_q0        : std_logic_vector(DataWidth-1 downto 0) := (others => '0'); -- buffer used if reader is stalled
-signal reg_valid0    : std_logic := '0'; -- buffer has valid data
-signal reg_q1        : std_logic_vector(DataWidth-1 downto 0) := (others => '0'); -- buffer used if reader is stalled
-signal reg_valid1    : std_logic := '0'; -- buffer has valid data
+
 signal count    : unsigned(IndexWidth downto 0)   := (others => '0'); -- count of written buffers
 signal full_n   : std_logic := '1'; -- whether all buffers are written
 signal empty_n  : std_logic := '0'; -- whether none of the buffers is written
 signal push_buf : std_logic;        -- finish writing a buffer
 signal write_buf: std_logic;        -- write a buffer
 signal pop_buf  : std_logic;        -- finish reading a buffer
-type AddrArray is array (0 to BufferCount-1) of std_logic_vector(AddressWidth-1 downto 0);
-type BitArray  is array (0 to BufferCount-1) of std_logic;
-type BitArrayWe  is array (0 to BufferCount-1) of std_logic;
-type DataArray is array (0 to BufferCount-1) of std_logic_vector(DataWidth-1 downto 0);
 
--- buffer signals
-signal buf_ce0 : BitArray;
-signal buf_we0 : BitArrayWe;
-signal buf_a0  : AddrArray;
-signal buf_d0  : DataArray;
-signal buf_q0  : DataArray;
-signal buf_ce1 : BitArray;
-signal buf_a1  : AddrArray;
-signal buf_q1  : DataArray;
+signal memcore_iaddr: std_logic_vector(9 downto 0);
+signal memcore_taddr: std_logic_vector(9 downto 0);
 
-begin
-    ----------------- instantiate buffers -----------------
-    gen_buffer : for i in 0 to BufferCount-1 generate begin
-        sparse_fm_ram_V_RAM_AUTO_1R1W_memcore_U : component sparse_fm_ram_V_RAM_AUTO_1R1W_memcore
-        port map (
-            ce0      => buf_ce0(i),
-            we0      => buf_we0(i),
-            address0 => buf_a0(i),
-            d0       => buf_d0(i),
-            q0       => buf_q0(i),
-            ce1      => buf_ce1(i),
-            address1 => buf_a1(i),
-            q1       => buf_q1(i),
-            clk      => clk,
-            reset    => reset
-        );
-    end generate;
+begin 
 
-    ----------------- buffer signals ----------------------
-    connect_buffer : for i in 0 to BufferCount-1 generate begin
-        buf_ce0(i) <= t_ce0 when tptr = i and empty_n = '1' else
-                      i_ce0 when iptr = i else
-                      '0';
-        buf_a0(i)  <= t_address0 when tptr = i and empty_n = '1' else
-                      i_address0;
-        buf_we0(i) <= i_we0 when iptr = i else
-                      t_we0 when tptr = i and empty_n = '1' else
-                      '0';
-        buf_d0(i)  <= i_d0 when iptr = i else
-                      t_d0;
-        buf_ce1(i) <= t_ce1 when tptr = i and empty_n = '1' else
-                      i_ce1 when iptr = i else
-                      '0';
-        buf_a1(i)  <= t_address1 when tptr = i and empty_n = '1' else
-                      i_address1;
-    end generate;
+    memcore_iaddr <= i_address0 & std_logic_vector(iptr);
+    memcore_taddr <= t_address0 & std_logic_vector(tptr);
+
+    sparse_fm_ram_V_RAM_AUTO_1R1W_memcore_U : component sparse_fm_ram_V_RAM_AUTO_1R1W_memcore
+    port map (
+        ce0      => i_ce0,
+        we0      => i_we0,
+        address0 => memcore_iaddr,
+        d0       => i_d0,
+        q0       => i_q0,
+
+        ce1      => t_ce0,
+        we1      => t_we0,
+        address1 => memcore_taddr,
+        d1       => t_d0,
+        q1       => t_q0,
+        clk      => clk,
+        reset    => reset
+);
 
     ----------------- output ------------------------------
-    i_q0      <= buf_q0(to_integer(prev_iptr));
-    t_q0      <= reg_q0 when reg_valid0 = '1' else buf_q0(to_integer(prev_tptr));
-    i_q1      <= buf_q1(to_integer(prev_iptr));
-    t_q1      <= reg_q1 when reg_valid1 = '1' else buf_q1(to_integer(prev_tptr));
     i_full_n  <= full_n;
     t_empty_n <= empty_n;
 
@@ -157,47 +119,6 @@ begin
         end if;
     end process;
 
-    -- prev_iptr prev_tptr
-    process(clk) begin
-        if (clk'event and clk='1') then
-            if (reset = '1') then
-                prev_iptr<= (others => '0');
-                prev_tptr<= (others => '0');
-            else
-                prev_iptr <= iptr;
-                prev_tptr <= tptr;
-            end if;
-        end if;
-    end process;
-
--- reg_q0 and reg_valid0
-    process(clk) begin
-        if (clk'event and clk='1') then
-            if (reset = '1') then
-                reg_q0<= (others => '0');
-                reg_valid0<= '0';
-            elsif (t_ce0='0' and reg_valid0='0') then
-                reg_q0      <= buf_q0(to_integer(prev_tptr));
-                reg_valid0  <= '1';
-            elsif t_ce0 = '1' then
-                reg_valid0  <= '0';
-            end if;
-        end if;
-    end process;
--- reg_q1 and reg_valid1
-    process(clk) begin
-        if (clk'event and clk='1') then
-            if (reset = '1') then
-                reg_q1<= (others => '0');
-                reg_valid1<= '0';
-            elsif (t_ce1='0' and reg_valid1='0') then
-                reg_q1      <= buf_q1(to_integer(prev_tptr));
-                reg_valid1  <= '1';
-            elsif t_ce1 = '1' then
-                reg_valid1  <= '0';
-            end if;
-        end if;
-    end process;
     -- tptr
     process(clk) begin
         if (clk'event and clk='1') then
