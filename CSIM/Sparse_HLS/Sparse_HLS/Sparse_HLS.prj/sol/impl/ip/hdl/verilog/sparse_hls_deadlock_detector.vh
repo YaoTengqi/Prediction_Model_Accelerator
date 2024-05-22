@@ -24,20 +24,20 @@
     wire dep_chan_vld_3_0;
     wire [3:0] dep_chan_data_3_0;
     wire token_3_0;
-    wire [1:0] proc_1_data_FIFO_blk;
-    wire [1:0] proc_1_data_PIPO_blk;
-    wire [1:0] proc_1_start_FIFO_blk;
-    wire [1:0] proc_1_TLF_FIFO_blk;
-    wire [1:0] proc_1_input_sync_blk;
-    wire [1:0] proc_1_output_sync_blk;
-    wire [1:0] proc_dep_vld_vec_1;
-    reg [1:0] proc_dep_vld_vec_1_reg;
-    wire [1:0] in_chan_dep_vld_vec_1;
-    wire [7:0] in_chan_dep_data_vec_1;
-    wire [1:0] token_in_vec_1;
-    wire [1:0] out_chan_dep_vld_vec_1;
+    wire [2:0] proc_1_data_FIFO_blk;
+    wire [2:0] proc_1_data_PIPO_blk;
+    wire [2:0] proc_1_start_FIFO_blk;
+    wire [2:0] proc_1_TLF_FIFO_blk;
+    wire [2:0] proc_1_input_sync_blk;
+    wire [2:0] proc_1_output_sync_blk;
+    wire [2:0] proc_dep_vld_vec_1;
+    reg [2:0] proc_dep_vld_vec_1_reg;
+    wire [2:0] in_chan_dep_vld_vec_1;
+    wire [11:0] in_chan_dep_data_vec_1;
+    wire [2:0] token_in_vec_1;
+    wire [2:0] out_chan_dep_vld_vec_1;
     wire [3:0] out_chan_dep_data_1;
-    wire [1:0] token_out_vec_1;
+    wire [2:0] token_out_vec_1;
     wire dl_detect_out_1;
     wire dep_chan_vld_0_1;
     wire [3:0] dep_chan_data_0_1;
@@ -45,6 +45,9 @@
     wire dep_chan_vld_2_1;
     wire [3:0] dep_chan_data_2_1;
     wire token_2_1;
+    wire dep_chan_vld_3_1;
+    wire [3:0] dep_chan_data_3_1;
+    wire token_3_1;
     wire [1:0] proc_2_data_FIFO_blk;
     wire [1:0] proc_2_data_PIPO_blk;
     wire [1:0] proc_2_start_FIFO_blk;
@@ -66,24 +69,27 @@
     wire dep_chan_vld_3_2;
     wire [3:0] dep_chan_data_3_2;
     wire token_3_2;
-    wire [1:0] proc_3_data_FIFO_blk;
-    wire [1:0] proc_3_data_PIPO_blk;
-    wire [1:0] proc_3_start_FIFO_blk;
-    wire [1:0] proc_3_TLF_FIFO_blk;
-    wire [1:0] proc_3_input_sync_blk;
-    wire [1:0] proc_3_output_sync_blk;
-    wire [1:0] proc_dep_vld_vec_3;
-    reg [1:0] proc_dep_vld_vec_3_reg;
-    wire [1:0] in_chan_dep_vld_vec_3;
-    wire [7:0] in_chan_dep_data_vec_3;
-    wire [1:0] token_in_vec_3;
-    wire [1:0] out_chan_dep_vld_vec_3;
+    wire [2:0] proc_3_data_FIFO_blk;
+    wire [2:0] proc_3_data_PIPO_blk;
+    wire [2:0] proc_3_start_FIFO_blk;
+    wire [2:0] proc_3_TLF_FIFO_blk;
+    wire [2:0] proc_3_input_sync_blk;
+    wire [2:0] proc_3_output_sync_blk;
+    wire [2:0] proc_dep_vld_vec_3;
+    reg [2:0] proc_dep_vld_vec_3_reg;
+    wire [2:0] in_chan_dep_vld_vec_3;
+    wire [11:0] in_chan_dep_data_vec_3;
+    wire [2:0] token_in_vec_3;
+    wire [2:0] out_chan_dep_vld_vec_3;
     wire [3:0] out_chan_dep_data_3;
-    wire [1:0] token_out_vec_3;
+    wire [2:0] token_out_vec_3;
     wire dl_detect_out_3;
     wire dep_chan_vld_0_3;
     wire [3:0] dep_chan_data_0_3;
     wire token_0_3;
+    wire dep_chan_vld_1_3;
+    wire [3:0] dep_chan_data_1_3;
+    wire token_1_3;
     wire dep_chan_vld_2_3;
     wire [3:0] dep_chan_data_2_3;
     wire token_2_3;
@@ -92,32 +98,12 @@
     wire token_clear;
     reg [3:0] origin;
 
-    reg ap_done_reg_0;// for module load_ap_uint_256_ap_int_8_32u_U0
-    always @ (negedge dl_reset or posedge dl_clock) begin
-        if (~dl_reset) begin
-            ap_done_reg_0 <= 'b0;
-        end
-        else begin
-            ap_done_reg_0 <= load_ap_uint_256_ap_int_8_32u_U0.ap_done & ~load_ap_uint_256_ap_int_8_32u_U0.ap_continue;
-        end
-    end
-
-    reg ap_done_reg_1;// for module mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0
-    always @ (negedge dl_reset or posedge dl_clock) begin
-        if (~dl_reset) begin
-            ap_done_reg_1 <= 'b0;
-        end
-        else begin
-            ap_done_reg_1 <= mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0.ap_done & ~mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0.ap_continue;
-        end
-    end
-
-reg [15:0] trans_in_cnt_0;// for process entry_proc_U0
+reg [15:0] trans_in_cnt_0;// for process load_ap_uint_256_ap_int_8_ap_int_8_32u_U0
 always @(negedge dl_reset or posedge dl_clock) begin
     if (~dl_reset) begin
          trans_in_cnt_0 <= 16'h0;
     end
-    else if (entry_proc_U0.start_write == 1'b1) begin
+    else if (load_ap_uint_256_ap_int_8_ap_int_8_32u_U0.start_write == 1'b1) begin
         trans_in_cnt_0 <= trans_in_cnt_0 + 16'h1;
     end
     else begin
@@ -125,16 +111,42 @@ always @(negedge dl_reset or posedge dl_clock) begin
     end
 end
 
-reg [15:0] trans_out_cnt_0;// for process entry_proc_U0
+reg [15:0] trans_out_cnt_0;// for process load_ap_uint_256_ap_int_8_ap_int_8_32u_U0
 always @(negedge dl_reset or posedge dl_clock) begin
     if (~dl_reset) begin
          trans_out_cnt_0 <= 16'h0;
     end
-    else if (entry_proc_U0.ap_done == 1'b1 && entry_proc_U0.ap_continue == 1'b1) begin
+    else if (load_ap_uint_256_ap_int_8_ap_int_8_32u_U0.ap_done == 1'b1 && load_ap_uint_256_ap_int_8_ap_int_8_32u_U0.ap_continue == 1'b1) begin
         trans_out_cnt_0 <= trans_out_cnt_0 + 16'h1;
     end
     else begin
         trans_out_cnt_0 <= trans_out_cnt_0;
+    end
+end
+
+reg [15:0] trans_in_cnt_1;// for process entry_proc_U0
+always @(negedge dl_reset or posedge dl_clock) begin
+    if (~dl_reset) begin
+         trans_in_cnt_1 <= 16'h0;
+    end
+    else if (entry_proc_U0.start_write == 1'b1) begin
+        trans_in_cnt_1 <= trans_in_cnt_1 + 16'h1;
+    end
+    else begin
+        trans_in_cnt_1 <= trans_in_cnt_1;
+    end
+end
+
+reg [15:0] trans_out_cnt_1;// for process entry_proc_U0
+always @(negedge dl_reset or posedge dl_clock) begin
+    if (~dl_reset) begin
+         trans_out_cnt_1 <= 16'h0;
+    end
+    else if (entry_proc_U0.ap_done == 1'b1 && entry_proc_U0.ap_continue == 1'b1) begin
+        trans_out_cnt_1 <= trans_out_cnt_1 + 16'h1;
+    end
+    else begin
+        trans_out_cnt_1 <= trans_out_cnt_1;
     end
 end
 
@@ -156,7 +168,7 @@ end
 
     assign proc_0_data_FIFO_blk[0] = 1'b0 | (~entry_proc_U0.output_data_addr3_c_blk_n) | (~entry_proc_U0.outputs_c_blk_n);
     assign proc_0_data_PIPO_blk[0] = 1'b0;
-    assign proc_0_start_FIFO_blk[0] = 1'b0 | (~start_for_store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_U.if_full_n & entry_proc_U0.ap_start & ~entry_proc_U0.real_start & (trans_in_cnt_0 == trans_out_cnt_0) & ~start_for_store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_U.if_read);
+    assign proc_0_start_FIFO_blk[0] = 1'b0 | (~start_for_store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_U.if_full_n & entry_proc_U0.ap_start & ~entry_proc_U0.real_start & (trans_in_cnt_1 == trans_out_cnt_1) & ~start_for_store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_U.if_read);
     assign proc_0_TLF_FIFO_blk[0] = 1'b0;
     assign proc_0_input_sync_blk[0] = 1'b0;
     assign proc_0_output_sync_blk[0] = 1'b0;
@@ -165,7 +177,7 @@ end
     assign proc_0_data_PIPO_blk[1] = 1'b0;
     assign proc_0_start_FIFO_blk[1] = 1'b0;
     assign proc_0_TLF_FIFO_blk[1] = 1'b0;
-    assign proc_0_input_sync_blk[1] = 1'b0 | (ap_sync_entry_proc_U0_ap_ready & entry_proc_U0.ap_idle & ~ap_sync_load_ap_uint_256_ap_int_8_32u_U0_ap_ready);
+    assign proc_0_input_sync_blk[1] = 1'b0 | (ap_sync_entry_proc_U0_ap_ready & entry_proc_U0.ap_idle & ~ap_sync_load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_ready);
     assign proc_0_output_sync_blk[1] = 1'b0;
     assign proc_dep_vld_vec_0[1] = dl_detect_out ? proc_dep_vld_vec_0_reg[1] : (proc_0_data_FIFO_blk[1] | proc_0_data_PIPO_blk[1] | proc_0_start_FIFO_blk[1] | proc_0_TLF_FIFO_blk[1] | proc_0_input_sync_blk[1] | proc_0_output_sync_blk[1]);
     always @ (negedge dl_reset or posedge dl_clock) begin
@@ -189,8 +201,8 @@ end
     assign dep_chan_data_0_1 = out_chan_dep_data_0;
     assign token_0_1 = token_out_vec_0[1];
 
-    // Process: load_ap_uint_256_ap_int_8_32u_U0
-    sparse_hls_deadlock_detect_unit #(4, 1, 2, 2) sparse_hls_deadlock_detect_unit_1 (
+    // Process: load_ap_uint_256_ap_int_8_ap_int_8_32u_U0
+    sparse_hls_deadlock_detect_unit #(4, 1, 3, 3) sparse_hls_deadlock_detect_unit_1 (
         .reset(dl_reset),
         .clock(dl_clock),
         .proc_dep_vld_vec(proc_dep_vld_vec_1),
@@ -205,20 +217,27 @@ end
         .token_out_vec(token_out_vec_1),
         .dl_detect_out(dl_in_vec[1]));
 
-    assign proc_1_data_FIFO_blk[0] = 1'b0;
-    assign proc_1_data_PIPO_blk[0] = 1'b0 | (~idx_ram_U.i_full_n & load_ap_uint_256_ap_int_8_32u_U0.ap_done & ap_done_reg_0 & ~idx_ram_U.t_read) | (~count_ram_U.i_full_n & load_ap_uint_256_ap_int_8_32u_U0.ap_done & ap_done_reg_0 & ~count_ram_U.t_read) | (~fm_ram_V_U.i_full_n & load_ap_uint_256_ap_int_8_32u_U0.ap_done & ap_done_reg_0 & ~fm_ram_V_U.t_read);
-    assign proc_1_start_FIFO_blk[0] = 1'b0;
+    assign proc_1_data_FIFO_blk[0] = 1'b0 | (~load_ap_uint_256_ap_int_8_ap_int_8_32u_U0.idx_stream3_blk_n) | (~load_ap_uint_256_ap_int_8_ap_int_8_32u_U0.count_stream4_blk_n) | (~load_ap_uint_256_ap_int_8_ap_int_8_32u_U0.fm_stream2_blk_n) | (~load_ap_uint_256_ap_int_8_ap_int_8_32u_U0.am_ROWS_c_blk_n) | (~load_ap_uint_256_ap_int_8_ap_int_8_32u_U0.fm_COLS_c9_blk_n);
+    assign proc_1_data_PIPO_blk[0] = 1'b0;
+    assign proc_1_start_FIFO_blk[0] = 1'b0 | (~start_for_mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_U.if_full_n & load_ap_uint_256_ap_int_8_ap_int_8_32u_U0.ap_start & ~load_ap_uint_256_ap_int_8_ap_int_8_32u_U0.real_start & (trans_in_cnt_0 == trans_out_cnt_0) & ~start_for_mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_U.if_read);
     assign proc_1_TLF_FIFO_blk[0] = 1'b0;
     assign proc_1_input_sync_blk[0] = 1'b0;
     assign proc_1_output_sync_blk[0] = 1'b0;
     assign proc_dep_vld_vec_1[0] = dl_detect_out ? proc_dep_vld_vec_1_reg[0] : (proc_1_data_FIFO_blk[0] | proc_1_data_PIPO_blk[0] | proc_1_start_FIFO_blk[0] | proc_1_TLF_FIFO_blk[0] | proc_1_input_sync_blk[0] | proc_1_output_sync_blk[0]);
-    assign proc_1_data_FIFO_blk[1] = 1'b0;
+    assign proc_1_data_FIFO_blk[1] = 1'b0 | (~load_ap_uint_256_ap_int_8_ap_int_8_32u_U0.fm_ROWS_c_blk_n);
     assign proc_1_data_PIPO_blk[1] = 1'b0;
     assign proc_1_start_FIFO_blk[1] = 1'b0;
     assign proc_1_TLF_FIFO_blk[1] = 1'b0;
-    assign proc_1_input_sync_blk[1] = 1'b0 | (ap_sync_load_ap_uint_256_ap_int_8_32u_U0_ap_ready & load_ap_uint_256_ap_int_8_32u_U0.ap_idle & ~ap_sync_entry_proc_U0_ap_ready);
+    assign proc_1_input_sync_blk[1] = 1'b0;
     assign proc_1_output_sync_blk[1] = 1'b0;
     assign proc_dep_vld_vec_1[1] = dl_detect_out ? proc_dep_vld_vec_1_reg[1] : (proc_1_data_FIFO_blk[1] | proc_1_data_PIPO_blk[1] | proc_1_start_FIFO_blk[1] | proc_1_TLF_FIFO_blk[1] | proc_1_input_sync_blk[1] | proc_1_output_sync_blk[1]);
+    assign proc_1_data_FIFO_blk[2] = 1'b0;
+    assign proc_1_data_PIPO_blk[2] = 1'b0;
+    assign proc_1_start_FIFO_blk[2] = 1'b0;
+    assign proc_1_TLF_FIFO_blk[2] = 1'b0;
+    assign proc_1_input_sync_blk[2] = 1'b0 | (ap_sync_load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_ready & load_ap_uint_256_ap_int_8_ap_int_8_32u_U0.ap_idle & ~ap_sync_entry_proc_U0_ap_ready);
+    assign proc_1_output_sync_blk[2] = 1'b0;
+    assign proc_dep_vld_vec_1[2] = dl_detect_out ? proc_dep_vld_vec_1_reg[2] : (proc_1_data_FIFO_blk[2] | proc_1_data_PIPO_blk[2] | proc_1_start_FIFO_blk[2] | proc_1_TLF_FIFO_blk[2] | proc_1_input_sync_blk[2] | proc_1_output_sync_blk[2]);
     always @ (negedge dl_reset or posedge dl_clock) begin
         if (~dl_reset) begin
             proc_dep_vld_vec_1_reg <= 'b0;
@@ -233,12 +252,18 @@ end
     assign in_chan_dep_vld_vec_1[1] = dep_chan_vld_2_1;
     assign in_chan_dep_data_vec_1[7 : 4] = dep_chan_data_2_1;
     assign token_in_vec_1[1] = token_2_1;
+    assign in_chan_dep_vld_vec_1[2] = dep_chan_vld_3_1;
+    assign in_chan_dep_data_vec_1[11 : 8] = dep_chan_data_3_1;
+    assign token_in_vec_1[2] = token_3_1;
     assign dep_chan_vld_1_2 = out_chan_dep_vld_vec_1[0];
     assign dep_chan_data_1_2 = out_chan_dep_data_1;
     assign token_1_2 = token_out_vec_1[0];
-    assign dep_chan_vld_1_0 = out_chan_dep_vld_vec_1[1];
+    assign dep_chan_vld_1_3 = out_chan_dep_vld_vec_1[1];
+    assign dep_chan_data_1_3 = out_chan_dep_data_1;
+    assign token_1_3 = token_out_vec_1[1];
+    assign dep_chan_vld_1_0 = out_chan_dep_vld_vec_1[2];
     assign dep_chan_data_1_0 = out_chan_dep_data_1;
-    assign token_1_0 = token_out_vec_1[1];
+    assign token_1_0 = token_out_vec_1[2];
 
     // Process: mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0
     sparse_hls_deadlock_detect_unit #(4, 2, 2, 2) sparse_hls_deadlock_detect_unit_2 (
@@ -256,14 +281,14 @@ end
         .token_out_vec(token_out_vec_2),
         .dl_detect_out(dl_in_vec[2]));
 
-    assign proc_2_data_FIFO_blk[0] = 1'b0;
-    assign proc_2_data_PIPO_blk[0] = 1'b0 | (~fm_ram_V_U.t_empty_n & mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0.ap_idle & ~fm_ram_V_U.i_write) | (~idx_ram_U.t_empty_n & mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0.ap_idle & ~idx_ram_U.i_write) | (~count_ram_U.t_empty_n & mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0.ap_idle & ~count_ram_U.i_write);
-    assign proc_2_start_FIFO_blk[0] = 1'b0;
-    assign proc_2_TLF_FIFO_blk[0] = 1'b0 | (~am_ROWS_c9_channel_U.if_empty_n & mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0.ap_idle & ~am_ROWS_c9_channel_U.if_write) | (~fm_COLS_c10_channel_U.if_empty_n & mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0.ap_idle & ~fm_COLS_c10_channel_U.if_write);
+    assign proc_2_data_FIFO_blk[0] = 1'b0 | (~mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0.am_ROWS_blk_n) | (~mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0.fm_COLS_blk_n) | (~mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0.fm_stream2_blk_n) | (~mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0.idx_stream3_blk_n) | (~mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0.count_stream4_blk_n);
+    assign proc_2_data_PIPO_blk[0] = 1'b0;
+    assign proc_2_start_FIFO_blk[0] = 1'b0 | (~start_for_mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_U.if_empty_n & mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0.ap_idle & ~start_for_mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_U.if_write);
+    assign proc_2_TLF_FIFO_blk[0] = 1'b0;
     assign proc_2_input_sync_blk[0] = 1'b0;
     assign proc_2_output_sync_blk[0] = 1'b0;
     assign proc_dep_vld_vec_2[0] = dl_detect_out ? proc_dep_vld_vec_2_reg[0] : (proc_2_data_FIFO_blk[0] | proc_2_data_PIPO_blk[0] | proc_2_start_FIFO_blk[0] | proc_2_TLF_FIFO_blk[0] | proc_2_input_sync_blk[0] | proc_2_output_sync_blk[0]);
-    assign proc_2_data_FIFO_blk[1] = 1'b0 | (~mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0.data_out1_blk_n) | (~mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0.am_ROWS_c_blk_n) | (~mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0.fm_COLS_c_blk_n);
+    assign proc_2_data_FIFO_blk[1] = 1'b0 | (~mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0.data_out1_blk_n) | (~mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0.fm_COLS_c_blk_n);
     assign proc_2_data_PIPO_blk[1] = 1'b0;
     assign proc_2_start_FIFO_blk[1] = 1'b0;
     assign proc_2_TLF_FIFO_blk[1] = 1'b0;
@@ -292,7 +317,7 @@ end
     assign token_2_3 = token_out_vec_2[1];
 
     // Process: store_ap_uint_256_ap_int_8_ap_int_8_32u_U0
-    sparse_hls_deadlock_detect_unit #(4, 3, 2, 2) sparse_hls_deadlock_detect_unit_3 (
+    sparse_hls_deadlock_detect_unit #(4, 3, 3, 3) sparse_hls_deadlock_detect_unit_3 (
         .reset(dl_reset),
         .clock(dl_clock),
         .proc_dep_vld_vec(proc_dep_vld_vec_3),
@@ -307,7 +332,7 @@ end
         .token_out_vec(token_out_vec_3),
         .dl_detect_out(dl_in_vec[3]));
 
-    assign proc_3_data_FIFO_blk[0] = 1'b0 | (~store_ap_uint_256_ap_int_8_ap_int_8_32u_U0.grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_91_1_fu_124.data_out1_blk_n) | (~store_ap_uint_256_ap_int_8_ap_int_8_32u_U0.ROWS_blk_n) | (~store_ap_uint_256_ap_int_8_ap_int_8_32u_U0.COLS_blk_n);
+    assign proc_3_data_FIFO_blk[0] = 1'b0 | (~store_ap_uint_256_ap_int_8_ap_int_8_32u_U0.grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_95_1_fu_124.data_out1_blk_n) | (~store_ap_uint_256_ap_int_8_ap_int_8_32u_U0.COLS_blk_n);
     assign proc_3_data_PIPO_blk[0] = 1'b0;
     assign proc_3_start_FIFO_blk[0] = 1'b0;
     assign proc_3_TLF_FIFO_blk[0] = 1'b0;
@@ -321,6 +346,13 @@ end
     assign proc_3_input_sync_blk[1] = 1'b0;
     assign proc_3_output_sync_blk[1] = 1'b0;
     assign proc_dep_vld_vec_3[1] = dl_detect_out ? proc_dep_vld_vec_3_reg[1] : (proc_3_data_FIFO_blk[1] | proc_3_data_PIPO_blk[1] | proc_3_start_FIFO_blk[1] | proc_3_TLF_FIFO_blk[1] | proc_3_input_sync_blk[1] | proc_3_output_sync_blk[1]);
+    assign proc_3_data_FIFO_blk[2] = 1'b0 | (~store_ap_uint_256_ap_int_8_ap_int_8_32u_U0.ROWS_blk_n);
+    assign proc_3_data_PIPO_blk[2] = 1'b0;
+    assign proc_3_start_FIFO_blk[2] = 1'b0;
+    assign proc_3_TLF_FIFO_blk[2] = 1'b0;
+    assign proc_3_input_sync_blk[2] = 1'b0;
+    assign proc_3_output_sync_blk[2] = 1'b0;
+    assign proc_dep_vld_vec_3[2] = dl_detect_out ? proc_dep_vld_vec_3_reg[2] : (proc_3_data_FIFO_blk[2] | proc_3_data_PIPO_blk[2] | proc_3_start_FIFO_blk[2] | proc_3_TLF_FIFO_blk[2] | proc_3_input_sync_blk[2] | proc_3_output_sync_blk[2]);
     always @ (negedge dl_reset or posedge dl_clock) begin
         if (~dl_reset) begin
             proc_dep_vld_vec_3_reg <= 'b0;
@@ -332,15 +364,21 @@ end
     assign in_chan_dep_vld_vec_3[0] = dep_chan_vld_0_3;
     assign in_chan_dep_data_vec_3[3 : 0] = dep_chan_data_0_3;
     assign token_in_vec_3[0] = token_0_3;
-    assign in_chan_dep_vld_vec_3[1] = dep_chan_vld_2_3;
-    assign in_chan_dep_data_vec_3[7 : 4] = dep_chan_data_2_3;
-    assign token_in_vec_3[1] = token_2_3;
+    assign in_chan_dep_vld_vec_3[1] = dep_chan_vld_1_3;
+    assign in_chan_dep_data_vec_3[7 : 4] = dep_chan_data_1_3;
+    assign token_in_vec_3[1] = token_1_3;
+    assign in_chan_dep_vld_vec_3[2] = dep_chan_vld_2_3;
+    assign in_chan_dep_data_vec_3[11 : 8] = dep_chan_data_2_3;
+    assign token_in_vec_3[2] = token_2_3;
     assign dep_chan_vld_3_2 = out_chan_dep_vld_vec_3[0];
     assign dep_chan_data_3_2 = out_chan_dep_data_3;
     assign token_3_2 = token_out_vec_3[0];
     assign dep_chan_vld_3_0 = out_chan_dep_vld_vec_3[1];
     assign dep_chan_data_3_0 = out_chan_dep_data_3;
     assign token_3_0 = token_out_vec_3[1];
+    assign dep_chan_vld_3_1 = out_chan_dep_vld_vec_3[2];
+    assign dep_chan_data_3_1 = out_chan_dep_data_3;
+    assign token_3_1 = token_out_vec_3[2];
 
 
 `include "sparse_hls_deadlock_report_unit.vh"

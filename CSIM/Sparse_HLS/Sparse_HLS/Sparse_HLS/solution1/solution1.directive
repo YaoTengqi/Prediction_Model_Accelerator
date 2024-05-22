@@ -5,11 +5,6 @@
                 <option name="name" value="sparse"/>
             </pragma>
         </directive>
-        <directive functionName="sparse" label="" functionLabel="">
-            <pragma name="TOP">
-                <option name="name" value="sparse"/>
-            </pragma>
-        </directive>
     </sourceFile>
 </AutoPilot:ProjectResources>
 

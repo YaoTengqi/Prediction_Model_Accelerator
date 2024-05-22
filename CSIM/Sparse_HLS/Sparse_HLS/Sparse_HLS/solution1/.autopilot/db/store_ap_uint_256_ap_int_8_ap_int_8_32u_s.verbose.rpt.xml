@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'store_ap_uint_256_ap_int_8_ap_int_8_32u_s'" level="0">
-<item name = "Date">Wed May 22 16:51:44 2024
+<item name = "Date">Wed May 22 21:11:26 2024
 </item>
 <item name = "Version">2022.2 (Build 3670227 on Oct 13 2022)</item>
 <item name = "Project">Sparse_HLS</item>
@@ -31,7 +31,7 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_91_1_fu_124">store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_91_1, 4, ?, 40.000 ns, ?, 4, ?, no</column>
+<column name="grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_95_1_fu_124">store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_95_1, 4, ?, 40.000 ns, ?, 4, ?, no</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
@@ -64,8 +64,8 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP, FF, LUT, URAM</keys>
-<column name="mul_32s_32s_32_1_1_U34">mul_32s_32s_32_1_1, 0, 3, 0, 20, 0</column>
-<column name="grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_91_1_fu_124">store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_91_1, 0, 0, 289, 113, 0</column>
+<column name="mul_32s_32s_32_1_1_U37">mul_32s_32s_32_1_1, 0, 3, 0, 20, 0</column>
+<column name="grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_95_1_fu_124">store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_95_1, 0, 0, 289, 113, 0</column>
 </table>
 </item>
 <item name = "DSP"><table name="" hasTotal="0">
@@ -82,10 +82,10 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="add_ln91_fu_169_p2">+, 0, 0, 71, 64, 64</column>
+<column name="add_ln95_fu_169_p2">+, 0, 0, 71, 64, 64</column>
 <column name="ap_block_state41">and, 0, 0, 2, 1, 1</column>
-<column name="icmp_ln91_fu_153_p2">icmp, 0, 0, 17, 27, 1</column>
-<column name="icmp_ln98_fu_194_p2">icmp, 0, 0, 17, 27, 27</column>
+<column name="icmp_ln102_fu_194_p2">icmp, 0, 0, 17, 27, 27</column>
+<column name="icmp_ln95_fu_153_p2">icmp, 0, 0, 17, 27, 1</column>
 <column name="ap_block_state1">or, 0, 0, 2, 1, 1</column>
 </table>
 </item>
@@ -124,14 +124,14 @@
 <column name="ap_CS_fsm">41, 0, 41, 0</column>
 <column name="ap_done_reg">1, 0, 1, 0</column>
 <column name="count_0_lcssa_reg_113">27, 0, 27, 0</column>
-<column name="grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_91_1_fu_124_ap_start_reg">1, 0, 1, 0</column>
-<column name="icmp_ln91_reg_223">1, 0, 1, 0</column>
+<column name="grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_95_1_fu_124_ap_start_reg">1, 0, 1, 0</column>
+<column name="icmp_ln95_reg_223">1, 0, 1, 0</column>
 <column name="loop_num_reg_209">27, 0, 27, 0</column>
 <column name="output_data_addr3_read_reg_204">32, 0, 32, 0</column>
 <column name="outputs_read_reg_199">64, 0, 64, 0</column>
 <column name="sparse_flag_preg">1, 0, 1, 0</column>
 <column name="trunc_ln1_reg_227">59, 0, 59, 0</column>
-<column name="zext_ln88_reg_218">27, 0, 32, 5</column>
+<column name="zext_ln92_reg_218">27, 0, 32, 5</column>
 </table>
 </item>
 </section>
@@ -210,8 +210,8 @@
 <column name="output_data_addr3_empty_n">in, 1, ap_fifo, output_data_addr3, pointer</column>
 <column name="output_data_addr3_read">out, 1, ap_fifo, output_data_addr3, pointer</column>
 <column name="ROWS_dout">in, 32, ap_fifo, ROWS, pointer</column>
-<column name="ROWS_num_data_valid">in, 2, ap_fifo, ROWS, pointer</column>
-<column name="ROWS_fifo_cap">in, 2, ap_fifo, ROWS, pointer</column>
+<column name="ROWS_num_data_valid">in, 3, ap_fifo, ROWS, pointer</column>
+<column name="ROWS_fifo_cap">in, 3, ap_fifo, ROWS, pointer</column>
 <column name="ROWS_empty_n">in, 1, ap_fifo, ROWS, pointer</column>
 <column name="ROWS_read">out, 1, ap_fifo, ROWS, pointer</column>
 <column name="COLS_dout">in, 32, ap_fifo, COLS, pointer</column>

@@ -2,20 +2,21 @@
 #include "ap_int.h"
 #include "../include/types.hpp"
 
-template <typename t_AXI_DataType, typename t_DataType_IN, unsigned int nPE>
+template <typename t_AXI_DataType, typename t_DataType_IN, typename t_DataType_OUT, unsigned int nPE>
 void load(
 		unsigned int am_ROWS,
 		unsigned int am_COLS,
 		unsigned int fm_ROWS,
 		unsigned int fm_COLS,
 		t_AXI_DataType *inputs,
-		uint8_t idx_ram[1024],
-		uint8_t count_ram[32],
-		typename WideType<t_DataType_IN, nPE>::t_TypeInt fm_ram[512],
+		hls::stream<uint8_t> &idx_stream,
+		hls::stream<uint8_t> &count_stream,
+		hls::stream<typename WideType<t_DataType_OUT, nPE>::t_TypeInt> &fm_stream,
 		uint32_t input_data_addr1,
 		uint32_t input_data_addr2)
 {
-	typename WideType<t_DataType_IN, nPE>::t_TypeInt am_ram[1024];
+	typename WideType<t_DataType_IN, nPE>::t_TypeInt am_ram[64];
+	typename WideType<t_DataType_IN, nPE>::t_TypeInt fm_ram[512];
 	int idx_count = 0, count_count = 0;
 	int fm_loop_num = fm_ROWS * fm_COLS * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
 	int am_loop_num = am_ROWS * am_COLS * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
@@ -26,17 +27,21 @@ void load(
 		am_ram[j] = inputs[input_data_addr2 + j]; // load adjacency matrix
 	}
 #pragma HLS PIPELINE
-	for(int row = 0; row < am_ROWS; row++){	// 获取idx和count
-		int count = 0;
-		WideType<t_DataType_IN, nPE> am_value = am_ram[row];
-#pragma HLS UNROLL
-		for(int col = 0; col < am_COLS; col++){
-			if(am_value[col] != 0){
-				count++;
-				idx_ram[idx_count++] = col;
+	for(int block = 0; block < (fm_COLS / nPE); block++){
+		for(int row = 0; row < am_ROWS; row++){	// 获取idx和count
+			int count = 0;
+			WideType<t_DataType_IN, nPE> am_value = am_ram[row];
+	#pragma HLS UNROLL
+			for(int col = 0; col < am_COLS; col++){
+				if(am_value[col] != 0){
+					count++;
+					idx_stream.write(col);
+					WideType<t_DataType_IN, nPE> fm_value = fm_ram[block * nPE + col];
+					fm_stream.write(fm_value);
+				}
 			}
+			count_stream.write(count);
 		}
-		count_ram[count_count++] = count;
 	}
 }
 
@@ -47,26 +52,25 @@ void mul(
 		unsigned int am_COLS,
 		unsigned int fm_ROWS,
 		unsigned int fm_COLS,
-		typename WideType<t_DataType_IN, nPE>::t_TypeInt fm_ram[512],
-		uint8_t idx_ram[1024],
-		uint8_t count_ram[32],
+		hls::stream<typename WideType<t_DataType_OUT, nPE>::t_TypeInt> &fm_stream,
+		hls::stream<uint8_t> &idx_stream,
+		hls::stream<uint8_t> &count_stream,
 		hls::stream<typename WideType<t_DataType_OUT, nPE>::t_TypeInt> &data_stream_out){
 #pragma HLS PIPELINE II = 1
 	for(int block = 0; block < (fm_COLS / nPE); block++){	//每次计算一块
-		int idx_ram_base = 0;								//idx_ram的基地址，需要在此基础上增加
 		for(int row = 0; row < am_ROWS; row++){				//一次计算一行，每块算ROWS行
-			int idx_count = count_ram[row];
+			int idx_count = count_stream.read();
 			t_DataType_OUT ZERO = 0;
 			WideType<t_DataType_OUT, nPE> result = ZERO;
-#pragma HLS UNROLL
 			for(int count = 0; count < idx_count; count++){	//根据idx_stream取出对应行的fm_stream值
-			uint8_t idx = idx_ram[idx_ram_base + count];
-			WideType<t_DataType_IN, nPE> fm_value = fm_ram[block * nPE + idx];
+			uint8_t idx = idx_stream.read();
+//			WideType<t_DataType_IN, nPE> fm_value = fm_ram[block * nPE + idx];
+			WideType<t_DataType_IN, nPE> fm_value = fm_stream.read();
 				for(int pe = 0; pe < nPE; pe++){			//每次计算一个PE
+#pragma HLS UNROLL
 					result[pe] = result[pe] + fm_value[pe];
 				}
 			}
-			idx_ram_base = idx_ram_base + idx_count;
 			data_stream_out.write(result);
 		}
 	}

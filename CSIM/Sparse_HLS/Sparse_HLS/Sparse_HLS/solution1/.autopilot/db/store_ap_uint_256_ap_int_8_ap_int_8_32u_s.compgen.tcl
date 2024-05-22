@@ -10,7 +10,7 @@ if {${::AESL::PGuard_autoexp_gen}} {
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 35 \
+    id 38 \
     name data_out1 \
     type fifo \
     dir I \
@@ -25,7 +25,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 36 \
+    id 39 \
     name sparse_data \
     type other \
     dir O \
@@ -40,7 +40,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 37 \
+    id 40 \
     name outputs \
     type fifo \
     dir I \
@@ -55,7 +55,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 38 \
+    id 41 \
     name output_data_addr3 \
     type fifo \
     dir I \
@@ -70,7 +70,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 39 \
+    id 42 \
     name ROWS \
     type fifo \
     dir I \
@@ -78,14 +78,14 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_ROWS \
     op interface \
-    ports { ROWS_dout { I 32 vector } ROWS_num_data_valid { I 2 vector } ROWS_fifo_cap { I 2 vector } ROWS_empty_n { I 1 bit } ROWS_read { O 1 bit } } \
+    ports { ROWS_dout { I 32 vector } ROWS_num_data_valid { I 3 vector } ROWS_fifo_cap { I 3 vector } ROWS_empty_n { I 1 bit } ROWS_read { O 1 bit } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 40 \
+    id 43 \
     name COLS \
     type fifo \
     dir I \
@@ -100,7 +100,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 41 \
+    id 44 \
     name sparse_flag \
     type other \
     dir O \

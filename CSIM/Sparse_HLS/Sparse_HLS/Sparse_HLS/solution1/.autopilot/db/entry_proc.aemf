@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<cdfg:DBCdfg xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cdfg="http://www.autoesl.com/DBCdfg" timeStamp="1716367904008">
+<cdfg:DBCdfg xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cdfg="http://www.autoesl.com/DBCdfg" timeStamp="1716383485736">
   <ports id="1" name="output_data_addr3" type="PortType" coreId="0" bitwidth="32">
     <dataOutputObjs>read</dataOutputObjs>
   </ports>
   <ports id="2" name="output_data_addr3_c" type="PortType" coreName="FIFO_SRL" coreId="0" bitwidth="32" direction="DirOut" iftype="IfTypeRom">
     <dataInputObjs>write</dataInputObjs>
   </ports>
-  <ports id="3" name="outputs" type="PortType" coreId="2058779856" bitwidth="64">
+  <ports id="3" name="outputs" type="PortType" coreId="864482320" bitwidth="64">
     <dataOutputObjs>read</dataOutputObjs>
   </ports>
-  <ports id="4" name="outputs_c" type="PortType" coreName="FIFO_SRL" coreId="0" bitwidth="64" direction="DirOut" iftype="IfTypeRom">
+  <ports id="4" name="outputs_c" type="PortType" coreName="FIFO_SRL" coreId="871378248" bitwidth="64" direction="DirOut" iftype="IfTypeRom">
     <dataInputObjs>write</dataInputObjs>
   </ports>
   <edges id="15" source_obj="//@ports.2" sink_obj="//@blocks.0/@node_objs.0"/>
@@ -19,7 +19,7 @@
   <edges id="25" source_obj="//@blocks.0/@node_objs.3" sink_obj="//@ports.1"/>
   <edges id="26" source_obj="//@blocks.0/@node_objs.1" sink_obj="//@blocks.0/@node_objs.3"/>
   <blocks id="12" name="entry_proc" type="BlockType">
-    <node_objs xsi:type="cdfg:CdfgNode" id="6" name="outputs_read" coreId="1995165160" bitwidth="64" opcode="read" m_display="0" m_topoIndex="1" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="6" name="outputs_read" coreId="988650024" bitwidth="64" opcode="read" m_display="0" m_topoIndex="1" m_clusterGroupNumber="-1">
       <dataInputObjs>outputs</dataInputObjs>
       <dataOutputObjs>write</dataOutputObjs>
     </node_objs>
@@ -35,7 +35,7 @@
       <dataInputObjs>read</dataInputObjs>
       <dataOutputObjs>output_data_addr3_c</dataOutputObjs>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="11" name="_ln0" coreId="2041710448" opcode="ret" m_display="0" m_topoIndex="5" m_clusterGroupNumber="-1"/>
+    <node_objs xsi:type="cdfg:CdfgNode" id="11" name="_ln0" coreId="1130336064" opcode="ret" m_display="0" m_topoIndex="5" m_clusterGroupNumber="-1"/>
   </blocks>
   <ScheduleInfo time="0"/>
   <ioNodes realName="write_ln0_write_fu_52">

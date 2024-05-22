@@ -25,8 +25,6 @@ generic (
     C_M_AXI_SPARSE_DATA_PROT_VALUE : INTEGER := 0;
     C_M_AXI_SPARSE_DATA_CACHE_VALUE : INTEGER := 3 );
 port (
-    ap_clk : IN STD_LOGIC;
-    ap_rst_n : IN STD_LOGIC;
     s_axi_sparse_addr_AWVALID : IN STD_LOGIC;
     s_axi_sparse_addr_AWREADY : OUT STD_LOGIC;
     s_axi_sparse_addr_AWADDR : IN STD_LOGIC_VECTOR (C_S_AXI_SPARSE_ADDR_ADDR_WIDTH-1 downto 0);
@@ -44,6 +42,8 @@ port (
     s_axi_sparse_addr_BVALID : OUT STD_LOGIC;
     s_axi_sparse_addr_BREADY : IN STD_LOGIC;
     s_axi_sparse_addr_BRESP : OUT STD_LOGIC_VECTOR (1 downto 0);
+    ap_clk : IN STD_LOGIC;
+    ap_rst_n : IN STD_LOGIC;
     interrupt : OUT STD_LOGIC;
     m_axi_sparse_data_AWVALID : OUT STD_LOGIC;
     m_axi_sparse_data_AWREADY : IN STD_LOGIC;
@@ -96,25 +96,18 @@ end;
 architecture behav of sparse is 
     attribute CORE_GENERATION_INFO : STRING;
     attribute CORE_GENERATION_INFO of behav : architecture is
-    "sparse_sparse,hls_ip_2022_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xcvu11p-flga2577-1-e,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=7.300000,HLS_SYN_LAT=-1,HLS_SYN_TPT=-1,HLS_SYN_MEM=46,HLS_SYN_DSP=0,HLS_SYN_FF=4770,HLS_SYN_LUT=6065,HLS_VERSION=2022_2}";
-    constant ap_const_logic_1 : STD_LOGIC := '1';
+    "sparse_sparse,hls_ip_2022_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xcvu11p-flga2577-1-e,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=7.300000,HLS_SYN_LAT=-1,HLS_SYN_TPT=-1,HLS_SYN_MEM=46,HLS_SYN_DSP=0,HLS_SYN_FF=5112,HLS_SYN_LUT=6387,HLS_VERSION=2022_2}";
     constant C_S_AXI_DATA_WIDTH : INTEGER range 63 downto 0 := 20;
+    constant ap_const_logic_1 : STD_LOGIC := '1';
     constant C_M_AXI_DATA_WIDTH : INTEGER range 63 downto 0 := 20;
     constant ap_const_logic_0 : STD_LOGIC := '0';
-    constant ap_const_lv8_0 : STD_LOGIC_VECTOR (7 downto 0) := "00000000";
-    constant ap_const_lv256_lc_1 : STD_LOGIC_VECTOR (255 downto 0) := "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
     constant ap_const_lv1_0 : STD_LOGIC_VECTOR (0 downto 0) := "0";
     constant ap_const_lv2_0 : STD_LOGIC_VECTOR (1 downto 0) := "00";
+    constant ap_const_lv256_lc_1 : STD_LOGIC_VECTOR (255 downto 0) := "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
     constant ap_const_lv9_0 : STD_LOGIC_VECTOR (8 downto 0) := "000000000";
     constant ap_const_boolean_1 : BOOLEAN := true;
 
     signal ap_rst_n_inv : STD_LOGIC;
-    signal fm_ram_V_i_q0 : STD_LOGIC_VECTOR (255 downto 0);
-    signal fm_ram_V_t_q0 : STD_LOGIC_VECTOR (255 downto 0);
-    signal idx_ram_i_q0 : STD_LOGIC_VECTOR (7 downto 0);
-    signal idx_ram_t_q0 : STD_LOGIC_VECTOR (7 downto 0);
-    signal count_ram_i_q0 : STD_LOGIC_VECTOR (7 downto 0);
-    signal count_ram_t_q0 : STD_LOGIC_VECTOR (7 downto 0);
     signal input_data_addr1 : STD_LOGIC_VECTOR (31 downto 0);
     signal input_data_addr2 : STD_LOGIC_VECTOR (31 downto 0);
     signal output_data_addr3 : STD_LOGIC_VECTOR (31 downto 0);
@@ -154,92 +147,69 @@ architecture behav of sparse is
     signal entry_proc_U0_output_data_addr3_c_write : STD_LOGIC;
     signal entry_proc_U0_outputs_c_din : STD_LOGIC_VECTOR (63 downto 0);
     signal entry_proc_U0_outputs_c_write : STD_LOGIC;
-    signal load_ap_uint_256_ap_int_8_32u_U0_ap_start : STD_LOGIC;
-    signal load_ap_uint_256_ap_int_8_32u_U0_ap_done : STD_LOGIC;
-    signal load_ap_uint_256_ap_int_8_32u_U0_ap_continue : STD_LOGIC;
-    signal load_ap_uint_256_ap_int_8_32u_U0_ap_idle : STD_LOGIC;
-    signal load_ap_uint_256_ap_int_8_32u_U0_ap_ready : STD_LOGIC;
-    signal load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_AWVALID : STD_LOGIC;
-    signal load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_AWADDR : STD_LOGIC_VECTOR (63 downto 0);
-    signal load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_AWID : STD_LOGIC_VECTOR (0 downto 0);
-    signal load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_AWLEN : STD_LOGIC_VECTOR (31 downto 0);
-    signal load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_AWSIZE : STD_LOGIC_VECTOR (2 downto 0);
-    signal load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_AWBURST : STD_LOGIC_VECTOR (1 downto 0);
-    signal load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_AWLOCK : STD_LOGIC_VECTOR (1 downto 0);
-    signal load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_AWCACHE : STD_LOGIC_VECTOR (3 downto 0);
-    signal load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_AWPROT : STD_LOGIC_VECTOR (2 downto 0);
-    signal load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_AWQOS : STD_LOGIC_VECTOR (3 downto 0);
-    signal load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_AWREGION : STD_LOGIC_VECTOR (3 downto 0);
-    signal load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_AWUSER : STD_LOGIC_VECTOR (0 downto 0);
-    signal load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_WVALID : STD_LOGIC;
-    signal load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_WDATA : STD_LOGIC_VECTOR (255 downto 0);
-    signal load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_WSTRB : STD_LOGIC_VECTOR (31 downto 0);
-    signal load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_WLAST : STD_LOGIC;
-    signal load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_WID : STD_LOGIC_VECTOR (0 downto 0);
-    signal load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_WUSER : STD_LOGIC_VECTOR (0 downto 0);
-    signal load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_ARVALID : STD_LOGIC;
-    signal load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_ARADDR : STD_LOGIC_VECTOR (63 downto 0);
-    signal load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_ARID : STD_LOGIC_VECTOR (0 downto 0);
-    signal load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_ARLEN : STD_LOGIC_VECTOR (31 downto 0);
-    signal load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_ARSIZE : STD_LOGIC_VECTOR (2 downto 0);
-    signal load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_ARBURST : STD_LOGIC_VECTOR (1 downto 0);
-    signal load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_ARLOCK : STD_LOGIC_VECTOR (1 downto 0);
-    signal load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_ARCACHE : STD_LOGIC_VECTOR (3 downto 0);
-    signal load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_ARPROT : STD_LOGIC_VECTOR (2 downto 0);
-    signal load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_ARQOS : STD_LOGIC_VECTOR (3 downto 0);
-    signal load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_ARREGION : STD_LOGIC_VECTOR (3 downto 0);
-    signal load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_ARUSER : STD_LOGIC_VECTOR (0 downto 0);
-    signal load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_RREADY : STD_LOGIC;
-    signal load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_BREADY : STD_LOGIC;
-    signal load_ap_uint_256_ap_int_8_32u_U0_idx_ram_address0 : STD_LOGIC_VECTOR (9 downto 0);
-    signal load_ap_uint_256_ap_int_8_32u_U0_idx_ram_ce0 : STD_LOGIC;
-    signal load_ap_uint_256_ap_int_8_32u_U0_idx_ram_we0 : STD_LOGIC;
-    signal load_ap_uint_256_ap_int_8_32u_U0_idx_ram_d0 : STD_LOGIC_VECTOR (7 downto 0);
-    signal load_ap_uint_256_ap_int_8_32u_U0_count_ram_address0 : STD_LOGIC_VECTOR (4 downto 0);
-    signal load_ap_uint_256_ap_int_8_32u_U0_count_ram_ce0 : STD_LOGIC;
-    signal load_ap_uint_256_ap_int_8_32u_U0_count_ram_we0 : STD_LOGIC;
-    signal load_ap_uint_256_ap_int_8_32u_U0_count_ram_d0 : STD_LOGIC_VECTOR (7 downto 0);
-    signal load_ap_uint_256_ap_int_8_32u_U0_fm_ram_address0 : STD_LOGIC_VECTOR (8 downto 0);
-    signal load_ap_uint_256_ap_int_8_32u_U0_fm_ram_ce0 : STD_LOGIC;
-    signal load_ap_uint_256_ap_int_8_32u_U0_fm_ram_we0 : STD_LOGIC;
-    signal load_ap_uint_256_ap_int_8_32u_U0_fm_ram_d0 : STD_LOGIC_VECTOR (255 downto 0);
-    signal load_ap_uint_256_ap_int_8_32u_U0_ap_return_0 : STD_LOGIC_VECTOR (31 downto 0);
-    signal load_ap_uint_256_ap_int_8_32u_U0_ap_return_1 : STD_LOGIC_VECTOR (31 downto 0);
-    signal ap_channel_done_fm_COLS_c10_channel : STD_LOGIC;
-    signal fm_COLS_c10_channel_full_n : STD_LOGIC;
-    signal ap_sync_reg_channel_write_fm_COLS_c10_channel : STD_LOGIC := '0';
-    signal ap_sync_channel_write_fm_COLS_c10_channel : STD_LOGIC;
-    signal ap_channel_done_am_ROWS_c9_channel : STD_LOGIC;
-    signal am_ROWS_c9_channel_full_n : STD_LOGIC;
-    signal ap_sync_reg_channel_write_am_ROWS_c9_channel : STD_LOGIC := '0';
-    signal ap_sync_channel_write_am_ROWS_c9_channel : STD_LOGIC;
-    signal ap_channel_done_fm_ram_V : STD_LOGIC;
-    signal load_ap_uint_256_ap_int_8_32u_U0_fm_ram_full_n : STD_LOGIC;
-    signal ap_sync_reg_channel_write_fm_ram_V : STD_LOGIC := '0';
-    signal ap_sync_channel_write_fm_ram_V : STD_LOGIC;
-    signal ap_channel_done_count_ram : STD_LOGIC;
-    signal load_ap_uint_256_ap_int_8_32u_U0_count_ram_full_n : STD_LOGIC;
-    signal ap_sync_reg_channel_write_count_ram : STD_LOGIC := '0';
-    signal ap_sync_channel_write_count_ram : STD_LOGIC;
-    signal ap_channel_done_idx_ram : STD_LOGIC;
-    signal load_ap_uint_256_ap_int_8_32u_U0_idx_ram_full_n : STD_LOGIC;
-    signal ap_sync_reg_channel_write_idx_ram : STD_LOGIC := '0';
-    signal ap_sync_channel_write_idx_ram : STD_LOGIC;
+    signal load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_start : STD_LOGIC;
+    signal load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_done : STD_LOGIC;
+    signal load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_continue : STD_LOGIC;
+    signal load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_idle : STD_LOGIC;
+    signal load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_ready : STD_LOGIC;
+    signal load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_start_out : STD_LOGIC;
+    signal load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_start_write : STD_LOGIC;
+    signal load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_AWVALID : STD_LOGIC;
+    signal load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_AWADDR : STD_LOGIC_VECTOR (63 downto 0);
+    signal load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_AWID : STD_LOGIC_VECTOR (0 downto 0);
+    signal load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_AWLEN : STD_LOGIC_VECTOR (31 downto 0);
+    signal load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_AWSIZE : STD_LOGIC_VECTOR (2 downto 0);
+    signal load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_AWBURST : STD_LOGIC_VECTOR (1 downto 0);
+    signal load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_AWLOCK : STD_LOGIC_VECTOR (1 downto 0);
+    signal load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_AWCACHE : STD_LOGIC_VECTOR (3 downto 0);
+    signal load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_AWPROT : STD_LOGIC_VECTOR (2 downto 0);
+    signal load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_AWQOS : STD_LOGIC_VECTOR (3 downto 0);
+    signal load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_AWREGION : STD_LOGIC_VECTOR (3 downto 0);
+    signal load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_AWUSER : STD_LOGIC_VECTOR (0 downto 0);
+    signal load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_WVALID : STD_LOGIC;
+    signal load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_WDATA : STD_LOGIC_VECTOR (255 downto 0);
+    signal load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_WSTRB : STD_LOGIC_VECTOR (31 downto 0);
+    signal load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_WLAST : STD_LOGIC;
+    signal load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_WID : STD_LOGIC_VECTOR (0 downto 0);
+    signal load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_WUSER : STD_LOGIC_VECTOR (0 downto 0);
+    signal load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_ARVALID : STD_LOGIC;
+    signal load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_ARADDR : STD_LOGIC_VECTOR (63 downto 0);
+    signal load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_ARID : STD_LOGIC_VECTOR (0 downto 0);
+    signal load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_ARLEN : STD_LOGIC_VECTOR (31 downto 0);
+    signal load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_ARSIZE : STD_LOGIC_VECTOR (2 downto 0);
+    signal load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_ARBURST : STD_LOGIC_VECTOR (1 downto 0);
+    signal load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_ARLOCK : STD_LOGIC_VECTOR (1 downto 0);
+    signal load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_ARCACHE : STD_LOGIC_VECTOR (3 downto 0);
+    signal load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_ARPROT : STD_LOGIC_VECTOR (2 downto 0);
+    signal load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_ARQOS : STD_LOGIC_VECTOR (3 downto 0);
+    signal load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_ARREGION : STD_LOGIC_VECTOR (3 downto 0);
+    signal load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_ARUSER : STD_LOGIC_VECTOR (0 downto 0);
+    signal load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_RREADY : STD_LOGIC;
+    signal load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_BREADY : STD_LOGIC;
+    signal load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_idx_stream3_din : STD_LOGIC_VECTOR (7 downto 0);
+    signal load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_idx_stream3_write : STD_LOGIC;
+    signal load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_count_stream4_din : STD_LOGIC_VECTOR (7 downto 0);
+    signal load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_count_stream4_write : STD_LOGIC;
+    signal load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_stream2_din : STD_LOGIC_VECTOR (255 downto 0);
+    signal load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_stream2_write : STD_LOGIC;
+    signal load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_am_ROWS_c_din : STD_LOGIC_VECTOR (31 downto 0);
+    signal load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_am_ROWS_c_write : STD_LOGIC;
+    signal load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_ROWS_c_din : STD_LOGIC_VECTOR (31 downto 0);
+    signal load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_ROWS_c_write : STD_LOGIC;
+    signal load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_COLS_c9_din : STD_LOGIC_VECTOR (31 downto 0);
+    signal load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_COLS_c9_write : STD_LOGIC;
     signal mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_start : STD_LOGIC;
     signal mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_done : STD_LOGIC;
     signal mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_continue : STD_LOGIC;
     signal mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_idle : STD_LOGIC;
     signal mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_ready : STD_LOGIC;
-    signal mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_ram_address0 : STD_LOGIC_VECTOR (8 downto 0);
-    signal mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_ram_ce0 : STD_LOGIC;
-    signal mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_idx_ram_address0 : STD_LOGIC_VECTOR (9 downto 0);
-    signal mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_idx_ram_ce0 : STD_LOGIC;
-    signal mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_count_ram_address0 : STD_LOGIC_VECTOR (4 downto 0);
-    signal mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_count_ram_ce0 : STD_LOGIC;
+    signal mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_am_ROWS_read : STD_LOGIC;
+    signal mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_COLS_read : STD_LOGIC;
+    signal mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_stream2_read : STD_LOGIC;
+    signal mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_idx_stream3_read : STD_LOGIC;
+    signal mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_count_stream4_read : STD_LOGIC;
     signal mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_data_out1_din : STD_LOGIC_VECTOR (255 downto 0);
     signal mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_data_out1_write : STD_LOGIC;
-    signal mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_am_ROWS_c_din : STD_LOGIC_VECTOR (31 downto 0);
-    signal mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_am_ROWS_c_write : STD_LOGIC;
     signal mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_COLS_c_din : STD_LOGIC_VECTOR (31 downto 0);
     signal mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_COLS_c_write : STD_LOGIC;
     signal store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_start : STD_LOGIC;
@@ -286,12 +256,6 @@ architecture behav of sparse is
     signal store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_COLS_read : STD_LOGIC;
     signal store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_sparse_flag : STD_LOGIC_VECTOR (0 downto 0);
     signal store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_sparse_flag_ap_vld : STD_LOGIC;
-    signal idx_ram_i_full_n : STD_LOGIC;
-    signal idx_ram_t_empty_n : STD_LOGIC;
-    signal count_ram_i_full_n : STD_LOGIC;
-    signal count_ram_t_empty_n : STD_LOGIC;
-    signal fm_ram_V_i_full_n : STD_LOGIC;
-    signal fm_ram_V_t_empty_n : STD_LOGIC;
     signal output_data_addr3_c_full_n : STD_LOGIC;
     signal output_data_addr3_c_dout : STD_LOGIC_VECTOR (31 downto 0);
     signal output_data_addr3_c_num_data_valid : STD_LOGIC_VECTOR (2 downto 0);
@@ -302,24 +266,41 @@ architecture behav of sparse is
     signal outputs_c_num_data_valid : STD_LOGIC_VECTOR (2 downto 0);
     signal outputs_c_fifo_cap : STD_LOGIC_VECTOR (2 downto 0);
     signal outputs_c_empty_n : STD_LOGIC;
-    signal am_ROWS_c9_channel_dout : STD_LOGIC_VECTOR (31 downto 0);
-    signal am_ROWS_c9_channel_num_data_valid : STD_LOGIC_VECTOR (1 downto 0);
-    signal am_ROWS_c9_channel_fifo_cap : STD_LOGIC_VECTOR (1 downto 0);
-    signal am_ROWS_c9_channel_empty_n : STD_LOGIC;
-    signal fm_COLS_c10_channel_dout : STD_LOGIC_VECTOR (31 downto 0);
-    signal fm_COLS_c10_channel_num_data_valid : STD_LOGIC_VECTOR (1 downto 0);
-    signal fm_COLS_c10_channel_fifo_cap : STD_LOGIC_VECTOR (1 downto 0);
-    signal fm_COLS_c10_channel_empty_n : STD_LOGIC;
-    signal data_out_full_n : STD_LOGIC;
-    signal data_out_dout : STD_LOGIC_VECTOR (255 downto 0);
-    signal data_out_num_data_valid : STD_LOGIC_VECTOR (6 downto 0);
-    signal data_out_fifo_cap : STD_LOGIC_VECTOR (6 downto 0);
-    signal data_out_empty_n : STD_LOGIC;
+    signal idx_stream_full_n : STD_LOGIC;
+    signal idx_stream_dout : STD_LOGIC_VECTOR (7 downto 0);
+    signal idx_stream_num_data_valid : STD_LOGIC_VECTOR (7 downto 0);
+    signal idx_stream_fifo_cap : STD_LOGIC_VECTOR (7 downto 0);
+    signal idx_stream_empty_n : STD_LOGIC;
+    signal count_stream_full_n : STD_LOGIC;
+    signal count_stream_dout : STD_LOGIC_VECTOR (7 downto 0);
+    signal count_stream_num_data_valid : STD_LOGIC_VECTOR (6 downto 0);
+    signal count_stream_fifo_cap : STD_LOGIC_VECTOR (6 downto 0);
+    signal count_stream_empty_n : STD_LOGIC;
+    signal fm_stream_full_n : STD_LOGIC;
+    signal fm_stream_dout : STD_LOGIC_VECTOR (255 downto 0);
+    signal fm_stream_num_data_valid : STD_LOGIC_VECTOR (7 downto 0);
+    signal fm_stream_fifo_cap : STD_LOGIC_VECTOR (7 downto 0);
+    signal fm_stream_empty_n : STD_LOGIC;
     signal am_ROWS_c_full_n : STD_LOGIC;
     signal am_ROWS_c_dout : STD_LOGIC_VECTOR (31 downto 0);
     signal am_ROWS_c_num_data_valid : STD_LOGIC_VECTOR (1 downto 0);
     signal am_ROWS_c_fifo_cap : STD_LOGIC_VECTOR (1 downto 0);
     signal am_ROWS_c_empty_n : STD_LOGIC;
+    signal fm_ROWS_c_full_n : STD_LOGIC;
+    signal fm_ROWS_c_dout : STD_LOGIC_VECTOR (31 downto 0);
+    signal fm_ROWS_c_num_data_valid : STD_LOGIC_VECTOR (2 downto 0);
+    signal fm_ROWS_c_fifo_cap : STD_LOGIC_VECTOR (2 downto 0);
+    signal fm_ROWS_c_empty_n : STD_LOGIC;
+    signal fm_COLS_c9_full_n : STD_LOGIC;
+    signal fm_COLS_c9_dout : STD_LOGIC_VECTOR (31 downto 0);
+    signal fm_COLS_c9_num_data_valid : STD_LOGIC_VECTOR (1 downto 0);
+    signal fm_COLS_c9_fifo_cap : STD_LOGIC_VECTOR (1 downto 0);
+    signal fm_COLS_c9_empty_n : STD_LOGIC;
+    signal data_out_full_n : STD_LOGIC;
+    signal data_out_dout : STD_LOGIC_VECTOR (255 downto 0);
+    signal data_out_num_data_valid : STD_LOGIC_VECTOR (6 downto 0);
+    signal data_out_fifo_cap : STD_LOGIC_VECTOR (6 downto 0);
+    signal data_out_empty_n : STD_LOGIC;
     signal fm_COLS_c_full_n : STD_LOGIC;
     signal fm_COLS_c_dout : STD_LOGIC_VECTOR (31 downto 0);
     signal fm_COLS_c_num_data_valid : STD_LOGIC_VECTOR (1 downto 0);
@@ -328,12 +309,16 @@ architecture behav of sparse is
     signal ap_sync_ready : STD_LOGIC;
     signal ap_sync_reg_entry_proc_U0_ap_ready : STD_LOGIC := '0';
     signal ap_sync_entry_proc_U0_ap_ready : STD_LOGIC;
-    signal ap_sync_reg_load_ap_uint_256_ap_int_8_32u_U0_ap_ready : STD_LOGIC := '0';
-    signal ap_sync_load_ap_uint_256_ap_int_8_32u_U0_ap_ready : STD_LOGIC;
+    signal ap_sync_reg_load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_ready : STD_LOGIC := '0';
+    signal ap_sync_load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_ready : STD_LOGIC;
     signal start_for_store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_din : STD_LOGIC_VECTOR (0 downto 0);
     signal start_for_store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_full_n : STD_LOGIC;
     signal start_for_store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_dout : STD_LOGIC_VECTOR (0 downto 0);
     signal start_for_store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_empty_n : STD_LOGIC;
+    signal start_for_mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_din : STD_LOGIC_VECTOR (0 downto 0);
+    signal start_for_mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_full_n : STD_LOGIC;
+    signal start_for_mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_dout : STD_LOGIC_VECTOR (0 downto 0);
+    signal start_for_mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_empty_n : STD_LOGIC;
     signal ap_ce_reg : STD_LOGIC;
 
     component sparse_entry_proc IS
@@ -363,15 +348,18 @@ architecture behav of sparse is
     end component;
 
 
-    component sparse_load_ap_uint_256_ap_int_8_32u_s IS
+    component sparse_load_ap_uint_256_ap_int_8_ap_int_8_32u_s IS
     port (
         ap_clk : IN STD_LOGIC;
         ap_rst : IN STD_LOGIC;
         ap_start : IN STD_LOGIC;
+        start_full_n : IN STD_LOGIC;
         ap_done : OUT STD_LOGIC;
         ap_continue : IN STD_LOGIC;
         ap_idle : OUT STD_LOGIC;
         ap_ready : OUT STD_LOGIC;
+        start_out : OUT STD_LOGIC;
+        start_write : OUT STD_LOGIC;
         am_ROWS : IN STD_LOGIC_VECTOR (31 downto 0);
         am_COLS : IN STD_LOGIC_VECTOR (31 downto 0);
         fm_ROWS : IN STD_LOGIC_VECTOR (31 downto 0);
@@ -423,22 +411,38 @@ architecture behav of sparse is
         m_axi_sparse_data_BID : IN STD_LOGIC_VECTOR (0 downto 0);
         m_axi_sparse_data_BUSER : IN STD_LOGIC_VECTOR (0 downto 0);
         inputs : IN STD_LOGIC_VECTOR (63 downto 0);
-        idx_ram_address0 : OUT STD_LOGIC_VECTOR (9 downto 0);
-        idx_ram_ce0 : OUT STD_LOGIC;
-        idx_ram_we0 : OUT STD_LOGIC;
-        idx_ram_d0 : OUT STD_LOGIC_VECTOR (7 downto 0);
-        count_ram_address0 : OUT STD_LOGIC_VECTOR (4 downto 0);
-        count_ram_ce0 : OUT STD_LOGIC;
-        count_ram_we0 : OUT STD_LOGIC;
-        count_ram_d0 : OUT STD_LOGIC_VECTOR (7 downto 0);
-        fm_ram_address0 : OUT STD_LOGIC_VECTOR (8 downto 0);
-        fm_ram_ce0 : OUT STD_LOGIC;
-        fm_ram_we0 : OUT STD_LOGIC;
-        fm_ram_d0 : OUT STD_LOGIC_VECTOR (255 downto 0);
+        idx_stream3_din : OUT STD_LOGIC_VECTOR (7 downto 0);
+        idx_stream3_num_data_valid : IN STD_LOGIC_VECTOR (7 downto 0);
+        idx_stream3_fifo_cap : IN STD_LOGIC_VECTOR (7 downto 0);
+        idx_stream3_full_n : IN STD_LOGIC;
+        idx_stream3_write : OUT STD_LOGIC;
+        count_stream4_din : OUT STD_LOGIC_VECTOR (7 downto 0);
+        count_stream4_num_data_valid : IN STD_LOGIC_VECTOR (6 downto 0);
+        count_stream4_fifo_cap : IN STD_LOGIC_VECTOR (6 downto 0);
+        count_stream4_full_n : IN STD_LOGIC;
+        count_stream4_write : OUT STD_LOGIC;
+        fm_stream2_din : OUT STD_LOGIC_VECTOR (255 downto 0);
+        fm_stream2_num_data_valid : IN STD_LOGIC_VECTOR (7 downto 0);
+        fm_stream2_fifo_cap : IN STD_LOGIC_VECTOR (7 downto 0);
+        fm_stream2_full_n : IN STD_LOGIC;
+        fm_stream2_write : OUT STD_LOGIC;
         input_data_addr1 : IN STD_LOGIC_VECTOR (31 downto 0);
         input_data_addr2 : IN STD_LOGIC_VECTOR (31 downto 0);
-        ap_return_0 : OUT STD_LOGIC_VECTOR (31 downto 0);
-        ap_return_1 : OUT STD_LOGIC_VECTOR (31 downto 0) );
+        am_ROWS_c_din : OUT STD_LOGIC_VECTOR (31 downto 0);
+        am_ROWS_c_num_data_valid : IN STD_LOGIC_VECTOR (1 downto 0);
+        am_ROWS_c_fifo_cap : IN STD_LOGIC_VECTOR (1 downto 0);
+        am_ROWS_c_full_n : IN STD_LOGIC;
+        am_ROWS_c_write : OUT STD_LOGIC;
+        fm_ROWS_c_din : OUT STD_LOGIC_VECTOR (31 downto 0);
+        fm_ROWS_c_num_data_valid : IN STD_LOGIC_VECTOR (2 downto 0);
+        fm_ROWS_c_fifo_cap : IN STD_LOGIC_VECTOR (2 downto 0);
+        fm_ROWS_c_full_n : IN STD_LOGIC;
+        fm_ROWS_c_write : OUT STD_LOGIC;
+        fm_COLS_c9_din : OUT STD_LOGIC_VECTOR (31 downto 0);
+        fm_COLS_c9_num_data_valid : IN STD_LOGIC_VECTOR (1 downto 0);
+        fm_COLS_c9_fifo_cap : IN STD_LOGIC_VECTOR (1 downto 0);
+        fm_COLS_c9_full_n : IN STD_LOGIC;
+        fm_COLS_c9_write : OUT STD_LOGIC );
     end component;
 
 
@@ -451,27 +455,36 @@ architecture behav of sparse is
         ap_continue : IN STD_LOGIC;
         ap_idle : OUT STD_LOGIC;
         ap_ready : OUT STD_LOGIC;
-        p_read : IN STD_LOGIC_VECTOR (31 downto 0);
-        p_read1 : IN STD_LOGIC_VECTOR (31 downto 0);
-        fm_ram_address0 : OUT STD_LOGIC_VECTOR (8 downto 0);
-        fm_ram_ce0 : OUT STD_LOGIC;
-        fm_ram_q0 : IN STD_LOGIC_VECTOR (255 downto 0);
-        idx_ram_address0 : OUT STD_LOGIC_VECTOR (9 downto 0);
-        idx_ram_ce0 : OUT STD_LOGIC;
-        idx_ram_q0 : IN STD_LOGIC_VECTOR (7 downto 0);
-        count_ram_address0 : OUT STD_LOGIC_VECTOR (4 downto 0);
-        count_ram_ce0 : OUT STD_LOGIC;
-        count_ram_q0 : IN STD_LOGIC_VECTOR (7 downto 0);
+        am_ROWS_dout : IN STD_LOGIC_VECTOR (31 downto 0);
+        am_ROWS_num_data_valid : IN STD_LOGIC_VECTOR (1 downto 0);
+        am_ROWS_fifo_cap : IN STD_LOGIC_VECTOR (1 downto 0);
+        am_ROWS_empty_n : IN STD_LOGIC;
+        am_ROWS_read : OUT STD_LOGIC;
+        fm_COLS_dout : IN STD_LOGIC_VECTOR (31 downto 0);
+        fm_COLS_num_data_valid : IN STD_LOGIC_VECTOR (1 downto 0);
+        fm_COLS_fifo_cap : IN STD_LOGIC_VECTOR (1 downto 0);
+        fm_COLS_empty_n : IN STD_LOGIC;
+        fm_COLS_read : OUT STD_LOGIC;
+        fm_stream2_dout : IN STD_LOGIC_VECTOR (255 downto 0);
+        fm_stream2_num_data_valid : IN STD_LOGIC_VECTOR (7 downto 0);
+        fm_stream2_fifo_cap : IN STD_LOGIC_VECTOR (7 downto 0);
+        fm_stream2_empty_n : IN STD_LOGIC;
+        fm_stream2_read : OUT STD_LOGIC;
+        idx_stream3_dout : IN STD_LOGIC_VECTOR (7 downto 0);
+        idx_stream3_num_data_valid : IN STD_LOGIC_VECTOR (7 downto 0);
+        idx_stream3_fifo_cap : IN STD_LOGIC_VECTOR (7 downto 0);
+        idx_stream3_empty_n : IN STD_LOGIC;
+        idx_stream3_read : OUT STD_LOGIC;
+        count_stream4_dout : IN STD_LOGIC_VECTOR (7 downto 0);
+        count_stream4_num_data_valid : IN STD_LOGIC_VECTOR (6 downto 0);
+        count_stream4_fifo_cap : IN STD_LOGIC_VECTOR (6 downto 0);
+        count_stream4_empty_n : IN STD_LOGIC;
+        count_stream4_read : OUT STD_LOGIC;
         data_out1_din : OUT STD_LOGIC_VECTOR (255 downto 0);
         data_out1_num_data_valid : IN STD_LOGIC_VECTOR (6 downto 0);
         data_out1_fifo_cap : IN STD_LOGIC_VECTOR (6 downto 0);
         data_out1_full_n : IN STD_LOGIC;
         data_out1_write : OUT STD_LOGIC;
-        am_ROWS_c_din : OUT STD_LOGIC_VECTOR (31 downto 0);
-        am_ROWS_c_num_data_valid : IN STD_LOGIC_VECTOR (1 downto 0);
-        am_ROWS_c_fifo_cap : IN STD_LOGIC_VECTOR (1 downto 0);
-        am_ROWS_c_full_n : IN STD_LOGIC;
-        am_ROWS_c_write : OUT STD_LOGIC;
         fm_COLS_c_din : OUT STD_LOGIC_VECTOR (31 downto 0);
         fm_COLS_c_num_data_valid : IN STD_LOGIC_VECTOR (1 downto 0);
         fm_COLS_c_fifo_cap : IN STD_LOGIC_VECTOR (1 downto 0);
@@ -551,8 +564,8 @@ architecture behav of sparse is
         output_data_addr3_empty_n : IN STD_LOGIC;
         output_data_addr3_read : OUT STD_LOGIC;
         ROWS_dout : IN STD_LOGIC_VECTOR (31 downto 0);
-        ROWS_num_data_valid : IN STD_LOGIC_VECTOR (1 downto 0);
-        ROWS_fifo_cap : IN STD_LOGIC_VECTOR (1 downto 0);
+        ROWS_num_data_valid : IN STD_LOGIC_VECTOR (2 downto 0);
+        ROWS_fifo_cap : IN STD_LOGIC_VECTOR (2 downto 0);
         ROWS_empty_n : IN STD_LOGIC;
         ROWS_read : OUT STD_LOGIC;
         COLS_dout : IN STD_LOGIC_VECTOR (31 downto 0);
@@ -562,87 +575,6 @@ architecture behav of sparse is
         COLS_read : OUT STD_LOGIC;
         sparse_flag : OUT STD_LOGIC_VECTOR (0 downto 0);
         sparse_flag_ap_vld : OUT STD_LOGIC );
-    end component;
-
-
-    component sparse_fm_ram_V_RAM_AUTO_1R1W IS
-    generic (
-        DataWidth : INTEGER;
-        AddressRange : INTEGER;
-        AddressWidth : INTEGER );
-    port (
-        clk : IN STD_LOGIC;
-        reset : IN STD_LOGIC;
-        i_address0 : IN STD_LOGIC_VECTOR (8 downto 0);
-        i_ce0 : IN STD_LOGIC;
-        i_we0 : IN STD_LOGIC;
-        i_d0 : IN STD_LOGIC_VECTOR (255 downto 0);
-        i_q0 : OUT STD_LOGIC_VECTOR (255 downto 0);
-        t_address0 : IN STD_LOGIC_VECTOR (8 downto 0);
-        t_ce0 : IN STD_LOGIC;
-        t_we0 : IN STD_LOGIC;
-        t_d0 : IN STD_LOGIC_VECTOR (255 downto 0);
-        t_q0 : OUT STD_LOGIC_VECTOR (255 downto 0);
-        i_ce : IN STD_LOGIC;
-        t_ce : IN STD_LOGIC;
-        i_full_n : OUT STD_LOGIC;
-        i_write : IN STD_LOGIC;
-        t_empty_n : OUT STD_LOGIC;
-        t_read : IN STD_LOGIC );
-    end component;
-
-
-    component sparse_idx_ram_RAM_AUTO_1R1W IS
-    generic (
-        DataWidth : INTEGER;
-        AddressRange : INTEGER;
-        AddressWidth : INTEGER );
-    port (
-        clk : IN STD_LOGIC;
-        reset : IN STD_LOGIC;
-        i_address0 : IN STD_LOGIC_VECTOR (9 downto 0);
-        i_ce0 : IN STD_LOGIC;
-        i_we0 : IN STD_LOGIC;
-        i_d0 : IN STD_LOGIC_VECTOR (7 downto 0);
-        i_q0 : OUT STD_LOGIC_VECTOR (7 downto 0);
-        t_address0 : IN STD_LOGIC_VECTOR (9 downto 0);
-        t_ce0 : IN STD_LOGIC;
-        t_we0 : IN STD_LOGIC;
-        t_d0 : IN STD_LOGIC_VECTOR (7 downto 0);
-        t_q0 : OUT STD_LOGIC_VECTOR (7 downto 0);
-        i_ce : IN STD_LOGIC;
-        t_ce : IN STD_LOGIC;
-        i_full_n : OUT STD_LOGIC;
-        i_write : IN STD_LOGIC;
-        t_empty_n : OUT STD_LOGIC;
-        t_read : IN STD_LOGIC );
-    end component;
-
-
-    component sparse_count_ram_RAM_AUTO_1R1W IS
-    generic (
-        DataWidth : INTEGER;
-        AddressRange : INTEGER;
-        AddressWidth : INTEGER );
-    port (
-        clk : IN STD_LOGIC;
-        reset : IN STD_LOGIC;
-        i_address0 : IN STD_LOGIC_VECTOR (4 downto 0);
-        i_ce0 : IN STD_LOGIC;
-        i_we0 : IN STD_LOGIC;
-        i_d0 : IN STD_LOGIC_VECTOR (7 downto 0);
-        i_q0 : OUT STD_LOGIC_VECTOR (7 downto 0);
-        t_address0 : IN STD_LOGIC_VECTOR (4 downto 0);
-        t_ce0 : IN STD_LOGIC;
-        t_we0 : IN STD_LOGIC;
-        t_d0 : IN STD_LOGIC_VECTOR (7 downto 0);
-        t_q0 : OUT STD_LOGIC_VECTOR (7 downto 0);
-        i_ce : IN STD_LOGIC;
-        t_ce : IN STD_LOGIC;
-        i_full_n : OUT STD_LOGIC;
-        i_write : IN STD_LOGIC;
-        t_empty_n : OUT STD_LOGIC;
-        t_read : IN STD_LOGIC );
     end component;
 
 
@@ -680,6 +612,57 @@ architecture behav of sparse is
     end component;
 
 
+    component sparse_fifo_w8_d128_S IS
+    port (
+        clk : IN STD_LOGIC;
+        reset : IN STD_LOGIC;
+        if_read_ce : IN STD_LOGIC;
+        if_write_ce : IN STD_LOGIC;
+        if_din : IN STD_LOGIC_VECTOR (7 downto 0);
+        if_full_n : OUT STD_LOGIC;
+        if_write : IN STD_LOGIC;
+        if_dout : OUT STD_LOGIC_VECTOR (7 downto 0);
+        if_num_data_valid : OUT STD_LOGIC_VECTOR (7 downto 0);
+        if_fifo_cap : OUT STD_LOGIC_VECTOR (7 downto 0);
+        if_empty_n : OUT STD_LOGIC;
+        if_read : IN STD_LOGIC );
+    end component;
+
+
+    component sparse_fifo_w8_d64_S IS
+    port (
+        clk : IN STD_LOGIC;
+        reset : IN STD_LOGIC;
+        if_read_ce : IN STD_LOGIC;
+        if_write_ce : IN STD_LOGIC;
+        if_din : IN STD_LOGIC_VECTOR (7 downto 0);
+        if_full_n : OUT STD_LOGIC;
+        if_write : IN STD_LOGIC;
+        if_dout : OUT STD_LOGIC_VECTOR (7 downto 0);
+        if_num_data_valid : OUT STD_LOGIC_VECTOR (6 downto 0);
+        if_fifo_cap : OUT STD_LOGIC_VECTOR (6 downto 0);
+        if_empty_n : OUT STD_LOGIC;
+        if_read : IN STD_LOGIC );
+    end component;
+
+
+    component sparse_fifo_w256_d128_A IS
+    port (
+        clk : IN STD_LOGIC;
+        reset : IN STD_LOGIC;
+        if_read_ce : IN STD_LOGIC;
+        if_write_ce : IN STD_LOGIC;
+        if_din : IN STD_LOGIC_VECTOR (255 downto 0);
+        if_full_n : OUT STD_LOGIC;
+        if_write : IN STD_LOGIC;
+        if_dout : OUT STD_LOGIC_VECTOR (255 downto 0);
+        if_num_data_valid : OUT STD_LOGIC_VECTOR (7 downto 0);
+        if_fifo_cap : OUT STD_LOGIC_VECTOR (7 downto 0);
+        if_empty_n : OUT STD_LOGIC;
+        if_read : IN STD_LOGIC );
+    end component;
+
+
     component sparse_fifo_w32_d2_S IS
     port (
         clk : IN STD_LOGIC;
@@ -692,6 +675,23 @@ architecture behav of sparse is
         if_dout : OUT STD_LOGIC_VECTOR (31 downto 0);
         if_num_data_valid : OUT STD_LOGIC_VECTOR (1 downto 0);
         if_fifo_cap : OUT STD_LOGIC_VECTOR (1 downto 0);
+        if_empty_n : OUT STD_LOGIC;
+        if_read : IN STD_LOGIC );
+    end component;
+
+
+    component sparse_fifo_w32_d3_S IS
+    port (
+        clk : IN STD_LOGIC;
+        reset : IN STD_LOGIC;
+        if_read_ce : IN STD_LOGIC;
+        if_write_ce : IN STD_LOGIC;
+        if_din : IN STD_LOGIC_VECTOR (31 downto 0);
+        if_full_n : OUT STD_LOGIC;
+        if_write : IN STD_LOGIC;
+        if_dout : OUT STD_LOGIC_VECTOR (31 downto 0);
+        if_num_data_valid : OUT STD_LOGIC_VECTOR (2 downto 0);
+        if_fifo_cap : OUT STD_LOGIC_VECTOR (2 downto 0);
         if_empty_n : OUT STD_LOGIC;
         if_read : IN STD_LOGIC );
     end component;
@@ -715,6 +715,21 @@ architecture behav of sparse is
 
 
     component sparse_start_for_store_ap_uint_256_ap_int_8_ap_int_8_32u_U0 IS
+    port (
+        clk : IN STD_LOGIC;
+        reset : IN STD_LOGIC;
+        if_read_ce : IN STD_LOGIC;
+        if_write_ce : IN STD_LOGIC;
+        if_din : IN STD_LOGIC_VECTOR (0 downto 0);
+        if_full_n : OUT STD_LOGIC;
+        if_write : IN STD_LOGIC;
+        if_dout : OUT STD_LOGIC_VECTOR (0 downto 0);
+        if_empty_n : OUT STD_LOGIC;
+        if_read : IN STD_LOGIC );
+    end component;
+
+
+    component sparse_start_for_mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0 IS
     port (
         clk : IN STD_LOGIC;
         reset : IN STD_LOGIC;
@@ -867,81 +882,6 @@ architecture behav of sparse is
 
 
 begin
-    fm_ram_V_U : component sparse_fm_ram_V_RAM_AUTO_1R1W
-    generic map (
-        DataWidth => 256,
-        AddressRange => 512,
-        AddressWidth => 9)
-    port map (
-        clk => ap_clk,
-        reset => ap_rst_n_inv,
-        i_address0 => load_ap_uint_256_ap_int_8_32u_U0_fm_ram_address0,
-        i_ce0 => load_ap_uint_256_ap_int_8_32u_U0_fm_ram_ce0,
-        i_we0 => load_ap_uint_256_ap_int_8_32u_U0_fm_ram_we0,
-        i_d0 => load_ap_uint_256_ap_int_8_32u_U0_fm_ram_d0,
-        i_q0 => fm_ram_V_i_q0,
-        t_address0 => mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_ram_address0,
-        t_ce0 => mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_ram_ce0,
-        t_we0 => ap_const_logic_0,
-        t_d0 => ap_const_lv256_lc_1,
-        t_q0 => fm_ram_V_t_q0,
-        i_ce => ap_const_logic_1,
-        t_ce => ap_const_logic_1,
-        i_full_n => fm_ram_V_i_full_n,
-        i_write => ap_channel_done_fm_ram_V,
-        t_empty_n => fm_ram_V_t_empty_n,
-        t_read => mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_ready);
-
-    idx_ram_U : component sparse_idx_ram_RAM_AUTO_1R1W
-    generic map (
-        DataWidth => 8,
-        AddressRange => 1024,
-        AddressWidth => 10)
-    port map (
-        clk => ap_clk,
-        reset => ap_rst_n_inv,
-        i_address0 => load_ap_uint_256_ap_int_8_32u_U0_idx_ram_address0,
-        i_ce0 => load_ap_uint_256_ap_int_8_32u_U0_idx_ram_ce0,
-        i_we0 => load_ap_uint_256_ap_int_8_32u_U0_idx_ram_we0,
-        i_d0 => load_ap_uint_256_ap_int_8_32u_U0_idx_ram_d0,
-        i_q0 => idx_ram_i_q0,
-        t_address0 => mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_idx_ram_address0,
-        t_ce0 => mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_idx_ram_ce0,
-        t_we0 => ap_const_logic_0,
-        t_d0 => ap_const_lv8_0,
-        t_q0 => idx_ram_t_q0,
-        i_ce => ap_const_logic_1,
-        t_ce => ap_const_logic_1,
-        i_full_n => idx_ram_i_full_n,
-        i_write => ap_channel_done_idx_ram,
-        t_empty_n => idx_ram_t_empty_n,
-        t_read => mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_ready);
-
-    count_ram_U : component sparse_count_ram_RAM_AUTO_1R1W
-    generic map (
-        DataWidth => 8,
-        AddressRange => 32,
-        AddressWidth => 5)
-    port map (
-        clk => ap_clk,
-        reset => ap_rst_n_inv,
-        i_address0 => load_ap_uint_256_ap_int_8_32u_U0_count_ram_address0,
-        i_ce0 => load_ap_uint_256_ap_int_8_32u_U0_count_ram_ce0,
-        i_we0 => load_ap_uint_256_ap_int_8_32u_U0_count_ram_we0,
-        i_d0 => load_ap_uint_256_ap_int_8_32u_U0_count_ram_d0,
-        i_q0 => count_ram_i_q0,
-        t_address0 => mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_count_ram_address0,
-        t_ce0 => mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_count_ram_ce0,
-        t_we0 => ap_const_logic_0,
-        t_d0 => ap_const_lv8_0,
-        t_q0 => count_ram_t_q0,
-        i_ce => ap_const_logic_1,
-        t_ce => ap_const_logic_1,
-        i_full_n => count_ram_i_full_n,
-        i_write => ap_channel_done_count_ram,
-        t_empty_n => count_ram_t_empty_n,
-        t_read => mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_ready);
-
     sparse_addr_s_axi_U : component sparse_sparse_addr_s_axi
     generic map (
         C_S_AXI_ADDR_WIDTH => C_S_AXI_SPARSE_ADDR_ADDR_WIDTH,
@@ -1055,12 +995,12 @@ begin
         ACLK => ap_clk,
         ARESET => ap_rst_n_inv,
         ACLK_EN => ap_const_logic_1,
-        I_ARVALID => load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_ARVALID,
+        I_ARVALID => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_ARVALID,
         I_ARREADY => sparse_data_ARREADY,
-        I_ARADDR => load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_ARADDR,
-        I_ARLEN => load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_ARLEN,
+        I_ARADDR => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_ARADDR,
+        I_ARLEN => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_ARLEN,
         I_RVALID => sparse_data_RVALID,
-        I_RREADY => load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_RREADY,
+        I_RREADY => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_RREADY,
         I_RDATA => sparse_data_RDATA,
         I_RFIFONUM => sparse_data_RFIFONUM,
         I_AWVALID => store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_AWVALID,
@@ -1099,54 +1039,57 @@ begin
         outputs_c_full_n => outputs_c_full_n,
         outputs_c_write => entry_proc_U0_outputs_c_write);
 
-    load_ap_uint_256_ap_int_8_32u_U0 : component sparse_load_ap_uint_256_ap_int_8_32u_s
+    load_ap_uint_256_ap_int_8_ap_int_8_32u_U0 : component sparse_load_ap_uint_256_ap_int_8_ap_int_8_32u_s
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
-        ap_start => load_ap_uint_256_ap_int_8_32u_U0_ap_start,
-        ap_done => load_ap_uint_256_ap_int_8_32u_U0_ap_done,
-        ap_continue => load_ap_uint_256_ap_int_8_32u_U0_ap_continue,
-        ap_idle => load_ap_uint_256_ap_int_8_32u_U0_ap_idle,
-        ap_ready => load_ap_uint_256_ap_int_8_32u_U0_ap_ready,
+        ap_start => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_start,
+        start_full_n => start_for_mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_full_n,
+        ap_done => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_done,
+        ap_continue => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_continue,
+        ap_idle => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_idle,
+        ap_ready => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_ready,
+        start_out => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_start_out,
+        start_write => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_start_write,
         am_ROWS => am_ROWS,
         am_COLS => am_COLS,
         fm_ROWS => fm_ROWS,
         fm_COLS => fm_COLS,
-        m_axi_sparse_data_AWVALID => load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_AWVALID,
+        m_axi_sparse_data_AWVALID => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_AWVALID,
         m_axi_sparse_data_AWREADY => ap_const_logic_0,
-        m_axi_sparse_data_AWADDR => load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_AWADDR,
-        m_axi_sparse_data_AWID => load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_AWID,
-        m_axi_sparse_data_AWLEN => load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_AWLEN,
-        m_axi_sparse_data_AWSIZE => load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_AWSIZE,
-        m_axi_sparse_data_AWBURST => load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_AWBURST,
-        m_axi_sparse_data_AWLOCK => load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_AWLOCK,
-        m_axi_sparse_data_AWCACHE => load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_AWCACHE,
-        m_axi_sparse_data_AWPROT => load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_AWPROT,
-        m_axi_sparse_data_AWQOS => load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_AWQOS,
-        m_axi_sparse_data_AWREGION => load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_AWREGION,
-        m_axi_sparse_data_AWUSER => load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_AWUSER,
-        m_axi_sparse_data_WVALID => load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_WVALID,
+        m_axi_sparse_data_AWADDR => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_AWADDR,
+        m_axi_sparse_data_AWID => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_AWID,
+        m_axi_sparse_data_AWLEN => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_AWLEN,
+        m_axi_sparse_data_AWSIZE => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_AWSIZE,
+        m_axi_sparse_data_AWBURST => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_AWBURST,
+        m_axi_sparse_data_AWLOCK => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_AWLOCK,
+        m_axi_sparse_data_AWCACHE => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_AWCACHE,
+        m_axi_sparse_data_AWPROT => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_AWPROT,
+        m_axi_sparse_data_AWQOS => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_AWQOS,
+        m_axi_sparse_data_AWREGION => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_AWREGION,
+        m_axi_sparse_data_AWUSER => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_AWUSER,
+        m_axi_sparse_data_WVALID => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_WVALID,
         m_axi_sparse_data_WREADY => ap_const_logic_0,
-        m_axi_sparse_data_WDATA => load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_WDATA,
-        m_axi_sparse_data_WSTRB => load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_WSTRB,
-        m_axi_sparse_data_WLAST => load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_WLAST,
-        m_axi_sparse_data_WID => load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_WID,
-        m_axi_sparse_data_WUSER => load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_WUSER,
-        m_axi_sparse_data_ARVALID => load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_ARVALID,
+        m_axi_sparse_data_WDATA => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_WDATA,
+        m_axi_sparse_data_WSTRB => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_WSTRB,
+        m_axi_sparse_data_WLAST => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_WLAST,
+        m_axi_sparse_data_WID => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_WID,
+        m_axi_sparse_data_WUSER => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_WUSER,
+        m_axi_sparse_data_ARVALID => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_ARVALID,
         m_axi_sparse_data_ARREADY => sparse_data_ARREADY,
-        m_axi_sparse_data_ARADDR => load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_ARADDR,
-        m_axi_sparse_data_ARID => load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_ARID,
-        m_axi_sparse_data_ARLEN => load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_ARLEN,
-        m_axi_sparse_data_ARSIZE => load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_ARSIZE,
-        m_axi_sparse_data_ARBURST => load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_ARBURST,
-        m_axi_sparse_data_ARLOCK => load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_ARLOCK,
-        m_axi_sparse_data_ARCACHE => load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_ARCACHE,
-        m_axi_sparse_data_ARPROT => load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_ARPROT,
-        m_axi_sparse_data_ARQOS => load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_ARQOS,
-        m_axi_sparse_data_ARREGION => load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_ARREGION,
-        m_axi_sparse_data_ARUSER => load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_ARUSER,
+        m_axi_sparse_data_ARADDR => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_ARADDR,
+        m_axi_sparse_data_ARID => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_ARID,
+        m_axi_sparse_data_ARLEN => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_ARLEN,
+        m_axi_sparse_data_ARSIZE => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_ARSIZE,
+        m_axi_sparse_data_ARBURST => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_ARBURST,
+        m_axi_sparse_data_ARLOCK => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_ARLOCK,
+        m_axi_sparse_data_ARCACHE => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_ARCACHE,
+        m_axi_sparse_data_ARPROT => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_ARPROT,
+        m_axi_sparse_data_ARQOS => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_ARQOS,
+        m_axi_sparse_data_ARREGION => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_ARREGION,
+        m_axi_sparse_data_ARUSER => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_ARUSER,
         m_axi_sparse_data_RVALID => sparse_data_RVALID,
-        m_axi_sparse_data_RREADY => load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_RREADY,
+        m_axi_sparse_data_RREADY => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_RREADY,
         m_axi_sparse_data_RDATA => sparse_data_RDATA,
         m_axi_sparse_data_RLAST => sparse_data_RLAST,
         m_axi_sparse_data_RID => sparse_data_RID,
@@ -1154,27 +1097,43 @@ begin
         m_axi_sparse_data_RUSER => sparse_data_RUSER,
         m_axi_sparse_data_RRESP => sparse_data_RRESP,
         m_axi_sparse_data_BVALID => ap_const_logic_0,
-        m_axi_sparse_data_BREADY => load_ap_uint_256_ap_int_8_32u_U0_m_axi_sparse_data_BREADY,
+        m_axi_sparse_data_BREADY => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_BREADY,
         m_axi_sparse_data_BRESP => ap_const_lv2_0,
         m_axi_sparse_data_BID => ap_const_lv1_0,
         m_axi_sparse_data_BUSER => ap_const_lv1_0,
         inputs => inputs,
-        idx_ram_address0 => load_ap_uint_256_ap_int_8_32u_U0_idx_ram_address0,
-        idx_ram_ce0 => load_ap_uint_256_ap_int_8_32u_U0_idx_ram_ce0,
-        idx_ram_we0 => load_ap_uint_256_ap_int_8_32u_U0_idx_ram_we0,
-        idx_ram_d0 => load_ap_uint_256_ap_int_8_32u_U0_idx_ram_d0,
-        count_ram_address0 => load_ap_uint_256_ap_int_8_32u_U0_count_ram_address0,
-        count_ram_ce0 => load_ap_uint_256_ap_int_8_32u_U0_count_ram_ce0,
-        count_ram_we0 => load_ap_uint_256_ap_int_8_32u_U0_count_ram_we0,
-        count_ram_d0 => load_ap_uint_256_ap_int_8_32u_U0_count_ram_d0,
-        fm_ram_address0 => load_ap_uint_256_ap_int_8_32u_U0_fm_ram_address0,
-        fm_ram_ce0 => load_ap_uint_256_ap_int_8_32u_U0_fm_ram_ce0,
-        fm_ram_we0 => load_ap_uint_256_ap_int_8_32u_U0_fm_ram_we0,
-        fm_ram_d0 => load_ap_uint_256_ap_int_8_32u_U0_fm_ram_d0,
+        idx_stream3_din => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_idx_stream3_din,
+        idx_stream3_num_data_valid => idx_stream_num_data_valid,
+        idx_stream3_fifo_cap => idx_stream_fifo_cap,
+        idx_stream3_full_n => idx_stream_full_n,
+        idx_stream3_write => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_idx_stream3_write,
+        count_stream4_din => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_count_stream4_din,
+        count_stream4_num_data_valid => count_stream_num_data_valid,
+        count_stream4_fifo_cap => count_stream_fifo_cap,
+        count_stream4_full_n => count_stream_full_n,
+        count_stream4_write => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_count_stream4_write,
+        fm_stream2_din => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_stream2_din,
+        fm_stream2_num_data_valid => fm_stream_num_data_valid,
+        fm_stream2_fifo_cap => fm_stream_fifo_cap,
+        fm_stream2_full_n => fm_stream_full_n,
+        fm_stream2_write => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_stream2_write,
         input_data_addr1 => input_data_addr1,
         input_data_addr2 => input_data_addr2,
-        ap_return_0 => load_ap_uint_256_ap_int_8_32u_U0_ap_return_0,
-        ap_return_1 => load_ap_uint_256_ap_int_8_32u_U0_ap_return_1);
+        am_ROWS_c_din => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_am_ROWS_c_din,
+        am_ROWS_c_num_data_valid => am_ROWS_c_num_data_valid,
+        am_ROWS_c_fifo_cap => am_ROWS_c_fifo_cap,
+        am_ROWS_c_full_n => am_ROWS_c_full_n,
+        am_ROWS_c_write => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_am_ROWS_c_write,
+        fm_ROWS_c_din => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_ROWS_c_din,
+        fm_ROWS_c_num_data_valid => fm_ROWS_c_num_data_valid,
+        fm_ROWS_c_fifo_cap => fm_ROWS_c_fifo_cap,
+        fm_ROWS_c_full_n => fm_ROWS_c_full_n,
+        fm_ROWS_c_write => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_ROWS_c_write,
+        fm_COLS_c9_din => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_COLS_c9_din,
+        fm_COLS_c9_num_data_valid => fm_COLS_c9_num_data_valid,
+        fm_COLS_c9_fifo_cap => fm_COLS_c9_fifo_cap,
+        fm_COLS_c9_full_n => fm_COLS_c9_full_n,
+        fm_COLS_c9_write => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_COLS_c9_write);
 
     mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0 : component sparse_mul_ap_uint_256_ap_int_8_ap_int_8_32u_s
     port map (
@@ -1185,27 +1144,36 @@ begin
         ap_continue => mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_continue,
         ap_idle => mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_idle,
         ap_ready => mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_ready,
-        p_read => am_ROWS_c9_channel_dout,
-        p_read1 => fm_COLS_c10_channel_dout,
-        fm_ram_address0 => mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_ram_address0,
-        fm_ram_ce0 => mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_ram_ce0,
-        fm_ram_q0 => fm_ram_V_t_q0,
-        idx_ram_address0 => mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_idx_ram_address0,
-        idx_ram_ce0 => mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_idx_ram_ce0,
-        idx_ram_q0 => idx_ram_t_q0,
-        count_ram_address0 => mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_count_ram_address0,
-        count_ram_ce0 => mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_count_ram_ce0,
-        count_ram_q0 => count_ram_t_q0,
+        am_ROWS_dout => am_ROWS_c_dout,
+        am_ROWS_num_data_valid => am_ROWS_c_num_data_valid,
+        am_ROWS_fifo_cap => am_ROWS_c_fifo_cap,
+        am_ROWS_empty_n => am_ROWS_c_empty_n,
+        am_ROWS_read => mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_am_ROWS_read,
+        fm_COLS_dout => fm_COLS_c9_dout,
+        fm_COLS_num_data_valid => fm_COLS_c9_num_data_valid,
+        fm_COLS_fifo_cap => fm_COLS_c9_fifo_cap,
+        fm_COLS_empty_n => fm_COLS_c9_empty_n,
+        fm_COLS_read => mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_COLS_read,
+        fm_stream2_dout => fm_stream_dout,
+        fm_stream2_num_data_valid => fm_stream_num_data_valid,
+        fm_stream2_fifo_cap => fm_stream_fifo_cap,
+        fm_stream2_empty_n => fm_stream_empty_n,
+        fm_stream2_read => mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_stream2_read,
+        idx_stream3_dout => idx_stream_dout,
+        idx_stream3_num_data_valid => idx_stream_num_data_valid,
+        idx_stream3_fifo_cap => idx_stream_fifo_cap,
+        idx_stream3_empty_n => idx_stream_empty_n,
+        idx_stream3_read => mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_idx_stream3_read,
+        count_stream4_dout => count_stream_dout,
+        count_stream4_num_data_valid => count_stream_num_data_valid,
+        count_stream4_fifo_cap => count_stream_fifo_cap,
+        count_stream4_empty_n => count_stream_empty_n,
+        count_stream4_read => mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_count_stream4_read,
         data_out1_din => mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_data_out1_din,
         data_out1_num_data_valid => data_out_num_data_valid,
         data_out1_fifo_cap => data_out_fifo_cap,
         data_out1_full_n => data_out_full_n,
         data_out1_write => mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_data_out1_write,
-        am_ROWS_c_din => mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_am_ROWS_c_din,
-        am_ROWS_c_num_data_valid => am_ROWS_c_num_data_valid,
-        am_ROWS_c_fifo_cap => am_ROWS_c_fifo_cap,
-        am_ROWS_c_full_n => am_ROWS_c_full_n,
-        am_ROWS_c_write => mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_am_ROWS_c_write,
         fm_COLS_c_din => mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_COLS_c_din,
         fm_COLS_c_num_data_valid => fm_COLS_c_num_data_valid,
         fm_COLS_c_fifo_cap => fm_COLS_c_fifo_cap,
@@ -1282,10 +1250,10 @@ begin
         output_data_addr3_fifo_cap => output_data_addr3_c_fifo_cap,
         output_data_addr3_empty_n => output_data_addr3_c_empty_n,
         output_data_addr3_read => store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_output_data_addr3_read,
-        ROWS_dout => am_ROWS_c_dout,
-        ROWS_num_data_valid => am_ROWS_c_num_data_valid,
-        ROWS_fifo_cap => am_ROWS_c_fifo_cap,
-        ROWS_empty_n => am_ROWS_c_empty_n,
+        ROWS_dout => fm_ROWS_c_dout,
+        ROWS_num_data_valid => fm_ROWS_c_num_data_valid,
+        ROWS_fifo_cap => fm_ROWS_c_fifo_cap,
+        ROWS_empty_n => fm_ROWS_c_empty_n,
         ROWS_read => store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ROWS_read,
         COLS_dout => fm_COLS_c_dout,
         COLS_num_data_valid => fm_COLS_c_num_data_valid,
@@ -1325,35 +1293,95 @@ begin
         if_empty_n => outputs_c_empty_n,
         if_read => store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_outputs_read);
 
-    am_ROWS_c9_channel_U : component sparse_fifo_w32_d2_S
+    idx_stream_U : component sparse_fifo_w8_d128_S
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,
         if_read_ce => ap_const_logic_1,
         if_write_ce => ap_const_logic_1,
-        if_din => load_ap_uint_256_ap_int_8_32u_U0_ap_return_0,
-        if_full_n => am_ROWS_c9_channel_full_n,
-        if_write => ap_channel_done_am_ROWS_c9_channel,
-        if_dout => am_ROWS_c9_channel_dout,
-        if_num_data_valid => am_ROWS_c9_channel_num_data_valid,
-        if_fifo_cap => am_ROWS_c9_channel_fifo_cap,
-        if_empty_n => am_ROWS_c9_channel_empty_n,
-        if_read => mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_ready);
+        if_din => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_idx_stream3_din,
+        if_full_n => idx_stream_full_n,
+        if_write => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_idx_stream3_write,
+        if_dout => idx_stream_dout,
+        if_num_data_valid => idx_stream_num_data_valid,
+        if_fifo_cap => idx_stream_fifo_cap,
+        if_empty_n => idx_stream_empty_n,
+        if_read => mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_idx_stream3_read);
 
-    fm_COLS_c10_channel_U : component sparse_fifo_w32_d2_S
+    count_stream_U : component sparse_fifo_w8_d64_S
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,
         if_read_ce => ap_const_logic_1,
         if_write_ce => ap_const_logic_1,
-        if_din => load_ap_uint_256_ap_int_8_32u_U0_ap_return_1,
-        if_full_n => fm_COLS_c10_channel_full_n,
-        if_write => ap_channel_done_fm_COLS_c10_channel,
-        if_dout => fm_COLS_c10_channel_dout,
-        if_num_data_valid => fm_COLS_c10_channel_num_data_valid,
-        if_fifo_cap => fm_COLS_c10_channel_fifo_cap,
-        if_empty_n => fm_COLS_c10_channel_empty_n,
-        if_read => mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_ready);
+        if_din => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_count_stream4_din,
+        if_full_n => count_stream_full_n,
+        if_write => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_count_stream4_write,
+        if_dout => count_stream_dout,
+        if_num_data_valid => count_stream_num_data_valid,
+        if_fifo_cap => count_stream_fifo_cap,
+        if_empty_n => count_stream_empty_n,
+        if_read => mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_count_stream4_read);
+
+    fm_stream_U : component sparse_fifo_w256_d128_A
+    port map (
+        clk => ap_clk,
+        reset => ap_rst_n_inv,
+        if_read_ce => ap_const_logic_1,
+        if_write_ce => ap_const_logic_1,
+        if_din => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_stream2_din,
+        if_full_n => fm_stream_full_n,
+        if_write => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_stream2_write,
+        if_dout => fm_stream_dout,
+        if_num_data_valid => fm_stream_num_data_valid,
+        if_fifo_cap => fm_stream_fifo_cap,
+        if_empty_n => fm_stream_empty_n,
+        if_read => mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_stream2_read);
+
+    am_ROWS_c_U : component sparse_fifo_w32_d2_S
+    port map (
+        clk => ap_clk,
+        reset => ap_rst_n_inv,
+        if_read_ce => ap_const_logic_1,
+        if_write_ce => ap_const_logic_1,
+        if_din => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_am_ROWS_c_din,
+        if_full_n => am_ROWS_c_full_n,
+        if_write => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_am_ROWS_c_write,
+        if_dout => am_ROWS_c_dout,
+        if_num_data_valid => am_ROWS_c_num_data_valid,
+        if_fifo_cap => am_ROWS_c_fifo_cap,
+        if_empty_n => am_ROWS_c_empty_n,
+        if_read => mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_am_ROWS_read);
+
+    fm_ROWS_c_U : component sparse_fifo_w32_d3_S
+    port map (
+        clk => ap_clk,
+        reset => ap_rst_n_inv,
+        if_read_ce => ap_const_logic_1,
+        if_write_ce => ap_const_logic_1,
+        if_din => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_ROWS_c_din,
+        if_full_n => fm_ROWS_c_full_n,
+        if_write => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_ROWS_c_write,
+        if_dout => fm_ROWS_c_dout,
+        if_num_data_valid => fm_ROWS_c_num_data_valid,
+        if_fifo_cap => fm_ROWS_c_fifo_cap,
+        if_empty_n => fm_ROWS_c_empty_n,
+        if_read => store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ROWS_read);
+
+    fm_COLS_c9_U : component sparse_fifo_w32_d2_S
+    port map (
+        clk => ap_clk,
+        reset => ap_rst_n_inv,
+        if_read_ce => ap_const_logic_1,
+        if_write_ce => ap_const_logic_1,
+        if_din => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_COLS_c9_din,
+        if_full_n => fm_COLS_c9_full_n,
+        if_write => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_COLS_c9_write,
+        if_dout => fm_COLS_c9_dout,
+        if_num_data_valid => fm_COLS_c9_num_data_valid,
+        if_fifo_cap => fm_COLS_c9_fifo_cap,
+        if_empty_n => fm_COLS_c9_empty_n,
+        if_read => mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_COLS_read);
 
     data_out_U : component sparse_fifo_w256_d64_A
     port map (
@@ -1369,21 +1397,6 @@ begin
         if_fifo_cap => data_out_fifo_cap,
         if_empty_n => data_out_empty_n,
         if_read => store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_data_out1_read);
-
-    am_ROWS_c_U : component sparse_fifo_w32_d2_S
-    port map (
-        clk => ap_clk,
-        reset => ap_rst_n_inv,
-        if_read_ce => ap_const_logic_1,
-        if_write_ce => ap_const_logic_1,
-        if_din => mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_am_ROWS_c_din,
-        if_full_n => am_ROWS_c_full_n,
-        if_write => mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_am_ROWS_c_write,
-        if_dout => am_ROWS_c_dout,
-        if_num_data_valid => am_ROWS_c_num_data_valid,
-        if_fifo_cap => am_ROWS_c_fifo_cap,
-        if_empty_n => am_ROWS_c_empty_n,
-        if_read => store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ROWS_read);
 
     fm_COLS_c_U : component sparse_fifo_w32_d2_S
     port map (
@@ -1413,88 +1426,21 @@ begin
         if_empty_n => start_for_store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_empty_n,
         if_read => store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_ready);
 
+    start_for_mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_U : component sparse_start_for_mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0
+    port map (
+        clk => ap_clk,
+        reset => ap_rst_n_inv,
+        if_read_ce => ap_const_logic_1,
+        if_write_ce => ap_const_logic_1,
+        if_din => start_for_mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_din,
+        if_full_n => start_for_mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_full_n,
+        if_write => load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_start_write,
+        if_dout => start_for_mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_dout,
+        if_empty_n => start_for_mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_empty_n,
+        if_read => mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_ready);
 
 
 
-
-    ap_sync_reg_channel_write_am_ROWS_c9_channel_assign_proc : process(ap_clk)
-    begin
-        if (ap_clk'event and ap_clk =  '1') then
-            if (ap_rst_n_inv = '1') then
-                ap_sync_reg_channel_write_am_ROWS_c9_channel <= ap_const_logic_0;
-            else
-                if (((load_ap_uint_256_ap_int_8_32u_U0_ap_done and load_ap_uint_256_ap_int_8_32u_U0_ap_continue) = ap_const_logic_1)) then 
-                    ap_sync_reg_channel_write_am_ROWS_c9_channel <= ap_const_logic_0;
-                else 
-                    ap_sync_reg_channel_write_am_ROWS_c9_channel <= ap_sync_channel_write_am_ROWS_c9_channel;
-                end if; 
-            end if;
-        end if;
-    end process;
-
-
-    ap_sync_reg_channel_write_count_ram_assign_proc : process(ap_clk)
-    begin
-        if (ap_clk'event and ap_clk =  '1') then
-            if (ap_rst_n_inv = '1') then
-                ap_sync_reg_channel_write_count_ram <= ap_const_logic_0;
-            else
-                if (((load_ap_uint_256_ap_int_8_32u_U0_ap_done and load_ap_uint_256_ap_int_8_32u_U0_ap_continue) = ap_const_logic_1)) then 
-                    ap_sync_reg_channel_write_count_ram <= ap_const_logic_0;
-                else 
-                    ap_sync_reg_channel_write_count_ram <= ap_sync_channel_write_count_ram;
-                end if; 
-            end if;
-        end if;
-    end process;
-
-
-    ap_sync_reg_channel_write_fm_COLS_c10_channel_assign_proc : process(ap_clk)
-    begin
-        if (ap_clk'event and ap_clk =  '1') then
-            if (ap_rst_n_inv = '1') then
-                ap_sync_reg_channel_write_fm_COLS_c10_channel <= ap_const_logic_0;
-            else
-                if (((load_ap_uint_256_ap_int_8_32u_U0_ap_done and load_ap_uint_256_ap_int_8_32u_U0_ap_continue) = ap_const_logic_1)) then 
-                    ap_sync_reg_channel_write_fm_COLS_c10_channel <= ap_const_logic_0;
-                else 
-                    ap_sync_reg_channel_write_fm_COLS_c10_channel <= ap_sync_channel_write_fm_COLS_c10_channel;
-                end if; 
-            end if;
-        end if;
-    end process;
-
-
-    ap_sync_reg_channel_write_fm_ram_V_assign_proc : process(ap_clk)
-    begin
-        if (ap_clk'event and ap_clk =  '1') then
-            if (ap_rst_n_inv = '1') then
-                ap_sync_reg_channel_write_fm_ram_V <= ap_const_logic_0;
-            else
-                if (((load_ap_uint_256_ap_int_8_32u_U0_ap_done and load_ap_uint_256_ap_int_8_32u_U0_ap_continue) = ap_const_logic_1)) then 
-                    ap_sync_reg_channel_write_fm_ram_V <= ap_const_logic_0;
-                else 
-                    ap_sync_reg_channel_write_fm_ram_V <= ap_sync_channel_write_fm_ram_V;
-                end if; 
-            end if;
-        end if;
-    end process;
-
-
-    ap_sync_reg_channel_write_idx_ram_assign_proc : process(ap_clk)
-    begin
-        if (ap_clk'event and ap_clk =  '1') then
-            if (ap_rst_n_inv = '1') then
-                ap_sync_reg_channel_write_idx_ram <= ap_const_logic_0;
-            else
-                if (((load_ap_uint_256_ap_int_8_32u_U0_ap_done and load_ap_uint_256_ap_int_8_32u_U0_ap_continue) = ap_const_logic_1)) then 
-                    ap_sync_reg_channel_write_idx_ram <= ap_const_logic_0;
-                else 
-                    ap_sync_reg_channel_write_idx_ram <= ap_sync_channel_write_idx_ram;
-                end if; 
-            end if;
-        end if;
-    end process;
 
 
     ap_sync_reg_entry_proc_U0_ap_ready_assign_proc : process(ap_clk)
@@ -1513,28 +1459,23 @@ begin
     end process;
 
 
-    ap_sync_reg_load_ap_uint_256_ap_int_8_32u_U0_ap_ready_assign_proc : process(ap_clk)
+    ap_sync_reg_load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_ready_assign_proc : process(ap_clk)
     begin
         if (ap_clk'event and ap_clk =  '1') then
             if (ap_rst_n_inv = '1') then
-                ap_sync_reg_load_ap_uint_256_ap_int_8_32u_U0_ap_ready <= ap_const_logic_0;
+                ap_sync_reg_load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_ready <= ap_const_logic_0;
             else
                 if (((ap_sync_ready and ap_start) = ap_const_logic_1)) then 
-                    ap_sync_reg_load_ap_uint_256_ap_int_8_32u_U0_ap_ready <= ap_const_logic_0;
+                    ap_sync_reg_load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_ready <= ap_const_logic_0;
                 else 
-                    ap_sync_reg_load_ap_uint_256_ap_int_8_32u_U0_ap_ready <= ap_sync_load_ap_uint_256_ap_int_8_32u_U0_ap_ready;
+                    ap_sync_reg_load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_ready <= ap_sync_load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_ready;
                 end if; 
             end if;
         end if;
     end process;
 
-    ap_channel_done_am_ROWS_c9_channel <= (load_ap_uint_256_ap_int_8_32u_U0_ap_done and (ap_sync_reg_channel_write_am_ROWS_c9_channel xor ap_const_logic_1));
-    ap_channel_done_count_ram <= (load_ap_uint_256_ap_int_8_32u_U0_ap_done and (ap_sync_reg_channel_write_count_ram xor ap_const_logic_1));
-    ap_channel_done_fm_COLS_c10_channel <= (load_ap_uint_256_ap_int_8_32u_U0_ap_done and (ap_sync_reg_channel_write_fm_COLS_c10_channel xor ap_const_logic_1));
-    ap_channel_done_fm_ram_V <= (load_ap_uint_256_ap_int_8_32u_U0_ap_done and (ap_sync_reg_channel_write_fm_ram_V xor ap_const_logic_1));
-    ap_channel_done_idx_ram <= (load_ap_uint_256_ap_int_8_32u_U0_ap_done and (ap_sync_reg_channel_write_idx_ram xor ap_const_logic_1));
     ap_done <= store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_done;
-    ap_idle <= (store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_idle and mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_idle and load_ap_uint_256_ap_int_8_32u_U0_ap_idle and (fm_COLS_c10_channel_empty_n xor ap_const_logic_1) and (fm_ram_V_t_empty_n xor ap_const_logic_1) and (count_ram_t_empty_n xor ap_const_logic_1) and (idx_ram_t_empty_n xor ap_const_logic_1) and (ap_const_logic_1 xor am_ROWS_c9_channel_empty_n) and entry_proc_U0_ap_idle);
+    ap_idle <= (store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_idle and mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_idle and load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_idle and entry_proc_U0_ap_idle);
     ap_ready <= ap_sync_ready;
 
     ap_rst_n_inv_assign_proc : process(ap_rst_n)
@@ -1542,23 +1483,15 @@ begin
                 ap_rst_n_inv <= not(ap_rst_n);
     end process;
 
-    ap_sync_channel_write_am_ROWS_c9_channel <= ((ap_channel_done_am_ROWS_c9_channel and am_ROWS_c9_channel_full_n) or ap_sync_reg_channel_write_am_ROWS_c9_channel);
-    ap_sync_channel_write_count_ram <= ((load_ap_uint_256_ap_int_8_32u_U0_count_ram_full_n and ap_channel_done_count_ram) or ap_sync_reg_channel_write_count_ram);
-    ap_sync_channel_write_fm_COLS_c10_channel <= ((fm_COLS_c10_channel_full_n and ap_channel_done_fm_COLS_c10_channel) or ap_sync_reg_channel_write_fm_COLS_c10_channel);
-    ap_sync_channel_write_fm_ram_V <= ((load_ap_uint_256_ap_int_8_32u_U0_fm_ram_full_n and ap_channel_done_fm_ram_V) or ap_sync_reg_channel_write_fm_ram_V);
-    ap_sync_channel_write_idx_ram <= ((load_ap_uint_256_ap_int_8_32u_U0_idx_ram_full_n and ap_channel_done_idx_ram) or ap_sync_reg_channel_write_idx_ram);
     ap_sync_entry_proc_U0_ap_ready <= (entry_proc_U0_ap_ready or ap_sync_reg_entry_proc_U0_ap_ready);
-    ap_sync_load_ap_uint_256_ap_int_8_32u_U0_ap_ready <= (load_ap_uint_256_ap_int_8_32u_U0_ap_ready or ap_sync_reg_load_ap_uint_256_ap_int_8_32u_U0_ap_ready);
-    ap_sync_ready <= (ap_sync_load_ap_uint_256_ap_int_8_32u_U0_ap_ready and ap_sync_entry_proc_U0_ap_ready);
+    ap_sync_load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_ready <= (load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_ready or ap_sync_reg_load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_ready);
+    ap_sync_ready <= (ap_sync_load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_ready and ap_sync_entry_proc_U0_ap_ready);
     entry_proc_U0_ap_continue <= ap_const_logic_1;
     entry_proc_U0_ap_start <= ((ap_sync_reg_entry_proc_U0_ap_ready xor ap_const_logic_1) and ap_start);
-    load_ap_uint_256_ap_int_8_32u_U0_ap_continue <= (ap_sync_channel_write_idx_ram and ap_sync_channel_write_fm_ram_V and ap_sync_channel_write_fm_COLS_c10_channel and ap_sync_channel_write_count_ram and ap_sync_channel_write_am_ROWS_c9_channel);
-    load_ap_uint_256_ap_int_8_32u_U0_ap_start <= ((ap_sync_reg_load_ap_uint_256_ap_int_8_32u_U0_ap_ready xor ap_const_logic_1) and ap_start);
-    load_ap_uint_256_ap_int_8_32u_U0_count_ram_full_n <= count_ram_i_full_n;
-    load_ap_uint_256_ap_int_8_32u_U0_fm_ram_full_n <= fm_ram_V_i_full_n;
-    load_ap_uint_256_ap_int_8_32u_U0_idx_ram_full_n <= idx_ram_i_full_n;
+    load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_continue <= ap_const_logic_1;
+    load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_start <= ((ap_sync_reg_load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_ready xor ap_const_logic_1) and ap_start);
     mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_continue <= ap_const_logic_1;
-    mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_start <= (idx_ram_t_empty_n and fm_ram_V_t_empty_n and fm_COLS_c10_channel_empty_n and count_ram_t_empty_n and am_ROWS_c9_channel_empty_n);
+    mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_start <= start_for_mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_empty_n;
     sparse_data_BID <= ap_const_lv1_0;
     sparse_data_BRESP <= ap_const_lv2_0;
     sparse_data_BUSER <= ap_const_lv1_0;
@@ -1567,6 +1500,7 @@ begin
     sparse_data_RRESP <= ap_const_lv2_0;
     sparse_data_RUSER <= ap_const_lv1_0;
     sparse_flag <= store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_sparse_flag(0);
+    start_for_mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_din <= (0=>ap_const_logic_1, others=>'-');
     start_for_store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_din <= (0=>ap_const_logic_1, others=>'-');
     store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_continue <= ap_const_logic_1;
     store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_start <= start_for_store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_empty_n;

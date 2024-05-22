@@ -70222,41 +70222,46 @@ class DualTaggedType {
 };
 # 4 "/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp" 2
 
-template <typename t_AXI_DataType, typename t_DataType_IN, unsigned int nPE>
+template <typename t_AXI_DataType, typename t_DataType_IN, typename t_DataType_OUT, unsigned int nPE>
 void load(
   unsigned int am_ROWS,
   unsigned int am_COLS,
   unsigned int fm_ROWS,
   unsigned int fm_COLS,
   t_AXI_DataType *inputs,
-  uint8_t idx_ram[1024],
-  uint8_t count_ram[32],
-  typename WideType<t_DataType_IN, nPE>::t_TypeInt fm_ram[512],
+  hls::stream<uint8_t> &idx_stream,
+  hls::stream<uint8_t> &count_stream,
+  hls::stream<typename WideType<t_DataType_OUT, nPE>::t_TypeInt> &fm_stream,
   uint32_t input_data_addr1,
   uint32_t input_data_addr2)
 {
- typename WideType<t_DataType_IN, nPE>::t_TypeInt am_ram[1024];
+ typename WideType<t_DataType_IN, nPE>::t_TypeInt am_ram[64];
+ typename WideType<t_DataType_IN, nPE>::t_TypeInt fm_ram[512];
  int idx_count = 0, count_count = 0;
  int fm_loop_num = fm_ROWS * fm_COLS * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
  int am_loop_num = am_ROWS * am_COLS * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
- VITIS_LOOP_22_1: for(int i = 0; i < fm_loop_num; i++){
+ VITIS_LOOP_23_1: for(int i = 0; i < fm_loop_num; i++){
   fm_ram[i] = inputs[input_data_addr1 + i];
  }
- VITIS_LOOP_25_2: for(int j = 0; j < am_loop_num; j++){
+ VITIS_LOOP_26_2: for(int j = 0; j < am_loop_num; j++){
   am_ram[j] = inputs[input_data_addr2 + j];
  }
 #pragma HLS PIPELINE
- VITIS_LOOP_29_3: for(int row = 0; row < am_ROWS; row++){
-  int count = 0;
-  WideType<t_DataType_IN, nPE> am_value = am_ram[row];
+ VITIS_LOOP_30_3: for(int block = 0; block < (fm_COLS / nPE); block++){
+  VITIS_LOOP_31_4: for(int row = 0; row < am_ROWS; row++){
+   int count = 0;
+   WideType<t_DataType_IN, nPE> am_value = am_ram[row];
 #pragma HLS UNROLL
- VITIS_LOOP_33_4: for(int col = 0; col < am_COLS; col++){
-   if(am_value[col] != 0){
-    count++;
-    idx_ram[idx_count++] = col;
+ VITIS_LOOP_35_5: for(int col = 0; col < am_COLS; col++){
+    if(am_value[col] != 0){
+     count++;
+     idx_stream.write(col);
+     WideType<t_DataType_IN, nPE> fm_value = fm_ram[block * nPE + col];
+     fm_stream.write(fm_value);
+    }
    }
+   count_stream.write(count);
   }
-  count_ram[count_count++] = count;
  }
 }
 
@@ -70267,26 +70272,25 @@ void mul(
   unsigned int am_COLS,
   unsigned int fm_ROWS,
   unsigned int fm_COLS,
-  typename WideType<t_DataType_IN, nPE>::t_TypeInt fm_ram[512],
-  uint8_t idx_ram[1024],
-  uint8_t count_ram[32],
+  hls::stream<typename WideType<t_DataType_OUT, nPE>::t_TypeInt> &fm_stream,
+  hls::stream<uint8_t> &idx_stream,
+  hls::stream<uint8_t> &count_stream,
   hls::stream<typename WideType<t_DataType_OUT, nPE>::t_TypeInt> &data_stream_out){
 #pragma HLS PIPELINE II = 1
- VITIS_LOOP_55_1: for(int block = 0; block < (fm_COLS / nPE); block++){
-  int idx_ram_base = 0;
-  VITIS_LOOP_57_2: for(int row = 0; row < am_ROWS; row++){
-   int idx_count = count_ram[row];
+ VITIS_LOOP_60_1: for(int block = 0; block < (fm_COLS / nPE); block++){
+  VITIS_LOOP_61_2: for(int row = 0; row < am_ROWS; row++){
+   int idx_count = count_stream.read();
    t_DataType_OUT ZERO = 0;
    WideType<t_DataType_OUT, nPE> result = ZERO;
+   VITIS_LOOP_65_3: for(int count = 0; count < idx_count; count++){
+   uint8_t idx = idx_stream.read();
+
+   WideType<t_DataType_IN, nPE> fm_value = fm_stream.read();
+    VITIS_LOOP_69_4: for(int pe = 0; pe < nPE; pe++){
 #pragma HLS UNROLL
- VITIS_LOOP_62_3: for(int count = 0; count < idx_count; count++){
-   uint8_t idx = idx_ram[idx_ram_base + count];
-   WideType<t_DataType_IN, nPE> fm_value = fm_ram[block * nPE + idx];
-    VITIS_LOOP_65_4: for(int pe = 0; pe < nPE; pe++){
-     result[pe] = result[pe] + fm_value[pe];
+ result[pe] = result[pe] + fm_value[pe];
     }
    }
-   idx_ram_base = idx_ram_base + idx_count;
    data_stream_out.write(result);
   }
  }
@@ -70308,7 +70312,7 @@ void store(
  unsigned int loop_num = ROWS * COLS / nPE;
  WideType<t_DataType_IN, nPE> data;
  int count = 0;
- VITIS_LOOP_91_1: for(int i = 0; i < loop_num; i++)
+ VITIS_LOOP_95_1: for(int i = 0; i < loop_num; i++)
  {
 #pragma HLS PIPELINE
  data = data_stream_out.read();
@@ -70373,13 +70377,17 @@ __attribute__((sdx_kernel("sparse", 0))) void sparse(
 
  hls::stream<WideType<ap_int<8>, 32>::t_TypeInt> data_out;
 #pragma HLS STREAM variable = data_out depth = 64
+ hls::stream<WideType<ap_int<8>, 32>::t_TypeInt> fm_stream;
+#pragma HLS STREAM variable = fm_stream depth = 128
+ hls::stream<uint8_t> idx_stream;
+#pragma HLS STREAM variable = idx_stream depth = 128
+ hls::stream<uint8_t> count_stream;
+#pragma HLS STREAM variable = count_stream depth = 64
 
  typename WideType<ap_int<8>, 32>::t_TypeInt fm_ram[512];
- uint8_t idx_ram[1024];
- uint8_t count_ram[32];
 
 #pragma HLS DATAFLOW
- load<ap_uint<256>, ap_int<8>, 32>(am_ROWS, am_COLS, fm_ROWS, fm_COLS, inputs, idx_ram, count_ram, fm_ram, input_data_addr1, input_data_addr2);
- mul<ap_uint<256>, ap_int<8>, ap_int<8>, 32>(am_ROWS, am_COLS, fm_ROWS, fm_COLS, fm_ram, idx_ram, count_ram, data_out);
- store<ap_uint<256>, ap_int<8>, ap_int<8>, 32>(data_out, outputs, output_data_addr3, am_ROWS, fm_COLS, sparse_flag);
+ load<ap_uint<256>, ap_int<8>, ap_int<8>, 32>(am_ROWS, am_COLS, fm_ROWS, fm_COLS, inputs, idx_stream, count_stream, fm_stream, input_data_addr1, input_data_addr2);
+ mul<ap_uint<256>, ap_int<8>, ap_int<8>, 32>(am_ROWS, am_COLS, fm_ROWS, fm_COLS, fm_stream, idx_stream, count_stream, data_out);
+ store<ap_uint<256>, ap_int<8>, ap_int<8>, 32>(data_out, outputs, output_data_addr3, fm_ROWS, fm_COLS, sparse_flag);
 }

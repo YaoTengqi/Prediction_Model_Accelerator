@@ -1,7 +1,5 @@
 #include "hls_design_meta.h"
 const Port_Property HLS_Design_Meta::port_props[]={
-	Port_Property("ap_clk", 1, hls_in, -1, "", "", 1),
-	Port_Property("ap_rst_n", 1, hls_in, -1, "", "", 1),
 	Port_Property("s_axi_sparse_addr_AWVALID", 1, hls_in, -1, "", "", 1),
 	Port_Property("s_axi_sparse_addr_AWREADY", 1, hls_out, -1, "", "", 1),
 	Port_Property("s_axi_sparse_addr_AWADDR", 7, hls_in, -1, "", "", 1),
@@ -19,6 +17,8 @@ const Port_Property HLS_Design_Meta::port_props[]={
 	Port_Property("s_axi_sparse_addr_BVALID", 1, hls_out, -1, "", "", 1),
 	Port_Property("s_axi_sparse_addr_BREADY", 1, hls_in, -1, "", "", 1),
 	Port_Property("s_axi_sparse_addr_BRESP", 2, hls_out, -1, "", "", 1),
+	Port_Property("ap_clk", 1, hls_in, -1, "", "", 1),
+	Port_Property("ap_rst_n", 1, hls_in, -1, "", "", 1),
 	Port_Property("interrupt", 1, hls_out, -1, "", "", 1),
 	Port_Property("m_axi_sparse_data_AWVALID", 1, hls_out, 0, "m_axi", "VALID", 1),
 	Port_Property("m_axi_sparse_data_AWREADY", 1, hls_in, 0, "m_axi", "READY", 1),

@@ -1,0 +1,1048 @@
+
+
+================================================================
+== Vitis HLS Report for 'load_ap_uint_256_ap_int_8_ap_int_8_32u_s'
+================================================================
+* Date:           Wed May 22 21:11:24 2024
+
+* Version:        2022.2 (Build 3670227 on Oct 13 2022)
+* Project:        Sparse_HLS
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: virtexuplus
+* Target device:  xcvu11p-flga2577-1-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  7.300 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |        ?|        ?|         ?|         ?|    ?|    ?|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                      |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |       Loop Name      |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- VITIS_LOOP_23_1     |        ?|        ?|         3|          -|          -|     ?|        no|
+        |- VITIS_LOOP_26_2     |        ?|        ?|         3|          -|          -|     ?|        no|
+        |- VITIS_LOOP_30_3     |        ?|        ?|         ?|          -|          -|     ?|        no|
+        | + VITIS_LOOP_31_4    |        ?|        ?|         ?|          -|          -|     ?|        no|
+        |  ++ VITIS_LOOP_35_5  |        ?|        ?|         2|          -|          -|     ?|        no|
+        +----------------------+---------+---------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 88
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 5 
+5 --> 6 
+6 --> 7 
+7 --> 8 
+8 --> 9 
+9 --> 10 
+10 --> 11 
+11 --> 12 
+12 --> 13 
+13 --> 14 
+14 --> 15 
+15 --> 16 
+16 --> 17 
+17 --> 18 
+18 --> 19 
+19 --> 20 
+20 --> 21 
+21 --> 22 
+22 --> 23 
+23 --> 24 
+24 --> 25 
+25 --> 26 
+26 --> 27 
+27 --> 28 
+28 --> 29 
+29 --> 30 
+30 --> 31 
+31 --> 32 
+32 --> 33 
+33 --> 34 
+34 --> 35 
+35 --> 36 
+36 --> 37 
+37 --> 38 
+38 --> 39 
+39 --> 40 
+40 --> 41 43 
+41 --> 42 
+42 --> 40 
+43 --> 44 
+44 --> 45 
+45 --> 46 
+46 --> 47 
+47 --> 48 
+48 --> 49 
+49 --> 50 
+50 --> 51 
+51 --> 52 
+52 --> 53 
+53 --> 54 
+54 --> 55 
+55 --> 56 
+56 --> 57 
+57 --> 58 
+58 --> 59 
+59 --> 60 
+60 --> 61 
+61 --> 62 
+62 --> 63 
+63 --> 64 
+64 --> 65 
+65 --> 66 
+66 --> 67 
+67 --> 68 
+68 --> 69 
+69 --> 70 
+70 --> 71 
+71 --> 72 
+72 --> 73 
+73 --> 74 
+74 --> 75 
+75 --> 76 
+76 --> 77 
+77 --> 78 
+78 --> 79 
+79 --> 80 
+80 --> 81 
+81 --> 82 84 
+82 --> 83 
+83 --> 81 
+84 --> 85 
+85 --> 86 84 
+86 --> 87 
+87 --> 88 85 
+88 --> 87 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 3.90>
+ST_1 : Operation 89 [1/1] (0.00ns)   --->   "%i = alloca i32 1"   --->   Operation 89 'alloca' 'i' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 90 [1/1] (0.00ns)   --->   "%input_data_addr1_read = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %input_data_addr1"   --->   Operation 90 'read' 'input_data_addr1_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 91 [1/1] (0.00ns)   --->   "%inputs_read = read i64 @_ssdm_op_Read.ap_auto.i64, i64 %inputs"   --->   Operation 91 'read' 'inputs_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 92 [1/1] (0.00ns)   --->   "%fm_COLS_read = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %fm_COLS"   --->   Operation 92 'read' 'fm_COLS_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 93 [1/1] (0.00ns)   --->   "%fm_ROWS_read = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %fm_ROWS"   --->   Operation 93 'read' 'fm_ROWS_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 94 [1/1] (0.00ns)   --->   "%am_ROWS_read = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %am_ROWS"   --->   Operation 94 'read' 'am_ROWS_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 95 [1/1] (2.10ns)   --->   "%write_ln0 = write void @_ssdm_op_Write.ap_fifo.i32P0A, i32 %fm_COLS_c9, i32 %fm_COLS_read"   --->   Operation 95 'write' 'write_ln0' <Predicate = true> <Delay = 2.10> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 2.10> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 2> <FIFO>
+ST_1 : Operation 96 [1/1] (2.10ns)   --->   "%write_ln0 = write void @_ssdm_op_Write.ap_fifo.i32P0A, i32 %fm_ROWS_c, i32 %fm_ROWS_read"   --->   Operation 96 'write' 'write_ln0' <Predicate = true> <Delay = 2.10> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 2.10> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 3> <FIFO>
+ST_1 : Operation 97 [1/1] (2.10ns)   --->   "%write_ln0 = write void @_ssdm_op_Write.ap_fifo.i32P0A, i32 %am_ROWS_c, i32 %am_ROWS_read"   --->   Operation 97 'write' 'write_ln0' <Predicate = true> <Delay = 2.10> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 2.10> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 2> <FIFO>
+ST_1 : Operation 98 [1/1] (0.00ns)   --->   "%am_ram_V = alloca i64 1" [src/../include/helpers.hpp:18]   --->   Operation 98 'alloca' 'am_ram_V' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.29> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 256> <Depth = 64> <RAM>
+ST_1 : Operation 99 [1/1] (0.00ns)   --->   "%fm_ram_V = alloca i64 1" [src/../include/helpers.hpp:19]   --->   Operation 99 'alloca' 'fm_ram_V' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.29> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 256> <Depth = 512> <RAM>
+ST_1 : Operation 100 [1/1] (3.90ns)   --->   "%mul_ln21 = mul i32 %fm_COLS_read, i32 %fm_ROWS_read" [src/../include/helpers.hpp:21]   --->   Operation 100 'mul' 'mul_ln21' <Predicate = true> <Delay = 3.90> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 0> <II = 1> <Delay = 3.90> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 101 [1/1] (0.00ns)   --->   "%fm_loop_num = partselect i27 @_ssdm_op_PartSelect.i27.i32.i32.i32, i32 %mul_ln21, i32 5, i32 31" [src/../include/helpers.hpp:21]   --->   Operation 101 'partselect' 'fm_loop_num' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 102 [1/1] (0.00ns)   --->   "%shl_ln = bitconcatenate i37 @_ssdm_op_BitConcatenate.i37.i32.i5, i32 %input_data_addr1_read, i5 0" [src/../include/helpers.hpp:23]   --->   Operation 102 'bitconcatenate' 'shl_ln' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 103 [1/1] (0.00ns)   --->   "%zext_ln23 = zext i37 %shl_ln" [src/../include/helpers.hpp:23]   --->   Operation 103 'zext' 'zext_ln23' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 104 [1/1] (1.36ns)   --->   "%add_ln23 = add i64 %zext_ln23, i64 %inputs_read" [src/../include/helpers.hpp:23]   --->   Operation 104 'add' 'add_ln23' <Predicate = true> <Delay = 1.36> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.36> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 105 [1/1] (0.00ns)   --->   "%trunc_ln3 = partselect i59 @_ssdm_op_PartSelect.i59.i64.i32.i32, i64 %add_ln23, i32 5, i32 63" [src/../include/helpers.hpp:23]   --->   Operation 105 'partselect' 'trunc_ln3' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 106 [1/1] (0.46ns)   --->   "%store_ln23 = store i27 0, i27 %i" [src/../include/helpers.hpp:23]   --->   Operation 106 'store' 'store_ln23' <Predicate = true> <Delay = 0.46>
+
+State 2 <SV = 1> <Delay = 7.30>
+ST_2 : Operation 107 [1/1] (0.00ns)   --->   "%zext_ln21 = zext i27 %fm_loop_num" [src/../include/helpers.hpp:21]   --->   Operation 107 'zext' 'zext_ln21' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 108 [1/1] (0.00ns)   --->   "%sext_ln23 = sext i59 %trunc_ln3" [src/../include/helpers.hpp:23]   --->   Operation 108 'sext' 'sext_ln23' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 109 [1/1] (0.00ns)   --->   "%sparse_data_addr = getelementptr i256 %sparse_data, i64 %sext_ln23" [src/../include/helpers.hpp:23]   --->   Operation 109 'getelementptr' 'sparse_data_addr' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 110 [38/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr, i32 %zext_ln21" [src/../include/helpers.hpp:23]   --->   Operation 110 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 3 <SV = 2> <Delay = 7.30>
+ST_3 : Operation 111 [37/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr, i32 %zext_ln21" [src/../include/helpers.hpp:23]   --->   Operation 111 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 4 <SV = 3> <Delay = 7.30>
+ST_4 : Operation 112 [36/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr, i32 %zext_ln21" [src/../include/helpers.hpp:23]   --->   Operation 112 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 5 <SV = 4> <Delay = 7.30>
+ST_5 : Operation 113 [35/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr, i32 %zext_ln21" [src/../include/helpers.hpp:23]   --->   Operation 113 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 6 <SV = 5> <Delay = 7.30>
+ST_6 : Operation 114 [34/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr, i32 %zext_ln21" [src/../include/helpers.hpp:23]   --->   Operation 114 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 7 <SV = 6> <Delay = 7.30>
+ST_7 : Operation 115 [33/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr, i32 %zext_ln21" [src/../include/helpers.hpp:23]   --->   Operation 115 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 8 <SV = 7> <Delay = 7.30>
+ST_8 : Operation 116 [32/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr, i32 %zext_ln21" [src/../include/helpers.hpp:23]   --->   Operation 116 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 9 <SV = 8> <Delay = 7.30>
+ST_9 : Operation 117 [31/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr, i32 %zext_ln21" [src/../include/helpers.hpp:23]   --->   Operation 117 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 10 <SV = 9> <Delay = 7.30>
+ST_10 : Operation 118 [30/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr, i32 %zext_ln21" [src/../include/helpers.hpp:23]   --->   Operation 118 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 11 <SV = 10> <Delay = 7.30>
+ST_11 : Operation 119 [29/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr, i32 %zext_ln21" [src/../include/helpers.hpp:23]   --->   Operation 119 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 12 <SV = 11> <Delay = 7.30>
+ST_12 : Operation 120 [28/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr, i32 %zext_ln21" [src/../include/helpers.hpp:23]   --->   Operation 120 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 13 <SV = 12> <Delay = 7.30>
+ST_13 : Operation 121 [27/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr, i32 %zext_ln21" [src/../include/helpers.hpp:23]   --->   Operation 121 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 14 <SV = 13> <Delay = 7.30>
+ST_14 : Operation 122 [26/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr, i32 %zext_ln21" [src/../include/helpers.hpp:23]   --->   Operation 122 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 15 <SV = 14> <Delay = 7.30>
+ST_15 : Operation 123 [25/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr, i32 %zext_ln21" [src/../include/helpers.hpp:23]   --->   Operation 123 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 16 <SV = 15> <Delay = 7.30>
+ST_16 : Operation 124 [24/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr, i32 %zext_ln21" [src/../include/helpers.hpp:23]   --->   Operation 124 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 17 <SV = 16> <Delay = 7.30>
+ST_17 : Operation 125 [23/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr, i32 %zext_ln21" [src/../include/helpers.hpp:23]   --->   Operation 125 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 18 <SV = 17> <Delay = 7.30>
+ST_18 : Operation 126 [22/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr, i32 %zext_ln21" [src/../include/helpers.hpp:23]   --->   Operation 126 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 19 <SV = 18> <Delay = 7.30>
+ST_19 : Operation 127 [21/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr, i32 %zext_ln21" [src/../include/helpers.hpp:23]   --->   Operation 127 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 20 <SV = 19> <Delay = 7.30>
+ST_20 : Operation 128 [20/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr, i32 %zext_ln21" [src/../include/helpers.hpp:23]   --->   Operation 128 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 21 <SV = 20> <Delay = 7.30>
+ST_21 : Operation 129 [19/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr, i32 %zext_ln21" [src/../include/helpers.hpp:23]   --->   Operation 129 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 22 <SV = 21> <Delay = 7.30>
+ST_22 : Operation 130 [18/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr, i32 %zext_ln21" [src/../include/helpers.hpp:23]   --->   Operation 130 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 23 <SV = 22> <Delay = 7.30>
+ST_23 : Operation 131 [17/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr, i32 %zext_ln21" [src/../include/helpers.hpp:23]   --->   Operation 131 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 24 <SV = 23> <Delay = 7.30>
+ST_24 : Operation 132 [16/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr, i32 %zext_ln21" [src/../include/helpers.hpp:23]   --->   Operation 132 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 25 <SV = 24> <Delay = 7.30>
+ST_25 : Operation 133 [15/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr, i32 %zext_ln21" [src/../include/helpers.hpp:23]   --->   Operation 133 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 26 <SV = 25> <Delay = 7.30>
+ST_26 : Operation 134 [14/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr, i32 %zext_ln21" [src/../include/helpers.hpp:23]   --->   Operation 134 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 27 <SV = 26> <Delay = 7.30>
+ST_27 : Operation 135 [13/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr, i32 %zext_ln21" [src/../include/helpers.hpp:23]   --->   Operation 135 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 28 <SV = 27> <Delay = 7.30>
+ST_28 : Operation 136 [12/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr, i32 %zext_ln21" [src/../include/helpers.hpp:23]   --->   Operation 136 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 29 <SV = 28> <Delay = 7.30>
+ST_29 : Operation 137 [11/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr, i32 %zext_ln21" [src/../include/helpers.hpp:23]   --->   Operation 137 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 30 <SV = 29> <Delay = 7.30>
+ST_30 : Operation 138 [10/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr, i32 %zext_ln21" [src/../include/helpers.hpp:23]   --->   Operation 138 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 31 <SV = 30> <Delay = 7.30>
+ST_31 : Operation 139 [9/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr, i32 %zext_ln21" [src/../include/helpers.hpp:23]   --->   Operation 139 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 32 <SV = 31> <Delay = 7.30>
+ST_32 : Operation 140 [8/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr, i32 %zext_ln21" [src/../include/helpers.hpp:23]   --->   Operation 140 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 33 <SV = 32> <Delay = 7.30>
+ST_33 : Operation 141 [7/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr, i32 %zext_ln21" [src/../include/helpers.hpp:23]   --->   Operation 141 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 34 <SV = 33> <Delay = 7.30>
+ST_34 : Operation 142 [6/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr, i32 %zext_ln21" [src/../include/helpers.hpp:23]   --->   Operation 142 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 35 <SV = 34> <Delay = 7.30>
+ST_35 : Operation 143 [5/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr, i32 %zext_ln21" [src/../include/helpers.hpp:23]   --->   Operation 143 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 36 <SV = 35> <Delay = 7.30>
+ST_36 : Operation 144 [4/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr, i32 %zext_ln21" [src/../include/helpers.hpp:23]   --->   Operation 144 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 37 <SV = 36> <Delay = 7.30>
+ST_37 : Operation 145 [3/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr, i32 %zext_ln21" [src/../include/helpers.hpp:23]   --->   Operation 145 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 38 <SV = 37> <Delay = 7.30>
+ST_38 : Operation 146 [2/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr, i32 %zext_ln21" [src/../include/helpers.hpp:23]   --->   Operation 146 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 39 <SV = 38> <Delay = 7.30>
+ST_39 : Operation 147 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %fm_COLS_c9, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @ScalarProp_str, i32 4294967295, i32 0"   --->   Operation 147 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_39 : Operation 148 [1/1] (0.00ns)   --->   "%input_data_addr2_read = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %input_data_addr2"   --->   Operation 148 'read' 'input_data_addr2_read' <Predicate = true> <Delay = 0.00>
+ST_39 : Operation 149 [1/1] (0.00ns)   --->   "%am_COLS_read = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %am_COLS"   --->   Operation 149 'read' 'am_COLS_read' <Predicate = true> <Delay = 0.00>
+ST_39 : Operation 150 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %fm_ROWS_c, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @ScalarProp_str, i32 4294967295, i32 0"   --->   Operation 150 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_39 : Operation 151 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %am_ROWS_c, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @ScalarProp_str, i32 4294967295, i32 0"   --->   Operation 151 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_39 : Operation 152 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i8 %count_stream4, void @empty_8, i32 0, i32 0, void @empty_2, i32 0, i32 0, void @empty_2, void @empty_2, void @empty_2, i32 0, i32 0, i32 0, i32 0, void @empty_2, void @empty_2, i32 4294967295, i32 0"   --->   Operation 152 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_39 : Operation 153 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i8 %idx_stream3, void @empty_8, i32 0, i32 0, void @empty_2, i32 0, i32 0, void @empty_2, void @empty_2, void @empty_2, i32 0, i32 0, i32 0, i32 0, void @empty_2, void @empty_2, i32 4294967295, i32 0"   --->   Operation 153 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_39 : Operation 154 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i256 %fm_stream2, void @empty_8, i32 0, i32 0, void @empty_2, i32 0, i32 0, void @empty_2, void @empty_2, void @empty_2, i32 0, i32 0, i32 0, i32 0, void @empty_2, void @empty_2, i32 4294967295, i32 0"   --->   Operation 154 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_39 : Operation 155 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i256 %sparse_data, void @empty_3, i32 0, i32 0, void @empty_2, i32 32, i32 0, void @empty_1, void @empty_0, void @empty_2, i32 16, i32 16, i32 16, i32 16, void @empty_2, void @empty_2, i32 4294967295, i32 0"   --->   Operation 155 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_39 : Operation 156 [1/1] (0.00ns)   --->   "%specpipeline_ln29 = specpipeline void @_ssdm_op_SpecPipeline, i32 4294967295, i32 0, i32 0, i32 0, void @empty_2" [src/../include/helpers.hpp:29]   --->   Operation 156 'specpipeline' 'specpipeline_ln29' <Predicate = true> <Delay = 0.00>
+ST_39 : Operation 157 [1/1] (3.90ns)   --->   "%mul_ln22 = mul i32 %am_COLS_read, i32 %am_ROWS_read" [src/../include/helpers.hpp:22]   --->   Operation 157 'mul' 'mul_ln22' <Predicate = true> <Delay = 3.90> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 0> <II = 1> <Delay = 3.90> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_39 : Operation 158 [1/1] (0.00ns)   --->   "%am_loop_num = partselect i27 @_ssdm_op_PartSelect.i27.i32.i32.i32, i32 %mul_ln22, i32 5, i32 31" [src/../include/helpers.hpp:22]   --->   Operation 158 'partselect' 'am_loop_num' <Predicate = true> <Delay = 0.00>
+ST_39 : Operation 159 [1/1] (0.00ns)   --->   "%zext_ln22 = zext i27 %am_loop_num" [src/../include/helpers.hpp:22]   --->   Operation 159 'zext' 'zext_ln22' <Predicate = true> <Delay = 0.00>
+ST_39 : Operation 160 [1/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr, i32 %zext_ln21" [src/../include/helpers.hpp:23]   --->   Operation 160 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_39 : Operation 161 [1/1] (0.00ns)   --->   "%br_ln23 = br void %for.inc" [src/../include/helpers.hpp:23]   --->   Operation 161 'br' 'br_ln23' <Predicate = true> <Delay = 0.00>
+
+State 40 <SV = 39> <Delay = 1.59>
+ST_40 : Operation 162 [1/1] (0.00ns)   --->   "%i_2 = load i27 %i" [src/../include/helpers.hpp:23]   --->   Operation 162 'load' 'i_2' <Predicate = true> <Delay = 0.00>
+ST_40 : Operation 163 [1/1] (0.00ns)   --->   "%zext_ln23_1 = zext i27 %i_2" [src/../include/helpers.hpp:23]   --->   Operation 163 'zext' 'zext_ln23_1' <Predicate = true> <Delay = 0.00>
+ST_40 : Operation 164 [1/1] (0.84ns)   --->   "%icmp_ln23 = icmp_eq  i27 %i_2, i27 %fm_loop_num" [src/../include/helpers.hpp:23]   --->   Operation 164 'icmp' 'icmp_ln23' <Predicate = true> <Delay = 0.84> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.84> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_40 : Operation 165 [1/1] (1.13ns)   --->   "%add_ln23_1 = add i27 %i_2, i27 1" [src/../include/helpers.hpp:23]   --->   Operation 165 'add' 'add_ln23_1' <Predicate = true> <Delay = 1.13> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.13> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_40 : Operation 166 [1/1] (0.00ns)   --->   "%br_ln23 = br i1 %icmp_ln23, void %for.inc.split, void %VITIS_LOOP_26_2.loopexit" [src/../include/helpers.hpp:23]   --->   Operation 166 'br' 'br_ln23' <Predicate = true> <Delay = 0.00>
+ST_40 : Operation 167 [1/1] (0.46ns)   --->   "%store_ln23 = store i27 %add_ln23_1, i27 %i" [src/../include/helpers.hpp:23]   --->   Operation 167 'store' 'store_ln23' <Predicate = (!icmp_ln23)> <Delay = 0.46>
+ST_40 : Operation 168 [1/1] (0.00ns)   --->   "%j = alloca i32 1"   --->   Operation 168 'alloca' 'j' <Predicate = (icmp_ln23)> <Delay = 0.00>
+ST_40 : Operation 169 [1/1] (0.00ns)   --->   "%shl_ln1 = bitconcatenate i37 @_ssdm_op_BitConcatenate.i37.i32.i5, i32 %input_data_addr2_read, i5 0" [src/../include/helpers.hpp:26]   --->   Operation 169 'bitconcatenate' 'shl_ln1' <Predicate = (icmp_ln23)> <Delay = 0.00>
+ST_40 : Operation 170 [1/1] (0.00ns)   --->   "%zext_ln26 = zext i37 %shl_ln1" [src/../include/helpers.hpp:26]   --->   Operation 170 'zext' 'zext_ln26' <Predicate = (icmp_ln23)> <Delay = 0.00>
+ST_40 : Operation 171 [1/1] (1.36ns)   --->   "%add_ln26 = add i64 %zext_ln26, i64 %inputs_read" [src/../include/helpers.hpp:26]   --->   Operation 171 'add' 'add_ln26' <Predicate = (icmp_ln23)> <Delay = 1.36> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.36> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_40 : Operation 172 [1/1] (0.00ns)   --->   "%trunc_ln4 = partselect i59 @_ssdm_op_PartSelect.i59.i64.i32.i32, i64 %add_ln26, i32 5, i32 63" [src/../include/helpers.hpp:26]   --->   Operation 172 'partselect' 'trunc_ln4' <Predicate = (icmp_ln23)> <Delay = 0.00>
+ST_40 : Operation 173 [1/1] (0.46ns)   --->   "%store_ln26 = store i27 0, i27 %j" [src/../include/helpers.hpp:26]   --->   Operation 173 'store' 'store_ln26' <Predicate = (icmp_ln23)> <Delay = 0.46>
+
+State 41 <SV = 40> <Delay = 7.30>
+ST_41 : Operation 174 [1/1] (7.30ns)   --->   "%sparse_data_addr_read = read i256 @_ssdm_op_Read.m_axi.p1i256, i256 %sparse_data_addr" [src/../include/helpers.hpp:24]   --->   Operation 174 'read' 'sparse_data_addr_read' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 42 <SV = 41> <Delay = 1.29>
+ST_42 : Operation 175 [1/1] (0.00ns)   --->   "%specloopname_ln23 = specloopname void @_ssdm_op_SpecLoopName, void @empty_17" [src/../include/helpers.hpp:23]   --->   Operation 175 'specloopname' 'specloopname_ln23' <Predicate = true> <Delay = 0.00>
+ST_42 : Operation 176 [1/1] (0.00ns)   --->   "%fm_ram_V_addr = getelementptr i256 %fm_ram_V, i64 0, i64 %zext_ln23_1" [src/../include/helpers.hpp:24]   --->   Operation 176 'getelementptr' 'fm_ram_V_addr' <Predicate = true> <Delay = 0.00>
+ST_42 : Operation 177 [1/1] (1.29ns)   --->   "%store_ln24 = store i256 %sparse_data_addr_read, i9 %fm_ram_V_addr" [src/../include/helpers.hpp:24]   --->   Operation 177 'store' 'store_ln24' <Predicate = true> <Delay = 1.29> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.29> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 256> <Depth = 512> <RAM>
+ST_42 : Operation 178 [1/1] (0.00ns)   --->   "%br_ln23 = br void %for.inc" [src/../include/helpers.hpp:23]   --->   Operation 178 'br' 'br_ln23' <Predicate = true> <Delay = 0.00>
+
+State 43 <SV = 40> <Delay = 7.30>
+ST_43 : Operation 179 [1/1] (0.00ns)   --->   "%sext_ln26 = sext i59 %trunc_ln4" [src/../include/helpers.hpp:26]   --->   Operation 179 'sext' 'sext_ln26' <Predicate = true> <Delay = 0.00>
+ST_43 : Operation 180 [1/1] (0.00ns)   --->   "%sparse_data_addr_1 = getelementptr i256 %sparse_data, i64 %sext_ln26" [src/../include/helpers.hpp:26]   --->   Operation 180 'getelementptr' 'sparse_data_addr_1' <Predicate = true> <Delay = 0.00>
+ST_43 : Operation 181 [38/38] (7.30ns)   --->   "%empty_52 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr_1, i32 %zext_ln22" [src/../include/helpers.hpp:26]   --->   Operation 181 'readreq' 'empty_52' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 44 <SV = 41> <Delay = 7.30>
+ST_44 : Operation 182 [37/38] (7.30ns)   --->   "%empty_52 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr_1, i32 %zext_ln22" [src/../include/helpers.hpp:26]   --->   Operation 182 'readreq' 'empty_52' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 45 <SV = 42> <Delay = 7.30>
+ST_45 : Operation 183 [36/38] (7.30ns)   --->   "%empty_52 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr_1, i32 %zext_ln22" [src/../include/helpers.hpp:26]   --->   Operation 183 'readreq' 'empty_52' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 46 <SV = 43> <Delay = 7.30>
+ST_46 : Operation 184 [35/38] (7.30ns)   --->   "%empty_52 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr_1, i32 %zext_ln22" [src/../include/helpers.hpp:26]   --->   Operation 184 'readreq' 'empty_52' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 47 <SV = 44> <Delay = 7.30>
+ST_47 : Operation 185 [34/38] (7.30ns)   --->   "%empty_52 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr_1, i32 %zext_ln22" [src/../include/helpers.hpp:26]   --->   Operation 185 'readreq' 'empty_52' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 48 <SV = 45> <Delay = 7.30>
+ST_48 : Operation 186 [33/38] (7.30ns)   --->   "%empty_52 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr_1, i32 %zext_ln22" [src/../include/helpers.hpp:26]   --->   Operation 186 'readreq' 'empty_52' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 49 <SV = 46> <Delay = 7.30>
+ST_49 : Operation 187 [32/38] (7.30ns)   --->   "%empty_52 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr_1, i32 %zext_ln22" [src/../include/helpers.hpp:26]   --->   Operation 187 'readreq' 'empty_52' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 50 <SV = 47> <Delay = 7.30>
+ST_50 : Operation 188 [31/38] (7.30ns)   --->   "%empty_52 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr_1, i32 %zext_ln22" [src/../include/helpers.hpp:26]   --->   Operation 188 'readreq' 'empty_52' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 51 <SV = 48> <Delay = 7.30>
+ST_51 : Operation 189 [30/38] (7.30ns)   --->   "%empty_52 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr_1, i32 %zext_ln22" [src/../include/helpers.hpp:26]   --->   Operation 189 'readreq' 'empty_52' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 52 <SV = 49> <Delay = 7.30>
+ST_52 : Operation 190 [29/38] (7.30ns)   --->   "%empty_52 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr_1, i32 %zext_ln22" [src/../include/helpers.hpp:26]   --->   Operation 190 'readreq' 'empty_52' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 53 <SV = 50> <Delay = 7.30>
+ST_53 : Operation 191 [28/38] (7.30ns)   --->   "%empty_52 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr_1, i32 %zext_ln22" [src/../include/helpers.hpp:26]   --->   Operation 191 'readreq' 'empty_52' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 54 <SV = 51> <Delay = 7.30>
+ST_54 : Operation 192 [27/38] (7.30ns)   --->   "%empty_52 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr_1, i32 %zext_ln22" [src/../include/helpers.hpp:26]   --->   Operation 192 'readreq' 'empty_52' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 55 <SV = 52> <Delay = 7.30>
+ST_55 : Operation 193 [26/38] (7.30ns)   --->   "%empty_52 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr_1, i32 %zext_ln22" [src/../include/helpers.hpp:26]   --->   Operation 193 'readreq' 'empty_52' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 56 <SV = 53> <Delay = 7.30>
+ST_56 : Operation 194 [25/38] (7.30ns)   --->   "%empty_52 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr_1, i32 %zext_ln22" [src/../include/helpers.hpp:26]   --->   Operation 194 'readreq' 'empty_52' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 57 <SV = 54> <Delay = 7.30>
+ST_57 : Operation 195 [24/38] (7.30ns)   --->   "%empty_52 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr_1, i32 %zext_ln22" [src/../include/helpers.hpp:26]   --->   Operation 195 'readreq' 'empty_52' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 58 <SV = 55> <Delay = 7.30>
+ST_58 : Operation 196 [23/38] (7.30ns)   --->   "%empty_52 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr_1, i32 %zext_ln22" [src/../include/helpers.hpp:26]   --->   Operation 196 'readreq' 'empty_52' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 59 <SV = 56> <Delay = 7.30>
+ST_59 : Operation 197 [22/38] (7.30ns)   --->   "%empty_52 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr_1, i32 %zext_ln22" [src/../include/helpers.hpp:26]   --->   Operation 197 'readreq' 'empty_52' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 60 <SV = 57> <Delay = 7.30>
+ST_60 : Operation 198 [21/38] (7.30ns)   --->   "%empty_52 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr_1, i32 %zext_ln22" [src/../include/helpers.hpp:26]   --->   Operation 198 'readreq' 'empty_52' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 61 <SV = 58> <Delay = 7.30>
+ST_61 : Operation 199 [20/38] (7.30ns)   --->   "%empty_52 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr_1, i32 %zext_ln22" [src/../include/helpers.hpp:26]   --->   Operation 199 'readreq' 'empty_52' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 62 <SV = 59> <Delay = 7.30>
+ST_62 : Operation 200 [19/38] (7.30ns)   --->   "%empty_52 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr_1, i32 %zext_ln22" [src/../include/helpers.hpp:26]   --->   Operation 200 'readreq' 'empty_52' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 63 <SV = 60> <Delay = 7.30>
+ST_63 : Operation 201 [18/38] (7.30ns)   --->   "%empty_52 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr_1, i32 %zext_ln22" [src/../include/helpers.hpp:26]   --->   Operation 201 'readreq' 'empty_52' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 64 <SV = 61> <Delay = 7.30>
+ST_64 : Operation 202 [17/38] (7.30ns)   --->   "%empty_52 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr_1, i32 %zext_ln22" [src/../include/helpers.hpp:26]   --->   Operation 202 'readreq' 'empty_52' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 65 <SV = 62> <Delay = 7.30>
+ST_65 : Operation 203 [16/38] (7.30ns)   --->   "%empty_52 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr_1, i32 %zext_ln22" [src/../include/helpers.hpp:26]   --->   Operation 203 'readreq' 'empty_52' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 66 <SV = 63> <Delay = 7.30>
+ST_66 : Operation 204 [15/38] (7.30ns)   --->   "%empty_52 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr_1, i32 %zext_ln22" [src/../include/helpers.hpp:26]   --->   Operation 204 'readreq' 'empty_52' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 67 <SV = 64> <Delay = 7.30>
+ST_67 : Operation 205 [14/38] (7.30ns)   --->   "%empty_52 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr_1, i32 %zext_ln22" [src/../include/helpers.hpp:26]   --->   Operation 205 'readreq' 'empty_52' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 68 <SV = 65> <Delay = 7.30>
+ST_68 : Operation 206 [13/38] (7.30ns)   --->   "%empty_52 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr_1, i32 %zext_ln22" [src/../include/helpers.hpp:26]   --->   Operation 206 'readreq' 'empty_52' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 69 <SV = 66> <Delay = 7.30>
+ST_69 : Operation 207 [12/38] (7.30ns)   --->   "%empty_52 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr_1, i32 %zext_ln22" [src/../include/helpers.hpp:26]   --->   Operation 207 'readreq' 'empty_52' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 70 <SV = 67> <Delay = 7.30>
+ST_70 : Operation 208 [11/38] (7.30ns)   --->   "%empty_52 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr_1, i32 %zext_ln22" [src/../include/helpers.hpp:26]   --->   Operation 208 'readreq' 'empty_52' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 71 <SV = 68> <Delay = 7.30>
+ST_71 : Operation 209 [10/38] (7.30ns)   --->   "%empty_52 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr_1, i32 %zext_ln22" [src/../include/helpers.hpp:26]   --->   Operation 209 'readreq' 'empty_52' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 72 <SV = 69> <Delay = 7.30>
+ST_72 : Operation 210 [9/38] (7.30ns)   --->   "%empty_52 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr_1, i32 %zext_ln22" [src/../include/helpers.hpp:26]   --->   Operation 210 'readreq' 'empty_52' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 73 <SV = 70> <Delay = 7.30>
+ST_73 : Operation 211 [8/38] (7.30ns)   --->   "%empty_52 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr_1, i32 %zext_ln22" [src/../include/helpers.hpp:26]   --->   Operation 211 'readreq' 'empty_52' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 74 <SV = 71> <Delay = 7.30>
+ST_74 : Operation 212 [7/38] (7.30ns)   --->   "%empty_52 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr_1, i32 %zext_ln22" [src/../include/helpers.hpp:26]   --->   Operation 212 'readreq' 'empty_52' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 75 <SV = 72> <Delay = 7.30>
+ST_75 : Operation 213 [6/38] (7.30ns)   --->   "%empty_52 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr_1, i32 %zext_ln22" [src/../include/helpers.hpp:26]   --->   Operation 213 'readreq' 'empty_52' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 76 <SV = 73> <Delay = 7.30>
+ST_76 : Operation 214 [5/38] (7.30ns)   --->   "%empty_52 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr_1, i32 %zext_ln22" [src/../include/helpers.hpp:26]   --->   Operation 214 'readreq' 'empty_52' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 77 <SV = 74> <Delay = 7.30>
+ST_77 : Operation 215 [4/38] (7.30ns)   --->   "%empty_52 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr_1, i32 %zext_ln22" [src/../include/helpers.hpp:26]   --->   Operation 215 'readreq' 'empty_52' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 78 <SV = 75> <Delay = 7.30>
+ST_78 : Operation 216 [3/38] (7.30ns)   --->   "%empty_52 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr_1, i32 %zext_ln22" [src/../include/helpers.hpp:26]   --->   Operation 216 'readreq' 'empty_52' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 79 <SV = 76> <Delay = 7.30>
+ST_79 : Operation 217 [2/38] (7.30ns)   --->   "%empty_52 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr_1, i32 %zext_ln22" [src/../include/helpers.hpp:26]   --->   Operation 217 'readreq' 'empty_52' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 80 <SV = 77> <Delay = 7.30>
+ST_80 : Operation 218 [1/38] (7.30ns)   --->   "%empty_52 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr_1, i32 %zext_ln22" [src/../include/helpers.hpp:26]   --->   Operation 218 'readreq' 'empty_52' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_80 : Operation 219 [1/1] (0.00ns)   --->   "%br_ln26 = br void %for.inc28" [src/../include/helpers.hpp:26]   --->   Operation 219 'br' 'br_ln26' <Predicate = true> <Delay = 0.00>
+
+State 81 <SV = 78> <Delay = 1.59>
+ST_81 : Operation 220 [1/1] (0.00ns)   --->   "%j_1 = load i27 %j" [src/../include/helpers.hpp:26]   --->   Operation 220 'load' 'j_1' <Predicate = true> <Delay = 0.00>
+ST_81 : Operation 221 [1/1] (0.00ns)   --->   "%zext_ln26_1 = zext i27 %j_1" [src/../include/helpers.hpp:26]   --->   Operation 221 'zext' 'zext_ln26_1' <Predicate = true> <Delay = 0.00>
+ST_81 : Operation 222 [1/1] (0.84ns)   --->   "%icmp_ln26 = icmp_eq  i27 %j_1, i27 %am_loop_num" [src/../include/helpers.hpp:26]   --->   Operation 222 'icmp' 'icmp_ln26' <Predicate = true> <Delay = 0.84> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.84> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_81 : Operation 223 [1/1] (1.13ns)   --->   "%add_ln26_1 = add i27 %j_1, i27 1" [src/../include/helpers.hpp:26]   --->   Operation 223 'add' 'add_ln26_1' <Predicate = true> <Delay = 1.13> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.13> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_81 : Operation 224 [1/1] (0.00ns)   --->   "%br_ln26 = br i1 %icmp_ln26, void %for.inc28.split, void %VITIS_LOOP_30_3.loopexit" [src/../include/helpers.hpp:26]   --->   Operation 224 'br' 'br_ln26' <Predicate = true> <Delay = 0.00>
+ST_81 : Operation 225 [1/1] (0.46ns)   --->   "%store_ln26 = store i27 %add_ln26_1, i27 %j" [src/../include/helpers.hpp:26]   --->   Operation 225 'store' 'store_ln26' <Predicate = (!icmp_ln26)> <Delay = 0.46>
+ST_81 : Operation 226 [1/1] (0.00ns)   --->   "%block = alloca i32 1"   --->   Operation 226 'alloca' 'block' <Predicate = (icmp_ln26)> <Delay = 0.00>
+ST_81 : Operation 227 [1/1] (0.00ns)   --->   "%trunc_ln5 = partselect i27 @_ssdm_op_PartSelect.i27.i32.i32.i32, i32 %fm_COLS_read, i32 5, i32 31" [src/../include/helpers.hpp:30]   --->   Operation 227 'partselect' 'trunc_ln5' <Predicate = (icmp_ln26)> <Delay = 0.00>
+ST_81 : Operation 228 [1/1] (0.46ns)   --->   "%store_ln30 = store i27 0, i27 %block" [src/../include/helpers.hpp:30]   --->   Operation 228 'store' 'store_ln30' <Predicate = (icmp_ln26)> <Delay = 0.46>
+ST_81 : Operation 229 [1/1] (0.00ns)   --->   "%br_ln30 = br void %VITIS_LOOP_31_4" [src/../include/helpers.hpp:30]   --->   Operation 229 'br' 'br_ln30' <Predicate = (icmp_ln26)> <Delay = 0.00>
+
+State 82 <SV = 79> <Delay = 7.30>
+ST_82 : Operation 230 [1/1] (7.30ns)   --->   "%sparse_data_addr_1_read = read i256 @_ssdm_op_Read.m_axi.p1i256, i256 %sparse_data_addr_1" [src/../include/helpers.hpp:27]   --->   Operation 230 'read' 'sparse_data_addr_1_read' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 83 <SV = 80> <Delay = 1.29>
+ST_83 : Operation 231 [1/1] (0.00ns)   --->   "%specloopname_ln26 = specloopname void @_ssdm_op_SpecLoopName, void @empty_7" [src/../include/helpers.hpp:26]   --->   Operation 231 'specloopname' 'specloopname_ln26' <Predicate = true> <Delay = 0.00>
+ST_83 : Operation 232 [1/1] (0.00ns)   --->   "%am_ram_V_addr = getelementptr i256 %am_ram_V, i64 0, i64 %zext_ln26_1" [src/../include/helpers.hpp:27]   --->   Operation 232 'getelementptr' 'am_ram_V_addr' <Predicate = true> <Delay = 0.00>
+ST_83 : Operation 233 [1/1] (1.29ns)   --->   "%store_ln27 = store i256 %sparse_data_addr_1_read, i6 %am_ram_V_addr" [src/../include/helpers.hpp:27]   --->   Operation 233 'store' 'store_ln27' <Predicate = true> <Delay = 1.29> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.29> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 256> <Depth = 64> <RAM>
+ST_83 : Operation 234 [1/1] (0.00ns)   --->   "%br_ln26 = br void %for.inc28" [src/../include/helpers.hpp:26]   --->   Operation 234 'br' 'br_ln26' <Predicate = true> <Delay = 0.00>
+
+State 84 <SV = 79> <Delay = 1.13>
+ST_84 : Operation 235 [1/1] (0.00ns)   --->   "%block_3 = load i27 %block"   --->   Operation 235 'load' 'block_3' <Predicate = true> <Delay = 0.00>
+ST_84 : Operation 236 [1/1] (0.84ns)   --->   "%icmp_ln30 = icmp_eq  i27 %block_3, i27 %trunc_ln5" [src/../include/helpers.hpp:30]   --->   Operation 236 'icmp' 'icmp_ln30' <Predicate = true> <Delay = 0.84> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.84> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_84 : Operation 237 [1/1] (1.13ns)   --->   "%block_4 = add i27 %block_3, i27 1" [src/../include/helpers.hpp:30]   --->   Operation 237 'add' 'block_4' <Predicate = true> <Delay = 1.13> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.13> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_84 : Operation 238 [1/1] (0.00ns)   --->   "%br_ln30 = br i1 %icmp_ln30, void %VITIS_LOOP_31_4.split, void %for.end64.loopexit" [src/../include/helpers.hpp:30]   --->   Operation 238 'br' 'br_ln30' <Predicate = true> <Delay = 0.00>
+ST_84 : Operation 239 [1/1] (0.00ns)   --->   "%specloopname_ln30 = specloopname void @_ssdm_op_SpecLoopName, void @empty_19" [src/../include/helpers.hpp:30]   --->   Operation 239 'specloopname' 'specloopname_ln30' <Predicate = (!icmp_ln30)> <Delay = 0.00>
+ST_84 : Operation 240 [1/1] (0.00ns)   --->   "%empty_53 = trunc i27 %block_3"   --->   Operation 240 'trunc' 'empty_53' <Predicate = (!icmp_ln30)> <Delay = 0.00>
+ST_84 : Operation 241 [1/1] (0.00ns)   --->   "%mul = bitconcatenate i9 @_ssdm_op_BitConcatenate.i9.i4.i5, i4 %empty_53, i5 0"   --->   Operation 241 'bitconcatenate' 'mul' <Predicate = (!icmp_ln30)> <Delay = 0.00>
+ST_84 : Operation 242 [1/1] (0.46ns)   --->   "%br_ln31 = br void %for.body.i.i" [src/../include/helpers.hpp:31]   --->   Operation 242 'br' 'br_ln31' <Predicate = (!icmp_ln30)> <Delay = 0.46>
+ST_84 : Operation 243 [1/1] (0.00ns)   --->   "%ret_ln46 = ret" [src/../include/helpers.hpp:46]   --->   Operation 243 'ret' 'ret_ln46' <Predicate = (icmp_ln30)> <Delay = 0.00>
+
+State 85 <SV = 80> <Delay = 1.29>
+ST_85 : Operation 244 [1/1] (0.00ns)   --->   "%row = phi i32 0, void %VITIS_LOOP_31_4.split, i32 %add_ln31, void %for.inc59.loopexit" [src/../include/helpers.hpp:31]   --->   Operation 244 'phi' 'row' <Predicate = true> <Delay = 0.00>
+ST_85 : Operation 245 [1/1] (0.00ns)   --->   "%zext_ln31 = zext i32 %row" [src/../include/helpers.hpp:31]   --->   Operation 245 'zext' 'zext_ln31' <Predicate = true> <Delay = 0.00>
+ST_85 : Operation 246 [1/1] (0.80ns)   --->   "%icmp_ln31 = icmp_eq  i32 %row, i32 %am_ROWS_read" [src/../include/helpers.hpp:31]   --->   Operation 246 'icmp' 'icmp_ln31' <Predicate = true> <Delay = 0.80> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.80> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_85 : Operation 247 [1/1] (1.14ns)   --->   "%add_ln31 = add i32 %row, i32 1" [src/../include/helpers.hpp:31]   --->   Operation 247 'add' 'add_ln31' <Predicate = true> <Delay = 1.14> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.14> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_85 : Operation 248 [1/1] (0.00ns)   --->   "%br_ln31 = br i1 %icmp_ln31, void %for.body.i.i.split, void %for.inc62.loopexit" [src/../include/helpers.hpp:31]   --->   Operation 248 'br' 'br_ln31' <Predicate = true> <Delay = 0.00>
+ST_85 : Operation 249 [1/1] (0.00ns)   --->   "%am_ram_V_addr_1 = getelementptr i256 %am_ram_V, i64 0, i64 %zext_ln31" [src/../include/helpers.hpp:31]   --->   Operation 249 'getelementptr' 'am_ram_V_addr_1' <Predicate = (!icmp_ln31)> <Delay = 0.00>
+ST_85 : Operation 250 [2/2] (1.29ns)   --->   "%p_Val2_s = load i6 %am_ram_V_addr_1"   --->   Operation 250 'load' 'p_Val2_s' <Predicate = (!icmp_ln31)> <Delay = 1.29> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.29> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 256> <Depth = 64> <RAM>
+ST_85 : Operation 251 [1/1] (0.46ns)   --->   "%store_ln30 = store i27 %block_4, i27 %block" [src/../include/helpers.hpp:30]   --->   Operation 251 'store' 'store_ln30' <Predicate = (icmp_ln31)> <Delay = 0.46>
+ST_85 : Operation 252 [1/1] (0.00ns)   --->   "%br_ln30 = br void %VITIS_LOOP_31_4" [src/../include/helpers.hpp:30]   --->   Operation 252 'br' 'br_ln30' <Predicate = (icmp_ln31)> <Delay = 0.00>
+
+State 86 <SV = 81> <Delay = 1.29>
+ST_86 : Operation 253 [1/1] (0.00ns)   --->   "%specloopname_ln31 = specloopname void @_ssdm_op_SpecLoopName, void @empty_20" [src/../include/helpers.hpp:31]   --->   Operation 253 'specloopname' 'specloopname_ln31' <Predicate = true> <Delay = 0.00>
+ST_86 : Operation 254 [1/2] (1.29ns)   --->   "%p_Val2_s = load i6 %am_ram_V_addr_1"   --->   Operation 254 'load' 'p_Val2_s' <Predicate = true> <Delay = 1.29> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.29> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 256> <Depth = 64> <RAM>
+ST_86 : Operation 255 [1/1] (0.00ns)   --->   "%l_val_V = trunc i256 %p_Val2_s"   --->   Operation 255 'trunc' 'l_val_V' <Predicate = true> <Delay = 0.00>
+ST_86 : Operation 256 [1/1] (0.00ns)   --->   "%l_val_V_64 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 8, i32 15"   --->   Operation 256 'partselect' 'l_val_V_64' <Predicate = true> <Delay = 0.00>
+ST_86 : Operation 257 [1/1] (0.00ns)   --->   "%l_val_V_65 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 16, i32 23"   --->   Operation 257 'partselect' 'l_val_V_65' <Predicate = true> <Delay = 0.00>
+ST_86 : Operation 258 [1/1] (0.00ns)   --->   "%l_val_V_66 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 24, i32 31"   --->   Operation 258 'partselect' 'l_val_V_66' <Predicate = true> <Delay = 0.00>
+ST_86 : Operation 259 [1/1] (0.00ns)   --->   "%l_val_V_67 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 32, i32 39"   --->   Operation 259 'partselect' 'l_val_V_67' <Predicate = true> <Delay = 0.00>
+ST_86 : Operation 260 [1/1] (0.00ns)   --->   "%l_val_V_68 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 40, i32 47"   --->   Operation 260 'partselect' 'l_val_V_68' <Predicate = true> <Delay = 0.00>
+ST_86 : Operation 261 [1/1] (0.00ns)   --->   "%l_val_V_69 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 48, i32 55"   --->   Operation 261 'partselect' 'l_val_V_69' <Predicate = true> <Delay = 0.00>
+ST_86 : Operation 262 [1/1] (0.00ns)   --->   "%l_val_V_70 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 56, i32 63"   --->   Operation 262 'partselect' 'l_val_V_70' <Predicate = true> <Delay = 0.00>
+ST_86 : Operation 263 [1/1] (0.00ns)   --->   "%l_val_V_71 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 64, i32 71"   --->   Operation 263 'partselect' 'l_val_V_71' <Predicate = true> <Delay = 0.00>
+ST_86 : Operation 264 [1/1] (0.00ns)   --->   "%l_val_V_72 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 72, i32 79"   --->   Operation 264 'partselect' 'l_val_V_72' <Predicate = true> <Delay = 0.00>
+ST_86 : Operation 265 [1/1] (0.00ns)   --->   "%l_val_V_73 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 80, i32 87"   --->   Operation 265 'partselect' 'l_val_V_73' <Predicate = true> <Delay = 0.00>
+ST_86 : Operation 266 [1/1] (0.00ns)   --->   "%l_val_V_74 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 88, i32 95"   --->   Operation 266 'partselect' 'l_val_V_74' <Predicate = true> <Delay = 0.00>
+ST_86 : Operation 267 [1/1] (0.00ns)   --->   "%l_val_V_75 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 96, i32 103"   --->   Operation 267 'partselect' 'l_val_V_75' <Predicate = true> <Delay = 0.00>
+ST_86 : Operation 268 [1/1] (0.00ns)   --->   "%l_val_V_76 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 104, i32 111"   --->   Operation 268 'partselect' 'l_val_V_76' <Predicate = true> <Delay = 0.00>
+ST_86 : Operation 269 [1/1] (0.00ns)   --->   "%l_val_V_77 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 112, i32 119"   --->   Operation 269 'partselect' 'l_val_V_77' <Predicate = true> <Delay = 0.00>
+ST_86 : Operation 270 [1/1] (0.00ns)   --->   "%l_val_V_78 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 120, i32 127"   --->   Operation 270 'partselect' 'l_val_V_78' <Predicate = true> <Delay = 0.00>
+ST_86 : Operation 271 [1/1] (0.00ns)   --->   "%l_val_V_79 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 128, i32 135"   --->   Operation 271 'partselect' 'l_val_V_79' <Predicate = true> <Delay = 0.00>
+ST_86 : Operation 272 [1/1] (0.00ns)   --->   "%l_val_V_80 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 136, i32 143"   --->   Operation 272 'partselect' 'l_val_V_80' <Predicate = true> <Delay = 0.00>
+ST_86 : Operation 273 [1/1] (0.00ns)   --->   "%l_val_V_81 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 144, i32 151"   --->   Operation 273 'partselect' 'l_val_V_81' <Predicate = true> <Delay = 0.00>
+ST_86 : Operation 274 [1/1] (0.00ns)   --->   "%l_val_V_82 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 152, i32 159"   --->   Operation 274 'partselect' 'l_val_V_82' <Predicate = true> <Delay = 0.00>
+ST_86 : Operation 275 [1/1] (0.00ns)   --->   "%l_val_V_83 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 160, i32 167"   --->   Operation 275 'partselect' 'l_val_V_83' <Predicate = true> <Delay = 0.00>
+ST_86 : Operation 276 [1/1] (0.00ns)   --->   "%l_val_V_84 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 168, i32 175"   --->   Operation 276 'partselect' 'l_val_V_84' <Predicate = true> <Delay = 0.00>
+ST_86 : Operation 277 [1/1] (0.00ns)   --->   "%l_val_V_85 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 176, i32 183"   --->   Operation 277 'partselect' 'l_val_V_85' <Predicate = true> <Delay = 0.00>
+ST_86 : Operation 278 [1/1] (0.00ns)   --->   "%l_val_V_86 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 184, i32 191"   --->   Operation 278 'partselect' 'l_val_V_86' <Predicate = true> <Delay = 0.00>
+ST_86 : Operation 279 [1/1] (0.00ns)   --->   "%l_val_V_87 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 192, i32 199"   --->   Operation 279 'partselect' 'l_val_V_87' <Predicate = true> <Delay = 0.00>
+ST_86 : Operation 280 [1/1] (0.00ns)   --->   "%l_val_V_88 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 200, i32 207"   --->   Operation 280 'partselect' 'l_val_V_88' <Predicate = true> <Delay = 0.00>
+ST_86 : Operation 281 [1/1] (0.00ns)   --->   "%l_val_V_89 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 208, i32 215"   --->   Operation 281 'partselect' 'l_val_V_89' <Predicate = true> <Delay = 0.00>
+ST_86 : Operation 282 [1/1] (0.00ns)   --->   "%l_val_V_90 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 216, i32 223"   --->   Operation 282 'partselect' 'l_val_V_90' <Predicate = true> <Delay = 0.00>
+ST_86 : Operation 283 [1/1] (0.00ns)   --->   "%l_val_V_91 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 224, i32 231"   --->   Operation 283 'partselect' 'l_val_V_91' <Predicate = true> <Delay = 0.00>
+ST_86 : Operation 284 [1/1] (0.00ns)   --->   "%l_val_V_92 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 232, i32 239"   --->   Operation 284 'partselect' 'l_val_V_92' <Predicate = true> <Delay = 0.00>
+ST_86 : Operation 285 [1/1] (0.00ns)   --->   "%l_val_V_93 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 240, i32 247"   --->   Operation 285 'partselect' 'l_val_V_93' <Predicate = true> <Delay = 0.00>
+ST_86 : Operation 286 [1/1] (0.00ns)   --->   "%l_val_V_94 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 248, i32 255"   --->   Operation 286 'partselect' 'l_val_V_94' <Predicate = true> <Delay = 0.00>
+ST_86 : Operation 287 [1/1] (0.46ns)   --->   "%br_ln35 = br void %for.body45" [src/../include/helpers.hpp:35]   --->   Operation 287 'br' 'br_ln35' <Predicate = true> <Delay = 0.46>
+
+State 87 <SV = 82> <Delay = 3.09>
+ST_87 : Operation 288 [1/1] (0.00ns)   --->   "%col = phi i32 0, void %for.body.i.i.split, i32 %add_ln35, void %for.inc54" [src/../include/helpers.hpp:35]   --->   Operation 288 'phi' 'col' <Predicate = true> <Delay = 0.00>
+ST_87 : Operation 289 [1/1] (0.00ns)   --->   "%count = phi i32 0, void %for.body.i.i.split, i32 %count_1, void %for.inc54"   --->   Operation 289 'phi' 'count' <Predicate = true> <Delay = 0.00>
+ST_87 : Operation 290 [1/1] (0.80ns)   --->   "%icmp_ln35 = icmp_eq  i32 %col, i32 %am_COLS_read" [src/../include/helpers.hpp:35]   --->   Operation 290 'icmp' 'icmp_ln35' <Predicate = true> <Delay = 0.80> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.80> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_87 : Operation 291 [1/1] (1.14ns)   --->   "%add_ln35 = add i32 %col, i32 1" [src/../include/helpers.hpp:35]   --->   Operation 291 'add' 'add_ln35' <Predicate = true> <Delay = 1.14> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.14> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_87 : Operation 292 [1/1] (0.00ns)   --->   "%br_ln35 = br i1 %icmp_ln35, void %for.body45.split, void %for.inc59.loopexit" [src/../include/helpers.hpp:35]   --->   Operation 292 'br' 'br_ln35' <Predicate = true> <Delay = 0.00>
+ST_87 : Operation 293 [1/1] (0.00ns)   --->   "%specloopname_ln32 = specloopname void @_ssdm_op_SpecLoopName, void @empty_22" [src/../include/helpers.hpp:32]   --->   Operation 293 'specloopname' 'specloopname_ln32' <Predicate = (!icmp_ln35)> <Delay = 0.00>
+ST_87 : Operation 294 [1/1] (0.00ns)   --->   "%trunc_ln1023 = trunc i32 %col"   --->   Operation 294 'trunc' 'trunc_ln1023' <Predicate = (!icmp_ln35)> <Delay = 0.00>
+ST_87 : Operation 295 [1/1] (0.82ns)   --->   "%tmp = mux i8 @_ssdm_op_Mux.ap_auto.32i8.i5, i8 %l_val_V, i8 %l_val_V_64, i8 %l_val_V_65, i8 %l_val_V_66, i8 %l_val_V_67, i8 %l_val_V_68, i8 %l_val_V_69, i8 %l_val_V_70, i8 %l_val_V_71, i8 %l_val_V_72, i8 %l_val_V_73, i8 %l_val_V_74, i8 %l_val_V_75, i8 %l_val_V_76, i8 %l_val_V_77, i8 %l_val_V_78, i8 %l_val_V_79, i8 %l_val_V_80, i8 %l_val_V_81, i8 %l_val_V_82, i8 %l_val_V_83, i8 %l_val_V_84, i8 %l_val_V_85, i8 %l_val_V_86, i8 %l_val_V_87, i8 %l_val_V_88, i8 %l_val_V_89, i8 %l_val_V_90, i8 %l_val_V_91, i8 %l_val_V_92, i8 %l_val_V_93, i8 %l_val_V_94, i5 %trunc_ln1023"   --->   Operation 295 'mux' 'tmp' <Predicate = (!icmp_ln35)> <Delay = 0.82> <CoreInst = "Multiplexer">   --->   Core 76 'Multiplexer' <Latency = 0> <II = 1> <Delay = 0.82> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_87 : Operation 296 [1/1] (0.70ns)   --->   "%icmp_ln1023 = icmp_eq  i8 %tmp, i8 0"   --->   Operation 296 'icmp' 'icmp_ln1023' <Predicate = (!icmp_ln35)> <Delay = 0.70> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_87 : Operation 297 [1/1] (0.46ns)   --->   "%br_ln36 = br i1 %icmp_ln1023, void %for.body.i.i32, void %for.inc54" [src/../include/helpers.hpp:36]   --->   Operation 297 'br' 'br_ln36' <Predicate = (!icmp_ln35)> <Delay = 0.46>
+ST_87 : Operation 298 [1/1] (0.00ns)   --->   "%trunc_ln38 = trunc i32 %col" [src/../include/helpers.hpp:38]   --->   Operation 298 'trunc' 'trunc_ln38' <Predicate = (!icmp_ln35 & !icmp_ln1023)> <Delay = 0.00>
+ST_87 : Operation 299 [1/1] (0.00ns)   --->   "%trunc_ln38_1 = trunc i32 %col" [src/../include/helpers.hpp:38]   --->   Operation 299 'trunc' 'trunc_ln38_1' <Predicate = (!icmp_ln35 & !icmp_ln1023)> <Delay = 0.00>
+ST_87 : Operation 300 [1/1] (0.90ns)   --->   "%add_ln39 = add i9 %trunc_ln38, i9 %mul" [src/../include/helpers.hpp:39]   --->   Operation 300 'add' 'add_ln39' <Predicate = (!icmp_ln35 & !icmp_ln1023)> <Delay = 0.90> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.90> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_87 : Operation 301 [1/1] (0.00ns)   --->   "%zext_ln39 = zext i9 %add_ln39" [src/../include/helpers.hpp:39]   --->   Operation 301 'zext' 'zext_ln39' <Predicate = (!icmp_ln35 & !icmp_ln1023)> <Delay = 0.00>
+ST_87 : Operation 302 [1/1] (0.00ns)   --->   "%fm_ram_V_addr_1 = getelementptr i256 %fm_ram_V, i64 0, i64 %zext_ln39" [src/../include/helpers.hpp:39]   --->   Operation 302 'getelementptr' 'fm_ram_V_addr_1' <Predicate = (!icmp_ln35 & !icmp_ln1023)> <Delay = 0.00>
+ST_87 : Operation 303 [2/2] (1.29ns)   --->   "%p_Val2_2 = load i9 %fm_ram_V_addr_1"   --->   Operation 303 'load' 'p_Val2_2' <Predicate = (!icmp_ln35 & !icmp_ln1023)> <Delay = 1.29> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.29> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 256> <Depth = 512> <RAM>
+ST_87 : Operation 304 [1/1] (0.00ns)   --->   "%trunc_ln43 = trunc i32 %count" [src/../include/helpers.hpp:43]   --->   Operation 304 'trunc' 'trunc_ln43' <Predicate = (icmp_ln35)> <Delay = 0.00>
+ST_87 : Operation 305 [1/1] (2.29ns)   --->   "%write_ln43 = write void @_ssdm_op_Write.ap_fifo.volatile.i8P0A, i8 %count_stream4, i8 %trunc_ln43" [src/../include/helpers.hpp:43]   --->   Operation 305 'write' 'write_ln43' <Predicate = (icmp_ln35)> <Delay = 2.29> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 2.29> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 64> <FIFO>
+ST_87 : Operation 306 [1/1] (0.00ns)   --->   "%br_ln31 = br void %for.body.i.i" [src/../include/helpers.hpp:31]   --->   Operation 306 'br' 'br_ln31' <Predicate = (icmp_ln35)> <Delay = 0.00>
+
+State 88 <SV = 83> <Delay = 2.98>
+ST_88 : Operation 307 [1/1] (1.14ns)   --->   "%count_2 = add i32 %count, i32 1" [src/../include/helpers.hpp:37]   --->   Operation 307 'add' 'count_2' <Predicate = (!icmp_ln1023)> <Delay = 1.14> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.14> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_88 : Operation 308 [1/1] (2.29ns)   --->   "%write_ln38 = write void @_ssdm_op_Write.ap_fifo.volatile.i8P0A, i8 %idx_stream3, i8 %trunc_ln38_1" [src/../include/helpers.hpp:38]   --->   Operation 308 'write' 'write_ln38' <Predicate = (!icmp_ln1023)> <Delay = 2.29> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 2.29> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 128> <FIFO>
+ST_88 : Operation 309 [1/2] (1.29ns)   --->   "%p_Val2_2 = load i9 %fm_ram_V_addr_1"   --->   Operation 309 'load' 'p_Val2_2' <Predicate = (!icmp_ln1023)> <Delay = 1.29> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.29> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 256> <Depth = 512> <RAM>
+ST_88 : Operation 310 [1/1] (1.69ns)   --->   "%write_ln40 = write void @_ssdm_op_Write.ap_fifo.volatile.i256P0A, i256 %fm_stream2, i256 %p_Val2_2" [src/../include/helpers.hpp:40]   --->   Operation 310 'write' 'write_ln40' <Predicate = (!icmp_ln1023)> <Delay = 1.69> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.69> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 256> <Depth = 128> <FIFO>
+ST_88 : Operation 311 [1/1] (0.46ns)   --->   "%br_ln41 = br void %for.inc54" [src/../include/helpers.hpp:41]   --->   Operation 311 'br' 'br_ln41' <Predicate = (!icmp_ln1023)> <Delay = 0.46>
+ST_88 : Operation 312 [1/1] (0.00ns)   --->   "%count_1 = phi i32 %count_2, void %for.body.i.i32, i32 %count, void %for.body45.split"   --->   Operation 312 'phi' 'count_1' <Predicate = true> <Delay = 0.00>
+ST_88 : Operation 313 [1/1] (0.00ns)   --->   "%br_ln35 = br void %for.body45" [src/../include/helpers.hpp:35]   --->   Operation 313 'br' 'br_ln35' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 2.7ns.
+
+ <State 1>: 3.9ns
+The critical path consists of the following:
+	wire read operation ('fm_COLS_read') on port 'fm_COLS' [20]  (0 ns)
+	'mul' operation ('mul_ln21', src/../include/helpers.hpp:21) [36]  (3.9 ns)
+
+ <State 2>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', src/../include/helpers.hpp:23) on port 'sparse_data' (src/../include/helpers.hpp:23) [48]  (7.3 ns)
+
+ <State 3>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', src/../include/helpers.hpp:23) on port 'sparse_data' (src/../include/helpers.hpp:23) [48]  (7.3 ns)
+
+ <State 4>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', src/../include/helpers.hpp:23) on port 'sparse_data' (src/../include/helpers.hpp:23) [48]  (7.3 ns)
+
+ <State 5>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', src/../include/helpers.hpp:23) on port 'sparse_data' (src/../include/helpers.hpp:23) [48]  (7.3 ns)
+
+ <State 6>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', src/../include/helpers.hpp:23) on port 'sparse_data' (src/../include/helpers.hpp:23) [48]  (7.3 ns)
+
+ <State 7>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', src/../include/helpers.hpp:23) on port 'sparse_data' (src/../include/helpers.hpp:23) [48]  (7.3 ns)
+
+ <State 8>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', src/../include/helpers.hpp:23) on port 'sparse_data' (src/../include/helpers.hpp:23) [48]  (7.3 ns)
+
+ <State 9>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', src/../include/helpers.hpp:23) on port 'sparse_data' (src/../include/helpers.hpp:23) [48]  (7.3 ns)
+
+ <State 10>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', src/../include/helpers.hpp:23) on port 'sparse_data' (src/../include/helpers.hpp:23) [48]  (7.3 ns)
+
+ <State 11>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', src/../include/helpers.hpp:23) on port 'sparse_data' (src/../include/helpers.hpp:23) [48]  (7.3 ns)
+
+ <State 12>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', src/../include/helpers.hpp:23) on port 'sparse_data' (src/../include/helpers.hpp:23) [48]  (7.3 ns)
+
+ <State 13>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', src/../include/helpers.hpp:23) on port 'sparse_data' (src/../include/helpers.hpp:23) [48]  (7.3 ns)
+
+ <State 14>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', src/../include/helpers.hpp:23) on port 'sparse_data' (src/../include/helpers.hpp:23) [48]  (7.3 ns)
+
+ <State 15>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', src/../include/helpers.hpp:23) on port 'sparse_data' (src/../include/helpers.hpp:23) [48]  (7.3 ns)
+
+ <State 16>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', src/../include/helpers.hpp:23) on port 'sparse_data' (src/../include/helpers.hpp:23) [48]  (7.3 ns)
+
+ <State 17>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', src/../include/helpers.hpp:23) on port 'sparse_data' (src/../include/helpers.hpp:23) [48]  (7.3 ns)
+
+ <State 18>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', src/../include/helpers.hpp:23) on port 'sparse_data' (src/../include/helpers.hpp:23) [48]  (7.3 ns)
+
+ <State 19>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', src/../include/helpers.hpp:23) on port 'sparse_data' (src/../include/helpers.hpp:23) [48]  (7.3 ns)
+
+ <State 20>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', src/../include/helpers.hpp:23) on port 'sparse_data' (src/../include/helpers.hpp:23) [48]  (7.3 ns)
+
+ <State 21>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', src/../include/helpers.hpp:23) on port 'sparse_data' (src/../include/helpers.hpp:23) [48]  (7.3 ns)
+
+ <State 22>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', src/../include/helpers.hpp:23) on port 'sparse_data' (src/../include/helpers.hpp:23) [48]  (7.3 ns)
+
+ <State 23>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', src/../include/helpers.hpp:23) on port 'sparse_data' (src/../include/helpers.hpp:23) [48]  (7.3 ns)
+
+ <State 24>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', src/../include/helpers.hpp:23) on port 'sparse_data' (src/../include/helpers.hpp:23) [48]  (7.3 ns)
+
+ <State 25>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', src/../include/helpers.hpp:23) on port 'sparse_data' (src/../include/helpers.hpp:23) [48]  (7.3 ns)
+
+ <State 26>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', src/../include/helpers.hpp:23) on port 'sparse_data' (src/../include/helpers.hpp:23) [48]  (7.3 ns)
+
+ <State 27>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', src/../include/helpers.hpp:23) on port 'sparse_data' (src/../include/helpers.hpp:23) [48]  (7.3 ns)
+
+ <State 28>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', src/../include/helpers.hpp:23) on port 'sparse_data' (src/../include/helpers.hpp:23) [48]  (7.3 ns)
+
+ <State 29>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', src/../include/helpers.hpp:23) on port 'sparse_data' (src/../include/helpers.hpp:23) [48]  (7.3 ns)
+
+ <State 30>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', src/../include/helpers.hpp:23) on port 'sparse_data' (src/../include/helpers.hpp:23) [48]  (7.3 ns)
+
+ <State 31>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', src/../include/helpers.hpp:23) on port 'sparse_data' (src/../include/helpers.hpp:23) [48]  (7.3 ns)
+
+ <State 32>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', src/../include/helpers.hpp:23) on port 'sparse_data' (src/../include/helpers.hpp:23) [48]  (7.3 ns)
+
+ <State 33>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', src/../include/helpers.hpp:23) on port 'sparse_data' (src/../include/helpers.hpp:23) [48]  (7.3 ns)
+
+ <State 34>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', src/../include/helpers.hpp:23) on port 'sparse_data' (src/../include/helpers.hpp:23) [48]  (7.3 ns)
+
+ <State 35>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', src/../include/helpers.hpp:23) on port 'sparse_data' (src/../include/helpers.hpp:23) [48]  (7.3 ns)
+
+ <State 36>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', src/../include/helpers.hpp:23) on port 'sparse_data' (src/../include/helpers.hpp:23) [48]  (7.3 ns)
+
+ <State 37>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', src/../include/helpers.hpp:23) on port 'sparse_data' (src/../include/helpers.hpp:23) [48]  (7.3 ns)
+
+ <State 38>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', src/../include/helpers.hpp:23) on port 'sparse_data' (src/../include/helpers.hpp:23) [48]  (7.3 ns)
+
+ <State 39>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', src/../include/helpers.hpp:23) on port 'sparse_data' (src/../include/helpers.hpp:23) [48]  (7.3 ns)
+
+ <State 40>: 1.6ns
+The critical path consists of the following:
+	'load' operation ('i', src/../include/helpers.hpp:23) on local variable 'i' [52]  (0 ns)
+	'add' operation ('add_ln23_1', src/../include/helpers.hpp:23) [55]  (1.14 ns)
+	'store' operation ('store_ln23', src/../include/helpers.hpp:23) of variable 'add_ln23_1', src/../include/helpers.hpp:23 on local variable 'i' [62]  (0.46 ns)
+
+ <State 41>: 7.3ns
+The critical path consists of the following:
+	bus read operation ('sparse_data_addr_read', src/../include/helpers.hpp:24) on port 'sparse_data' (src/../include/helpers.hpp:24) [60]  (7.3 ns)
+
+ <State 42>: 1.3ns
+The critical path consists of the following:
+	'getelementptr' operation ('fm_ram_V_addr', src/../include/helpers.hpp:24) [59]  (0 ns)
+	'store' operation ('store_ln24', src/../include/helpers.hpp:24) of variable 'sparse_data_addr_read', src/../include/helpers.hpp:24 on array 'fm_ram.V', src/../include/helpers.hpp:19 [61]  (1.3 ns)
+
+ <State 43>: 7.3ns
+The critical path consists of the following:
+	'getelementptr' operation ('sparse_data_addr_1', src/../include/helpers.hpp:26) [71]  (0 ns)
+	bus request operation ('empty_52', src/../include/helpers.hpp:26) on port 'sparse_data' (src/../include/helpers.hpp:26) [72]  (7.3 ns)
+
+ <State 44>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_52', src/../include/helpers.hpp:26) on port 'sparse_data' (src/../include/helpers.hpp:26) [72]  (7.3 ns)
+
+ <State 45>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_52', src/../include/helpers.hpp:26) on port 'sparse_data' (src/../include/helpers.hpp:26) [72]  (7.3 ns)
+
+ <State 46>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_52', src/../include/helpers.hpp:26) on port 'sparse_data' (src/../include/helpers.hpp:26) [72]  (7.3 ns)
+
+ <State 47>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_52', src/../include/helpers.hpp:26) on port 'sparse_data' (src/../include/helpers.hpp:26) [72]  (7.3 ns)
+
+ <State 48>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_52', src/../include/helpers.hpp:26) on port 'sparse_data' (src/../include/helpers.hpp:26) [72]  (7.3 ns)
+
+ <State 49>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_52', src/../include/helpers.hpp:26) on port 'sparse_data' (src/../include/helpers.hpp:26) [72]  (7.3 ns)
+
+ <State 50>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_52', src/../include/helpers.hpp:26) on port 'sparse_data' (src/../include/helpers.hpp:26) [72]  (7.3 ns)
+
+ <State 51>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_52', src/../include/helpers.hpp:26) on port 'sparse_data' (src/../include/helpers.hpp:26) [72]  (7.3 ns)
+
+ <State 52>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_52', src/../include/helpers.hpp:26) on port 'sparse_data' (src/../include/helpers.hpp:26) [72]  (7.3 ns)
+
+ <State 53>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_52', src/../include/helpers.hpp:26) on port 'sparse_data' (src/../include/helpers.hpp:26) [72]  (7.3 ns)
+
+ <State 54>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_52', src/../include/helpers.hpp:26) on port 'sparse_data' (src/../include/helpers.hpp:26) [72]  (7.3 ns)
+
+ <State 55>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_52', src/../include/helpers.hpp:26) on port 'sparse_data' (src/../include/helpers.hpp:26) [72]  (7.3 ns)
+
+ <State 56>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_52', src/../include/helpers.hpp:26) on port 'sparse_data' (src/../include/helpers.hpp:26) [72]  (7.3 ns)
+
+ <State 57>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_52', src/../include/helpers.hpp:26) on port 'sparse_data' (src/../include/helpers.hpp:26) [72]  (7.3 ns)
+
+ <State 58>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_52', src/../include/helpers.hpp:26) on port 'sparse_data' (src/../include/helpers.hpp:26) [72]  (7.3 ns)
+
+ <State 59>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_52', src/../include/helpers.hpp:26) on port 'sparse_data' (src/../include/helpers.hpp:26) [72]  (7.3 ns)
+
+ <State 60>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_52', src/../include/helpers.hpp:26) on port 'sparse_data' (src/../include/helpers.hpp:26) [72]  (7.3 ns)
+
+ <State 61>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_52', src/../include/helpers.hpp:26) on port 'sparse_data' (src/../include/helpers.hpp:26) [72]  (7.3 ns)
+
+ <State 62>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_52', src/../include/helpers.hpp:26) on port 'sparse_data' (src/../include/helpers.hpp:26) [72]  (7.3 ns)
+
+ <State 63>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_52', src/../include/helpers.hpp:26) on port 'sparse_data' (src/../include/helpers.hpp:26) [72]  (7.3 ns)
+
+ <State 64>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_52', src/../include/helpers.hpp:26) on port 'sparse_data' (src/../include/helpers.hpp:26) [72]  (7.3 ns)
+
+ <State 65>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_52', src/../include/helpers.hpp:26) on port 'sparse_data' (src/../include/helpers.hpp:26) [72]  (7.3 ns)
+
+ <State 66>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_52', src/../include/helpers.hpp:26) on port 'sparse_data' (src/../include/helpers.hpp:26) [72]  (7.3 ns)
+
+ <State 67>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_52', src/../include/helpers.hpp:26) on port 'sparse_data' (src/../include/helpers.hpp:26) [72]  (7.3 ns)
+
+ <State 68>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_52', src/../include/helpers.hpp:26) on port 'sparse_data' (src/../include/helpers.hpp:26) [72]  (7.3 ns)
+
+ <State 69>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_52', src/../include/helpers.hpp:26) on port 'sparse_data' (src/../include/helpers.hpp:26) [72]  (7.3 ns)
+
+ <State 70>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_52', src/../include/helpers.hpp:26) on port 'sparse_data' (src/../include/helpers.hpp:26) [72]  (7.3 ns)
+
+ <State 71>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_52', src/../include/helpers.hpp:26) on port 'sparse_data' (src/../include/helpers.hpp:26) [72]  (7.3 ns)
+
+ <State 72>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_52', src/../include/helpers.hpp:26) on port 'sparse_data' (src/../include/helpers.hpp:26) [72]  (7.3 ns)
+
+ <State 73>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_52', src/../include/helpers.hpp:26) on port 'sparse_data' (src/../include/helpers.hpp:26) [72]  (7.3 ns)
+
+ <State 74>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_52', src/../include/helpers.hpp:26) on port 'sparse_data' (src/../include/helpers.hpp:26) [72]  (7.3 ns)
+
+ <State 75>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_52', src/../include/helpers.hpp:26) on port 'sparse_data' (src/../include/helpers.hpp:26) [72]  (7.3 ns)
+
+ <State 76>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_52', src/../include/helpers.hpp:26) on port 'sparse_data' (src/../include/helpers.hpp:26) [72]  (7.3 ns)
+
+ <State 77>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_52', src/../include/helpers.hpp:26) on port 'sparse_data' (src/../include/helpers.hpp:26) [72]  (7.3 ns)
+
+ <State 78>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_52', src/../include/helpers.hpp:26) on port 'sparse_data' (src/../include/helpers.hpp:26) [72]  (7.3 ns)
+
+ <State 79>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_52', src/../include/helpers.hpp:26) on port 'sparse_data' (src/../include/helpers.hpp:26) [72]  (7.3 ns)
+
+ <State 80>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_52', src/../include/helpers.hpp:26) on port 'sparse_data' (src/../include/helpers.hpp:26) [72]  (7.3 ns)
+
+ <State 81>: 1.6ns
+The critical path consists of the following:
+	'load' operation ('j', src/../include/helpers.hpp:26) on local variable 'j' [76]  (0 ns)
+	'add' operation ('add_ln26_1', src/../include/helpers.hpp:26) [79]  (1.14 ns)
+	'store' operation ('store_ln26', src/../include/helpers.hpp:26) of variable 'add_ln26_1', src/../include/helpers.hpp:26 on local variable 'j' [86]  (0.46 ns)
+
+ <State 82>: 7.3ns
+The critical path consists of the following:
+	bus read operation ('sparse_data_addr_1_read', src/../include/helpers.hpp:27) on port 'sparse_data' (src/../include/helpers.hpp:27) [84]  (7.3 ns)
+
+ <State 83>: 1.3ns
+The critical path consists of the following:
+	'getelementptr' operation ('am_ram_V_addr', src/../include/helpers.hpp:27) [83]  (0 ns)
+	'store' operation ('store_ln27', src/../include/helpers.hpp:27) of variable 'sparse_data_addr_1_read', src/../include/helpers.hpp:27 on array 'am_ram.V', src/../include/helpers.hpp:18 [85]  (1.3 ns)
+
+ <State 84>: 1.14ns
+The critical path consists of the following:
+	'load' operation ('block') on local variable 'block' [94]  (0 ns)
+	'add' operation ('block', src/../include/helpers.hpp:30) [96]  (1.14 ns)
+
+ <State 85>: 1.3ns
+The critical path consists of the following:
+	'phi' operation ('row', src/../include/helpers.hpp:31) with incoming values : ('add_ln31', src/../include/helpers.hpp:31) [104]  (0 ns)
+	'getelementptr' operation ('am_ram_V_addr_1', src/../include/helpers.hpp:31) [111]  (0 ns)
+	'load' operation ('__Val2__') on array 'am_ram.V', src/../include/helpers.hpp:18 [112]  (1.3 ns)
+
+ <State 86>: 1.3ns
+The critical path consists of the following:
+	'load' operation ('__Val2__') on array 'am_ram.V', src/../include/helpers.hpp:18 [112]  (1.3 ns)
+
+ <State 87>: 3.1ns
+The critical path consists of the following:
+	'phi' operation ('count') with incoming values : ('count', src/../include/helpers.hpp:37) [148]  (0 ns)
+	fifo write operation ('write_ln43', src/../include/helpers.hpp:43) on port 'count_stream4' (src/../include/helpers.hpp:43) [174]  (2.3 ns)
+	blocking operation 0.802 ns on control path)
+
+ <State 88>: 2.99ns
+The critical path consists of the following:
+	'load' operation ('__Val2__') on array 'fm_ram.V', src/../include/helpers.hpp:19 [166]  (1.3 ns)
+	fifo write operation ('write_ln40', src/../include/helpers.hpp:40) on port 'fm_stream2' (src/../include/helpers.hpp:40) [167]  (1.69 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+	State 25
+	State 26
+	State 27
+	State 28
+	State 29
+	State 30
+	State 31
+	State 32
+	State 33
+	State 34
+	State 35
+	State 36
+	State 37
+	State 38
+	State 39
+	State 40
+	State 41
+	State 42
+	State 43
+	State 44
+	State 45
+	State 46
+	State 47
+	State 48
+	State 49
+	State 50
+	State 51
+	State 52
+	State 53
+	State 54
+	State 55
+	State 56
+	State 57
+	State 58
+	State 59
+	State 60
+	State 61
+	State 62
+	State 63
+	State 64
+	State 65
+	State 66
+	State 67
+	State 68
+	State 69
+	State 70
+	State 71
+	State 72
+	State 73
+	State 74
+	State 75
+	State 76
+	State 77
+	State 78
+	State 79
+	State 80
+	State 81
+	State 82
+	State 83
+	State 84
+	State 85
+	State 86
+	State 87
+	State 88
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

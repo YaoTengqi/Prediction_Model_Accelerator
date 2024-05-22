@@ -7,90 +7,18 @@ if {${::AESL::PGuard_autoexp_gen}} {
     AESL_LIB_XILADAPTER::native_axis_begin
 }
 
-# XIL_BRAM:
+# Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
-if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
-eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 24 \
-    name fm_ram \
-    reset_level 1 \
-    sync_rst true \
-    dir I \
-    corename fm_ram \
-    op interface \
-    ports { fm_ram_address0 { O 9 vector } fm_ram_ce0 { O 1 bit } fm_ram_q0 { I 256 vector } } \
-} "
-} else {
-puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'fm_ram'"
-}
-}
-
-
-# XIL_BRAM:
-if {${::AESL::PGuard_autoexp_gen}} {
-if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
-eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 25 \
-    name idx_ram \
-    reset_level 1 \
-    sync_rst true \
-    dir I \
-    corename idx_ram \
-    op interface \
-    ports { idx_ram_address0 { O 10 vector } idx_ram_ce0 { O 1 bit } idx_ram_q0 { I 8 vector } } \
-} "
-} else {
-puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'idx_ram'"
-}
-}
-
-
-# XIL_BRAM:
-if {${::AESL::PGuard_autoexp_gen}} {
-if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
-eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
+eval "cg_default_interface_gen_dc { \
     id 26 \
-    name count_ram \
-    reset_level 1 \
-    sync_rst true \
-    dir I \
-    corename count_ram \
-    op interface \
-    ports { count_ram_address0 { O 5 vector } count_ram_ce0 { O 1 bit } count_ram_q0 { I 8 vector } } \
-} "
-} else {
-puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'count_ram'"
-}
-}
-
-
-# Direct connection:
-if {${::AESL::PGuard_autoexp_gen}} {
-eval "cg_default_interface_gen_dc { \
-    id 22 \
-    name p_read \
-    type other \
+    name am_ROWS \
+    type fifo \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_p_read \
+    corename dc_am_ROWS \
     op interface \
-    ports { p_read { I 32 vector } } \
-} "
-}
-
-# Direct connection:
-if {${::AESL::PGuard_autoexp_gen}} {
-eval "cg_default_interface_gen_dc { \
-    id 23 \
-    name p_read1 \
-    type other \
-    dir I \
-    reset_level 1 \
-    sync_rst true \
-    corename dc_p_read1 \
-    op interface \
-    ports { p_read1 { I 32 vector } } \
+    ports { am_ROWS_dout { I 32 vector } am_ROWS_num_data_valid { I 2 vector } am_ROWS_fifo_cap { I 2 vector } am_ROWS_empty_n { I 1 bit } am_ROWS_read { O 1 bit } } \
 } "
 }
 
@@ -98,6 +26,66 @@ eval "cg_default_interface_gen_dc { \
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
     id 27 \
+    name fm_COLS \
+    type fifo \
+    dir I \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_fm_COLS \
+    op interface \
+    ports { fm_COLS_dout { I 32 vector } fm_COLS_num_data_valid { I 2 vector } fm_COLS_fifo_cap { I 2 vector } fm_COLS_empty_n { I 1 bit } fm_COLS_read { O 1 bit } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 28 \
+    name fm_stream2 \
+    type fifo \
+    dir I \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_fm_stream2 \
+    op interface \
+    ports { fm_stream2_dout { I 256 vector } fm_stream2_num_data_valid { I 8 vector } fm_stream2_fifo_cap { I 8 vector } fm_stream2_empty_n { I 1 bit } fm_stream2_read { O 1 bit } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 29 \
+    name idx_stream3 \
+    type fifo \
+    dir I \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_idx_stream3 \
+    op interface \
+    ports { idx_stream3_dout { I 8 vector } idx_stream3_num_data_valid { I 8 vector } idx_stream3_fifo_cap { I 8 vector } idx_stream3_empty_n { I 1 bit } idx_stream3_read { O 1 bit } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 30 \
+    name count_stream4 \
+    type fifo \
+    dir I \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_count_stream4 \
+    op interface \
+    ports { count_stream4_dout { I 8 vector } count_stream4_num_data_valid { I 7 vector } count_stream4_fifo_cap { I 7 vector } count_stream4_empty_n { I 1 bit } count_stream4_read { O 1 bit } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 31 \
     name data_out1 \
     type fifo \
     dir O \
@@ -112,22 +100,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 28 \
-    name am_ROWS_c \
-    type fifo \
-    dir O \
-    reset_level 1 \
-    sync_rst true \
-    corename dc_am_ROWS_c \
-    op interface \
-    ports { am_ROWS_c_din { O 32 vector } am_ROWS_c_num_data_valid { I 2 vector } am_ROWS_c_fifo_cap { I 2 vector } am_ROWS_c_full_n { I 1 bit } am_ROWS_c_write { O 1 bit } } \
-} "
-}
-
-# Direct connection:
-if {${::AESL::PGuard_autoexp_gen}} {
-eval "cg_default_interface_gen_dc { \
-    id 29 \
+    id 32 \
     name fm_COLS_c \
     type fifo \
     dir O \

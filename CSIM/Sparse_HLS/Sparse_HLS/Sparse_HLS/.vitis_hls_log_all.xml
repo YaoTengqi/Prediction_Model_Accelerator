@@ -8,12 +8,14 @@
   <warningLogs>
     <logs>
       <synLog>
-        <logs message="WARNING: [RTGEN 206-101] Design contains AXI ports. Reset is fixed to synchronous and active low." projectName="Sparse_HLS" solutionName="solution1" date="2024-05-22T16:51:44.494+0800" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_91_1/m_axi_sparse_data_BREADY' to 0." projectName="Sparse_HLS" solutionName="solution1" date="2024-05-22T16:51:44.403+0800" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_91_1/m_axi_sparse_data_AWUSER' to 0." projectName="Sparse_HLS" solutionName="solution1" date="2024-05-22T16:51:44.400+0800" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_91_1/m_axi_sparse_data_AWREGION' to 0." projectName="Sparse_HLS" solutionName="solution1" date="2024-05-22T16:51:44.398+0800" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_91_1/m_axi_sparse_data_AWQOS' to 0." projectName="Sparse_HLS" solutionName="solution1" date="2024-05-22T16:51:44.396+0800" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_91_1/m_axi_sparse_data_AWPROT' to 0." projectName="Sparse_HLS" solutionName="solution1" date="2024-05-22T16:51:44.394+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Design contains AXI ports. Reset is fixed to synchronous and active low." projectName="Sparse_HLS" solutionName="solution1" date="2024-05-22T21:11:26.289+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_95_1/m_axi_sparse_data_BREADY' to 0." projectName="Sparse_HLS" solutionName="solution1" date="2024-05-22T21:11:26.171+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_95_1/m_axi_sparse_data_AWUSER' to 0." projectName="Sparse_HLS" solutionName="solution1" date="2024-05-22T21:11:26.170+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_95_1/m_axi_sparse_data_AWREGION' to 0." projectName="Sparse_HLS" solutionName="solution1" date="2024-05-22T21:11:26.169+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_95_1/m_axi_sparse_data_AWQOS' to 0." projectName="Sparse_HLS" solutionName="solution1" date="2024-05-22T21:11:26.168+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_95_1/m_axi_sparse_data_AWPROT' to 0." projectName="Sparse_HLS" solutionName="solution1" date="2024-05-22T21:11:26.167+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_95_1/m_axi_sparse_data_AWCACHE' to 0." projectName="Sparse_HLS" solutionName="solution1" date="2024-05-22T21:11:26.166+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_95_1/m_axi_sparse_data_AWLOCK' to 0." projectName="Sparse_HLS" solutionName="solution1" date="2024-05-22T21:11:26.165+0800" type="Warning"/>
       </synLog>
     </logs>
   </warningLogs>

@@ -101,8 +101,8 @@ set portList {
 	{ output_data_addr3_empty_n sc_in sc_logic 1 signal 3 } 
 	{ output_data_addr3_read sc_out sc_logic 1 signal 3 } 
 	{ ROWS_dout sc_in sc_lv 32 signal 4 } 
-	{ ROWS_num_data_valid sc_in sc_lv 2 signal 4 } 
-	{ ROWS_fifo_cap sc_in sc_lv 2 signal 4 } 
+	{ ROWS_num_data_valid sc_in sc_lv 3 signal 4 } 
+	{ ROWS_fifo_cap sc_in sc_lv 3 signal 4 } 
 	{ ROWS_empty_n sc_in sc_logic 1 signal 4 } 
 	{ ROWS_read sc_out sc_logic 1 signal 4 } 
 	{ COLS_dout sc_in sc_lv 32 signal 5 } 
@@ -183,8 +183,8 @@ set NewPortList {[
  	{ "name": "output_data_addr3_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "output_data_addr3", "role": "empty_n" }} , 
  	{ "name": "output_data_addr3_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "output_data_addr3", "role": "read" }} , 
  	{ "name": "ROWS_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "ROWS", "role": "dout" }} , 
- 	{ "name": "ROWS_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "ROWS", "role": "num_data_valid" }} , 
- 	{ "name": "ROWS_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "ROWS", "role": "fifo_cap" }} , 
+ 	{ "name": "ROWS_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "ROWS", "role": "num_data_valid" }} , 
+ 	{ "name": "ROWS_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "ROWS", "role": "fifo_cap" }} , 
  	{ "name": "ROWS_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "ROWS", "role": "empty_n" }} , 
  	{ "name": "ROWS_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "ROWS", "role": "read" }} , 
  	{ "name": "COLS_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "COLS", "role": "dout" }} , 
@@ -213,28 +213,28 @@ set RtlHierarchyInfo {[
 		"Port" : [
 			{"Name" : "data_out1", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["0"], "DependentChan" : "0", "DependentChanDepth" : "64", "DependentChanType" : "0",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_91_1_fu_124", "Port" : "data_out1", "Inst_start_state" : "3", "Inst_end_state" : "4"}]},
+					{"ID" : "1", "SubInstance" : "grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_95_1_fu_124", "Port" : "data_out1", "Inst_start_state" : "3", "Inst_end_state" : "4"}]},
 			{"Name" : "sparse_data", "Type" : "MAXI", "Direction" : "O",
 				"BlockSignal" : [
 					{"Name" : "sparse_data_blk_n_AW", "Type" : "RtlSignal"},
 					{"Name" : "sparse_data_blk_n_B", "Type" : "RtlSignal"}],
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_91_1_fu_124", "Port" : "sparse_data", "Inst_start_state" : "3", "Inst_end_state" : "4"}]},
+					{"ID" : "1", "SubInstance" : "grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_95_1_fu_124", "Port" : "sparse_data", "Inst_start_state" : "3", "Inst_end_state" : "4"}]},
 			{"Name" : "outputs", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["0"], "DependentChan" : "0", "DependentChanDepth" : "4", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "outputs_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "output_data_addr3", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["0"], "DependentChan" : "0", "DependentChanDepth" : "4", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "output_data_addr3_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "ROWS", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["0"], "DependentChan" : "0", "DependentChanDepth" : "2", "DependentChanType" : "2",
+			{"Name" : "ROWS", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["0"], "DependentChan" : "0", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "ROWS_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "COLS", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["0"], "DependentChan" : "0", "DependentChanDepth" : "2", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "COLS_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "sparse_flag", "Type" : "Vld", "Direction" : "O"}]},
-	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_91_1_fu_124", "Parent" : "0", "Child" : ["2"],
-		"CDFG" : "store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_91_1",
+	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_95_1_fu_124", "Parent" : "0", "Child" : ["2"],
+		"CDFG" : "store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_95_1",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
@@ -251,16 +251,16 @@ set RtlHierarchyInfo {[
 			{"Name" : "sparse_data", "Type" : "MAXI", "Direction" : "O",
 				"BlockSignal" : [
 					{"Name" : "sparse_data_blk_n_W", "Type" : "RtlSignal"}]},
-			{"Name" : "sext_ln91", "Type" : "None", "Direction" : "I"},
+			{"Name" : "sext_ln95", "Type" : "None", "Direction" : "I"},
 			{"Name" : "loop_num", "Type" : "None", "Direction" : "I"},
 			{"Name" : "data_out1", "Type" : "Fifo", "Direction" : "I",
 				"BlockSignal" : [
 					{"Name" : "data_out1_blk_n", "Type" : "RtlSignal"}]}],
 		"Loop" : [
-			{"Name" : "VITIS_LOOP_91_1", "PipelineType" : "UPC",
+			{"Name" : "VITIS_LOOP_95_1", "PipelineType" : "UPC",
 				"LoopDec" : {"FSMBitwidth" : "1", "FirstState" : "ap_ST_fsm_pp0_stage0", "FirstStateIter" : "ap_enable_reg_pp0_iter0", "FirstStateBlock" : "ap_block_pp0_stage0_subdone", "LastState" : "ap_ST_fsm_pp0_stage0", "LastStateIter" : "ap_enable_reg_pp0_iter2", "LastStateBlock" : "ap_block_pp0_stage0_subdone", "QuitState" : "ap_ST_fsm_pp0_stage0", "QuitStateIter" : "ap_enable_reg_pp0_iter1", "QuitStateBlock" : "ap_block_pp0_stage0_subdone", "OneDepthLoop" : "0", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
-	{"ID" : "2", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_91_1_fu_124.flow_control_loop_pipe_sequential_init_U", "Parent" : "1"},
-	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mul_32s_32s_32_1_1_U34", "Parent" : "0"}]}
+	{"ID" : "2", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_95_1_fu_124.flow_control_loop_pipe_sequential_init_U", "Parent" : "1"},
+	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mul_32s_32s_32_1_1_U37", "Parent" : "0"}]}
 
 
 set ArgLastReadFirstWriteLatency {
@@ -272,9 +272,9 @@ set ArgLastReadFirstWriteLatency {
 		ROWS {Type I LastRead 0 FirstWrite -1}
 		COLS {Type I LastRead 0 FirstWrite -1}
 		sparse_flag {Type O LastRead -1 FirstWrite 39}}
-	store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_91_1 {
+	store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_95_1 {
 		sparse_data {Type O LastRead -1 FirstWrite 2}
-		sext_ln91 {Type I LastRead 0 FirstWrite -1}
+		sext_ln95 {Type I LastRead 0 FirstWrite -1}
 		loop_num {Type I LastRead 0 FirstWrite -1}
 		data_out1 {Type I LastRead 1 FirstWrite -1}}}
 
@@ -293,7 +293,7 @@ set Spec2ImplPortList {
 	 { m_axi {  { m_axi_sparse_data_AWVALID VALID 1 1 }  { m_axi_sparse_data_AWREADY READY 0 1 }  { m_axi_sparse_data_AWADDR ADDR 1 64 }  { m_axi_sparse_data_AWID ID 1 1 }  { m_axi_sparse_data_AWLEN SIZE 1 32 }  { m_axi_sparse_data_AWSIZE BURST 1 3 }  { m_axi_sparse_data_AWBURST LOCK 1 2 }  { m_axi_sparse_data_AWLOCK CACHE 1 2 }  { m_axi_sparse_data_AWCACHE PROT 1 4 }  { m_axi_sparse_data_AWPROT QOS 1 3 }  { m_axi_sparse_data_AWQOS REGION 1 4 }  { m_axi_sparse_data_AWREGION USER 1 4 }  { m_axi_sparse_data_AWUSER DATA 1 1 }  { m_axi_sparse_data_WVALID VALID 1 1 }  { m_axi_sparse_data_WREADY READY 0 1 }  { m_axi_sparse_data_WDATA FIFONUM 1 256 }  { m_axi_sparse_data_WSTRB STRB 1 32 }  { m_axi_sparse_data_WLAST LAST 1 1 }  { m_axi_sparse_data_WID ID 1 1 }  { m_axi_sparse_data_WUSER DATA 1 1 }  { m_axi_sparse_data_ARVALID VALID 1 1 }  { m_axi_sparse_data_ARREADY READY 0 1 }  { m_axi_sparse_data_ARADDR ADDR 1 64 }  { m_axi_sparse_data_ARID ID 1 1 }  { m_axi_sparse_data_ARLEN SIZE 1 32 }  { m_axi_sparse_data_ARSIZE BURST 1 3 }  { m_axi_sparse_data_ARBURST LOCK 1 2 }  { m_axi_sparse_data_ARLOCK CACHE 1 2 }  { m_axi_sparse_data_ARCACHE PROT 1 4 }  { m_axi_sparse_data_ARPROT QOS 1 3 }  { m_axi_sparse_data_ARQOS REGION 1 4 }  { m_axi_sparse_data_ARREGION USER 1 4 }  { m_axi_sparse_data_ARUSER DATA 1 1 }  { m_axi_sparse_data_RVALID VALID 0 1 }  { m_axi_sparse_data_RREADY READY 1 1 }  { m_axi_sparse_data_RDATA FIFONUM 0 256 }  { m_axi_sparse_data_RLAST LAST 0 1 }  { m_axi_sparse_data_RID ID 0 1 }  { m_axi_sparse_data_RFIFONUM LEN 0 9 }  { m_axi_sparse_data_RUSER DATA 0 1 }  { m_axi_sparse_data_RRESP RESP 0 2 }  { m_axi_sparse_data_BVALID VALID 0 1 }  { m_axi_sparse_data_BREADY READY 1 1 }  { m_axi_sparse_data_BRESP RESP 0 2 }  { m_axi_sparse_data_BID ID 0 1 }  { m_axi_sparse_data_BUSER DATA 0 1 } } }
 	outputs { ap_fifo {  { outputs_dout fifo_port_we 0 64 }  { outputs_num_data_valid fifo_status_num_data_valid 0 3 }  { outputs_fifo_cap fifo_update 0 3 }  { outputs_empty_n fifo_status 0 1 }  { outputs_read fifo_data 1 1 } } }
 	output_data_addr3 { ap_fifo {  { output_data_addr3_dout fifo_port_we 0 32 }  { output_data_addr3_num_data_valid fifo_status_num_data_valid 0 3 }  { output_data_addr3_fifo_cap fifo_update 0 3 }  { output_data_addr3_empty_n fifo_status 0 1 }  { output_data_addr3_read fifo_data 1 1 } } }
-	ROWS { ap_fifo {  { ROWS_dout fifo_port_we 0 32 }  { ROWS_num_data_valid fifo_status_num_data_valid 0 2 }  { ROWS_fifo_cap fifo_update 0 2 }  { ROWS_empty_n fifo_status 0 1 }  { ROWS_read fifo_data 1 1 } } }
+	ROWS { ap_fifo {  { ROWS_dout fifo_port_we 0 32 }  { ROWS_num_data_valid fifo_status_num_data_valid 0 3 }  { ROWS_fifo_cap fifo_update 0 3 }  { ROWS_empty_n fifo_status 0 1 }  { ROWS_read fifo_data 1 1 } } }
 	COLS { ap_fifo {  { COLS_dout fifo_port_we 0 32 }  { COLS_num_data_valid fifo_status_num_data_valid 0 2 }  { COLS_fifo_cap fifo_update 0 2 }  { COLS_empty_n fifo_status 0 1 }  { COLS_read fifo_data 1 1 } } }
 	sparse_flag { ap_vld {  { sparse_flag out_data 1 1 }  { sparse_flag_ap_vld out_vld 1 1 } } }
 }

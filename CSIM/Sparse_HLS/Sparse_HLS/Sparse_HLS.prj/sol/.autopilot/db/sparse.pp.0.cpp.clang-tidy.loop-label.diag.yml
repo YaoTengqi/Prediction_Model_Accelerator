@@ -1527,84 +1527,93 @@ Diagnostics:
         Length:          0
         ReplacementText: 'VITIS_LOOP_710_1: '
   - DiagnosticName:  xilinx-label-all-loops
-    Message:         'Added loop label VITIS_LOOP_22_1:  '
-    FileOffset:      22
+    Message:         'Added loop label VITIS_LOOP_23_1:  '
+    FileOffset:      23
     FilePath:        /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/include/helpers.hpp
     Replacements:    
       - FilePath:        /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp
-        Offset:          2795509
+        Offset:          2795632
         Length:          0
-        ReplacementText: 'VITIS_LOOP_22_1: '
+        ReplacementText: 'VITIS_LOOP_23_1: '
   - DiagnosticName:  xilinx-label-all-loops
-    Message:         'Added loop label VITIS_LOOP_25_2:  '
-    FileOffset:      25
+    Message:         'Added loop label VITIS_LOOP_26_2:  '
+    FileOffset:      26
     FilePath:        /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/include/helpers.hpp
     Replacements:    
       - FilePath:        /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp
-        Offset:          2795595
+        Offset:          2795718
         Length:          0
-        ReplacementText: 'VITIS_LOOP_25_2: '
+        ReplacementText: 'VITIS_LOOP_26_2: '
   - DiagnosticName:  xilinx-label-all-loops
-    Message:         'Added loop label VITIS_LOOP_29_3:  '
-    FileOffset:      29
+    Message:         'Added loop label VITIS_LOOP_30_3:  '
+    FileOffset:      30
     FilePath:        /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/include/helpers.hpp
     Replacements:    
       - FilePath:        /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp
-        Offset:          2795702
+        Offset:          2795825
         Length:          0
-        ReplacementText: 'VITIS_LOOP_29_3: '
+        ReplacementText: 'VITIS_LOOP_30_3: '
   - DiagnosticName:  xilinx-label-all-loops
-    Message:         'Added loop label VITIS_LOOP_33_4:  '
-    FileOffset:      33
+    Message:         'Added loop label VITIS_LOOP_31_4:  '
+    FileOffset:      31
     FilePath:        /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/include/helpers.hpp
     Replacements:    
       - FilePath:        /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp
-        Offset:          2795834
+        Offset:          2795881
         Length:          0
-        ReplacementText: 'VITIS_LOOP_33_4: '
+        ReplacementText: 'VITIS_LOOP_31_4: '
   - DiagnosticName:  xilinx-label-all-loops
-    Message:         'Added loop label VITIS_LOOP_55_1:  '
-    FileOffset:      55
+    Message:         'Added loop label VITIS_LOOP_35_5:  '
+    FileOffset:      35
     FilePath:        /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/include/helpers.hpp
     Replacements:    
       - FilePath:        /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp
-        Offset:          2796433
+        Offset:          2796015
         Length:          0
-        ReplacementText: 'VITIS_LOOP_55_1: '
+        ReplacementText: 'VITIS_LOOP_35_5: '
   - DiagnosticName:  xilinx-label-all-loops
-    Message:         'Added loop label VITIS_LOOP_57_2:  '
-    FileOffset:      57
+    Message:         'Added loop label VITIS_LOOP_60_1:  '
+    FileOffset:      60
     FilePath:        /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/include/helpers.hpp
     Replacements:    
       - FilePath:        /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp
-        Offset:          2796513
+        Offset:          2796753
         Length:          0
-        ReplacementText: 'VITIS_LOOP_57_2: '
+        ReplacementText: 'VITIS_LOOP_60_1: '
   - DiagnosticName:  xilinx-label-all-loops
-    Message:         'Added loop label VITIS_LOOP_62_3:  '
-    FileOffset:      62
+    Message:         'Added loop label VITIS_LOOP_61_2:  '
+    FileOffset:      61
     FilePath:        /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/include/helpers.hpp
     Replacements:    
       - FilePath:        /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp
-        Offset:          2796684
+        Offset:          2796809
         Length:          0
-        ReplacementText: 'VITIS_LOOP_62_3: '
+        ReplacementText: 'VITIS_LOOP_61_2: '
   - DiagnosticName:  xilinx-label-all-loops
-    Message:         'Added loop label VITIS_LOOP_65_4:  '
+    Message:         'Added loop label VITIS_LOOP_65_3:  '
     FileOffset:      65
     FilePath:        /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/include/helpers.hpp
     Replacements:    
       - FilePath:        /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp
-        Offset:          2796854
+        Offset:          2796968
         Length:          0
-        ReplacementText: 'VITIS_LOOP_65_4: '
+        ReplacementText: 'VITIS_LOOP_65_3: '
   - DiagnosticName:  xilinx-label-all-loops
-    Message:         'Added loop label VITIS_LOOP_91_1:  '
-    FileOffset:      91
+    Message:         'Added loop label VITIS_LOOP_69_4:  '
+    FileOffset:      69
     FilePath:        /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/include/helpers.hpp
     Replacements:    
       - FilePath:        /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp
-        Offset:          2797563
+        Offset:          2797118
         Length:          0
-        ReplacementText: 'VITIS_LOOP_91_1: '
+        ReplacementText: 'VITIS_LOOP_69_4: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_95_1:  '
+    FileOffset:      95
+    FilePath:        /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/include/helpers.hpp
+    Replacements:    
+      - FilePath:        /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp
+        Offset:          2797798
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_95_1: '
 ...

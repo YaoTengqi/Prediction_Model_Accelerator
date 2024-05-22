@@ -30,7 +30,7 @@ int main()
 		   output_data.data(),
 		   sparse_flag);
 
-	int err = memcmp(&output_data[input_data_addr3], &golden[input_data_addr3], am_ROWS * am_COLS * sizeof(t_DataType_IN));
+	int err = memcmp(&output_data[input_data_addr3], &golden[input_data_addr3], fm_ROWS * fm_COLS * sizeof(t_DataType_IN));
 
 	if (err == 0 && sparse_flag)
 	{

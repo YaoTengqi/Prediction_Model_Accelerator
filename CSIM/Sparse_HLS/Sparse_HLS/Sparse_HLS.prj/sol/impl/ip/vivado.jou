@@ -2,12 +2,12 @@
 # Vivado v2022.2 (64-bit)
 # SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
 # IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
-# Start of session at: Wed May 22 16:53:15 2024
-# Process ID: 17407
+# Start of session at: Wed May 22 21:11:28 2024
+# Process ID: 930
 # Current directory: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/impl/ip
 # Command line: vivado -notrace -mode batch -source run_ippack.tcl
 # Log file: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/impl/ip/vivado.log
 # Journal file: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/impl/ip/vivado.jou
-# Running On: ytq, OS: Linux, CPU Frequency: 4617.709 MHz, CPU Physical cores: 8, Host memory: 67255 MB
+# Running On: ytq, OS: Linux, CPU Frequency: 4584.303 MHz, CPU Physical cores: 8, Host memory: 67255 MB
 #-----------------------------------------------------------
 source run_ippack.tcl -notrace

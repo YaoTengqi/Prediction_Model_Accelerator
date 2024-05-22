@@ -34,8 +34,8 @@
         <Resources>
             <BRAM_18K>46</BRAM_18K>
             <DSP>9</DSP>
-            <FF>4673</FF>
-            <LUT>6103</LUT>
+            <FF>5015</FF>
+            <LUT>6422</LUT>
             <URAM>0</URAM>
         </Resources>
         <AvailableResources>
@@ -816,40 +816,40 @@
                     <InstName>entry_proc_U0</InstName>
                     <ModuleName>entry_proc</ModuleName>
                     <IsCompInst>true</IsCompInst>
-                    <ID>202</ID>
+                    <ID>224</ID>
                 </Instance>
                 <Instance>
-                    <InstName>load_ap_uint_256_ap_int_8_32u_U0</InstName>
-                    <ModuleName>load_ap_uint_256_ap_int_8_32u_s</ModuleName>
+                    <InstName>load_ap_uint_256_ap_int_8_ap_int_8_32u_U0</InstName>
+                    <ModuleName>load_ap_uint_256_ap_int_8_ap_int_8_32u_s</ModuleName>
                     <IsCompInst>true</IsCompInst>
-                    <ID>212</ID>
-                    <BindInstances>am_ram_V_U mul_32s_32s_32_1_1_U5 mul_32s_32s_32_1_1_U6 add_ln22_fu_412_p2 add_ln22_1_fu_479_p2 add_ln25_fu_501_p2 add_ln25_1_fu_543_p2 add_ln39_fu_577_p2 add_ln33_fu_912_p2 count_2_fu_969_p2 idx_count_1_fu_981_p2</BindInstances>
+                    <ID>234</ID>
+                    <BindInstances>am_ram_V_U fm_ram_V_U mul_32s_32s_32_1_1_U5 mul_32s_32s_32_1_1_U6 add_ln23_fu_474_p2 add_ln23_1_fu_540_p2 add_ln26_fu_562_p2 add_ln26_1_fu_604_p2 block_4_fu_637_p2 add_ln31_fu_665_p2 add_ln35_fu_994_p2 count_2_fu_1071_p2 add_ln39_fu_1056_p2</BindInstances>
                 </Instance>
                 <Instance>
                     <InstName>mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0</InstName>
                     <ModuleName>mul_ap_uint_256_ap_int_8_ap_int_8_32u_s</ModuleName>
                     <IsCompInst>true</IsCompInst>
-                    <ID>238</ID>
-                    <BindInstances>block_2_fu_721_p2 add_ln57_fu_749_p2 add_ln62_fu_776_p2 add_ln63_fu_782_p2 add_ln64_fu_870_p2 add_ln66_fu_1194_p2 add_ln66_1_fu_1200_p2 add_ln66_2_fu_1206_p2 add_ln66_3_fu_1212_p2 add_ln66_4_fu_1218_p2 add_ln66_5_fu_1224_p2 add_ln66_6_fu_1230_p2 add_ln66_7_fu_1236_p2 add_ln66_8_fu_1242_p2 add_ln66_9_fu_1248_p2 add_ln66_10_fu_1254_p2 add_ln66_11_fu_1260_p2 add_ln66_12_fu_1266_p2 add_ln66_13_fu_1272_p2 add_ln66_14_fu_1278_p2 add_ln66_15_fu_1284_p2 add_ln66_16_fu_1290_p2 add_ln66_17_fu_1296_p2 add_ln66_18_fu_1302_p2 add_ln66_19_fu_1308_p2 add_ln66_20_fu_1314_p2 add_ln66_21_fu_1320_p2 add_ln66_22_fu_1326_p2 add_ln66_23_fu_1332_p2 add_ln66_24_fu_1338_p2 add_ln66_25_fu_1344_p2 add_ln66_26_fu_1350_p2 add_ln66_27_fu_1356_p2 add_ln66_28_fu_1362_p2 add_ln66_29_fu_1368_p2 add_ln66_30_fu_1374_p2 add_ln66_31_fu_1380_p2 idx_ram_base_1_fu_792_p2</BindInstances>
+                    <ID>260</ID>
+                    <BindInstances>block_2_fu_646_p2 row_1_fu_657_p2 count_1_fu_672_p2 add_ln71_fu_992_p2 add_ln71_1_fu_998_p2 add_ln71_2_fu_1004_p2 add_ln71_3_fu_1010_p2 add_ln71_4_fu_1016_p2 add_ln71_5_fu_1022_p2 add_ln71_6_fu_1028_p2 add_ln71_7_fu_1034_p2 add_ln71_8_fu_1040_p2 add_ln71_9_fu_1046_p2 add_ln71_10_fu_1052_p2 add_ln71_11_fu_1058_p2 add_ln71_12_fu_1064_p2 add_ln71_13_fu_1070_p2 add_ln71_14_fu_1076_p2 add_ln71_15_fu_1082_p2 add_ln71_16_fu_1088_p2 add_ln71_17_fu_1094_p2 add_ln71_18_fu_1100_p2 add_ln71_19_fu_1106_p2 add_ln71_20_fu_1112_p2 add_ln71_21_fu_1118_p2 add_ln71_22_fu_1124_p2 add_ln71_23_fu_1130_p2 add_ln71_24_fu_1136_p2 add_ln71_25_fu_1142_p2 add_ln71_26_fu_1148_p2 add_ln71_27_fu_1154_p2 add_ln71_28_fu_1160_p2 add_ln71_29_fu_1166_p2 add_ln71_30_fu_1172_p2 add_ln71_31_fu_1178_p2</BindInstances>
                 </Instance>
                 <Instance>
                     <InstName>store_ap_uint_256_ap_int_8_ap_int_8_32u_U0</InstName>
                     <ModuleName>store_ap_uint_256_ap_int_8_ap_int_8_32u_s</ModuleName>
                     <IsCompInst>true</IsCompInst>
-                    <ID>250</ID>
+                    <ID>271</ID>
                     <InstancesList>
                         <Instance>
-                            <InstName>grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_91_1_fu_124</InstName>
-                            <ModuleName>store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_91_1</ModuleName>
+                            <InstName>grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_95_1_fu_124</InstName>
+                            <ModuleName>store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_95_1</ModuleName>
                             <IsCompInst>true</IsCompInst>
                             <ID>124</ID>
-                            <BindInstances>add_ln91_fu_104_p2</BindInstances>
+                            <BindInstances>add_ln95_fu_104_p2</BindInstances>
                         </Instance>
                     </InstancesList>
-                    <BindInstances>mul_32s_32s_32_1_1_U34 add_ln91_fu_172_p2</BindInstances>
+                    <BindInstances>mul_32s_32s_32_1_1_U37 add_ln95_fu_172_p2</BindInstances>
                 </Instance>
             </InstancesList>
-            <BindInstances>outputs_c_U fm_COLS_c_U am_ROWS_c_U output_data_addr3_c_U data_out_U fm_ram_V_U idx_ram_U count_ram_U am_ROWS_c9_channel_U fm_COLS_c10_channel_U</BindInstances>
+            <BindInstances>outputs_c_U fm_COLS_c9_U fm_COLS_c_U fm_ROWS_c_U am_ROWS_c_U output_data_addr3_c_U data_out_U fm_stream_U idx_stream_U count_stream_U</BindInstances>
         </TopModule>
     </RTLDesignHierarchy>
     <ModuleInformation>
@@ -893,13 +893,15 @@
             </AreaEstimates>
         </Module>
         <Module>
-            <Name>load_ap_uint_256_ap_int_8_32u_s</Name>
+            <Name>load_ap_uint_256_ap_int_8_ap_int_8_32u_s</Name>
             <Loops>
-                <VITIS_LOOP_22_1/>
-                <VITIS_LOOP_25_2/>
-                <VITIS_LOOP_29_3>
-                    <VITIS_LOOP_33_4/>
-                </VITIS_LOOP_29_3>
+                <VITIS_LOOP_23_1/>
+                <VITIS_LOOP_26_2/>
+                <VITIS_LOOP_30_3>
+                    <VITIS_LOOP_31_4>
+                        <VITIS_LOOP_35_5/>
+                    </VITIS_LOOP_31_4>
+                </VITIS_LOOP_30_3>
             </Loops>
             <PerformanceEstimates>
                 <SummaryOfTimingAnalysis>
@@ -919,8 +921,8 @@
                     <PipelineType>no</PipelineType>
                 </SummaryOfOverallLatency>
                 <SummaryOfLoopLatency>
-                    <VITIS_LOOP_22_1>
-                        <Name>VITIS_LOOP_22_1</Name>
+                    <VITIS_LOOP_23_1>
+                        <Name>VITIS_LOOP_23_1</Name>
                         <Slack>7.30</Slack>
                         <TripCount>undef</TripCount>
                         <Latency>undef</Latency>
@@ -929,9 +931,9 @@
                         <PipelineDepth>3</PipelineDepth>
                         <PipelineType>no</PipelineType>
                         <InstanceList/>
-                    </VITIS_LOOP_22_1>
-                    <VITIS_LOOP_25_2>
-                        <Name>VITIS_LOOP_25_2</Name>
+                    </VITIS_LOOP_23_1>
+                    <VITIS_LOOP_26_2>
+                        <Name>VITIS_LOOP_26_2</Name>
                         <Slack>7.30</Slack>
                         <TripCount>undef</TripCount>
                         <Latency>undef</Latency>
@@ -940,9 +942,9 @@
                         <PipelineDepth>3</PipelineDepth>
                         <PipelineType>no</PipelineType>
                         <InstanceList/>
-                    </VITIS_LOOP_25_2>
-                    <VITIS_LOOP_29_3>
-                        <Name>VITIS_LOOP_29_3</Name>
+                    </VITIS_LOOP_26_2>
+                    <VITIS_LOOP_30_3>
+                        <Name>VITIS_LOOP_30_3</Name>
                         <Slack>7.30</Slack>
                         <TripCount>undef</TripCount>
                         <Latency>undef</Latency>
@@ -951,32 +953,43 @@
                         <PipelineDepth>undef</PipelineDepth>
                         <PipelineType>no</PipelineType>
                         <InstanceList/>
-                        <VITIS_LOOP_33_4>
-                            <Name>VITIS_LOOP_33_4</Name>
+                        <VITIS_LOOP_31_4>
+                            <Name>VITIS_LOOP_31_4</Name>
                             <Slack>7.30</Slack>
                             <TripCount>undef</TripCount>
                             <Latency>undef</Latency>
                             <AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
-                            <IterationLatency>1</IterationLatency>
-                            <PipelineDepth>1</PipelineDepth>
+                            <IterationLatency>undef</IterationLatency>
+                            <PipelineDepth>undef</PipelineDepth>
                             <PipelineType>no</PipelineType>
                             <InstanceList/>
-                        </VITIS_LOOP_33_4>
-                    </VITIS_LOOP_29_3>
+                            <VITIS_LOOP_35_5>
+                                <Name>VITIS_LOOP_35_5</Name>
+                                <Slack>7.30</Slack>
+                                <TripCount>undef</TripCount>
+                                <Latency>undef</Latency>
+                                <AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
+                                <IterationLatency>2</IterationLatency>
+                                <PipelineDepth>2</PipelineDepth>
+                                <PipelineType>no</PipelineType>
+                                <InstanceList/>
+                            </VITIS_LOOP_35_5>
+                        </VITIS_LOOP_31_4>
+                    </VITIS_LOOP_30_3>
                 </SummaryOfLoopLatency>
             </PerformanceEstimates>
             <AreaEstimates>
                 <Resources>
-                    <BRAM_18K>15</BRAM_18K>
+                    <BRAM_18K>16</BRAM_18K>
                     <AVAIL_BRAM>624</AVAIL_BRAM>
                     <UTIL_BRAM>2</UTIL_BRAM>
                     <DSP>6</DSP>
                     <AVAIL_DSP>1728</AVAIL_DSP>
                     <UTIL_DSP>~0</UTIL_DSP>
-                    <FF>1418</FF>
+                    <FF>1451</FF>
                     <AVAIL_FF>460800</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>1250</LUT>
+                    <LUT>1354</LUT>
                     <AVAIL_LUT>230400</AVAIL_LUT>
                     <UTIL_LUT>~0</UTIL_LUT>
                     <URAM>0</URAM>
@@ -985,27 +998,29 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="storage" BRAM="15" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="am_ram_V_U" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:18" URAM="0" VARIABLE="am_ram_V"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="3" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="mul" PRAGMA="" RTLNAME="mul_32s_32s_32_1_1_U5" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:20" URAM="0" VARIABLE="mul_ln20"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="3" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="mul" PRAGMA="" RTLNAME="mul_32s_32s_32_1_1_U6" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:21" URAM="0" VARIABLE="mul_ln21"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln22_fu_412_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:22" URAM="0" VARIABLE="add_ln22"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_22_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln22_1_fu_479_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:22" URAM="0" VARIABLE="add_ln22_1"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln25_fu_501_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:25" URAM="0" VARIABLE="add_ln25"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_25_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln25_1_fu_543_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:25" URAM="0" VARIABLE="add_ln25_1"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_29_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln39_fu_577_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:39" URAM="0" VARIABLE="add_ln39"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_33_4" OPTYPE="add" PRAGMA="" RTLNAME="add_ln33_fu_912_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:33" URAM="0" VARIABLE="add_ln33"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_33_4" OPTYPE="add" PRAGMA="" RTLNAME="count_2_fu_969_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:35" URAM="0" VARIABLE="count_2"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_33_4" OPTYPE="add" PRAGMA="" RTLNAME="idx_count_1_fu_981_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:36" URAM="0" VARIABLE="idx_count_1"/>
+                <BindNode BINDTYPE="storage" BRAM="8" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="am_ram_V_U" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:18" URAM="0" VARIABLE="am_ram_V"/>
+                <BindNode BINDTYPE="storage" BRAM="8" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="fm_ram_V_U" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:19" URAM="0" VARIABLE="fm_ram_V"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="3" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="mul" PRAGMA="" RTLNAME="mul_32s_32s_32_1_1_U5" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:21" URAM="0" VARIABLE="mul_ln21"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="3" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="mul" PRAGMA="" RTLNAME="mul_32s_32s_32_1_1_U6" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:22" URAM="0" VARIABLE="mul_ln22"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln23_fu_474_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:23" URAM="0" VARIABLE="add_ln23"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_23_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln23_1_fu_540_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:23" URAM="0" VARIABLE="add_ln23_1"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln26_fu_562_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:26" URAM="0" VARIABLE="add_ln26"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_26_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln26_1_fu_604_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:26" URAM="0" VARIABLE="add_ln26_1"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_30_3" OPTYPE="add" PRAGMA="" RTLNAME="block_4_fu_637_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:30" URAM="0" VARIABLE="block_4"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_31_4" OPTYPE="add" PRAGMA="" RTLNAME="add_ln31_fu_665_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:31" URAM="0" VARIABLE="add_ln31"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_35_5" OPTYPE="add" PRAGMA="" RTLNAME="add_ln35_fu_994_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:35" URAM="0" VARIABLE="add_ln35"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_35_5" OPTYPE="add" PRAGMA="" RTLNAME="count_2_fu_1071_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:37" URAM="0" VARIABLE="count_2"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_35_5" OPTYPE="add" PRAGMA="" RTLNAME="add_ln39_fu_1056_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:39" URAM="0" VARIABLE="add_ln39"/>
             </BindNodes>
         </Module>
         <Module>
             <Name>mul_ap_uint_256_ap_int_8_ap_int_8_32u_s</Name>
             <Loops>
-                <VITIS_LOOP_55_1>
-                    <VITIS_LOOP_57_2>
-                        <VITIS_LOOP_62_3/>
-                    </VITIS_LOOP_57_2>
-                </VITIS_LOOP_55_1>
+                <VITIS_LOOP_60_1>
+                    <VITIS_LOOP_61_2>
+                        <VITIS_LOOP_65_3/>
+                    </VITIS_LOOP_61_2>
+                </VITIS_LOOP_60_1>
             </Loops>
             <PerformanceEstimates>
                 <SummaryOfTimingAnalysis>
@@ -1025,8 +1040,8 @@
                     <PipelineType>no</PipelineType>
                 </SummaryOfOverallLatency>
                 <SummaryOfLoopLatency>
-                    <VITIS_LOOP_55_1>
-                        <Name>VITIS_LOOP_55_1</Name>
+                    <VITIS_LOOP_60_1>
+                        <Name>VITIS_LOOP_60_1</Name>
                         <Slack>7.30</Slack>
                         <TripCount>undef</TripCount>
                         <Latency>undef</Latency>
@@ -1035,23 +1050,23 @@
                         <PipelineDepth>undef</PipelineDepth>
                         <PipelineType>no</PipelineType>
                         <InstanceList/>
-                        <VITIS_LOOP_57_2>
-                            <Name>VITIS_LOOP_57_2</Name>
+                        <VITIS_LOOP_61_2>
+                            <Name>VITIS_LOOP_61_2</Name>
                             <Slack>7.30</Slack>
                             <TripCount>undef</TripCount>
                             <Latency>undef</Latency>
                             <AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
                             <IterationLatency>
                                 <range>
-                                    <min>3</min>
-                                    <max>768</max>
+                                    <min>2</min>
+                                    <max>257</max>
                                 </range>
                             </IterationLatency>
-                            <PipelineDepth>3 ~ 768</PipelineDepth>
+                            <PipelineDepth>2 ~ 257</PipelineDepth>
                             <PipelineType>no</PipelineType>
                             <InstanceList/>
-                            <VITIS_LOOP_62_3>
-                                <Name>VITIS_LOOP_62_3</Name>
+                            <VITIS_LOOP_65_3>
+                                <Name>VITIS_LOOP_65_3</Name>
                                 <Slack>7.30</Slack>
                                 <TripCount>
                                     <range>
@@ -1059,23 +1074,23 @@
                                         <max>255</max>
                                     </range>
                                 </TripCount>
-                                <Latency>0 ~ 765</Latency>
-                                <AbsoluteTimeLatency>0 ns ~ 7.650 us</AbsoluteTimeLatency>
-                                <IterationLatency>3</IterationLatency>
-                                <PipelineDepth>3</PipelineDepth>
+                                <Latency>0 ~ 255</Latency>
+                                <AbsoluteTimeLatency>0 ns ~ 2.550 us</AbsoluteTimeLatency>
+                                <IterationLatency>1</IterationLatency>
+                                <PipelineDepth>1</PipelineDepth>
                                 <PipelineType>no</PipelineType>
                                 <InstanceList/>
-                            </VITIS_LOOP_62_3>
-                        </VITIS_LOOP_57_2>
-                    </VITIS_LOOP_55_1>
+                            </VITIS_LOOP_65_3>
+                        </VITIS_LOOP_61_2>
+                    </VITIS_LOOP_60_1>
                 </SummaryOfLoopLatency>
             </PerformanceEstimates>
             <AreaEstimates>
                 <Resources>
-                    <FF>487</FF>
+                    <FF>454</FF>
                     <AVAIL_FF>460800</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>1095</LUT>
+                    <LUT>1035</LUT>
                     <AVAIL_LUT>230400</AVAIL_LUT>
                     <UTIL_LUT>~0</UTIL_LUT>
                     <BRAM_18K>0</BRAM_18K>
@@ -1090,50 +1105,47 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_55_1" OPTYPE="add" PRAGMA="" RTLNAME="block_2_fu_721_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:55" URAM="0" VARIABLE="block_2"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_57_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln57_fu_749_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:57" URAM="0" VARIABLE="add_ln57"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_62_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln62_fu_776_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:62" URAM="0" VARIABLE="add_ln62"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_62_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln63_fu_782_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:63" URAM="0" VARIABLE="add_ln63"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_62_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln64_fu_870_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:64" URAM="0" VARIABLE="add_ln64"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_62_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln66_fu_1194_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:66" URAM="0" VARIABLE="add_ln66"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_62_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln66_1_fu_1200_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:66" URAM="0" VARIABLE="add_ln66_1"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_62_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln66_2_fu_1206_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:66" URAM="0" VARIABLE="add_ln66_2"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_62_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln66_3_fu_1212_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:66" URAM="0" VARIABLE="add_ln66_3"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_62_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln66_4_fu_1218_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:66" URAM="0" VARIABLE="add_ln66_4"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_62_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln66_5_fu_1224_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:66" URAM="0" VARIABLE="add_ln66_5"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_62_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln66_6_fu_1230_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:66" URAM="0" VARIABLE="add_ln66_6"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_62_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln66_7_fu_1236_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:66" URAM="0" VARIABLE="add_ln66_7"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_62_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln66_8_fu_1242_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:66" URAM="0" VARIABLE="add_ln66_8"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_62_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln66_9_fu_1248_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:66" URAM="0" VARIABLE="add_ln66_9"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_62_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln66_10_fu_1254_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:66" URAM="0" VARIABLE="add_ln66_10"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_62_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln66_11_fu_1260_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:66" URAM="0" VARIABLE="add_ln66_11"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_62_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln66_12_fu_1266_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:66" URAM="0" VARIABLE="add_ln66_12"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_62_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln66_13_fu_1272_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:66" URAM="0" VARIABLE="add_ln66_13"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_62_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln66_14_fu_1278_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:66" URAM="0" VARIABLE="add_ln66_14"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_62_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln66_15_fu_1284_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:66" URAM="0" VARIABLE="add_ln66_15"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_62_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln66_16_fu_1290_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:66" URAM="0" VARIABLE="add_ln66_16"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_62_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln66_17_fu_1296_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:66" URAM="0" VARIABLE="add_ln66_17"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_62_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln66_18_fu_1302_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:66" URAM="0" VARIABLE="add_ln66_18"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_62_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln66_19_fu_1308_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:66" URAM="0" VARIABLE="add_ln66_19"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_62_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln66_20_fu_1314_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:66" URAM="0" VARIABLE="add_ln66_20"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_62_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln66_21_fu_1320_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:66" URAM="0" VARIABLE="add_ln66_21"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_62_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln66_22_fu_1326_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:66" URAM="0" VARIABLE="add_ln66_22"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_62_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln66_23_fu_1332_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:66" URAM="0" VARIABLE="add_ln66_23"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_62_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln66_24_fu_1338_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:66" URAM="0" VARIABLE="add_ln66_24"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_62_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln66_25_fu_1344_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:66" URAM="0" VARIABLE="add_ln66_25"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_62_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln66_26_fu_1350_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:66" URAM="0" VARIABLE="add_ln66_26"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_62_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln66_27_fu_1356_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:66" URAM="0" VARIABLE="add_ln66_27"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_62_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln66_28_fu_1362_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:66" URAM="0" VARIABLE="add_ln66_28"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_62_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln66_29_fu_1368_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:66" URAM="0" VARIABLE="add_ln66_29"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_62_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln66_30_fu_1374_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:66" URAM="0" VARIABLE="add_ln66_30"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_62_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln66_31_fu_1380_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:66" URAM="0" VARIABLE="add_ln66_31"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_57_2" OPTYPE="add" PRAGMA="" RTLNAME="idx_ram_base_1_fu_792_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:69" URAM="0" VARIABLE="idx_ram_base_1"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_60_1" OPTYPE="add" PRAGMA="" RTLNAME="block_2_fu_646_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:60" URAM="0" VARIABLE="block_2"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_61_2" OPTYPE="add" PRAGMA="" RTLNAME="row_1_fu_657_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:61" URAM="0" VARIABLE="row_1"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_65_3" OPTYPE="add" PRAGMA="" RTLNAME="count_1_fu_672_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:65" URAM="0" VARIABLE="count_1"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_65_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln71_fu_992_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:71" URAM="0" VARIABLE="add_ln71"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_65_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln71_1_fu_998_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:71" URAM="0" VARIABLE="add_ln71_1"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_65_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln71_2_fu_1004_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:71" URAM="0" VARIABLE="add_ln71_2"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_65_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln71_3_fu_1010_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:71" URAM="0" VARIABLE="add_ln71_3"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_65_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln71_4_fu_1016_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:71" URAM="0" VARIABLE="add_ln71_4"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_65_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln71_5_fu_1022_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:71" URAM="0" VARIABLE="add_ln71_5"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_65_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln71_6_fu_1028_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:71" URAM="0" VARIABLE="add_ln71_6"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_65_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln71_7_fu_1034_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:71" URAM="0" VARIABLE="add_ln71_7"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_65_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln71_8_fu_1040_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:71" URAM="0" VARIABLE="add_ln71_8"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_65_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln71_9_fu_1046_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:71" URAM="0" VARIABLE="add_ln71_9"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_65_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln71_10_fu_1052_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:71" URAM="0" VARIABLE="add_ln71_10"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_65_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln71_11_fu_1058_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:71" URAM="0" VARIABLE="add_ln71_11"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_65_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln71_12_fu_1064_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:71" URAM="0" VARIABLE="add_ln71_12"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_65_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln71_13_fu_1070_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:71" URAM="0" VARIABLE="add_ln71_13"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_65_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln71_14_fu_1076_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:71" URAM="0" VARIABLE="add_ln71_14"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_65_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln71_15_fu_1082_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:71" URAM="0" VARIABLE="add_ln71_15"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_65_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln71_16_fu_1088_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:71" URAM="0" VARIABLE="add_ln71_16"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_65_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln71_17_fu_1094_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:71" URAM="0" VARIABLE="add_ln71_17"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_65_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln71_18_fu_1100_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:71" URAM="0" VARIABLE="add_ln71_18"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_65_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln71_19_fu_1106_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:71" URAM="0" VARIABLE="add_ln71_19"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_65_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln71_20_fu_1112_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:71" URAM="0" VARIABLE="add_ln71_20"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_65_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln71_21_fu_1118_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:71" URAM="0" VARIABLE="add_ln71_21"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_65_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln71_22_fu_1124_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:71" URAM="0" VARIABLE="add_ln71_22"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_65_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln71_23_fu_1130_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:71" URAM="0" VARIABLE="add_ln71_23"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_65_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln71_24_fu_1136_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:71" URAM="0" VARIABLE="add_ln71_24"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_65_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln71_25_fu_1142_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:71" URAM="0" VARIABLE="add_ln71_25"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_65_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln71_26_fu_1148_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:71" URAM="0" VARIABLE="add_ln71_26"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_65_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln71_27_fu_1154_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:71" URAM="0" VARIABLE="add_ln71_27"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_65_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln71_28_fu_1160_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:71" URAM="0" VARIABLE="add_ln71_28"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_65_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln71_29_fu_1166_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:71" URAM="0" VARIABLE="add_ln71_29"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_65_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln71_30_fu_1172_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:71" URAM="0" VARIABLE="add_ln71_30"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_65_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln71_31_fu_1178_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:71" URAM="0" VARIABLE="add_ln71_31"/>
             </BindNodes>
         </Module>
         <Module>
-            <Name>store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_91_1</Name>
+            <Name>store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_95_1</Name>
             <Loops>
-                <VITIS_LOOP_91_1/>
+                <VITIS_LOOP_95_1/>
             </Loops>
             <PerformanceEstimates>
                 <SummaryOfTimingAnalysis>
@@ -1152,8 +1164,8 @@
                     <PipelineType>no</PipelineType>
                 </SummaryOfOverallLatency>
                 <SummaryOfLoopLatency>
-                    <VITIS_LOOP_91_1>
-                        <Name>VITIS_LOOP_91_1</Name>
+                    <VITIS_LOOP_95_1>
+                        <Name>VITIS_LOOP_95_1</Name>
                         <Slack>7.30</Slack>
                         <TripCount>undef</TripCount>
                         <Latency>2 ~ ?</Latency>
@@ -1162,7 +1174,7 @@
                         <PipelineDepth>3</PipelineDepth>
                         <PipelineType>yes</PipelineType>
                         <InstanceList/>
-                    </VITIS_LOOP_91_1>
+                    </VITIS_LOOP_95_1>
                 </SummaryOfLoopLatency>
             </PerformanceEstimates>
             <AreaEstimates>
@@ -1185,7 +1197,7 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_91_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln91_fu_104_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:91" URAM="0" VARIABLE="add_ln91"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_95_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln95_fu_104_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:95" URAM="0" VARIABLE="add_ln95"/>
             </BindNodes>
         </Module>
         <Module>
@@ -1227,8 +1239,8 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="3" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="mul" PRAGMA="" RTLNAME="mul_32s_32s_32_1_1_U34" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:88" URAM="0" VARIABLE="mul_ln88"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln91_fu_172_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:91" URAM="0" VARIABLE="add_ln91"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="3" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="mul" PRAGMA="" RTLNAME="mul_32s_32s_32_1_1_U37" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:92" URAM="0" VARIABLE="mul_ln92"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln95_fu_172_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:95" URAM="0" VARIABLE="add_ln95"/>
             </BindNodes>
         </Module>
         <Module>
@@ -1259,10 +1271,10 @@
                     <DSP>9</DSP>
                     <AVAIL_DSP>1728</AVAIL_DSP>
                     <UTIL_DSP>~0</UTIL_DSP>
-                    <FF>4673</FF>
+                    <FF>5015</FF>
                     <AVAIL_FF>460800</AVAIL_FF>
                     <UTIL_FF>1</UTIL_FF>
-                    <LUT>6103</LUT>
+                    <LUT>6422</LUT>
                     <AVAIL_LUT>230400</AVAIL_LUT>
                     <UTIL_LUT>2</UTIL_LUT>
                     <URAM>0</URAM>
@@ -1271,20 +1283,65 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="outputs_c_U" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/sparse.cpp:36" URAM="0" VARIABLE="outputs_c"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="fm_COLS_c_U" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/sparse.cpp:36" URAM="0" VARIABLE="fm_COLS_c"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="am_ROWS_c_U" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/sparse.cpp:36" URAM="0" VARIABLE="am_ROWS_c"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="output_data_addr3_c_U" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/sparse.cpp:36" URAM="0" VARIABLE="output_data_addr3_c"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="outputs_c_U" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/sparse.cpp:40" URAM="0" VARIABLE="outputs_c"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="fm_COLS_c9_U" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/sparse.cpp:40" URAM="0" VARIABLE="fm_COLS_c9"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="fm_COLS_c_U" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/sparse.cpp:40" URAM="0" VARIABLE="fm_COLS_c"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="fm_ROWS_c_U" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/sparse.cpp:40" URAM="0" VARIABLE="fm_ROWS_c"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="am_ROWS_c_U" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/sparse.cpp:40" URAM="0" VARIABLE="am_ROWS_c"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="output_data_addr3_c_U" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/sparse.cpp:40" URAM="0" VARIABLE="output_data_addr3_c"/>
                 <BindNode BINDTYPE="storage" BRAM="15" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="memory" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="data_out_U" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/sparse.cpp:29" URAM="0" VARIABLE="data_out"/>
-                <BindNode BINDTYPE="storage" BRAM="15" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="fm_ram_V_U" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/sparse.cpp:32" URAM="0" VARIABLE="fm_ram_V"/>
-                <BindNode BINDTYPE="storage" BRAM="1" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="idx_ram_U" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/sparse.cpp:33" URAM="0" VARIABLE="idx_ram"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="count_ram_U" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/sparse.cpp:34" URAM="0" VARIABLE="count_ram"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="am_ROWS_c9_channel_U" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/sparse.cpp:37" URAM="0" VARIABLE="am_ROWS_c9_channel"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="fm_COLS_c10_channel_U" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/sparse.cpp:37" URAM="0" VARIABLE="fm_COLS_c10_channel"/>
+                <BindNode BINDTYPE="storage" BRAM="15" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="memory" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="fm_stream_U" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/sparse.cpp:31" URAM="0" VARIABLE="fm_stream"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="idx_stream_U" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/sparse.cpp:33" URAM="0" VARIABLE="idx_stream"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="count_stream_U" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/sparse.cpp:35" URAM="0" VARIABLE="count_stream"/>
             </BindNodes>
         </Module>
     </ModuleInformation>
     <FIFOInformation>
+        <FIFOInst>
+            <Name>idx_stream_U</Name>
+            <ParentInst/>
+            <StaticDepth>128</StaticDepth>
+            <RuntimeDepth>mOutPtr</RuntimeDepth>
+            <InterfaceList>
+                <Interface>clk</Interface>
+                <Interface>reset</Interface>
+                <Interface>if_write</Interface>
+                <Interface>if_din</Interface>
+                <Interface>if_full_n</Interface>
+                <Interface>if_read</Interface>
+                <Interface>if_empty_n</Interface>
+            </InterfaceList>
+        </FIFOInst>
+        <FIFOInst>
+            <Name>count_stream_U</Name>
+            <ParentInst/>
+            <StaticDepth>64</StaticDepth>
+            <RuntimeDepth>mOutPtr</RuntimeDepth>
+            <InterfaceList>
+                <Interface>clk</Interface>
+                <Interface>reset</Interface>
+                <Interface>if_write</Interface>
+                <Interface>if_din</Interface>
+                <Interface>if_full_n</Interface>
+                <Interface>if_read</Interface>
+                <Interface>if_empty_n</Interface>
+            </InterfaceList>
+        </FIFOInst>
+        <FIFOInst>
+            <Name>fm_stream_U</Name>
+            <ParentInst/>
+            <StaticDepth>128</StaticDepth>
+            <RuntimeDepth>mOutPtr</RuntimeDepth>
+            <InterfaceList>
+                <Interface>clk</Interface>
+                <Interface>reset</Interface>
+                <Interface>if_write</Interface>
+                <Interface>if_din</Interface>
+                <Interface>if_full_n</Interface>
+                <Interface>if_read</Interface>
+                <Interface>if_empty_n</Interface>
+            </InterfaceList>
+        </FIFOInst>
         <FIFOInst>
             <Name>data_out_U</Name>
             <ParentInst/>
@@ -1687,27 +1744,27 @@
             <item name="Inferred Burst Summary">
                 <table>
                     <keys size="6">HW Interface, Loop, Direction, Length, Width, Location</keys>
-                    <column name="m_axi_sparse_data">VITIS_LOOP_22_1, read, variable, 256, /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:22:19</column>
-                    <column name="m_axi_sparse_data">VITIS_LOOP_25_2, read, variable, 256, /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:25:19</column>
-                    <column name="m_axi_sparse_data">VITIS_LOOP_91_1, write, variable, 256, /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:91:19</column>
+                    <column name="m_axi_sparse_data">VITIS_LOOP_23_1, read, variable, 256, /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:23:19</column>
+                    <column name="m_axi_sparse_data">VITIS_LOOP_26_2, read, variable, 256, /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:26:19</column>
+                    <column name="m_axi_sparse_data">VITIS_LOOP_95_1, write, variable, 256, /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:95:19</column>
                 </table>
             </item>
             <item name="Inferred Bursts and Widening Missed">
                 <table>
                     <keys size="6">HW Interface, Variable, Loop, Problem, Resolution, Location</keys>
-                    <column name="m_axi_sparse_data">inputs, VITIS_LOOP_25_2, Could not widen since type i256 size is greater than or equal to the max_widen_bitwidth threshold of 0, 214-353, /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:25:19</column>
-                    <column name="m_axi_sparse_data">inputs, VITIS_LOOP_22_1, Could not widen since type i256 size is greater than or equal to the max_widen_bitwidth threshold of 0, 214-353, /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:22:19</column>
-                    <column name="m_axi_sparse_data">outputs, VITIS_LOOP_91_1, Could not widen since type i256 size is greater than or equal to the max_widen_bitwidth threshold of 0, 214-353, /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:91:19</column>
+                    <column name="m_axi_sparse_data">inputs, VITIS_LOOP_26_2, Could not widen since type i256 size is greater than or equal to the max_widen_bitwidth threshold of 0, 214-353, /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:26:19</column>
+                    <column name="m_axi_sparse_data">inputs, VITIS_LOOP_23_1, Could not widen since type i256 size is greater than or equal to the max_widen_bitwidth threshold of 0, 214-353, /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:23:19</column>
+                    <column name="m_axi_sparse_data">outputs, VITIS_LOOP_95_1, Could not widen since type i256 size is greater than or equal to the max_widen_bitwidth threshold of 0, 214-353, /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:95:19</column>
                 </table>
             </item>
         </section>
     </ReportBurst>
     <PragmaReport>
-        <Pragma type="pipeline" location="include/helpers.hpp:28" status="valid" parentFunction="load" variable="" isDirective="0" options=""/>
-        <Pragma type="unroll" location="include/helpers.hpp:32" status="valid" parentFunction="load" variable="" isDirective="0" options=""/>
-        <Pragma type="pipeline" location="include/helpers.hpp:54" status="valid" parentFunction="mul" variable="" isDirective="0" options="II = 1"/>
-        <Pragma type="unroll" location="include/helpers.hpp:61" status="valid" parentFunction="mul" variable="" isDirective="0" options=""/>
-        <Pragma type="pipeline" location="include/helpers.hpp:93" status="valid" parentFunction="store" variable="" isDirective="0" options=""/>
+        <Pragma type="pipeline" location="include/helpers.hpp:29" status="valid" parentFunction="load" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="include/helpers.hpp:34" status="valid" parentFunction="load" variable="" isDirective="0" options=""/>
+        <Pragma type="pipeline" location="include/helpers.hpp:59" status="valid" parentFunction="mul" variable="" isDirective="0" options="II = 1"/>
+        <Pragma type="unroll" location="include/helpers.hpp:70" status="valid" parentFunction="mul" variable="" isDirective="0" options=""/>
+        <Pragma type="pipeline" location="include/helpers.hpp:97" status="valid" parentFunction="store" variable="" isDirective="0" options=""/>
         <Pragma type="inline" location="include/types.hpp:53" status="valid" parentFunction="getval" variable="" isDirective="0" options=""/>
         <Pragma type="inline" location="include/types.hpp:60" status="valid" parentFunction="operator[]" variable="" isDirective="0" options=""/>
         <Pragma type="inline" location="include/types.hpp:67" status="valid" parentFunction="operator[]" variable="" isDirective="0" options=""/>
@@ -1791,7 +1848,10 @@
         <Pragma type="interface" location="src/sparse.cpp:25" status="valid" parentFunction="sparse" variable="" isDirective="0" options="mode = s_axilite port = sparse_flag bundle = sparse_addr"/>
         <Pragma type="interface" location="src/sparse.cpp:26" status="valid" parentFunction="sparse" variable="" isDirective="0" options="mode = s_axilite port = return bundle = sparse_addr"/>
         <Pragma type="stream" location="src/sparse.cpp:30" status="valid" parentFunction="sparse" variable="" isDirective="0" options="variable = data_out depth = 64"/>
-        <Pragma type="dataflow" location="src/sparse.cpp:36" status="valid" parentFunction="sparse" variable="" isDirective="0" options=""/>
+        <Pragma type="stream" location="src/sparse.cpp:32" status="valid" parentFunction="sparse" variable="" isDirective="0" options="variable = fm_stream depth = 128"/>
+        <Pragma type="stream" location="src/sparse.cpp:34" status="valid" parentFunction="sparse" variable="" isDirective="0" options="variable = idx_stream depth = 128"/>
+        <Pragma type="stream" location="src/sparse.cpp:36" status="valid" parentFunction="sparse" variable="" isDirective="0" options="variable = count_stream depth = 64"/>
+        <Pragma type="dataflow" location="src/sparse.cpp:40" status="valid" parentFunction="sparse" variable="" isDirective="0" options=""/>
     </PragmaReport>
 </profile>
 
