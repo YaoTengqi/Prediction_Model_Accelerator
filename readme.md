@@ -62,17 +62,19 @@ Concatenated Tensor:
 
 ### 3. 函数设计
 
-| 函数名                                                       | 返回值 | 解释                                                         |
-| ------------------------------------------------------------ | ------ | ------------------------------------------------------------ |
-| void read_inputs(t_AXI_DataType *inputs,<br/>				 uint32_t input_data_addr1,<br/>				 uint32_t input_data_addr2,<br/>				 unsigned int ROWS,<br/>				 unsigned int COLS,<br/>				 t_AXI_DataType *outputs,<br/>				 bool &concat_flag) | /      | 将数据从DRR中读出来，其中ram1从addr1读出；ram2从addr2读出；分别读出后依次拼接到outputs中 |
-| ~~template <typename t_AXI_DataType, typename t_DataType_IN, typename t_DataType_OUT, unsigned int nPE>void **store**(hls::stream<typename WideType<t_DataType_OUT, nPE>::t_TypeInt> &data_stream_out, t_AXI_DataType *outputs,uint32_t output_data_addr3, unsigned int ROWS,unsigned int COLS, bool &concat_flag)~~ | /      | ~~将read_inputs()写好的data_stream数据流在此函数中按行取出(有对应的数据位宽**t_OUT_ROW_DataType**)，存入临时buffer中后再用memcpy将数据从临时buffer存入outputs[addr3]中，其中addr3为起始地址~~ |
+| 函数名                                                       | 返回值 | 解释                                                         | 日期      |
+| :----------------------------------------------------------- | :----- | :----------------------------------------------------------- | :-------- |
+| void read_inputs(t_AXI_DataType *inputs,<br/>				 uint32_t input_data_addr1,<br/>				 uint32_t input_data_addr2,<br/>				 unsigned int ROWS,<br/>				 unsigned int COLS,<br/>				 hls::stream<WideType<t_DataType_IN, sizeof(t_AXI_DataType) / sizeof(t_DataType_IN)>> &input_stream<br/>				 ) | /      | 将数据从DRR中读出来，其中ram1从addr1读出；ram2从addr2读出；分别读出后依次拼接到outputs中 |           |
+| void requant(hls::stream<WideType<t_DataType_IN, sizeof(t_AXI_DataType) / sizeof(t_DataType_IN)>> &input_stream,<br/>			 unsigned int ROWS,<br/>			 unsigned int COLS,<br/>			 hls::stream<WideType<t_DataType_OUT, sizeof(t_AXI_DataType) / sizeof(t_DataType_OUT)>> &output_stream<br/>			 ) | /      | 新增的量化函数，对concat的数据进行再量化                     | 2024.5.27 |
+| void store(  unsigned int ROWS,<br/>			 unsigned int COLS,<br/>			 uint32_t input_data_addr3,<br/>			 hls::stream<WideType<t_DataType_OUT, sizeof(t_AXI_DataType) / sizeof(t_DataType_OUT)>> &output_stream,<br/>			 t_AXI_DataType *outputs<br/>			 ) | /      | 将read_inputs()写好的data_stream数据流在此函数中按行取出(有对应的数据位宽**t_OUT_ROW_DataType**)，存入临时buffer中后再用memcpy将数据从临时buffer存入outputs[addr3]中，其中addr3为起始地址 |           |
 
 ### 4.C仿真问题
 
-| 问题                                           | 解决方法                                                     |
-| ---------------------------------------------- | ------------------------------------------------------------ |
-| **params.hpp**中的**t_ROW_DataType**该如何计算 | ``#define INP_ROW_DATA_WIDTH COLS * INP_DATA_WIDTH	// 一行输入数据占的位宽``<br/>``#define OUT_ROW_DATA_WIDTH INP_ROW_DATA_WIDTH * 2   // 一行输出数据占的位宽`` |
-| **把ROWS COLS也改为从AXI_LITE传来**            | ~~**待解决:** 根据**PE**对流进行分割~~ **done**              |
+| 问题                                           | 解决方法                                                     | 日期      |
+| ---------------------------------------------- | ------------------------------------------------------------ | --------- |
+| **params.hpp**中的**t_ROW_DataType**该如何计算 | ``#define INP_ROW_DATA_WIDTH COLS * INP_DATA_WIDTH	// 一行输入数据占的位宽``<br/>``#define OUT_ROW_DATA_WIDTH INP_ROW_DATA_WIDTH * 2   // 一行输出数据占的位宽`` |           |
+| **把ROWS COLS也改为从AXI_LITE传来**            | ~~**待解决:** 根据**PE**对流进行分割~~ **done**              |           |
+| 改为数据流的形式                               | **修改前为23.425us**                                         | 2024.5.27 |
 
 ### 5.RTL仿真
 
@@ -126,8 +128,9 @@ Reshape Tensor:
 
 | 函数名                                                       | 返回值 | 解释                                                         |
 | ------------------------------------------------------------ | ------ | ------------------------------------------------------------ |
-| template<typename t_AXI_DataType, typename t_DataType_Item, typename t_OUT_ROW_DataType, unsigned int ROWS, uint32_t COLS><br/>void **read_inputs**(t_AXI_DataType *inputs,hls::stream<t_OUT_ROW_DataType> &data_stream,unsigned int input_data_addr) | /      | 将inputs中的数据按列进行循环，每次取这一列的每一行的数据，每个数据大小类型为int8，拼成``WideType<t_DataType_Item, ROWS> ``大小后写入流中完成reshape |
-| template<typename t_AXI_DataType, typename t_OUT_ROW_DataType, uint32_t ROWS, uint32_t COLS><br/>void **store**(hls::stream<t_OUT_ROW_DataType> &data_stream_out,t_AXI_DataType *outputs,unsigned int output_data_addr) | /      | 将数据流中的数据存回DDR，存回的地址为原地址addr              |
+| void read_inputs(t_AXI_DataType *inputs,<br/>				 uint32_t input_data_addr1,<br/>				 uint32_t input_data_addr2,<br/>				 uint32_t input_data_addr3,<br/>				 unsigned int ROWS,<br/>				 unsigned int COLS,<br/>				 t_AXI_DataType *outputs,<br/>				 bool &concat_flag) | /      | 将inputs中的数据按列进行循环，每次取这一列的每一行的数据，每个数据大小类型为int8，拼成``WideType<t_DataType_Item, ROWS> ``大小后写入流中完成reshape |
+| ~~template<typename t_AXI_DataType, typename t_OUT_ROW_DataType, uint32_t ROWS, uint32_t COLS><br/>void **store**(hls::stream<t_OUT_ROW_DataType> &data_stream_out,t_AXI_DataType *outputs,unsigned int output_data_addr)~~ | /      | 将数据流中的数据存回DDR，存回的地址为原地址addr              |
+| void requant(t_AXI_DataType *outputs,<br/>			 unsigned int ROWS,<br/>			 unsigned int COLS,<br/>			 uint32_t input_data_addr1,<br/>			 uint32_t input_data_addr2<br/>			 ) | /      | 将结果分块进行requant操作，使其输出类型一致                  |
 
 ### 4. 问题
 
