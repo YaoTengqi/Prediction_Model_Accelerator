@@ -1527,21 +1527,66 @@ Diagnostics:
         Length:          0
         ReplacementText: 'VITIS_LOOP_710_1: '
   - DiagnosticName:  xilinx-label-all-loops
-    Message:         'Added loop label VITIS_LOOP_19_1:  '
-    FileOffset:      19
+    Message:         'Added loop label VITIS_LOOP_15_1:  '
+    FileOffset:      15
     FilePath:        /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/include/helpers.hpp
     Replacements:    
       - FilePath:        /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/solution1/.autopilot/db/concat.pp.0.cpp
-        Offset:          2794187
+        Offset:          2793814
         Length:          0
-        ReplacementText: 'VITIS_LOOP_19_1: '
+        ReplacementText: 'VITIS_LOOP_15_1: '
   - DiagnosticName:  xilinx-label-all-loops
-    Message:         'Added loop label VITIS_LOOP_91_1:  '
-    FileOffset:      91
+    Message:         'Added loop label VITIS_LOOP_20_2:  '
+    FileOffset:      20
     FilePath:        /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/include/helpers.hpp
     Replacements:    
       - FilePath:        /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/solution1/.autopilot/db/concat.pp.0.cpp
-        Offset:          2794902
+        Offset:          2794088
         Length:          0
-        ReplacementText: 'VITIS_LOOP_91_1: '
+        ReplacementText: 'VITIS_LOOP_20_2: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_45_1:  '
+    FileOffset:      45
+    FilePath:        /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/include/helpers.hpp
+    Replacements:    
+      - FilePath:        /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/solution1/.autopilot/db/concat.pp.0.cpp
+        Offset:          2794948
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_45_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_47_2:  '
+    FileOffset:      47
+    FilePath:        /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/include/helpers.hpp
+    Replacements:    
+      - FilePath:        /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/solution1/.autopilot/db/concat.pp.0.cpp
+        Offset:          2795151
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_47_2: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_70_3:  '
+    FileOffset:      70
+    FilePath:        /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/include/helpers.hpp
+    Replacements:    
+      - FilePath:        /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/solution1/.autopilot/db/concat.pp.0.cpp
+        Offset:          2795735
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_70_3: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_72_4:  '
+    FileOffset:      72
+    FilePath:        /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/include/helpers.hpp
+    Replacements:    
+      - FilePath:        /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/solution1/.autopilot/db/concat.pp.0.cpp
+        Offset:          2795939
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_72_4: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_105_1:  '
+    FileOffset:      105
+    FilePath:        /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/include/helpers.hpp
+    Replacements:    
+      - FilePath:        /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/solution1/.autopilot/db/concat.pp.0.cpp
+        Offset:          2796930
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_105_1: '
 ...

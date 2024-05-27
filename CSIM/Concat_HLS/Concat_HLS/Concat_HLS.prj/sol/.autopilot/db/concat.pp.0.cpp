@@ -70259,11 +70259,12 @@ void requant(hls::stream<WideType<t_DataType_IN, sizeof(t_AXI_DataType) / sizeof
  int right_shift = shift1 > 0 ? shift1 : 0;
  int left_shift = shift1 > 0 ? 0 : (-shift1);
 
-
 #pragma HLS PIPELINE
- VITIS_LOOP_44_1: for (int i = 0; i < ROWS * COLS * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType); i++){
+#pragma HLS UNROLL factor=2
+
+ VITIS_LOOP_45_1: for (int i = 0; i < ROWS * COLS * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType); i++){
   WideType<t_DataType_IN, sizeof(t_AXI_DataType) / sizeof(t_DataType_IN)> firstBlockValue = input_stream.read();
-  VITIS_LOOP_46_2: for(int j = 0; j < sizeof(t_AXI_DataType) / sizeof(t_DataType_IN); j++){
+  VITIS_LOOP_47_2: for(int j = 0; j < sizeof(t_AXI_DataType) / sizeof(t_DataType_IN); j++){
    int64_t temp = firstBlockValue[j];
 
    if (left_shift > 0)
@@ -70285,9 +70286,10 @@ void requant(hls::stream<WideType<t_DataType_IN, sizeof(t_AXI_DataType) / sizeof
 
 
 #pragma HLS PIPELINE
- VITIS_LOOP_68_3: for (int i = 0; i < ROWS * COLS * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType); i++){
+#pragma HLS UNROLL factor=2
+ VITIS_LOOP_70_3: for (int i = 0; i < ROWS * COLS * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType); i++){
   WideType<t_DataType_IN, sizeof(t_AXI_DataType) / sizeof(t_DataType_IN)> secondBlockValue = input_stream.read();
-  VITIS_LOOP_70_4: for(int j = 0; j < sizeof(t_AXI_DataType) / sizeof(t_DataType_IN); j++){
+  VITIS_LOOP_72_4: for(int j = 0; j < sizeof(t_AXI_DataType) / sizeof(t_DataType_IN); j++){
    int64_t temp = secondBlockValue[j];
 
    right_shift = shift2 > 0 ? shift2 : 0;
@@ -70320,7 +70322,7 @@ void store( unsigned int ROWS,
     ){
  t_AXI_DataType result;
  int count = 0;
- VITIS_LOOP_103_1: for (int i = 0; i < ROWS * COLS * 2 * sizeof(t_DataType_OUT) / sizeof(t_AXI_DataType); i++){
+ VITIS_LOOP_105_1: for (int i = 0; i < ROWS * COLS * 2 * sizeof(t_DataType_OUT) / sizeof(t_AXI_DataType); i++){
 #pragma HLS PIPELINE
  result = output_stream.read();
   outputs[input_data_addr3 + i] = result;

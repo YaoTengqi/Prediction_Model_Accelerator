@@ -8883,3 +8883,522 @@ Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2022.2 (64-bit)
 Tool Version Limit: 2019.12
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ==============================================================
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2022.2 (64-bit)
+Tool Version Limit: 2019.12
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1611] Setting target device to 'xczu7ev-ffvc1156-2-e'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-1464] Running solution command: config_export -flow=syn
+INFO: [HLS 200-1464] Running solution command: config_export -format=ip_catalog
+INFO: [HLS 200-1464] Running solution command: config_export -rtl=verilog
+INFO: [HLS 200-1464] Running solution command: config_export -vivado_clock=10
+INFO: [HLS 200-1510] Running: set_part xczu7ev-ffvc1156-2-e 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: config_export -flow syn -format ip_catalog -rtl verilog -vivado_clock 10 
+INFO: [HLS 200-1510] Running: source ./Concat_HLS/solution1/directives.tcl
+INFO: [HLS 200-1510] Running: set_directive_top -name concat concat 
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0.02 seconds. CPU system time: 0.01 seconds. Elapsed time: 10.07 seconds; current allocated memory: 756.902 MB.
+INFO: [HLS 200-10] Analyzing design file 'Concat_HLS/src/concat.cpp' ... 
+WARNING: [HLS 207-5292] unused parameter 'p_Idx' (Concat_HLS/src/../include/../include/types.hpp:226:32)
+WARNING: [HLS 207-5292] unused parameter 'p_Idx' (Concat_HLS/src/../include/../include/types.hpp:234:38)
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 14.13 seconds. CPU system time: 0.59 seconds. Elapsed time: 14.75 seconds; current allocated memory: 762.707 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+INFO: [HLS 214-131] Inlining function 'WideType<ap_int<8>, 32u, 8u, void>::constructor(ap_uint<256> const&)' into 'WideType<ap_int<8>, 32u, 8u, void>::WideType(ap_uint<256> const&)' (Concat_HLS/src/../include/../include/types.hpp:99:2)
+INFO: [HLS 214-131] Inlining function 'WideType<ap_int<8>, 32u, 8u, void>::WideType(ap_uint<256> const&)' into 'void read_inputs<ap_uint<256>, ap_int<8>, 32u>(ap_uint<256>*, unsigned int, unsigned int, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&)' (Concat_HLS/src/../include/helpers.hpp:16:93)
+INFO: [HLS 214-131] Inlining function 'WideType<ap_int<8>, 32u, 8u, void>::WideType(ap_uint<256> const&)' into 'void read_inputs<ap_uint<256>, ap_int<8>, 32u>(ap_uint<256>*, unsigned int, unsigned int, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&)' (Concat_HLS/src/../include/helpers.hpp:21:94)
+INFO: [HLS 214-131] Inlining function 'WideType<ap_int<8>, 32u, 8u, void>::WideType()' into 'hls::stream<WideType<ap_int<8>, 32u, 8u, void>, 0>::read()'
+INFO: [HLS 214-131] Inlining function 'WideType<ap_int<8>, 32u, 8u, void>::operator[](unsigned int)' into 'void requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>(hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&)' (Concat_HLS/src/../include/helpers.hpp:87:4)
+INFO: [HLS 214-131] Inlining function 'WideType<ap_int<8>, 32u, 8u, void>::operator[](unsigned int)' into 'void requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>(hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&)' (Concat_HLS/src/../include/helpers.hpp:71:19)
+INFO: [HLS 214-131] Inlining function 'WideType<ap_int<8>, 32u, 8u, void>::operator[](unsigned int)' into 'void requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>(hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&)' (Concat_HLS/src/../include/helpers.hpp:61:4)
+INFO: [HLS 214-131] Inlining function 'WideType<ap_int<8>, 32u, 8u, void>::operator[](unsigned int)' into 'void requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>(hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&)' (Concat_HLS/src/../include/helpers.hpp:47:19)
+INFO: [HLS 214-377] Adding 'tmp' into disaggregation list because there's array-partition pragma applied on the struct field (Concat_HLS/src/../include/../include/types.hpp:80:9)
+INFO: [HLS 214-377] Adding 'secondBlockValue' into disaggregation list because there's array-partition pragma applied on the struct field (Concat_HLS/src/../include/../include/types.hpp:80:9)
+INFO: [HLS 214-377] Adding 'firstBlockValue' into disaggregation list because there's array-partition pragma applied on the struct field (Concat_HLS/src/../include/../include/types.hpp:80:9)
+INFO: [HLS 214-377] Adding 'secondBlockValue' into disaggregation list because there's array-partition pragma applied on the struct field (Concat_HLS/src/../include/../include/types.hpp:98:9)
+INFO: [HLS 214-377] Adding 'firstBlockValue' into disaggregation list because there's array-partition pragma applied on the struct field (Concat_HLS/src/../include/../include/types.hpp:98:9)
+INFO: [HLS 214-210] Disaggregating variable 'secondBlockValue' (Concat_HLS/src/../include/helpers.hpp:21:75)
+INFO: [HLS 214-210] Disaggregating variable 'firstBlockValue' (Concat_HLS/src/../include/helpers.hpp:16:75)
+INFO: [HLS 214-210] Disaggregating variable 'secondBlockValue' (Concat_HLS/src/../include/helpers.hpp:69:75)
+INFO: [HLS 214-210] Disaggregating variable 'firstBlockValue' (Concat_HLS/src/../include/helpers.hpp:45:75)
+INFO: [HLS 214-210] Disaggregating variable 'tmp'
+INFO: [HLS 214-291] Loop 'anonymous' is marked as complete unroll implied by the pipeline pragma (Concat_HLS/src/../include/../include/types.hpp:78:5)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_125_1' is marked as complete unroll implied by the pipeline pragma (Concat_HLS/src/../include/../include/types.hpp:125:27)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_68_3' is marked as complete unroll implied by the pipeline pragma (Concat_HLS/src/../include/helpers.hpp:68:19)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_70_4' is marked as complete unroll implied by the pipeline pragma (Concat_HLS/src/../include/helpers.hpp:70:20)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_44_1' is marked as complete unroll implied by the pipeline pragma (Concat_HLS/src/../include/helpers.hpp:44:19)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_46_2' is marked as complete unroll implied by the pipeline pragma (Concat_HLS/src/../include/helpers.hpp:46:20)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_20_2' is marked as complete unroll implied by the pipeline pragma (Concat_HLS/src/../include/helpers.hpp:20:19)
+INFO: [HLS 214-291] Loop 'anonymous' is marked as complete unroll implied by the pipeline pragma (Concat_HLS/src/../include/../include/types.hpp:96:5)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_103_1' is marked as complete unroll implied by the pipeline pragma (Concat_HLS/src/../include/../include/types.hpp:103:20)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_15_1' is marked as complete unroll implied by the pipeline pragma (Concat_HLS/src/../include/helpers.hpp:15:19)
+INFO: [HLS 214-186] Unrolling loop 'anonymous' (Concat_HLS/src/../include/../include/types.hpp:78:5) in function 'store<ap_uint<256>, ap_int<8>, 32u>' completely with a factor of 32 (Concat_HLS/src/../include/helpers.hpp:100:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_125_1' (Concat_HLS/src/../include/../include/types.hpp:125:27) in function 'WideType<ap_int<8>, 32u, 8u, void>::operator ap_uint<256> const' completely with a factor of 32 (Concat_HLS/src/../include/../include/types.hpp:123:0)
+INFO: [HLS 214-186] Unrolling loop 'anonymous' (Concat_HLS/src/../include/../include/types.hpp:78:5) in function 'requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>' completely with a factor of 32 (Concat_HLS/src/../include/helpers.hpp:32:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_70_4' (Concat_HLS/src/../include/helpers.hpp:70:20) in function 'requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>' completely with a factor of 32 (Concat_HLS/src/../include/helpers.hpp:32:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_46_2' (Concat_HLS/src/../include/helpers.hpp:46:20) in function 'requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>' completely with a factor of 32 (Concat_HLS/src/../include/helpers.hpp:32:0)
+INFO: [HLS 214-186] Unrolling loop 'anonymous' (Concat_HLS/src/../include/../include/types.hpp:96:5) in function 'read_inputs<ap_uint<256>, ap_int<8>, 32u>' completely with a factor of 32 (Concat_HLS/src/../include/helpers.hpp:13:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_103_1' (Concat_HLS/src/../include/../include/types.hpp:103:20) in function 'read_inputs<ap_uint<256>, ap_int<8>, 32u>' completely with a factor of 32 (Concat_HLS/src/../include/helpers.hpp:13:0)
+INFO: [HLS 214-178] Inlining function 'WideType<ap_int<8>, 32u, 8u, void>::operator ap_uint<256> const()' into 'void store<ap_uint<256>, ap_int<8>, 32u>(unsigned int, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&, ap_uint<256>*, bool&)' (Concat_HLS/src/../include/helpers.hpp:100:0)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'output_stream' with compact=bit mode in 256-bits (Concat_HLS/src/concat.cpp:26:77)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'input_stream' with compact=bit mode in 256-bits (Concat_HLS/src/concat.cpp:24:77)
+INFO: [HLS 214-115] Multiple burst reads of variable length and bit width 256 in loop 'VITIS_LOOP_15_1'(Concat_HLS/src/../include/helpers.hpp:15:19) has been inferred on bundle 'concat_data'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (Concat_HLS/src/../include/helpers.hpp:15:19)
+INFO: [HLS 214-115] Multiple burst reads of variable length and bit width 256 in loop 'VITIS_LOOP_20_2'(Concat_HLS/src/../include/helpers.hpp:20:19) has been inferred on bundle 'concat_data'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (Concat_HLS/src/../include/helpers.hpp:20:19)
+INFO: [HLS 214-115] Multiple burst writes of variable length and bit width 256 in loop 'VITIS_LOOP_103_1'(Concat_HLS/src/../include/helpers.hpp:103:20) has been inferred on bundle 'concat_data'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (Concat_HLS/src/../include/helpers.hpp:103:20)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 2.21 seconds. CPU system time: 0.24 seconds. Elapsed time: 2.44 seconds; current allocated memory: 763.262 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 763.262 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0.08 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.09 seconds; current allocated memory: 770.867 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0.19 seconds. CPU system time: 0 seconds. Elapsed time: 0.19 seconds; current allocated memory: 779.371 MB.
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>' (Concat_HLS/src/../include/helpers.hpp:29:17).
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'read_inputs<ap_uint<256>, ap_int<8>, 32u>' (Concat_HLS/src/../include/helpers.hpp:6:19).
+WARNING: [HLS 200-936] Cannot unroll loop 'VITIS_LOOP_44_1' (Concat_HLS/src/../include/helpers.hpp:44) in function 'requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>': cannot completely unroll a loop with a variable trip count.
+WARNING: [HLS 200-936] Cannot unroll loop 'VITIS_LOOP_68_3' (Concat_HLS/src/../include/helpers.hpp:68) in function 'requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>': cannot completely unroll a loop with a variable trip count.
+WARNING: [HLS 200-936] Cannot unroll loop 'VITIS_LOOP_15_1' (Concat_HLS/src/../include/helpers.hpp:15) in function 'read_inputs<ap_uint<256>, ap_int<8>, 32u>': cannot completely unroll a loop with a variable trip count.
+WARNING: [HLS 200-936] Cannot unroll loop 'VITIS_LOOP_20_2' (Concat_HLS/src/../include/helpers.hpp:20) in function 'read_inputs<ap_uint<256>, ap_int<8>, 32u>': cannot completely unroll a loop with a variable trip count.
+INFO: [XFORM 203-712] Applying dataflow to function 'concat' (Concat_HLS/src/concat.cpp:3:1), detected/extracted 4 process function(s): 
+	 'entry_proc'
+	 'read_inputs<ap_uint<256>, ap_int<8>, 32u>'
+	 'requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>'
+	 'store<ap_uint<256>, ap_int<8>, 32u>'.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0.4 seconds. CPU system time: 0 seconds. Elapsed time: 0.41 seconds; current allocated memory: 811.660 MB.
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0.12 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.13 seconds; current allocated memory: 856.164 MB.
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'concat' ...
+WARNING: [SYN 201-103] Legalizing function name 'read_inputs<ap_uint<256>, ap_int<8>, 32u>' to 'read_inputs_ap_uint_256_ap_int_8_32u_s'.
+WARNING: [SYN 201-103] Legalizing function name 'requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>' to 'requant_ap_uint_256_ap_int_8_ap_int_8_32u_s'.
+WARNING: [SYN 201-103] Legalizing function name 'store<ap_uint<256>, ap_int<8>, 32u>_Pipeline_VITIS_LOOP_103_1' to 'store_ap_uint_256_ap_int_8_32u_Pipeline_VITIS_LOOP_103_1'.
+WARNING: [SYN 201-103] Legalizing function name 'store<ap_uint<256>, ap_int<8>, 32u>' to 'store_ap_uint_256_ap_int_8_32u_s'.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'entry_proc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.03 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.04 seconds; current allocated memory: 856.559 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 856.594 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'read_inputs_ap_uint_256_ap_int_8_32u_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+WARNING: [SCHED 204-65] Unable to satisfy pipeline directive for function 'read_inputs<ap_uint<256>, ap_int<8>, 32u>': contains subloop(s) that are not unrolled.
+WARNING: [SCHED 204-65] Unable to satisfy pipeline directive for function 'read_inputs<ap_uint<256>, ap_int<8>, 32u>': contains subloop(s) that are not unrolled.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.09 seconds. CPU system time: 0 seconds. Elapsed time: 0.09 seconds; current allocated memory: 857.941 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.18 seconds. CPU system time: 0 seconds. Elapsed time: 0.18 seconds; current allocated memory: 857.941 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'requant_ap_uint_256_ap_int_8_ap_int_8_32u_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+WARNING: [SCHED 204-65] Unable to satisfy pipeline directive for function 'requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>': contains subloop(s) that are not unrolled.
+WARNING: [SCHED 204-65] Unable to satisfy pipeline directive for function 'requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>': contains subloop(s) that are not unrolled.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.48 seconds. CPU system time: 0 seconds. Elapsed time: 0.48 seconds; current allocated memory: 865.008 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.38 seconds. CPU system time: 0 seconds. Elapsed time: 0.38 seconds; current allocated memory: 865.008 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'store_ap_uint_256_ap_int_8_32u_Pipeline_VITIS_LOOP_103_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_103_1'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 3, loop 'VITIS_LOOP_103_1'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.68 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.68 seconds; current allocated memory: 865.008 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 865.008 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'store_ap_uint_256_ap_int_8_32u_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 865.008 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.08 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.1 seconds; current allocated memory: 865.008 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'concat' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 865.008 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.21 seconds. CPU system time: 0 seconds. Elapsed time: 0.2 seconds; current allocated memory: 865.008 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'entry_proc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'entry_proc'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.56 seconds. CPU system time: 0 seconds. Elapsed time: 0.57 seconds; current allocated memory: 865.008 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'read_inputs_ap_uint_256_ap_int_8_32u_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Generating core module 'mul_32s_32s_32_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'read_inputs_ap_uint_256_ap_int_8_32u_s'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 866.160 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'requant_ap_uint_256_ap_int_8_ap_int_8_32u_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Generating core module 'mul_32s_32s_32_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_8s_33ns_40_1_1': 64 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'requant_ap_uint_256_ap_int_8_ap_int_8_32u_s'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.14 seconds. CPU system time: 0 seconds. Elapsed time: 0.14 seconds; current allocated memory: 873.695 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'store_ap_uint_256_ap_int_8_32u_Pipeline_VITIS_LOOP_103_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'store_ap_uint_256_ap_int_8_32u_Pipeline_VITIS_LOOP_103_1' pipeline 'VITIS_LOOP_103_1' pipeline type 'loop pipeline'
+WARNING: [RTGEN 206-101] Setting dangling out port 'store_ap_uint_256_ap_int_8_32u_Pipeline_VITIS_LOOP_103_1/m_axi_concat_data_AWVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'store_ap_uint_256_ap_int_8_32u_Pipeline_VITIS_LOOP_103_1/m_axi_concat_data_AWADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'store_ap_uint_256_ap_int_8_32u_Pipeline_VITIS_LOOP_103_1/m_axi_concat_data_AWID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'store_ap_uint_256_ap_int_8_32u_Pipeline_VITIS_LOOP_103_1/m_axi_concat_data_AWLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'store_ap_uint_256_ap_int_8_32u_Pipeline_VITIS_LOOP_103_1/m_axi_concat_data_AWSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'store_ap_uint_256_ap_int_8_32u_Pipeline_VITIS_LOOP_103_1/m_axi_concat_data_AWBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'store_ap_uint_256_ap_int_8_32u_Pipeline_VITIS_LOOP_103_1/m_axi_concat_data_AWLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'store_ap_uint_256_ap_int_8_32u_Pipeline_VITIS_LOOP_103_1/m_axi_concat_data_AWCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'store_ap_uint_256_ap_int_8_32u_Pipeline_VITIS_LOOP_103_1/m_axi_concat_data_AWPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'store_ap_uint_256_ap_int_8_32u_Pipeline_VITIS_LOOP_103_1/m_axi_concat_data_AWQOS' to 0.
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2022.2 (64-bit)
+Tool Version Limit: 2019.12
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2022.2 (64-bit)
+Tool Version Limit: 2019.12
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2022.2 (64-bit)
+Tool Version Limit: 2019.12
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2022.2 (64-bit)
+Tool Version Limit: 2019.12
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1611] Setting target device to 'xczu7ev-ffvc1156-2-e'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-1464] Running solution command: config_export -flow=syn
+INFO: [HLS 200-1464] Running solution command: config_export -format=ip_catalog
+INFO: [HLS 200-1464] Running solution command: config_export -rtl=verilog
+INFO: [HLS 200-1464] Running solution command: config_export -vivado_clock=10
+INFO: [HLS 200-1510] Running: set_part xczu7ev-ffvc1156-2-e 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: config_export -flow syn -format ip_catalog -rtl verilog -vivado_clock 10 
+INFO: [HLS 200-1510] Running: source ./Concat_HLS/solution1/directives.tcl
+INFO: [HLS 200-1510] Running: set_directive_top -name concat concat 
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0.01 seconds. CPU system time: 0.01 seconds. Elapsed time: 10.03 seconds; current allocated memory: 756.902 MB.
+INFO: [HLS 200-10] Analyzing design file 'Concat_HLS/src/concat.cpp' ... 
+WARNING: [HLS 207-5559] Only for/while loops support the 'Unroll ' (Concat_HLS/src/../include/helpers.hpp:44:9)
+WARNING: [HLS 207-5559] Only for/while loops support the 'Unroll ' (Concat_HLS/src/../include/helpers.hpp:70:9)
+WARNING: [HLS 214-114] Since the only kind of statements allowed in a canonical dataflow region are variable declarations and function calls, the compiler may not be able to correctly handle the region (Concat_HLS/src/../include/helpers.hpp:42:9)
+WARNING: [HLS 200-471] Dataflow form checks found 1 issue(s) in file Concat_HLS/src/concat.cpp
+WARNING: [HLS 207-5292] unused parameter 'p_Idx' (Concat_HLS/src/../include/../include/types.hpp:226:32)
+WARNING: [HLS 207-5292] unused parameter 'p_Idx' (Concat_HLS/src/../include/../include/types.hpp:234:38)
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 14.04 seconds. CPU system time: 0.59 seconds. Elapsed time: 14.64 seconds; current allocated memory: 762.609 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+WARNING: [HLS 214-273] In function 'void requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>(hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&)', Pragma conflict happens on 'INLINE' and DATAFLOW pragmas: Inline into dataflow region may break the canonical form (Concat_HLS/src/../include/helpers.hpp:32:0)
+INFO: [HLS 214-131] Inlining function 'WideType<ap_int<8>, 32u, 8u, void>::constructor(ap_uint<256> const&)' into 'WideType<ap_int<8>, 32u, 8u, void>::WideType(ap_uint<256> const&)' (Concat_HLS/src/../include/../include/types.hpp:99:2)
+INFO: [HLS 214-131] Inlining function 'WideType<ap_int<8>, 32u, 8u, void>::WideType(ap_uint<256> const&)' into 'void read_inputs<ap_uint<256>, ap_int<8>, 32u>(ap_uint<256>*, unsigned int, unsigned int, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&)' (Concat_HLS/src/../include/helpers.hpp:16:93)
+INFO: [HLS 214-131] Inlining function 'WideType<ap_int<8>, 32u, 8u, void>::WideType(ap_uint<256> const&)' into 'void read_inputs<ap_uint<256>, ap_int<8>, 32u>(ap_uint<256>*, unsigned int, unsigned int, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&)' (Concat_HLS/src/../include/helpers.hpp:21:94)
+INFO: [HLS 214-131] Inlining function 'WideType<ap_int<8>, 32u, 8u, void>::WideType()' into 'hls::stream<WideType<ap_int<8>, 32u, 8u, void>, 0>::read()'
+INFO: [HLS 214-131] Inlining function 'WideType<ap_int<8>, 32u, 8u, void>::operator[](unsigned int)' into 'void requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>(hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&)' (Concat_HLS/src/../include/helpers.hpp:90:4)
+INFO: [HLS 214-131] Inlining function 'WideType<ap_int<8>, 32u, 8u, void>::operator[](unsigned int)' into 'void requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>(hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&)' (Concat_HLS/src/../include/helpers.hpp:74:19)
+INFO: [HLS 214-131] Inlining function 'WideType<ap_int<8>, 32u, 8u, void>::operator[](unsigned int)' into 'void requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>(hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&)' (Concat_HLS/src/../include/helpers.hpp:63:4)
+INFO: [HLS 214-131] Inlining function 'WideType<ap_int<8>, 32u, 8u, void>::operator[](unsigned int)' into 'void requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>(hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&)' (Concat_HLS/src/../include/helpers.hpp:49:19)
+INFO: [HLS 214-131] Inlining function 'void requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>(hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&)' into 'concat(unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, ap_uint<256>*, ap_uint<256>*, bool&)' (Concat_HLS/src/concat.cpp:31:2)
+INFO: [HLS 214-377] Adding 'firstBlockValue.i' into disaggregation list because there's array-partition pragma applied on the struct field (Concat_HLS/src/../include/../include/types.hpp:80:9)
+INFO: [HLS 214-377] Adding 'secondBlockValue.i' into disaggregation list because there's array-partition pragma applied on the struct field (Concat_HLS/src/../include/../include/types.hpp:80:9)
+INFO: [HLS 214-377] Adding 'tmp' into disaggregation list because there's array-partition pragma applied on the struct field (Concat_HLS/src/../include/../include/types.hpp:80:9)
+INFO: [HLS 214-377] Adding 'secondBlockValue' into disaggregation list because there's array-partition pragma applied on the struct field (Concat_HLS/src/../include/../include/types.hpp:98:9)
+INFO: [HLS 214-377] Adding 'firstBlockValue' into disaggregation list because there's array-partition pragma applied on the struct field (Concat_HLS/src/../include/../include/types.hpp:98:9)
+INFO: [HLS 214-210] Disaggregating variable 'secondBlockValue' (Concat_HLS/src/../include/helpers.hpp:21:75)
+INFO: [HLS 214-210] Disaggregating variable 'firstBlockValue' (Concat_HLS/src/../include/helpers.hpp:16:75)
+INFO: [HLS 214-210] Disaggregating variable 'tmp'
+INFO: [HLS 214-210] Disaggregating variable 'secondBlockValue.i' (Concat_HLS/src/../include/helpers.hpp:72:75)
+INFO: [HLS 214-210] Disaggregating variable 'firstBlockValue.i' (Concat_HLS/src/../include/helpers.hpp:47:75)
+INFO: [HLS 214-291] Loop 'anonymous' is marked as complete unroll implied by the pipeline pragma (Concat_HLS/src/../include/../include/types.hpp:78:5)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_125_1' is marked as complete unroll implied by the pipeline pragma (Concat_HLS/src/../include/../include/types.hpp:125:27)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_20_2' is marked as complete unroll implied by the pipeline pragma (Concat_HLS/src/../include/helpers.hpp:20:19)
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2022.2 (64-bit)
+Tool Version Limit: 2019.12
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1611] Setting target device to 'xczu7ev-ffvc1156-2-e'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-1464] Running solution command: config_export -flow=syn
+INFO: [HLS 200-1464] Running solution command: config_export -format=ip_catalog
+INFO: [HLS 200-1464] Running solution command: config_export -rtl=verilog
+INFO: [HLS 200-1464] Running solution command: config_export -vivado_clock=10
+INFO: [HLS 200-1510] Running: set_part xczu7ev-ffvc1156-2-e 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: config_export -flow syn -format ip_catalog -rtl verilog -vivado_clock 10 
+INFO: [HLS 200-1510] Running: source ./Concat_HLS/solution1/directives.tcl
+INFO: [HLS 200-1510] Running: set_directive_top -name concat concat 
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0.01 seconds. CPU system time: 0.01 seconds. Elapsed time: 10.03 seconds; current allocated memory: 756.902 MB.
+INFO: [HLS 200-10] Analyzing design file 'Concat_HLS/src/concat.cpp' ... 
+WARNING: [HLS 207-5559] Only for/while loops support the 'Unroll ' (Concat_HLS/src/../include/helpers.hpp:43:9)
+WARNING: [HLS 207-5559] Only for/while loops support the 'Unroll ' (Concat_HLS/src/../include/helpers.hpp:69:9)
+WARNING: [HLS 207-5292] unused parameter 'p_Idx' (Concat_HLS/src/../include/../include/types.hpp:226:32)
+WARNING: [HLS 207-5292] unused parameter 'p_Idx' (Concat_HLS/src/../include/../include/types.hpp:234:38)
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 13.93 seconds. CPU system time: 0.58 seconds. Elapsed time: 14.53 seconds; current allocated memory: 762.898 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+WARNING: [HLS 214-273] In function 'void requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>(hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&)', Pragma conflict happens on 'INLINE' and DATAFLOW pragmas: Inline into dataflow region may break the canonical form (Concat_HLS/src/../include/helpers.hpp:32:0)
+INFO: [HLS 214-131] Inlining function 'WideType<ap_int<8>, 32u, 8u, void>::constructor(ap_uint<256> const&)' into 'WideType<ap_int<8>, 32u, 8u, void>::WideType(ap_uint<256> const&)' (Concat_HLS/src/../include/../include/types.hpp:99:2)
+INFO: [HLS 214-131] Inlining function 'WideType<ap_int<8>, 32u, 8u, void>::WideType(ap_uint<256> const&)' into 'void read_inputs<ap_uint<256>, ap_int<8>, 32u>(ap_uint<256>*, unsigned int, unsigned int, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&)' (Concat_HLS/src/../include/helpers.hpp:16:93)
+INFO: [HLS 214-131] Inlining function 'WideType<ap_int<8>, 32u, 8u, void>::WideType(ap_uint<256> const&)' into 'void read_inputs<ap_uint<256>, ap_int<8>, 32u>(ap_uint<256>*, unsigned int, unsigned int, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&)' (Concat_HLS/src/../include/helpers.hpp:21:94)
+INFO: [HLS 214-131] Inlining function 'WideType<ap_int<8>, 32u, 8u, void>::WideType()' into 'hls::stream<WideType<ap_int<8>, 32u, 8u, void>, 0>::read()'
+INFO: [HLS 214-131] Inlining function 'WideType<ap_int<8>, 32u, 8u, void>::operator[](unsigned int)' into 'void requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>(hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&)' (Concat_HLS/src/../include/helpers.hpp:89:4)
+INFO: [HLS 214-131] Inlining function 'WideType<ap_int<8>, 32u, 8u, void>::operator[](unsigned int)' into 'void requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>(hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&)' (Concat_HLS/src/../include/helpers.hpp:73:19)
+INFO: [HLS 214-131] Inlining function 'WideType<ap_int<8>, 32u, 8u, void>::operator[](unsigned int)' into 'void requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>(hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&)' (Concat_HLS/src/../include/helpers.hpp:62:4)
+INFO: [HLS 214-131] Inlining function 'WideType<ap_int<8>, 32u, 8u, void>::operator[](unsigned int)' into 'void requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>(hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&)' (Concat_HLS/src/../include/helpers.hpp:48:19)
+INFO: [HLS 214-131] Inlining function 'void requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>(hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&)' into 'concat(unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, ap_uint<256>*, ap_uint<256>*, bool&)' (Concat_HLS/src/concat.cpp:31:2)
+INFO: [HLS 214-377] Adding 'firstBlockValue.i' into disaggregation list because there's array-partition pragma applied on the struct field (Concat_HLS/src/../include/../include/types.hpp:80:9)
+INFO: [HLS 214-377] Adding 'secondBlockValue.i' into disaggregation list because there's array-partition pragma applied on the struct field (Concat_HLS/src/../include/../include/types.hpp:80:9)
+INFO: [HLS 214-377] Adding 'tmp' into disaggregation list because there's array-partition pragma applied on the struct field (Concat_HLS/src/../include/../include/types.hpp:80:9)
+INFO: [HLS 214-377] Adding 'secondBlockValue' into disaggregation list because there's array-partition pragma applied on the struct field (Concat_HLS/src/../include/../include/types.hpp:98:9)
+INFO: [HLS 214-377] Adding 'firstBlockValue' into disaggregation list because there's array-partition pragma applied on the struct field (Concat_HLS/src/../include/../include/types.hpp:98:9)
+INFO: [HLS 214-210] Disaggregating variable 'secondBlockValue' (Concat_HLS/src/../include/helpers.hpp:21:75)
+INFO: [HLS 214-210] Disaggregating variable 'firstBlockValue' (Concat_HLS/src/../include/helpers.hpp:16:75)
+INFO: [HLS 214-210] Disaggregating variable 'tmp'
+INFO: [HLS 214-210] Disaggregating variable 'secondBlockValue.i' (Concat_HLS/src/../include/helpers.hpp:71:75)
+INFO: [HLS 214-210] Disaggregating variable 'firstBlockValue.i' (Concat_HLS/src/../include/helpers.hpp:46:75)
+INFO: [HLS 214-291] Loop 'anonymous' is marked as complete unroll implied by the pipeline pragma (Concat_HLS/src/../include/../include/types.hpp:78:5)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_125_1' is marked as complete unroll implied by the pipeline pragma (Concat_HLS/src/../include/../include/types.hpp:125:27)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_20_2' is marked as complete unroll implied by the pipeline pragma (Concat_HLS/src/../include/helpers.hpp:20:19)
+INFO: [HLS 214-291] Loop 'anonymous' is marked as complete unroll implied by the pipeline pragma (Concat_HLS/src/../include/../include/types.hpp:96:5)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_103_1' is marked as complete unroll implied by the pipeline pragma (Concat_HLS/src/../include/../include/types.hpp:103:20)
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2022.2 (64-bit)
+Tool Version Limit: 2019.12
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1611] Setting target device to 'xczu7ev-ffvc1156-2-e'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-1464] Running solution command: config_export -flow=syn
+INFO: [HLS 200-1464] Running solution command: config_export -format=ip_catalog
+INFO: [HLS 200-1464] Running solution command: config_export -rtl=verilog
+INFO: [HLS 200-1464] Running solution command: config_export -vivado_clock=10
+INFO: [HLS 200-1510] Running: set_part xczu7ev-ffvc1156-2-e 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: config_export -flow syn -format ip_catalog -rtl verilog -vivado_clock 10 
+INFO: [HLS 200-1510] Running: source ./Concat_HLS/solution1/directives.tcl
+INFO: [HLS 200-1510] Running: set_directive_top -name concat concat 
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0.02 seconds. CPU system time: 0.01 seconds. Elapsed time: 10.04 seconds; current allocated memory: 756.902 MB.
+INFO: [HLS 200-10] Analyzing design file 'Concat_HLS/src/concat.cpp' ... 
+WARNING: [HLS 207-5559] Only for/while loops support the 'Unroll ' (Concat_HLS/src/../include/helpers.hpp:43:9)
+WARNING: [HLS 207-5559] Only for/while loops support the 'Unroll ' (Concat_HLS/src/../include/helpers.hpp:69:9)
+WARNING: [HLS 207-5292] unused parameter 'p_Idx' (Concat_HLS/src/../include/../include/types.hpp:226:32)
+WARNING: [HLS 207-5292] unused parameter 'p_Idx' (Concat_HLS/src/../include/../include/types.hpp:234:38)
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 14 seconds. CPU system time: 0.51 seconds. Elapsed time: 14.5 seconds; current allocated memory: 762.895 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+INFO: [HLS 214-131] Inlining function 'WideType<ap_int<8>, 32u, 8u, void>::constructor(ap_uint<256> const&)' into 'WideType<ap_int<8>, 32u, 8u, void>::WideType(ap_uint<256> const&)' (Concat_HLS/src/../include/../include/types.hpp:99:2)
+INFO: [HLS 214-131] Inlining function 'WideType<ap_int<8>, 32u, 8u, void>::WideType(ap_uint<256> const&)' into 'void read_inputs<ap_uint<256>, ap_int<8>, 32u>(ap_uint<256>*, unsigned int, unsigned int, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&)' (Concat_HLS/src/../include/helpers.hpp:16:93)
+INFO: [HLS 214-131] Inlining function 'WideType<ap_int<8>, 32u, 8u, void>::WideType(ap_uint<256> const&)' into 'void read_inputs<ap_uint<256>, ap_int<8>, 32u>(ap_uint<256>*, unsigned int, unsigned int, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&)' (Concat_HLS/src/../include/helpers.hpp:21:94)
+INFO: [HLS 214-131] Inlining function 'WideType<ap_int<8>, 32u, 8u, void>::WideType()' into 'hls::stream<WideType<ap_int<8>, 32u, 8u, void>, 0>::read()'
+INFO: [HLS 214-131] Inlining function 'WideType<ap_int<8>, 32u, 8u, void>::operator[](unsigned int)' into 'void requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>(hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&)' (Concat_HLS/src/../include/helpers.hpp:89:4)
+INFO: [HLS 214-131] Inlining function 'WideType<ap_int<8>, 32u, 8u, void>::operator[](unsigned int)' into 'void requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>(hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&)' (Concat_HLS/src/../include/helpers.hpp:73:19)
+INFO: [HLS 214-131] Inlining function 'WideType<ap_int<8>, 32u, 8u, void>::operator[](unsigned int)' into 'void requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>(hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&)' (Concat_HLS/src/../include/helpers.hpp:62:4)
+INFO: [HLS 214-131] Inlining function 'WideType<ap_int<8>, 32u, 8u, void>::operator[](unsigned int)' into 'void requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>(hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&)' (Concat_HLS/src/../include/helpers.hpp:48:19)
+INFO: [HLS 214-377] Adding 'tmp' into disaggregation list because there's array-partition pragma applied on the struct field (Concat_HLS/src/../include/../include/types.hpp:80:9)
+INFO: [HLS 214-377] Adding 'secondBlockValue' into disaggregation list because there's array-partition pragma applied on the struct field (Concat_HLS/src/../include/../include/types.hpp:80:9)
+INFO: [HLS 214-377] Adding 'firstBlockValue' into disaggregation list because there's array-partition pragma applied on the struct field (Concat_HLS/src/../include/../include/types.hpp:80:9)
+INFO: [HLS 214-377] Adding 'secondBlockValue' into disaggregation list because there's array-partition pragma applied on the struct field (Concat_HLS/src/../include/../include/types.hpp:98:9)
+INFO: [HLS 214-377] Adding 'firstBlockValue' into disaggregation list because there's array-partition pragma applied on the struct field (Concat_HLS/src/../include/../include/types.hpp:98:9)
+INFO: [HLS 214-210] Disaggregating variable 'secondBlockValue' (Concat_HLS/src/../include/helpers.hpp:21:75)
+INFO: [HLS 214-210] Disaggregating variable 'firstBlockValue' (Concat_HLS/src/../include/helpers.hpp:16:75)
+INFO: [HLS 214-210] Disaggregating variable 'secondBlockValue' (Concat_HLS/src/../include/helpers.hpp:71:75)
+INFO: [HLS 214-210] Disaggregating variable 'firstBlockValue' (Concat_HLS/src/../include/helpers.hpp:46:75)
+INFO: [HLS 214-210] Disaggregating variable 'tmp'
+INFO: [HLS 214-291] Loop 'anonymous' is marked as complete unroll implied by the pipeline pragma (Concat_HLS/src/../include/../include/types.hpp:78:5)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_125_1' is marked as complete unroll implied by the pipeline pragma (Concat_HLS/src/../include/../include/types.hpp:125:27)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_70_3' is marked as complete unroll implied by the pipeline pragma (Concat_HLS/src/../include/helpers.hpp:70:19)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_72_4' is marked as complete unroll implied by the pipeline pragma (Concat_HLS/src/../include/helpers.hpp:72:20)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_45_1' is marked as complete unroll implied by the pipeline pragma (Concat_HLS/src/../include/helpers.hpp:45:19)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_47_2' is marked as complete unroll implied by the pipeline pragma (Concat_HLS/src/../include/helpers.hpp:47:20)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_20_2' is marked as complete unroll implied by the pipeline pragma (Concat_HLS/src/../include/helpers.hpp:20:19)
+INFO: [HLS 214-291] Loop 'anonymous' is marked as complete unroll implied by the pipeline pragma (Concat_HLS/src/../include/../include/types.hpp:96:5)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_103_1' is marked as complete unroll implied by the pipeline pragma (Concat_HLS/src/../include/../include/types.hpp:103:20)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_15_1' is marked as complete unroll implied by the pipeline pragma (Concat_HLS/src/../include/helpers.hpp:15:19)
+INFO: [HLS 214-186] Unrolling loop 'anonymous' (Concat_HLS/src/../include/../include/types.hpp:78:5) in function 'store<ap_uint<256>, ap_int<8>, 32u>' completely with a factor of 32 (Concat_HLS/src/../include/helpers.hpp:102:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_125_1' (Concat_HLS/src/../include/../include/types.hpp:125:27) in function 'WideType<ap_int<8>, 32u, 8u, void>::operator ap_uint<256> const' completely with a factor of 32 (Concat_HLS/src/../include/../include/types.hpp:123:0)
+INFO: [HLS 214-186] Unrolling loop 'anonymous' (Concat_HLS/src/../include/../include/types.hpp:78:5) in function 'requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>' completely with a factor of 32 (Concat_HLS/src/../include/helpers.hpp:32:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_72_4' (Concat_HLS/src/../include/helpers.hpp:72:20) in function 'requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>' completely with a factor of 32 (Concat_HLS/src/../include/helpers.hpp:32:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_47_2' (Concat_HLS/src/../include/helpers.hpp:47:20) in function 'requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>' completely with a factor of 32 (Concat_HLS/src/../include/helpers.hpp:32:0)
+INFO: [HLS 214-186] Unrolling loop 'anonymous' (Concat_HLS/src/../include/../include/types.hpp:96:5) in function 'read_inputs<ap_uint<256>, ap_int<8>, 32u>' completely with a factor of 32 (Concat_HLS/src/../include/helpers.hpp:13:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_103_1' (Concat_HLS/src/../include/../include/types.hpp:103:20) in function 'read_inputs<ap_uint<256>, ap_int<8>, 32u>' completely with a factor of 32 (Concat_HLS/src/../include/helpers.hpp:13:0)
+INFO: [HLS 214-178] Inlining function 'WideType<ap_int<8>, 32u, 8u, void>::operator ap_uint<256> const()' into 'void store<ap_uint<256>, ap_int<8>, 32u>(unsigned int, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&, ap_uint<256>*, bool&)' (Concat_HLS/src/../include/helpers.hpp:102:0)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'output_stream' with compact=bit mode in 256-bits (Concat_HLS/src/concat.cpp:26:77)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'input_stream' with compact=bit mode in 256-bits (Concat_HLS/src/concat.cpp:24:77)
+INFO: [HLS 214-115] Multiple burst reads of variable length and bit width 256 in loop 'VITIS_LOOP_15_1'(Concat_HLS/src/../include/helpers.hpp:15:19) has been inferred on bundle 'concat_data'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (Concat_HLS/src/../include/helpers.hpp:15:19)
+INFO: [HLS 214-115] Multiple burst reads of variable length and bit width 256 in loop 'VITIS_LOOP_20_2'(Concat_HLS/src/../include/helpers.hpp:20:19) has been inferred on bundle 'concat_data'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (Concat_HLS/src/../include/helpers.hpp:20:19)
+INFO: [HLS 214-115] Multiple burst writes of variable length and bit width 256 in loop 'VITIS_LOOP_105_1'(Concat_HLS/src/../include/helpers.hpp:105:20) has been inferred on bundle 'concat_data'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (Concat_HLS/src/../include/helpers.hpp:105:20)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 2.17 seconds. CPU system time: 0.27 seconds. Elapsed time: 2.45 seconds; current allocated memory: 763.457 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 763.457 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0.09 seconds. CPU system time: 0 seconds. Elapsed time: 0.09 seconds; current allocated memory: 771.078 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0.2 seconds. CPU system time: 0 seconds. Elapsed time: 0.21 seconds; current allocated memory: 779.707 MB.
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>' (Concat_HLS/src/../include/helpers.hpp:29:17).
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'read_inputs<ap_uint<256>, ap_int<8>, 32u>' (Concat_HLS/src/../include/helpers.hpp:6:19).
+WARNING: [HLS 200-936] Cannot unroll loop 'VITIS_LOOP_45_1' (Concat_HLS/src/../include/helpers.hpp:45) in function 'requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>': cannot completely unroll a loop with a variable trip count.
+WARNING: [HLS 200-936] Cannot unroll loop 'VITIS_LOOP_70_3' (Concat_HLS/src/../include/helpers.hpp:70) in function 'requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>': cannot completely unroll a loop with a variable trip count.
+WARNING: [HLS 200-936] Cannot unroll loop 'VITIS_LOOP_15_1' (Concat_HLS/src/../include/helpers.hpp:15) in function 'read_inputs<ap_uint<256>, ap_int<8>, 32u>': cannot completely unroll a loop with a variable trip count.
+WARNING: [HLS 200-936] Cannot unroll loop 'VITIS_LOOP_20_2' (Concat_HLS/src/../include/helpers.hpp:20) in function 'read_inputs<ap_uint<256>, ap_int<8>, 32u>': cannot completely unroll a loop with a variable trip count.
+INFO: [XFORM 203-712] Applying dataflow to function 'concat' (Concat_HLS/src/concat.cpp:3:1), detected/extracted 4 process function(s): 
+	 'entry_proc'
+	 'read_inputs<ap_uint<256>, ap_int<8>, 32u>'
+	 'requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>'
+	 'store<ap_uint<256>, ap_int<8>, 32u>'.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0.43 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.44 seconds; current allocated memory: 811.879 MB.
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0.13 seconds. CPU system time: 0 seconds. Elapsed time: 0.14 seconds; current allocated memory: 856.383 MB.
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'concat' ...
+WARNING: [SYN 201-103] Legalizing function name 'read_inputs<ap_uint<256>, ap_int<8>, 32u>' to 'read_inputs_ap_uint_256_ap_int_8_32u_s'.
+WARNING: [SYN 201-103] Legalizing function name 'requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>' to 'requant_ap_uint_256_ap_int_8_ap_int_8_32u_s'.
+WARNING: [SYN 201-103] Legalizing function name 'store<ap_uint<256>, ap_int<8>, 32u>_Pipeline_VITIS_LOOP_105_1' to 'store_ap_uint_256_ap_int_8_32u_Pipeline_VITIS_LOOP_105_1'.
+WARNING: [SYN 201-103] Legalizing function name 'store<ap_uint<256>, ap_int<8>, 32u>' to 'store_ap_uint_256_ap_int_8_32u_s'.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'entry_proc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.02 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.04 seconds; current allocated memory: 856.668 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 856.801 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'read_inputs_ap_uint_256_ap_int_8_32u_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+WARNING: [SCHED 204-65] Unable to satisfy pipeline directive for function 'read_inputs<ap_uint<256>, ap_int<8>, 32u>': contains subloop(s) that are not unrolled.
+WARNING: [SCHED 204-65] Unable to satisfy pipeline directive for function 'read_inputs<ap_uint<256>, ap_int<8>, 32u>': contains subloop(s) that are not unrolled.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.1 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.1 seconds; current allocated memory: 858.152 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.19 seconds. CPU system time: 0 seconds. Elapsed time: 0.19 seconds; current allocated memory: 858.152 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'requant_ap_uint_256_ap_int_8_ap_int_8_32u_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+WARNING: [SCHED 204-65] Unable to satisfy pipeline directive for function 'requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>': contains subloop(s) that are not unrolled.
+WARNING: [SCHED 204-65] Unable to satisfy pipeline directive for function 'requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>': contains subloop(s) that are not unrolled.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.5 seconds. CPU system time: 0 seconds. Elapsed time: 0.5 seconds; current allocated memory: 865.191 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.38 seconds. CPU system time: 0 seconds. Elapsed time: 0.38 seconds; current allocated memory: 865.191 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'store_ap_uint_256_ap_int_8_32u_Pipeline_VITIS_LOOP_105_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_105_1'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 3, loop 'VITIS_LOOP_105_1'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.68 seconds. CPU system time: 0 seconds. Elapsed time: 0.69 seconds; current allocated memory: 865.191 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 865.191 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'store_ap_uint_256_ap_int_8_32u_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 865.191 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.09 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.1 seconds; current allocated memory: 865.191 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'concat' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 865.191 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.2 seconds. CPU system time: 0 seconds. Elapsed time: 0.21 seconds; current allocated memory: 865.191 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'entry_proc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'entry_proc'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.56 seconds. CPU system time: 0 seconds. Elapsed time: 0.56 seconds; current allocated memory: 865.191 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'read_inputs_ap_uint_256_ap_int_8_32u_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Generating core module 'mul_32s_32s_32_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'read_inputs_ap_uint_256_ap_int_8_32u_s'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 866.391 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'requant_ap_uint_256_ap_int_8_ap_int_8_32u_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Generating core module 'mul_32s_32s_32_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_8s_33ns_40_1_1': 64 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'requant_ap_uint_256_ap_int_8_ap_int_8_32u_s'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.14 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.15 seconds; current allocated memory: 873.863 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'store_ap_uint_256_ap_int_8_32u_Pipeline_VITIS_LOOP_105_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'store_ap_uint_256_ap_int_8_32u_Pipeline_VITIS_LOOP_105_1' pipeline 'VITIS_LOOP_105_1' pipeline type 'loop pipeline'
+WARNING: [RTGEN 206-101] Setting dangling out port 'store_ap_uint_256_ap_int_8_32u_Pipeline_VITIS_LOOP_105_1/m_axi_concat_data_AWVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'store_ap_uint_256_ap_int_8_32u_Pipeline_VITIS_LOOP_105_1/m_axi_concat_data_AWADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'store_ap_uint_256_ap_int_8_32u_Pipeline_VITIS_LOOP_105_1/m_axi_concat_data_AWID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'store_ap_uint_256_ap_int_8_32u_Pipeline_VITIS_LOOP_105_1/m_axi_concat_data_AWLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'store_ap_uint_256_ap_int_8_32u_Pipeline_VITIS_LOOP_105_1/m_axi_concat_data_AWSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'store_ap_uint_256_ap_int_8_32u_Pipeline_VITIS_LOOP_105_1/m_axi_concat_data_AWBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'store_ap_uint_256_ap_int_8_32u_Pipeline_VITIS_LOOP_105_1/m_axi_concat_data_AWLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'store_ap_uint_256_ap_int_8_32u_Pipeline_VITIS_LOOP_105_1/m_axi_concat_data_AWCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'store_ap_uint_256_ap_int_8_32u_Pipeline_VITIS_LOOP_105_1/m_axi_concat_data_AWPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'store_ap_uint_256_ap_int_8_32u_Pipeline_VITIS_LOOP_105_1/m_axi_concat_data_AWQOS' to 0.

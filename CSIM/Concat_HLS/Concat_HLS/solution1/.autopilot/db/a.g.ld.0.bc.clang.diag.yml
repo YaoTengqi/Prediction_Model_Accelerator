@@ -18,34 +18,115 @@ Args:
 --- !Passed
 Pass:            inline
 Name:            AlwaysInline
-DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 89, 
-                   Column: 31 }
-Function:        _Z5storeI7ap_uintILi256EE6ap_intILi8EES3_Lj32EEvRN3hls6streamIN8WideTypeIT1_XT2_EXmlstS7_Li8EEvE9t_TypeIntELi0EEEPT_jjjRb
-Args:            
-  - String:          'Inlining function '''
-  - Callee:          'WideType<ap_int<8>, 32u, 8u, void>::WideType()'
-    DebugLoc:        { File: Concat_HLS/src/../include/../include/types.hpp, 
-                       Line: 78, Column: 0 }
-  - String:          ''' into '''
-  - Caller:          'void store<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>(hls::stream<WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt, 0>&, ap_uint<256>*, unsigned int, unsigned int, unsigned int, bool&)'
-    DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 85, 
-                       Column: 0 }
-  - String:          ''''
-...
---- !Passed
-Pass:            inline
-Name:            AlwaysInline
-DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 95, 
-                   Column: 11 }
-Function:        _Z5storeI7ap_uintILi256EE6ap_intILi8EES3_Lj32EEvRN3hls6streamIN8WideTypeIT1_XT2_EXmlstS7_Li8EEvE9t_TypeIntELi0EEEPT_jjjRb
+DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 16, 
+                   Column: 93 }
+Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_jjjjRN3hls6streamI8WideTypeIT0_XdvstS4_stS9_EXmlstS9_Li8EEvELi0EEE
 Args:            
   - String:          'Inlining function '''
   - Callee:          'WideType<ap_int<8>, 32u, 8u, void>::WideType(ap_uint<256> const&)'
     DebugLoc:        { File: Concat_HLS/src/../include/../include/types.hpp, 
                        Line: 96, Column: 0 }
   - String:          ''' into '''
-  - Caller:          'void store<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>(hls::stream<WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt, 0>&, ap_uint<256>*, unsigned int, unsigned int, unsigned int, bool&)'
-    DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 85, 
+  - Caller:          'void read_inputs<ap_uint<256>, ap_int<8>, 32u>(ap_uint<256>*, unsigned int, unsigned int, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&)'
+    DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 13, 
+                       Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 21, 
+                   Column: 94 }
+Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_jjjjRN3hls6streamI8WideTypeIT0_XdvstS4_stS9_EXmlstS9_Li8EEvELi0EEE
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'WideType<ap_int<8>, 32u, 8u, void>::WideType(ap_uint<256> const&)'
+    DebugLoc:        { File: Concat_HLS/src/../include/../include/types.hpp, 
+                       Line: 96, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'void read_inputs<ap_uint<256>, ap_int<8>, 32u>(ap_uint<256>*, unsigned int, unsigned int, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&)'
+    DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 13, 
+                       Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+Function:        _ZN3hls6streamI8WideTypeI6ap_intILi8EELj32ELj8EvELi0EE4readEv
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'WideType<ap_int<8>, 32u, 8u, void>::WideType()'
+    DebugLoc:        { File: Concat_HLS/src/../include/../include/types.hpp, 
+                       Line: 78, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'hls::stream<WideType<ap_int<8>, 32u, 8u, void>, 0>::read()'
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 89, 
+                   Column: 4 }
+Function:        _Z7requantI7ap_uintILi256EE6ap_intILi8EES3_Lj32EEvRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEjjRNS5_IS6_IT1_XdvstS8_stSC_EXmlstSC_Li8EEvELi0EEE
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'WideType<ap_int<8>, 32u, 8u, void>::operator[](unsigned int)'
+    DebugLoc:        { File: Concat_HLS/src/../include/../include/types.hpp, 
+                       Line: 59, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'void requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>(hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&)'
+    DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 32, 
+                       Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 73, 
+                   Column: 19 }
+Function:        _Z7requantI7ap_uintILi256EE6ap_intILi8EES3_Lj32EEvRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEjjRNS5_IS6_IT1_XdvstS8_stSC_EXmlstSC_Li8EEvELi0EEE
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'WideType<ap_int<8>, 32u, 8u, void>::operator[](unsigned int)'
+    DebugLoc:        { File: Concat_HLS/src/../include/../include/types.hpp, 
+                       Line: 59, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'void requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>(hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&)'
+    DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 32, 
+                       Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 62, 
+                   Column: 4 }
+Function:        _Z7requantI7ap_uintILi256EE6ap_intILi8EES3_Lj32EEvRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEjjRNS5_IS6_IT1_XdvstS8_stSC_EXmlstSC_Li8EEvELi0EEE
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'WideType<ap_int<8>, 32u, 8u, void>::operator[](unsigned int)'
+    DebugLoc:        { File: Concat_HLS/src/../include/../include/types.hpp, 
+                       Line: 59, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'void requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>(hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&)'
+    DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 32, 
+                       Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 48, 
+                   Column: 19 }
+Function:        _Z7requantI7ap_uintILi256EE6ap_intILi8EES3_Lj32EEvRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEjjRNS5_IS6_IT1_XdvstS8_stSC_EXmlstSC_Li8EEvELi0EEE
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'WideType<ap_int<8>, 32u, 8u, void>::operator[](unsigned int)'
+    DebugLoc:        { File: Concat_HLS/src/../include/../include/types.hpp, 
+                       Line: 59, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'void requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>(hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&)'
+    DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 32, 
                        Column: 0 }
   - String:          ''''
 ...
@@ -53,11 +134,11 @@ Args:
 Pass:            reflow-disaggr
 Name:            DisaggrReason
 DebugLoc:        { File: Concat_HLS/src/../include/../include/types.hpp, 
-                   Line: 98, Column: 9 }
-Function:        _Z5storeI7ap_uintILi256EE6ap_intILi8EES3_Lj32EEvRN3hls6streamIN8WideTypeIT1_XT2_EXmlstS7_Li8EEvE9t_TypeIntELi0EEEPT_jjjRb
+                   Line: 80, Column: 9 }
+Function:        _Z5storeI7ap_uintILi256EE6ap_intILi8EELj32EEvjjjRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEPS8_Rb
 Args:            
   - String:          'Adding '''
-  - Name:            ref.tmp
+  - Name:            tmp
   - String:          ''' into disaggregation list because there''s '
   - String:          array-partition pragma applied on the struct field
 ...
@@ -66,53 +147,111 @@ Pass:            reflow-disaggr
 Name:            DisaggrReason
 DebugLoc:        { File: Concat_HLS/src/../include/../include/types.hpp, 
                    Line: 80, Column: 9 }
-Function:        _Z5storeI7ap_uintILi256EE6ap_intILi8EES3_Lj32EEvRN3hls6streamIN8WideTypeIT1_XT2_EXmlstS7_Li8EEvE9t_TypeIntELi0EEEPT_jjjRb
+Function:        _Z7requantI7ap_uintILi256EE6ap_intILi8EES3_Lj32EEvRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEjjRNS5_IS6_IT1_XdvstS8_stSC_EXmlstSC_Li8EEvELi0EEE
 Args:            
   - String:          'Adding '''
-  - Name:            data
+  - Name:            secondBlockValue
+  - String:          ''' into disaggregation list because there''s '
+  - String:          array-partition pragma applied on the struct field
+...
+--- !Passed
+Pass:            reflow-disaggr
+Name:            DisaggrReason
+DebugLoc:        { File: Concat_HLS/src/../include/../include/types.hpp, 
+                   Line: 80, Column: 9 }
+Function:        _Z7requantI7ap_uintILi256EE6ap_intILi8EES3_Lj32EEvRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEjjRNS5_IS6_IT1_XdvstS8_stSC_EXmlstSC_Li8EEvELi0EEE
+Args:            
+  - String:          'Adding '''
+  - Name:            firstBlockValue
+  - String:          ''' into disaggregation list because there''s '
+  - String:          array-partition pragma applied on the struct field
+...
+--- !Passed
+Pass:            reflow-disaggr
+Name:            DisaggrReason
+DebugLoc:        { File: Concat_HLS/src/../include/../include/types.hpp, 
+                   Line: 98, Column: 9 }
+Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_jjjjRN3hls6streamI8WideTypeIT0_XdvstS4_stS9_EXmlstS9_Li8EEvELi0EEE
+Args:            
+  - String:          'Adding '''
+  - Name:            secondBlockValue
+  - String:          ''' into disaggregation list because there''s '
+  - String:          array-partition pragma applied on the struct field
+...
+--- !Passed
+Pass:            reflow-disaggr
+Name:            DisaggrReason
+DebugLoc:        { File: Concat_HLS/src/../include/../include/types.hpp, 
+                   Line: 98, Column: 9 }
+Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_jjjjRN3hls6streamI8WideTypeIT0_XdvstS4_stS9_EXmlstS9_Li8EEvELi0EEE
+Args:            
+  - String:          'Adding '''
+  - Name:            firstBlockValue
   - String:          ''' into disaggregation list because there''s '
   - String:          array-partition pragma applied on the struct field
 ...
 --- !Passed
 Pass:            reflow-disaggr
 Name:            DisaggrSucc
-Function:        _Z5storeI7ap_uintILi256EE6ap_intILi8EES3_Lj32EEvRN3hls6streamIN8WideTypeIT1_XT2_EXmlstS7_Li8EEvE9t_TypeIntELi0EEEPT_jjjRb
+DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 21, 
+                   Column: 75 }
+Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_jjjjRN3hls6streamI8WideTypeIT0_XdvstS4_stS9_EXmlstS9_Li8EEvELi0EEE
 Args:            
   - String:          'Disaggregating variable '''
-  - Name:            ref.tmp
+  - Name:            secondBlockValue
   - String:          ''''
 ...
 --- !Passed
 Pass:            reflow-disaggr
 Name:            DisaggrSucc
-DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 89, 
-                   Column: 31 }
-Function:        _Z5storeI7ap_uintILi256EE6ap_intILi8EES3_Lj32EEvRN3hls6streamIN8WideTypeIT1_XT2_EXmlstS7_Li8EEvE9t_TypeIntELi0EEEPT_jjjRb
+DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 16, 
+                   Column: 75 }
+Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_jjjjRN3hls6streamI8WideTypeIT0_XdvstS4_stS9_EXmlstS9_Li8EEvELi0EEE
 Args:            
   - String:          'Disaggregating variable '''
-  - Name:            data
+  - Name:            firstBlockValue
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-disaggr
+Name:            DisaggrSucc
+DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 71, 
+                   Column: 75 }
+Function:        _Z7requantI7ap_uintILi256EE6ap_intILi8EES3_Lj32EEvRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEjjRNS5_IS6_IT1_XdvstS8_stSC_EXmlstSC_Li8EEvELi0EEE
+Args:            
+  - String:          'Disaggregating variable '''
+  - Name:            secondBlockValue
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-disaggr
+Name:            DisaggrSucc
+DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 46, 
+                   Column: 75 }
+Function:        _Z7requantI7ap_uintILi256EE6ap_intILi8EES3_Lj32EEvRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEjjRNS5_IS6_IT1_XdvstS8_stSC_EXmlstSC_Li8EEvELi0EEE
+Args:            
+  - String:          'Disaggregating variable '''
+  - Name:            firstBlockValue
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-disaggr
+Name:            DisaggrSucc
+Function:        _Z5storeI7ap_uintILi256EE6ap_intILi8EELj32EEvjjjRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEPS8_Rb
+Args:            
+  - String:          'Disaggregating variable '''
+  - Name:            tmp
   - String:          ''''
 ...
 --- !Passed
 Pass:            reflow-infer-unroll
 Name:            ImplicitUnroll
 DebugLoc:        { File: Concat_HLS/src/../include/../include/types.hpp, 
-                   Line: 96, Column: 5 }
-Function:        _Z5storeI7ap_uintILi256EE6ap_intILi8EES3_Lj32EEvRN3hls6streamIN8WideTypeIT1_XT2_EXmlstS7_Li8EEvE9t_TypeIntELi0EEEPT_jjjRb
+                   Line: 78, Column: 5 }
+Function:        _Z5storeI7ap_uintILi256EE6ap_intILi8EELj32EEvjjjRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEPS8_Rb
 Args:            
   - String:          'Loop '''
   - LoopName:        anonymous
-  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
-...
---- !Passed
-Pass:            reflow-infer-unroll
-Name:            ImplicitUnroll
-DebugLoc:        { File: Concat_HLS/src/../include/../include/types.hpp, 
-                   Line: 103, Column: 20 }
-Function:        _Z5storeI7ap_uintILi256EE6ap_intILi8EES3_Lj32EEvRN3hls6streamIN8WideTypeIT1_XT2_EXmlstS7_Li8EEvE9t_TypeIntELi0EEEPT_jjjRb
-Args:            
-  - String:          'Loop '''
-  - LoopName:        VITIS_LOOP_103_1
   - String:          ''' is marked as complete unroll implied by the pipeline pragma'
 ...
 --- !Passed
@@ -129,18 +268,20 @@ Args:
 --- !Passed
 Pass:            reflow-infer-unroll
 Name:            ImplicitUnroll
-DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 19, 
+DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 70, 
                    Column: 19 }
-Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_RN3hls6streamIN8WideTypeIT0_XT1_EXmlstS9_Li8EEvE9t_TypeIntELi0EEEjjjj
+Function:        _Z7requantI7ap_uintILi256EE6ap_intILi8EES3_Lj32EEvRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEjjRNS5_IS6_IT1_XdvstS8_stSC_EXmlstSC_Li8EEvELi0EEE
 Args:            
   - String:          'Loop '''
-  - LoopName:        VITIS_LOOP_19_1
+  - LoopName:        VITIS_LOOP_70_3
   - String:          ''' is marked as complete unroll implied by the pipeline pragma'
 ...
 --- !Passed
 Pass:            reflow-infer-unroll
 Name:            ImplicitUnroll
-Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_RN3hls6streamIN8WideTypeIT0_XT1_EXmlstS9_Li8EEvE9t_TypeIntELi0EEEjjjj
+DebugLoc:        { File: Concat_HLS/src/../include/../include/types.hpp, 
+                   Line: 78, Column: 5 }
+Function:        _Z7requantI7ap_uintILi256EE6ap_intILi8EES3_Lj32EEvRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEjjRNS5_IS6_IT1_XdvstS8_stSC_EXmlstSC_Li8EEvELi0EEE
 Args:            
   - String:          'Loop '''
   - LoopName:        anonymous
@@ -149,7 +290,31 @@ Args:
 --- !Passed
 Pass:            reflow-infer-unroll
 Name:            ImplicitUnroll
-Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_RN3hls6streamIN8WideTypeIT0_XT1_EXmlstS9_Li8EEvE9t_TypeIntELi0EEEjjjj
+DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 72, 
+                   Column: 20 }
+Function:        _Z7requantI7ap_uintILi256EE6ap_intILi8EES3_Lj32EEvRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEjjRNS5_IS6_IT1_XdvstS8_stSC_EXmlstSC_Li8EEvELi0EEE
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_72_4
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 45, 
+                   Column: 19 }
+Function:        _Z7requantI7ap_uintILi256EE6ap_intILi8EES3_Lj32EEvRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEjjRNS5_IS6_IT1_XdvstS8_stSC_EXmlstSC_Li8EEvELi0EEE
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_45_1
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: Concat_HLS/src/../include/../include/types.hpp, 
+                   Line: 78, Column: 5 }
+Function:        _Z7requantI7ap_uintILi256EE6ap_intILi8EES3_Lj32EEvRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEjjRNS5_IS6_IT1_XdvstS8_stSC_EXmlstSC_Li8EEvELi0EEE
 Args:            
   - String:          'Loop '''
   - LoopName:        anonymous
@@ -158,7 +323,31 @@ Args:
 --- !Passed
 Pass:            reflow-infer-unroll
 Name:            ImplicitUnroll
-Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_RN3hls6streamIN8WideTypeIT0_XT1_EXmlstS9_Li8EEvE9t_TypeIntELi0EEEjjjj
+DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 47, 
+                   Column: 20 }
+Function:        _Z7requantI7ap_uintILi256EE6ap_intILi8EES3_Lj32EEvRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEjjRNS5_IS6_IT1_XdvstS8_stSC_EXmlstSC_Li8EEvELi0EEE
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_47_2
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 20, 
+                   Column: 19 }
+Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_jjjjRN3hls6streamI8WideTypeIT0_XdvstS4_stS9_EXmlstS9_Li8EEvELi0EEE
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_20_2
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: Concat_HLS/src/../include/../include/types.hpp, 
+                   Line: 96, Column: 5 }
+Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_jjjjRN3hls6streamI8WideTypeIT0_XdvstS4_stS9_EXmlstS9_Li8EEvELi0EEE
 Args:            
   - String:          'Loop '''
   - LoopName:        anonymous
@@ -167,18 +356,31 @@ Args:
 --- !Passed
 Pass:            reflow-infer-unroll
 Name:            ImplicitUnroll
-Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_RN3hls6streamIN8WideTypeIT0_XT1_EXmlstS9_Li8EEvE9t_TypeIntELi0EEEjjjj
+DebugLoc:        { File: Concat_HLS/src/../include/../include/types.hpp, 
+                   Line: 103, Column: 20 }
+Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_jjjjRN3hls6streamI8WideTypeIT0_XdvstS4_stS9_EXmlstS9_Li8EEvELi0EEE
 Args:            
   - String:          'Loop '''
-  - LoopName:        anonymous
+  - LoopName:        VITIS_LOOP_103_1
   - String:          ''' is marked as complete unroll implied by the pipeline pragma'
 ...
 --- !Passed
 Pass:            reflow-infer-unroll
 Name:            ImplicitUnroll
 DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 15, 
-                   Column: 52 }
-Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_RN3hls6streamIN8WideTypeIT0_XT1_EXmlstS9_Li8EEvE9t_TypeIntELi0EEEjjjj
+                   Column: 19 }
+Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_jjjjRN3hls6streamI8WideTypeIT0_XdvstS4_stS9_EXmlstS9_Li8EEvELi0EEE
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_15_1
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: Concat_HLS/src/../include/../include/types.hpp, 
+                   Line: 96, Column: 5 }
+Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_jjjjRN3hls6streamI8WideTypeIT0_XdvstS4_stS9_EXmlstS9_Li8EEvELi0EEE
 Args:            
   - String:          'Loop '''
   - LoopName:        anonymous
@@ -187,45 +389,28 @@ Args:
 --- !Passed
 Pass:            reflow-infer-unroll
 Name:            ImplicitUnroll
-DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 14, 
-                   Column: 52 }
-Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_RN3hls6streamIN8WideTypeIT0_XT1_EXmlstS9_Li8EEvE9t_TypeIntELi0EEEjjjj
+DebugLoc:        { File: Concat_HLS/src/../include/../include/types.hpp, 
+                   Line: 103, Column: 20 }
+Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_jjjjRN3hls6streamI8WideTypeIT0_XdvstS4_stS9_EXmlstS9_Li8EEvELi0EEE
 Args:            
   - String:          'Loop '''
-  - LoopName:        anonymous
+  - LoopName:        VITIS_LOOP_103_1
   - String:          ''' is marked as complete unroll implied by the pipeline pragma'
 ...
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 85, 
+DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 102, 
                    Column: 0 }
-Function:        _Z5storeI7ap_uintILi256EE6ap_intILi8EES3_Lj32EEvRN3hls6streamIN8WideTypeIT1_XT2_EXmlstS7_Li8EEvE9t_TypeIntELi0EEEPT_jjjRb
+Function:        _Z5storeI7ap_uintILi256EE6ap_intILi8EELj32EEvjjjRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEPS8_Rb
 Args:            
   - String:          'Unrolling loop '''
   - LoopName:        anonymous
   - String:          ''' ('
-  - LoopLoc:         'Concat_HLS/src/../include/../include/types.hpp:96:5'
+  - LoopLoc:         'Concat_HLS/src/../include/../include/types.hpp:78:5'
   - String:          ') '
   - String:          'in function '''
-  - String:          'store<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>'
-  - String:          ''' completely with a factor of '
-  - Factor:          '32'
-...
---- !Passed
-Pass:            reflow-pragma-loop-unroll
-Name:            PragmaFullyUnroll
-DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 85, 
-                   Column: 0 }
-Function:        _Z5storeI7ap_uintILi256EE6ap_intILi8EES3_Lj32EEvRN3hls6streamIN8WideTypeIT1_XT2_EXmlstS7_Li8EEvE9t_TypeIntELi0EEEPT_jjjRb
-Args:            
-  - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_103_1
-  - String:          ''' ('
-  - LoopLoc:         'Concat_HLS/src/../include/../include/types.hpp:103:20'
-  - String:          ') '
-  - String:          'in function '''
-  - String:          'store<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>'
+  - String:          'store<ap_uint<256>, ap_int<8>, 32u>'
   - String:          ''' completely with a factor of '
   - Factor:          '32'
 ...
@@ -247,26 +432,196 @@ Args:
   - Factor:          '32'
 ...
 --- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 32, 
+                   Column: 0 }
+Function:        _Z7requantI7ap_uintILi256EE6ap_intILi8EES3_Lj32EEvRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEjjRNS5_IS6_IT1_XdvstS8_stSC_EXmlstSC_Li8EEvELi0EEE
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        anonymous
+  - String:          ''' ('
+  - LoopLoc:         'Concat_HLS/src/../include/../include/types.hpp:78:5'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '32'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 32, 
+                   Column: 0 }
+Function:        _Z7requantI7ap_uintILi256EE6ap_intILi8EES3_Lj32EEvRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEjjRNS5_IS6_IT1_XdvstS8_stSC_EXmlstSC_Li8EEvELi0EEE
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_72_4
+  - String:          ''' ('
+  - LoopLoc:         'Concat_HLS/src/../include/helpers.hpp:72:20'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '32'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 32, 
+                   Column: 0 }
+Function:        _Z7requantI7ap_uintILi256EE6ap_intILi8EES3_Lj32EEvRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEjjRNS5_IS6_IT1_XdvstS8_stSC_EXmlstSC_Li8EEvELi0EEE
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        anonymous
+  - String:          ''' ('
+  - LoopLoc:         'Concat_HLS/src/../include/../include/types.hpp:78:5'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '32'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 32, 
+                   Column: 0 }
+Function:        _Z7requantI7ap_uintILi256EE6ap_intILi8EES3_Lj32EEvRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEjjRNS5_IS6_IT1_XdvstS8_stSC_EXmlstSC_Li8EEvELi0EEE
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_47_2
+  - String:          ''' ('
+  - LoopLoc:         'Concat_HLS/src/../include/helpers.hpp:47:20'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '32'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 13, 
+                   Column: 0 }
+Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_jjjjRN3hls6streamI8WideTypeIT0_XdvstS4_stS9_EXmlstS9_Li8EEvELi0EEE
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        anonymous
+  - String:          ''' ('
+  - LoopLoc:         'Concat_HLS/src/../include/../include/types.hpp:96:5'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'read_inputs<ap_uint<256>, ap_int<8>, 32u>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '32'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 13, 
+                   Column: 0 }
+Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_jjjjRN3hls6streamI8WideTypeIT0_XdvstS4_stS9_EXmlstS9_Li8EEvELi0EEE
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_103_1
+  - String:          ''' ('
+  - LoopLoc:         'Concat_HLS/src/../include/../include/types.hpp:103:20'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'read_inputs<ap_uint<256>, ap_int<8>, 32u>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '32'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 13, 
+                   Column: 0 }
+Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_jjjjRN3hls6streamI8WideTypeIT0_XdvstS4_stS9_EXmlstS9_Li8EEvELi0EEE
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        anonymous
+  - String:          ''' ('
+  - LoopLoc:         'Concat_HLS/src/../include/../include/types.hpp:96:5'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'read_inputs<ap_uint<256>, ap_int<8>, 32u>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '32'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 13, 
+                   Column: 0 }
+Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_jjjjRN3hls6streamI8WideTypeIT0_XdvstS4_stS9_EXmlstS9_Li8EEvELi0EEE
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_103_1
+  - String:          ''' ('
+  - LoopLoc:         'Concat_HLS/src/../include/../include/types.hpp:103:20'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'read_inputs<ap_uint<256>, ap_int<8>, 32u>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '32'
+...
+--- !Passed
 Pass:            reflow-inliner
 Name:            AutoInline
-DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 85, 
+DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 102, 
                    Column: 0 }
-Function:        _Z5storeI7ap_uintILi256EE6ap_intILi8EES3_Lj32EEvRN3hls6streamIN8WideTypeIT1_XT2_EXmlstS7_Li8EEvE9t_TypeIntELi0EEEPT_jjjRb
+Function:        _Z5storeI7ap_uintILi256EE6ap_intILi8EELj32EEvjjjRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEPS8_Rb
 Args:            
   - String:          'Inlining function '''
   - Callee:          'WideType<ap_int<8>, 32u, 8u, void>::operator ap_uint<256> const()'
     DebugLoc:        { File: Concat_HLS/src/../include/../include/types.hpp, 
                        Line: 123, Column: 0 }
   - String:          ''' into '''
-  - Caller:          'void store<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>(hls::stream<WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt, 0>&, ap_uint<256>*, unsigned int, unsigned int, unsigned int, bool&)'
-    DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 85, 
+  - Caller:          'void store<ap_uint<256>, ap_int<8>, 32u>(unsigned int, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&, ap_uint<256>*, bool&)'
+    DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 102, 
                        Column: 0 }
   - String:          ''''
 ...
 --- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: Concat_HLS/src/concat.cpp, Line: 26, Column: 77 }
+Function:        _Z6concatjjjjjP7ap_uintILi256EES1_Rb
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        'fifo (hls::stream)'
+  - String:          ' variable '''
+  - Name:            output_stream
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '256'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: Concat_HLS/src/concat.cpp, Line: 24, Column: 77 }
+Function:        _Z6concatjjjjjP7ap_uintILi256EES1_Rb
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        'fifo (hls::stream)'
+  - String:          ' variable '''
+  - Name:            input_stream
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '256'
+  - String:          '-bits'
+...
+--- !Passed
 Pass:            reflow-burst-inference
 Name:            BurstInferred
-Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_RN3hls6streamIN8WideTypeIT0_XT1_EXmlstS9_Li8EEvE9t_TypeIntELi0EEEjjjj
+DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 15, 
+                   Column: 19 }
+Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_jjjjRN3hls6streamI8WideTypeIT0_XdvstS4_stS9_EXmlstS9_Li8EEvELi0EEE
 Args:            
   - String:          'Sequential '
   - Direction:       read
@@ -275,28 +630,30 @@ Args:
   - String:          ' length'
   - String:          ' has been inferred'
   - String:          ' _XLX_SEP_ OldID='
-  - String:          loop-memcpy-expansion3.load.4
+  - String:          for.body.i.i.load.11
   - String:          ', '
   - String:          ' _XLX_SEP_ '
-  - AccessID:        arrayidx10seq
+  - AccessID:        scevgepseq
   - String:          ' '
   - ArrayName:       inputs
   - String:          ' '
   - BundleName:      concat_data
   - String:          ' '
-  - LoopName:        anonymous
+  - LoopName:        VITIS_LOOP_15_1
   - String:          ' '
-  - LoopLoc:         ''
+  - LoopLoc:         'Concat_HLS/src/../include/helpers.hpp:15:19'
   - String:          ' '
-  - Function:        'void read_inputs<ap_uint<256>, ap_int<8>, 32u>(ap_uint<256>*, hls::stream<WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt, 0>&, unsigned int, unsigned int, unsigned int, unsigned int)'
-    DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 12, 
+  - Function:        'void read_inputs<ap_uint<256>, ap_int<8>, 32u>(ap_uint<256>*, unsigned int, unsigned int, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&)'
+    DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 13, 
                        Column: 0 }
   - String:          ' '
 ...
 --- !Passed
 Pass:            reflow-burst-inference
 Name:            BurstInferred
-Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_RN3hls6streamIN8WideTypeIT0_XT1_EXmlstS9_Li8EEvE9t_TypeIntELi0EEEjjjj
+DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 20, 
+                   Column: 19 }
+Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_jjjjRN3hls6streamI8WideTypeIT0_XdvstS4_stS9_EXmlstS9_Li8EEvELi0EEE
 Args:            
   - String:          'Sequential '
   - Direction:       read
@@ -305,299 +662,187 @@ Args:
   - String:          ' length'
   - String:          ' has been inferred'
   - String:          ' _XLX_SEP_ OldID='
-  - String:          loop-memcpy-residual5.load.4
+  - String:          for.body.i.i34.load.11
   - String:          ', '
   - String:          ' _XLX_SEP_ '
-  - AccessID:        uglygepseq
+  - AccessID:        scevgep1seq
   - String:          ' '
   - ArrayName:       inputs
   - String:          ' '
   - BundleName:      concat_data
   - String:          ' '
-  - LoopName:        anonymous
+  - LoopName:        VITIS_LOOP_20_2
   - String:          ' '
-  - LoopLoc:         ''
+  - LoopLoc:         'Concat_HLS/src/../include/helpers.hpp:20:19'
   - String:          ' '
-  - Function:        'void read_inputs<ap_uint<256>, ap_int<8>, 32u>(ap_uint<256>*, hls::stream<WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt, 0>&, unsigned int, unsigned int, unsigned int, unsigned int)'
-    DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 12, 
+  - Function:        'void read_inputs<ap_uint<256>, ap_int<8>, 32u>(ap_uint<256>*, unsigned int, unsigned int, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&)'
+    DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 13, 
                        Column: 0 }
   - String:          ' '
 ...
 --- !Passed
 Pass:            reflow-burst-inference
 Name:            BurstInferred
-Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_RN3hls6streamIN8WideTypeIT0_XT1_EXmlstS9_Li8EEvE9t_TypeIntELi0EEEjjjj
+DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 105, 
+                   Column: 20 }
+Function:        _Z5storeI7ap_uintILi256EE6ap_intILi8EELj32EEvjjjRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEPS8_Rb
 Args:            
   - String:          'Sequential '
-  - Direction:       read
+  - Direction:       write
   - String:          ' of '
   - Length:          variable
   - String:          ' length'
   - String:          ' has been inferred'
   - String:          ' _XLX_SEP_ OldID='
-  - String:          loop-memcpy-expansion.load.4
+  - String:          arrayctor.loop.i.i.store.174
   - String:          ', '
   - String:          ' _XLX_SEP_ '
-  - AccessID:        arrayidx15seq
-  - String:          ' '
-  - ArrayName:       inputs
-  - String:          ' '
-  - BundleName:      concat_data
-  - String:          ' '
-  - LoopName:        anonymous
-  - String:          ' '
-  - LoopLoc:         ''
-  - String:          ' '
-  - Function:        'void read_inputs<ap_uint<256>, ap_int<8>, 32u>(ap_uint<256>*, hls::stream<WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt, 0>&, unsigned int, unsigned int, unsigned int, unsigned int)'
-    DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 12, 
-                       Column: 0 }
-  - String:          ' '
-...
---- !Passed
-Pass:            reflow-burst-inference
-Name:            BurstInferred
-Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_RN3hls6streamIN8WideTypeIT0_XT1_EXmlstS9_Li8EEvE9t_TypeIntELi0EEEjjjj
-Args:            
-  - String:          'Sequential '
-  - Direction:       read
-  - String:          ' of '
-  - Length:          variable
-  - String:          ' length'
-  - String:          ' has been inferred'
-  - String:          ' _XLX_SEP_ OldID='
-  - String:          loop-memcpy-residual.load.4
-  - String:          ', '
-  - String:          ' _XLX_SEP_ '
-  - AccessID:        uglygep19seq
-  - String:          ' '
-  - ArrayName:       inputs
-  - String:          ' '
-  - BundleName:      concat_data
-  - String:          ' '
-  - LoopName:        anonymous
-  - String:          ' '
-  - LoopLoc:         ''
-  - String:          ' '
-  - Function:        'void read_inputs<ap_uint<256>, ap_int<8>, 32u>(ap_uint<256>*, hls::stream<WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt, 0>&, unsigned int, unsigned int, unsigned int, unsigned int)'
-    DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 12, 
-                       Column: 0 }
-  - String:          ' '
-...
---- !Missed
-Pass:            reflow-burst-inference
-Name:            AccessInCondBranch
-DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 96, 
-                   Column: 25 }
-Function:        _Z5storeI7ap_uintILi256EE6ap_intILi8EES3_Lj32EEvRN3hls6streamIN8WideTypeIT1_XT2_EXmlstS7_Li8EEvE9t_TypeIntELi0EEEPT_jjjRb
-Args:            
-  - String:          'Access '
-  - Access:          store
-    DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 96, 
-                       Column: 25 }
-  - String:          ' is in the conditional branch'
-  - String:          ' _XLX_SEP_ '
-  - AccessID:        for.body.i.i.store.329
+  - AccessID:        scevgepseq
   - String:          ' '
   - ArrayName:       outputs
   - String:          ' '
   - BundleName:      concat_data
   - String:          ' '
-  - LoopName:        VITIS_LOOP_91_1
+  - LoopName:        VITIS_LOOP_105_1
   - String:          ' '
-  - LoopLoc:         'Concat_HLS/src/../include/helpers.hpp:91:19'
+  - LoopLoc:         'Concat_HLS/src/../include/helpers.hpp:105:20'
   - String:          ' '
-  - Function:        'void store<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>(hls::stream<WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt, 0>&, ap_uint<256>*, unsigned int, unsigned int, unsigned int, bool&)'
-    DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 85, 
+  - Function:        'void store<ap_uint<256>, ap_int<8>, 32u>(unsigned int, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&, ap_uint<256>*, bool&)'
+    DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 102, 
                        Column: 0 }
   - String:          ' '
 ...
 --- !Missed
 Pass:            reflow-burst-widen
 Name:            GreaterOrEqualThreshold
-Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_RN3hls6streamIN8WideTypeIT0_XT1_EXmlstS9_Li8EEvE9t_TypeIntELi0EEEjjjj
-Args:            
-  - String:          'Could not widen since type '
-  - Type:            i8
-  - String:          ' size is greater than or equal to the max_widen_bitwidth threshold of '
-  - Threshold:       '0'
-  - String:          ' _XLX_SEP_ '
-  - AccessID:        uglygep19seq
-  - String:          ' '
-  - ArrayName:       inputs
-  - String:          ' '
-  - BundleName:      concat_data
-  - String:          ' '
-  - LoopName:        anonymous
-  - String:          ' '
-  - LoopLoc:         ''
-  - String:          ' '
-  - Function:        'void read_inputs<ap_uint<256>, ap_int<8>, 32u>(ap_uint<256>*, hls::stream<WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt, 0>&, unsigned int, unsigned int, unsigned int, unsigned int)'
-    DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 12, 
-                       Column: 0 }
-  - String:          ' '
-...
---- !Missed
-Pass:            reflow-burst-widen
-Name:            GreaterOrEqualThreshold
-Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_RN3hls6streamIN8WideTypeIT0_XT1_EXmlstS9_Li8EEvE9t_TypeIntELi0EEEjjjj
-Args:            
-  - String:          'Could not widen since type '
-  - Type:            i256
-  - String:          ' size is greater than or equal to the max_widen_bitwidth threshold of '
-  - Threshold:       '0'
-  - String:          ' _XLX_SEP_ '
-  - AccessID:        arrayidx15seq
-  - String:          ' '
-  - ArrayName:       inputs
-  - String:          ' '
-  - BundleName:      concat_data
-  - String:          ' '
-  - LoopName:        anonymous
-  - String:          ' '
-  - LoopLoc:         ''
-  - String:          ' '
-  - Function:        'void read_inputs<ap_uint<256>, ap_int<8>, 32u>(ap_uint<256>*, hls::stream<WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt, 0>&, unsigned int, unsigned int, unsigned int, unsigned int)'
-    DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 12, 
-                       Column: 0 }
-  - String:          ' '
-...
---- !Missed
-Pass:            reflow-burst-widen
-Name:            GreaterOrEqualThreshold
-Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_RN3hls6streamIN8WideTypeIT0_XT1_EXmlstS9_Li8EEvE9t_TypeIntELi0EEEjjjj
-Args:            
-  - String:          'Could not widen since type '
-  - Type:            i8
-  - String:          ' size is greater than or equal to the max_widen_bitwidth threshold of '
-  - Threshold:       '0'
-  - String:          ' _XLX_SEP_ '
-  - AccessID:        uglygepseq
-  - String:          ' '
-  - ArrayName:       inputs
-  - String:          ' '
-  - BundleName:      concat_data
-  - String:          ' '
-  - LoopName:        anonymous
-  - String:          ' '
-  - LoopLoc:         ''
-  - String:          ' '
-  - Function:        'void read_inputs<ap_uint<256>, ap_int<8>, 32u>(ap_uint<256>*, hls::stream<WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt, 0>&, unsigned int, unsigned int, unsigned int, unsigned int)'
-    DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 12, 
-                       Column: 0 }
-  - String:          ' '
-...
---- !Missed
-Pass:            reflow-burst-widen
-Name:            GreaterOrEqualThreshold
-Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_RN3hls6streamIN8WideTypeIT0_XT1_EXmlstS9_Li8EEvE9t_TypeIntELi0EEEjjjj
-Args:            
-  - String:          'Could not widen since type '
-  - Type:            i256
-  - String:          ' size is greater than or equal to the max_widen_bitwidth threshold of '
-  - Threshold:       '0'
-  - String:          ' _XLX_SEP_ '
-  - AccessID:        arrayidx10seq
-  - String:          ' '
-  - ArrayName:       inputs
-  - String:          ' '
-  - BundleName:      concat_data
-  - String:          ' '
-  - LoopName:        anonymous
-  - String:          ' '
-  - LoopLoc:         ''
-  - String:          ' '
-  - Function:        'void read_inputs<ap_uint<256>, ap_int<8>, 32u>(ap_uint<256>*, hls::stream<WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt, 0>&, unsigned int, unsigned int, unsigned int, unsigned int)'
-    DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 12, 
-                       Column: 0 }
-  - String:          ' '
-...
---- !Passed
-Pass:            reflow-infer-unroll
-Name:            ImplicitUnroll
-DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 19, 
+DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 20, 
                    Column: 19 }
-Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_RN3hls6streamIN8WideTypeIT0_XT1_EXmlstS9_Li8EEvE9t_TypeIntELi0EEEjjjj
+Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_jjjjRN3hls6streamI8WideTypeIT0_XdvstS4_stS9_EXmlstS9_Li8EEvELi0EEE
 Args:            
-  - String:          'Loop '''
-  - LoopName:        VITIS_LOOP_19_1
-  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
-...
---- !Passed
-Pass:            reflow-infer-unroll
-Name:            ImplicitUnroll
-Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_RN3hls6streamIN8WideTypeIT0_XT1_EXmlstS9_Li8EEvE9t_TypeIntELi0EEEjjjj
-Args:            
-  - String:          'Loop '''
-  - LoopName:        anonymous
-  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
-...
---- !Passed
-Pass:            reflow-infer-unroll
-Name:            ImplicitUnroll
-Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_RN3hls6streamIN8WideTypeIT0_XT1_EXmlstS9_Li8EEvE9t_TypeIntELi0EEEjjjj
-Args:            
-  - String:          'Loop '''
-  - LoopName:        anonymous
-  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
-...
---- !Passed
-Pass:            reflow-infer-unroll
-Name:            ImplicitUnroll
-Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_RN3hls6streamIN8WideTypeIT0_XT1_EXmlstS9_Li8EEvE9t_TypeIntELi0EEEjjjj
-Args:            
-  - String:          'Loop '''
-  - LoopName:        anonymous
-  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
-...
---- !Passed
-Pass:            reflow-infer-unroll
-Name:            ImplicitUnroll
-Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_RN3hls6streamIN8WideTypeIT0_XT1_EXmlstS9_Li8EEvE9t_TypeIntELi0EEEjjjj
-Args:            
-  - String:          'Loop '''
-  - LoopName:        anonymous
-  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
-...
---- !Missed
-Pass:            reflow-supported-subset
-Name:            MismatchPortAndBurstAccessWidth
-Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_RN3hls6streamIN8WideTypeIT0_XT1_EXmlstS9_Li8EEvE9t_TypeIntELi0EEEjjjj
-Args:            
-  - String:          Inferred burst reverted due to burst accesses data width is different from m_axi port width
+  - String:          'Could not widen since type '
+  - Type:            i256
+  - String:          ' size is greater than or equal to the max_widen_bitwidth threshold of '
+  - Threshold:       '0'
   - String:          ' _XLX_SEP_ '
-  - AccessID:        uglygepseq
+  - AccessID:        scevgep1seq
   - String:          ' '
-  - ArrayName:       ''
+  - ArrayName:       inputs
   - String:          ' '
-  - BundleName:      inputs
+  - BundleName:      concat_data
   - String:          ' '
-  - Function:        'void read_inputs<ap_uint<256>, ap_int<8>, 32u>(ap_uint<256>*, hls::stream<WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt, 0>&, unsigned int, unsigned int, unsigned int, unsigned int)'
-    DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 12, 
+  - LoopName:        VITIS_LOOP_20_2
+  - String:          ' '
+  - LoopLoc:         'Concat_HLS/src/../include/helpers.hpp:20:19'
+  - String:          ' '
+  - Function:        'void read_inputs<ap_uint<256>, ap_int<8>, 32u>(ap_uint<256>*, unsigned int, unsigned int, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&)'
+    DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 13, 
                        Column: 0 }
   - String:          ' '
 ...
 --- !Missed
-Pass:            reflow-supported-subset
-Name:            MismatchPortAndBurstAccessWidth
-Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_RN3hls6streamIN8WideTypeIT0_XT1_EXmlstS9_Li8EEvE9t_TypeIntELi0EEEjjjj
+Pass:            reflow-burst-widen
+Name:            GreaterOrEqualThreshold
+DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 15, 
+                   Column: 19 }
+Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_jjjjRN3hls6streamI8WideTypeIT0_XdvstS4_stS9_EXmlstS9_Li8EEvELi0EEE
 Args:            
-  - String:          Inferred burst reverted due to burst accesses data width is different from m_axi port width
+  - String:          'Could not widen since type '
+  - Type:            i256
+  - String:          ' size is greater than or equal to the max_widen_bitwidth threshold of '
+  - Threshold:       '0'
   - String:          ' _XLX_SEP_ '
-  - AccessID:        uglygep19seq
+  - AccessID:        scevgepseq
   - String:          ' '
-  - ArrayName:       ''
+  - ArrayName:       inputs
   - String:          ' '
-  - BundleName:      inputs
+  - BundleName:      concat_data
   - String:          ' '
-  - Function:        'void read_inputs<ap_uint<256>, ap_int<8>, 32u>(ap_uint<256>*, hls::stream<WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt, 0>&, unsigned int, unsigned int, unsigned int, unsigned int)'
-    DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 12, 
+  - LoopName:        VITIS_LOOP_15_1
+  - String:          ' '
+  - LoopLoc:         'Concat_HLS/src/../include/helpers.hpp:15:19'
+  - String:          ' '
+  - Function:        'void read_inputs<ap_uint<256>, ap_int<8>, 32u>(ap_uint<256>*, unsigned int, unsigned int, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&)'
+    DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 13, 
                        Column: 0 }
   - String:          ' '
+...
+--- !Missed
+Pass:            reflow-burst-widen
+Name:            GreaterOrEqualThreshold
+DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 105, 
+                   Column: 20 }
+Function:        _Z5storeI7ap_uintILi256EE6ap_intILi8EELj32EEvjjjRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEPS8_Rb
+Args:            
+  - String:          'Could not widen since type '
+  - Type:            i256
+  - String:          ' size is greater than or equal to the max_widen_bitwidth threshold of '
+  - Threshold:       '0'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        scevgepseq
+  - String:          ' '
+  - ArrayName:       outputs
+  - String:          ' '
+  - BundleName:      concat_data
+  - String:          ' '
+  - LoopName:        VITIS_LOOP_105_1
+  - String:          ' '
+  - LoopLoc:         'Concat_HLS/src/../include/helpers.hpp:105:20'
+  - String:          ' '
+  - Function:        'void store<ap_uint<256>, ap_int<8>, 32u>(unsigned int, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&, ap_uint<256>*, bool&)'
+    DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 102, 
+                       Column: 0 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 70, 
+                   Column: 19 }
+Function:        _Z7requantI7ap_uintILi256EE6ap_intILi8EES3_Lj32EEvRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEjjRNS5_IS6_IT1_XdvstS8_stSC_EXmlstSC_Li8EEvELi0EEE
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_70_3
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 45, 
+                   Column: 19 }
+Function:        _Z7requantI7ap_uintILi256EE6ap_intILi8EES3_Lj32EEvRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEjjRNS5_IS6_IT1_XdvstS8_stSC_EXmlstSC_Li8EEvELi0EEE
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_45_1
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 20, 
+                   Column: 19 }
+Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_jjjjRN3hls6streamI8WideTypeIT0_XdvstS4_stS9_EXmlstS9_Li8EEvELi0EEE
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_20_2
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 15, 
+                   Column: 19 }
+Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_jjjjRN3hls6streamI8WideTypeIT0_XdvstS4_stS9_EXmlstS9_Li8EEvELi0EEE
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_15_1
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
 ...
 --- !Passed
 Pass:            reflow-burst-summary
 Name:            BurstInferredVerboseSummary
-Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_RN3hls6streamIN8WideTypeIT0_XT1_EXmlstS9_Li8EEvE9t_TypeIntELi0EEEjjjj.1
+DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 15, 
+                   Column: 19 }
+Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_jjjjRN3hls6streamI8WideTypeIT0_XdvstS4_stS9_EXmlstS9_Li8EEvELi0EEE.1
 Args:            
   - String:          'Multiple burst '
   - Direction:       reads
@@ -614,19 +859,21 @@ Args:
   - String:          ' '
   - BundleName:      concat_data
   - String:          ' '
-  - LoopName:        anonymous
+  - LoopName:        VITIS_LOOP_15_1
   - String:          ' '
-  - LoopLoc:         ''
+  - LoopLoc:         'Concat_HLS/src/../include/helpers.hpp:15:19'
   - String:          ' '
-  - Function:        'void read_inputs<ap_uint<256>, ap_int<8>, 32u>(ap_uint<256>*, hls::stream<WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt, 0>&, unsigned int, unsigned int, unsigned int, unsigned int) (.1)'
-    DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 12, 
+  - Function:        'void read_inputs<ap_uint<256>, ap_int<8>, 32u>(ap_uint<256>*, unsigned int, unsigned int, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&) (.1)'
+    DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 13, 
                        Column: 0 }
   - String:          ' '
 ...
 --- !Passed
 Pass:            reflow-burst-summary
 Name:            BurstInferredSummary
-Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_RN3hls6streamIN8WideTypeIT0_XT1_EXmlstS9_Li8EEvE9t_TypeIntELi0EEEjjjj.1
+DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 15, 
+                   Column: 19 }
+Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_jjjjRN3hls6streamI8WideTypeIT0_XdvstS4_stS9_EXmlstS9_Li8EEvELi0EEE.1
 Args:            
   - String:          'Multiple burst '
   - Direction:       reads
@@ -635,9 +882,9 @@ Args:
   - String:          ' length and bit width '
   - Width:           '256'
   - String:          ' in loop '''
-  - LoopName:        anonymous
+  - LoopName:        VITIS_LOOP_15_1
   - String:          '''('
-  - LoopLoc:         ''
+  - LoopLoc:         'Concat_HLS/src/../include/helpers.hpp:15:19'
   - String:          ')'
   - String:          ' has been inferred on bundle '''
   - BundleName:      concat_data
@@ -647,7 +894,9 @@ Args:
 --- !Passed
 Pass:            reflow-burst-summary
 Name:            BurstInferredVerboseSummary
-Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_RN3hls6streamIN8WideTypeIT0_XT1_EXmlstS9_Li8EEvE9t_TypeIntELi0EEEjjjj.1
+DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 20, 
+                   Column: 19 }
+Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_jjjjRN3hls6streamI8WideTypeIT0_XdvstS4_stS9_EXmlstS9_Li8EEvELi0EEE.1
 Args:            
   - String:          'Multiple burst '
   - Direction:       reads
@@ -658,25 +907,27 @@ Args:
   - String:          ' has been inferred.'
   - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
   - String:          ' _XLX_SEP_ '
-  - AccessID:        seq1
+  - AccessID:        seq2
   - String:          ' '
   - ArrayName:       ''
   - String:          ' '
   - BundleName:      concat_data
   - String:          ' '
-  - LoopName:        anonymous
+  - LoopName:        VITIS_LOOP_20_2
   - String:          ' '
-  - LoopLoc:         ''
+  - LoopLoc:         'Concat_HLS/src/../include/helpers.hpp:20:19'
   - String:          ' '
-  - Function:        'void read_inputs<ap_uint<256>, ap_int<8>, 32u>(ap_uint<256>*, hls::stream<WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt, 0>&, unsigned int, unsigned int, unsigned int, unsigned int) (.1)'
-    DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 12, 
+  - Function:        'void read_inputs<ap_uint<256>, ap_int<8>, 32u>(ap_uint<256>*, unsigned int, unsigned int, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&) (.1)'
+    DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 13, 
                        Column: 0 }
   - String:          ' '
 ...
 --- !Passed
 Pass:            reflow-burst-summary
 Name:            BurstInferredSummary
-Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_RN3hls6streamIN8WideTypeIT0_XT1_EXmlstS9_Li8EEvE9t_TypeIntELi0EEEjjjj.1
+DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 20, 
+                   Column: 19 }
+Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_jjjjRN3hls6streamI8WideTypeIT0_XdvstS4_stS9_EXmlstS9_Li8EEvELi0EEE.1
 Args:            
   - String:          'Multiple burst '
   - Direction:       reads
@@ -685,9 +936,63 @@ Args:
   - String:          ' length and bit width '
   - Width:           '256'
   - String:          ' in loop '''
-  - LoopName:        anonymous
+  - LoopName:        VITIS_LOOP_20_2
   - String:          '''('
-  - LoopLoc:         ''
+  - LoopLoc:         'Concat_HLS/src/../include/helpers.hpp:20:19'
+  - String:          ')'
+  - String:          ' has been inferred on bundle '''
+  - BundleName:      concat_data
+  - String:          '''.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredVerboseSummary
+DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 105, 
+                   Column: 20 }
+Function:        _Z5storeI7ap_uintILi256EE6ap_intILi8EELj32EEvjjjRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEPS8_Rb.1
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       writes
+  - String:          ' of '
+  - Length:          variable
+  - String:          ' length and bit width '
+  - Width:           '256'
+  - String:          ' has been inferred.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        seq
+  - String:          ' '
+  - ArrayName:       ''
+  - String:          ' '
+  - BundleName:      concat_data
+  - String:          ' '
+  - LoopName:        VITIS_LOOP_105_1
+  - String:          ' '
+  - LoopLoc:         'Concat_HLS/src/../include/helpers.hpp:105:20'
+  - String:          ' '
+  - Function:        'void store<ap_uint<256>, ap_int<8>, 32u>(unsigned int, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&, ap_uint<256>*, bool&) (.1)'
+    DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 102, 
+                       Column: 0 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredSummary
+DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 105, 
+                   Column: 20 }
+Function:        _Z5storeI7ap_uintILi256EE6ap_intILi8EELj32EEvjjjRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEPS8_Rb.1
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       writes
+  - String:          ' of '
+  - Length:          variable
+  - String:          ' length and bit width '
+  - Width:           '256'
+  - String:          ' in loop '''
+  - LoopName:        VITIS_LOOP_105_1
+  - String:          '''('
+  - LoopLoc:         'Concat_HLS/src/../include/helpers.hpp:105:20'
   - String:          ')'
   - String:          ' has been inferred on bundle '''
   - BundleName:      concat_data
@@ -697,47 +1002,44 @@ Args:
 --- !Passed
 Pass:            reflow-infer-unroll
 Name:            ImplicitUnroll
-DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 19, 
+DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 70, 
                    Column: 19 }
-Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_RN3hls6streamIN8WideTypeIT0_XT1_EXmlstS9_Li8EEvE9t_TypeIntELi0EEEjjjj.1
+Function:        _Z7requantI7ap_uintILi256EE6ap_intILi8EES3_Lj32EEvRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEjjRNS5_IS6_IT1_XdvstS8_stSC_EXmlstSC_Li8EEvELi0EEE.1
 Args:            
   - String:          'Loop '''
-  - LoopName:        VITIS_LOOP_19_1
+  - LoopName:        VITIS_LOOP_70_3
   - String:          ''' is marked as complete unroll implied by the pipeline pragma'
 ...
 --- !Passed
 Pass:            reflow-infer-unroll
 Name:            ImplicitUnroll
-Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_RN3hls6streamIN8WideTypeIT0_XT1_EXmlstS9_Li8EEvE9t_TypeIntELi0EEEjjjj.1
+DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 45, 
+                   Column: 19 }
+Function:        _Z7requantI7ap_uintILi256EE6ap_intILi8EES3_Lj32EEvRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEjjRNS5_IS6_IT1_XdvstS8_stSC_EXmlstSC_Li8EEvELi0EEE.1
 Args:            
   - String:          'Loop '''
-  - LoopName:        anonymous
+  - LoopName:        VITIS_LOOP_45_1
   - String:          ''' is marked as complete unroll implied by the pipeline pragma'
 ...
 --- !Passed
 Pass:            reflow-infer-unroll
 Name:            ImplicitUnroll
-Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_RN3hls6streamIN8WideTypeIT0_XT1_EXmlstS9_Li8EEvE9t_TypeIntELi0EEEjjjj.1
+DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 20, 
+                   Column: 19 }
+Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_jjjjRN3hls6streamI8WideTypeIT0_XdvstS4_stS9_EXmlstS9_Li8EEvELi0EEE.1
 Args:            
   - String:          'Loop '''
-  - LoopName:        anonymous
+  - LoopName:        VITIS_LOOP_20_2
   - String:          ''' is marked as complete unroll implied by the pipeline pragma'
 ...
 --- !Passed
 Pass:            reflow-infer-unroll
 Name:            ImplicitUnroll
-Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_RN3hls6streamIN8WideTypeIT0_XT1_EXmlstS9_Li8EEvE9t_TypeIntELi0EEEjjjj.1
+DebugLoc:        { File: Concat_HLS/src/../include/helpers.hpp, Line: 15, 
+                   Column: 19 }
+Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_jjjjRN3hls6streamI8WideTypeIT0_XdvstS4_stS9_EXmlstS9_Li8EEvELi0EEE.1
 Args:            
   - String:          'Loop '''
-  - LoopName:        anonymous
-  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
-...
---- !Passed
-Pass:            reflow-infer-unroll
-Name:            ImplicitUnroll
-Function:        _Z11read_inputsI7ap_uintILi256EE6ap_intILi8EELj32EEvPT_RN3hls6streamIN8WideTypeIT0_XT1_EXmlstS9_Li8EEvE9t_TypeIntELi0EEEjjjj.1
-Args:            
-  - String:          'Loop '''
-  - LoopName:        anonymous
+  - LoopName:        VITIS_LOOP_15_1
   - String:          ''' is marked as complete unroll implied by the pipeline pragma'
 ...

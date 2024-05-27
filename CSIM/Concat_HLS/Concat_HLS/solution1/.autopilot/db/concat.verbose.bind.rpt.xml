@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'concat'" level="0">
-<item name = "Date">Tue May 14 16:05:27 2024
+<item name = "Date">Mon May 27 19:43:18 2024
 </item>
 <item name = "Version">2022.2 (Build 3670227 on Oct 13 2022)</item>
 <item name = "Project">Concat_HLS</item>
@@ -24,16 +24,17 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">?, ?, ?, ?, ?, ?, dataflow</column>
+<column name="">80, ?, 0.800 us, ?, 2, -1, dataflow</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="call_ln38_entry_proc_fu_168">entry_proc, 0, 0, 0 ns, 0 ns, 0, 0, no</column>
-<column name="grp_read_inputs_ap_uint_256_ap_int_8_32u_s_fu_178">read_inputs_ap_uint_256_ap_int_8_32u_s, ?, ?, ?, ?, ?, ?, no</column>
-<column name="grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_s_fu_197">store_ap_uint_256_ap_int_8_ap_int_8_32u_s, 5, 134217770, 50.000 ns, 1.342 sec, 5, 134217770, no</column>
+<column name="call_ln29_entry_proc_fu_188">entry_proc, 0, 0, 0 ns, 0 ns, 0, 0, no</column>
+<column name="grp_read_inputs_ap_uint_256_ap_int_8_32u_s_fu_198">read_inputs_ap_uint_256_ap_int_8_32u_s, 1, ?, 10.000 ns, ?, 1, ?, no</column>
+<column name="grp_requant_ap_uint_256_ap_int_8_ap_int_8_32u_s_fu_217">requant_ap_uint_256_ap_int_8_ap_int_8_32u_s, 1, ?, 10.000 ns, ?, 1, ?, no</column>
+<column name="grp_store_ap_uint_256_ap_int_8_32u_s_fu_227">store_ap_uint_256_ap_int_8_32u_s, 1, ?, 10.000 ns, ?, 1, ?, no</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">

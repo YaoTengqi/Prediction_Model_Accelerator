@@ -3,5 +3,9 @@ INFO: [SIM 4] CSIM will launch GCC as the compiler.
    Compiling ../../../testbench/concat_tb.cpp in debug mode
    Compiling ../../../src/concat.cpp in debug mode
    Generating csim.exe
-INFO: [SIM 1] CSim file generation done with 0 errors.
+WARNNING: file /home/ytq/codeField/temp_MM_Accelerator/insn/prediction/concat/3/dram_before.bin size 168046592 doesn't match required size 16384
+WARNNING: file /home/ytq/codeField/temp_MM_Accelerator/insn/prediction/concat/3/dram_after.bin size 168046592 doesn't match required size 16384
+Pass!
+INFO [HLS SIM]: The maximum depth reached by any hls::stream() instance in the design is 512
+INFO: [SIM 1] CSim done with 0 errors.
 INFO: [SIM 3] *************** CSIM finish ***************

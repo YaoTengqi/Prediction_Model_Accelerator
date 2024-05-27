@@ -39,8 +39,9 @@ void requant(hls::stream<WideType<t_DataType_IN, sizeof(t_AXI_DataType) / sizeof
 	int right_shift = shift1 > 0 ? shift1 : 0;
 	int left_shift = shift1 > 0 ? 0 : (-shift1);
 
-	// Requant
 #pragma HLS PIPELINE
+#pragma HLS UNROLL factor=2
+	// Requant
 	for (int i = 0; i < ROWS * COLS * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType); i++){
 		WideType<t_DataType_IN, sizeof(t_AXI_DataType) / sizeof(t_DataType_IN)> firstBlockValue = input_stream.read();
 		for(int j = 0; j < sizeof(t_AXI_DataType) / sizeof(t_DataType_IN); j++){
@@ -65,6 +66,7 @@ void requant(hls::stream<WideType<t_DataType_IN, sizeof(t_AXI_DataType) / sizeof
 
 	// Requant
 #pragma HLS PIPELINE
+#pragma HLS UNROLL factor=2
 	for (int i = 0; i < ROWS * COLS * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType); i++){
 		WideType<t_DataType_IN, sizeof(t_AXI_DataType) / sizeof(t_DataType_IN)> secondBlockValue = input_stream.read();
 		for(int j = 0; j < sizeof(t_AXI_DataType) / sizeof(t_DataType_IN); j++){

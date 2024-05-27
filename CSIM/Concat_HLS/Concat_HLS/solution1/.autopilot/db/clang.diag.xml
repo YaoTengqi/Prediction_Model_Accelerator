@@ -1,0 +1,39 @@
+<dict>
+  <key>main-file</key>
+  <string>/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/solution1/.autopilot/db/concat.pp.0.cpp</string>
+  <key>diagnostics</key>
+  <array>
+    <dict>
+      <key>level</key>
+      <string>warning</string>
+      <key>filename</key>
+      <string>Concat_HLS/src/../include/helpers.hpp</string>
+      <key>line</key>
+      <integer>43</integer>
+      <key>column</key>
+      <integer>9</integer>
+      <key>message</key>
+      <string>Only for/while loops support the &apos;Unroll &apos;</string>
+      <key>ID</key>
+      <integer>5559</integer>
+      <key>WarningOption</key>
+      <string>ignored-hls-attributes</string>
+    </dict>
+    <dict>
+      <key>level</key>
+      <string>warning</string>
+      <key>filename</key>
+      <string>Concat_HLS/src/../include/helpers.hpp</string>
+      <key>line</key>
+      <integer>69</integer>
+      <key>column</key>
+      <integer>9</integer>
+      <key>message</key>
+      <string>Only for/while loops support the &apos;Unroll &apos;</string>
+      <key>ID</key>
+      <integer>5559</integer>
+      <key>WarningOption</key>
+      <string>ignored-hls-attributes</string>
+    </dict>
+  </array>
+</dict>
