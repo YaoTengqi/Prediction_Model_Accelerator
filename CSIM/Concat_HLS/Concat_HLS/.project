@@ -47,11 +47,6 @@
 			<location>/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/concat.cpp</location>
 		</link>
 		<link>
-			<name>source/transpose.hpp</name>
-			<type>1</type>
-			<location>/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/transpose.hpp</location>
-		</link>
-		<link>
 			<name>testbench/concat_tb.cpp</name>
 			<type>1</type>
 			<location>/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/testbench/concat_tb.cpp</location>

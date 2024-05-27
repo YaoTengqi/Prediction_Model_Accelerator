@@ -196,8 +196,8 @@ set RtlHierarchyInfo {[
 		"Port" : [
 			{"Name" : "sparse_data", "Type" : "MAXI", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "4", "SubInstance" : "load_ap_uint_256_ap_int_8_ap_int_8_32u_U0", "Port" : "sparse_data"},
-					{"ID" : "11", "SubInstance" : "store_ap_uint_256_ap_int_8_ap_int_8_32u_U0", "Port" : "sparse_data"}]},
+					{"ID" : "11", "SubInstance" : "store_ap_uint_256_ap_int_8_ap_int_8_32u_U0", "Port" : "sparse_data"},
+					{"ID" : "4", "SubInstance" : "load_ap_uint_256_ap_int_8_ap_int_8_32u_U0", "Port" : "sparse_data"}]},
 			{"Name" : "input_data_addr1", "Type" : "None", "Direction" : "I"},
 			{"Name" : "input_data_addr2", "Type" : "None", "Direction" : "I"},
 			{"Name" : "output_data_addr3", "Type" : "None", "Direction" : "I"},

@@ -70222,23 +70222,114 @@ class DualTaggedType {
 };
 # 4 "/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp" 2
 
-template <typename t_AXI_DataType, typename t_DataType_OUT, unsigned int nPE>
+template <typename t_AXI_DataType, typename t_DataType_IN, unsigned int nPE>
 void read_inputs(t_AXI_DataType *inputs,
      uint32_t input_data_addr1,
      uint32_t input_data_addr2,
-     uint32_t input_data_addr3,
      unsigned int ROWS,
      unsigned int COLS,
-     t_AXI_DataType *outputs,
-     bool &concat_flag)
+     hls::stream<WideType<t_DataType_IN, sizeof(t_AXI_DataType) / sizeof(t_DataType_IN)>> &input_stream
+     )
 {
- unsigned int ram_depth = ROWS * COLS / nPE;
- typename WideType<t_DataType_OUT, nPE>::t_TypeInt ram1[1024];
- typename WideType<t_DataType_OUT, nPE>::t_TypeInt ram2[1024];
- int output_addr = ROWS * COLS * sizeof(t_DataType_OUT) / sizeof(t_AXI_DataType);
- memcpy(&outputs[input_data_addr3], (const t_AXI_DataType *)&inputs[input_data_addr1], ROWS * COLS * sizeof(t_DataType_OUT));
- memcpy(&outputs[input_data_addr3 + output_addr], (const t_AXI_DataType *)&inputs[input_data_addr2], ROWS * COLS * sizeof(t_DataType_OUT));
- concat_flag = true;
+#pragma HLS PIPELINE
+ VITIS_LOOP_15_1: for (int i = 0; i < ROWS * COLS * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType); i++){
+  WideType<t_DataType_IN, sizeof(t_AXI_DataType) / sizeof(t_DataType_IN)> firstBlockValue = inputs[input_data_addr1 + i];
+  input_stream.write(firstBlockValue);
+ }
+#pragma HLS PIPELINE
+ VITIS_LOOP_20_2: for (int i = 0; i < ROWS * COLS * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType); i++){
+  WideType<t_DataType_IN, sizeof(t_AXI_DataType) / sizeof(t_DataType_IN)> secondBlockValue = inputs[input_data_addr2 + i];
+  input_stream.write(secondBlockValue);
+ }
+}
+
+
+template <typename t_AXI_DataType, typename t_DataType_IN, typename t_DataType_OUT, unsigned int nPE>
+void requant(hls::stream<WideType<t_DataType_IN, sizeof(t_AXI_DataType) / sizeof(t_DataType_IN)>> &input_stream,
+    unsigned int ROWS,
+    unsigned int COLS,
+    hls::stream<WideType<t_DataType_OUT, sizeof(t_AXI_DataType) / sizeof(t_DataType_OUT)>> &output_stream
+    ){
+
+ int mul1 = 1595702528;
+ int shift1 = -1;
+
+ int mul2 = 1575568640;
+ int shift2 = -1;
+ int right_shift = shift1 > 0 ? shift1 : 0;
+ int left_shift = shift1 > 0 ? 0 : (-shift1);
+
+
+#pragma HLS PIPELINE
+ VITIS_LOOP_44_1: for (int i = 0; i < ROWS * COLS * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType); i++){
+  WideType<t_DataType_IN, sizeof(t_AXI_DataType) / sizeof(t_DataType_IN)> firstBlockValue = input_stream.read();
+  VITIS_LOOP_46_2: for(int j = 0; j < sizeof(t_AXI_DataType) / sizeof(t_DataType_IN); j++){
+   int64_t temp = firstBlockValue[j];
+
+   if (left_shift > 0)
+   {
+    temp = temp << left_shift;
+   }
+   temp = temp * mul1;
+   int total_right_shift = right_shift + 31;
+   int64_t pos_rounding_value = (1 << (total_right_shift - 1));
+   temp = temp + pos_rounding_value;
+   temp = temp >> total_right_shift;
+
+   temp = temp > 127 ? 127 : temp;
+   temp = temp < -128 ? -128 : temp;
+   firstBlockValue[j] = temp;
+  }
+  output_stream.write(firstBlockValue);
+ }
+
+
+#pragma HLS PIPELINE
+ VITIS_LOOP_68_3: for (int i = 0; i < ROWS * COLS * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType); i++){
+  WideType<t_DataType_IN, sizeof(t_AXI_DataType) / sizeof(t_DataType_IN)> secondBlockValue = input_stream.read();
+  VITIS_LOOP_70_4: for(int j = 0; j < sizeof(t_AXI_DataType) / sizeof(t_DataType_IN); j++){
+   int64_t temp = secondBlockValue[j];
+
+   right_shift = shift2 > 0 ? shift2 : 0;
+   left_shift = shift2 > 0 ? 0 : (-shift2);
+   if (left_shift > 0)
+   {
+    temp = temp << left_shift;
+   }
+   temp = temp * mul2;
+   int total_right_shift = right_shift + 31;
+   int64_t pos_rounding_value = (1 << (total_right_shift - 1));
+   temp = temp + pos_rounding_value;
+   temp = temp >> total_right_shift;
+
+   temp = temp > 127 ? 127 : temp;
+   temp = temp < -128 ? -128 : temp;
+   secondBlockValue[j] = temp;
+  }
+  output_stream.write(secondBlockValue);
+ }
+}
+
+template <typename t_AXI_DataType, typename t_DataType_OUT, unsigned int nPE>
+void store( unsigned int ROWS,
+    unsigned int COLS,
+    uint32_t input_data_addr3,
+    hls::stream<WideType<t_DataType_OUT, sizeof(t_AXI_DataType) / sizeof(t_DataType_OUT)>> &output_stream,
+    t_AXI_DataType *outputs,
+    bool &done_flag
+    ){
+ t_AXI_DataType result;
+ int count = 0;
+ VITIS_LOOP_103_1: for (int i = 0; i < ROWS * COLS * 2 * sizeof(t_DataType_OUT) / sizeof(t_AXI_DataType); i++){
+#pragma HLS PIPELINE
+ result = output_stream.read();
+  outputs[input_data_addr3 + i] = result;
+  count++;
+ }
+ if (count == ROWS * COLS * 2 * sizeof(t_DataType_OUT) / sizeof(t_AXI_DataType))
+ {
+  done_flag = true;
+ }
 }
 # 12 "/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/concat.hpp" 2
 # 1 "/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/params.hpp" 1
@@ -70285,6 +70376,13 @@ __attribute__((sdx_kernel("concat", 0))) void concat(
 #pragma HLS INTERFACE mode = s_axilite port = concat_flag bundle = concat_addr
 #pragma HLS INTERFACE mode = s_axilite port = return bundle = concat_addr
 
+ hls::stream<WideType<ap_int<8>, sizeof(ap_uint<256>) / sizeof(ap_int<8>)>> input_stream;
+#pragma HLS STREAM variable = input_stream depth = 64
+ hls::stream<WideType<ap_int<8>, sizeof(ap_uint<256>) / sizeof(ap_int<8>)>> output_stream;
+#pragma HLS STREAM variable = output_stream depth = 64
+
 #pragma HLS DATAFLOW
- read_inputs<ap_uint<256>, ap_int<8>, 32>(inputs, input_data_addr1, input_data_addr2, output_data_addr3, ROWS, COLS, outputs, concat_flag);
+ read_inputs<ap_uint<256>, ap_int<8>, 32>(inputs, input_data_addr1, input_data_addr2, ROWS, COLS, input_stream);
+ requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32>(input_stream, ROWS, COLS, output_stream);
+ store<ap_uint<256>, ap_int<8>, 32>(ROWS, COLS, output_data_addr3, output_stream, outputs, concat_flag);
 }

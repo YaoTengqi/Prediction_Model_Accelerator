@@ -4,36 +4,42 @@
 
 template <typename t_AXI_DataType, typename t_DataType_IN, typename t_DataType_OUT, unsigned int nPE>
 void load(
-		unsigned int am_ROWS,
-		unsigned int am_COLS,
-		unsigned int fm_ROWS,
-		unsigned int fm_COLS,
-		t_AXI_DataType *inputs,
-		hls::stream<uint8_t> &idx_stream,
-		hls::stream<uint8_t> &count_stream,
-		hls::stream<typename WideType<t_DataType_OUT, nPE>::t_TypeInt> &fm_stream,
-		uint32_t input_data_addr1,
-		uint32_t input_data_addr2)
+	unsigned int am_ROWS,
+	unsigned int am_COLS,
+	unsigned int fm_ROWS,
+	unsigned int fm_COLS,
+	t_AXI_DataType *inputs,
+	hls::stream<uint8_t> &idx_stream,
+	hls::stream<uint8_t> &count_stream,
+	hls::stream<typename WideType<t_DataType_OUT, nPE>::t_TypeInt> &fm_stream,
+	uint32_t input_data_addr1,
+	uint32_t input_data_addr2)
 {
 	typename WideType<t_DataType_IN, nPE>::t_TypeInt am_ram[64];
 	typename WideType<t_DataType_IN, nPE>::t_TypeInt fm_ram[512];
 	int idx_count = 0, count_count = 0;
 	int fm_loop_num = fm_ROWS * fm_COLS * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
 	int am_loop_num = am_ROWS * am_COLS * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
-	for(int i = 0; i < fm_loop_num; i++){
+	for (int i = 0; i < fm_loop_num; i++)
+	{
 		fm_ram[i] = inputs[input_data_addr1 + i]; // load feature matrix
 	}
-	for(int j = 0; j < am_loop_num; j++){
+	for (int j = 0; j < am_loop_num; j++)
+	{
 		am_ram[j] = inputs[input_data_addr2 + j]; // load adjacency matrix
 	}
 #pragma HLS PIPELINE
-	for(int block = 0; block < (fm_COLS / nPE); block++){
-		for(int row = 0; row < am_ROWS; row++){	// 获取idx和count
+	for (int block = 0; block < (fm_COLS / nPE); block++)
+	{
+		for (int row = 0; row < am_ROWS; row++)
+		{ // 获取idx和count
 			int count = 0;
 			WideType<t_DataType_IN, nPE> am_value = am_ram[row];
-	#pragma HLS UNROLL
-			for(int col = 0; col < am_COLS; col++){
-				if(am_value[col] != 0){
+#pragma HLS UNROLL
+			for (int col = 0; col < am_COLS; col++)
+			{
+				if (am_value[col] != 0)
+				{
 					count++;
 					idx_stream.write(col);
 					WideType<t_DataType_IN, nPE> fm_value = fm_ram[block * nPE + col];
@@ -45,28 +51,32 @@ void load(
 	}
 }
 
-
 template <typename t_AXI_DataType, typename t_DataType_IN, typename t_DataType_OUT, unsigned int nPE>
 void mul(
-		unsigned int am_ROWS,
-		unsigned int am_COLS,
-		unsigned int fm_ROWS,
-		unsigned int fm_COLS,
-		hls::stream<typename WideType<t_DataType_OUT, nPE>::t_TypeInt> &fm_stream,
-		hls::stream<uint8_t> &idx_stream,
-		hls::stream<uint8_t> &count_stream,
-		hls::stream<typename WideType<t_DataType_OUT, nPE>::t_TypeInt> &data_stream_out){
+	unsigned int am_ROWS,
+	unsigned int am_COLS,
+	unsigned int fm_ROWS,
+	unsigned int fm_COLS,
+	hls::stream<typename WideType<t_DataType_OUT, nPE>::t_TypeInt> &fm_stream,
+	hls::stream<uint8_t> &idx_stream,
+	hls::stream<uint8_t> &count_stream,
+	hls::stream<typename WideType<t_DataType_OUT, nPE>::t_TypeInt> &data_stream_out)
+{
 #pragma HLS PIPELINE II = 1
-	for(int block = 0; block < (fm_COLS / nPE); block++){	//每次计算一块
-		for(int row = 0; row < am_ROWS; row++){				//一次计算一行，每块算ROWS行
+	for (int block = 0; block < (fm_COLS / nPE); block++)
+	{ // 每次计算一块
+		for (int row = 0; row < am_ROWS; row++)
+		{ // 一次计算一行，每块算ROWS行
 			int idx_count = count_stream.read();
 			t_DataType_OUT ZERO = 0;
 			WideType<t_DataType_OUT, nPE> result = ZERO;
-			for(int count = 0; count < idx_count; count++){	//根据idx_stream取出对应行的fm_stream值
-			uint8_t idx = idx_stream.read();
-//			WideType<t_DataType_IN, nPE> fm_value = fm_ram[block * nPE + idx];
-			WideType<t_DataType_IN, nPE> fm_value = fm_stream.read();
-				for(int pe = 0; pe < nPE; pe++){			//每次计算一个PE
+			for (int count = 0; count < idx_count; count++)
+			{ // 根据idx_stream取出对应行的fm_stream值
+				uint8_t idx = idx_stream.read();
+				//			WideType<t_DataType_IN, nPE> fm_value = fm_ram[block * nPE + idx];
+				WideType<t_DataType_IN, nPE> fm_value = fm_stream.read();
+				for (int pe = 0; pe < nPE; pe++)
+				{ // 每次计算一个PE
 #pragma HLS UNROLL
 					result[pe] = result[pe] + fm_value[pe];
 				}
@@ -75,7 +85,6 @@ void mul(
 		}
 	}
 }
-
 
 template <typename t_AXI_DataType, typename t_DataType_IN, typename t_DataType_OUT, unsigned int nPE>
 void store(
@@ -87,20 +96,20 @@ void store(
 	bool &done_flag)
 {
 	unsigned int dst_idx = output_data_addr3;
-//	unsigned int dst_idx = 0;
+	//	unsigned int dst_idx = 0;
 	unsigned int loop_idx = nPE * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
 	unsigned int loop_num = ROWS * COLS / nPE;
 	WideType<t_DataType_IN, nPE> data;
 	int count = 0;
-	for(int i = 0; i < loop_num; i++)
+	for (int i = 0; i < loop_num; i++)
 	{
 #pragma HLS PIPELINE
 		data = data_stream_out.read();
 		outputs[dst_idx + i] = data;
 		count++;
 	}
-	if(count == loop_num){
+	if (count == loop_num)
+	{
 		done_flag = true;
 	}
 }
-

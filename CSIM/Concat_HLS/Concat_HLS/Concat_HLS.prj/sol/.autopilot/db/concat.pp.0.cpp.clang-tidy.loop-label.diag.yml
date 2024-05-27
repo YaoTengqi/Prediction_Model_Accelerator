@@ -1526,4 +1526,67 @@ Diagnostics:
         Offset:          2793483
         Length:          0
         ReplacementText: 'VITIS_LOOP_710_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_15_1:  '
+    FileOffset:      15
+    FilePath:        /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/include/helpers.hpp
+    Replacements:    
+      - FilePath:        /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/Concat_HLS.prj/sol/.autopilot/db/concat.pp.0.cpp
+        Offset:          2795214
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_15_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_20_2:  '
+    FileOffset:      20
+    FilePath:        /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/include/helpers.hpp
+    Replacements:    
+      - FilePath:        /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/Concat_HLS.prj/sol/.autopilot/db/concat.pp.0.cpp
+        Offset:          2795488
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_20_2: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_44_1:  '
+    FileOffset:      44
+    FilePath:        /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/include/helpers.hpp
+    Replacements:    
+      - FilePath:        /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/Concat_HLS.prj/sol/.autopilot/db/concat.pp.0.cpp
+        Offset:          2796320
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_44_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_46_2:  '
+    FileOffset:      46
+    FilePath:        /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/include/helpers.hpp
+    Replacements:    
+      - FilePath:        /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/Concat_HLS.prj/sol/.autopilot/db/concat.pp.0.cpp
+        Offset:          2796523
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_46_2: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_68_3:  '
+    FileOffset:      68
+    FilePath:        /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/include/helpers.hpp
+    Replacements:    
+      - FilePath:        /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/Concat_HLS.prj/sol/.autopilot/db/concat.pp.0.cpp
+        Offset:          2797079
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_68_3: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_70_4:  '
+    FileOffset:      70
+    FilePath:        /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/include/helpers.hpp
+    Replacements:    
+      - FilePath:        /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/Concat_HLS.prj/sol/.autopilot/db/concat.pp.0.cpp
+        Offset:          2797283
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_70_4: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_103_1:  '
+    FileOffset:      103
+    FilePath:        /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/include/helpers.hpp
+    Replacements:    
+      - FilePath:        /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/Concat_HLS.prj/sol/.autopilot/db/concat.pp.0.cpp
+        Offset:          2798274
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_103_1: '
 ...

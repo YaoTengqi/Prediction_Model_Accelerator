@@ -8,7 +8,7 @@ target triple = "fpga64-xilinx-none"
 %"struct.ssdm_int<256, false>" = type { i256 }
 
 ; Function Attrs: noinline
-define void @apatb_concat_ir(i32 %input_data_addr1, i32 %input_data_addr2, i32 %output_data_addr3, i32 %ROWS, i32 %COLS, %"struct.ap_uint<256>"* noalias nocapture nonnull readonly %inputs, %"struct.ap_uint<256>"* noalias nocapture nonnull %outputs, i1* noalias nocapture nonnull dereferenceable(1) %concat_flag) local_unnamed_addr #0 {
+define void @apatb_concat_ir(i32 %input_data_addr1, i32 %input_data_addr2, i32 %output_data_addr3, i32 %ROWS, i32 %COLS, %"struct.ap_uint<256>"* noalias nonnull %inputs, %"struct.ap_uint<256>"* noalias nocapture nonnull %outputs, i1* noalias nocapture nonnull dereferenceable(1) %concat_flag) local_unnamed_addr #0 {
 entry:
   %inputs_copy = alloca i256, align 512
   %outputs_copy = alloca i256, align 512
@@ -22,8 +22,8 @@ entry:
 ; Function Attrs: argmemonly noinline norecurse
 define internal fastcc void @copy_in(%"struct.ap_uint<256>"* noalias readonly "unpacked"="0", i256* noalias nocapture align 512 "unpacked"="1.0.0.0", %"struct.ap_uint<256>"* noalias readonly "unpacked"="2", i256* noalias nocapture align 512 "unpacked"="3.0.0.0", i1* noalias readonly "unpacked"="4", i1* noalias align 512 "unpacked"="5") unnamed_addr #1 {
 entry:
-  call fastcc void @"onebyonecpy_hls.p0struct.ap_uint<256>.10.14"(i256* align 512 %1, %"struct.ap_uint<256>"* %0)
-  call fastcc void @"onebyonecpy_hls.p0struct.ap_uint<256>.10.14"(i256* align 512 %3, %"struct.ap_uint<256>"* %2)
+  call fastcc void @"onebyonecpy_hls.p0struct.ap_uint<256>.17.21"(i256* align 512 %1, %"struct.ap_uint<256>"* %0)
+  call fastcc void @"onebyonecpy_hls.p0struct.ap_uint<256>.17.21"(i256* align 512 %3, %"struct.ap_uint<256>"* %2)
   call fastcc void @onebyonecpy_hls.p0i1(i1* align 512 %5, i1* %4)
   ret void
 }
@@ -73,7 +73,7 @@ ret:                                              ; preds = %copy, %entry
 }
 
 ; Function Attrs: argmemonly noinline norecurse
-define internal fastcc void @"onebyonecpy_hls.p0struct.ap_uint<256>.10.14"(i256* noalias nocapture align 512 "unpacked"="0.0.0.0", %"struct.ap_uint<256>"* noalias readonly "unpacked"="1") unnamed_addr #2 {
+define internal fastcc void @"onebyonecpy_hls.p0struct.ap_uint<256>.17.21"(i256* noalias nocapture align 512 "unpacked"="0.0.0.0", %"struct.ap_uint<256>"* noalias readonly "unpacked"="1") unnamed_addr #2 {
 entry:
   %2 = icmp eq %"struct.ap_uint<256>"* %1, null
   br i1 %2, label %ret, label %copy
@@ -93,6 +93,7 @@ declare void @apatb_concat_hw(i32, i32, i32, i32, i32, i256*, i256*, i1*)
 ; Function Attrs: argmemonly noinline norecurse
 define internal fastcc void @copy_back(%"struct.ap_uint<256>"* noalias "unpacked"="0", i256* noalias nocapture readonly align 512 "unpacked"="1.0.0.0", %"struct.ap_uint<256>"* noalias "unpacked"="2", i256* noalias nocapture readonly align 512 "unpacked"="3.0.0.0", i1* noalias "unpacked"="4", i1* noalias readonly align 512 "unpacked"="5") unnamed_addr #3 {
 entry:
+  call fastcc void @"onebyonecpy_hls.p0struct.ap_uint<256>"(%"struct.ap_uint<256>"* %0, i256* align 512 %1)
   call fastcc void @"onebyonecpy_hls.p0struct.ap_uint<256>"(%"struct.ap_uint<256>"* %2, i256* align 512 %3)
   call fastcc void @onebyonecpy_hls.p0i1(i1* %4, i1* align 512 %5)
   ret void

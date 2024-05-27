@@ -21,6 +21,15 @@ void concat(
 #pragma HLS INTERFACE mode = s_axilite port = concat_flag bundle = concat_addr
 #pragma HLS INTERFACE mode = s_axilite port = return bundle = concat_addr // 开始信号
 
+	hls::stream<WideType<t_DataType_IN, sizeof(t_AXI_DataType) / sizeof(t_DataType_IN)>> input_stream;
+#pragma HLS STREAM variable = input_stream depth = 64
+	hls::stream<WideType<t_DataType_OUT, sizeof(t_AXI_DataType) / sizeof(t_DataType_OUT)>> output_stream;
+#pragma HLS STREAM variable = output_stream depth = 64
+
 #pragma HLS DATAFLOW
-	read_inputs<t_AXI_DataType, t_DataType_OUT, nPE>(inputs, input_data_addr1, input_data_addr2, output_data_addr3, ROWS, COLS, outputs, concat_flag);
+	read_inputs<t_AXI_DataType, t_DataType_IN, nPE>(inputs, input_data_addr1, input_data_addr2, ROWS, COLS, input_stream);
+	requant<t_AXI_DataType, t_DataType_IN, t_DataType_OUT, nPE>(input_stream, ROWS, COLS, output_stream);
+	store<t_AXI_DataType, t_DataType_OUT, nPE>(ROWS, COLS, output_data_addr3, output_stream, outputs, concat_flag);
 }
+
+
