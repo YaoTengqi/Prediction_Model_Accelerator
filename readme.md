@@ -2,11 +2,11 @@
 
 ## 进度
 
-|         算子          |       日期       |   CSIM   |   RTL    | BOARD |
-| :-------------------: | :--------------: | :------: | :------: | :---: |
-|        Concat         | 5.27新增量化操作 | **done** | **done** |   /   |
-|        Sparse         |       5.22       | **done** | **done** |   /   |
-| ~~Reshape~~(目前弃用) |        /         |   done   |    /     |   /   |
+|         算子          |       日期       |   CSIM   |            RTL             | BOARD |
+| :-------------------: | :--------------: | :------: | :------------------------: | :---: |
+|        Concat         | 5.27新增量化操作 | **done** |          **done**          |   /   |
+|        Sparse         | 5.29新增量化操作 | **done** | **5.29新增量化操作未测试** |   /   |
+| ~~Reshape~~(目前弃用) |        /         |   done   |             /              |   /   |
 
 ## TODO:
 
@@ -215,9 +215,10 @@ void sparse(
 
 | 函数名                                                       | 返回值 | 解释                                                         |
 | ------------------------------------------------------------ | ------ | ------------------------------------------------------------ |
-| void load(<br/>		unsigned int am_ROWS,<br/>		unsigned int am_COLS,<br/>		unsigned int fm_ROWS,<br/>		unsigned int fm_COLS,<br/>		t_AXI_DataType *inputs,<br/>		hls::stream<uint8_t> &idx_stream,<br/>		hls::stream<uint8_t> &count_stream,<br/>		hls::stream<typename WideType<t_DataType_OUT, nPE>::t_TypeInt> &fm_stream,<br/>		uint32_t input_data_addr1,<br/>		uint32_t input_data_addr2) | /      | 1.特征矩阵fm将以ram[][\]的形式从inputs中接受数据;<br/>**2.根据邻接矩阵am得出哪一列不为0，并计数count，处理完邻接矩阵am的一行后将count写入count_ram，并将处理好的idx(哪一列数据不为0)写入idx_ram**<br/>**3.把ram的大小都定好，防止编译成AXI_LITE接口，需要AXI接口**<br/>4.将fm_ram的数据位宽改为和PE位宽相同，这样一次可以读出整个PE的数据，提高计算效率(5.22)，并改为数据流的格式使其通过RTL仿真 |
+| void load(<br/>	unsigned int am_ROWS,<br/>	unsigned int am_COLS,<br/>	unsigned int fm_ROWS,<br/>	unsigned int fm_COLS,<br/>	t_AXI_DataType *inputs,<br/>	hls::stream<uint8_t> &idx_stream,<br/>	hls::stream<uint8_t> &count_stream,<br/>	hls::stream<typename WideType<t_DataType_IN, nPE>::t_TypeInt> &fm_stream,<br/>	uint32_t input_data_addr1,<br/>	uint32_t input_data_addr2) | /      | 1.特征矩阵fm将以ram[][\]的形式从inputs中接受数据;<br/>**2.根据邻接矩阵am得出哪一列不为0，并计数count，处理完邻接矩阵am的一行后将count写入count_ram，并将处理好的idx(哪一列数据不为0)写入idx_ram**<br/>**3.把ram的大小都定好，防止编译成AXI_LITE接口，需要AXI接口**<br/>4.将fm_ram的数据位宽改为和PE位宽相同，这样一次可以读出整个PE的数据，提高计算效率(5.22)，并改为数据流的格式使其通过RTL仿真 |
 | ~~void **decode**(hls::stream<typename WideType<t_DataType_IN, nPE>::t_TypeInt> &data_stream_am, hls::stream<typename WideType<uint8_t, 128>::t_TypeInt> &idx_stream, hls::stream<typename WideType<uint8_t, 32>::t_TypeInt> &count_stream, unsigned int am_ROWS,unsigned int am_COLS)~~ | /      | ~~根据邻接矩阵am得出哪一列不为0，并计数count，处理完邻接矩阵am的一行后将count写入count_stream，并将处理好的idx(哪一列数据不为0)写入idx_stream~~ |
-| void mul(<br/>		unsigned int am_ROWS,<br/>		unsigned int am_COLS,<br/>		unsigned int fm_ROWS,<br/>		unsigned int fm_COLS,<br/>		hls::stream<typename WideType<t_DataType_OUT, nPE>::t_TypeInt> &fm_stream,<br/>		hls::stream<uint8_t> &idx_stream,<br/>		hls::stream<uint8_t> &count_stream,<br/>		hls::stream<typename WideType<t_DataType_OUT, nPE>::t_TypeInt> &data_stream_out) | /      | 共四层循环最外层(1st.)为循环ROWS(结果的行数为32)；第2nd.层循环为分为了几块(fm_COLS/PE = 512/32);第3rd.层为这一行有几个不为0的数据(count数)；最后一层(4th.)为PE的大小(为32)，取相应的result_ram[i\][j] += ram[idx][pe\].<br/>data_out_stream在第3rd.层写入``result(data_out_stream.write(result))``<br/>~~用result_ram来存储中间结果，最后直接``memcpy``到outputs中，省去了``store``函数~~(不如用数据流的形式效果好，**数据流形式可以并行计算**) |
+| void mul(<br/>	unsigned int am_ROWS,<br/>	unsigned int am_COLS,<br/>	unsigned int fm_ROWS,<br/>	unsigned int fm_COLS,<br/>	hls::stream<typename WideType<t_DataType_OUT, nPE>::t_TypeInt> &fm_stream,<br/>	hls::stream<uint8_t> &idx_stream,<br/>	hls::stream<uint8_t> &count_stream,<br/>	hls::stream<typename WideType<t_Quant_DataType, nPE>::t_TypeInt> &data_stream_out) | /      | 共四层循环最外层(1st.)为循环ROWS(结果的行数为32)；第2nd.层循环为分为了几块(fm_COLS/PE = 512/32);第3rd.层为这一行有几个不为0的数据(count数)；最后一层(4th.)为PE的大小(为32)，取相应的result_ram[i\][j] += ram[idx][pe\].<br/>data_out_stream在第3rd.层写入``result(data_out_stream.write(result))``<br/>~~用result_ram来存储中间结果，最后直接``memcpy``到outputs中，省去了``store``函数~~(不如用数据流的形式效果好，**数据流形式可以并行计算**) |
+| void quant(hls::stream<typename WideType<t_Quant_DataType, nPE>::t_TypeInt> &data_stream_out,<br/>			unsigned int fm_ROWS,<br/>			unsigned int fm_COLS,<br/>			hls::stream<typename WideType<t_DataType_OUT, nPE>::t_TypeInt> &requant_stream_out,<br/>			int quant_flag<br/>			 ) | /      | 新加的量化操作，完成对数据的量化提升结果精度                 |
 | void store(<br/>	hls::stream<typename WideType<t_DataType_OUT, nPE>::t_TypeInt> &data_stream_out,<br/>	t_AXI_DataType *outputs,<br/>	uint32_t output_data_addr3,<br/>	unsigned int ROWS,<br/>	unsigned int COLS,<br/>	bool &done_flag) | /      | 将写好的data_stream数据流在此函数中按行取出(有对应的数据位宽**t_OUT_ROW_DataType**)，用memcpy将数据从临时buffer存入outputs[addr3]中，其中addr3为起始地址 |
 
 ### 4. 问题
