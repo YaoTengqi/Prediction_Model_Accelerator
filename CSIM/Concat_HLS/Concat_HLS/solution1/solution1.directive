@@ -5,11 +5,6 @@
                 <option name="name" value="concat"/>
             </pragma>
         </directive>
-        <directive functionName="concat" label="" functionLabel="">
-            <pragma name="TOP">
-                <option name="name" value="concat"/>
-            </pragma>
-        </directive>
     </sourceFile>
 </AutoPilot:ProjectResources>
 

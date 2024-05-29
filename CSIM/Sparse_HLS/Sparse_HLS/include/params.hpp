@@ -25,6 +25,7 @@
 #define INP_ROW_DATA_WIDTH COLS * INP_DATA_WIDTH	// 一行输入数据占的位宽
 #define OUT_ROW_DATA_WIDTH INP_ROW_DATA_WIDTH * 2   // 一行输出数据占的位宽
 //#define ROW_DATA_WIDTH AXI_DATA_WIDTH / INP_DATA_WIDTH // 一行数据占的位宽
+#define QUANT_DATA_WIDTH 32
 #define OUT_DATA_WIDTH 8
 #define STD_DIFF_WIDTH (INP_DATA_WIDTH + 1)
 #define STD_SUM_WIDTH (STD_DIFF_WIDTH + STD_DIFF_WIDTH + COLS_LOG)
@@ -35,7 +36,6 @@
 #define t_DataType_C ap_int<STD_DIFF_WIDTH>
 #define t_DataType_D ap_int<STD_SUM_WIDTH>
 #define t_AXI_DataType ap_uint<AXI_DATA_WIDTH>
-#define t_INP_ROW_DataType ap_uint<INP_ROW_DATA_WIDTH>
-#define t_OUT_ROW_DataType ap_uint<OUT_ROW_DATA_WIDTH>
+#define t_Quant_DataType ap_int<QUANT_DATA_WIDTH>
 
 

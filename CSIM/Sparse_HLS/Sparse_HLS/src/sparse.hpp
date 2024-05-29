@@ -22,4 +22,5 @@ void sparse(
 	unsigned int fm_COLS,
 	t_AXI_DataType *inputs,
 	t_AXI_DataType *outputs,
+	int quant_flag,
 	bool &sparse_flag);

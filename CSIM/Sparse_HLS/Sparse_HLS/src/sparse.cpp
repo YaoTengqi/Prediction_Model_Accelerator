@@ -10,6 +10,7 @@ void sparse(
 	unsigned int fm_COLS,
 	t_AXI_DataType *inputs,
 	t_AXI_DataType *outputs,
+	int quant_flag,
 	bool &sparse_flag)
 {
 // 硬件绑定
@@ -26,7 +27,9 @@ void sparse(
 #pragma HLS INTERFACE mode = s_axilite port = return bundle = sparse_addr // 开始信号
 
 	// 输出矩阵
-	hls::stream<WideType<t_DataType_OUT, nPE>::t_TypeInt> data_out;
+	hls::stream<WideType<t_Quant_DataType, nPE>::t_TypeInt> data_out;
+#pragma HLS STREAM variable = data_out depth = 64
+	hls::stream<WideType<t_DataType_OUT, nPE>::t_TypeInt> quant_out;
 #pragma HLS STREAM variable = data_out depth = 64
 	hls::stream<WideType<t_DataType_OUT, nPE>::t_TypeInt> fm_stream;
 #pragma HLS STREAM variable = fm_stream depth = 128
@@ -39,6 +42,7 @@ void sparse(
 
 #pragma HLS DATAFLOW
 	load<t_AXI_DataType, t_DataType_IN, t_DataType_OUT, nPE>(am_ROWS, am_COLS, fm_ROWS, fm_COLS, inputs, idx_stream, count_stream, fm_stream, input_data_addr1, input_data_addr2);
-	mul<t_AXI_DataType, t_DataType_IN, t_DataType_OUT, nPE>(am_ROWS, am_COLS, fm_ROWS, fm_COLS, fm_stream, idx_stream, count_stream, data_out);
-	store<t_AXI_DataType, t_DataType_IN, t_DataType_OUT, nPE>(data_out, outputs, output_data_addr3, fm_ROWS, fm_COLS, sparse_flag);
+	mul<t_AXI_DataType, t_Quant_DataType, t_DataType_IN, t_DataType_OUT, nPE>(am_ROWS, am_COLS, fm_ROWS, fm_COLS, fm_stream, idx_stream, count_stream, data_out);
+	quant<t_AXI_DataType, t_Quant_DataType, t_DataType_OUT, nPE>(data_out, fm_ROWS, fm_COLS, quant_out, quant_flag);
+	store<t_AXI_DataType, t_DataType_IN, t_DataType_OUT, nPE>(quant_out, outputs, output_data_addr3, fm_ROWS, fm_COLS, sparse_flag);
 }
