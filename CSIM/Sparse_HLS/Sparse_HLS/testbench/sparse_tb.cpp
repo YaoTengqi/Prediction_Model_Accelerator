@@ -4,10 +4,15 @@
 
 int main()
 {
-	unsigned int am_ROWS = 32;
-	unsigned int am_COLS = 32;
-	unsigned int fm_ROWS = 32;
-	unsigned int fm_COLS = 512;
+	int am_ROWS = 32;
+	int am_COLS = 32;
+	int fm_ROWS = 32;
+	int fm_COLS = 512;
+	int quant_flag = 3;
+	int matmul_mul[4] = {1246581376,2139844096,1197571584,1302173056};
+    int matmul_shift[4] = {7,9,8,9};
+    int quant_shift = matmul_shift[quant_flag];
+    int quant_mul = matmul_mul[quant_flag];
 	string basedir = "/home/ytq/codeField/temp_MM_Accelerator/insn/GCN/resnet18/11/";
 	vector<t_AXI_DataType> input_data, golden;
 	vector<t_AXI_DataType> output_data(am_ROWS * fm_COLS * sizeof(t_DataType_IN), 0);
@@ -16,7 +21,6 @@ int main()
 	//	ap_uint<32> input_data_addr2 = 4096 * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
 	ap_uint<32> input_data_addr3 = 49152 * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
 	bool sparse_flag = false;
-	int quant_flag = 3;
 
 	readBin(basedir + "dram_before.bin", sizeof(t_DataType_IN) * am_ROWS * (am_COLS + fm_COLS), input_data);
 	readBin(basedir + "dram_after.bin", sizeof(t_DataType_IN) * am_ROWS * fm_COLS, golden);
@@ -29,7 +33,8 @@ int main()
 		   fm_COLS,
 		   input_data.data(),
 		   output_data.data(),
-		   quant_flag,
+		   quant_shift,
+		   quant_mul,
 		   sparse_flag);
 
 	int err = memcmp(&output_data[input_data_addr3], &golden[input_data_addr3], fm_ROWS * fm_COLS * sizeof(t_DataType_IN));

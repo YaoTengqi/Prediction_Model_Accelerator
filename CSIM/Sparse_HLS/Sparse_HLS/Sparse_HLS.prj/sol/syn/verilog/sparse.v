@@ -7,7 +7,7 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="sparse_sparse,hls_ip_2022_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xczu7ev-ffvc1156-2-e,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=7.300000,HLS_SYN_LAT=-1,HLS_SYN_TPT=-1,HLS_SYN_MEM=46,HLS_SYN_DSP=0,HLS_SYN_FF=5015,HLS_SYN_LUT=6422,HLS_VERSION=2022_2}" *)
+(* CORE_GENERATION_INFO="sparse_sparse,hls_ip_2022_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xczu7ev-ffvc1156-2-e,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=7.300000,HLS_SYN_LAT=-1,HLS_SYN_TPT=-1,HLS_SYN_MEM=88,HLS_SYN_DSP=0,HLS_SYN_FF=9525,HLS_SYN_LUT=28528,HLS_VERSION=2022_2}" *)
 
 module sparse (
         s_axi_sparse_addr_AWVALID,
@@ -174,6 +174,8 @@ wire   [31:0] fm_ROWS;
 wire   [31:0] fm_COLS;
 wire   [63:0] inputs;
 wire   [63:0] outputs;
+wire   [31:0] quant_shift;
+wire   [31:0] quant_mul;
 wire    sparse_flag;
 wire    ap_start;
 wire    ap_ready;
@@ -194,6 +196,7 @@ wire   [1:0] sparse_data_BRESP;
 wire   [0:0] sparse_data_BID;
 wire   [0:0] sparse_data_BUSER;
 wire    entry_proc_U0_ap_start;
+wire    entry_proc_U0_start_full_n;
 wire    entry_proc_U0_ap_done;
 wire    entry_proc_U0_ap_continue;
 wire    entry_proc_U0_ap_idle;
@@ -204,6 +207,10 @@ wire   [31:0] entry_proc_U0_output_data_addr3_c_din;
 wire    entry_proc_U0_output_data_addr3_c_write;
 wire   [63:0] entry_proc_U0_outputs_c_din;
 wire    entry_proc_U0_outputs_c_write;
+wire   [31:0] entry_proc_U0_quant_shift_c_din;
+wire    entry_proc_U0_quant_shift_c_write;
+wire   [31:0] entry_proc_U0_quant_mul_c_din;
+wire    entry_proc_U0_quant_mul_c_write;
 wire    load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_start;
 wire    load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_done;
 wire    load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_continue;
@@ -243,38 +250,54 @@ wire   [3:0] load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_ARREGIO
 wire   [0:0] load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_ARUSER;
 wire    load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_RREADY;
 wire    load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_BREADY;
-wire   [7:0] load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_idx_stream3_din;
-wire    load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_idx_stream3_write;
-wire   [7:0] load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_count_stream4_din;
-wire    load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_count_stream4_write;
-wire   [255:0] load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_stream2_din;
-wire    load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_stream2_write;
+wire   [7:0] load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_idx_stream4_din;
+wire    load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_idx_stream4_write;
+wire   [7:0] load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_count_stream5_din;
+wire    load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_count_stream5_write;
+wire   [255:0] load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_stream3_din;
+wire    load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_stream3_write;
 wire   [31:0] load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_am_ROWS_c_din;
 wire    load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_am_ROWS_c_write;
-wire   [31:0] load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_ROWS_c_din;
-wire    load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_ROWS_c_write;
-wire   [31:0] load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_COLS_c9_din;
-wire    load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_COLS_c9_write;
-wire    mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_start;
-wire    mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_done;
-wire    mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_continue;
-wire    mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_idle;
-wire    mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_ready;
-wire    mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_am_ROWS_read;
-wire    mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_COLS_read;
-wire    mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_stream2_read;
-wire    mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_idx_stream3_read;
-wire    mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_count_stream4_read;
-wire   [255:0] mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_data_out1_din;
-wire    mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_data_out1_write;
-wire   [31:0] mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_COLS_c_din;
-wire    mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_COLS_c_write;
+wire   [31:0] load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_ROWS_c11_din;
+wire    load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_ROWS_c11_write;
+wire   [31:0] load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_COLS_c13_din;
+wire    load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_COLS_c13_write;
+wire    mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_ap_start;
+wire    mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_ap_done;
+wire    mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_ap_continue;
+wire    mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_ap_idle;
+wire    mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_ap_ready;
+wire    mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_am_ROWS_read;
+wire    mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_fm_COLS_read;
+wire    mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_fm_stream3_read;
+wire    mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_idx_stream4_read;
+wire    mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_count_stream5_read;
+wire   [1023:0] mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_data_out1_din;
+wire    mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_data_out1_write;
+wire   [31:0] mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_fm_COLS_c12_din;
+wire    mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_fm_COLS_c12_write;
+wire    quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_ap_start;
+wire    quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_ap_done;
+wire    quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_ap_continue;
+wire    quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_ap_idle;
+wire    quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_ap_ready;
+wire    quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_data_out1_read;
+wire    quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_fm_ROWS_read;
+wire    quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_fm_COLS_read;
+wire   [255:0] quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_quant_out2_din;
+wire    quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_quant_out2_write;
+wire    quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_quant_shift_read;
+wire    quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_quant_mul_read;
+wire   [31:0] quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_fm_ROWS_c_din;
+wire    quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_fm_ROWS_c_write;
+wire   [31:0] quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_fm_COLS_c_din;
+wire    quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_fm_COLS_c_write;
 wire    store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_start;
 wire    store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_done;
 wire    store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_continue;
 wire    store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_idle;
 wire    store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_ready;
-wire    store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_data_out1_read;
+wire    store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_quant_out2_read;
 wire    store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_AWVALID;
 wire   [63:0] store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_AWADDR;
 wire   [0:0] store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_AWID;
@@ -315,14 +338,24 @@ wire   [0:0] store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_sparse_flag;
 wire    store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_sparse_flag_ap_vld;
 wire    output_data_addr3_c_full_n;
 wire   [31:0] output_data_addr3_c_dout;
-wire   [2:0] output_data_addr3_c_num_data_valid;
-wire   [2:0] output_data_addr3_c_fifo_cap;
+wire   [3:0] output_data_addr3_c_num_data_valid;
+wire   [3:0] output_data_addr3_c_fifo_cap;
 wire    output_data_addr3_c_empty_n;
 wire    outputs_c_full_n;
 wire   [63:0] outputs_c_dout;
-wire   [2:0] outputs_c_num_data_valid;
-wire   [2:0] outputs_c_fifo_cap;
+wire   [3:0] outputs_c_num_data_valid;
+wire   [3:0] outputs_c_fifo_cap;
 wire    outputs_c_empty_n;
+wire    quant_shift_c_full_n;
+wire   [31:0] quant_shift_c_dout;
+wire   [2:0] quant_shift_c_num_data_valid;
+wire   [2:0] quant_shift_c_fifo_cap;
+wire    quant_shift_c_empty_n;
+wire    quant_mul_c_full_n;
+wire   [31:0] quant_mul_c_dout;
+wire   [2:0] quant_mul_c_num_data_valid;
+wire   [2:0] quant_mul_c_fifo_cap;
+wire    quant_mul_c_empty_n;
 wire    idx_stream_full_n;
 wire   [7:0] idx_stream_dout;
 wire   [7:0] idx_stream_num_data_valid;
@@ -343,21 +376,36 @@ wire   [31:0] am_ROWS_c_dout;
 wire   [1:0] am_ROWS_c_num_data_valid;
 wire   [1:0] am_ROWS_c_fifo_cap;
 wire    am_ROWS_c_empty_n;
-wire    fm_ROWS_c_full_n;
-wire   [31:0] fm_ROWS_c_dout;
-wire   [2:0] fm_ROWS_c_num_data_valid;
-wire   [2:0] fm_ROWS_c_fifo_cap;
-wire    fm_ROWS_c_empty_n;
-wire    fm_COLS_c9_full_n;
-wire   [31:0] fm_COLS_c9_dout;
-wire   [1:0] fm_COLS_c9_num_data_valid;
-wire   [1:0] fm_COLS_c9_fifo_cap;
-wire    fm_COLS_c9_empty_n;
+wire    fm_ROWS_c11_full_n;
+wire   [31:0] fm_ROWS_c11_dout;
+wire   [2:0] fm_ROWS_c11_num_data_valid;
+wire   [2:0] fm_ROWS_c11_fifo_cap;
+wire    fm_ROWS_c11_empty_n;
+wire    fm_COLS_c13_full_n;
+wire   [31:0] fm_COLS_c13_dout;
+wire   [1:0] fm_COLS_c13_num_data_valid;
+wire   [1:0] fm_COLS_c13_fifo_cap;
+wire    fm_COLS_c13_empty_n;
 wire    data_out_full_n;
-wire   [255:0] data_out_dout;
+wire   [1023:0] data_out_dout;
 wire   [6:0] data_out_num_data_valid;
 wire   [6:0] data_out_fifo_cap;
 wire    data_out_empty_n;
+wire    fm_COLS_c12_full_n;
+wire   [31:0] fm_COLS_c12_dout;
+wire   [1:0] fm_COLS_c12_num_data_valid;
+wire   [1:0] fm_COLS_c12_fifo_cap;
+wire    fm_COLS_c12_empty_n;
+wire    quant_out_full_n;
+wire   [255:0] quant_out_dout;
+wire   [1:0] quant_out_num_data_valid;
+wire   [1:0] quant_out_fifo_cap;
+wire    quant_out_empty_n;
+wire    fm_ROWS_c_full_n;
+wire   [31:0] fm_ROWS_c_dout;
+wire   [1:0] fm_ROWS_c_num_data_valid;
+wire   [1:0] fm_ROWS_c_fifo_cap;
+wire    fm_ROWS_c_empty_n;
 wire    fm_COLS_c_full_n;
 wire   [31:0] fm_COLS_c_dout;
 wire   [1:0] fm_COLS_c_num_data_valid;
@@ -368,14 +416,18 @@ reg    ap_sync_reg_entry_proc_U0_ap_ready;
 wire    ap_sync_entry_proc_U0_ap_ready;
 reg    ap_sync_reg_load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_ready;
 wire    ap_sync_load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_ready;
+wire   [0:0] start_for_quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_din;
+wire    start_for_quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_full_n;
+wire   [0:0] start_for_quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_dout;
+wire    start_for_quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_empty_n;
 wire   [0:0] start_for_store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_din;
 wire    start_for_store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_full_n;
 wire   [0:0] start_for_store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_dout;
 wire    start_for_store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_empty_n;
-wire   [0:0] start_for_mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_din;
-wire    start_for_mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_full_n;
-wire   [0:0] start_for_mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_dout;
-wire    start_for_mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_empty_n;
+wire   [0:0] start_for_mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_din;
+wire    start_for_mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_full_n;
+wire   [0:0] start_for_mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_dout;
+wire    start_for_mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_empty_n;
 wire    ap_ce_reg;
 
 // power-on initialization
@@ -417,6 +469,8 @@ sparse_addr_s_axi_U(
     .fm_COLS(fm_COLS),
     .inputs(inputs),
     .outputs(outputs),
+    .quant_shift(quant_shift),
+    .quant_mul(quant_mul),
     .sparse_flag(sparse_flag),
     .sparse_flag_ap_vld(store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_sparse_flag_ap_vld),
     .ap_start(ap_start),
@@ -520,7 +574,7 @@ sparse_entry_proc entry_proc_U0(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst_n_inv),
     .ap_start(entry_proc_U0_ap_start),
-    .start_full_n(start_for_store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_full_n),
+    .start_full_n(entry_proc_U0_start_full_n),
     .ap_done(entry_proc_U0_ap_done),
     .ap_continue(entry_proc_U0_ap_continue),
     .ap_idle(entry_proc_U0_ap_idle),
@@ -538,14 +592,26 @@ sparse_entry_proc entry_proc_U0(
     .outputs_c_num_data_valid(outputs_c_num_data_valid),
     .outputs_c_fifo_cap(outputs_c_fifo_cap),
     .outputs_c_full_n(outputs_c_full_n),
-    .outputs_c_write(entry_proc_U0_outputs_c_write)
+    .outputs_c_write(entry_proc_U0_outputs_c_write),
+    .quant_shift(quant_shift),
+    .quant_shift_c_din(entry_proc_U0_quant_shift_c_din),
+    .quant_shift_c_num_data_valid(quant_shift_c_num_data_valid),
+    .quant_shift_c_fifo_cap(quant_shift_c_fifo_cap),
+    .quant_shift_c_full_n(quant_shift_c_full_n),
+    .quant_shift_c_write(entry_proc_U0_quant_shift_c_write),
+    .quant_mul(quant_mul),
+    .quant_mul_c_din(entry_proc_U0_quant_mul_c_din),
+    .quant_mul_c_num_data_valid(quant_mul_c_num_data_valid),
+    .quant_mul_c_fifo_cap(quant_mul_c_fifo_cap),
+    .quant_mul_c_full_n(quant_mul_c_full_n),
+    .quant_mul_c_write(entry_proc_U0_quant_mul_c_write)
 );
 
 sparse_load_ap_uint_256_ap_int_8_ap_int_8_32u_s load_ap_uint_256_ap_int_8_ap_int_8_32u_U0(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst_n_inv),
     .ap_start(load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_start),
-    .start_full_n(start_for_mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_full_n),
+    .start_full_n(start_for_mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_full_n),
     .ap_done(load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_done),
     .ap_continue(load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_continue),
     .ap_idle(load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_idle),
@@ -603,21 +669,21 @@ sparse_load_ap_uint_256_ap_int_8_ap_int_8_32u_s load_ap_uint_256_ap_int_8_ap_int
     .m_axi_sparse_data_BID(1'd0),
     .m_axi_sparse_data_BUSER(1'd0),
     .inputs(inputs),
-    .idx_stream3_din(load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_idx_stream3_din),
-    .idx_stream3_num_data_valid(idx_stream_num_data_valid),
-    .idx_stream3_fifo_cap(idx_stream_fifo_cap),
-    .idx_stream3_full_n(idx_stream_full_n),
-    .idx_stream3_write(load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_idx_stream3_write),
-    .count_stream4_din(load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_count_stream4_din),
-    .count_stream4_num_data_valid(count_stream_num_data_valid),
-    .count_stream4_fifo_cap(count_stream_fifo_cap),
-    .count_stream4_full_n(count_stream_full_n),
-    .count_stream4_write(load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_count_stream4_write),
-    .fm_stream2_din(load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_stream2_din),
-    .fm_stream2_num_data_valid(fm_stream_num_data_valid),
-    .fm_stream2_fifo_cap(fm_stream_fifo_cap),
-    .fm_stream2_full_n(fm_stream_full_n),
-    .fm_stream2_write(load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_stream2_write),
+    .idx_stream4_din(load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_idx_stream4_din),
+    .idx_stream4_num_data_valid(idx_stream_num_data_valid),
+    .idx_stream4_fifo_cap(idx_stream_fifo_cap),
+    .idx_stream4_full_n(idx_stream_full_n),
+    .idx_stream4_write(load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_idx_stream4_write),
+    .count_stream5_din(load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_count_stream5_din),
+    .count_stream5_num_data_valid(count_stream_num_data_valid),
+    .count_stream5_fifo_cap(count_stream_fifo_cap),
+    .count_stream5_full_n(count_stream_full_n),
+    .count_stream5_write(load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_count_stream5_write),
+    .fm_stream3_din(load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_stream3_din),
+    .fm_stream3_num_data_valid(fm_stream_num_data_valid),
+    .fm_stream3_fifo_cap(fm_stream_fifo_cap),
+    .fm_stream3_full_n(fm_stream_full_n),
+    .fm_stream3_write(load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_stream3_write),
     .input_data_addr1(input_data_addr1),
     .input_data_addr2(input_data_addr2),
     .am_ROWS_c_din(load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_am_ROWS_c_din),
@@ -625,61 +691,111 @@ sparse_load_ap_uint_256_ap_int_8_ap_int_8_32u_s load_ap_uint_256_ap_int_8_ap_int
     .am_ROWS_c_fifo_cap(am_ROWS_c_fifo_cap),
     .am_ROWS_c_full_n(am_ROWS_c_full_n),
     .am_ROWS_c_write(load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_am_ROWS_c_write),
-    .fm_ROWS_c_din(load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_ROWS_c_din),
-    .fm_ROWS_c_num_data_valid(fm_ROWS_c_num_data_valid),
-    .fm_ROWS_c_fifo_cap(fm_ROWS_c_fifo_cap),
-    .fm_ROWS_c_full_n(fm_ROWS_c_full_n),
-    .fm_ROWS_c_write(load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_ROWS_c_write),
-    .fm_COLS_c9_din(load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_COLS_c9_din),
-    .fm_COLS_c9_num_data_valid(fm_COLS_c9_num_data_valid),
-    .fm_COLS_c9_fifo_cap(fm_COLS_c9_fifo_cap),
-    .fm_COLS_c9_full_n(fm_COLS_c9_full_n),
-    .fm_COLS_c9_write(load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_COLS_c9_write)
+    .fm_ROWS_c11_din(load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_ROWS_c11_din),
+    .fm_ROWS_c11_num_data_valid(fm_ROWS_c11_num_data_valid),
+    .fm_ROWS_c11_fifo_cap(fm_ROWS_c11_fifo_cap),
+    .fm_ROWS_c11_full_n(fm_ROWS_c11_full_n),
+    .fm_ROWS_c11_write(load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_ROWS_c11_write),
+    .fm_COLS_c13_din(load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_COLS_c13_din),
+    .fm_COLS_c13_num_data_valid(fm_COLS_c13_num_data_valid),
+    .fm_COLS_c13_fifo_cap(fm_COLS_c13_fifo_cap),
+    .fm_COLS_c13_full_n(fm_COLS_c13_full_n),
+    .fm_COLS_c13_write(load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_COLS_c13_write)
 );
 
-sparse_mul_ap_uint_256_ap_int_8_ap_int_8_32u_s mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0(
+sparse_mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_s mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst_n_inv),
-    .ap_start(mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_start),
-    .ap_done(mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_done),
-    .ap_continue(mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_continue),
-    .ap_idle(mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_idle),
-    .ap_ready(mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_ready),
+    .ap_start(mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_ap_start),
+    .ap_done(mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_ap_done),
+    .ap_continue(mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_ap_continue),
+    .ap_idle(mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_ap_idle),
+    .ap_ready(mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_ap_ready),
     .am_ROWS_dout(am_ROWS_c_dout),
     .am_ROWS_num_data_valid(am_ROWS_c_num_data_valid),
     .am_ROWS_fifo_cap(am_ROWS_c_fifo_cap),
     .am_ROWS_empty_n(am_ROWS_c_empty_n),
-    .am_ROWS_read(mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_am_ROWS_read),
-    .fm_COLS_dout(fm_COLS_c9_dout),
-    .fm_COLS_num_data_valid(fm_COLS_c9_num_data_valid),
-    .fm_COLS_fifo_cap(fm_COLS_c9_fifo_cap),
-    .fm_COLS_empty_n(fm_COLS_c9_empty_n),
-    .fm_COLS_read(mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_COLS_read),
-    .fm_stream2_dout(fm_stream_dout),
-    .fm_stream2_num_data_valid(fm_stream_num_data_valid),
-    .fm_stream2_fifo_cap(fm_stream_fifo_cap),
-    .fm_stream2_empty_n(fm_stream_empty_n),
-    .fm_stream2_read(mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_stream2_read),
-    .idx_stream3_dout(idx_stream_dout),
-    .idx_stream3_num_data_valid(idx_stream_num_data_valid),
-    .idx_stream3_fifo_cap(idx_stream_fifo_cap),
-    .idx_stream3_empty_n(idx_stream_empty_n),
-    .idx_stream3_read(mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_idx_stream3_read),
-    .count_stream4_dout(count_stream_dout),
-    .count_stream4_num_data_valid(count_stream_num_data_valid),
-    .count_stream4_fifo_cap(count_stream_fifo_cap),
-    .count_stream4_empty_n(count_stream_empty_n),
-    .count_stream4_read(mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_count_stream4_read),
-    .data_out1_din(mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_data_out1_din),
+    .am_ROWS_read(mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_am_ROWS_read),
+    .fm_COLS_dout(fm_COLS_c13_dout),
+    .fm_COLS_num_data_valid(fm_COLS_c13_num_data_valid),
+    .fm_COLS_fifo_cap(fm_COLS_c13_fifo_cap),
+    .fm_COLS_empty_n(fm_COLS_c13_empty_n),
+    .fm_COLS_read(mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_fm_COLS_read),
+    .fm_stream3_dout(fm_stream_dout),
+    .fm_stream3_num_data_valid(fm_stream_num_data_valid),
+    .fm_stream3_fifo_cap(fm_stream_fifo_cap),
+    .fm_stream3_empty_n(fm_stream_empty_n),
+    .fm_stream3_read(mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_fm_stream3_read),
+    .idx_stream4_dout(idx_stream_dout),
+    .idx_stream4_num_data_valid(idx_stream_num_data_valid),
+    .idx_stream4_fifo_cap(idx_stream_fifo_cap),
+    .idx_stream4_empty_n(idx_stream_empty_n),
+    .idx_stream4_read(mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_idx_stream4_read),
+    .count_stream5_dout(count_stream_dout),
+    .count_stream5_num_data_valid(count_stream_num_data_valid),
+    .count_stream5_fifo_cap(count_stream_fifo_cap),
+    .count_stream5_empty_n(count_stream_empty_n),
+    .count_stream5_read(mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_count_stream5_read),
+    .data_out1_din(mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_data_out1_din),
     .data_out1_num_data_valid(data_out_num_data_valid),
     .data_out1_fifo_cap(data_out_fifo_cap),
     .data_out1_full_n(data_out_full_n),
-    .data_out1_write(mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_data_out1_write),
-    .fm_COLS_c_din(mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_COLS_c_din),
+    .data_out1_write(mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_data_out1_write),
+    .fm_COLS_c12_din(mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_fm_COLS_c12_din),
+    .fm_COLS_c12_num_data_valid(fm_COLS_c12_num_data_valid),
+    .fm_COLS_c12_fifo_cap(fm_COLS_c12_fifo_cap),
+    .fm_COLS_c12_full_n(fm_COLS_c12_full_n),
+    .fm_COLS_c12_write(mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_fm_COLS_c12_write)
+);
+
+sparse_quant_ap_uint_256_ap_int_32_ap_int_8_32u_s quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0(
+    .ap_clk(ap_clk),
+    .ap_rst(ap_rst_n_inv),
+    .ap_start(quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_ap_start),
+    .ap_done(quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_ap_done),
+    .ap_continue(quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_ap_continue),
+    .ap_idle(quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_ap_idle),
+    .ap_ready(quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_ap_ready),
+    .data_out1_dout(data_out_dout),
+    .data_out1_num_data_valid(data_out_num_data_valid),
+    .data_out1_fifo_cap(data_out_fifo_cap),
+    .data_out1_empty_n(data_out_empty_n),
+    .data_out1_read(quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_data_out1_read),
+    .fm_ROWS_dout(fm_ROWS_c11_dout),
+    .fm_ROWS_num_data_valid(fm_ROWS_c11_num_data_valid),
+    .fm_ROWS_fifo_cap(fm_ROWS_c11_fifo_cap),
+    .fm_ROWS_empty_n(fm_ROWS_c11_empty_n),
+    .fm_ROWS_read(quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_fm_ROWS_read),
+    .fm_COLS_dout(fm_COLS_c12_dout),
+    .fm_COLS_num_data_valid(fm_COLS_c12_num_data_valid),
+    .fm_COLS_fifo_cap(fm_COLS_c12_fifo_cap),
+    .fm_COLS_empty_n(fm_COLS_c12_empty_n),
+    .fm_COLS_read(quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_fm_COLS_read),
+    .quant_out2_din(quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_quant_out2_din),
+    .quant_out2_num_data_valid(quant_out_num_data_valid),
+    .quant_out2_fifo_cap(quant_out_fifo_cap),
+    .quant_out2_full_n(quant_out_full_n),
+    .quant_out2_write(quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_quant_out2_write),
+    .quant_shift_dout(quant_shift_c_dout),
+    .quant_shift_num_data_valid(quant_shift_c_num_data_valid),
+    .quant_shift_fifo_cap(quant_shift_c_fifo_cap),
+    .quant_shift_empty_n(quant_shift_c_empty_n),
+    .quant_shift_read(quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_quant_shift_read),
+    .quant_mul_dout(quant_mul_c_dout),
+    .quant_mul_num_data_valid(quant_mul_c_num_data_valid),
+    .quant_mul_fifo_cap(quant_mul_c_fifo_cap),
+    .quant_mul_empty_n(quant_mul_c_empty_n),
+    .quant_mul_read(quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_quant_mul_read),
+    .fm_ROWS_c_din(quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_fm_ROWS_c_din),
+    .fm_ROWS_c_num_data_valid(fm_ROWS_c_num_data_valid),
+    .fm_ROWS_c_fifo_cap(fm_ROWS_c_fifo_cap),
+    .fm_ROWS_c_full_n(fm_ROWS_c_full_n),
+    .fm_ROWS_c_write(quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_fm_ROWS_c_write),
+    .fm_COLS_c_din(quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_fm_COLS_c_din),
     .fm_COLS_c_num_data_valid(fm_COLS_c_num_data_valid),
     .fm_COLS_c_fifo_cap(fm_COLS_c_fifo_cap),
     .fm_COLS_c_full_n(fm_COLS_c_full_n),
-    .fm_COLS_c_write(mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_COLS_c_write)
+    .fm_COLS_c_write(quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_fm_COLS_c_write)
 );
 
 sparse_store_ap_uint_256_ap_int_8_ap_int_8_32u_s store_ap_uint_256_ap_int_8_ap_int_8_32u_U0(
@@ -690,11 +806,11 @@ sparse_store_ap_uint_256_ap_int_8_ap_int_8_32u_s store_ap_uint_256_ap_int_8_ap_i
     .ap_continue(store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_continue),
     .ap_idle(store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_idle),
     .ap_ready(store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_ready),
-    .data_out1_dout(data_out_dout),
-    .data_out1_num_data_valid(data_out_num_data_valid),
-    .data_out1_fifo_cap(data_out_fifo_cap),
-    .data_out1_empty_n(data_out_empty_n),
-    .data_out1_read(store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_data_out1_read),
+    .quant_out2_dout(quant_out_dout),
+    .quant_out2_num_data_valid(quant_out_num_data_valid),
+    .quant_out2_fifo_cap(quant_out_fifo_cap),
+    .quant_out2_empty_n(quant_out_empty_n),
+    .quant_out2_read(store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_quant_out2_read),
     .m_axi_sparse_data_AWVALID(store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_AWVALID),
     .m_axi_sparse_data_AWREADY(sparse_data_AWREADY),
     .m_axi_sparse_data_AWADDR(store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_m_axi_sparse_data_AWADDR),
@@ -765,7 +881,7 @@ sparse_store_ap_uint_256_ap_int_8_ap_int_8_32u_s store_ap_uint_256_ap_int_8_ap_i
     .sparse_flag_ap_vld(store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_sparse_flag_ap_vld)
 );
 
-sparse_fifo_w32_d4_S output_data_addr3_c_U(
+sparse_fifo_w32_d5_S output_data_addr3_c_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
     .if_read_ce(1'b1),
@@ -780,7 +896,7 @@ sparse_fifo_w32_d4_S output_data_addr3_c_U(
     .if_read(store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_output_data_addr3_read)
 );
 
-sparse_fifo_w64_d4_S outputs_c_U(
+sparse_fifo_w64_d5_S outputs_c_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
     .if_read_ce(1'b1),
@@ -795,19 +911,49 @@ sparse_fifo_w64_d4_S outputs_c_U(
     .if_read(store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_outputs_read)
 );
 
+sparse_fifo_w32_d4_S quant_shift_c_U(
+    .clk(ap_clk),
+    .reset(ap_rst_n_inv),
+    .if_read_ce(1'b1),
+    .if_write_ce(1'b1),
+    .if_din(entry_proc_U0_quant_shift_c_din),
+    .if_full_n(quant_shift_c_full_n),
+    .if_write(entry_proc_U0_quant_shift_c_write),
+    .if_dout(quant_shift_c_dout),
+    .if_num_data_valid(quant_shift_c_num_data_valid),
+    .if_fifo_cap(quant_shift_c_fifo_cap),
+    .if_empty_n(quant_shift_c_empty_n),
+    .if_read(quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_quant_shift_read)
+);
+
+sparse_fifo_w32_d4_S quant_mul_c_U(
+    .clk(ap_clk),
+    .reset(ap_rst_n_inv),
+    .if_read_ce(1'b1),
+    .if_write_ce(1'b1),
+    .if_din(entry_proc_U0_quant_mul_c_din),
+    .if_full_n(quant_mul_c_full_n),
+    .if_write(entry_proc_U0_quant_mul_c_write),
+    .if_dout(quant_mul_c_dout),
+    .if_num_data_valid(quant_mul_c_num_data_valid),
+    .if_fifo_cap(quant_mul_c_fifo_cap),
+    .if_empty_n(quant_mul_c_empty_n),
+    .if_read(quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_quant_mul_read)
+);
+
 sparse_fifo_w8_d128_S idx_stream_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
     .if_read_ce(1'b1),
     .if_write_ce(1'b1),
-    .if_din(load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_idx_stream3_din),
+    .if_din(load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_idx_stream4_din),
     .if_full_n(idx_stream_full_n),
-    .if_write(load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_idx_stream3_write),
+    .if_write(load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_idx_stream4_write),
     .if_dout(idx_stream_dout),
     .if_num_data_valid(idx_stream_num_data_valid),
     .if_fifo_cap(idx_stream_fifo_cap),
     .if_empty_n(idx_stream_empty_n),
-    .if_read(mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_idx_stream3_read)
+    .if_read(mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_idx_stream4_read)
 );
 
 sparse_fifo_w8_d64_S count_stream_U(
@@ -815,14 +961,14 @@ sparse_fifo_w8_d64_S count_stream_U(
     .reset(ap_rst_n_inv),
     .if_read_ce(1'b1),
     .if_write_ce(1'b1),
-    .if_din(load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_count_stream4_din),
+    .if_din(load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_count_stream5_din),
     .if_full_n(count_stream_full_n),
-    .if_write(load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_count_stream4_write),
+    .if_write(load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_count_stream5_write),
     .if_dout(count_stream_dout),
     .if_num_data_valid(count_stream_num_data_valid),
     .if_fifo_cap(count_stream_fifo_cap),
     .if_empty_n(count_stream_empty_n),
-    .if_read(mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_count_stream4_read)
+    .if_read(mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_count_stream5_read)
 );
 
 sparse_fifo_w256_d128_A fm_stream_U(
@@ -830,14 +976,14 @@ sparse_fifo_w256_d128_A fm_stream_U(
     .reset(ap_rst_n_inv),
     .if_read_ce(1'b1),
     .if_write_ce(1'b1),
-    .if_din(load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_stream2_din),
+    .if_din(load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_stream3_din),
     .if_full_n(fm_stream_full_n),
-    .if_write(load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_stream2_write),
+    .if_write(load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_stream3_write),
     .if_dout(fm_stream_dout),
     .if_num_data_valid(fm_stream_num_data_valid),
     .if_fifo_cap(fm_stream_fifo_cap),
     .if_empty_n(fm_stream_empty_n),
-    .if_read(mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_stream2_read)
+    .if_read(mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_fm_stream3_read)
 );
 
 sparse_fifo_w32_d2_S am_ROWS_c_U(
@@ -852,17 +998,92 @@ sparse_fifo_w32_d2_S am_ROWS_c_U(
     .if_num_data_valid(am_ROWS_c_num_data_valid),
     .if_fifo_cap(am_ROWS_c_fifo_cap),
     .if_empty_n(am_ROWS_c_empty_n),
-    .if_read(mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_am_ROWS_read)
+    .if_read(mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_am_ROWS_read)
 );
 
-sparse_fifo_w32_d3_S fm_ROWS_c_U(
+sparse_fifo_w32_d3_S fm_ROWS_c11_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
     .if_read_ce(1'b1),
     .if_write_ce(1'b1),
-    .if_din(load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_ROWS_c_din),
+    .if_din(load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_ROWS_c11_din),
+    .if_full_n(fm_ROWS_c11_full_n),
+    .if_write(load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_ROWS_c11_write),
+    .if_dout(fm_ROWS_c11_dout),
+    .if_num_data_valid(fm_ROWS_c11_num_data_valid),
+    .if_fifo_cap(fm_ROWS_c11_fifo_cap),
+    .if_empty_n(fm_ROWS_c11_empty_n),
+    .if_read(quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_fm_ROWS_read)
+);
+
+sparse_fifo_w32_d2_S fm_COLS_c13_U(
+    .clk(ap_clk),
+    .reset(ap_rst_n_inv),
+    .if_read_ce(1'b1),
+    .if_write_ce(1'b1),
+    .if_din(load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_COLS_c13_din),
+    .if_full_n(fm_COLS_c13_full_n),
+    .if_write(load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_COLS_c13_write),
+    .if_dout(fm_COLS_c13_dout),
+    .if_num_data_valid(fm_COLS_c13_num_data_valid),
+    .if_fifo_cap(fm_COLS_c13_fifo_cap),
+    .if_empty_n(fm_COLS_c13_empty_n),
+    .if_read(mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_fm_COLS_read)
+);
+
+sparse_fifo_w1024_d64_A data_out_U(
+    .clk(ap_clk),
+    .reset(ap_rst_n_inv),
+    .if_read_ce(1'b1),
+    .if_write_ce(1'b1),
+    .if_din(mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_data_out1_din),
+    .if_full_n(data_out_full_n),
+    .if_write(mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_data_out1_write),
+    .if_dout(data_out_dout),
+    .if_num_data_valid(data_out_num_data_valid),
+    .if_fifo_cap(data_out_fifo_cap),
+    .if_empty_n(data_out_empty_n),
+    .if_read(quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_data_out1_read)
+);
+
+sparse_fifo_w32_d2_S fm_COLS_c12_U(
+    .clk(ap_clk),
+    .reset(ap_rst_n_inv),
+    .if_read_ce(1'b1),
+    .if_write_ce(1'b1),
+    .if_din(mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_fm_COLS_c12_din),
+    .if_full_n(fm_COLS_c12_full_n),
+    .if_write(mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_fm_COLS_c12_write),
+    .if_dout(fm_COLS_c12_dout),
+    .if_num_data_valid(fm_COLS_c12_num_data_valid),
+    .if_fifo_cap(fm_COLS_c12_fifo_cap),
+    .if_empty_n(fm_COLS_c12_empty_n),
+    .if_read(quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_fm_COLS_read)
+);
+
+sparse_fifo_w256_d2_S quant_out_U(
+    .clk(ap_clk),
+    .reset(ap_rst_n_inv),
+    .if_read_ce(1'b1),
+    .if_write_ce(1'b1),
+    .if_din(quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_quant_out2_din),
+    .if_full_n(quant_out_full_n),
+    .if_write(quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_quant_out2_write),
+    .if_dout(quant_out_dout),
+    .if_num_data_valid(quant_out_num_data_valid),
+    .if_fifo_cap(quant_out_fifo_cap),
+    .if_empty_n(quant_out_empty_n),
+    .if_read(store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_quant_out2_read)
+);
+
+sparse_fifo_w32_d2_S fm_ROWS_c_U(
+    .clk(ap_clk),
+    .reset(ap_rst_n_inv),
+    .if_read_ce(1'b1),
+    .if_write_ce(1'b1),
+    .if_din(quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_fm_ROWS_c_din),
     .if_full_n(fm_ROWS_c_full_n),
-    .if_write(load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_ROWS_c_write),
+    .if_write(quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_fm_ROWS_c_write),
     .if_dout(fm_ROWS_c_dout),
     .if_num_data_valid(fm_ROWS_c_num_data_valid),
     .if_fifo_cap(fm_ROWS_c_fifo_cap),
@@ -870,49 +1091,32 @@ sparse_fifo_w32_d3_S fm_ROWS_c_U(
     .if_read(store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ROWS_read)
 );
 
-sparse_fifo_w32_d2_S fm_COLS_c9_U(
-    .clk(ap_clk),
-    .reset(ap_rst_n_inv),
-    .if_read_ce(1'b1),
-    .if_write_ce(1'b1),
-    .if_din(load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_COLS_c9_din),
-    .if_full_n(fm_COLS_c9_full_n),
-    .if_write(load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_COLS_c9_write),
-    .if_dout(fm_COLS_c9_dout),
-    .if_num_data_valid(fm_COLS_c9_num_data_valid),
-    .if_fifo_cap(fm_COLS_c9_fifo_cap),
-    .if_empty_n(fm_COLS_c9_empty_n),
-    .if_read(mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_COLS_read)
-);
-
-sparse_fifo_w256_d64_A data_out_U(
-    .clk(ap_clk),
-    .reset(ap_rst_n_inv),
-    .if_read_ce(1'b1),
-    .if_write_ce(1'b1),
-    .if_din(mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_data_out1_din),
-    .if_full_n(data_out_full_n),
-    .if_write(mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_data_out1_write),
-    .if_dout(data_out_dout),
-    .if_num_data_valid(data_out_num_data_valid),
-    .if_fifo_cap(data_out_fifo_cap),
-    .if_empty_n(data_out_empty_n),
-    .if_read(store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_data_out1_read)
-);
-
 sparse_fifo_w32_d2_S fm_COLS_c_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
     .if_read_ce(1'b1),
     .if_write_ce(1'b1),
-    .if_din(mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_COLS_c_din),
+    .if_din(quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_fm_COLS_c_din),
     .if_full_n(fm_COLS_c_full_n),
-    .if_write(mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_fm_COLS_c_write),
+    .if_write(quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_fm_COLS_c_write),
     .if_dout(fm_COLS_c_dout),
     .if_num_data_valid(fm_COLS_c_num_data_valid),
     .if_fifo_cap(fm_COLS_c_fifo_cap),
     .if_empty_n(fm_COLS_c_empty_n),
     .if_read(store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_COLS_read)
+);
+
+sparse_start_for_quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0 start_for_quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_U(
+    .clk(ap_clk),
+    .reset(ap_rst_n_inv),
+    .if_read_ce(1'b1),
+    .if_write_ce(1'b1),
+    .if_din(start_for_quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_din),
+    .if_full_n(start_for_quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_full_n),
+    .if_write(entry_proc_U0_start_write),
+    .if_dout(start_for_quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_dout),
+    .if_empty_n(start_for_quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_empty_n),
+    .if_read(quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_ap_ready)
 );
 
 sparse_start_for_store_ap_uint_256_ap_int_8_ap_int_8_32u_U0 start_for_store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_U(
@@ -928,17 +1132,17 @@ sparse_start_for_store_ap_uint_256_ap_int_8_ap_int_8_32u_U0 start_for_store_ap_u
     .if_read(store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_ready)
 );
 
-sparse_start_for_mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0 start_for_mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_U(
+sparse_start_for_mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0 start_for_mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
     .if_read_ce(1'b1),
     .if_write_ce(1'b1),
-    .if_din(start_for_mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_din),
-    .if_full_n(start_for_mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_full_n),
+    .if_din(start_for_mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_din),
+    .if_full_n(start_for_mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_full_n),
     .if_write(load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_start_write),
-    .if_dout(start_for_mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_dout),
-    .if_empty_n(start_for_mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_empty_n),
-    .if_read(mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_ready)
+    .if_dout(start_for_mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_dout),
+    .if_empty_n(start_for_mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_empty_n),
+    .if_read(mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_ap_ready)
 );
 
 always @ (posedge ap_clk) begin
@@ -967,7 +1171,7 @@ end
 
 assign ap_done = store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_done;
 
-assign ap_idle = (store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_idle & mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_idle & load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_idle & entry_proc_U0_ap_idle);
+assign ap_idle = (store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_idle & quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_ap_idle & mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_ap_idle & load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_idle & entry_proc_U0_ap_idle);
 
 assign ap_ready = ap_sync_ready;
 
@@ -985,13 +1189,19 @@ assign entry_proc_U0_ap_continue = 1'b1;
 
 assign entry_proc_U0_ap_start = ((ap_sync_reg_entry_proc_U0_ap_ready ^ 1'b1) & ap_start);
 
+assign entry_proc_U0_start_full_n = (start_for_store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_full_n & start_for_quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_full_n);
+
 assign load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_continue = 1'b1;
 
 assign load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_start = ((ap_sync_reg_load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_ready ^ 1'b1) & ap_start);
 
-assign mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_continue = 1'b1;
+assign mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_ap_continue = 1'b1;
 
-assign mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_start = start_for_mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_empty_n;
+assign mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_ap_start = start_for_mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_empty_n;
+
+assign quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_ap_continue = 1'b1;
+
+assign quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_ap_start = start_for_quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_empty_n;
 
 assign sparse_data_BID = 1'd0;
 
@@ -1009,7 +1219,9 @@ assign sparse_data_RUSER = 1'd0;
 
 assign sparse_flag = store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_sparse_flag;
 
-assign start_for_mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_din = 1'b1;
+assign start_for_mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_din = 1'b1;
+
+assign start_for_quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_din = 1'b1;
 
 assign start_for_store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_din = 1'b1;
 

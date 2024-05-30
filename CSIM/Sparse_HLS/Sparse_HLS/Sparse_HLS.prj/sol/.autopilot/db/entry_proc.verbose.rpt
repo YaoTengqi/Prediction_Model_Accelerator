@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'entry_proc'
 ================================================================
-* Date:           Wed May 22 22:04:41 2024
+* Date:           Thu May 30 14:40:35 2024
 
 * Version:        2022.2 (Build 3670227 on Oct 13 2022)
 * Project:        Sparse_HLS.prj
@@ -20,7 +20,7 @@
     +--------+----------+----------+------------+
     |  Clock |  Target  | Estimated| Uncertainty|
     +--------+----------+----------+------------+
-    |ap_clk  |  10.00 ns|  1.838 ns|     2.70 ns|
+    |ap_clk  |  10.00 ns|  1.861 ns|     2.70 ns|
     +--------+----------+----------+------------+
 
 + Latency: 
@@ -53,10 +53,10 @@
 |FIFO             |        -|     -|       -|       -|    -|
 |Instance         |        -|     -|       -|       -|    -|
 |Memory           |        -|     -|       -|       -|    -|
-|Multiplexer      |        -|     -|       -|      36|    -|
+|Multiplexer      |        -|     -|       -|      54|    -|
 |Register         |        -|     -|       3|       -|    -|
 +-----------------+---------+------+--------+--------+-----+
-|Total            |        0|     0|       3|      38|    0|
+|Total            |        0|     0|       3|      56|    0|
 +-----------------+---------+------+--------+--------+-----+
 |Available        |      624|  1728|  460800|  230400|   96|
 +-----------------+---------+------+--------+--------+-----+
@@ -92,9 +92,11 @@
     |ap_done                    |   9|          2|    1|          2|
     |output_data_addr3_c_blk_n  |   9|          2|    1|          2|
     |outputs_c_blk_n            |   9|          2|    1|          2|
+    |quant_mul_c_blk_n          |   9|          2|    1|          2|
+    |quant_shift_c_blk_n        |   9|          2|    1|          2|
     |real_start                 |   9|          2|    1|          2|
     +---------------------------+----+-----------+-----+-----------+
-    |Total                      |  36|          8|    4|          8|
+    |Total                      |  54|         12|    6|         12|
     +---------------------------+----+-----------+-----+-----------+
 
     * Register: 
@@ -129,16 +131,28 @@
 |start_write                         |  out|    1|  ap_ctrl_hs|           entry_proc|  return value|
 |output_data_addr3                   |   in|   32|     ap_none|    output_data_addr3|        scalar|
 |output_data_addr3_c_din             |  out|   32|     ap_fifo|  output_data_addr3_c|       pointer|
-|output_data_addr3_c_num_data_valid  |   in|    3|     ap_fifo|  output_data_addr3_c|       pointer|
-|output_data_addr3_c_fifo_cap        |   in|    3|     ap_fifo|  output_data_addr3_c|       pointer|
+|output_data_addr3_c_num_data_valid  |   in|    4|     ap_fifo|  output_data_addr3_c|       pointer|
+|output_data_addr3_c_fifo_cap        |   in|    4|     ap_fifo|  output_data_addr3_c|       pointer|
 |output_data_addr3_c_full_n          |   in|    1|     ap_fifo|  output_data_addr3_c|       pointer|
 |output_data_addr3_c_write           |  out|    1|     ap_fifo|  output_data_addr3_c|       pointer|
 |outputs                             |   in|   64|     ap_none|              outputs|        scalar|
 |outputs_c_din                       |  out|   64|     ap_fifo|            outputs_c|       pointer|
-|outputs_c_num_data_valid            |   in|    3|     ap_fifo|            outputs_c|       pointer|
-|outputs_c_fifo_cap                  |   in|    3|     ap_fifo|            outputs_c|       pointer|
+|outputs_c_num_data_valid            |   in|    4|     ap_fifo|            outputs_c|       pointer|
+|outputs_c_fifo_cap                  |   in|    4|     ap_fifo|            outputs_c|       pointer|
 |outputs_c_full_n                    |   in|    1|     ap_fifo|            outputs_c|       pointer|
 |outputs_c_write                     |  out|    1|     ap_fifo|            outputs_c|       pointer|
+|quant_shift                         |   in|   32|     ap_none|          quant_shift|        scalar|
+|quant_shift_c_din                   |  out|   32|     ap_fifo|        quant_shift_c|       pointer|
+|quant_shift_c_num_data_valid        |   in|    3|     ap_fifo|        quant_shift_c|       pointer|
+|quant_shift_c_fifo_cap              |   in|    3|     ap_fifo|        quant_shift_c|       pointer|
+|quant_shift_c_full_n                |   in|    1|     ap_fifo|        quant_shift_c|       pointer|
+|quant_shift_c_write                 |  out|    1|     ap_fifo|        quant_shift_c|       pointer|
+|quant_mul                           |   in|   32|     ap_none|            quant_mul|        scalar|
+|quant_mul_c_din                     |  out|   32|     ap_fifo|          quant_mul_c|       pointer|
+|quant_mul_c_num_data_valid          |   in|    3|     ap_fifo|          quant_mul_c|       pointer|
+|quant_mul_c_fifo_cap                |   in|    3|     ap_fifo|          quant_mul_c|       pointer|
+|quant_mul_c_full_n                  |   in|    1|     ap_fifo|          quant_mul_c|       pointer|
+|quant_mul_c_write                   |  out|    1|     ap_fifo|          quant_mul_c|       pointer|
 +------------------------------------+-----+-----+------------+---------------------+--------------+
 
 ============================================================
@@ -176,14 +190,20 @@ IsGatedGlobalClock: 0
 
 * FSM state operations: 
 
-State 1 <SV = 0> <Delay = 1.83>
-ST_1 : Operation 2 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i64 %outputs_c, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @ScalarProp_str, i32 4294967295, i32 0"   --->   Operation 2 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 3 [1/1] (0.00ns)   --->   "%outputs_read = read i64 @_ssdm_op_Read.ap_auto.i64, i64 %outputs"   --->   Operation 3 'read' 'outputs_read' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 4 [1/1] (0.00ns)   --->   "%output_data_addr3_read = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %output_data_addr3"   --->   Operation 4 'read' 'output_data_addr3_read' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 5 [1/1] (1.83ns)   --->   "%write_ln0 = write void @_ssdm_op_Write.ap_fifo.i64P0A, i64 %outputs_c, i64 %outputs_read"   --->   Operation 5 'write' 'write_ln0' <Predicate = true> <Delay = 1.83> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.83> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 64> <Depth = 4> <FIFO>
-ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %output_data_addr3_c, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @ScalarProp_str, i32 4294967295, i32 0"   --->   Operation 6 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 7 [1/1] (1.83ns)   --->   "%write_ln0 = write void @_ssdm_op_Write.ap_fifo.i32P0A, i32 %output_data_addr3_c, i32 %output_data_addr3_read"   --->   Operation 7 'write' 'write_ln0' <Predicate = true> <Delay = 1.83> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.83> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 4> <FIFO>
-ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%ret_ln0 = ret"   --->   Operation 8 'ret' 'ret_ln0' <Predicate = true> <Delay = 0.00>
+State 1 <SV = 0> <Delay = 1.86>
+ST_1 : Operation 2 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %quant_mul_c, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @ScalarProp_str, i32 4294967295, i32 0"   --->   Operation 2 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 3 [1/1] (0.00ns)   --->   "%quant_mul_read = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %quant_mul"   --->   Operation 3 'read' 'quant_mul_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "%quant_shift_read = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %quant_shift"   --->   Operation 4 'read' 'quant_shift_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%outputs_read = read i64 @_ssdm_op_Read.ap_auto.i64, i64 %outputs"   --->   Operation 5 'read' 'outputs_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%output_data_addr3_read = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %output_data_addr3"   --->   Operation 6 'read' 'output_data_addr3_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (1.83ns)   --->   "%write_ln0 = write void @_ssdm_op_Write.ap_fifo.i32P0A, i32 %quant_mul_c, i32 %quant_mul_read"   --->   Operation 7 'write' 'write_ln0' <Predicate = true> <Delay = 1.83> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.83> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 4> <FIFO>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %quant_shift_c, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @ScalarProp_str, i32 4294967295, i32 0"   --->   Operation 8 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (1.83ns)   --->   "%write_ln0 = write void @_ssdm_op_Write.ap_fifo.i32P0A, i32 %quant_shift_c, i32 %quant_shift_read"   --->   Operation 9 'write' 'write_ln0' <Predicate = true> <Delay = 1.83> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.83> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 4> <FIFO>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i64 %outputs_c, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @ScalarProp_str, i32 4294967295, i32 0"   --->   Operation 10 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (1.86ns)   --->   "%write_ln0 = write void @_ssdm_op_Write.ap_fifo.i64P0A, i64 %outputs_c, i64 %outputs_read"   --->   Operation 11 'write' 'write_ln0' <Predicate = true> <Delay = 1.86> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.86> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 64> <Depth = 5> <FIFO>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %output_data_addr3_c, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @ScalarProp_str, i32 4294967295, i32 0"   --->   Operation 12 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (1.86ns)   --->   "%write_ln0 = write void @_ssdm_op_Write.ap_fifo.i32P0A, i32 %output_data_addr3_c, i32 %output_data_addr3_read"   --->   Operation 13 'write' 'write_ln0' <Predicate = true> <Delay = 1.86> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.86> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 5> <FIFO>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%ret_ln0 = ret"   --->   Operation 14 'ret' 'ret_ln0' <Predicate = true> <Delay = 0.00>
 
 
 ============================================================
@@ -201,6 +221,10 @@ Port [ output_data_addr3]:  wired=1; compound=0; hidden=0; nouse=0; global=0; st
 Port [ output_data_addr3_c]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=3; pingpong=0; private_global=0; IO mode=ap_fifo:ce=0
 Port [ outputs]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
 Port [ outputs_c]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=3; pingpong=0; private_global=0; IO mode=ap_fifo:ce=0
+Port [ quant_shift]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ quant_shift_c]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=3; pingpong=0; private_global=0; IO mode=ap_fifo:ce=0
+Port [ quant_mul]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ quant_mul_c]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=3; pingpong=0; private_global=0; IO mode=ap_fifo:ce=0
 ---------------- STG Properties END ------------------
 
 ---------------- Datapath Model BEGIN ----------------
@@ -208,8 +232,14 @@ Port [ outputs_c]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; 
 <LifeTime>
 <method=bitvector/>
 specinterface_ln0      (specinterface) [ 00]
+quant_mul_read         (read         ) [ 00]
+quant_shift_read       (read         ) [ 00]
 outputs_read           (read         ) [ 00]
 output_data_addr3_read (read         ) [ 00]
+write_ln0              (write        ) [ 00]
+specinterface_ln0      (specinterface) [ 00]
+write_ln0              (write        ) [ 00]
+specinterface_ln0      (specinterface) [ 00]
 write_ln0              (write        ) [ 00]
 specinterface_ln0      (specinterface) [ 00]
 write_ln0              (write        ) [ 00]
@@ -255,39 +285,39 @@ ret_ln0                (ret          ) [ 00]
 </bind>
 </comp>
 
-<comp id="8" class="1001" name="const_8">
+<comp id="8" class="1000" name="quant_shift">
 <pin_list>
-<pin id="9" dir="1" index="0" bw="1" slack="2147483647"/>
+<pin id="9" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="_ssdm_op_SpecInterface"/></StgValue>
+<StgValue><ssdm name="quant_shift"/></StgValue>
 </bind>
 </comp>
 
-<comp id="10" class="1001" name="const_10">
+<comp id="10" class="1000" name="quant_shift_c">
 <pin_list>
-<pin id="11" dir="1" index="0" bw="1" slack="2147483647"/>
+<pin id="11" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="ap_fifo_str"/></StgValue>
+<StgValue><ssdm name="quant_shift_c"/></StgValue>
 </bind>
 </comp>
 
-<comp id="12" class="1001" name="const_12">
+<comp id="12" class="1000" name="quant_mul">
 <pin_list>
-<pin id="13" dir="1" index="0" bw="1" slack="2147483647"/>
+<pin id="13" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name=""/></StgValue>
+<StgValue><ssdm name="quant_mul"/></StgValue>
 </bind>
 </comp>
 
-<comp id="14" class="1001" name="const_14">
+<comp id="14" class="1000" name="quant_mul_c">
 <pin_list>
-<pin id="15" dir="1" index="0" bw="1" slack="2147483647"/>
+<pin id="15" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str"/></StgValue>
+<StgValue><ssdm name="quant_mul_c"/></StgValue>
 </bind>
 </comp>
 
@@ -296,7 +326,7 @@ ret_ln0                (ret          ) [ 00]
 <pin id="17" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name=""/></StgValue>
+<StgValue><ssdm name="_ssdm_op_SpecInterface"/></StgValue>
 </bind>
 </comp>
 
@@ -305,7 +335,7 @@ ret_ln0                (ret          ) [ 00]
 <pin id="19" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name=""/></StgValue>
+<StgValue><ssdm name="ap_fifo_str"/></StgValue>
 </bind>
 </comp>
 
@@ -314,7 +344,7 @@ ret_ln0                (ret          ) [ 00]
 <pin id="21" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="ScalarProp_str"/></StgValue>
+<StgValue><ssdm name=""/></StgValue>
 </bind>
 </comp>
 
@@ -323,51 +353,111 @@ ret_ln0                (ret          ) [ 00]
 <pin id="23" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name=""/></StgValue>
+<StgValue><ssdm name="p_str"/></StgValue>
 </bind>
 </comp>
 
 <comp id="24" class="1001" name="const_24">
 <pin_list>
-<pin id="25" dir="1" index="0" bw="1" slack="0"/>
+<pin id="25" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="_ssdm_op_Read.ap_auto.i64"/></StgValue>
+<StgValue><ssdm name=""/></StgValue>
 </bind>
 </comp>
 
 <comp id="26" class="1001" name="const_26">
 <pin_list>
-<pin id="27" dir="1" index="0" bw="1" slack="0"/>
+<pin id="27" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="28" class="1001" name="const_28">
+<pin_list>
+<pin id="29" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="ScalarProp_str"/></StgValue>
+</bind>
+</comp>
+
+<comp id="30" class="1001" name="const_30">
+<pin_list>
+<pin id="31" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="32" class="1001" name="const_32">
+<pin_list>
+<pin id="33" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
 <StgValue><ssdm name="_ssdm_op_Read.ap_auto.i32"/></StgValue>
 </bind>
 </comp>
 
-<comp id="28" class="1001" name="const_28">
+<comp id="34" class="1001" name="const_34">
 <pin_list>
-<pin id="29" dir="1" index="0" bw="1" slack="0"/>
+<pin id="35" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="_ssdm_op_Write.ap_fifo.i64P0A"/></StgValue>
+<StgValue><ssdm name="_ssdm_op_Read.ap_auto.i64"/></StgValue>
 </bind>
 </comp>
 
-<comp id="30" class="1001" name="const_30">
+<comp id="36" class="1001" name="const_36">
 <pin_list>
-<pin id="31" dir="1" index="0" bw="1" slack="0"/>
+<pin id="37" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
 <StgValue><ssdm name="_ssdm_op_Write.ap_fifo.i32P0A"/></StgValue>
 </bind>
 </comp>
 
-<comp id="32" class="1004" name="outputs_read_read_fu_32">
+<comp id="38" class="1001" name="const_38">
 <pin_list>
-<pin id="33" dir="0" index="0" bw="64" slack="0"/>
-<pin id="34" dir="0" index="1" bw="64" slack="0"/>
-<pin id="35" dir="1" index="2" bw="64" slack="0"/>
+<pin id="39" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_Write.ap_fifo.i64P0A"/></StgValue>
+</bind>
+</comp>
+
+<comp id="40" class="1004" name="quant_mul_read_read_fu_40">
+<pin_list>
+<pin id="41" dir="0" index="0" bw="32" slack="0"/>
+<pin id="42" dir="0" index="1" bw="32" slack="0"/>
+<pin id="43" dir="1" index="2" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="quant_mul_read/1 "/>
+</bind>
+</comp>
+
+<comp id="46" class="1004" name="quant_shift_read_read_fu_46">
+<pin_list>
+<pin id="47" dir="0" index="0" bw="32" slack="0"/>
+<pin id="48" dir="0" index="1" bw="32" slack="0"/>
+<pin id="49" dir="1" index="2" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="quant_shift_read/1 "/>
+</bind>
+</comp>
+
+<comp id="52" class="1004" name="outputs_read_read_fu_52">
+<pin_list>
+<pin id="53" dir="0" index="0" bw="64" slack="0"/>
+<pin id="54" dir="0" index="1" bw="64" slack="0"/>
+<pin id="55" dir="1" index="2" bw="64" slack="0"/>
 </pin_list>
 <bind>
 <opcode="read(1150) " fcode="read"/>
@@ -375,11 +465,11 @@ ret_ln0                (ret          ) [ 00]
 </bind>
 </comp>
 
-<comp id="38" class="1004" name="output_data_addr3_read_read_fu_38">
+<comp id="58" class="1004" name="output_data_addr3_read_read_fu_58">
 <pin_list>
-<pin id="39" dir="0" index="0" bw="32" slack="0"/>
-<pin id="40" dir="0" index="1" bw="32" slack="0"/>
-<pin id="41" dir="1" index="2" bw="32" slack="0"/>
+<pin id="59" dir="0" index="0" bw="32" slack="0"/>
+<pin id="60" dir="0" index="1" bw="32" slack="0"/>
+<pin id="61" dir="1" index="2" bw="32" slack="0"/>
 </pin_list>
 <bind>
 <opcode="read(1150) " fcode="read"/>
@@ -387,12 +477,12 @@ ret_ln0                (ret          ) [ 00]
 </bind>
 </comp>
 
-<comp id="44" class="1004" name="write_ln0_write_fu_44">
+<comp id="64" class="1004" name="write_ln0_write_fu_64">
 <pin_list>
-<pin id="45" dir="0" index="0" bw="0" slack="0"/>
-<pin id="46" dir="0" index="1" bw="64" slack="0"/>
-<pin id="47" dir="0" index="2" bw="64" slack="0"/>
-<pin id="48" dir="1" index="3" bw="0" slack="2147483647"/>
+<pin id="65" dir="0" index="0" bw="0" slack="0"/>
+<pin id="66" dir="0" index="1" bw="32" slack="0"/>
+<pin id="67" dir="0" index="2" bw="32" slack="0"/>
+<pin id="68" dir="1" index="3" bw="0" slack="2147483647"/>
 </pin_list>
 <bind>
 <opcode="write(1151) " fcode="write"/>
@@ -400,12 +490,38 @@ ret_ln0                (ret          ) [ 00]
 </bind>
 </comp>
 
-<comp id="52" class="1004" name="write_ln0_write_fu_52">
+<comp id="72" class="1004" name="write_ln0_write_fu_72">
 <pin_list>
-<pin id="53" dir="0" index="0" bw="0" slack="0"/>
-<pin id="54" dir="0" index="1" bw="32" slack="0"/>
-<pin id="55" dir="0" index="2" bw="32" slack="0"/>
-<pin id="56" dir="1" index="3" bw="0" slack="2147483647"/>
+<pin id="73" dir="0" index="0" bw="0" slack="0"/>
+<pin id="74" dir="0" index="1" bw="32" slack="0"/>
+<pin id="75" dir="0" index="2" bw="32" slack="0"/>
+<pin id="76" dir="1" index="3" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="write(1151) " fcode="write"/>
+<opset="write_ln0/1 "/>
+</bind>
+</comp>
+
+<comp id="80" class="1004" name="write_ln0_write_fu_80">
+<pin_list>
+<pin id="81" dir="0" index="0" bw="0" slack="0"/>
+<pin id="82" dir="0" index="1" bw="64" slack="0"/>
+<pin id="83" dir="0" index="2" bw="64" slack="0"/>
+<pin id="84" dir="1" index="3" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="write(1151) " fcode="write"/>
+<opset="write_ln0/1 "/>
+</bind>
+</comp>
+
+<comp id="88" class="1004" name="write_ln0_write_fu_88">
+<pin_list>
+<pin id="89" dir="0" index="0" bw="0" slack="0"/>
+<pin id="90" dir="0" index="1" bw="32" slack="0"/>
+<pin id="91" dir="0" index="2" bw="32" slack="0"/>
+<pin id="92" dir="1" index="3" bw="0" slack="2147483647"/>
 </pin_list>
 <bind>
 <opcode="write(1151) " fcode="write"/>
@@ -416,25 +532,45 @@ ret_ln0                (ret          ) [ 00]
 </comp_list>
 
 <net_list>
-<net id="36"><net_src comp="24" pin="0"/><net_sink comp="32" pin=0"/></net>
+<net id="44"><net_src comp="32" pin="0"/><net_sink comp="40" pin=0"/></net>
 
-<net id="37"><net_src comp="4" pin="0"/><net_sink comp="32" pin=1"/></net>
+<net id="45"><net_src comp="12" pin="0"/><net_sink comp="40" pin=1"/></net>
 
-<net id="42"><net_src comp="26" pin="0"/><net_sink comp="38" pin=0"/></net>
+<net id="50"><net_src comp="32" pin="0"/><net_sink comp="46" pin=0"/></net>
 
-<net id="43"><net_src comp="0" pin="0"/><net_sink comp="38" pin=1"/></net>
+<net id="51"><net_src comp="8" pin="0"/><net_sink comp="46" pin=1"/></net>
 
-<net id="49"><net_src comp="28" pin="0"/><net_sink comp="44" pin=0"/></net>
+<net id="56"><net_src comp="34" pin="0"/><net_sink comp="52" pin=0"/></net>
 
-<net id="50"><net_src comp="6" pin="0"/><net_sink comp="44" pin=1"/></net>
+<net id="57"><net_src comp="4" pin="0"/><net_sink comp="52" pin=1"/></net>
 
-<net id="51"><net_src comp="32" pin="2"/><net_sink comp="44" pin=2"/></net>
+<net id="62"><net_src comp="32" pin="0"/><net_sink comp="58" pin=0"/></net>
 
-<net id="57"><net_src comp="30" pin="0"/><net_sink comp="52" pin=0"/></net>
+<net id="63"><net_src comp="0" pin="0"/><net_sink comp="58" pin=1"/></net>
 
-<net id="58"><net_src comp="2" pin="0"/><net_sink comp="52" pin=1"/></net>
+<net id="69"><net_src comp="36" pin="0"/><net_sink comp="64" pin=0"/></net>
 
-<net id="59"><net_src comp="38" pin="2"/><net_sink comp="52" pin=2"/></net>
+<net id="70"><net_src comp="14" pin="0"/><net_sink comp="64" pin=1"/></net>
+
+<net id="71"><net_src comp="40" pin="2"/><net_sink comp="64" pin=2"/></net>
+
+<net id="77"><net_src comp="36" pin="0"/><net_sink comp="72" pin=0"/></net>
+
+<net id="78"><net_src comp="10" pin="0"/><net_sink comp="72" pin=1"/></net>
+
+<net id="79"><net_src comp="46" pin="2"/><net_sink comp="72" pin=2"/></net>
+
+<net id="85"><net_src comp="38" pin="0"/><net_sink comp="80" pin=0"/></net>
+
+<net id="86"><net_src comp="6" pin="0"/><net_sink comp="80" pin=1"/></net>
+
+<net id="87"><net_src comp="52" pin="2"/><net_sink comp="80" pin=2"/></net>
+
+<net id="93"><net_src comp="36" pin="0"/><net_sink comp="88" pin=0"/></net>
+
+<net id="94"><net_src comp="2" pin="0"/><net_sink comp="88" pin=1"/></net>
+
+<net id="95"><net_src comp="58" pin="2"/><net_sink comp="88" pin=2"/></net>
 
 </net_list>
 
@@ -445,11 +581,17 @@ ret_ln0                (ret          ) [ 00]
   - Output states:
 	Port: output_data_addr3_c | {1 }
 	Port: outputs_c | {1 }
+	Port: quant_shift_c | {1 }
+	Port: quant_mul_c | {1 }
  - Input state : 
 	Port: entry_proc : output_data_addr3 | {1 }
 	Port: entry_proc : output_data_addr3_c | {}
 	Port: entry_proc : outputs | {1 }
 	Port: entry_proc : outputs_c | {}
+	Port: entry_proc : quant_shift | {1 }
+	Port: entry_proc : quant_shift_c | {}
+	Port: entry_proc : quant_mul | {1 }
+	Port: entry_proc : quant_mul_c | {}
   - Chain level:
 	State 1
 
@@ -462,11 +604,15 @@ ret_ln0                (ret          ) [ 00]
 |----------|-----------------------------------|
 | Operation|          Functional Unit          |
 |----------|-----------------------------------|
-|   read   |      outputs_read_read_fu_32      |
-|          | output_data_addr3_read_read_fu_38 |
+|          |     quant_mul_read_read_fu_40     |
+|   read   |    quant_shift_read_read_fu_46    |
+|          |      outputs_read_read_fu_52      |
+|          | output_data_addr3_read_read_fu_58 |
 |----------|-----------------------------------|
-|   write  |       write_ln0_write_fu_44       |
-|          |       write_ln0_write_fu_52       |
+|          |       write_ln0_write_fu_64       |
+|   write  |       write_ln0_write_fu_72       |
+|          |       write_ln0_write_fu_80       |
+|          |       write_ln0_write_fu_88       |
 |----------|-----------------------------------|
 |   Total  |                                   |
 |----------|-----------------------------------|

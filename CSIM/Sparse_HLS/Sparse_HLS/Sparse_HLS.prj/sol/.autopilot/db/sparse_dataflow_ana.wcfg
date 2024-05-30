@@ -69,21 +69,53 @@
             <obj_property name="Value_Data">/apatb_sparse_top/AESL_inst_sparse/load_ap_uint_256_ap_int_8_ap_int_8_32u_U0/load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_activity.dataflowTxWaveData.OutStanding</obj_property>
             <obj_property name="Detail_Data">/apatb_sparse_top/AESL_inst_sparse/load_ap_uint_256_ap_int_8_ap_int_8_32u_U0/load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_activity.dataflowTxTooltipData</obj_property>
          </wvobject>
-         <wvobject type="group" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0/mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_activity">
-            <obj_property name="label">mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_activity</obj_property>
+         <wvobject type="group" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0/mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_activity">
+            <obj_property name="label">mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_activity</obj_property>
             <obj_property name="DisplayName">label</obj_property>
             <obj_property name="UseFullPath">true</obj_property>
-            <obj_property name="ElementShortName">mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_activity</obj_property>
-            <obj_property name="ObjectShortName">mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_activity</obj_property>
+            <obj_property name="ElementShortName">mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_activity</obj_property>
+            <obj_property name="ObjectShortName">mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_activity</obj_property>
             <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
             <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
             <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
             <obj_property name="UseCustomSignalColor">true</obj_property>
             <obj_property name="CustomSignalColor">turquoise</obj_property>
             <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
-            <obj_property name="Render_Data">/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0/mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_activity.dataflowTxWaveData.Cycles</obj_property>
-            <obj_property name="Value_Data">/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0/mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_activity.dataflowTxWaveData.OutStanding</obj_property>
-            <obj_property name="Detail_Data">/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0/mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_activity.dataflowTxTooltipData</obj_property>
+            <obj_property name="Render_Data">/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0/mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_activity.dataflowTxWaveData.Cycles</obj_property>
+            <obj_property name="Value_Data">/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0/mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_activity.dataflowTxWaveData.OutStanding</obj_property>
+            <obj_property name="Detail_Data">/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0/mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_activity.dataflowTxTooltipData</obj_property>
+         </wvobject>
+         <wvobject type="group" fp_name="/apatb_sparse_top/AESL_inst_sparse/quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0/quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_activity">
+            <obj_property name="label">quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_activity</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="UseFullPath">true</obj_property>
+            <obj_property name="ElementShortName">quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_activity</obj_property>
+            <obj_property name="ObjectShortName">quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_activity</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+            <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">turquoise</obj_property>
+            <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+            <obj_property name="Render_Data">/apatb_sparse_top/AESL_inst_sparse/quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0/quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_activity.dataflowTxWaveData.Cycles</obj_property>
+            <obj_property name="Value_Data">/apatb_sparse_top/AESL_inst_sparse/quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0/quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_activity.dataflowTxWaveData.OutStanding</obj_property>
+            <obj_property name="Detail_Data">/apatb_sparse_top/AESL_inst_sparse/quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0/quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_activity.dataflowTxTooltipData</obj_property>
+            <wvobject type="group" fp_name="/apatb_sparse_top/AESL_inst_sparse/quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0/grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94/grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_activity">
+               <obj_property name="label">grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_activity</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <obj_property name="UseFullPath">true</obj_property>
+               <obj_property name="ElementShortName">grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_activity</obj_property>
+               <obj_property name="ObjectShortName">grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_activity</obj_property>
+               <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+               <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+               <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+               <obj_property name="CustomSignalColor">turquoise</obj_property>
+               <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+               <obj_property name="Render_Data">/apatb_sparse_top/AESL_inst_sparse/quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0/grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94/grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_activity.dataflowTxWaveData.Cycles</obj_property>
+               <obj_property name="Value_Data">/apatb_sparse_top/AESL_inst_sparse/quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0/grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94/grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_activity.dataflowTxWaveData.OutStanding</obj_property>
+               <obj_property name="Detail_Data">/apatb_sparse_top/AESL_inst_sparse/quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0/grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94/grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_activity.dataflowTxTooltipData</obj_property>
+            </wvobject>
          </wvobject>
          <wvobject type="group" fp_name="/apatb_sparse_top/AESL_inst_sparse/store_ap_uint_256_ap_int_8_ap_int_8_32u_U0/store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_activity">
             <obj_property name="label">store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_activity</obj_property>
@@ -100,21 +132,21 @@
             <obj_property name="Render_Data">/apatb_sparse_top/AESL_inst_sparse/store_ap_uint_256_ap_int_8_ap_int_8_32u_U0/store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_activity.dataflowTxWaveData.Cycles</obj_property>
             <obj_property name="Value_Data">/apatb_sparse_top/AESL_inst_sparse/store_ap_uint_256_ap_int_8_ap_int_8_32u_U0/store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_activity.dataflowTxWaveData.OutStanding</obj_property>
             <obj_property name="Detail_Data">/apatb_sparse_top/AESL_inst_sparse/store_ap_uint_256_ap_int_8_ap_int_8_32u_U0/store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_activity.dataflowTxTooltipData</obj_property>
-            <wvobject type="group" fp_name="/apatb_sparse_top/AESL_inst_sparse/store_ap_uint_256_ap_int_8_ap_int_8_32u_U0/grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_95_1_fu_124/grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_95_1_fu_124_activity">
-               <obj_property name="label">grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_95_1_fu_124_activity</obj_property>
+            <wvobject type="group" fp_name="/apatb_sparse_top/AESL_inst_sparse/store_ap_uint_256_ap_int_8_ap_int_8_32u_U0/grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_140_1_fu_124/grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_140_1_fu_124_activity">
+               <obj_property name="label">grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_140_1_fu_124_activity</obj_property>
                <obj_property name="DisplayName">label</obj_property>
                <obj_property name="UseFullPath">true</obj_property>
-               <obj_property name="ElementShortName">grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_95_1_fu_124_activity</obj_property>
-               <obj_property name="ObjectShortName">grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_95_1_fu_124_activity</obj_property>
+               <obj_property name="ElementShortName">grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_140_1_fu_124_activity</obj_property>
+               <obj_property name="ObjectShortName">grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_140_1_fu_124_activity</obj_property>
                <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
                <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
                <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
                <obj_property name="UseCustomSignalColor">true</obj_property>
                <obj_property name="CustomSignalColor">turquoise</obj_property>
                <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
-               <obj_property name="Render_Data">/apatb_sparse_top/AESL_inst_sparse/store_ap_uint_256_ap_int_8_ap_int_8_32u_U0/grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_95_1_fu_124/grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_95_1_fu_124_activity.dataflowTxWaveData.Cycles</obj_property>
-               <obj_property name="Value_Data">/apatb_sparse_top/AESL_inst_sparse/store_ap_uint_256_ap_int_8_ap_int_8_32u_U0/grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_95_1_fu_124/grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_95_1_fu_124_activity.dataflowTxWaveData.OutStanding</obj_property>
-               <obj_property name="Detail_Data">/apatb_sparse_top/AESL_inst_sparse/store_ap_uint_256_ap_int_8_ap_int_8_32u_U0/grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_95_1_fu_124/grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_95_1_fu_124_activity.dataflowTxTooltipData</obj_property>
+               <obj_property name="Render_Data">/apatb_sparse_top/AESL_inst_sparse/store_ap_uint_256_ap_int_8_ap_int_8_32u_U0/grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_140_1_fu_124/grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_140_1_fu_124_activity.dataflowTxWaveData.Cycles</obj_property>
+               <obj_property name="Value_Data">/apatb_sparse_top/AESL_inst_sparse/store_ap_uint_256_ap_int_8_ap_int_8_32u_U0/grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_140_1_fu_124/grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_140_1_fu_124_activity.dataflowTxWaveData.OutStanding</obj_property>
+               <obj_property name="Detail_Data">/apatb_sparse_top/AESL_inst_sparse/store_ap_uint_256_ap_int_8_ap_int_8_32u_U0/grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_140_1_fu_124/grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_140_1_fu_124_activity.dataflowTxTooltipData</obj_property>
             </wvobject>
          </wvobject>
       </wvobject>
@@ -134,9 +166,13 @@
          <obj_property name="ElementShortName">load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_activity</obj_property>
          <obj_property name="ObjectShortName">load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_activity</obj_property>
       </wvobject>
-      <wvobject type="protoinst" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0/mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_activity">
-         <obj_property name="ElementShortName">mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_activity</obj_property>
-         <obj_property name="ObjectShortName">mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_activity</obj_property>
+      <wvobject type="protoinst" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0/mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_activity">
+         <obj_property name="ElementShortName">mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_activity</obj_property>
+         <obj_property name="ObjectShortName">mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_activity</obj_property>
+      </wvobject>
+      <wvobject type="protoinst" fp_name="/apatb_sparse_top/AESL_inst_sparse/quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0/quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_activity">
+         <obj_property name="ElementShortName">quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_activity</obj_property>
+         <obj_property name="ObjectShortName">quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_activity</obj_property>
       </wvobject>
       <wvobject type="protoinst" fp_name="/apatb_sparse_top/AESL_inst_sparse/store_ap_uint_256_ap_int_8_ap_int_8_32u_U0/store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_activity">
          <obj_property name="ElementShortName">store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_activity</obj_property>
@@ -228,6 +264,42 @@
                   <obj_property name="ObjectShortName">outputs_c_write</obj_property>
                </wvobject>
             </wvobject>
+            <wvobject type="group" fp_name="quant_shift_c_group">
+               <obj_property name="label">quant_shift_c(quant_shift_c_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/entry_proc_U0/quant_shift_c_blk_n">
+                  <obj_property name="ElementShortName">quant_shift_c_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">quant_shift_c_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/entry_proc_U0/quant_shift_c_din">
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/entry_proc_U0/quant_shift_c_full_n">
+                  <obj_property name="ElementShortName">quant_shift_c_full_n</obj_property>
+                  <obj_property name="ObjectShortName">quant_shift_c_full_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/entry_proc_U0/quant_shift_c_write">
+                  <obj_property name="ElementShortName">quant_shift_c_write</obj_property>
+                  <obj_property name="ObjectShortName">quant_shift_c_write</obj_property>
+               </wvobject>
+            </wvobject>
+            <wvobject type="group" fp_name="quant_mul_c_group">
+               <obj_property name="label">quant_mul_c(quant_mul_c_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/entry_proc_U0/quant_mul_c_blk_n">
+                  <obj_property name="ElementShortName">quant_mul_c_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">quant_mul_c_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/entry_proc_U0/quant_mul_c_din">
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/entry_proc_U0/quant_mul_c_full_n">
+                  <obj_property name="ElementShortName">quant_mul_c_full_n</obj_property>
+                  <obj_property name="ObjectShortName">quant_mul_c_full_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/entry_proc_U0/quant_mul_c_write">
+                  <obj_property name="ElementShortName">quant_mul_c_write</obj_property>
+                  <obj_property name="ObjectShortName">quant_mul_c_write</obj_property>
+               </wvobject>
+            </wvobject>
          </wvobject>
       </wvobject>
       <wvobject type="group" fp_name="load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_group">
@@ -264,58 +336,58 @@
          <wvobject type="group" fp_name="load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_Output_group">
             <obj_property name="label">Output Channels</obj_property>
             <obj_property name="DisplayName">label</obj_property>
-            <wvobject type="group" fp_name="idx_stream3_group">
-               <obj_property name="label">idx_stream3(idx_stream_U, FIFO)</obj_property>
+            <wvobject type="group" fp_name="idx_stream4_group">
+               <obj_property name="label">idx_stream4(idx_stream_U, FIFO)</obj_property>
                <obj_property name="DisplayName">label</obj_property>
-               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/load_ap_uint_256_ap_int_8_ap_int_8_32u_U0/idx_stream3_blk_n">
-                  <obj_property name="ElementShortName">idx_stream3_blk_n</obj_property>
-                  <obj_property name="ObjectShortName">idx_stream3_blk_n</obj_property>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/load_ap_uint_256_ap_int_8_ap_int_8_32u_U0/idx_stream4_blk_n">
+                  <obj_property name="ElementShortName">idx_stream4_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">idx_stream4_blk_n</obj_property>
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/load_ap_uint_256_ap_int_8_ap_int_8_32u_U0/idx_stream3_din">
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/load_ap_uint_256_ap_int_8_ap_int_8_32u_U0/idx_stream4_din">
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/load_ap_uint_256_ap_int_8_ap_int_8_32u_U0/idx_stream3_full_n">
-                  <obj_property name="ElementShortName">idx_stream3_full_n</obj_property>
-                  <obj_property name="ObjectShortName">idx_stream3_full_n</obj_property>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/load_ap_uint_256_ap_int_8_ap_int_8_32u_U0/idx_stream4_full_n">
+                  <obj_property name="ElementShortName">idx_stream4_full_n</obj_property>
+                  <obj_property name="ObjectShortName">idx_stream4_full_n</obj_property>
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/load_ap_uint_256_ap_int_8_ap_int_8_32u_U0/idx_stream3_write">
-                  <obj_property name="ElementShortName">idx_stream3_write</obj_property>
-                  <obj_property name="ObjectShortName">idx_stream3_write</obj_property>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/load_ap_uint_256_ap_int_8_ap_int_8_32u_U0/idx_stream4_write">
+                  <obj_property name="ElementShortName">idx_stream4_write</obj_property>
+                  <obj_property name="ObjectShortName">idx_stream4_write</obj_property>
                </wvobject>
             </wvobject>
-            <wvobject type="group" fp_name="count_stream4_group">
-               <obj_property name="label">count_stream4(count_stream_U, FIFO)</obj_property>
+            <wvobject type="group" fp_name="count_stream5_group">
+               <obj_property name="label">count_stream5(count_stream_U, FIFO)</obj_property>
                <obj_property name="DisplayName">label</obj_property>
-               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/load_ap_uint_256_ap_int_8_ap_int_8_32u_U0/count_stream4_blk_n">
-                  <obj_property name="ElementShortName">count_stream4_blk_n</obj_property>
-                  <obj_property name="ObjectShortName">count_stream4_blk_n</obj_property>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/load_ap_uint_256_ap_int_8_ap_int_8_32u_U0/count_stream5_blk_n">
+                  <obj_property name="ElementShortName">count_stream5_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">count_stream5_blk_n</obj_property>
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/load_ap_uint_256_ap_int_8_ap_int_8_32u_U0/count_stream4_din">
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/load_ap_uint_256_ap_int_8_ap_int_8_32u_U0/count_stream5_din">
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/load_ap_uint_256_ap_int_8_ap_int_8_32u_U0/count_stream4_full_n">
-                  <obj_property name="ElementShortName">count_stream4_full_n</obj_property>
-                  <obj_property name="ObjectShortName">count_stream4_full_n</obj_property>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/load_ap_uint_256_ap_int_8_ap_int_8_32u_U0/count_stream5_full_n">
+                  <obj_property name="ElementShortName">count_stream5_full_n</obj_property>
+                  <obj_property name="ObjectShortName">count_stream5_full_n</obj_property>
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/load_ap_uint_256_ap_int_8_ap_int_8_32u_U0/count_stream4_write">
-                  <obj_property name="ElementShortName">count_stream4_write</obj_property>
-                  <obj_property name="ObjectShortName">count_stream4_write</obj_property>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/load_ap_uint_256_ap_int_8_ap_int_8_32u_U0/count_stream5_write">
+                  <obj_property name="ElementShortName">count_stream5_write</obj_property>
+                  <obj_property name="ObjectShortName">count_stream5_write</obj_property>
                </wvobject>
             </wvobject>
-            <wvobject type="group" fp_name="fm_stream2_group">
-               <obj_property name="label">fm_stream2(fm_stream_U, FIFO)</obj_property>
+            <wvobject type="group" fp_name="fm_stream3_group">
+               <obj_property name="label">fm_stream3(fm_stream_U, FIFO)</obj_property>
                <obj_property name="DisplayName">label</obj_property>
-               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/load_ap_uint_256_ap_int_8_ap_int_8_32u_U0/fm_stream2_blk_n">
-                  <obj_property name="ElementShortName">fm_stream2_blk_n</obj_property>
-                  <obj_property name="ObjectShortName">fm_stream2_blk_n</obj_property>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/load_ap_uint_256_ap_int_8_ap_int_8_32u_U0/fm_stream3_blk_n">
+                  <obj_property name="ElementShortName">fm_stream3_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">fm_stream3_blk_n</obj_property>
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/load_ap_uint_256_ap_int_8_ap_int_8_32u_U0/fm_stream2_din">
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/load_ap_uint_256_ap_int_8_ap_int_8_32u_U0/fm_stream3_din">
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/load_ap_uint_256_ap_int_8_ap_int_8_32u_U0/fm_stream2_full_n">
-                  <obj_property name="ElementShortName">fm_stream2_full_n</obj_property>
-                  <obj_property name="ObjectShortName">fm_stream2_full_n</obj_property>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/load_ap_uint_256_ap_int_8_ap_int_8_32u_U0/fm_stream3_full_n">
+                  <obj_property name="ElementShortName">fm_stream3_full_n</obj_property>
+                  <obj_property name="ObjectShortName">fm_stream3_full_n</obj_property>
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/load_ap_uint_256_ap_int_8_ap_int_8_32u_U0/fm_stream2_write">
-                  <obj_property name="ElementShortName">fm_stream2_write</obj_property>
-                  <obj_property name="ObjectShortName">fm_stream2_write</obj_property>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/load_ap_uint_256_ap_int_8_ap_int_8_32u_U0/fm_stream3_write">
+                  <obj_property name="ElementShortName">fm_stream3_write</obj_property>
+                  <obj_property name="ObjectShortName">fm_stream3_write</obj_property>
                </wvobject>
             </wvobject>
             <wvobject type="group" fp_name="am_ROWS_c_group">
@@ -336,208 +408,410 @@
                   <obj_property name="ObjectShortName">am_ROWS_c_write</obj_property>
                </wvobject>
             </wvobject>
-            <wvobject type="group" fp_name="fm_ROWS_c_group">
-               <obj_property name="label">fm_ROWS_c(fm_ROWS_c_U, FIFO)</obj_property>
+            <wvobject type="group" fp_name="fm_ROWS_c11_group">
+               <obj_property name="label">fm_ROWS_c11(fm_ROWS_c11_U, FIFO)</obj_property>
                <obj_property name="DisplayName">label</obj_property>
-               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/load_ap_uint_256_ap_int_8_ap_int_8_32u_U0/fm_ROWS_c_blk_n">
-                  <obj_property name="ElementShortName">fm_ROWS_c_blk_n</obj_property>
-                  <obj_property name="ObjectShortName">fm_ROWS_c_blk_n</obj_property>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/load_ap_uint_256_ap_int_8_ap_int_8_32u_U0/fm_ROWS_c11_blk_n">
+                  <obj_property name="ElementShortName">fm_ROWS_c11_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">fm_ROWS_c11_blk_n</obj_property>
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/load_ap_uint_256_ap_int_8_ap_int_8_32u_U0/fm_ROWS_c_din">
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/load_ap_uint_256_ap_int_8_ap_int_8_32u_U0/fm_ROWS_c11_din">
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/load_ap_uint_256_ap_int_8_ap_int_8_32u_U0/fm_ROWS_c_full_n">
-                  <obj_property name="ElementShortName">fm_ROWS_c_full_n</obj_property>
-                  <obj_property name="ObjectShortName">fm_ROWS_c_full_n</obj_property>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/load_ap_uint_256_ap_int_8_ap_int_8_32u_U0/fm_ROWS_c11_full_n">
+                  <obj_property name="ElementShortName">fm_ROWS_c11_full_n</obj_property>
+                  <obj_property name="ObjectShortName">fm_ROWS_c11_full_n</obj_property>
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/load_ap_uint_256_ap_int_8_ap_int_8_32u_U0/fm_ROWS_c_write">
-                  <obj_property name="ElementShortName">fm_ROWS_c_write</obj_property>
-                  <obj_property name="ObjectShortName">fm_ROWS_c_write</obj_property>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/load_ap_uint_256_ap_int_8_ap_int_8_32u_U0/fm_ROWS_c11_write">
+                  <obj_property name="ElementShortName">fm_ROWS_c11_write</obj_property>
+                  <obj_property name="ObjectShortName">fm_ROWS_c11_write</obj_property>
                </wvobject>
             </wvobject>
-            <wvobject type="group" fp_name="fm_COLS_c9_group">
-               <obj_property name="label">fm_COLS_c9(fm_COLS_c9_U, FIFO)</obj_property>
+            <wvobject type="group" fp_name="fm_COLS_c13_group">
+               <obj_property name="label">fm_COLS_c13(fm_COLS_c13_U, FIFO)</obj_property>
                <obj_property name="DisplayName">label</obj_property>
-               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/load_ap_uint_256_ap_int_8_ap_int_8_32u_U0/fm_COLS_c9_blk_n">
-                  <obj_property name="ElementShortName">fm_COLS_c9_blk_n</obj_property>
-                  <obj_property name="ObjectShortName">fm_COLS_c9_blk_n</obj_property>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/load_ap_uint_256_ap_int_8_ap_int_8_32u_U0/fm_COLS_c13_blk_n">
+                  <obj_property name="ElementShortName">fm_COLS_c13_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">fm_COLS_c13_blk_n</obj_property>
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/load_ap_uint_256_ap_int_8_ap_int_8_32u_U0/fm_COLS_c9_din">
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/load_ap_uint_256_ap_int_8_ap_int_8_32u_U0/fm_COLS_c13_din">
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/load_ap_uint_256_ap_int_8_ap_int_8_32u_U0/fm_COLS_c9_full_n">
-                  <obj_property name="ElementShortName">fm_COLS_c9_full_n</obj_property>
-                  <obj_property name="ObjectShortName">fm_COLS_c9_full_n</obj_property>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/load_ap_uint_256_ap_int_8_ap_int_8_32u_U0/fm_COLS_c13_full_n">
+                  <obj_property name="ElementShortName">fm_COLS_c13_full_n</obj_property>
+                  <obj_property name="ObjectShortName">fm_COLS_c13_full_n</obj_property>
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/load_ap_uint_256_ap_int_8_ap_int_8_32u_U0/fm_COLS_c9_write">
-                  <obj_property name="ElementShortName">fm_COLS_c9_write</obj_property>
-                  <obj_property name="ObjectShortName">fm_COLS_c9_write</obj_property>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/load_ap_uint_256_ap_int_8_ap_int_8_32u_U0/fm_COLS_c13_write">
+                  <obj_property name="ElementShortName">fm_COLS_c13_write</obj_property>
+                  <obj_property name="ObjectShortName">fm_COLS_c13_write</obj_property>
                </wvobject>
             </wvobject>
          </wvobject>
       </wvobject>
-      <wvobject type="group" fp_name="mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_group">
-         <obj_property name="label">mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0</obj_property>
+      <wvobject type="group" fp_name="mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_group">
+         <obj_property name="label">mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0</obj_property>
          <obj_property name="DisplayName">label</obj_property>
-         <wvobject type="group" fp_name="mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_Input_group">
+         <wvobject type="group" fp_name="mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_Input_group">
             <obj_property name="label">Input Channels</obj_property>
             <obj_property name="DisplayName">label</obj_property>
             <wvobject type="group" fp_name="am_ROWS_group">
                <obj_property name="label">am_ROWS(am_ROWS_c_U, FIFO)</obj_property>
                <obj_property name="DisplayName">label</obj_property>
-               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0/am_ROWS_blk_n">
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0/am_ROWS_blk_n">
                   <obj_property name="ElementShortName">am_ROWS_blk_n</obj_property>
                   <obj_property name="ObjectShortName">am_ROWS_blk_n</obj_property>
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0/am_ROWS_dout">
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0/am_ROWS_dout">
                   <obj_property name="ElementShortName">am_ROWS_dout[31:0]</obj_property>
                   <obj_property name="ObjectShortName">am_ROWS_dout[31:0]</obj_property>
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0/am_ROWS_empty_n">
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0/am_ROWS_empty_n">
                   <obj_property name="ElementShortName">am_ROWS_empty_n</obj_property>
                   <obj_property name="ObjectShortName">am_ROWS_empty_n</obj_property>
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0/am_ROWS_read">
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0/am_ROWS_read">
                   <obj_property name="ElementShortName">am_ROWS_read</obj_property>
                   <obj_property name="ObjectShortName">am_ROWS_read</obj_property>
                </wvobject>
             </wvobject>
             <wvobject type="group" fp_name="fm_COLS_group">
-               <obj_property name="label">fm_COLS(fm_COLS_c9_U, FIFO)</obj_property>
+               <obj_property name="label">fm_COLS(fm_COLS_c13_U, FIFO)</obj_property>
                <obj_property name="DisplayName">label</obj_property>
-               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0/fm_COLS_blk_n">
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0/fm_COLS_blk_n">
                   <obj_property name="ElementShortName">fm_COLS_blk_n</obj_property>
                   <obj_property name="ObjectShortName">fm_COLS_blk_n</obj_property>
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0/fm_COLS_dout">
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0/fm_COLS_dout">
                   <obj_property name="ElementShortName">fm_COLS_dout[31:0]</obj_property>
                   <obj_property name="ObjectShortName">fm_COLS_dout[31:0]</obj_property>
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0/fm_COLS_empty_n">
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0/fm_COLS_empty_n">
                   <obj_property name="ElementShortName">fm_COLS_empty_n</obj_property>
                   <obj_property name="ObjectShortName">fm_COLS_empty_n</obj_property>
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0/fm_COLS_read">
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0/fm_COLS_read">
                   <obj_property name="ElementShortName">fm_COLS_read</obj_property>
                   <obj_property name="ObjectShortName">fm_COLS_read</obj_property>
                </wvobject>
             </wvobject>
-            <wvobject type="group" fp_name="fm_stream2_group">
-               <obj_property name="label">fm_stream2(fm_stream_U, FIFO)</obj_property>
+            <wvobject type="group" fp_name="fm_stream3_group">
+               <obj_property name="label">fm_stream3(fm_stream_U, FIFO)</obj_property>
                <obj_property name="DisplayName">label</obj_property>
-               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0/fm_stream2_blk_n">
-                  <obj_property name="ElementShortName">fm_stream2_blk_n</obj_property>
-                  <obj_property name="ObjectShortName">fm_stream2_blk_n</obj_property>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0/fm_stream3_blk_n">
+                  <obj_property name="ElementShortName">fm_stream3_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">fm_stream3_blk_n</obj_property>
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0/fm_stream2_dout">
-                  <obj_property name="ElementShortName">fm_stream2_dout[255:0]</obj_property>
-                  <obj_property name="ObjectShortName">fm_stream2_dout[255:0]</obj_property>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0/fm_stream3_dout">
+                  <obj_property name="ElementShortName">fm_stream3_dout[255:0]</obj_property>
+                  <obj_property name="ObjectShortName">fm_stream3_dout[255:0]</obj_property>
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0/fm_stream2_empty_n">
-                  <obj_property name="ElementShortName">fm_stream2_empty_n</obj_property>
-                  <obj_property name="ObjectShortName">fm_stream2_empty_n</obj_property>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0/fm_stream3_empty_n">
+                  <obj_property name="ElementShortName">fm_stream3_empty_n</obj_property>
+                  <obj_property name="ObjectShortName">fm_stream3_empty_n</obj_property>
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0/fm_stream2_read">
-                  <obj_property name="ElementShortName">fm_stream2_read</obj_property>
-                  <obj_property name="ObjectShortName">fm_stream2_read</obj_property>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0/fm_stream3_read">
+                  <obj_property name="ElementShortName">fm_stream3_read</obj_property>
+                  <obj_property name="ObjectShortName">fm_stream3_read</obj_property>
                </wvobject>
             </wvobject>
-            <wvobject type="group" fp_name="idx_stream3_group">
-               <obj_property name="label">idx_stream3(idx_stream_U, FIFO)</obj_property>
+            <wvobject type="group" fp_name="idx_stream4_group">
+               <obj_property name="label">idx_stream4(idx_stream_U, FIFO)</obj_property>
                <obj_property name="DisplayName">label</obj_property>
-               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0/idx_stream3_blk_n">
-                  <obj_property name="ElementShortName">idx_stream3_blk_n</obj_property>
-                  <obj_property name="ObjectShortName">idx_stream3_blk_n</obj_property>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0/idx_stream4_blk_n">
+                  <obj_property name="ElementShortName">idx_stream4_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">idx_stream4_blk_n</obj_property>
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0/idx_stream3_dout">
-                  <obj_property name="ElementShortName">idx_stream3_dout[7:0]</obj_property>
-                  <obj_property name="ObjectShortName">idx_stream3_dout[7:0]</obj_property>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0/idx_stream4_dout">
+                  <obj_property name="ElementShortName">idx_stream4_dout[7:0]</obj_property>
+                  <obj_property name="ObjectShortName">idx_stream4_dout[7:0]</obj_property>
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0/idx_stream3_empty_n">
-                  <obj_property name="ElementShortName">idx_stream3_empty_n</obj_property>
-                  <obj_property name="ObjectShortName">idx_stream3_empty_n</obj_property>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0/idx_stream4_empty_n">
+                  <obj_property name="ElementShortName">idx_stream4_empty_n</obj_property>
+                  <obj_property name="ObjectShortName">idx_stream4_empty_n</obj_property>
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0/idx_stream3_read">
-                  <obj_property name="ElementShortName">idx_stream3_read</obj_property>
-                  <obj_property name="ObjectShortName">idx_stream3_read</obj_property>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0/idx_stream4_read">
+                  <obj_property name="ElementShortName">idx_stream4_read</obj_property>
+                  <obj_property name="ObjectShortName">idx_stream4_read</obj_property>
                </wvobject>
             </wvobject>
-            <wvobject type="group" fp_name="count_stream4_group">
-               <obj_property name="label">count_stream4(count_stream_U, FIFO)</obj_property>
+            <wvobject type="group" fp_name="count_stream5_group">
+               <obj_property name="label">count_stream5(count_stream_U, FIFO)</obj_property>
                <obj_property name="DisplayName">label</obj_property>
-               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0/count_stream4_blk_n">
-                  <obj_property name="ElementShortName">count_stream4_blk_n</obj_property>
-                  <obj_property name="ObjectShortName">count_stream4_blk_n</obj_property>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0/count_stream5_blk_n">
+                  <obj_property name="ElementShortName">count_stream5_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">count_stream5_blk_n</obj_property>
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0/count_stream4_dout">
-                  <obj_property name="ElementShortName">count_stream4_dout[7:0]</obj_property>
-                  <obj_property name="ObjectShortName">count_stream4_dout[7:0]</obj_property>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0/count_stream5_dout">
+                  <obj_property name="ElementShortName">count_stream5_dout[7:0]</obj_property>
+                  <obj_property name="ObjectShortName">count_stream5_dout[7:0]</obj_property>
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0/count_stream4_empty_n">
-                  <obj_property name="ElementShortName">count_stream4_empty_n</obj_property>
-                  <obj_property name="ObjectShortName">count_stream4_empty_n</obj_property>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0/count_stream5_empty_n">
+                  <obj_property name="ElementShortName">count_stream5_empty_n</obj_property>
+                  <obj_property name="ObjectShortName">count_stream5_empty_n</obj_property>
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0/count_stream4_read">
-                  <obj_property name="ElementShortName">count_stream4_read</obj_property>
-                  <obj_property name="ObjectShortName">count_stream4_read</obj_property>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0/count_stream5_read">
+                  <obj_property name="ElementShortName">count_stream5_read</obj_property>
+                  <obj_property name="ObjectShortName">count_stream5_read</obj_property>
                </wvobject>
             </wvobject>
          </wvobject>
-         <wvobject type="group" fp_name="mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_Handshake_group">
+         <wvobject type="group" fp_name="mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_Handshake_group">
             <obj_property name="label">Block-level handshake</obj_property>
             <obj_property name="DisplayName">label</obj_property>
-            <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0/ap_start">
+            <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0/ap_start">
                <obj_property name="ElementShortName">ap_start</obj_property>
                <obj_property name="ObjectShortName">ap_start</obj_property>
             </wvobject>
-            <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0/ap_ready">
+            <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0/ap_ready">
                <obj_property name="ElementShortName">ap_ready</obj_property>
                <obj_property name="ObjectShortName">ap_ready</obj_property>
             </wvobject>
-            <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0/ap_done">
+            <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0/ap_done">
                <obj_property name="ElementShortName">ap_done</obj_property>
                <obj_property name="ObjectShortName">ap_done</obj_property>
             </wvobject>
-            <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0/ap_continue">
+            <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0/ap_continue">
                <obj_property name="ElementShortName">ap_continue</obj_property>
                <obj_property name="ObjectShortName">ap_continue</obj_property>
             </wvobject>
          </wvobject>
-         <wvobject type="group" fp_name="mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0_Output_group">
+         <wvobject type="group" fp_name="mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_Output_group">
             <obj_property name="label">Output Channels</obj_property>
             <obj_property name="DisplayName">label</obj_property>
             <wvobject type="group" fp_name="data_out1_group">
                <obj_property name="label">data_out1(data_out_U, FIFO)</obj_property>
                <obj_property name="DisplayName">label</obj_property>
-               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0/data_out1_blk_n">
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0/data_out1_blk_n">
                   <obj_property name="ElementShortName">data_out1_blk_n</obj_property>
                   <obj_property name="ObjectShortName">data_out1_blk_n</obj_property>
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0/data_out1_din">
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0/data_out1_din">
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0/data_out1_full_n">
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0/data_out1_full_n">
                   <obj_property name="ElementShortName">data_out1_full_n</obj_property>
                   <obj_property name="ObjectShortName">data_out1_full_n</obj_property>
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0/data_out1_write">
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0/data_out1_write">
                   <obj_property name="ElementShortName">data_out1_write</obj_property>
                   <obj_property name="ObjectShortName">data_out1_write</obj_property>
+               </wvobject>
+            </wvobject>
+            <wvobject type="group" fp_name="fm_COLS_c12_group">
+               <obj_property name="label">fm_COLS_c12(fm_COLS_c12_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0/fm_COLS_c12_blk_n">
+                  <obj_property name="ElementShortName">fm_COLS_c12_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">fm_COLS_c12_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0/fm_COLS_c12_din">
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0/fm_COLS_c12_full_n">
+                  <obj_property name="ElementShortName">fm_COLS_c12_full_n</obj_property>
+                  <obj_property name="ObjectShortName">fm_COLS_c12_full_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0/fm_COLS_c12_write">
+                  <obj_property name="ElementShortName">fm_COLS_c12_write</obj_property>
+                  <obj_property name="ObjectShortName">fm_COLS_c12_write</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+      </wvobject>
+      <wvobject type="group" fp_name="quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_group">
+         <obj_property name="label">quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="protoinst" fp_name="/apatb_sparse_top/AESL_inst_sparse/quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0/grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94/grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_activity">
+            <obj_property name="ElementShortName">grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_activity</obj_property>
+         </wvobject>
+         <wvobject type="group" fp_name="quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_Input_group">
+            <obj_property name="label">Input Channels</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="data_out1_group">
+               <obj_property name="label">data_out1(data_out_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0/data_out1_dout">
+                  <obj_property name="ElementShortName">data_out1_dout[1023:0]</obj_property>
+                  <obj_property name="ObjectShortName">data_out1_dout[1023:0]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0/data_out1_empty_n">
+                  <obj_property name="ElementShortName">data_out1_empty_n</obj_property>
+                  <obj_property name="ObjectShortName">data_out1_empty_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0/data_out1_read">
+                  <obj_property name="ElementShortName">data_out1_read</obj_property>
+                  <obj_property name="ObjectShortName">data_out1_read</obj_property>
+               </wvobject>
+            </wvobject>
+            <wvobject type="group" fp_name="fm_ROWS_group">
+               <obj_property name="label">fm_ROWS(fm_ROWS_c11_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0/fm_ROWS_blk_n">
+                  <obj_property name="ElementShortName">fm_ROWS_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">fm_ROWS_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0/fm_ROWS_dout">
+                  <obj_property name="ElementShortName">fm_ROWS_dout[31:0]</obj_property>
+                  <obj_property name="ObjectShortName">fm_ROWS_dout[31:0]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0/fm_ROWS_empty_n">
+                  <obj_property name="ElementShortName">fm_ROWS_empty_n</obj_property>
+                  <obj_property name="ObjectShortName">fm_ROWS_empty_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0/fm_ROWS_read">
+                  <obj_property name="ElementShortName">fm_ROWS_read</obj_property>
+                  <obj_property name="ObjectShortName">fm_ROWS_read</obj_property>
+               </wvobject>
+            </wvobject>
+            <wvobject type="group" fp_name="fm_COLS_group">
+               <obj_property name="label">fm_COLS(fm_COLS_c12_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0/fm_COLS_blk_n">
+                  <obj_property name="ElementShortName">fm_COLS_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">fm_COLS_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0/fm_COLS_dout">
+                  <obj_property name="ElementShortName">fm_COLS_dout[31:0]</obj_property>
+                  <obj_property name="ObjectShortName">fm_COLS_dout[31:0]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0/fm_COLS_empty_n">
+                  <obj_property name="ElementShortName">fm_COLS_empty_n</obj_property>
+                  <obj_property name="ObjectShortName">fm_COLS_empty_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0/fm_COLS_read">
+                  <obj_property name="ElementShortName">fm_COLS_read</obj_property>
+                  <obj_property name="ObjectShortName">fm_COLS_read</obj_property>
+               </wvobject>
+            </wvobject>
+            <wvobject type="group" fp_name="quant_shift_group">
+               <obj_property name="label">quant_shift(quant_shift_c_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0/quant_shift_blk_n">
+                  <obj_property name="ElementShortName">quant_shift_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">quant_shift_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0/quant_shift_dout">
+                  <obj_property name="ElementShortName">quant_shift_dout[31:0]</obj_property>
+                  <obj_property name="ObjectShortName">quant_shift_dout[31:0]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0/quant_shift_empty_n">
+                  <obj_property name="ElementShortName">quant_shift_empty_n</obj_property>
+                  <obj_property name="ObjectShortName">quant_shift_empty_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0/quant_shift_read">
+                  <obj_property name="ElementShortName">quant_shift_read</obj_property>
+                  <obj_property name="ObjectShortName">quant_shift_read</obj_property>
+               </wvobject>
+            </wvobject>
+            <wvobject type="group" fp_name="quant_mul_group">
+               <obj_property name="label">quant_mul(quant_mul_c_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0/quant_mul_blk_n">
+                  <obj_property name="ElementShortName">quant_mul_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">quant_mul_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0/quant_mul_dout">
+                  <obj_property name="ElementShortName">quant_mul_dout[31:0]</obj_property>
+                  <obj_property name="ObjectShortName">quant_mul_dout[31:0]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0/quant_mul_empty_n">
+                  <obj_property name="ElementShortName">quant_mul_empty_n</obj_property>
+                  <obj_property name="ObjectShortName">quant_mul_empty_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0/quant_mul_read">
+                  <obj_property name="ElementShortName">quant_mul_read</obj_property>
+                  <obj_property name="ObjectShortName">quant_mul_read</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_Handshake_group">
+            <obj_property name="label">Block-level handshake</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0/ap_start">
+               <obj_property name="ElementShortName">ap_start</obj_property>
+               <obj_property name="ObjectShortName">ap_start</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0/ap_ready">
+               <obj_property name="ElementShortName">ap_ready</obj_property>
+               <obj_property name="ObjectShortName">ap_ready</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0/ap_done">
+               <obj_property name="ElementShortName">ap_done</obj_property>
+               <obj_property name="ObjectShortName">ap_done</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0/ap_continue">
+               <obj_property name="ElementShortName">ap_continue</obj_property>
+               <obj_property name="ObjectShortName">ap_continue</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_Output_group">
+            <obj_property name="label">Output Channels</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="quant_out2_group">
+               <obj_property name="label">quant_out2(quant_out_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0/quant_out2_din">
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0/quant_out2_full_n">
+                  <obj_property name="ElementShortName">quant_out2_full_n</obj_property>
+                  <obj_property name="ObjectShortName">quant_out2_full_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0/quant_out2_write">
+                  <obj_property name="ElementShortName">quant_out2_write</obj_property>
+                  <obj_property name="ObjectShortName">quant_out2_write</obj_property>
+               </wvobject>
+            </wvobject>
+            <wvobject type="group" fp_name="fm_ROWS_c_group">
+               <obj_property name="label">fm_ROWS_c(fm_ROWS_c_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0/fm_ROWS_c_blk_n">
+                  <obj_property name="ElementShortName">fm_ROWS_c_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">fm_ROWS_c_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0/fm_ROWS_c_din">
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0/fm_ROWS_c_full_n">
+                  <obj_property name="ElementShortName">fm_ROWS_c_full_n</obj_property>
+                  <obj_property name="ObjectShortName">fm_ROWS_c_full_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0/fm_ROWS_c_write">
+                  <obj_property name="ElementShortName">fm_ROWS_c_write</obj_property>
+                  <obj_property name="ObjectShortName">fm_ROWS_c_write</obj_property>
                </wvobject>
             </wvobject>
             <wvobject type="group" fp_name="fm_COLS_c_group">
                <obj_property name="label">fm_COLS_c(fm_COLS_c_U, FIFO)</obj_property>
                <obj_property name="DisplayName">label</obj_property>
-               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0/fm_COLS_c_blk_n">
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0/fm_COLS_c_blk_n">
                   <obj_property name="ElementShortName">fm_COLS_c_blk_n</obj_property>
                   <obj_property name="ObjectShortName">fm_COLS_c_blk_n</obj_property>
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0/fm_COLS_c_din">
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0/fm_COLS_c_din">
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0/fm_COLS_c_full_n">
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0/fm_COLS_c_full_n">
                   <obj_property name="ElementShortName">fm_COLS_c_full_n</obj_property>
                   <obj_property name="ObjectShortName">fm_COLS_c_full_n</obj_property>
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/mul_ap_uint_256_ap_int_8_ap_int_8_32u_U0/fm_COLS_c_write">
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0/fm_COLS_c_write">
                   <obj_property name="ElementShortName">fm_COLS_c_write</obj_property>
                   <obj_property name="ObjectShortName">fm_COLS_c_write</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_group">
+            <obj_property name="label">grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_Handshake_group">
+               <obj_property name="label">Block-level handshake</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0/grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94/ap_start">
+                  <obj_property name="ElementShortName">ap_start</obj_property>
+                  <obj_property name="ObjectShortName">ap_start</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0/grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94/ap_ready">
+                  <obj_property name="ElementShortName">ap_ready</obj_property>
+                  <obj_property name="ObjectShortName">ap_ready</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0/grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94/ap_done">
+                  <obj_property name="ElementShortName">ap_done</obj_property>
+                  <obj_property name="ObjectShortName">ap_done</obj_property>
                </wvobject>
             </wvobject>
          </wvobject>
@@ -545,27 +819,27 @@
       <wvobject type="group" fp_name="store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_group">
          <obj_property name="label">store_ap_uint_256_ap_int_8_ap_int_8_32u_U0</obj_property>
          <obj_property name="DisplayName">label</obj_property>
-         <wvobject type="protoinst" fp_name="/apatb_sparse_top/AESL_inst_sparse/store_ap_uint_256_ap_int_8_ap_int_8_32u_U0/grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_95_1_fu_124/grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_95_1_fu_124_activity">
-            <obj_property name="ElementShortName">grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_95_1_fu_124_activity</obj_property>
-            <obj_property name="ObjectShortName">grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_95_1_fu_124_activity</obj_property>
+         <wvobject type="protoinst" fp_name="/apatb_sparse_top/AESL_inst_sparse/store_ap_uint_256_ap_int_8_ap_int_8_32u_U0/grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_140_1_fu_124/grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_140_1_fu_124_activity">
+            <obj_property name="ElementShortName">grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_140_1_fu_124_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_140_1_fu_124_activity</obj_property>
          </wvobject>
          <wvobject type="group" fp_name="store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_Input_group">
             <obj_property name="label">Input Channels</obj_property>
             <obj_property name="DisplayName">label</obj_property>
-            <wvobject type="group" fp_name="data_out1_group">
-               <obj_property name="label">data_out1(data_out_U, FIFO)</obj_property>
+            <wvobject type="group" fp_name="quant_out2_group">
+               <obj_property name="label">quant_out2(quant_out_U, FIFO)</obj_property>
                <obj_property name="DisplayName">label</obj_property>
-               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/store_ap_uint_256_ap_int_8_ap_int_8_32u_U0/data_out1_dout">
-                  <obj_property name="ElementShortName">data_out1_dout[255:0]</obj_property>
-                  <obj_property name="ObjectShortName">data_out1_dout[255:0]</obj_property>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/store_ap_uint_256_ap_int_8_ap_int_8_32u_U0/quant_out2_dout">
+                  <obj_property name="ElementShortName">quant_out2_dout[255:0]</obj_property>
+                  <obj_property name="ObjectShortName">quant_out2_dout[255:0]</obj_property>
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/store_ap_uint_256_ap_int_8_ap_int_8_32u_U0/data_out1_empty_n">
-                  <obj_property name="ElementShortName">data_out1_empty_n</obj_property>
-                  <obj_property name="ObjectShortName">data_out1_empty_n</obj_property>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/store_ap_uint_256_ap_int_8_ap_int_8_32u_U0/quant_out2_empty_n">
+                  <obj_property name="ElementShortName">quant_out2_empty_n</obj_property>
+                  <obj_property name="ObjectShortName">quant_out2_empty_n</obj_property>
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/store_ap_uint_256_ap_int_8_ap_int_8_32u_U0/data_out1_read">
-                  <obj_property name="ElementShortName">data_out1_read</obj_property>
-                  <obj_property name="ObjectShortName">data_out1_read</obj_property>
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/store_ap_uint_256_ap_int_8_ap_int_8_32u_U0/quant_out2_read">
+                  <obj_property name="ElementShortName">quant_out2_read</obj_property>
+                  <obj_property name="ObjectShortName">quant_out2_read</obj_property>
                </wvobject>
             </wvobject>
             <wvobject type="group" fp_name="outputs_group">
@@ -673,21 +947,21 @@
             <obj_property name="label">Output Channels</obj_property>
             <obj_property name="DisplayName">label</obj_property>
          </wvobject>
-         <wvobject type="group" fp_name="grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_95_1_fu_124_group">
-            <obj_property name="label">grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_95_1_fu_124</obj_property>
+         <wvobject type="group" fp_name="grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_140_1_fu_124_group">
+            <obj_property name="label">grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_140_1_fu_124</obj_property>
             <obj_property name="DisplayName">label</obj_property>
-            <wvobject type="group" fp_name="grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_95_1_fu_124_Handshake_group">
+            <wvobject type="group" fp_name="grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_140_1_fu_124_Handshake_group">
                <obj_property name="label">Block-level handshake</obj_property>
                <obj_property name="DisplayName">label</obj_property>
-               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/store_ap_uint_256_ap_int_8_ap_int_8_32u_U0/grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_95_1_fu_124/ap_start">
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/store_ap_uint_256_ap_int_8_ap_int_8_32u_U0/grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_140_1_fu_124/ap_start">
                   <obj_property name="ElementShortName">ap_start</obj_property>
                   <obj_property name="ObjectShortName">ap_start</obj_property>
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/store_ap_uint_256_ap_int_8_ap_int_8_32u_U0/grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_95_1_fu_124/ap_ready">
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/store_ap_uint_256_ap_int_8_ap_int_8_32u_U0/grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_140_1_fu_124/ap_ready">
                   <obj_property name="ElementShortName">ap_ready</obj_property>
                   <obj_property name="ObjectShortName">ap_ready</obj_property>
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/store_ap_uint_256_ap_int_8_ap_int_8_32u_U0/grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_95_1_fu_124/ap_done">
+               <wvobject type="logic" fp_name="/apatb_sparse_top/AESL_inst_sparse/store_ap_uint_256_ap_int_8_ap_int_8_32u_U0/grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_140_1_fu_124/ap_done">
                   <obj_property name="ElementShortName">ap_done</obj_property>
                   <obj_property name="ObjectShortName">ap_done</obj_property>
                </wvobject>

@@ -54,10 +54,16 @@
 // 0x58 : Data signal of outputs
 //        bit 31~0 - outputs[63:32] (Read/Write)
 // 0x5c : reserved
-// 0x60 : Data signal of sparse_flag
+// 0x60 : Data signal of quant_shift
+//        bit 31~0 - quant_shift[31:0] (Read/Write)
+// 0x64 : reserved
+// 0x68 : Data signal of quant_mul
+//        bit 31~0 - quant_mul[31:0] (Read/Write)
+// 0x6c : reserved
+// 0x70 : Data signal of sparse_flag
 //        bit 0  - sparse_flag[0] (Read)
 //        others - reserved
-// 0x64 : Control signal of sparse_flag
+// 0x74 : Control signal of sparse_flag
 //        bit 0  - sparse_flag_ap_vld (Read/COR)
 //        others - reserved
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
@@ -84,7 +90,11 @@
 #define XSPARSE_SPARSE_ADDR_BITS_INPUTS_DATA            64
 #define XSPARSE_SPARSE_ADDR_ADDR_OUTPUTS_DATA           0x54
 #define XSPARSE_SPARSE_ADDR_BITS_OUTPUTS_DATA           64
-#define XSPARSE_SPARSE_ADDR_ADDR_SPARSE_FLAG_DATA       0x60
+#define XSPARSE_SPARSE_ADDR_ADDR_QUANT_SHIFT_DATA       0x60
+#define XSPARSE_SPARSE_ADDR_BITS_QUANT_SHIFT_DATA       32
+#define XSPARSE_SPARSE_ADDR_ADDR_QUANT_MUL_DATA         0x68
+#define XSPARSE_SPARSE_ADDR_BITS_QUANT_MUL_DATA         32
+#define XSPARSE_SPARSE_ADDR_ADDR_SPARSE_FLAG_DATA       0x70
 #define XSPARSE_SPARSE_ADDR_BITS_SPARSE_FLAG_DATA       1
-#define XSPARSE_SPARSE_ADDR_ADDR_SPARSE_FLAG_CTRL       0x64
+#define XSPARSE_SPARSE_ADDR_ADDR_SPARSE_FLAG_CTRL       0x74
 

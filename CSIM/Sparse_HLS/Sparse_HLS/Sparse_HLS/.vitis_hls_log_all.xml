@@ -4,6 +4,16 @@
     <logs>
       <synLog/>
       <csimLog>
+        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="Sparse_HLS" solutionName="solution1" date="2024-05-30T14:35:29.386+0800"/>
+        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="Sparse_HLS" solutionName="solution1" date="2024-05-30T14:33:55.264+0800"/>
+        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="Sparse_HLS" solutionName="solution1" date="2024-05-30T14:31:34.378+0800"/>
+        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="Sparse_HLS" solutionName="solution1" date="2024-05-30T14:30:07.926+0800"/>
+        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="Sparse_HLS" solutionName="solution1" date="2024-05-30T14:29:10.689+0800"/>
+        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="Sparse_HLS" solutionName="solution1" date="2024-05-30T14:27:56.218+0800"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="Sparse_HLS" solutionName="solution1" date="2024-05-30T14:26:43.742+0800"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="Sparse_HLS" solutionName="solution1" date="2024-05-30T14:24:16.207+0800"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="Sparse_HLS" solutionName="solution1" date="2024-05-30T14:23:17.547+0800"/>
+        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="Sparse_HLS" solutionName="solution1" date="2024-05-30T14:22:30.933+0800"/>
         <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="Sparse_HLS" solutionName="solution1" date="2024-05-29T21:52:30.819+0800"/>
         <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="Sparse_HLS" solutionName="solution1" date="2024-05-29T21:51:52.931+0800"/>
         <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="Sparse_HLS" solutionName="solution1" date="2024-05-29T20:19:06.960+0800"/>

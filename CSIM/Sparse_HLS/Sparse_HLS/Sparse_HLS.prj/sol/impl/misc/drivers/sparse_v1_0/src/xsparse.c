@@ -231,6 +231,40 @@ u64 XSparse_Get_outputs(XSparse *InstancePtr) {
     return Data;
 }
 
+void XSparse_Set_quant_shift(XSparse *InstancePtr, u32 Data) {
+    Xil_AssertVoid(InstancePtr != NULL);
+    Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
+
+    XSparse_WriteReg(InstancePtr->Sparse_addr_BaseAddress, XSPARSE_SPARSE_ADDR_ADDR_QUANT_SHIFT_DATA, Data);
+}
+
+u32 XSparse_Get_quant_shift(XSparse *InstancePtr) {
+    u32 Data;
+
+    Xil_AssertNonvoid(InstancePtr != NULL);
+    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
+
+    Data = XSparse_ReadReg(InstancePtr->Sparse_addr_BaseAddress, XSPARSE_SPARSE_ADDR_ADDR_QUANT_SHIFT_DATA);
+    return Data;
+}
+
+void XSparse_Set_quant_mul(XSparse *InstancePtr, u32 Data) {
+    Xil_AssertVoid(InstancePtr != NULL);
+    Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
+
+    XSparse_WriteReg(InstancePtr->Sparse_addr_BaseAddress, XSPARSE_SPARSE_ADDR_ADDR_QUANT_MUL_DATA, Data);
+}
+
+u32 XSparse_Get_quant_mul(XSparse *InstancePtr) {
+    u32 Data;
+
+    Xil_AssertNonvoid(InstancePtr != NULL);
+    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
+
+    Data = XSparse_ReadReg(InstancePtr->Sparse_addr_BaseAddress, XSPARSE_SPARSE_ADDR_ADDR_QUANT_MUL_DATA);
+    return Data;
+}
+
 u32 XSparse_Get_sparse_flag(XSparse *InstancePtr) {
     u32 Data;
 

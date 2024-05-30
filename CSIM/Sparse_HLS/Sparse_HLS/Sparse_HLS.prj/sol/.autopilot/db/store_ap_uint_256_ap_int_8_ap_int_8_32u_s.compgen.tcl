@@ -10,22 +10,22 @@ if {${::AESL::PGuard_autoexp_gen}} {
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 38 \
-    name data_out1 \
+    id 92 \
+    name quant_out2 \
     type fifo \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_data_out1 \
+    corename dc_quant_out2 \
     op interface \
-    ports { data_out1_dout { I 256 vector } data_out1_num_data_valid { I 7 vector } data_out1_fifo_cap { I 7 vector } data_out1_empty_n { I 1 bit } data_out1_read { O 1 bit } } \
+    ports { quant_out2_dout { I 256 vector } quant_out2_num_data_valid { I 2 vector } quant_out2_fifo_cap { I 2 vector } quant_out2_empty_n { I 1 bit } quant_out2_read { O 1 bit } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 39 \
+    id 93 \
     name sparse_data \
     type other \
     dir O \
@@ -40,7 +40,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 40 \
+    id 94 \
     name outputs \
     type fifo \
     dir I \
@@ -48,14 +48,14 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_outputs \
     op interface \
-    ports { outputs_dout { I 64 vector } outputs_num_data_valid { I 3 vector } outputs_fifo_cap { I 3 vector } outputs_empty_n { I 1 bit } outputs_read { O 1 bit } } \
+    ports { outputs_dout { I 64 vector } outputs_num_data_valid { I 4 vector } outputs_fifo_cap { I 4 vector } outputs_empty_n { I 1 bit } outputs_read { O 1 bit } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 41 \
+    id 95 \
     name output_data_addr3 \
     type fifo \
     dir I \
@@ -63,14 +63,14 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_output_data_addr3 \
     op interface \
-    ports { output_data_addr3_dout { I 32 vector } output_data_addr3_num_data_valid { I 3 vector } output_data_addr3_fifo_cap { I 3 vector } output_data_addr3_empty_n { I 1 bit } output_data_addr3_read { O 1 bit } } \
+    ports { output_data_addr3_dout { I 32 vector } output_data_addr3_num_data_valid { I 4 vector } output_data_addr3_fifo_cap { I 4 vector } output_data_addr3_empty_n { I 1 bit } output_data_addr3_read { O 1 bit } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 42 \
+    id 96 \
     name ROWS \
     type fifo \
     dir I \
@@ -78,14 +78,14 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_ROWS \
     op interface \
-    ports { ROWS_dout { I 32 vector } ROWS_num_data_valid { I 3 vector } ROWS_fifo_cap { I 3 vector } ROWS_empty_n { I 1 bit } ROWS_read { O 1 bit } } \
+    ports { ROWS_dout { I 32 vector } ROWS_num_data_valid { I 2 vector } ROWS_fifo_cap { I 2 vector } ROWS_empty_n { I 1 bit } ROWS_read { O 1 bit } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 43 \
+    id 97 \
     name COLS \
     type fifo \
     dir I \
@@ -100,7 +100,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 44 \
+    id 98 \
     name sparse_flag \
     type other \
     dir O \

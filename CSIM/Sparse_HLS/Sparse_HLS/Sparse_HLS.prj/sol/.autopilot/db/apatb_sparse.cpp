@@ -36,6 +36,10 @@ using namespace std;
 #define AUTOTB_TVOUT_inputs "../tv/cdatafile/c.sparse.autotvout_inputs.dat"
 #define AUTOTB_TVIN_outputs "../tv/cdatafile/c.sparse.autotvin_outputs.dat"
 #define AUTOTB_TVOUT_outputs "../tv/cdatafile/c.sparse.autotvout_outputs.dat"
+#define AUTOTB_TVIN_quant_shift "../tv/cdatafile/c.sparse.autotvin_quant_shift.dat"
+#define AUTOTB_TVOUT_quant_shift "../tv/cdatafile/c.sparse.autotvout_quant_shift.dat"
+#define AUTOTB_TVIN_quant_mul "../tv/cdatafile/c.sparse.autotvin_quant_mul.dat"
+#define AUTOTB_TVOUT_quant_mul "../tv/cdatafile/c.sparse.autotvout_quant_mul.dat"
 #define AUTOTB_TVIN_sparse_flag "../tv/cdatafile/c.sparse.autotvin_sparse_flag.dat"
 #define AUTOTB_TVOUT_sparse_flag "../tv/cdatafile/c.sparse.autotvout_sparse_flag.dat"
 #define AUTOTB_TVIN_sparse_data "../tv/cdatafile/c.sparse.autotvin_sparse_data.dat"
@@ -969,10 +973,10 @@ namespace hls::sim
 
 
 extern "C"
-void sparse_hw_stub_wrapper(hls::sim::Byte<4>, hls::sim::Byte<4>, hls::sim::Byte<4>, hls::sim::Byte<4>, hls::sim::Byte<4>, hls::sim::Byte<4>, hls::sim::Byte<4>, void*, void*, void*);
+void sparse_hw_stub_wrapper(hls::sim::Byte<4>, hls::sim::Byte<4>, hls::sim::Byte<4>, hls::sim::Byte<4>, hls::sim::Byte<4>, hls::sim::Byte<4>, hls::sim::Byte<4>, void*, void*, hls::sim::Byte<4>, hls::sim::Byte<4>, void*);
 
 extern "C"
-void apatb_sparse_hw(hls::sim::Byte<4> __xlx_apatb_param_input_data_addr1, hls::sim::Byte<4> __xlx_apatb_param_input_data_addr2, hls::sim::Byte<4> __xlx_apatb_param_output_data_addr3, hls::sim::Byte<4> __xlx_apatb_param_am_ROWS, hls::sim::Byte<4> __xlx_apatb_param_am_COLS, hls::sim::Byte<4> __xlx_apatb_param_fm_ROWS, hls::sim::Byte<4> __xlx_apatb_param_fm_COLS, void* __xlx_apatb_param_inputs, void* __xlx_apatb_param_outputs, void* __xlx_apatb_param_sparse_flag)
+void apatb_sparse_hw(hls::sim::Byte<4> __xlx_apatb_param_input_data_addr1, hls::sim::Byte<4> __xlx_apatb_param_input_data_addr2, hls::sim::Byte<4> __xlx_apatb_param_output_data_addr3, hls::sim::Byte<4> __xlx_apatb_param_am_ROWS, hls::sim::Byte<4> __xlx_apatb_param_am_COLS, hls::sim::Byte<4> __xlx_apatb_param_fm_ROWS, hls::sim::Byte<4> __xlx_apatb_param_fm_COLS, void* __xlx_apatb_param_inputs, void* __xlx_apatb_param_outputs, hls::sim::Byte<4> __xlx_apatb_param_quant_shift, hls::sim::Byte<4> __xlx_apatb_param_quant_mul, void* __xlx_apatb_param_sparse_flag)
 {
   static hls::sim::Register port0 {
     .name = "input_data_addr1",
@@ -1076,6 +1080,28 @@ void apatb_sparse_hw(hls::sim::Byte<4> __xlx_apatb_param_input_data_addr1, hls::
   port8.param = &__xlx_offset_byte_param_outputs;
 
   static hls::sim::Register port9 {
+    .name = "quant_shift",
+    .width = 32,
+#ifdef POST_CHECK
+#else
+    .owriter = nullptr,
+    .iwriter = new hls::sim::Writer(AUTOTB_TVIN_quant_shift),
+#endif
+  };
+  port9.param = &__xlx_apatb_param_quant_shift;
+
+  static hls::sim::Register port10 {
+    .name = "quant_mul",
+    .width = 32,
+#ifdef POST_CHECK
+#else
+    .owriter = nullptr,
+    .iwriter = new hls::sim::Writer(AUTOTB_TVIN_quant_mul),
+#endif
+  };
+  port10.param = &__xlx_apatb_param_quant_mul;
+
+  static hls::sim::Register port11 {
     .name = "sparse_flag",
     .width = 1,
 #ifdef POST_CHECK
@@ -1085,12 +1111,12 @@ void apatb_sparse_hw(hls::sim::Byte<4> __xlx_apatb_param_input_data_addr1, hls::
     .iwriter = new hls::sim::Writer(AUTOTB_TVIN_sparse_flag),
 #endif
   };
-  port9.param = __xlx_apatb_param_sparse_flag;
+  port11.param = __xlx_apatb_param_sparse_flag;
 
 #ifdef USE_BINARY_TV_FILE
-  static hls::sim::Memory<hls::sim::Input, hls::sim::Output> port10 {
+  static hls::sim::Memory<hls::sim::Input, hls::sim::Output> port12 {
 #else
-  static hls::sim::Memory<hls::sim::Reader, hls::sim::Writer> port10 {
+  static hls::sim::Memory<hls::sim::Reader, hls::sim::Writer> port12 {
 #endif
     .width = 256,
     .asize = 32,
@@ -1117,17 +1143,17 @@ void apatb_sparse_hw(hls::sim::Byte<4> __xlx_apatb_param_input_data_addr1, hls::
   };
   __xlx_offset_byte_param_inputs = 0*32;
   __xlx_offset_byte_param_outputs = 1*32;
-  port10.param = { __xlx_apatb_param_inputs, __xlx_apatb_param_outputs };
-  port10.depth = { 1, 1 };
-  port10.offset = { 0, 1 };
-  port10.hasWrite = { true, true };
+  port12.param = { __xlx_apatb_param_inputs, __xlx_apatb_param_outputs };
+  port12.depth = { 1, 1 };
+  port12.offset = { 0, 1 };
+  port12.hasWrite = { true, true };
 
   refine_signal_handler();
   try {
 #ifdef POST_CHECK
     CodeState = ENTER_WRAPC_PC;
-    check(port9);
-    check(port10);
+    check(port11);
+    check(port12);
 #else
     static hls::sim::RefTCL tcl("../tv/cdatafile/ref.tcl");
     CodeState = DUMP_INPUTS;
@@ -1142,6 +1168,8 @@ void apatb_sparse_hw(hls::sim::Byte<4> __xlx_apatb_param_input_data_addr1, hls::
     dump(port8, port8.iwriter, tcl.AESL_transaction);
     dump(port9, port9.iwriter, tcl.AESL_transaction);
     dump(port10, port10.iwriter, tcl.AESL_transaction);
+    dump(port11, port11.iwriter, tcl.AESL_transaction);
+    dump(port12, port12.iwriter, tcl.AESL_transaction);
     port0.doTCL(tcl);
     port1.doTCL(tcl);
     port2.doTCL(tcl);
@@ -1153,11 +1181,13 @@ void apatb_sparse_hw(hls::sim::Byte<4> __xlx_apatb_param_input_data_addr1, hls::
     port8.doTCL(tcl);
     port9.doTCL(tcl);
     port10.doTCL(tcl);
+    port11.doTCL(tcl);
+    port12.doTCL(tcl);
     CodeState = CALL_C_DUT;
-    sparse_hw_stub_wrapper(__xlx_apatb_param_input_data_addr1, __xlx_apatb_param_input_data_addr2, __xlx_apatb_param_output_data_addr3, __xlx_apatb_param_am_ROWS, __xlx_apatb_param_am_COLS, __xlx_apatb_param_fm_ROWS, __xlx_apatb_param_fm_COLS, __xlx_apatb_param_inputs, __xlx_apatb_param_outputs, __xlx_apatb_param_sparse_flag);
+    sparse_hw_stub_wrapper(__xlx_apatb_param_input_data_addr1, __xlx_apatb_param_input_data_addr2, __xlx_apatb_param_output_data_addr3, __xlx_apatb_param_am_ROWS, __xlx_apatb_param_am_COLS, __xlx_apatb_param_fm_ROWS, __xlx_apatb_param_fm_COLS, __xlx_apatb_param_inputs, __xlx_apatb_param_outputs, __xlx_apatb_param_quant_shift, __xlx_apatb_param_quant_mul, __xlx_apatb_param_sparse_flag);
     CodeState = DUMP_OUTPUTS;
-    dump(port9, port9.owriter, tcl.AESL_transaction);
-    dump(port10, port10.owriter, tcl.AESL_transaction);
+    dump(port11, port11.owriter, tcl.AESL_transaction);
+    dump(port12, port12.owriter, tcl.AESL_transaction);
     tcl.AESL_transaction++;
 #endif
   } catch (const hls::sim::SimException &e) {

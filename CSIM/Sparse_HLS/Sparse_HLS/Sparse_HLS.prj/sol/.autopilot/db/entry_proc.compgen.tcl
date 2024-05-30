@@ -33,7 +33,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_output_data_addr3_c \
     op interface \
-    ports { output_data_addr3_c_din { O 32 vector } output_data_addr3_c_num_data_valid { I 3 vector } output_data_addr3_c_fifo_cap { I 3 vector } output_data_addr3_c_full_n { I 1 bit } output_data_addr3_c_write { O 1 bit } } \
+    ports { output_data_addr3_c_din { O 32 vector } output_data_addr3_c_num_data_valid { I 4 vector } output_data_addr3_c_fifo_cap { I 4 vector } output_data_addr3_c_full_n { I 1 bit } output_data_addr3_c_write { O 1 bit } } \
 } "
 }
 
@@ -63,7 +63,67 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_outputs_c \
     op interface \
-    ports { outputs_c_din { O 64 vector } outputs_c_num_data_valid { I 3 vector } outputs_c_fifo_cap { I 3 vector } outputs_c_full_n { I 1 bit } outputs_c_write { O 1 bit } } \
+    ports { outputs_c_din { O 64 vector } outputs_c_num_data_valid { I 4 vector } outputs_c_fifo_cap { I 4 vector } outputs_c_full_n { I 1 bit } outputs_c_write { O 1 bit } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 5 \
+    name quant_shift \
+    type other \
+    dir I \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_quant_shift \
+    op interface \
+    ports { quant_shift { I 32 vector } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 6 \
+    name quant_shift_c \
+    type fifo \
+    dir O \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_quant_shift_c \
+    op interface \
+    ports { quant_shift_c_din { O 32 vector } quant_shift_c_num_data_valid { I 3 vector } quant_shift_c_fifo_cap { I 3 vector } quant_shift_c_full_n { I 1 bit } quant_shift_c_write { O 1 bit } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 7 \
+    name quant_mul \
+    type other \
+    dir I \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_quant_mul \
+    op interface \
+    ports { quant_mul { I 32 vector } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 8 \
+    name quant_mul_c \
+    type fifo \
+    dir O \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_quant_mul_c \
+    op interface \
+    ports { quant_mul_c_din { O 32 vector } quant_mul_c_num_data_valid { I 3 vector } quant_mul_c_fifo_cap { I 3 vector } quant_mul_c_full_n { I 1 bit } quant_mul_c_write { O 1 bit } } \
 } "
 }
 

@@ -106,6 +106,10 @@ void XSparse_Set_inputs(XSparse *InstancePtr, u64 Data);
 u64 XSparse_Get_inputs(XSparse *InstancePtr);
 void XSparse_Set_outputs(XSparse *InstancePtr, u64 Data);
 u64 XSparse_Get_outputs(XSparse *InstancePtr);
+void XSparse_Set_quant_shift(XSparse *InstancePtr, u32 Data);
+u32 XSparse_Get_quant_shift(XSparse *InstancePtr);
+void XSparse_Set_quant_mul(XSparse *InstancePtr, u32 Data);
+u32 XSparse_Get_quant_mul(XSparse *InstancePtr);
 u32 XSparse_Get_sparse_flag(XSparse *InstancePtr);
 u32 XSparse_Get_sparse_flag_vld(XSparse *InstancePtr);
 

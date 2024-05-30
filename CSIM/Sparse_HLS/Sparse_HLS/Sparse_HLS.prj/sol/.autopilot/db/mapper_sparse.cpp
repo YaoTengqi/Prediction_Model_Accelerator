@@ -238,8 +238,8 @@ class AESL_RUNTIME_BC {
 };
 using hls::sim::Byte;
 struct __cosim_s32__ { char data[32]; };
-extern "C" void sparse(Byte<32>*, int, int, int, int, int, int, int, int, int, volatile void *);
-extern "C" void apatb_sparse_hw(int __xlx_apatb_param_input_data_addr1, int __xlx_apatb_param_input_data_addr2, int __xlx_apatb_param_output_data_addr3, int __xlx_apatb_param_am_ROWS, int __xlx_apatb_param_am_COLS, int __xlx_apatb_param_fm_ROWS, int __xlx_apatb_param_fm_COLS, volatile void * __xlx_apatb_param_inputs, volatile void * __xlx_apatb_param_outputs, volatile void * __xlx_apatb_param_sparse_flag) {
+extern "C" void sparse(Byte<32>*, int, int, int, int, int, int, int, int, int, int, int, volatile void *);
+extern "C" void apatb_sparse_hw(int __xlx_apatb_param_input_data_addr1, int __xlx_apatb_param_input_data_addr2, int __xlx_apatb_param_output_data_addr3, int __xlx_apatb_param_am_ROWS, int __xlx_apatb_param_am_COLS, int __xlx_apatb_param_fm_ROWS, int __xlx_apatb_param_fm_COLS, volatile void * __xlx_apatb_param_inputs, volatile void * __xlx_apatb_param_outputs, int __xlx_apatb_param_quant_shift, int __xlx_apatb_param_quant_mul, volatile void * __xlx_apatb_param_sparse_flag) {
 using hls::sim::createStream;
   // Collect __xlx_inputs_outputs__tmp_vec
 std::vector<Byte<32>> __xlx_inputs_outputs__tmp_vec;
@@ -256,7 +256,7 @@ __xlx_inputs_outputs__tmp_vec.push_back(((Byte<32>*)__xlx_apatb_param_outputs)[i
   int __xlx_offset_param_outputs = 1;
   int __xlx_offset_byte_param_outputs = 1*32;
   // DUT call
-  sparse(__xlx_inputs_outputs__tmp_vec.data(), __xlx_apatb_param_input_data_addr1, __xlx_apatb_param_input_data_addr2, __xlx_apatb_param_output_data_addr3, __xlx_apatb_param_am_ROWS, __xlx_apatb_param_am_COLS, __xlx_apatb_param_fm_ROWS, __xlx_apatb_param_fm_COLS, __xlx_offset_byte_param_inputs, __xlx_offset_byte_param_outputs, __xlx_apatb_param_sparse_flag);
+  sparse(__xlx_inputs_outputs__tmp_vec.data(), __xlx_apatb_param_input_data_addr1, __xlx_apatb_param_input_data_addr2, __xlx_apatb_param_output_data_addr3, __xlx_apatb_param_am_ROWS, __xlx_apatb_param_am_COLS, __xlx_apatb_param_fm_ROWS, __xlx_apatb_param_fm_COLS, __xlx_offset_byte_param_inputs, __xlx_offset_byte_param_outputs, __xlx_apatb_param_quant_shift, __xlx_apatb_param_quant_mul, __xlx_apatb_param_sparse_flag);
 // print __xlx_apatb_param_inputs
 for (size_t i = 0; i < __xlx_size_param_inputs; ++i) {
 ((Byte<32>*)__xlx_apatb_param_inputs)[i] = __xlx_inputs_outputs__tmp_vec[__xlx_offset_param_inputs+i];

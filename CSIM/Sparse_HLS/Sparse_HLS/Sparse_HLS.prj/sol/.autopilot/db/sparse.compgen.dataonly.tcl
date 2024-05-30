@@ -74,13 +74,29 @@ outputs {
 	offset 84
 	offset_end 95
 }
+quant_shift { 
+	dir I
+	width 32
+	depth 1
+	mode ap_none
+	offset 96
+	offset_end 103
+}
+quant_mul { 
+	dir I
+	width 32
+	depth 1
+	mode ap_none
+	offset 104
+	offset_end 111
+}
 sparse_flag { 
 	dir O
 	width 1
 	depth 1
 	mode ap_vld
-	offset 96
-	offset_end 103
+	offset 112
+	offset_end 119
 }
 ap_start { }
 ap_done { }

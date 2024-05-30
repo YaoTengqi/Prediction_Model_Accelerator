@@ -70224,36 +70224,42 @@ class DualTaggedType {
 
 template <typename t_AXI_DataType, typename t_DataType_IN, typename t_DataType_OUT, unsigned int nPE>
 void load(
-  unsigned int am_ROWS,
-  unsigned int am_COLS,
-  unsigned int fm_ROWS,
-  unsigned int fm_COLS,
-  t_AXI_DataType *inputs,
-  hls::stream<uint8_t> &idx_stream,
-  hls::stream<uint8_t> &count_stream,
-  hls::stream<typename WideType<t_DataType_OUT, nPE>::t_TypeInt> &fm_stream,
-  uint32_t input_data_addr1,
-  uint32_t input_data_addr2)
+ unsigned int am_ROWS,
+ unsigned int am_COLS,
+ unsigned int fm_ROWS,
+ unsigned int fm_COLS,
+ t_AXI_DataType *inputs,
+ hls::stream<uint8_t> &idx_stream,
+ hls::stream<uint8_t> &count_stream,
+ hls::stream<typename WideType<t_DataType_IN, nPE>::t_TypeInt> &fm_stream,
+ uint32_t input_data_addr1,
+ uint32_t input_data_addr2)
 {
  typename WideType<t_DataType_IN, nPE>::t_TypeInt am_ram[64];
  typename WideType<t_DataType_IN, nPE>::t_TypeInt fm_ram[512];
  int idx_count = 0, count_count = 0;
  int fm_loop_num = fm_ROWS * fm_COLS * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
  int am_loop_num = am_ROWS * am_COLS * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
- VITIS_LOOP_23_1: for(int i = 0; i < fm_loop_num; i++){
+ VITIS_LOOP_23_1: for (int i = 0; i < fm_loop_num; i++)
+ {
   fm_ram[i] = inputs[input_data_addr1 + i];
  }
- VITIS_LOOP_26_2: for(int j = 0; j < am_loop_num; j++){
+ VITIS_LOOP_27_2: for (int j = 0; j < am_loop_num; j++)
+ {
   am_ram[j] = inputs[input_data_addr2 + j];
  }
 #pragma HLS PIPELINE
- VITIS_LOOP_30_3: for(int block = 0; block < (fm_COLS / nPE); block++){
-  VITIS_LOOP_31_4: for(int row = 0; row < am_ROWS; row++){
+ VITIS_LOOP_32_3: for (int block = 0; block < (fm_COLS / nPE); block++)
+ {
+  VITIS_LOOP_34_4: for (int row = 0; row < am_ROWS; row++)
+  {
    int count = 0;
    WideType<t_DataType_IN, nPE> am_value = am_ram[row];
 #pragma HLS UNROLL
- VITIS_LOOP_35_5: for(int col = 0; col < am_COLS; col++){
-    if(am_value[col] != 0){
+ VITIS_LOOP_39_5: for (int col = 0; col < am_COLS; col++)
+   {
+    if (am_value[col] != 0)
+    {
      count++;
      idx_stream.write(col);
      WideType<t_DataType_IN, nPE> fm_value = fm_ram[block * nPE + col];
@@ -70265,30 +70271,34 @@ void load(
  }
 }
 
-
-template <typename t_AXI_DataType, typename t_DataType_IN, typename t_DataType_OUT, unsigned int nPE>
+template <typename t_AXI_DataType, typename t_Quant_DataType, typename t_DataType_IN, typename t_DataType_OUT, unsigned int nPE>
 void mul(
-  unsigned int am_ROWS,
-  unsigned int am_COLS,
-  unsigned int fm_ROWS,
-  unsigned int fm_COLS,
-  hls::stream<typename WideType<t_DataType_OUT, nPE>::t_TypeInt> &fm_stream,
-  hls::stream<uint8_t> &idx_stream,
-  hls::stream<uint8_t> &count_stream,
-  hls::stream<typename WideType<t_DataType_OUT, nPE>::t_TypeInt> &data_stream_out){
+ unsigned int am_ROWS,
+ unsigned int am_COLS,
+ unsigned int fm_ROWS,
+ unsigned int fm_COLS,
+ hls::stream<typename WideType<t_DataType_OUT, nPE>::t_TypeInt> &fm_stream,
+ hls::stream<uint8_t> &idx_stream,
+ hls::stream<uint8_t> &count_stream,
+ hls::stream<typename WideType<t_Quant_DataType, nPE>::t_TypeInt> &data_stream_out)
+{
 #pragma HLS PIPELINE II = 1
- VITIS_LOOP_60_1: for(int block = 0; block < (fm_COLS / nPE); block++){
-  VITIS_LOOP_61_2: for(int row = 0; row < am_ROWS; row++){
+ VITIS_LOOP_66_1: for (int block = 0; block < (fm_COLS / nPE); block++)
+ {
+  VITIS_LOOP_68_2: for (int row = 0; row < am_ROWS; row++)
+  {
    int idx_count = count_stream.read();
-   t_DataType_OUT ZERO = 0;
-   WideType<t_DataType_OUT, nPE> result = ZERO;
-   VITIS_LOOP_65_3: for(int count = 0; count < idx_count; count++){
-   uint8_t idx = idx_stream.read();
+   t_Quant_DataType ZERO = 0;
+   WideType<t_Quant_DataType, nPE> result = ZERO;
+   VITIS_LOOP_73_3: for (int count = 0; count < idx_count; count++)
+   {
+    uint8_t idx = idx_stream.read();
 
-   WideType<t_DataType_IN, nPE> fm_value = fm_stream.read();
-    VITIS_LOOP_69_4: for(int pe = 0; pe < nPE; pe++){
+    WideType<t_DataType_IN, nPE> fm_value = fm_stream.read();
+    VITIS_LOOP_78_4: for (int pe = 0; pe < nPE; pe++)
+    {
 #pragma HLS UNROLL
- result[pe] = result[pe] + fm_value[pe];
+ result[pe] = result[pe] + static_cast<t_Quant_DataType>(fm_value[pe] * 127);
     }
    }
    data_stream_out.write(result);
@@ -70296,6 +70306,41 @@ void mul(
  }
 }
 
+template <typename t_AXI_DataType, typename t_Quant_DataType, typename t_DataType_OUT, unsigned int nPE>
+void quant(hls::stream<typename WideType<t_Quant_DataType, nPE>::t_TypeInt> &data_stream_out,
+   unsigned int fm_ROWS,
+   unsigned int fm_COLS,
+   hls::stream<typename WideType<t_DataType_OUT, nPE>::t_TypeInt> &requant_stream_out,
+   int quant_shift,
+   int quant_mul
+   ){
+
+    int64_t ONE = static_cast<int64_t> (1);
+
+ VITIS_LOOP_100_1: for (int i = 0; i < fm_ROWS * fm_COLS / nPE; i++){
+  WideType<t_Quant_DataType, nPE> dataValue = data_stream_out.read();
+  WideType<t_DataType_OUT, nPE> outValue;
+  VITIS_LOOP_103_2: for(int j = 0; j < nPE; j++){
+   int64_t temp = static_cast<int64_t>(dataValue[j]);
+   int right_shift = quant_shift > 0 ? quant_shift : 0;
+      int left_shift = quant_shift > 0 ? 0 : (-quant_shift);
+      if (left_shift > 0){
+        temp = temp << left_shift;
+      }
+      temp = temp * quant_mul;
+      int total_right_shift = right_shift + 31;
+      int64_t pos_rounding_value = (ONE << (total_right_shift - ONE));
+      temp = temp + pos_rounding_value;
+      temp = temp >> total_right_shift;
+
+      temp = temp > 127 ? 127 : temp;
+      temp = temp < -128 ? -128 : temp;
+
+      outValue[j] = static_cast<t_DataType_OUT>(temp);
+  }
+  requant_stream_out.write(outValue);
+ }
+}
 
 template <typename t_AXI_DataType, typename t_DataType_IN, typename t_DataType_OUT, unsigned int nPE>
 void store(
@@ -70312,14 +70357,15 @@ void store(
  unsigned int loop_num = ROWS * COLS / nPE;
  WideType<t_DataType_IN, nPE> data;
  int count = 0;
- VITIS_LOOP_95_1: for(int i = 0; i < loop_num; i++)
+ VITIS_LOOP_140_1: for (int i = 0; i < loop_num; i++)
  {
 #pragma HLS PIPELINE
  data = data_stream_out.read();
   outputs[dst_idx + i] = data;
   count++;
  }
- if(count == loop_num){
+ if (count == loop_num)
+ {
   done_flag = true;
  }
 }
@@ -70342,6 +70388,8 @@ __attribute__((sdx_kernel("sparse", 0))) void sparse(
  unsigned int fm_COLS,
  ap_uint<256> *inputs,
  ap_uint<256> *outputs,
+ int shift,
+ int mul,
  bool &sparse_flag);
 # 2 "/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/sparse.cpp" 2
 
@@ -70355,11 +70403,13 @@ __attribute__((sdx_kernel("sparse", 0))) void sparse(
  unsigned int fm_COLS,
  ap_uint<256> *inputs,
  ap_uint<256> *outputs,
+ int quant_shift,
+ int quant_mul,
  bool &sparse_flag)
 {
 #line 55 "/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/run_hls.tcl"
 #pragma HLSDIRECTIVE TOP name=sparse
-# 14 "/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/sparse.cpp"
+# 16 "/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/sparse.cpp"
 
 
 #pragma HLS INTERFACE mode = m_axi port = inputs bundle = sparse_data latency = 32
@@ -70371,11 +70421,15 @@ __attribute__((sdx_kernel("sparse", 0))) void sparse(
 #pragma HLS INTERFACE mode = s_axilite port = am_COLS bundle = sparse_addr
 #pragma HLS INTERFACE mode = s_axilite port = fm_ROWS bundle = sparse_addr
 #pragma HLS INTERFACE mode = s_axilite port = fm_COLS bundle = sparse_addr
+#pragma HLS INTERFACE mode = s_axilite port = quant_shift bundle = sparse_addr
+#pragma HLS INTERFACE mode = s_axilite port = quant_mul bundle = sparse_addr
 #pragma HLS INTERFACE mode = s_axilite port = sparse_flag bundle = sparse_addr
 #pragma HLS INTERFACE mode = s_axilite port = return bundle = sparse_addr
 
 
- hls::stream<WideType<ap_int<8>, 32>::t_TypeInt> data_out;
+ hls::stream<WideType<ap_int<32>, 32>::t_TypeInt> data_out;
+#pragma HLS STREAM variable = data_out depth = 64
+ hls::stream<WideType<ap_int<8>, 32>::t_TypeInt> quant_out;
 #pragma HLS STREAM variable = data_out depth = 64
  hls::stream<WideType<ap_int<8>, 32>::t_TypeInt> fm_stream;
 #pragma HLS STREAM variable = fm_stream depth = 128
@@ -70388,6 +70442,7 @@ __attribute__((sdx_kernel("sparse", 0))) void sparse(
 
 #pragma HLS DATAFLOW
  load<ap_uint<256>, ap_int<8>, ap_int<8>, 32>(am_ROWS, am_COLS, fm_ROWS, fm_COLS, inputs, idx_stream, count_stream, fm_stream, input_data_addr1, input_data_addr2);
- mul<ap_uint<256>, ap_int<8>, ap_int<8>, 32>(am_ROWS, am_COLS, fm_ROWS, fm_COLS, fm_stream, idx_stream, count_stream, data_out);
- store<ap_uint<256>, ap_int<8>, ap_int<8>, 32>(data_out, outputs, output_data_addr3, fm_ROWS, fm_COLS, sparse_flag);
+ mul<ap_uint<256>, ap_int<32>, ap_int<8>, ap_int<8>, 32>(am_ROWS, am_COLS, fm_ROWS, fm_COLS, fm_stream, idx_stream, count_stream, data_out);
+ quant<ap_uint<256>, ap_int<32>, ap_int<8>, 32>(data_out, fm_ROWS, fm_COLS, quant_out, quant_shift, quant_mul);
+ store<ap_uint<256>, ap_int<8>, ap_int<8>, 32>(quant_out, outputs, output_data_addr3, fm_ROWS, fm_COLS, sparse_flag);
 }
