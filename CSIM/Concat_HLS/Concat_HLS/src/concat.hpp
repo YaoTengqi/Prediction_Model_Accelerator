@@ -13,11 +13,15 @@
 #include "../include/types.hpp"
 
 void concat(
-		uint32_t input_data_addr1,
-		uint32_t input_data_addr2,
-		uint32_t output_data_addr3,
-		unsigned int ROWS,
-		unsigned int COLS,
-		t_AXI_DataType *inputs,
-		t_AXI_DataType *outputs,
-		bool &concat_flag);
+	uint32_t input_data_addr1,
+	uint32_t input_data_addr2,
+	uint32_t output_data_addr3,
+	unsigned int ROWS,
+	unsigned int COLS,
+	int mul1,
+	int shift1,
+	int mul2,
+	int shift2,
+	t_AXI_DataType *inputs,
+	t_AXI_DataType *outputs,
+	bool &concat_flag);

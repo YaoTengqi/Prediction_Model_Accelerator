@@ -14,6 +14,12 @@ int main(){
 	ap_uint<32> input_data_addr1 = 131072 * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
 	ap_uint<32> input_data_addr3 = 237568 * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
 	bool concat_flag = false;
+	// 第1块的因子
+	int mul1 = 1595702528;
+	int shift1 = -1;
+	// 第2块的因子
+	int mul2 = 1575568640;
+	int shift2 = -1;
 
 	readBin(basedir + "dram_before.bin", sizeof(t_DataType_IN) * ROWS * COLS * 2, input_data);
 	readBin(basedir + "dram_after.bin", sizeof(t_DataType_OUT) * ROWS * COLS * 2, golden);
@@ -22,6 +28,10 @@ int main(){
 			input_data_addr3,
 			ROWS,
 			COLS,
+			mul1,
+			shift1,
+			mul2,
+			shift2,
 			input_data.data(),
 			output_data.data(),
 			concat_flag

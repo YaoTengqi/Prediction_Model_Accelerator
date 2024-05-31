@@ -1,6 +1,6 @@
 # This script segment is generated automatically by AutoPilot
 
-set name concat_mul_8s_33ns_40_1_1
+set name concat_mul_64s_32s_64_1_1
 if {${::AESL::PGuard_rtl_comp_handler}} {
 	::AP::rtl_comp_handler $name BINDTYPE {op} TYPE {mul} IMPL {auto} LATENCY 0 ALLOW_PRAGMA 1
 }
@@ -16,7 +16,7 @@ if {${::AESL::PGuard_autoexp_gen}} {
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 82 \
+    id 90 \
     name input_stream \
     type fifo \
     dir I \
@@ -31,7 +31,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 83 \
+    id 91 \
     name ROWS \
     type fifo \
     dir I \
@@ -46,7 +46,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 84 \
+    id 92 \
     name COLS \
     type fifo \
     dir I \
@@ -61,7 +61,67 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 85 \
+    id 93 \
+    name mul1 \
+    type fifo \
+    dir I \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_mul1 \
+    op interface \
+    ports { mul1_dout { I 32 vector } mul1_num_data_valid { I 3 vector } mul1_fifo_cap { I 3 vector } mul1_empty_n { I 1 bit } mul1_read { O 1 bit } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 94 \
+    name shift1 \
+    type fifo \
+    dir I \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_shift1 \
+    op interface \
+    ports { shift1_dout { I 32 vector } shift1_num_data_valid { I 3 vector } shift1_fifo_cap { I 3 vector } shift1_empty_n { I 1 bit } shift1_read { O 1 bit } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 95 \
+    name mul2 \
+    type fifo \
+    dir I \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_mul2 \
+    op interface \
+    ports { mul2_dout { I 32 vector } mul2_num_data_valid { I 3 vector } mul2_fifo_cap { I 3 vector } mul2_empty_n { I 1 bit } mul2_read { O 1 bit } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 96 \
+    name shift2 \
+    type fifo \
+    dir I \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_shift2 \
+    op interface \
+    ports { shift2_dout { I 32 vector } shift2_num_data_valid { I 3 vector } shift2_fifo_cap { I 3 vector } shift2_empty_n { I 1 bit } shift2_read { O 1 bit } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 97 \
     name output_stream \
     type fifo \
     dir O \
@@ -76,7 +136,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 86 \
+    id 98 \
     name ROWS_c \
     type fifo \
     dir O \
@@ -91,7 +151,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 87 \
+    id 99 \
     name COLS_c \
     type fifo \
     dir O \

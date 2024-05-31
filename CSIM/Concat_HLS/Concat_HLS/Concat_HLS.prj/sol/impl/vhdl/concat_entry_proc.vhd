@@ -27,6 +27,30 @@ port (
     output_data_addr3_c_fifo_cap : IN STD_LOGIC_VECTOR (2 downto 0);
     output_data_addr3_c_full_n : IN STD_LOGIC;
     output_data_addr3_c_write : OUT STD_LOGIC;
+    mul1 : IN STD_LOGIC_VECTOR (31 downto 0);
+    mul1_c_din : OUT STD_LOGIC_VECTOR (31 downto 0);
+    mul1_c_num_data_valid : IN STD_LOGIC_VECTOR (2 downto 0);
+    mul1_c_fifo_cap : IN STD_LOGIC_VECTOR (2 downto 0);
+    mul1_c_full_n : IN STD_LOGIC;
+    mul1_c_write : OUT STD_LOGIC;
+    shift1 : IN STD_LOGIC_VECTOR (31 downto 0);
+    shift1_c_din : OUT STD_LOGIC_VECTOR (31 downto 0);
+    shift1_c_num_data_valid : IN STD_LOGIC_VECTOR (2 downto 0);
+    shift1_c_fifo_cap : IN STD_LOGIC_VECTOR (2 downto 0);
+    shift1_c_full_n : IN STD_LOGIC;
+    shift1_c_write : OUT STD_LOGIC;
+    mul2 : IN STD_LOGIC_VECTOR (31 downto 0);
+    mul2_c_din : OUT STD_LOGIC_VECTOR (31 downto 0);
+    mul2_c_num_data_valid : IN STD_LOGIC_VECTOR (2 downto 0);
+    mul2_c_fifo_cap : IN STD_LOGIC_VECTOR (2 downto 0);
+    mul2_c_full_n : IN STD_LOGIC;
+    mul2_c_write : OUT STD_LOGIC;
+    shift2 : IN STD_LOGIC_VECTOR (31 downto 0);
+    shift2_c_din : OUT STD_LOGIC_VECTOR (31 downto 0);
+    shift2_c_num_data_valid : IN STD_LOGIC_VECTOR (2 downto 0);
+    shift2_c_fifo_cap : IN STD_LOGIC_VECTOR (2 downto 0);
+    shift2_c_full_n : IN STD_LOGIC;
+    shift2_c_write : OUT STD_LOGIC;
     outputs : IN STD_LOGIC_VECTOR (63 downto 0);
     outputs_c_din : OUT STD_LOGIC_VECTOR (63 downto 0);
     outputs_c_num_data_valid : IN STD_LOGIC_VECTOR (2 downto 0);
@@ -54,6 +78,10 @@ attribute shreg_extract : string;
     attribute fsm_encoding of ap_CS_fsm_state1 : signal is "none";
     signal internal_ap_ready : STD_LOGIC;
     signal output_data_addr3_c_blk_n : STD_LOGIC;
+    signal mul1_c_blk_n : STD_LOGIC;
+    signal shift1_c_blk_n : STD_LOGIC;
+    signal mul2_c_blk_n : STD_LOGIC;
+    signal shift2_c_blk_n : STD_LOGIC;
     signal outputs_c_blk_n : STD_LOGIC;
     signal ap_block_state1 : BOOLEAN;
     signal ap_NS_fsm : STD_LOGIC_VECTOR (0 downto 0);
@@ -86,7 +114,7 @@ begin
             else
                 if ((ap_continue = ap_const_logic_1)) then 
                     ap_done_reg <= ap_const_logic_0;
-                elsif ((not(((real_start = ap_const_logic_0) or (outputs_c_full_n = ap_const_logic_0) or (output_data_addr3_c_full_n = ap_const_logic_0) or (ap_done_reg = ap_const_logic_1))) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
+                elsif ((not(((real_start = ap_const_logic_0) or (outputs_c_full_n = ap_const_logic_0) or (shift2_c_full_n = ap_const_logic_0) or (mul2_c_full_n = ap_const_logic_0) or (shift1_c_full_n = ap_const_logic_0) or (mul1_c_full_n = ap_const_logic_0) or (output_data_addr3_c_full_n = ap_const_logic_0) or (ap_done_reg = ap_const_logic_1))) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
                     ap_done_reg <= ap_const_logic_1;
                 end if; 
             end if;
@@ -110,7 +138,7 @@ begin
     end process;
 
 
-    ap_NS_fsm_assign_proc : process (real_start, ap_done_reg, ap_CS_fsm, ap_CS_fsm_state1, output_data_addr3_c_full_n, outputs_c_full_n)
+    ap_NS_fsm_assign_proc : process (real_start, ap_done_reg, ap_CS_fsm, ap_CS_fsm_state1, output_data_addr3_c_full_n, mul1_c_full_n, shift1_c_full_n, mul2_c_full_n, shift2_c_full_n, outputs_c_full_n)
     begin
         case ap_CS_fsm is
             when ap_ST_fsm_state1 => 
@@ -121,9 +149,9 @@ begin
     end process;
     ap_CS_fsm_state1 <= ap_CS_fsm(0);
 
-    ap_ST_fsm_state1_blk_assign_proc : process(real_start, ap_done_reg, output_data_addr3_c_full_n, outputs_c_full_n)
+    ap_ST_fsm_state1_blk_assign_proc : process(real_start, ap_done_reg, output_data_addr3_c_full_n, mul1_c_full_n, shift1_c_full_n, mul2_c_full_n, shift2_c_full_n, outputs_c_full_n)
     begin
-        if (((real_start = ap_const_logic_0) or (outputs_c_full_n = ap_const_logic_0) or (output_data_addr3_c_full_n = ap_const_logic_0) or (ap_done_reg = ap_const_logic_1))) then 
+        if (((real_start = ap_const_logic_0) or (outputs_c_full_n = ap_const_logic_0) or (shift2_c_full_n = ap_const_logic_0) or (mul2_c_full_n = ap_const_logic_0) or (shift1_c_full_n = ap_const_logic_0) or (mul1_c_full_n = ap_const_logic_0) or (output_data_addr3_c_full_n = ap_const_logic_0) or (ap_done_reg = ap_const_logic_1))) then 
             ap_ST_fsm_state1_blk <= ap_const_logic_1;
         else 
             ap_ST_fsm_state1_blk <= ap_const_logic_0;
@@ -131,15 +159,15 @@ begin
     end process;
 
 
-    ap_block_state1_assign_proc : process(real_start, ap_done_reg, output_data_addr3_c_full_n, outputs_c_full_n)
+    ap_block_state1_assign_proc : process(real_start, ap_done_reg, output_data_addr3_c_full_n, mul1_c_full_n, shift1_c_full_n, mul2_c_full_n, shift2_c_full_n, outputs_c_full_n)
     begin
-                ap_block_state1 <= ((real_start = ap_const_logic_0) or (outputs_c_full_n = ap_const_logic_0) or (output_data_addr3_c_full_n = ap_const_logic_0) or (ap_done_reg = ap_const_logic_1));
+                ap_block_state1 <= ((real_start = ap_const_logic_0) or (outputs_c_full_n = ap_const_logic_0) or (shift2_c_full_n = ap_const_logic_0) or (mul2_c_full_n = ap_const_logic_0) or (shift1_c_full_n = ap_const_logic_0) or (mul1_c_full_n = ap_const_logic_0) or (output_data_addr3_c_full_n = ap_const_logic_0) or (ap_done_reg = ap_const_logic_1));
     end process;
 
 
-    ap_done_assign_proc : process(real_start, ap_done_reg, ap_CS_fsm_state1, output_data_addr3_c_full_n, outputs_c_full_n)
+    ap_done_assign_proc : process(real_start, ap_done_reg, ap_CS_fsm_state1, output_data_addr3_c_full_n, mul1_c_full_n, shift1_c_full_n, mul2_c_full_n, shift2_c_full_n, outputs_c_full_n)
     begin
-        if ((not(((real_start = ap_const_logic_0) or (outputs_c_full_n = ap_const_logic_0) or (output_data_addr3_c_full_n = ap_const_logic_0) or (ap_done_reg = ap_const_logic_1))) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
+        if ((not(((real_start = ap_const_logic_0) or (outputs_c_full_n = ap_const_logic_0) or (shift2_c_full_n = ap_const_logic_0) or (mul2_c_full_n = ap_const_logic_0) or (shift1_c_full_n = ap_const_logic_0) or (mul1_c_full_n = ap_const_logic_0) or (output_data_addr3_c_full_n = ap_const_logic_0) or (ap_done_reg = ap_const_logic_1))) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
             ap_done <= ap_const_logic_1;
         else 
             ap_done <= ap_done_reg;
@@ -158,12 +186,54 @@ begin
 
     ap_ready <= internal_ap_ready;
 
-    internal_ap_ready_assign_proc : process(real_start, ap_done_reg, ap_CS_fsm_state1, output_data_addr3_c_full_n, outputs_c_full_n)
+    internal_ap_ready_assign_proc : process(real_start, ap_done_reg, ap_CS_fsm_state1, output_data_addr3_c_full_n, mul1_c_full_n, shift1_c_full_n, mul2_c_full_n, shift2_c_full_n, outputs_c_full_n)
     begin
-        if ((not(((real_start = ap_const_logic_0) or (outputs_c_full_n = ap_const_logic_0) or (output_data_addr3_c_full_n = ap_const_logic_0) or (ap_done_reg = ap_const_logic_1))) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
+        if ((not(((real_start = ap_const_logic_0) or (outputs_c_full_n = ap_const_logic_0) or (shift2_c_full_n = ap_const_logic_0) or (mul2_c_full_n = ap_const_logic_0) or (shift1_c_full_n = ap_const_logic_0) or (mul1_c_full_n = ap_const_logic_0) or (output_data_addr3_c_full_n = ap_const_logic_0) or (ap_done_reg = ap_const_logic_1))) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
             internal_ap_ready <= ap_const_logic_1;
         else 
             internal_ap_ready <= ap_const_logic_0;
+        end if; 
+    end process;
+
+
+    mul1_c_blk_n_assign_proc : process(real_start, ap_done_reg, ap_CS_fsm_state1, mul1_c_full_n)
+    begin
+        if ((not(((real_start = ap_const_logic_0) or (ap_done_reg = ap_const_logic_1))) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
+            mul1_c_blk_n <= mul1_c_full_n;
+        else 
+            mul1_c_blk_n <= ap_const_logic_1;
+        end if; 
+    end process;
+
+    mul1_c_din <= mul1;
+
+    mul1_c_write_assign_proc : process(real_start, ap_done_reg, ap_CS_fsm_state1, output_data_addr3_c_full_n, mul1_c_full_n, shift1_c_full_n, mul2_c_full_n, shift2_c_full_n, outputs_c_full_n)
+    begin
+        if ((not(((real_start = ap_const_logic_0) or (outputs_c_full_n = ap_const_logic_0) or (shift2_c_full_n = ap_const_logic_0) or (mul2_c_full_n = ap_const_logic_0) or (shift1_c_full_n = ap_const_logic_0) or (mul1_c_full_n = ap_const_logic_0) or (output_data_addr3_c_full_n = ap_const_logic_0) or (ap_done_reg = ap_const_logic_1))) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
+            mul1_c_write <= ap_const_logic_1;
+        else 
+            mul1_c_write <= ap_const_logic_0;
+        end if; 
+    end process;
+
+
+    mul2_c_blk_n_assign_proc : process(real_start, ap_done_reg, ap_CS_fsm_state1, mul2_c_full_n)
+    begin
+        if ((not(((real_start = ap_const_logic_0) or (ap_done_reg = ap_const_logic_1))) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
+            mul2_c_blk_n <= mul2_c_full_n;
+        else 
+            mul2_c_blk_n <= ap_const_logic_1;
+        end if; 
+    end process;
+
+    mul2_c_din <= mul2;
+
+    mul2_c_write_assign_proc : process(real_start, ap_done_reg, ap_CS_fsm_state1, output_data_addr3_c_full_n, mul1_c_full_n, shift1_c_full_n, mul2_c_full_n, shift2_c_full_n, outputs_c_full_n)
+    begin
+        if ((not(((real_start = ap_const_logic_0) or (outputs_c_full_n = ap_const_logic_0) or (shift2_c_full_n = ap_const_logic_0) or (mul2_c_full_n = ap_const_logic_0) or (shift1_c_full_n = ap_const_logic_0) or (mul1_c_full_n = ap_const_logic_0) or (output_data_addr3_c_full_n = ap_const_logic_0) or (ap_done_reg = ap_const_logic_1))) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
+            mul2_c_write <= ap_const_logic_1;
+        else 
+            mul2_c_write <= ap_const_logic_0;
         end if; 
     end process;
 
@@ -179,9 +249,9 @@ begin
 
     output_data_addr3_c_din <= output_data_addr3;
 
-    output_data_addr3_c_write_assign_proc : process(real_start, ap_done_reg, ap_CS_fsm_state1, output_data_addr3_c_full_n, outputs_c_full_n)
+    output_data_addr3_c_write_assign_proc : process(real_start, ap_done_reg, ap_CS_fsm_state1, output_data_addr3_c_full_n, mul1_c_full_n, shift1_c_full_n, mul2_c_full_n, shift2_c_full_n, outputs_c_full_n)
     begin
-        if ((not(((real_start = ap_const_logic_0) or (outputs_c_full_n = ap_const_logic_0) or (output_data_addr3_c_full_n = ap_const_logic_0) or (ap_done_reg = ap_const_logic_1))) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
+        if ((not(((real_start = ap_const_logic_0) or (outputs_c_full_n = ap_const_logic_0) or (shift2_c_full_n = ap_const_logic_0) or (mul2_c_full_n = ap_const_logic_0) or (shift1_c_full_n = ap_const_logic_0) or (mul1_c_full_n = ap_const_logic_0) or (output_data_addr3_c_full_n = ap_const_logic_0) or (ap_done_reg = ap_const_logic_1))) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
             output_data_addr3_c_write <= ap_const_logic_1;
         else 
             output_data_addr3_c_write <= ap_const_logic_0;
@@ -200,9 +270,9 @@ begin
 
     outputs_c_din <= outputs;
 
-    outputs_c_write_assign_proc : process(real_start, ap_done_reg, ap_CS_fsm_state1, output_data_addr3_c_full_n, outputs_c_full_n)
+    outputs_c_write_assign_proc : process(real_start, ap_done_reg, ap_CS_fsm_state1, output_data_addr3_c_full_n, mul1_c_full_n, shift1_c_full_n, mul2_c_full_n, shift2_c_full_n, outputs_c_full_n)
     begin
-        if ((not(((real_start = ap_const_logic_0) or (outputs_c_full_n = ap_const_logic_0) or (output_data_addr3_c_full_n = ap_const_logic_0) or (ap_done_reg = ap_const_logic_1))) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
+        if ((not(((real_start = ap_const_logic_0) or (outputs_c_full_n = ap_const_logic_0) or (shift2_c_full_n = ap_const_logic_0) or (mul2_c_full_n = ap_const_logic_0) or (shift1_c_full_n = ap_const_logic_0) or (mul1_c_full_n = ap_const_logic_0) or (output_data_addr3_c_full_n = ap_const_logic_0) or (ap_done_reg = ap_const_logic_1))) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
             outputs_c_write <= ap_const_logic_1;
         else 
             outputs_c_write <= ap_const_logic_0;
@@ -216,6 +286,48 @@ begin
             real_start <= ap_const_logic_0;
         else 
             real_start <= ap_start;
+        end if; 
+    end process;
+
+
+    shift1_c_blk_n_assign_proc : process(real_start, ap_done_reg, ap_CS_fsm_state1, shift1_c_full_n)
+    begin
+        if ((not(((real_start = ap_const_logic_0) or (ap_done_reg = ap_const_logic_1))) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
+            shift1_c_blk_n <= shift1_c_full_n;
+        else 
+            shift1_c_blk_n <= ap_const_logic_1;
+        end if; 
+    end process;
+
+    shift1_c_din <= shift1;
+
+    shift1_c_write_assign_proc : process(real_start, ap_done_reg, ap_CS_fsm_state1, output_data_addr3_c_full_n, mul1_c_full_n, shift1_c_full_n, mul2_c_full_n, shift2_c_full_n, outputs_c_full_n)
+    begin
+        if ((not(((real_start = ap_const_logic_0) or (outputs_c_full_n = ap_const_logic_0) or (shift2_c_full_n = ap_const_logic_0) or (mul2_c_full_n = ap_const_logic_0) or (shift1_c_full_n = ap_const_logic_0) or (mul1_c_full_n = ap_const_logic_0) or (output_data_addr3_c_full_n = ap_const_logic_0) or (ap_done_reg = ap_const_logic_1))) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
+            shift1_c_write <= ap_const_logic_1;
+        else 
+            shift1_c_write <= ap_const_logic_0;
+        end if; 
+    end process;
+
+
+    shift2_c_blk_n_assign_proc : process(real_start, ap_done_reg, ap_CS_fsm_state1, shift2_c_full_n)
+    begin
+        if ((not(((real_start = ap_const_logic_0) or (ap_done_reg = ap_const_logic_1))) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
+            shift2_c_blk_n <= shift2_c_full_n;
+        else 
+            shift2_c_blk_n <= ap_const_logic_1;
+        end if; 
+    end process;
+
+    shift2_c_din <= shift2;
+
+    shift2_c_write_assign_proc : process(real_start, ap_done_reg, ap_CS_fsm_state1, output_data_addr3_c_full_n, mul1_c_full_n, shift1_c_full_n, mul2_c_full_n, shift2_c_full_n, outputs_c_full_n)
+    begin
+        if ((not(((real_start = ap_const_logic_0) or (outputs_c_full_n = ap_const_logic_0) or (shift2_c_full_n = ap_const_logic_0) or (mul2_c_full_n = ap_const_logic_0) or (shift1_c_full_n = ap_const_logic_0) or (mul1_c_full_n = ap_const_logic_0) or (output_data_addr3_c_full_n = ap_const_logic_0) or (ap_done_reg = ap_const_logic_1))) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
+            shift2_c_write <= ap_const_logic_1;
+        else 
+            shift2_c_write <= ap_const_logic_0;
         end if; 
     end process;
 

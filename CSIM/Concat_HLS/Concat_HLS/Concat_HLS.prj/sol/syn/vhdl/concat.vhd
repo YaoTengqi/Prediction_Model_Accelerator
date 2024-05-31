@@ -96,7 +96,7 @@ end;
 architecture behav of concat is 
     attribute CORE_GENERATION_INFO : STRING;
     attribute CORE_GENERATION_INFO of behav : architecture is
-    "concat_concat,hls_ip_2022_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xczu7ev-ffvc1156-2-e,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=7.300000,HLS_SYN_LAT=-1,HLS_SYN_TPT=-1,HLS_SYN_MEM=30,HLS_SYN_DSP=0,HLS_SYN_FF=4392,HLS_SYN_LUT=11432,HLS_VERSION=2022_2}";
+    "concat_concat,hls_ip_2022_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xczu7ev-ffvc1156-2-e,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=7.300000,HLS_SYN_LAT=-1,HLS_SYN_TPT=-1,HLS_SYN_MEM=30,HLS_SYN_DSP=0,HLS_SYN_FF=9108,HLS_SYN_LUT=45410,HLS_VERSION=2022_2}";
     constant C_S_AXI_DATA_WIDTH : INTEGER range 63 downto 0 := 20;
     constant ap_const_logic_1 : STD_LOGIC := '1';
     constant C_M_AXI_DATA_WIDTH : INTEGER range 63 downto 0 := 20;
@@ -113,6 +113,10 @@ architecture behav of concat is
     signal output_data_addr3 : STD_LOGIC_VECTOR (31 downto 0);
     signal ROWS : STD_LOGIC_VECTOR (31 downto 0);
     signal COLS : STD_LOGIC_VECTOR (31 downto 0);
+    signal mul1 : STD_LOGIC_VECTOR (31 downto 0);
+    signal shift1 : STD_LOGIC_VECTOR (31 downto 0);
+    signal mul2 : STD_LOGIC_VECTOR (31 downto 0);
+    signal shift2 : STD_LOGIC_VECTOR (31 downto 0);
     signal inputs : STD_LOGIC_VECTOR (63 downto 0);
     signal outputs : STD_LOGIC_VECTOR (63 downto 0);
     signal concat_flag : STD_LOGIC;
@@ -135,6 +139,7 @@ architecture behav of concat is
     signal concat_data_BID : STD_LOGIC_VECTOR (0 downto 0);
     signal concat_data_BUSER : STD_LOGIC_VECTOR (0 downto 0);
     signal entry_proc_U0_ap_start : STD_LOGIC;
+    signal entry_proc_U0_start_full_n : STD_LOGIC;
     signal entry_proc_U0_ap_done : STD_LOGIC;
     signal entry_proc_U0_ap_continue : STD_LOGIC;
     signal entry_proc_U0_ap_idle : STD_LOGIC;
@@ -143,6 +148,14 @@ architecture behav of concat is
     signal entry_proc_U0_start_write : STD_LOGIC;
     signal entry_proc_U0_output_data_addr3_c_din : STD_LOGIC_VECTOR (31 downto 0);
     signal entry_proc_U0_output_data_addr3_c_write : STD_LOGIC;
+    signal entry_proc_U0_mul1_c_din : STD_LOGIC_VECTOR (31 downto 0);
+    signal entry_proc_U0_mul1_c_write : STD_LOGIC;
+    signal entry_proc_U0_shift1_c_din : STD_LOGIC_VECTOR (31 downto 0);
+    signal entry_proc_U0_shift1_c_write : STD_LOGIC;
+    signal entry_proc_U0_mul2_c_din : STD_LOGIC_VECTOR (31 downto 0);
+    signal entry_proc_U0_mul2_c_write : STD_LOGIC;
+    signal entry_proc_U0_shift2_c_din : STD_LOGIC_VECTOR (31 downto 0);
+    signal entry_proc_U0_shift2_c_write : STD_LOGIC;
     signal entry_proc_U0_outputs_c_din : STD_LOGIC_VECTOR (63 downto 0);
     signal entry_proc_U0_outputs_c_write : STD_LOGIC;
     signal read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_start : STD_LOGIC;
@@ -150,8 +163,6 @@ architecture behav of concat is
     signal read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_continue : STD_LOGIC;
     signal read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_idle : STD_LOGIC;
     signal read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_ready : STD_LOGIC;
-    signal read_inputs_ap_uint_256_ap_int_8_32u_U0_start_out : STD_LOGIC;
-    signal read_inputs_ap_uint_256_ap_int_8_32u_U0_start_write : STD_LOGIC;
     signal read_inputs_ap_uint_256_ap_int_8_32u_U0_m_axi_concat_data_AWVALID : STD_LOGIC;
     signal read_inputs_ap_uint_256_ap_int_8_32u_U0_m_axi_concat_data_AWADDR : STD_LOGIC_VECTOR (63 downto 0);
     signal read_inputs_ap_uint_256_ap_int_8_32u_U0_m_axi_concat_data_AWID : STD_LOGIC_VECTOR (0 downto 0);
@@ -198,6 +209,10 @@ architecture behav of concat is
     signal requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_input_stream_read : STD_LOGIC;
     signal requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ROWS_read : STD_LOGIC;
     signal requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_COLS_read : STD_LOGIC;
+    signal requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_mul1_read : STD_LOGIC;
+    signal requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_shift1_read : STD_LOGIC;
+    signal requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_mul2_read : STD_LOGIC;
+    signal requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_shift2_read : STD_LOGIC;
     signal requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_output_stream_din : STD_LOGIC_VECTOR (255 downto 0);
     signal requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_output_stream_write : STD_LOGIC;
     signal requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ROWS_c_din : STD_LOGIC_VECTOR (31 downto 0);
@@ -253,6 +268,26 @@ architecture behav of concat is
     signal output_data_addr3_c_num_data_valid : STD_LOGIC_VECTOR (2 downto 0);
     signal output_data_addr3_c_fifo_cap : STD_LOGIC_VECTOR (2 downto 0);
     signal output_data_addr3_c_empty_n : STD_LOGIC;
+    signal mul1_c_full_n : STD_LOGIC;
+    signal mul1_c_dout : STD_LOGIC_VECTOR (31 downto 0);
+    signal mul1_c_num_data_valid : STD_LOGIC_VECTOR (2 downto 0);
+    signal mul1_c_fifo_cap : STD_LOGIC_VECTOR (2 downto 0);
+    signal mul1_c_empty_n : STD_LOGIC;
+    signal shift1_c_full_n : STD_LOGIC;
+    signal shift1_c_dout : STD_LOGIC_VECTOR (31 downto 0);
+    signal shift1_c_num_data_valid : STD_LOGIC_VECTOR (2 downto 0);
+    signal shift1_c_fifo_cap : STD_LOGIC_VECTOR (2 downto 0);
+    signal shift1_c_empty_n : STD_LOGIC;
+    signal mul2_c_full_n : STD_LOGIC;
+    signal mul2_c_dout : STD_LOGIC_VECTOR (31 downto 0);
+    signal mul2_c_num_data_valid : STD_LOGIC_VECTOR (2 downto 0);
+    signal mul2_c_fifo_cap : STD_LOGIC_VECTOR (2 downto 0);
+    signal mul2_c_empty_n : STD_LOGIC;
+    signal shift2_c_full_n : STD_LOGIC;
+    signal shift2_c_dout : STD_LOGIC_VECTOR (31 downto 0);
+    signal shift2_c_num_data_valid : STD_LOGIC_VECTOR (2 downto 0);
+    signal shift2_c_fifo_cap : STD_LOGIC_VECTOR (2 downto 0);
+    signal shift2_c_empty_n : STD_LOGIC;
     signal outputs_c_full_n : STD_LOGIC;
     signal outputs_c_dout : STD_LOGIC_VECTOR (63 downto 0);
     signal outputs_c_num_data_valid : STD_LOGIC_VECTOR (2 downto 0);
@@ -293,14 +328,14 @@ architecture behav of concat is
     signal ap_sync_entry_proc_U0_ap_ready : STD_LOGIC;
     signal ap_sync_reg_read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_ready : STD_LOGIC := '0';
     signal ap_sync_read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_ready : STD_LOGIC;
-    signal start_for_store_ap_uint_256_ap_int_8_32u_U0_din : STD_LOGIC_VECTOR (0 downto 0);
-    signal start_for_store_ap_uint_256_ap_int_8_32u_U0_full_n : STD_LOGIC;
-    signal start_for_store_ap_uint_256_ap_int_8_32u_U0_dout : STD_LOGIC_VECTOR (0 downto 0);
-    signal start_for_store_ap_uint_256_ap_int_8_32u_U0_empty_n : STD_LOGIC;
     signal start_for_requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_din : STD_LOGIC_VECTOR (0 downto 0);
     signal start_for_requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_full_n : STD_LOGIC;
     signal start_for_requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_dout : STD_LOGIC_VECTOR (0 downto 0);
     signal start_for_requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_empty_n : STD_LOGIC;
+    signal start_for_store_ap_uint_256_ap_int_8_32u_U0_din : STD_LOGIC_VECTOR (0 downto 0);
+    signal start_for_store_ap_uint_256_ap_int_8_32u_U0_full_n : STD_LOGIC;
+    signal start_for_store_ap_uint_256_ap_int_8_32u_U0_dout : STD_LOGIC_VECTOR (0 downto 0);
+    signal start_for_store_ap_uint_256_ap_int_8_32u_U0_empty_n : STD_LOGIC;
     signal ap_ce_reg : STD_LOGIC;
 
     component concat_entry_proc IS
@@ -321,6 +356,30 @@ architecture behav of concat is
         output_data_addr3_c_fifo_cap : IN STD_LOGIC_VECTOR (2 downto 0);
         output_data_addr3_c_full_n : IN STD_LOGIC;
         output_data_addr3_c_write : OUT STD_LOGIC;
+        mul1 : IN STD_LOGIC_VECTOR (31 downto 0);
+        mul1_c_din : OUT STD_LOGIC_VECTOR (31 downto 0);
+        mul1_c_num_data_valid : IN STD_LOGIC_VECTOR (2 downto 0);
+        mul1_c_fifo_cap : IN STD_LOGIC_VECTOR (2 downto 0);
+        mul1_c_full_n : IN STD_LOGIC;
+        mul1_c_write : OUT STD_LOGIC;
+        shift1 : IN STD_LOGIC_VECTOR (31 downto 0);
+        shift1_c_din : OUT STD_LOGIC_VECTOR (31 downto 0);
+        shift1_c_num_data_valid : IN STD_LOGIC_VECTOR (2 downto 0);
+        shift1_c_fifo_cap : IN STD_LOGIC_VECTOR (2 downto 0);
+        shift1_c_full_n : IN STD_LOGIC;
+        shift1_c_write : OUT STD_LOGIC;
+        mul2 : IN STD_LOGIC_VECTOR (31 downto 0);
+        mul2_c_din : OUT STD_LOGIC_VECTOR (31 downto 0);
+        mul2_c_num_data_valid : IN STD_LOGIC_VECTOR (2 downto 0);
+        mul2_c_fifo_cap : IN STD_LOGIC_VECTOR (2 downto 0);
+        mul2_c_full_n : IN STD_LOGIC;
+        mul2_c_write : OUT STD_LOGIC;
+        shift2 : IN STD_LOGIC_VECTOR (31 downto 0);
+        shift2_c_din : OUT STD_LOGIC_VECTOR (31 downto 0);
+        shift2_c_num_data_valid : IN STD_LOGIC_VECTOR (2 downto 0);
+        shift2_c_fifo_cap : IN STD_LOGIC_VECTOR (2 downto 0);
+        shift2_c_full_n : IN STD_LOGIC;
+        shift2_c_write : OUT STD_LOGIC;
         outputs : IN STD_LOGIC_VECTOR (63 downto 0);
         outputs_c_din : OUT STD_LOGIC_VECTOR (63 downto 0);
         outputs_c_num_data_valid : IN STD_LOGIC_VECTOR (2 downto 0);
@@ -335,13 +394,10 @@ architecture behav of concat is
         ap_clk : IN STD_LOGIC;
         ap_rst : IN STD_LOGIC;
         ap_start : IN STD_LOGIC;
-        start_full_n : IN STD_LOGIC;
         ap_done : OUT STD_LOGIC;
         ap_continue : IN STD_LOGIC;
         ap_idle : OUT STD_LOGIC;
         ap_ready : OUT STD_LOGIC;
-        start_out : OUT STD_LOGIC;
-        start_write : OUT STD_LOGIC;
         m_axi_concat_data_AWVALID : OUT STD_LOGIC;
         m_axi_concat_data_AWREADY : IN STD_LOGIC;
         m_axi_concat_data_AWADDR : OUT STD_LOGIC_VECTOR (63 downto 0);
@@ -435,6 +491,26 @@ architecture behav of concat is
         COLS_fifo_cap : IN STD_LOGIC_VECTOR (1 downto 0);
         COLS_empty_n : IN STD_LOGIC;
         COLS_read : OUT STD_LOGIC;
+        mul1_dout : IN STD_LOGIC_VECTOR (31 downto 0);
+        mul1_num_data_valid : IN STD_LOGIC_VECTOR (2 downto 0);
+        mul1_fifo_cap : IN STD_LOGIC_VECTOR (2 downto 0);
+        mul1_empty_n : IN STD_LOGIC;
+        mul1_read : OUT STD_LOGIC;
+        shift1_dout : IN STD_LOGIC_VECTOR (31 downto 0);
+        shift1_num_data_valid : IN STD_LOGIC_VECTOR (2 downto 0);
+        shift1_fifo_cap : IN STD_LOGIC_VECTOR (2 downto 0);
+        shift1_empty_n : IN STD_LOGIC;
+        shift1_read : OUT STD_LOGIC;
+        mul2_dout : IN STD_LOGIC_VECTOR (31 downto 0);
+        mul2_num_data_valid : IN STD_LOGIC_VECTOR (2 downto 0);
+        mul2_fifo_cap : IN STD_LOGIC_VECTOR (2 downto 0);
+        mul2_empty_n : IN STD_LOGIC;
+        mul2_read : OUT STD_LOGIC;
+        shift2_dout : IN STD_LOGIC_VECTOR (31 downto 0);
+        shift2_num_data_valid : IN STD_LOGIC_VECTOR (2 downto 0);
+        shift2_fifo_cap : IN STD_LOGIC_VECTOR (2 downto 0);
+        shift2_empty_n : IN STD_LOGIC;
+        shift2_read : OUT STD_LOGIC;
         output_stream_din : OUT STD_LOGIC_VECTOR (255 downto 0);
         output_stream_num_data_valid : IN STD_LOGIC_VECTOR (6 downto 0);
         output_stream_fifo_cap : IN STD_LOGIC_VECTOR (6 downto 0);
@@ -555,6 +631,23 @@ architecture behav of concat is
     end component;
 
 
+    component concat_fifo_w32_d3_S IS
+    port (
+        clk : IN STD_LOGIC;
+        reset : IN STD_LOGIC;
+        if_read_ce : IN STD_LOGIC;
+        if_write_ce : IN STD_LOGIC;
+        if_din : IN STD_LOGIC_VECTOR (31 downto 0);
+        if_full_n : OUT STD_LOGIC;
+        if_write : IN STD_LOGIC;
+        if_dout : OUT STD_LOGIC_VECTOR (31 downto 0);
+        if_num_data_valid : OUT STD_LOGIC_VECTOR (2 downto 0);
+        if_fifo_cap : OUT STD_LOGIC_VECTOR (2 downto 0);
+        if_empty_n : OUT STD_LOGIC;
+        if_read : IN STD_LOGIC );
+    end component;
+
+
     component concat_fifo_w64_d4_S IS
     port (
         clk : IN STD_LOGIC;
@@ -606,7 +699,7 @@ architecture behav of concat is
     end component;
 
 
-    component concat_start_for_store_ap_uint_256_ap_int_8_32u_U0 IS
+    component concat_start_for_requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0 IS
     port (
         clk : IN STD_LOGIC;
         reset : IN STD_LOGIC;
@@ -621,7 +714,7 @@ architecture behav of concat is
     end component;
 
 
-    component concat_start_for_requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0 IS
+    component concat_start_for_store_ap_uint_256_ap_int_8_32u_U0 IS
     port (
         clk : IN STD_LOGIC;
         reset : IN STD_LOGIC;
@@ -666,6 +759,10 @@ architecture behav of concat is
         output_data_addr3 : OUT STD_LOGIC_VECTOR (31 downto 0);
         ROWS : OUT STD_LOGIC_VECTOR (31 downto 0);
         COLS : OUT STD_LOGIC_VECTOR (31 downto 0);
+        mul1 : OUT STD_LOGIC_VECTOR (31 downto 0);
+        shift1 : OUT STD_LOGIC_VECTOR (31 downto 0);
+        mul2 : OUT STD_LOGIC_VECTOR (31 downto 0);
+        shift2 : OUT STD_LOGIC_VECTOR (31 downto 0);
         inputs : OUT STD_LOGIC_VECTOR (63 downto 0);
         outputs : OUT STD_LOGIC_VECTOR (63 downto 0);
         concat_flag : IN STD_LOGIC;
@@ -802,6 +899,10 @@ begin
         output_data_addr3 => output_data_addr3,
         ROWS => ROWS,
         COLS => COLS,
+        mul1 => mul1,
+        shift1 => shift1,
+        mul2 => mul2,
+        shift2 => shift2,
         inputs => inputs,
         outputs => outputs,
         concat_flag => concat_flag,
@@ -907,7 +1008,7 @@ begin
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
         ap_start => entry_proc_U0_ap_start,
-        start_full_n => start_for_store_ap_uint_256_ap_int_8_32u_U0_full_n,
+        start_full_n => entry_proc_U0_start_full_n,
         ap_done => entry_proc_U0_ap_done,
         ap_continue => entry_proc_U0_ap_continue,
         ap_idle => entry_proc_U0_ap_idle,
@@ -920,6 +1021,30 @@ begin
         output_data_addr3_c_fifo_cap => output_data_addr3_c_fifo_cap,
         output_data_addr3_c_full_n => output_data_addr3_c_full_n,
         output_data_addr3_c_write => entry_proc_U0_output_data_addr3_c_write,
+        mul1 => mul1,
+        mul1_c_din => entry_proc_U0_mul1_c_din,
+        mul1_c_num_data_valid => mul1_c_num_data_valid,
+        mul1_c_fifo_cap => mul1_c_fifo_cap,
+        mul1_c_full_n => mul1_c_full_n,
+        mul1_c_write => entry_proc_U0_mul1_c_write,
+        shift1 => shift1,
+        shift1_c_din => entry_proc_U0_shift1_c_din,
+        shift1_c_num_data_valid => shift1_c_num_data_valid,
+        shift1_c_fifo_cap => shift1_c_fifo_cap,
+        shift1_c_full_n => shift1_c_full_n,
+        shift1_c_write => entry_proc_U0_shift1_c_write,
+        mul2 => mul2,
+        mul2_c_din => entry_proc_U0_mul2_c_din,
+        mul2_c_num_data_valid => mul2_c_num_data_valid,
+        mul2_c_fifo_cap => mul2_c_fifo_cap,
+        mul2_c_full_n => mul2_c_full_n,
+        mul2_c_write => entry_proc_U0_mul2_c_write,
+        shift2 => shift2,
+        shift2_c_din => entry_proc_U0_shift2_c_din,
+        shift2_c_num_data_valid => shift2_c_num_data_valid,
+        shift2_c_fifo_cap => shift2_c_fifo_cap,
+        shift2_c_full_n => shift2_c_full_n,
+        shift2_c_write => entry_proc_U0_shift2_c_write,
         outputs => outputs,
         outputs_c_din => entry_proc_U0_outputs_c_din,
         outputs_c_num_data_valid => outputs_c_num_data_valid,
@@ -932,13 +1057,10 @@ begin
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
         ap_start => read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_start,
-        start_full_n => start_for_requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_full_n,
         ap_done => read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_done,
         ap_continue => read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_continue,
         ap_idle => read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_idle,
         ap_ready => read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_ready,
-        start_out => read_inputs_ap_uint_256_ap_int_8_32u_U0_start_out,
-        start_write => read_inputs_ap_uint_256_ap_int_8_32u_U0_start_write,
         m_axi_concat_data_AWVALID => read_inputs_ap_uint_256_ap_int_8_32u_U0_m_axi_concat_data_AWVALID,
         m_axi_concat_data_AWREADY => ap_const_logic_0,
         m_axi_concat_data_AWADDR => read_inputs_ap_uint_256_ap_int_8_32u_U0_m_axi_concat_data_AWADDR,
@@ -1030,6 +1152,26 @@ begin
         COLS_fifo_cap => COLS_c10_fifo_cap,
         COLS_empty_n => COLS_c10_empty_n,
         COLS_read => requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_COLS_read,
+        mul1_dout => mul1_c_dout,
+        mul1_num_data_valid => mul1_c_num_data_valid,
+        mul1_fifo_cap => mul1_c_fifo_cap,
+        mul1_empty_n => mul1_c_empty_n,
+        mul1_read => requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_mul1_read,
+        shift1_dout => shift1_c_dout,
+        shift1_num_data_valid => shift1_c_num_data_valid,
+        shift1_fifo_cap => shift1_c_fifo_cap,
+        shift1_empty_n => shift1_c_empty_n,
+        shift1_read => requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_shift1_read,
+        mul2_dout => mul2_c_dout,
+        mul2_num_data_valid => mul2_c_num_data_valid,
+        mul2_fifo_cap => mul2_c_fifo_cap,
+        mul2_empty_n => mul2_c_empty_n,
+        mul2_read => requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_mul2_read,
+        shift2_dout => shift2_c_dout,
+        shift2_num_data_valid => shift2_c_num_data_valid,
+        shift2_fifo_cap => shift2_c_fifo_cap,
+        shift2_empty_n => shift2_c_empty_n,
+        shift2_read => requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_shift2_read,
         output_stream_din => requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_output_stream_din,
         output_stream_num_data_valid => output_stream_num_data_valid,
         output_stream_fifo_cap => output_stream_fifo_cap,
@@ -1144,6 +1286,66 @@ begin
         if_empty_n => output_data_addr3_c_empty_n,
         if_read => store_ap_uint_256_ap_int_8_32u_U0_input_data_addr3_read);
 
+    mul1_c_U : component concat_fifo_w32_d3_S
+    port map (
+        clk => ap_clk,
+        reset => ap_rst_n_inv,
+        if_read_ce => ap_const_logic_1,
+        if_write_ce => ap_const_logic_1,
+        if_din => entry_proc_U0_mul1_c_din,
+        if_full_n => mul1_c_full_n,
+        if_write => entry_proc_U0_mul1_c_write,
+        if_dout => mul1_c_dout,
+        if_num_data_valid => mul1_c_num_data_valid,
+        if_fifo_cap => mul1_c_fifo_cap,
+        if_empty_n => mul1_c_empty_n,
+        if_read => requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_mul1_read);
+
+    shift1_c_U : component concat_fifo_w32_d3_S
+    port map (
+        clk => ap_clk,
+        reset => ap_rst_n_inv,
+        if_read_ce => ap_const_logic_1,
+        if_write_ce => ap_const_logic_1,
+        if_din => entry_proc_U0_shift1_c_din,
+        if_full_n => shift1_c_full_n,
+        if_write => entry_proc_U0_shift1_c_write,
+        if_dout => shift1_c_dout,
+        if_num_data_valid => shift1_c_num_data_valid,
+        if_fifo_cap => shift1_c_fifo_cap,
+        if_empty_n => shift1_c_empty_n,
+        if_read => requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_shift1_read);
+
+    mul2_c_U : component concat_fifo_w32_d3_S
+    port map (
+        clk => ap_clk,
+        reset => ap_rst_n_inv,
+        if_read_ce => ap_const_logic_1,
+        if_write_ce => ap_const_logic_1,
+        if_din => entry_proc_U0_mul2_c_din,
+        if_full_n => mul2_c_full_n,
+        if_write => entry_proc_U0_mul2_c_write,
+        if_dout => mul2_c_dout,
+        if_num_data_valid => mul2_c_num_data_valid,
+        if_fifo_cap => mul2_c_fifo_cap,
+        if_empty_n => mul2_c_empty_n,
+        if_read => requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_mul2_read);
+
+    shift2_c_U : component concat_fifo_w32_d3_S
+    port map (
+        clk => ap_clk,
+        reset => ap_rst_n_inv,
+        if_read_ce => ap_const_logic_1,
+        if_write_ce => ap_const_logic_1,
+        if_din => entry_proc_U0_shift2_c_din,
+        if_full_n => shift2_c_full_n,
+        if_write => entry_proc_U0_shift2_c_write,
+        if_dout => shift2_c_dout,
+        if_num_data_valid => shift2_c_num_data_valid,
+        if_fifo_cap => shift2_c_fifo_cap,
+        if_empty_n => shift2_c_empty_n,
+        if_read => requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_shift2_read);
+
     outputs_c_U : component concat_fifo_w64_d4_S
     port map (
         clk => ap_clk,
@@ -1249,6 +1451,19 @@ begin
         if_empty_n => COLS_c_empty_n,
         if_read => store_ap_uint_256_ap_int_8_32u_U0_COLS_read);
 
+    start_for_requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_U : component concat_start_for_requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0
+    port map (
+        clk => ap_clk,
+        reset => ap_rst_n_inv,
+        if_read_ce => ap_const_logic_1,
+        if_write_ce => ap_const_logic_1,
+        if_din => start_for_requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_din,
+        if_full_n => start_for_requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_full_n,
+        if_write => entry_proc_U0_start_write,
+        if_dout => start_for_requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_dout,
+        if_empty_n => start_for_requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_empty_n,
+        if_read => requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_ready);
+
     start_for_store_ap_uint_256_ap_int_8_32u_U0_U : component concat_start_for_store_ap_uint_256_ap_int_8_32u_U0
     port map (
         clk => ap_clk,
@@ -1261,19 +1476,6 @@ begin
         if_dout => start_for_store_ap_uint_256_ap_int_8_32u_U0_dout,
         if_empty_n => start_for_store_ap_uint_256_ap_int_8_32u_U0_empty_n,
         if_read => store_ap_uint_256_ap_int_8_32u_U0_ap_ready);
-
-    start_for_requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_U : component concat_start_for_requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0
-    port map (
-        clk => ap_clk,
-        reset => ap_rst_n_inv,
-        if_read_ce => ap_const_logic_1,
-        if_write_ce => ap_const_logic_1,
-        if_din => start_for_requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_din,
-        if_full_n => start_for_requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_full_n,
-        if_write => read_inputs_ap_uint_256_ap_int_8_32u_U0_start_write,
-        if_dout => start_for_requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_dout,
-        if_empty_n => start_for_requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_empty_n,
-        if_read => requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_ready);
 
 
 
@@ -1332,6 +1534,7 @@ begin
     concat_flag <= store_ap_uint_256_ap_int_8_32u_U0_concat_flag(0);
     entry_proc_U0_ap_continue <= ap_const_logic_1;
     entry_proc_U0_ap_start <= ((ap_sync_reg_entry_proc_U0_ap_ready xor ap_const_logic_1) and ap_start);
+    entry_proc_U0_start_full_n <= (start_for_store_ap_uint_256_ap_int_8_32u_U0_full_n and start_for_requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_full_n);
     read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_continue <= ap_const_logic_1;
     read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_start <= ((ap_sync_reg_read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_ready xor ap_const_logic_1) and ap_start);
     requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_continue <= ap_const_logic_1;

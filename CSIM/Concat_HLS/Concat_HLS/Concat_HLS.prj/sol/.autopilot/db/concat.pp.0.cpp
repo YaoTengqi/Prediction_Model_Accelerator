@@ -70248,23 +70248,21 @@ template <typename t_AXI_DataType, typename t_DataType_IN, typename t_DataType_O
 void requant(hls::stream<WideType<t_DataType_IN, sizeof(t_AXI_DataType) / sizeof(t_DataType_IN)>> &input_stream,
     unsigned int ROWS,
     unsigned int COLS,
+    int mul1,
+    int shift1,
+    int mul2,
+    int shift2,
     hls::stream<WideType<t_DataType_OUT, sizeof(t_AXI_DataType) / sizeof(t_DataType_OUT)>> &output_stream
     ){
-
- int mul1 = 1595702528;
- int shift1 = -1;
-
- int mul2 = 1575568640;
- int shift2 = -1;
  int right_shift = shift1 > 0 ? shift1 : 0;
  int left_shift = shift1 > 0 ? 0 : (-shift1);
 
 #pragma HLS PIPELINE
 #pragma HLS UNROLL factor=2
 
- VITIS_LOOP_45_1: for (int i = 0; i < ROWS * COLS * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType); i++){
+ VITIS_LOOP_43_1: for (int i = 0; i < ROWS * COLS * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType); i++){
   WideType<t_DataType_IN, sizeof(t_AXI_DataType) / sizeof(t_DataType_IN)> firstBlockValue = input_stream.read();
-  VITIS_LOOP_47_2: for(int j = 0; j < sizeof(t_AXI_DataType) / sizeof(t_DataType_IN); j++){
+  VITIS_LOOP_45_2: for(int j = 0; j < sizeof(t_AXI_DataType) / sizeof(t_DataType_IN); j++){
    int64_t temp = firstBlockValue[j];
 
    if (left_shift > 0)
@@ -70287,9 +70285,9 @@ void requant(hls::stream<WideType<t_DataType_IN, sizeof(t_AXI_DataType) / sizeof
 
 #pragma HLS PIPELINE
 #pragma HLS UNROLL factor=2
- VITIS_LOOP_70_3: for (int i = 0; i < ROWS * COLS * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType); i++){
+ VITIS_LOOP_68_3: for (int i = 0; i < ROWS * COLS * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType); i++){
   WideType<t_DataType_IN, sizeof(t_AXI_DataType) / sizeof(t_DataType_IN)> secondBlockValue = input_stream.read();
-  VITIS_LOOP_72_4: for(int j = 0; j < sizeof(t_AXI_DataType) / sizeof(t_DataType_IN); j++){
+  VITIS_LOOP_70_4: for(int j = 0; j < sizeof(t_AXI_DataType) / sizeof(t_DataType_IN); j++){
    int64_t temp = secondBlockValue[j];
 
    right_shift = shift2 > 0 ? shift2 : 0;
@@ -70322,7 +70320,7 @@ void store( unsigned int ROWS,
     ){
  t_AXI_DataType result;
  int count = 0;
- VITIS_LOOP_105_1: for (int i = 0; i < ROWS * COLS * 2 * sizeof(t_DataType_OUT) / sizeof(t_AXI_DataType); i++){
+ VITIS_LOOP_103_1: for (int i = 0; i < ROWS * COLS * 2 * sizeof(t_DataType_OUT) / sizeof(t_AXI_DataType); i++){
 #pragma HLS PIPELINE
  result = output_stream.read();
   outputs[input_data_addr3 + i] = result;
@@ -70343,14 +70341,18 @@ void store( unsigned int ROWS,
 
 
 __attribute__((sdx_kernel("concat", 0))) void concat(
-  uint32_t input_data_addr1,
-  uint32_t input_data_addr2,
-  uint32_t output_data_addr3,
-  unsigned int ROWS,
-  unsigned int COLS,
-  ap_uint<256> *inputs,
-  ap_uint<256> *outputs,
-  bool &concat_flag);
+ uint32_t input_data_addr1,
+ uint32_t input_data_addr2,
+ uint32_t output_data_addr3,
+ unsigned int ROWS,
+ unsigned int COLS,
+ int mul1,
+ int shift1,
+ int mul2,
+ int shift2,
+ ap_uint<256> *inputs,
+ ap_uint<256> *outputs,
+ bool &concat_flag);
 # 2 "/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/concat.cpp" 2
 
 __attribute__((sdx_kernel("concat", 0))) void concat(
@@ -70359,13 +70361,17 @@ __attribute__((sdx_kernel("concat", 0))) void concat(
  uint32_t output_data_addr3,
  unsigned int ROWS,
  unsigned int COLS,
+ int mul1,
+ int shift1,
+ int mul2,
+ int shift2,
  ap_uint<256> *inputs,
  ap_uint<256> *outputs,
  bool &concat_flag)
 {
 #line 55 "/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/run_hls.tcl"
 #pragma HLSDIRECTIVE TOP name=concat
-# 12 "/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/concat.cpp"
+# 16 "/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/concat.cpp"
 
 
 #pragma HLS INTERFACE mode = m_axi port = inputs bundle = concat_data latency = 32
@@ -70375,6 +70381,10 @@ __attribute__((sdx_kernel("concat", 0))) void concat(
 #pragma HLS INTERFACE mode = s_axilite port = output_data_addr3 bundle = concat_addr
 #pragma HLS INTERFACE mode = s_axilite port = ROWS bundle = concat_addr
 #pragma HLS INTERFACE mode = s_axilite port = COLS bundle = concat_addr
+#pragma HLS INTERFACE mode = s_axilite port = mul1 bundle = concat_addr
+#pragma HLS INTERFACE mode = s_axilite port = shift1 bundle = concat_addr
+#pragma HLS INTERFACE mode = s_axilite port = mul2 bundle = concat_addr
+#pragma HLS INTERFACE mode = s_axilite port = shift2 bundle = concat_addr
 #pragma HLS INTERFACE mode = s_axilite port = concat_flag bundle = concat_addr
 #pragma HLS INTERFACE mode = s_axilite port = return bundle = concat_addr
 
@@ -70385,6 +70395,6 @@ __attribute__((sdx_kernel("concat", 0))) void concat(
 
 #pragma HLS DATAFLOW
  read_inputs<ap_uint<256>, ap_int<8>, 32>(inputs, input_data_addr1, input_data_addr2, ROWS, COLS, input_stream);
- requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32>(input_stream, ROWS, COLS, output_stream);
+ requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32>(input_stream, ROWS, COLS, mul1, shift1, mul2, shift2, output_stream);
  store<ap_uint<256>, ap_int<8>, 32>(ROWS, COLS, output_data_addr3, output_stream, outputs, concat_flag);
 }

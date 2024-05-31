@@ -7,7 +7,7 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="concat_concat,hls_ip_2022_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xczu7ev-ffvc1156-2-e,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=7.300000,HLS_SYN_LAT=-1,HLS_SYN_TPT=-1,HLS_SYN_MEM=30,HLS_SYN_DSP=0,HLS_SYN_FF=4392,HLS_SYN_LUT=11432,HLS_VERSION=2022_2}" *)
+(* CORE_GENERATION_INFO="concat_concat,hls_ip_2022_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xczu7ev-ffvc1156-2-e,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=7.300000,HLS_SYN_LAT=-1,HLS_SYN_TPT=-1,HLS_SYN_MEM=30,HLS_SYN_DSP=0,HLS_SYN_FF=9108,HLS_SYN_LUT=45410,HLS_VERSION=2022_2}" *)
 
 module concat (
         s_axi_concat_addr_AWVALID,
@@ -170,6 +170,10 @@ wire   [31:0] input_data_addr2;
 wire   [31:0] output_data_addr3;
 wire   [31:0] ROWS;
 wire   [31:0] COLS;
+wire   [31:0] mul1;
+wire   [31:0] shift1;
+wire   [31:0] mul2;
+wire   [31:0] shift2;
 wire   [63:0] inputs;
 wire   [63:0] outputs;
 wire    concat_flag;
@@ -192,6 +196,7 @@ wire   [1:0] concat_data_BRESP;
 wire   [0:0] concat_data_BID;
 wire   [0:0] concat_data_BUSER;
 wire    entry_proc_U0_ap_start;
+wire    entry_proc_U0_start_full_n;
 wire    entry_proc_U0_ap_done;
 wire    entry_proc_U0_ap_continue;
 wire    entry_proc_U0_ap_idle;
@@ -200,6 +205,14 @@ wire    entry_proc_U0_start_out;
 wire    entry_proc_U0_start_write;
 wire   [31:0] entry_proc_U0_output_data_addr3_c_din;
 wire    entry_proc_U0_output_data_addr3_c_write;
+wire   [31:0] entry_proc_U0_mul1_c_din;
+wire    entry_proc_U0_mul1_c_write;
+wire   [31:0] entry_proc_U0_shift1_c_din;
+wire    entry_proc_U0_shift1_c_write;
+wire   [31:0] entry_proc_U0_mul2_c_din;
+wire    entry_proc_U0_mul2_c_write;
+wire   [31:0] entry_proc_U0_shift2_c_din;
+wire    entry_proc_U0_shift2_c_write;
 wire   [63:0] entry_proc_U0_outputs_c_din;
 wire    entry_proc_U0_outputs_c_write;
 wire    read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_start;
@@ -207,8 +220,6 @@ wire    read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_done;
 wire    read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_continue;
 wire    read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_idle;
 wire    read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_ready;
-wire    read_inputs_ap_uint_256_ap_int_8_32u_U0_start_out;
-wire    read_inputs_ap_uint_256_ap_int_8_32u_U0_start_write;
 wire    read_inputs_ap_uint_256_ap_int_8_32u_U0_m_axi_concat_data_AWVALID;
 wire   [63:0] read_inputs_ap_uint_256_ap_int_8_32u_U0_m_axi_concat_data_AWADDR;
 wire   [0:0] read_inputs_ap_uint_256_ap_int_8_32u_U0_m_axi_concat_data_AWID;
@@ -255,6 +266,10 @@ wire    requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_ready;
 wire    requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_input_stream_read;
 wire    requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ROWS_read;
 wire    requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_COLS_read;
+wire    requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_mul1_read;
+wire    requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_shift1_read;
+wire    requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_mul2_read;
+wire    requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_shift2_read;
 wire   [255:0] requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_output_stream_din;
 wire    requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_output_stream_write;
 wire   [31:0] requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ROWS_c_din;
@@ -310,6 +325,26 @@ wire   [31:0] output_data_addr3_c_dout;
 wire   [2:0] output_data_addr3_c_num_data_valid;
 wire   [2:0] output_data_addr3_c_fifo_cap;
 wire    output_data_addr3_c_empty_n;
+wire    mul1_c_full_n;
+wire   [31:0] mul1_c_dout;
+wire   [2:0] mul1_c_num_data_valid;
+wire   [2:0] mul1_c_fifo_cap;
+wire    mul1_c_empty_n;
+wire    shift1_c_full_n;
+wire   [31:0] shift1_c_dout;
+wire   [2:0] shift1_c_num_data_valid;
+wire   [2:0] shift1_c_fifo_cap;
+wire    shift1_c_empty_n;
+wire    mul2_c_full_n;
+wire   [31:0] mul2_c_dout;
+wire   [2:0] mul2_c_num_data_valid;
+wire   [2:0] mul2_c_fifo_cap;
+wire    mul2_c_empty_n;
+wire    shift2_c_full_n;
+wire   [31:0] shift2_c_dout;
+wire   [2:0] shift2_c_num_data_valid;
+wire   [2:0] shift2_c_fifo_cap;
+wire    shift2_c_empty_n;
 wire    outputs_c_full_n;
 wire   [63:0] outputs_c_dout;
 wire   [2:0] outputs_c_num_data_valid;
@@ -350,14 +385,14 @@ reg    ap_sync_reg_entry_proc_U0_ap_ready;
 wire    ap_sync_entry_proc_U0_ap_ready;
 reg    ap_sync_reg_read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_ready;
 wire    ap_sync_read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_ready;
-wire   [0:0] start_for_store_ap_uint_256_ap_int_8_32u_U0_din;
-wire    start_for_store_ap_uint_256_ap_int_8_32u_U0_full_n;
-wire   [0:0] start_for_store_ap_uint_256_ap_int_8_32u_U0_dout;
-wire    start_for_store_ap_uint_256_ap_int_8_32u_U0_empty_n;
 wire   [0:0] start_for_requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_din;
 wire    start_for_requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_full_n;
 wire   [0:0] start_for_requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_dout;
 wire    start_for_requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_empty_n;
+wire   [0:0] start_for_store_ap_uint_256_ap_int_8_32u_U0_din;
+wire    start_for_store_ap_uint_256_ap_int_8_32u_U0_full_n;
+wire   [0:0] start_for_store_ap_uint_256_ap_int_8_32u_U0_dout;
+wire    start_for_store_ap_uint_256_ap_int_8_32u_U0_empty_n;
 wire    ap_ce_reg;
 
 // power-on initialization
@@ -395,6 +430,10 @@ concat_addr_s_axi_U(
     .output_data_addr3(output_data_addr3),
     .ROWS(ROWS),
     .COLS(COLS),
+    .mul1(mul1),
+    .shift1(shift1),
+    .mul2(mul2),
+    .shift2(shift2),
     .inputs(inputs),
     .outputs(outputs),
     .concat_flag(concat_flag),
@@ -500,7 +539,7 @@ concat_entry_proc entry_proc_U0(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst_n_inv),
     .ap_start(entry_proc_U0_ap_start),
-    .start_full_n(start_for_store_ap_uint_256_ap_int_8_32u_U0_full_n),
+    .start_full_n(entry_proc_U0_start_full_n),
     .ap_done(entry_proc_U0_ap_done),
     .ap_continue(entry_proc_U0_ap_continue),
     .ap_idle(entry_proc_U0_ap_idle),
@@ -513,6 +552,30 @@ concat_entry_proc entry_proc_U0(
     .output_data_addr3_c_fifo_cap(output_data_addr3_c_fifo_cap),
     .output_data_addr3_c_full_n(output_data_addr3_c_full_n),
     .output_data_addr3_c_write(entry_proc_U0_output_data_addr3_c_write),
+    .mul1(mul1),
+    .mul1_c_din(entry_proc_U0_mul1_c_din),
+    .mul1_c_num_data_valid(mul1_c_num_data_valid),
+    .mul1_c_fifo_cap(mul1_c_fifo_cap),
+    .mul1_c_full_n(mul1_c_full_n),
+    .mul1_c_write(entry_proc_U0_mul1_c_write),
+    .shift1(shift1),
+    .shift1_c_din(entry_proc_U0_shift1_c_din),
+    .shift1_c_num_data_valid(shift1_c_num_data_valid),
+    .shift1_c_fifo_cap(shift1_c_fifo_cap),
+    .shift1_c_full_n(shift1_c_full_n),
+    .shift1_c_write(entry_proc_U0_shift1_c_write),
+    .mul2(mul2),
+    .mul2_c_din(entry_proc_U0_mul2_c_din),
+    .mul2_c_num_data_valid(mul2_c_num_data_valid),
+    .mul2_c_fifo_cap(mul2_c_fifo_cap),
+    .mul2_c_full_n(mul2_c_full_n),
+    .mul2_c_write(entry_proc_U0_mul2_c_write),
+    .shift2(shift2),
+    .shift2_c_din(entry_proc_U0_shift2_c_din),
+    .shift2_c_num_data_valid(shift2_c_num_data_valid),
+    .shift2_c_fifo_cap(shift2_c_fifo_cap),
+    .shift2_c_full_n(shift2_c_full_n),
+    .shift2_c_write(entry_proc_U0_shift2_c_write),
     .outputs(outputs),
     .outputs_c_din(entry_proc_U0_outputs_c_din),
     .outputs_c_num_data_valid(outputs_c_num_data_valid),
@@ -525,13 +588,10 @@ concat_read_inputs_ap_uint_256_ap_int_8_32u_s read_inputs_ap_uint_256_ap_int_8_3
     .ap_clk(ap_clk),
     .ap_rst(ap_rst_n_inv),
     .ap_start(read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_start),
-    .start_full_n(start_for_requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_full_n),
     .ap_done(read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_done),
     .ap_continue(read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_continue),
     .ap_idle(read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_idle),
     .ap_ready(read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_ready),
-    .start_out(read_inputs_ap_uint_256_ap_int_8_32u_U0_start_out),
-    .start_write(read_inputs_ap_uint_256_ap_int_8_32u_U0_start_write),
     .m_axi_concat_data_AWVALID(read_inputs_ap_uint_256_ap_int_8_32u_U0_m_axi_concat_data_AWVALID),
     .m_axi_concat_data_AWREADY(1'b0),
     .m_axi_concat_data_AWADDR(read_inputs_ap_uint_256_ap_int_8_32u_U0_m_axi_concat_data_AWADDR),
@@ -623,6 +683,26 @@ concat_requant_ap_uint_256_ap_int_8_ap_int_8_32u_s requant_ap_uint_256_ap_int_8_
     .COLS_fifo_cap(COLS_c10_fifo_cap),
     .COLS_empty_n(COLS_c10_empty_n),
     .COLS_read(requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_COLS_read),
+    .mul1_dout(mul1_c_dout),
+    .mul1_num_data_valid(mul1_c_num_data_valid),
+    .mul1_fifo_cap(mul1_c_fifo_cap),
+    .mul1_empty_n(mul1_c_empty_n),
+    .mul1_read(requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_mul1_read),
+    .shift1_dout(shift1_c_dout),
+    .shift1_num_data_valid(shift1_c_num_data_valid),
+    .shift1_fifo_cap(shift1_c_fifo_cap),
+    .shift1_empty_n(shift1_c_empty_n),
+    .shift1_read(requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_shift1_read),
+    .mul2_dout(mul2_c_dout),
+    .mul2_num_data_valid(mul2_c_num_data_valid),
+    .mul2_fifo_cap(mul2_c_fifo_cap),
+    .mul2_empty_n(mul2_c_empty_n),
+    .mul2_read(requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_mul2_read),
+    .shift2_dout(shift2_c_dout),
+    .shift2_num_data_valid(shift2_c_num_data_valid),
+    .shift2_fifo_cap(shift2_c_fifo_cap),
+    .shift2_empty_n(shift2_c_empty_n),
+    .shift2_read(requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_shift2_read),
     .output_stream_din(requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_output_stream_din),
     .output_stream_num_data_valid(output_stream_num_data_valid),
     .output_stream_fifo_cap(output_stream_fifo_cap),
@@ -738,6 +818,66 @@ concat_fifo_w32_d4_S output_data_addr3_c_U(
     .if_read(store_ap_uint_256_ap_int_8_32u_U0_input_data_addr3_read)
 );
 
+concat_fifo_w32_d3_S mul1_c_U(
+    .clk(ap_clk),
+    .reset(ap_rst_n_inv),
+    .if_read_ce(1'b1),
+    .if_write_ce(1'b1),
+    .if_din(entry_proc_U0_mul1_c_din),
+    .if_full_n(mul1_c_full_n),
+    .if_write(entry_proc_U0_mul1_c_write),
+    .if_dout(mul1_c_dout),
+    .if_num_data_valid(mul1_c_num_data_valid),
+    .if_fifo_cap(mul1_c_fifo_cap),
+    .if_empty_n(mul1_c_empty_n),
+    .if_read(requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_mul1_read)
+);
+
+concat_fifo_w32_d3_S shift1_c_U(
+    .clk(ap_clk),
+    .reset(ap_rst_n_inv),
+    .if_read_ce(1'b1),
+    .if_write_ce(1'b1),
+    .if_din(entry_proc_U0_shift1_c_din),
+    .if_full_n(shift1_c_full_n),
+    .if_write(entry_proc_U0_shift1_c_write),
+    .if_dout(shift1_c_dout),
+    .if_num_data_valid(shift1_c_num_data_valid),
+    .if_fifo_cap(shift1_c_fifo_cap),
+    .if_empty_n(shift1_c_empty_n),
+    .if_read(requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_shift1_read)
+);
+
+concat_fifo_w32_d3_S mul2_c_U(
+    .clk(ap_clk),
+    .reset(ap_rst_n_inv),
+    .if_read_ce(1'b1),
+    .if_write_ce(1'b1),
+    .if_din(entry_proc_U0_mul2_c_din),
+    .if_full_n(mul2_c_full_n),
+    .if_write(entry_proc_U0_mul2_c_write),
+    .if_dout(mul2_c_dout),
+    .if_num_data_valid(mul2_c_num_data_valid),
+    .if_fifo_cap(mul2_c_fifo_cap),
+    .if_empty_n(mul2_c_empty_n),
+    .if_read(requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_mul2_read)
+);
+
+concat_fifo_w32_d3_S shift2_c_U(
+    .clk(ap_clk),
+    .reset(ap_rst_n_inv),
+    .if_read_ce(1'b1),
+    .if_write_ce(1'b1),
+    .if_din(entry_proc_U0_shift2_c_din),
+    .if_full_n(shift2_c_full_n),
+    .if_write(entry_proc_U0_shift2_c_write),
+    .if_dout(shift2_c_dout),
+    .if_num_data_valid(shift2_c_num_data_valid),
+    .if_fifo_cap(shift2_c_fifo_cap),
+    .if_empty_n(shift2_c_empty_n),
+    .if_read(requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_shift2_read)
+);
+
 concat_fifo_w64_d4_S outputs_c_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
@@ -843,6 +983,19 @@ concat_fifo_w32_d2_S COLS_c_U(
     .if_read(store_ap_uint_256_ap_int_8_32u_U0_COLS_read)
 );
 
+concat_start_for_requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0 start_for_requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_U(
+    .clk(ap_clk),
+    .reset(ap_rst_n_inv),
+    .if_read_ce(1'b1),
+    .if_write_ce(1'b1),
+    .if_din(start_for_requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_din),
+    .if_full_n(start_for_requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_full_n),
+    .if_write(entry_proc_U0_start_write),
+    .if_dout(start_for_requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_dout),
+    .if_empty_n(start_for_requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_empty_n),
+    .if_read(requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_ready)
+);
+
 concat_start_for_store_ap_uint_256_ap_int_8_32u_U0 start_for_store_ap_uint_256_ap_int_8_32u_U0_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
@@ -854,19 +1007,6 @@ concat_start_for_store_ap_uint_256_ap_int_8_32u_U0 start_for_store_ap_uint_256_a
     .if_dout(start_for_store_ap_uint_256_ap_int_8_32u_U0_dout),
     .if_empty_n(start_for_store_ap_uint_256_ap_int_8_32u_U0_empty_n),
     .if_read(store_ap_uint_256_ap_int_8_32u_U0_ap_ready)
-);
-
-concat_start_for_requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0 start_for_requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_U(
-    .clk(ap_clk),
-    .reset(ap_rst_n_inv),
-    .if_read_ce(1'b1),
-    .if_write_ce(1'b1),
-    .if_din(start_for_requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_din),
-    .if_full_n(start_for_requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_full_n),
-    .if_write(read_inputs_ap_uint_256_ap_int_8_32u_U0_start_write),
-    .if_dout(start_for_requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_dout),
-    .if_empty_n(start_for_requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_empty_n),
-    .if_read(requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_ready)
 );
 
 always @ (posedge ap_clk) begin
@@ -928,6 +1068,8 @@ assign concat_flag = store_ap_uint_256_ap_int_8_32u_U0_concat_flag;
 assign entry_proc_U0_ap_continue = 1'b1;
 
 assign entry_proc_U0_ap_start = ((ap_sync_reg_entry_proc_U0_ap_ready ^ 1'b1) & ap_start);
+
+assign entry_proc_U0_start_full_n = (start_for_store_ap_uint_256_ap_int_8_32u_U0_full_n & start_for_requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_full_n);
 
 assign read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_continue = 1'b1;
 

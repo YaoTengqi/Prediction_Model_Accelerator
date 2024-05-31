@@ -11,13 +11,10 @@ module concat_read_inputs_ap_uint_256_ap_int_8_32u_s (
         ap_clk,
         ap_rst,
         ap_start,
-        start_full_n,
         ap_done,
         ap_continue,
         ap_idle,
         ap_ready,
-        start_out,
-        start_write,
         m_axi_concat_data_AWVALID,
         m_axi_concat_data_AWREADY,
         m_axi_concat_data_AWADDR,
@@ -173,13 +170,10 @@ parameter    ap_ST_fsm_state83 = 83'd4835703278458516698824704;
 input   ap_clk;
 input   ap_rst;
 input   ap_start;
-input   start_full_n;
 output   ap_done;
 input   ap_continue;
 output   ap_idle;
 output   ap_ready;
-output   start_out;
-output   start_write;
 output   m_axi_concat_data_AWVALID;
 input   m_axi_concat_data_AWREADY;
 output  [63:0] m_axi_concat_data_AWADDR;
@@ -249,7 +243,7 @@ output   COLS_c10_write;
 
 reg ap_done;
 reg ap_idle;
-reg start_write;
+reg ap_ready;
 reg m_axi_concat_data_ARVALID;
 reg[63:0] m_axi_concat_data_ARADDR;
 reg m_axi_concat_data_RREADY;
@@ -258,12 +252,9 @@ reg input_stream_write;
 reg ROWS_c9_write;
 reg COLS_c10_write;
 
-reg    real_start;
-reg    start_once_reg;
 reg    ap_done_reg;
 (* fsm_encoding = "none" *) reg   [82:0] ap_CS_fsm;
 wire    ap_CS_fsm_state1;
-reg    internal_ap_ready;
 reg    concat_data_blk_n_AR;
 wire    ap_CS_fsm_state2;
 reg    concat_data_blk_n_R;
@@ -282,7 +273,7 @@ reg   [31:0] div_cast_reg_341;
 wire   [0:0] icmp_ln15_fu_197_p2;
 reg   [0:0] icmp_ln15_reg_347;
 reg   [58:0] trunc_ln15_1_reg_358;
-reg   [58:0] trunc_ln2_reg_379;
+reg   [58:0] trunc_ln3_reg_379;
 wire    ap_CS_fsm_state40;
 wire   [0:0] icmp_ln15_1_fu_249_p2;
 reg   [255:0] p_Val2_s_reg_384;
@@ -391,7 +382,6 @@ wire    ap_ce_reg;
 
 // power-on initialization
 initial begin
-#0 start_once_reg = 1'b0;
 #0 ap_done_reg = 1'b0;
 #0 ap_CS_fsm = 83'd1;
 end
@@ -402,7 +392,7 @@ concat_mul_32s_32s_32_1_1 #(
     .din0_WIDTH( 32 ),
     .din1_WIDTH( 32 ),
     .dout_WIDTH( 32 ))
-mul_32s_32s_32_1_1_U5(
+mul_32s_32s_32_1_1_U13(
     .din0(COLS),
     .din1(ROWS),
     .dout(mul_fu_177_p2)
@@ -429,18 +419,6 @@ always @ (posedge ap_clk) begin
 end
 
 always @ (posedge ap_clk) begin
-    if (ap_rst == 1'b1) begin
-        start_once_reg <= 1'b0;
-    end else begin
-        if (((real_start == 1'b1) & (internal_ap_ready == 1'b0))) begin
-            start_once_reg <= 1'b1;
-        end else if ((internal_ap_ready == 1'b1)) begin
-            start_once_reg <= 1'b0;
-        end
-    end
-end
-
-always @ (posedge ap_clk) begin
     if (((icmp_ln15_1_fu_249_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state40))) begin
         i_2_fu_98 <= 27'd0;
     end else if (((icmp_ln20_fu_309_p2 == 1'd0) & (icmp_ln15_reg_347 == 1'd0) & (1'b1 == ap_CS_fsm_state81))) begin
@@ -449,7 +427,7 @@ always @ (posedge ap_clk) begin
 end
 
 always @ (posedge ap_clk) begin
-    if ((~((real_start == 1'b0) | (1'b0 == COLS_c10_full_n) | (1'b0 == ROWS_c9_full_n) | (ap_done_reg == 1'b1)) & (icmp_ln15_fu_197_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state1))) begin
+    if ((~((ap_done_reg == 1'b1) | (ap_start == 1'b0) | (1'b0 == COLS_c10_full_n) | (1'b0 == ROWS_c9_full_n)) & (icmp_ln15_fu_197_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state1))) begin
         i_fu_94 <= 27'd0;
     end else if (((icmp_ln15_1_fu_249_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state40))) begin
         i_fu_94 <= add_ln15_1_fu_254_p2;
@@ -484,12 +462,12 @@ end
 
 always @ (posedge ap_clk) begin
     if (((icmp_ln15_1_fu_249_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state40))) begin
-        trunc_ln2_reg_379 <= {{add_ln20_fu_276_p2[63:5]}};
+        trunc_ln3_reg_379 <= {{add_ln20_fu_276_p2[63:5]}};
     end
 end
 
 always @ (*) begin
-    if ((~((real_start == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
+    if ((~((ap_done_reg == 1'b1) | (ap_start == 1'b0)) & (1'b1 == ap_CS_fsm_state1))) begin
         COLS_c10_blk_n = COLS_c10_full_n;
     end else begin
         COLS_c10_blk_n = 1'b1;
@@ -497,7 +475,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((~((real_start == 1'b0) | (1'b0 == COLS_c10_full_n) | (1'b0 == ROWS_c9_full_n) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
+    if ((~((ap_done_reg == 1'b1) | (ap_start == 1'b0) | (1'b0 == COLS_c10_full_n) | (1'b0 == ROWS_c9_full_n)) & (1'b1 == ap_CS_fsm_state1))) begin
         COLS_c10_write = 1'b1;
     end else begin
         COLS_c10_write = 1'b0;
@@ -505,7 +483,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((~((real_start == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
+    if ((~((ap_done_reg == 1'b1) | (ap_start == 1'b0)) & (1'b1 == ap_CS_fsm_state1))) begin
         ROWS_c9_blk_n = ROWS_c9_full_n;
     end else begin
         ROWS_c9_blk_n = 1'b1;
@@ -513,7 +491,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((~((real_start == 1'b0) | (1'b0 == COLS_c10_full_n) | (1'b0 == ROWS_c9_full_n) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
+    if ((~((ap_done_reg == 1'b1) | (ap_start == 1'b0) | (1'b0 == COLS_c10_full_n) | (1'b0 == ROWS_c9_full_n)) & (1'b1 == ap_CS_fsm_state1))) begin
         ROWS_c9_write = 1'b1;
     end else begin
         ROWS_c9_write = 1'b0;
@@ -541,7 +519,7 @@ assign ap_ST_fsm_state18_blk = 1'b0;
 assign ap_ST_fsm_state19_blk = 1'b0;
 
 always @ (*) begin
-    if (((real_start == 1'b0) | (1'b0 == COLS_c10_full_n) | (1'b0 == ROWS_c9_full_n) | (ap_done_reg == 1'b1))) begin
+    if (((ap_done_reg == 1'b1) | (ap_start == 1'b0) | (1'b0 == COLS_c10_full_n) | (1'b0 == ROWS_c9_full_n))) begin
         ap_ST_fsm_state1_blk = 1'b1;
     end else begin
         ap_ST_fsm_state1_blk = 1'b0;
@@ -737,10 +715,18 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((real_start == 1'b0) & (1'b1 == ap_CS_fsm_state1))) begin
+    if (((ap_start == 1'b0) & (1'b1 == ap_CS_fsm_state1))) begin
         ap_idle = 1'b1;
     end else begin
         ap_idle = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if (((1'b1 == ap_CS_fsm_state81) & ((icmp_ln20_fu_309_p2 == 1'd1) | (icmp_ln15_reg_347 == 1'd1)))) begin
+        ap_ready = 1'b1;
+    end else begin
+        ap_ready = 1'b0;
     end
 end
 
@@ -791,14 +777,6 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state81) & ((icmp_ln20_fu_309_p2 == 1'd1) | (icmp_ln15_reg_347 == 1'd1)))) begin
-        internal_ap_ready = 1'b1;
-    end else begin
-        internal_ap_ready = 1'b0;
-    end
-end
-
-always @ (*) begin
     if ((m_axi_concat_data_ARREADY == 1'b1)) begin
         if ((1'b1 == ap_CS_fsm_state43)) begin
             m_axi_concat_data_ARADDR = sext_ln20_fu_296_p1;
@@ -829,27 +807,11 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((start_once_reg == 1'b0) & (start_full_n == 1'b0))) begin
-        real_start = 1'b0;
-    end else begin
-        real_start = ap_start;
-    end
-end
-
-always @ (*) begin
-    if (((start_once_reg == 1'b0) & (real_start == 1'b1))) begin
-        start_write = 1'b1;
-    end else begin
-        start_write = 1'b0;
-    end
-end
-
-always @ (*) begin
     case (ap_CS_fsm)
         ap_ST_fsm_state1 : begin
-            if ((~((real_start == 1'b0) | (1'b0 == COLS_c10_full_n) | (1'b0 == ROWS_c9_full_n) | (ap_done_reg == 1'b1)) & (icmp_ln15_fu_197_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state1))) begin
+            if ((~((ap_done_reg == 1'b1) | (ap_start == 1'b0) | (1'b0 == COLS_c10_full_n) | (1'b0 == ROWS_c9_full_n)) & (icmp_ln15_fu_197_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state1))) begin
                 ap_NS_fsm = ap_ST_fsm_state81;
-            end else if ((~((real_start == 1'b0) | (1'b0 == COLS_c10_full_n) | (1'b0 == ROWS_c9_full_n) | (ap_done_reg == 1'b1)) & (icmp_ln15_fu_197_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state1))) begin
+            end else if ((~((ap_done_reg == 1'b1) | (ap_start == 1'b0) | (1'b0 == COLS_c10_full_n) | (1'b0 == ROWS_c9_full_n)) & (icmp_ln15_fu_197_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state1))) begin
                 ap_NS_fsm = ap_ST_fsm_state2;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state1;
@@ -1170,10 +1132,8 @@ assign ap_CS_fsm_state82 = ap_CS_fsm[32'd81];
 assign ap_CS_fsm_state83 = ap_CS_fsm[32'd82];
 
 always @ (*) begin
-    ap_block_state1 = ((real_start == 1'b0) | (1'b0 == COLS_c10_full_n) | (1'b0 == ROWS_c9_full_n) | (ap_done_reg == 1'b1));
+    ap_block_state1 = ((ap_done_reg == 1'b1) | (ap_start == 1'b0) | (1'b0 == COLS_c10_full_n) | (1'b0 == ROWS_c9_full_n));
 end
-
-assign ap_ready = internal_ap_ready;
 
 assign div_cast_fu_193_p1 = div_fu_183_p4;
 
@@ -1245,13 +1205,11 @@ assign m_axi_concat_data_WVALID = 1'b0;
 
 assign sext_ln15_fu_236_p1 = $signed(trunc_ln15_1_reg_358);
 
-assign sext_ln20_fu_296_p1 = $signed(trunc_ln2_reg_379);
+assign sext_ln20_fu_296_p1 = $signed(trunc_ln3_reg_379);
 
 assign shl_ln1_fu_265_p3 = {{input_data_addr2}, {5'd0}};
 
 assign shl_ln_fu_203_p3 = {{input_data_addr1}, {5'd0}};
-
-assign start_out = real_start;
 
 assign zext_ln15_fu_211_p1 = shl_ln_fu_203_p3;
 

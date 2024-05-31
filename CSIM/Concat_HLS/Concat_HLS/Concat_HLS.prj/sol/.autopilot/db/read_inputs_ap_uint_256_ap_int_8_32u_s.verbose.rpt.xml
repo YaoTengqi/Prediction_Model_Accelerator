@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'read_inputs_ap_uint_256_ap_int_8_32u_s'" level="0">
-<item name = "Date">Mon May 27 19:44:25 2024
+<item name = "Date">Fri May 31 15:39:24 2024
 </item>
 <item name = "Version">2022.2 (Build 3670227 on Oct 13 2022)</item>
 <item name = "Project">Concat_HLS.prj</item>
@@ -53,8 +53,8 @@
 <column name="FIFO">-, -, -, -, -</column>
 <column name="Instance">-, 3, 0, 20, -</column>
 <column name="Memory">-, -, -, -, -</column>
-<column name="Multiplexer">-, -, -, 550, -</column>
-<column name="Register">-, -, 824, -, -</column>
+<column name="Multiplexer">-, -, -, 541, -</column>
+<column name="Register">-, -, 823, -, -</column>
 <specialColumn name="Available">624, 1728, 460800, 230400, 96</specialColumn>
 <specialColumn name="Utilization (%)">0, ~0, ~0, ~0, 0</specialColumn>
 </table>
@@ -63,7 +63,7 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP, FF, LUT, URAM</keys>
-<column name="mul_32s_32s_32_1_1_U5">mul_32s_32s_32_1_1, 0, 3, 0, 20, 0</column>
+<column name="mul_32s_32s_32_1_1_U13">mul_32s_32s_32_1_1, 0, 3, 0, 20, 0</column>
 </table>
 </item>
 <item name = "DSP"><table name="" hasTotal="0">
@@ -103,7 +103,6 @@
 <column name="input_stream_blk_n">9, 2, 1, 2</column>
 <column name="input_stream_din">14, 3, 256, 768</column>
 <column name="m_axi_concat_data_ARADDR">14, 3, 64, 192</column>
-<column name="real_start">9, 2, 1, 2</column>
 </table>
 </item>
 <item name = "Register"><table name="" hasTotal="1">
@@ -117,9 +116,8 @@
 <column name="icmp_ln15_reg_347">1, 0, 1, 0</column>
 <column name="p_Val2_1_reg_398">256, 0, 256, 0</column>
 <column name="p_Val2_s_reg_384">256, 0, 256, 0</column>
-<column name="start_once_reg">1, 0, 1, 0</column>
 <column name="trunc_ln15_1_reg_358">59, 0, 59, 0</column>
-<column name="trunc_ln2_reg_379">59, 0, 59, 0</column>
+<column name="trunc_ln3_reg_379">59, 0, 59, 0</column>
 </table>
 </item>
 </section>
@@ -132,13 +130,10 @@
 <column name="ap_clk">in, 1, ap_ctrl_hs, read_inputs&lt;ap_uint&lt;256&gt;, ap_int&lt;8&gt;, 32u&gt;, return value</column>
 <column name="ap_rst">in, 1, ap_ctrl_hs, read_inputs&lt;ap_uint&lt;256&gt;, ap_int&lt;8&gt;, 32u&gt;, return value</column>
 <column name="ap_start">in, 1, ap_ctrl_hs, read_inputs&lt;ap_uint&lt;256&gt;, ap_int&lt;8&gt;, 32u&gt;, return value</column>
-<column name="start_full_n">in, 1, ap_ctrl_hs, read_inputs&lt;ap_uint&lt;256&gt;, ap_int&lt;8&gt;, 32u&gt;, return value</column>
 <column name="ap_done">out, 1, ap_ctrl_hs, read_inputs&lt;ap_uint&lt;256&gt;, ap_int&lt;8&gt;, 32u&gt;, return value</column>
 <column name="ap_continue">in, 1, ap_ctrl_hs, read_inputs&lt;ap_uint&lt;256&gt;, ap_int&lt;8&gt;, 32u&gt;, return value</column>
 <column name="ap_idle">out, 1, ap_ctrl_hs, read_inputs&lt;ap_uint&lt;256&gt;, ap_int&lt;8&gt;, 32u&gt;, return value</column>
 <column name="ap_ready">out, 1, ap_ctrl_hs, read_inputs&lt;ap_uint&lt;256&gt;, ap_int&lt;8&gt;, 32u&gt;, return value</column>
-<column name="start_out">out, 1, ap_ctrl_hs, read_inputs&lt;ap_uint&lt;256&gt;, ap_int&lt;8&gt;, 32u&gt;, return value</column>
-<column name="start_write">out, 1, ap_ctrl_hs, read_inputs&lt;ap_uint&lt;256&gt;, ap_int&lt;8&gt;, 32u&gt;, return value</column>
 <column name="m_axi_concat_data_AWVALID">out, 1, m_axi, concat_data, pointer</column>
 <column name="m_axi_concat_data_AWREADY">in, 1, m_axi, concat_data, pointer</column>
 <column name="m_axi_concat_data_AWADDR">out, 64, m_axi, concat_data, pointer</column>

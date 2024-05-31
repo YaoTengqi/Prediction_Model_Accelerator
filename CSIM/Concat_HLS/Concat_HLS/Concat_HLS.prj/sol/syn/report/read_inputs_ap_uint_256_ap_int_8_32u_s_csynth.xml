@@ -77,8 +77,8 @@
 <AreaEstimates>
 <Resources>
 <DSP>3</DSP>
-<FF>824</FF>
-<LUT>833</LUT>
+<FF>823</FF>
+<LUT>824</LUT>
 <BRAM_18K>0</BRAM_18K>
 <URAM>0</URAM>
 </Resources>
@@ -126,17 +126,6 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>start_full_n</name>
-<Object>read_inputs&lt;ap_uint&lt;256&gt;, ap_int&lt;8&gt;, 32u&gt;</Object>
-<Type>return value</Type>
-<Scope></Scope>
-<IOProtocol>ap_ctrl_hs</IOProtocol>
-<IOConfig></IOConfig>
-<Dir>in</Dir>
-<Bits>1</Bits>
-<Attribute>unknown</Attribute>
-</RtlPorts>
-<RtlPorts>
 <name>ap_done</name>
 <Object>read_inputs&lt;ap_uint&lt;256&gt;, ap_int&lt;8&gt;, 32u&gt;</Object>
 <Type>return value</Type>
@@ -179,28 +168,6 @@
 <Dir>out</Dir>
 <Bits>1</Bits>
 <Attribute>control</Attribute>
-</RtlPorts>
-<RtlPorts>
-<name>start_out</name>
-<Object>read_inputs&lt;ap_uint&lt;256&gt;, ap_int&lt;8&gt;, 32u&gt;</Object>
-<Type>return value</Type>
-<Scope></Scope>
-<IOProtocol>ap_ctrl_hs</IOProtocol>
-<IOConfig></IOConfig>
-<Dir>out</Dir>
-<Bits>1</Bits>
-<Attribute>unknown</Attribute>
-</RtlPorts>
-<RtlPorts>
-<name>start_write</name>
-<Object>read_inputs&lt;ap_uint&lt;256&gt;, ap_int&lt;8&gt;, 32u&gt;</Object>
-<Type>return value</Type>
-<Scope></Scope>
-<IOProtocol>ap_ctrl_hs</IOProtocol>
-<IOConfig></IOConfig>
-<Dir>out</Dir>
-<Bits>1</Bits>
-<Attribute>unknown</Attribute>
 </RtlPorts>
 <RtlPorts>
 <name>m_axi_concat_data_AWVALID</name>

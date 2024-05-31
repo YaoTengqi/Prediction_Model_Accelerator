@@ -41,6 +41,126 @@ eval "cg_default_interface_gen_dc { \
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
     id 3 \
+    name mul1 \
+    type other \
+    dir I \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_mul1 \
+    op interface \
+    ports { mul1 { I 32 vector } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 4 \
+    name mul1_c \
+    type fifo \
+    dir O \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_mul1_c \
+    op interface \
+    ports { mul1_c_din { O 32 vector } mul1_c_num_data_valid { I 3 vector } mul1_c_fifo_cap { I 3 vector } mul1_c_full_n { I 1 bit } mul1_c_write { O 1 bit } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 5 \
+    name shift1 \
+    type other \
+    dir I \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_shift1 \
+    op interface \
+    ports { shift1 { I 32 vector } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 6 \
+    name shift1_c \
+    type fifo \
+    dir O \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_shift1_c \
+    op interface \
+    ports { shift1_c_din { O 32 vector } shift1_c_num_data_valid { I 3 vector } shift1_c_fifo_cap { I 3 vector } shift1_c_full_n { I 1 bit } shift1_c_write { O 1 bit } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 7 \
+    name mul2 \
+    type other \
+    dir I \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_mul2 \
+    op interface \
+    ports { mul2 { I 32 vector } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 8 \
+    name mul2_c \
+    type fifo \
+    dir O \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_mul2_c \
+    op interface \
+    ports { mul2_c_din { O 32 vector } mul2_c_num_data_valid { I 3 vector } mul2_c_fifo_cap { I 3 vector } mul2_c_full_n { I 1 bit } mul2_c_write { O 1 bit } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 9 \
+    name shift2 \
+    type other \
+    dir I \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_shift2 \
+    op interface \
+    ports { shift2 { I 32 vector } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 10 \
+    name shift2_c \
+    type fifo \
+    dir O \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_shift2_c \
+    op interface \
+    ports { shift2_c_din { O 32 vector } shift2_c_num_data_valid { I 3 vector } shift2_c_fifo_cap { I 3 vector } shift2_c_full_n { I 1 bit } shift2_c_write { O 1 bit } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 11 \
     name outputs \
     type other \
     dir I \
@@ -55,7 +175,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 4 \
+    id 12 \
     name outputs_c \
     type fifo \
     dir O \

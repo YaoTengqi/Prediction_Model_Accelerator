@@ -35,6 +35,10 @@ module concat_concat_addr_s_axi
     output wire [31:0]                   output_data_addr3,
     output wire [31:0]                   ROWS,
     output wire [31:0]                   COLS,
+    output wire [31:0]                   mul1,
+    output wire [31:0]                   shift1,
+    output wire [31:0]                   mul2,
+    output wire [31:0]                   shift2,
     output wire [63:0]                   inputs,
     output wire [63:0]                   outputs,
     input  wire [0:0]                    concat_flag,
@@ -79,20 +83,32 @@ module concat_concat_addr_s_axi
 // 0x30 : Data signal of COLS
 //        bit 31~0 - COLS[31:0] (Read/Write)
 // 0x34 : reserved
-// 0x38 : Data signal of inputs
-//        bit 31~0 - inputs[31:0] (Read/Write)
-// 0x3c : Data signal of inputs
-//        bit 31~0 - inputs[63:32] (Read/Write)
-// 0x40 : reserved
-// 0x44 : Data signal of outputs
-//        bit 31~0 - outputs[31:0] (Read/Write)
-// 0x48 : Data signal of outputs
-//        bit 31~0 - outputs[63:32] (Read/Write)
+// 0x38 : Data signal of mul1
+//        bit 31~0 - mul1[31:0] (Read/Write)
+// 0x3c : reserved
+// 0x40 : Data signal of shift1
+//        bit 31~0 - shift1[31:0] (Read/Write)
+// 0x44 : reserved
+// 0x48 : Data signal of mul2
+//        bit 31~0 - mul2[31:0] (Read/Write)
 // 0x4c : reserved
-// 0x50 : Data signal of concat_flag
+// 0x50 : Data signal of shift2
+//        bit 31~0 - shift2[31:0] (Read/Write)
+// 0x54 : reserved
+// 0x58 : Data signal of inputs
+//        bit 31~0 - inputs[31:0] (Read/Write)
+// 0x5c : Data signal of inputs
+//        bit 31~0 - inputs[63:32] (Read/Write)
+// 0x60 : reserved
+// 0x64 : Data signal of outputs
+//        bit 31~0 - outputs[31:0] (Read/Write)
+// 0x68 : Data signal of outputs
+//        bit 31~0 - outputs[63:32] (Read/Write)
+// 0x6c : reserved
+// 0x70 : Data signal of concat_flag
 //        bit 0  - concat_flag[0] (Read)
 //        others - reserved
-// 0x54 : Control signal of concat_flag
+// 0x74 : Control signal of concat_flag
 //        bit 0  - concat_flag_ap_vld (Read/COR)
 //        others - reserved
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
@@ -113,14 +129,22 @@ localparam
     ADDR_ROWS_CTRL                = 7'h2c,
     ADDR_COLS_DATA_0              = 7'h30,
     ADDR_COLS_CTRL                = 7'h34,
-    ADDR_INPUTS_DATA_0            = 7'h38,
-    ADDR_INPUTS_DATA_1            = 7'h3c,
-    ADDR_INPUTS_CTRL              = 7'h40,
-    ADDR_OUTPUTS_DATA_0           = 7'h44,
-    ADDR_OUTPUTS_DATA_1           = 7'h48,
-    ADDR_OUTPUTS_CTRL             = 7'h4c,
-    ADDR_CONCAT_FLAG_DATA_0       = 7'h50,
-    ADDR_CONCAT_FLAG_CTRL         = 7'h54,
+    ADDR_MUL1_DATA_0              = 7'h38,
+    ADDR_MUL1_CTRL                = 7'h3c,
+    ADDR_SHIFT1_DATA_0            = 7'h40,
+    ADDR_SHIFT1_CTRL              = 7'h44,
+    ADDR_MUL2_DATA_0              = 7'h48,
+    ADDR_MUL2_CTRL                = 7'h4c,
+    ADDR_SHIFT2_DATA_0            = 7'h50,
+    ADDR_SHIFT2_CTRL              = 7'h54,
+    ADDR_INPUTS_DATA_0            = 7'h58,
+    ADDR_INPUTS_DATA_1            = 7'h5c,
+    ADDR_INPUTS_CTRL              = 7'h60,
+    ADDR_OUTPUTS_DATA_0           = 7'h64,
+    ADDR_OUTPUTS_DATA_1           = 7'h68,
+    ADDR_OUTPUTS_CTRL             = 7'h6c,
+    ADDR_CONCAT_FLAG_DATA_0       = 7'h70,
+    ADDR_CONCAT_FLAG_CTRL         = 7'h74,
     WRIDLE                        = 2'd0,
     WRDATA                        = 2'd1,
     WRRESP                        = 2'd2,
@@ -162,6 +186,10 @@ localparam
     reg  [31:0]                   int_output_data_addr3 = 'b0;
     reg  [31:0]                   int_ROWS = 'b0;
     reg  [31:0]                   int_COLS = 'b0;
+    reg  [31:0]                   int_mul1 = 'b0;
+    reg  [31:0]                   int_shift1 = 'b0;
+    reg  [31:0]                   int_mul2 = 'b0;
+    reg  [31:0]                   int_shift2 = 'b0;
     reg  [63:0]                   int_inputs = 'b0;
     reg  [63:0]                   int_outputs = 'b0;
     reg                           int_concat_flag_ap_vld;
@@ -290,6 +318,18 @@ always @(posedge ACLK) begin
                 ADDR_COLS_DATA_0: begin
                     rdata <= int_COLS[31:0];
                 end
+                ADDR_MUL1_DATA_0: begin
+                    rdata <= int_mul1[31:0];
+                end
+                ADDR_SHIFT1_DATA_0: begin
+                    rdata <= int_shift1[31:0];
+                end
+                ADDR_MUL2_DATA_0: begin
+                    rdata <= int_mul2[31:0];
+                end
+                ADDR_SHIFT2_DATA_0: begin
+                    rdata <= int_shift2[31:0];
+                end
                 ADDR_INPUTS_DATA_0: begin
                     rdata <= int_inputs[31:0];
                 end
@@ -325,6 +365,10 @@ assign input_data_addr2  = int_input_data_addr2;
 assign output_data_addr3 = int_output_data_addr3;
 assign ROWS              = int_ROWS;
 assign COLS              = int_COLS;
+assign mul1              = int_mul1;
+assign shift1            = int_shift1;
+assign mul2              = int_mul2;
+assign shift2            = int_shift2;
 assign inputs            = int_inputs;
 assign outputs           = int_outputs;
 // int_interrupt
@@ -506,6 +550,46 @@ always @(posedge ACLK) begin
     else if (ACLK_EN) begin
         if (w_hs && waddr == ADDR_COLS_DATA_0)
             int_COLS[31:0] <= (WDATA[31:0] & wmask) | (int_COLS[31:0] & ~wmask);
+    end
+end
+
+// int_mul1[31:0]
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_mul1[31:0] <= 0;
+    else if (ACLK_EN) begin
+        if (w_hs && waddr == ADDR_MUL1_DATA_0)
+            int_mul1[31:0] <= (WDATA[31:0] & wmask) | (int_mul1[31:0] & ~wmask);
+    end
+end
+
+// int_shift1[31:0]
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_shift1[31:0] <= 0;
+    else if (ACLK_EN) begin
+        if (w_hs && waddr == ADDR_SHIFT1_DATA_0)
+            int_shift1[31:0] <= (WDATA[31:0] & wmask) | (int_shift1[31:0] & ~wmask);
+    end
+end
+
+// int_mul2[31:0]
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_mul2[31:0] <= 0;
+    else if (ACLK_EN) begin
+        if (w_hs && waddr == ADDR_MUL2_DATA_0)
+            int_mul2[31:0] <= (WDATA[31:0] & wmask) | (int_mul2[31:0] & ~wmask);
+    end
+end
+
+// int_shift2[31:0]
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_shift2[31:0] <= 0;
+    else if (ACLK_EN) begin
+        if (w_hs && waddr == ADDR_SHIFT2_DATA_0)
+            int_shift2[31:0] <= (WDATA[31:0] & wmask) | (int_shift2[31:0] & ~wmask);
     end
 end
 

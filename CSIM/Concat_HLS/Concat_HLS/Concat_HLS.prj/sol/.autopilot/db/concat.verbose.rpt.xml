@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'concat'" level="0">
-<item name = "Date">Mon May 27 19:44:27 2024
+<item name = "Date">Fri May 31 15:39:27 2024
 </item>
 <item name = "Version">2022.2 (Build 3670227 on Oct 13 2022)</item>
 <item name = "Project">Concat_HLS.prj</item>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">80, ?, 0.800 us, ?, 2, -1, dataflow</column>
+<column name="">?, ?, ?, ?, ?, ?, dataflow</column>
 </table>
 </item>
 <item name = "Detail">
@@ -33,7 +33,7 @@
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
 <column name="entry_proc_U0">entry_proc, 0, 0, 0 ns, 0 ns, 0, 0, no</column>
 <column name="read_inputs_ap_uint_256_ap_int_8_32u_U0">read_inputs_ap_uint_256_ap_int_8_32u_s, 1, ?, 10.000 ns, ?, 1, ?, no</column>
-<column name="requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0">requant_ap_uint_256_ap_int_8_ap_int_8_32u_s, 1, ?, 10.000 ns, ?, 1, ?, no</column>
+<column name="requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0">requant_ap_uint_256_ap_int_8_ap_int_8_32u_s, ?, ?, ?, ?, ?, ?, no</column>
 <column name="store_ap_uint_256_ap_int_8_32u_U0">store_ap_uint_256_ap_int_8_32u_s, 1, ?, 10.000 ns, ?, 1, ?, no</column>
 </table>
 </item>
@@ -51,25 +51,25 @@
 <item name = "Summary"><table name="" hasTotal="1">
 <keys size="6">Name, BRAM_18K, DSP, FF, LUT, URAM</keys>
 <column name="DSP">-, -, -, -, -</column>
-<column name="Expression">-, -, 0, 12, -</column>
-<column name="FIFO">30, -, 904, 500, -</column>
-<column name="Instance">0, 73, 3486, 10902, 0</column>
+<column name="Expression">-, -, 0, 14, -</column>
+<column name="FIFO">30, -, 1300, 768, -</column>
+<column name="Instance">0, 457, 7806, 44610, 0</column>
 <column name="Memory">-, -, -, -, -</column>
 <column name="Multiplexer">-, -, -, 18, -</column>
 <column name="Register">-, -, 2, -, -</column>
 <specialColumn name="Available">624, 1728, 460800, 230400, 96</specialColumn>
-<specialColumn name="Utilization (%)">4, 4, ~0, 4, 0</specialColumn>
+<specialColumn name="Utilization (%)">4, 26, 1, 19, 0</specialColumn>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP, FF, LUT, URAM</keys>
-<column name="concat_addr_s_axi_U">concat_addr_s_axi, 0, 0, 373, 618, 0</column>
+<column name="concat_addr_s_axi_U">concat_addr_s_axi, 0, 0, 525, 874, 0</column>
 <column name="concat_data_m_axi_U">concat_data_m_axi, 0, 0, 1079, 1746, 0</column>
-<column name="entry_proc_U0">entry_proc, 0, 0, 3, 38, 0</column>
-<column name="read_inputs_ap_uint_256_ap_int_8_32u_U0">read_inputs_ap_uint_256_ap_int_8_32u_s, 0, 3, 824, 833, 0</column>
-<column name="requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0">requant_ap_uint_256_ap_int_8_ap_int_8_32u_s, 0, 67, 761, 6997, 0</column>
+<column name="entry_proc_U0">entry_proc, 0, 0, 3, 74, 0</column>
+<column name="read_inputs_ap_uint_256_ap_int_8_32u_U0">read_inputs_ap_uint_256_ap_int_8_32u_s, 0, 3, 823, 824, 0</column>
+<column name="requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0">requant_ap_uint_256_ap_int_8_ap_int_8_32u_s, 0, 451, 4930, 40422, 0</column>
 <column name="store_ap_uint_256_ap_int_8_32u_U0">store_ap_uint_256_ap_int_8_32u_s, 0, 3, 446, 670, 0</column>
 </table>
 </item>
@@ -88,9 +88,13 @@
 <column name="ROWS_c9_U">0, 99, 0, -, 2, 32, 64</column>
 <column name="ROWS_c_U">0, 99, 0, -, 2, 32, 64</column>
 <column name="input_stream_U">15, 155, 0, -, 64, 256, 16384</column>
+<column name="mul1_c_U">0, 99, 0, -, 3, 32, 96</column>
+<column name="mul2_c_U">0, 99, 0, -, 3, 32, 96</column>
 <column name="output_data_addr3_c_U">0, 99, 0, -, 4, 32, 128</column>
 <column name="output_stream_U">15, 155, 0, -, 64, 256, 16384</column>
 <column name="outputs_c_U">0, 99, 0, -, 4, 64, 256</column>
+<column name="shift1_c_U">0, 99, 0, -, 3, 32, 96</column>
+<column name="shift2_c_U">0, 99, 0, -, 3, 32, 96</column>
 </table>
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
@@ -98,6 +102,7 @@
 <column name="ap_idle">and, 0, 0, 2, 1, 1</column>
 <column name="ap_sync_ready">and, 0, 0, 2, 1, 1</column>
 <column name="entry_proc_U0_ap_start">and, 0, 0, 2, 1, 1</column>
+<column name="entry_proc_U0_start_full_n">and, 0, 0, 2, 1, 1</column>
 <column name="read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_start">and, 0, 0, 2, 1, 1</column>
 <column name="ap_sync_entry_proc_U0_ap_ready">or, 0, 0, 2, 1, 1</column>
 <column name="ap_sync_read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_ready">or, 0, 0, 2, 1, 1</column>

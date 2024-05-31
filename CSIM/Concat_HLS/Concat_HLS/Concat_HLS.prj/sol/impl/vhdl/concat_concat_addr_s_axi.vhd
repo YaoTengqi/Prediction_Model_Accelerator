@@ -38,6 +38,10 @@ port (
     output_data_addr3     :out  STD_LOGIC_VECTOR(31 downto 0);
     ROWS                  :out  STD_LOGIC_VECTOR(31 downto 0);
     COLS                  :out  STD_LOGIC_VECTOR(31 downto 0);
+    mul1                  :out  STD_LOGIC_VECTOR(31 downto 0);
+    shift1                :out  STD_LOGIC_VECTOR(31 downto 0);
+    mul2                  :out  STD_LOGIC_VECTOR(31 downto 0);
+    shift2                :out  STD_LOGIC_VECTOR(31 downto 0);
     inputs                :out  STD_LOGIC_VECTOR(63 downto 0);
     outputs               :out  STD_LOGIC_VECTOR(63 downto 0);
     concat_flag           :in   STD_LOGIC_VECTOR(0 downto 0);
@@ -84,20 +88,32 @@ end entity concat_concat_addr_s_axi;
 -- 0x30 : Data signal of COLS
 --        bit 31~0 - COLS[31:0] (Read/Write)
 -- 0x34 : reserved
--- 0x38 : Data signal of inputs
---        bit 31~0 - inputs[31:0] (Read/Write)
--- 0x3c : Data signal of inputs
---        bit 31~0 - inputs[63:32] (Read/Write)
--- 0x40 : reserved
--- 0x44 : Data signal of outputs
---        bit 31~0 - outputs[31:0] (Read/Write)
--- 0x48 : Data signal of outputs
---        bit 31~0 - outputs[63:32] (Read/Write)
+-- 0x38 : Data signal of mul1
+--        bit 31~0 - mul1[31:0] (Read/Write)
+-- 0x3c : reserved
+-- 0x40 : Data signal of shift1
+--        bit 31~0 - shift1[31:0] (Read/Write)
+-- 0x44 : reserved
+-- 0x48 : Data signal of mul2
+--        bit 31~0 - mul2[31:0] (Read/Write)
 -- 0x4c : reserved
--- 0x50 : Data signal of concat_flag
+-- 0x50 : Data signal of shift2
+--        bit 31~0 - shift2[31:0] (Read/Write)
+-- 0x54 : reserved
+-- 0x58 : Data signal of inputs
+--        bit 31~0 - inputs[31:0] (Read/Write)
+-- 0x5c : Data signal of inputs
+--        bit 31~0 - inputs[63:32] (Read/Write)
+-- 0x60 : reserved
+-- 0x64 : Data signal of outputs
+--        bit 31~0 - outputs[31:0] (Read/Write)
+-- 0x68 : Data signal of outputs
+--        bit 31~0 - outputs[63:32] (Read/Write)
+-- 0x6c : reserved
+-- 0x70 : Data signal of concat_flag
 --        bit 0  - concat_flag[0] (Read)
 --        others - reserved
--- 0x54 : Control signal of concat_flag
+-- 0x74 : Control signal of concat_flag
 --        bit 0  - concat_flag_ap_vld (Read/COR)
 --        others - reserved
 -- (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
@@ -121,14 +137,22 @@ architecture behave of concat_concat_addr_s_axi is
     constant ADDR_ROWS_CTRL                : INTEGER := 16#2c#;
     constant ADDR_COLS_DATA_0              : INTEGER := 16#30#;
     constant ADDR_COLS_CTRL                : INTEGER := 16#34#;
-    constant ADDR_INPUTS_DATA_0            : INTEGER := 16#38#;
-    constant ADDR_INPUTS_DATA_1            : INTEGER := 16#3c#;
-    constant ADDR_INPUTS_CTRL              : INTEGER := 16#40#;
-    constant ADDR_OUTPUTS_DATA_0           : INTEGER := 16#44#;
-    constant ADDR_OUTPUTS_DATA_1           : INTEGER := 16#48#;
-    constant ADDR_OUTPUTS_CTRL             : INTEGER := 16#4c#;
-    constant ADDR_CONCAT_FLAG_DATA_0       : INTEGER := 16#50#;
-    constant ADDR_CONCAT_FLAG_CTRL         : INTEGER := 16#54#;
+    constant ADDR_MUL1_DATA_0              : INTEGER := 16#38#;
+    constant ADDR_MUL1_CTRL                : INTEGER := 16#3c#;
+    constant ADDR_SHIFT1_DATA_0            : INTEGER := 16#40#;
+    constant ADDR_SHIFT1_CTRL              : INTEGER := 16#44#;
+    constant ADDR_MUL2_DATA_0              : INTEGER := 16#48#;
+    constant ADDR_MUL2_CTRL                : INTEGER := 16#4c#;
+    constant ADDR_SHIFT2_DATA_0            : INTEGER := 16#50#;
+    constant ADDR_SHIFT2_CTRL              : INTEGER := 16#54#;
+    constant ADDR_INPUTS_DATA_0            : INTEGER := 16#58#;
+    constant ADDR_INPUTS_DATA_1            : INTEGER := 16#5c#;
+    constant ADDR_INPUTS_CTRL              : INTEGER := 16#60#;
+    constant ADDR_OUTPUTS_DATA_0           : INTEGER := 16#64#;
+    constant ADDR_OUTPUTS_DATA_1           : INTEGER := 16#68#;
+    constant ADDR_OUTPUTS_CTRL             : INTEGER := 16#6c#;
+    constant ADDR_CONCAT_FLAG_DATA_0       : INTEGER := 16#70#;
+    constant ADDR_CONCAT_FLAG_CTRL         : INTEGER := 16#74#;
     constant ADDR_BITS         : INTEGER := 7;
 
     signal waddr               : UNSIGNED(ADDR_BITS-1 downto 0);
@@ -162,6 +186,10 @@ architecture behave of concat_concat_addr_s_axi is
     signal int_output_data_addr3 : UNSIGNED(31 downto 0) := (others => '0');
     signal int_ROWS            : UNSIGNED(31 downto 0) := (others => '0');
     signal int_COLS            : UNSIGNED(31 downto 0) := (others => '0');
+    signal int_mul1            : UNSIGNED(31 downto 0) := (others => '0');
+    signal int_shift1          : UNSIGNED(31 downto 0) := (others => '0');
+    signal int_mul2            : UNSIGNED(31 downto 0) := (others => '0');
+    signal int_shift2          : UNSIGNED(31 downto 0) := (others => '0');
     signal int_inputs          : UNSIGNED(63 downto 0) := (others => '0');
     signal int_outputs         : UNSIGNED(63 downto 0) := (others => '0');
     signal int_concat_flag_ap_vld : STD_LOGIC;
@@ -304,6 +332,14 @@ begin
                         rdata_data <= RESIZE(int_ROWS(31 downto 0), 32);
                     when ADDR_COLS_DATA_0 =>
                         rdata_data <= RESIZE(int_COLS(31 downto 0), 32);
+                    when ADDR_MUL1_DATA_0 =>
+                        rdata_data <= RESIZE(int_mul1(31 downto 0), 32);
+                    when ADDR_SHIFT1_DATA_0 =>
+                        rdata_data <= RESIZE(int_shift1(31 downto 0), 32);
+                    when ADDR_MUL2_DATA_0 =>
+                        rdata_data <= RESIZE(int_mul2(31 downto 0), 32);
+                    when ADDR_SHIFT2_DATA_0 =>
+                        rdata_data <= RESIZE(int_shift2(31 downto 0), 32);
                     when ADDR_INPUTS_DATA_0 =>
                         rdata_data <= RESIZE(int_inputs(31 downto 0), 32);
                     when ADDR_INPUTS_DATA_1 =>
@@ -335,6 +371,10 @@ begin
     output_data_addr3    <= STD_LOGIC_VECTOR(int_output_data_addr3);
     ROWS                 <= STD_LOGIC_VECTOR(int_ROWS);
     COLS                 <= STD_LOGIC_VECTOR(int_COLS);
+    mul1                 <= STD_LOGIC_VECTOR(int_mul1);
+    shift1               <= STD_LOGIC_VECTOR(int_shift1);
+    mul2                 <= STD_LOGIC_VECTOR(int_mul2);
+    shift2               <= STD_LOGIC_VECTOR(int_shift2);
     inputs               <= STD_LOGIC_VECTOR(int_inputs);
     outputs              <= STD_LOGIC_VECTOR(int_outputs);
 
@@ -558,6 +598,50 @@ begin
             if (ACLK_EN = '1') then
                 if (w_hs = '1' and waddr = ADDR_COLS_DATA_0) then
                     int_COLS(31 downto 0) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_COLS(31 downto 0));
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ACLK_EN = '1') then
+                if (w_hs = '1' and waddr = ADDR_MUL1_DATA_0) then
+                    int_mul1(31 downto 0) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_mul1(31 downto 0));
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ACLK_EN = '1') then
+                if (w_hs = '1' and waddr = ADDR_SHIFT1_DATA_0) then
+                    int_shift1(31 downto 0) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_shift1(31 downto 0));
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ACLK_EN = '1') then
+                if (w_hs = '1' and waddr = ADDR_MUL2_DATA_0) then
+                    int_mul2(31 downto 0) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_mul2(31 downto 0));
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ACLK_EN = '1') then
+                if (w_hs = '1' and waddr = ADDR_SHIFT2_DATA_0) then
+                    int_shift2(31 downto 0) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_shift2(31 downto 0));
                 end if;
             end if;
         end if;

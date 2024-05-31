@@ -289,8 +289,61 @@
                                 $fdisplay(fp, "Dependence_Channel_status FULL");
                             end
                         end
-                        if (~start_for_store_ap_uint_256_ap_int_8_32u_U0_U.if_full_n & entry_proc_U0.ap_start & ~entry_proc_U0.real_start & (trans_in_cnt_1 == trans_out_cnt_1) & ~start_for_store_ap_uint_256_ap_int_8_32u_U0_U.if_read) begin
+                        if (~start_for_store_ap_uint_256_ap_int_8_32u_U0_U.if_full_n & entry_proc_U0.ap_start & ~entry_proc_U0.real_start & (trans_in_cnt_0 == trans_out_cnt_0) & ~start_for_store_ap_uint_256_ap_int_8_32u_U0_U.if_read) begin
                             $display("//      Blocked by full output start propagation FIFO 'concat_concat.start_for_store_ap_uint_256_ap_int_8_32u_U0_U' read by process 'concat_concat.store_ap_uint_256_ap_int_8_32u_U0',");
+                        end
+                    end
+                    2: begin
+                        if (~entry_proc_U0.mul1_c_blk_n) begin
+                            if (~mul1_c_U.if_empty_n) begin
+                                $display("//      Blocked by empty input FIFO 'concat_concat.mul1_c_U' written by process 'concat_concat.requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path concat_concat.mul1_c_U");
+                                $fdisplay(fp, "Dependence_Channel_status EMPTY");
+                            end
+                            else if (~mul1_c_U.if_full_n) begin
+                                $display("//      Blocked by full output FIFO 'concat_concat.mul1_c_U' read by process 'concat_concat.requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path concat_concat.mul1_c_U");
+                                $fdisplay(fp, "Dependence_Channel_status FULL");
+                            end
+                        end
+                        if (~entry_proc_U0.shift1_c_blk_n) begin
+                            if (~shift1_c_U.if_empty_n) begin
+                                $display("//      Blocked by empty input FIFO 'concat_concat.shift1_c_U' written by process 'concat_concat.requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path concat_concat.shift1_c_U");
+                                $fdisplay(fp, "Dependence_Channel_status EMPTY");
+                            end
+                            else if (~shift1_c_U.if_full_n) begin
+                                $display("//      Blocked by full output FIFO 'concat_concat.shift1_c_U' read by process 'concat_concat.requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path concat_concat.shift1_c_U");
+                                $fdisplay(fp, "Dependence_Channel_status FULL");
+                            end
+                        end
+                        if (~entry_proc_U0.mul2_c_blk_n) begin
+                            if (~mul2_c_U.if_empty_n) begin
+                                $display("//      Blocked by empty input FIFO 'concat_concat.mul2_c_U' written by process 'concat_concat.requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path concat_concat.mul2_c_U");
+                                $fdisplay(fp, "Dependence_Channel_status EMPTY");
+                            end
+                            else if (~mul2_c_U.if_full_n) begin
+                                $display("//      Blocked by full output FIFO 'concat_concat.mul2_c_U' read by process 'concat_concat.requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path concat_concat.mul2_c_U");
+                                $fdisplay(fp, "Dependence_Channel_status FULL");
+                            end
+                        end
+                        if (~entry_proc_U0.shift2_c_blk_n) begin
+                            if (~shift2_c_U.if_empty_n) begin
+                                $display("//      Blocked by empty input FIFO 'concat_concat.shift2_c_U' written by process 'concat_concat.requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path concat_concat.shift2_c_U");
+                                $fdisplay(fp, "Dependence_Channel_status EMPTY");
+                            end
+                            else if (~shift2_c_U.if_full_n) begin
+                                $display("//      Blocked by full output FIFO 'concat_concat.shift2_c_U' read by process 'concat_concat.requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path concat_concat.shift2_c_U");
+                                $fdisplay(fp, "Dependence_Channel_status FULL");
+                            end
+                        end
+                        if (~start_for_requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_U.if_full_n & entry_proc_U0.ap_start & ~entry_proc_U0.real_start & (trans_in_cnt_0 == trans_out_cnt_0) & ~start_for_requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_U.if_read) begin
+                            $display("//      Blocked by full output start propagation FIFO 'concat_concat.start_for_requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_U' read by process 'concat_concat.requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0',");
                         end
                     end
                     1: begin
@@ -339,9 +392,6 @@
                                 $fdisplay(fp, "Dependence_Channel_status FULL");
                             end
                         end
-                        if (~start_for_requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_U.if_full_n & read_inputs_ap_uint_256_ap_int_8_32u_U0.ap_start & ~read_inputs_ap_uint_256_ap_int_8_32u_U0.real_start & (trans_in_cnt_0 == trans_out_cnt_0) & ~start_for_requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_U.if_read) begin
-                            $display("//      Blocked by full output start propagation FIFO 'concat_concat.start_for_requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_U' read by process 'concat_concat.requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0',");
-                        end
                     end
                     0: begin
                         if (ap_sync_read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_ready & read_inputs_ap_uint_256_ap_int_8_32u_U0.ap_idle & ~ap_sync_entry_proc_U0_ap_ready) begin
@@ -389,8 +439,58 @@
                                 $fdisplay(fp, "Dependence_Channel_status FULL");
                             end
                         end
+                    end
+                    0: begin
+                        if (~requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0.mul1_blk_n) begin
+                            if (~mul1_c_U.if_empty_n) begin
+                                $display("//      Blocked by empty input FIFO 'concat_concat.mul1_c_U' written by process 'concat_concat.entry_proc_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path concat_concat.mul1_c_U");
+                                $fdisplay(fp, "Dependence_Channel_status EMPTY");
+                            end
+                            else if (~mul1_c_U.if_full_n) begin
+                                $display("//      Blocked by full output FIFO 'concat_concat.mul1_c_U' read by process 'concat_concat.entry_proc_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path concat_concat.mul1_c_U");
+                                $fdisplay(fp, "Dependence_Channel_status FULL");
+                            end
+                        end
+                        if (~requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0.shift1_blk_n) begin
+                            if (~shift1_c_U.if_empty_n) begin
+                                $display("//      Blocked by empty input FIFO 'concat_concat.shift1_c_U' written by process 'concat_concat.entry_proc_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path concat_concat.shift1_c_U");
+                                $fdisplay(fp, "Dependence_Channel_status EMPTY");
+                            end
+                            else if (~shift1_c_U.if_full_n) begin
+                                $display("//      Blocked by full output FIFO 'concat_concat.shift1_c_U' read by process 'concat_concat.entry_proc_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path concat_concat.shift1_c_U");
+                                $fdisplay(fp, "Dependence_Channel_status FULL");
+                            end
+                        end
+                        if (~requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0.mul2_blk_n) begin
+                            if (~mul2_c_U.if_empty_n) begin
+                                $display("//      Blocked by empty input FIFO 'concat_concat.mul2_c_U' written by process 'concat_concat.entry_proc_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path concat_concat.mul2_c_U");
+                                $fdisplay(fp, "Dependence_Channel_status EMPTY");
+                            end
+                            else if (~mul2_c_U.if_full_n) begin
+                                $display("//      Blocked by full output FIFO 'concat_concat.mul2_c_U' read by process 'concat_concat.entry_proc_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path concat_concat.mul2_c_U");
+                                $fdisplay(fp, "Dependence_Channel_status FULL");
+                            end
+                        end
+                        if (~requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0.shift2_blk_n) begin
+                            if (~shift2_c_U.if_empty_n) begin
+                                $display("//      Blocked by empty input FIFO 'concat_concat.shift2_c_U' written by process 'concat_concat.entry_proc_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path concat_concat.shift2_c_U");
+                                $fdisplay(fp, "Dependence_Channel_status EMPTY");
+                            end
+                            else if (~shift2_c_U.if_full_n) begin
+                                $display("//      Blocked by full output FIFO 'concat_concat.shift2_c_U' read by process 'concat_concat.entry_proc_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path concat_concat.shift2_c_U");
+                                $fdisplay(fp, "Dependence_Channel_status FULL");
+                            end
+                        end
                         if (~start_for_requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_U.if_empty_n & requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0.ap_idle & ~start_for_requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_U.if_write) begin
-                            $display("//      Blocked by missing 'ap_start' from start propagation FIFO 'concat_concat.start_for_requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_U' written by process 'concat_concat.read_inputs_ap_uint_256_ap_int_8_32u_U0',");
+                            $display("//      Blocked by missing 'ap_start' from start propagation FIFO 'concat_concat.start_for_requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_U' written by process 'concat_concat.entry_proc_U0',");
                         end
                     end
                     3: begin
@@ -460,7 +560,7 @@
                                 $fdisplay(fp, "Dependence_Channel_status FULL");
                             end
                         end
-                        if (~store_ap_uint_256_ap_int_8_32u_U0.grp_store_ap_uint_256_ap_int_8_32u_Pipeline_VITIS_LOOP_105_1_fu_126.output_stream_blk_n) begin
+                        if (~store_ap_uint_256_ap_int_8_32u_U0.grp_store_ap_uint_256_ap_int_8_32u_Pipeline_VITIS_LOOP_103_1_fu_126.output_stream_blk_n) begin
                             if (~output_stream_U.if_empty_n) begin
                                 $display("//      Blocked by empty input FIFO 'concat_concat.output_stream_U' written by process 'concat_concat.requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0'");
                                 $fdisplay(fp, "Dependence_Channel_path concat_concat.output_stream_U");

@@ -28,14 +28,12 @@ template <typename t_AXI_DataType, typename t_DataType_IN, typename t_DataType_O
 void requant(hls::stream<WideType<t_DataType_IN, sizeof(t_AXI_DataType) / sizeof(t_DataType_IN)>> &input_stream,
 			 unsigned int ROWS,
 			 unsigned int COLS,
+			 int mul1,
+			 int shift1,
+			 int mul2,
+			 int shift2,
 			 hls::stream<WideType<t_DataType_OUT, sizeof(t_AXI_DataType) / sizeof(t_DataType_OUT)>> &output_stream
 			 ){
-	// 第1块的因子
-	int mul1 = 1595702528;
-	int shift1 = -1;
-	// 第2块的因子
-	int mul2 = 1575568640;
-	int shift2 = -1;
 	int right_shift = shift1 > 0 ? shift1 : 0;
 	int left_shift = shift1 > 0 ? 0 : (-shift1);
 
