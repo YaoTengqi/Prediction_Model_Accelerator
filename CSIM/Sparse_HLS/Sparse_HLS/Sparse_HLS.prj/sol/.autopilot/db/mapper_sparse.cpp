@@ -238,8 +238,8 @@ class AESL_RUNTIME_BC {
 };
 using hls::sim::Byte;
 struct __cosim_s32__ { char data[32]; };
-extern "C" void sparse(Byte<32>*, int, int, int, int, int, int, int, int, int, int, int, volatile void *);
-extern "C" void apatb_sparse_hw(int __xlx_apatb_param_input_data_addr1, int __xlx_apatb_param_input_data_addr2, int __xlx_apatb_param_output_data_addr3, int __xlx_apatb_param_am_ROWS, int __xlx_apatb_param_am_COLS, int __xlx_apatb_param_fm_ROWS, int __xlx_apatb_param_fm_COLS, volatile void * __xlx_apatb_param_inputs, volatile void * __xlx_apatb_param_outputs, int __xlx_apatb_param_quant_shift, int __xlx_apatb_param_quant_mul, volatile void * __xlx_apatb_param_sparse_flag) {
+extern "C" void sparse(Byte<32>*, int, int, int, int, int, int, int, int, int, int, short, volatile void *);
+extern "C" void apatb_sparse_hw(int __xlx_apatb_param_input_data_addr1, int __xlx_apatb_param_input_data_addr2, int __xlx_apatb_param_output_data_addr3, int __xlx_apatb_param_am_ROWS, int __xlx_apatb_param_am_COLS, int __xlx_apatb_param_fm_ROWS, int __xlx_apatb_param_fm_COLS, volatile void * __xlx_apatb_param_inputs, volatile void * __xlx_apatb_param_outputs, int __xlx_apatb_param_quant_shift, short __xlx_apatb_param_quant_mul, volatile void * __xlx_apatb_param_sparse_flag) {
 using hls::sim::createStream;
   // Collect __xlx_inputs_outputs__tmp_vec
 std::vector<Byte<32>> __xlx_inputs_outputs__tmp_vec;

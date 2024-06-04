@@ -38,9 +38,9 @@ port (
     output_data_addr3     :out  STD_LOGIC_VECTOR(31 downto 0);
     ROWS                  :out  STD_LOGIC_VECTOR(31 downto 0);
     COLS                  :out  STD_LOGIC_VECTOR(31 downto 0);
-    mul1                  :out  STD_LOGIC_VECTOR(31 downto 0);
+    mul1                  :out  STD_LOGIC_VECTOR(15 downto 0);
     shift1                :out  STD_LOGIC_VECTOR(31 downto 0);
-    mul2                  :out  STD_LOGIC_VECTOR(31 downto 0);
+    mul2                  :out  STD_LOGIC_VECTOR(15 downto 0);
     shift2                :out  STD_LOGIC_VECTOR(31 downto 0);
     inputs                :out  STD_LOGIC_VECTOR(63 downto 0);
     outputs               :out  STD_LOGIC_VECTOR(63 downto 0);
@@ -89,13 +89,15 @@ end entity concat_concat_addr_s_axi;
 --        bit 31~0 - COLS[31:0] (Read/Write)
 -- 0x34 : reserved
 -- 0x38 : Data signal of mul1
---        bit 31~0 - mul1[31:0] (Read/Write)
+--        bit 15~0 - mul1[15:0] (Read/Write)
+--        others   - reserved
 -- 0x3c : reserved
 -- 0x40 : Data signal of shift1
 --        bit 31~0 - shift1[31:0] (Read/Write)
 -- 0x44 : reserved
 -- 0x48 : Data signal of mul2
---        bit 31~0 - mul2[31:0] (Read/Write)
+--        bit 15~0 - mul2[15:0] (Read/Write)
+--        others   - reserved
 -- 0x4c : reserved
 -- 0x50 : Data signal of shift2
 --        bit 31~0 - shift2[31:0] (Read/Write)
@@ -186,9 +188,9 @@ architecture behave of concat_concat_addr_s_axi is
     signal int_output_data_addr3 : UNSIGNED(31 downto 0) := (others => '0');
     signal int_ROWS            : UNSIGNED(31 downto 0) := (others => '0');
     signal int_COLS            : UNSIGNED(31 downto 0) := (others => '0');
-    signal int_mul1            : UNSIGNED(31 downto 0) := (others => '0');
+    signal int_mul1            : UNSIGNED(15 downto 0) := (others => '0');
     signal int_shift1          : UNSIGNED(31 downto 0) := (others => '0');
-    signal int_mul2            : UNSIGNED(31 downto 0) := (others => '0');
+    signal int_mul2            : UNSIGNED(15 downto 0) := (others => '0');
     signal int_shift2          : UNSIGNED(31 downto 0) := (others => '0');
     signal int_inputs          : UNSIGNED(63 downto 0) := (others => '0');
     signal int_outputs         : UNSIGNED(63 downto 0) := (others => '0');
@@ -333,11 +335,11 @@ begin
                     when ADDR_COLS_DATA_0 =>
                         rdata_data <= RESIZE(int_COLS(31 downto 0), 32);
                     when ADDR_MUL1_DATA_0 =>
-                        rdata_data <= RESIZE(int_mul1(31 downto 0), 32);
+                        rdata_data <= RESIZE(int_mul1(15 downto 0), 32);
                     when ADDR_SHIFT1_DATA_0 =>
                         rdata_data <= RESIZE(int_shift1(31 downto 0), 32);
                     when ADDR_MUL2_DATA_0 =>
-                        rdata_data <= RESIZE(int_mul2(31 downto 0), 32);
+                        rdata_data <= RESIZE(int_mul2(15 downto 0), 32);
                     when ADDR_SHIFT2_DATA_0 =>
                         rdata_data <= RESIZE(int_shift2(31 downto 0), 32);
                     when ADDR_INPUTS_DATA_0 =>
@@ -608,7 +610,7 @@ begin
         if (ACLK'event and ACLK = '1') then
             if (ACLK_EN = '1') then
                 if (w_hs = '1' and waddr = ADDR_MUL1_DATA_0) then
-                    int_mul1(31 downto 0) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_mul1(31 downto 0));
+                    int_mul1(15 downto 0) <= (UNSIGNED(WDATA(15 downto 0)) and wmask(15 downto 0)) or ((not wmask(15 downto 0)) and int_mul1(15 downto 0));
                 end if;
             end if;
         end if;
@@ -630,7 +632,7 @@ begin
         if (ACLK'event and ACLK = '1') then
             if (ACLK_EN = '1') then
                 if (w_hs = '1' and waddr = ADDR_MUL2_DATA_0) then
-                    int_mul2(31 downto 0) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_mul2(31 downto 0));
+                    int_mul2(15 downto 0) <= (UNSIGNED(WDATA(15 downto 0)) and wmask(15 downto 0)) or ((not wmask(15 downto 0)) and int_mul2(15 downto 0));
                 end if;
             end if;
         end if;

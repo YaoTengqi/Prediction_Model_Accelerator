@@ -70248,9 +70248,9 @@ template <typename t_AXI_DataType, typename t_DataType_IN, typename t_DataType_O
 void requant(hls::stream<WideType<t_DataType_IN, sizeof(t_AXI_DataType) / sizeof(t_DataType_IN)>> &input_stream,
     unsigned int ROWS,
     unsigned int COLS,
-    int mul1,
+    int16_t mul1,
     int shift1,
-    int mul2,
+    int16_t mul2,
     int shift2,
     hls::stream<WideType<t_DataType_OUT, sizeof(t_AXI_DataType) / sizeof(t_DataType_OUT)>> &output_stream
     ){
@@ -70263,15 +70263,15 @@ void requant(hls::stream<WideType<t_DataType_IN, sizeof(t_AXI_DataType) / sizeof
  VITIS_LOOP_43_1: for (int i = 0; i < ROWS * COLS * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType); i++){
   WideType<t_DataType_IN, sizeof(t_AXI_DataType) / sizeof(t_DataType_IN)> firstBlockValue = input_stream.read();
   VITIS_LOOP_45_2: for(int j = 0; j < sizeof(t_AXI_DataType) / sizeof(t_DataType_IN); j++){
-   int64_t temp = firstBlockValue[j];
+   int32_t temp = firstBlockValue[j];
 
    if (left_shift > 0)
    {
     temp = temp << left_shift;
    }
    temp = temp * mul1;
-   int total_right_shift = right_shift + 31;
-   int64_t pos_rounding_value = (1 << (total_right_shift - 1));
+   int total_right_shift = right_shift + 15;
+   int32_t pos_rounding_value = (1 << (total_right_shift - 1));
    temp = temp + pos_rounding_value;
    temp = temp >> total_right_shift;
 
@@ -70288,7 +70288,7 @@ void requant(hls::stream<WideType<t_DataType_IN, sizeof(t_AXI_DataType) / sizeof
  VITIS_LOOP_68_3: for (int i = 0; i < ROWS * COLS * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType); i++){
   WideType<t_DataType_IN, sizeof(t_AXI_DataType) / sizeof(t_DataType_IN)> secondBlockValue = input_stream.read();
   VITIS_LOOP_70_4: for(int j = 0; j < sizeof(t_AXI_DataType) / sizeof(t_DataType_IN); j++){
-   int64_t temp = secondBlockValue[j];
+   int32_t temp = secondBlockValue[j];
 
    right_shift = shift2 > 0 ? shift2 : 0;
    left_shift = shift2 > 0 ? 0 : (-shift2);
@@ -70297,8 +70297,8 @@ void requant(hls::stream<WideType<t_DataType_IN, sizeof(t_AXI_DataType) / sizeof
     temp = temp << left_shift;
    }
    temp = temp * mul2;
-   int total_right_shift = right_shift + 31;
-   int64_t pos_rounding_value = (1 << (total_right_shift - 1));
+   int total_right_shift = right_shift + 15;
+   int32_t pos_rounding_value = (1 << (total_right_shift - 1));
    temp = temp + pos_rounding_value;
    temp = temp >> total_right_shift;
 
@@ -70346,9 +70346,9 @@ __attribute__((sdx_kernel("concat", 0))) void concat(
  uint32_t output_data_addr3,
  unsigned int ROWS,
  unsigned int COLS,
- int mul1,
+ int16_t mul1,
  int shift1,
- int mul2,
+ int16_t mul2,
  int shift2,
  ap_uint<256> *inputs,
  ap_uint<256> *outputs,
@@ -70361,9 +70361,9 @@ __attribute__((sdx_kernel("concat", 0))) void concat(
  uint32_t output_data_addr3,
  unsigned int ROWS,
  unsigned int COLS,
- int mul1,
+ int16_t mul1,
  int shift1,
- int mul2,
+ int16_t mul2,
  int shift2,
  ap_uint<256> *inputs,
  ap_uint<256> *outputs,

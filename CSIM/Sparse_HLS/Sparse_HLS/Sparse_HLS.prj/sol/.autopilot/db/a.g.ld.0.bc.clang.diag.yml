@@ -190,14 +190,14 @@ Pass:            inline
 Name:            AlwaysInline
 DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp, 
                    Line: 101, Column: 47 }
-Function:        _Z5quantI7ap_uintILi256EE6ap_intILi32EES2_ILi8EELj32EEvRN3hls6streamIN8WideTypeIT0_XT2_EXmlstS8_Li8EEvE9t_TypeIntELi0EEEjjRNS6_INS7_IT1_XT2_EXmlstSD_Li8EEvE9t_TypeIntELi0EEEii
+Function:        _Z5quantI7ap_uintILi256EE6ap_intILi32EES2_ILi8EELj32EEvRN3hls6streamIN8WideTypeIT0_XT2_EXmlstS8_Li8EEvE9t_TypeIntELi0EEEjjRNS6_INS7_IT1_XT2_EXmlstSD_Li8EEvE9t_TypeIntELi0EEEis
 Args:            
   - String:          'Inlining function '''
   - Callee:          'WideType<ap_int<32>, 32u, 32u, void>::WideType(ap_uint<1024> const&)'
     DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/include/./../include/types.hpp, 
                        Line: 96, Column: 0 }
   - String:          ''' into '''
-  - Caller:          'void quant<ap_uint<256>, ap_int<32>, ap_int<8>, 32u>(hls::stream<WideType<ap_int<32>, 32u, (sizeof (ap_int<32>)) * (8), void>::t_TypeInt, 0>&, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt, 0>&, int, int)'
+  - Caller:          'void quant<ap_uint<256>, ap_int<32>, ap_int<8>, 32u>(hls::stream<WideType<ap_int<32>, 32u, (sizeof (ap_int<32>)) * (8), void>::t_TypeInt, 0>&, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt, 0>&, int, short)'
     DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp, 
                        Line: 96, Column: 0 }
   - String:          ''''
@@ -207,14 +207,14 @@ Pass:            inline
 Name:            AlwaysInline
 DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp, 
                    Line: 119, Column: 7 }
-Function:        _Z5quantI7ap_uintILi256EE6ap_intILi32EES2_ILi8EELj32EEvRN3hls6streamIN8WideTypeIT0_XT2_EXmlstS8_Li8EEvE9t_TypeIntELi0EEEjjRNS6_INS7_IT1_XT2_EXmlstSD_Li8EEvE9t_TypeIntELi0EEEii
+Function:        _Z5quantI7ap_uintILi256EE6ap_intILi32EES2_ILi8EELj32EEvRN3hls6streamIN8WideTypeIT0_XT2_EXmlstS8_Li8EEvE9t_TypeIntELi0EEEjjRNS6_INS7_IT1_XT2_EXmlstSD_Li8EEvE9t_TypeIntELi0EEEis
 Args:            
   - String:          'Inlining function '''
   - Callee:          'WideType<ap_int<8>, 32u, 8u, void>::operator[](unsigned int)'
     DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/include/./../include/types.hpp, 
                        Line: 59, Column: 0 }
   - String:          ''' into '''
-  - Caller:          'void quant<ap_uint<256>, ap_int<32>, ap_int<8>, 32u>(hls::stream<WideType<ap_int<32>, 32u, (sizeof (ap_int<32>)) * (8), void>::t_TypeInt, 0>&, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt, 0>&, int, int)'
+  - Caller:          'void quant<ap_uint<256>, ap_int<32>, ap_int<8>, 32u>(hls::stream<WideType<ap_int<32>, 32u, (sizeof (ap_int<32>)) * (8), void>::t_TypeInt, 0>&, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt, 0>&, int, short)'
     DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp, 
                        Line: 96, Column: 0 }
   - String:          ''''
@@ -224,14 +224,14 @@ Pass:            inline
 Name:            AlwaysInline
 DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp, 
                    Line: 104, Column: 40 }
-Function:        _Z5quantI7ap_uintILi256EE6ap_intILi32EES2_ILi8EELj32EEvRN3hls6streamIN8WideTypeIT0_XT2_EXmlstS8_Li8EEvE9t_TypeIntELi0EEEjjRNS6_INS7_IT1_XT2_EXmlstSD_Li8EEvE9t_TypeIntELi0EEEii
+Function:        _Z5quantI7ap_uintILi256EE6ap_intILi32EES2_ILi8EELj32EEvRN3hls6streamIN8WideTypeIT0_XT2_EXmlstS8_Li8EEvE9t_TypeIntELi0EEEjjRNS6_INS7_IT1_XT2_EXmlstSD_Li8EEvE9t_TypeIntELi0EEEis
 Args:            
   - String:          'Inlining function '''
   - Callee:          'WideType<ap_int<32>, 32u, 32u, void>::operator[](unsigned int)'
     DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/include/./../include/types.hpp, 
                        Line: 59, Column: 0 }
   - String:          ''' into '''
-  - Caller:          'void quant<ap_uint<256>, ap_int<32>, ap_int<8>, 32u>(hls::stream<WideType<ap_int<32>, 32u, (sizeof (ap_int<32>)) * (8), void>::t_TypeInt, 0>&, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt, 0>&, int, int)'
+  - Caller:          'void quant<ap_uint<256>, ap_int<32>, ap_int<8>, 32u>(hls::stream<WideType<ap_int<32>, 32u, (sizeof (ap_int<32>)) * (8), void>::t_TypeInt, 0>&, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt, 0>&, int, short)'
     DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp, 
                        Line: 96, Column: 0 }
   - String:          ''''
@@ -241,14 +241,14 @@ Pass:            inline
 Name:            AlwaysInline
 DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp, 
                    Line: 102, Column: 33 }
-Function:        _Z5quantI7ap_uintILi256EE6ap_intILi32EES2_ILi8EELj32EEvRN3hls6streamIN8WideTypeIT0_XT2_EXmlstS8_Li8EEvE9t_TypeIntELi0EEEjjRNS6_INS7_IT1_XT2_EXmlstSD_Li8EEvE9t_TypeIntELi0EEEii
+Function:        _Z5quantI7ap_uintILi256EE6ap_intILi32EES2_ILi8EELj32EEvRN3hls6streamIN8WideTypeIT0_XT2_EXmlstS8_Li8EEvE9t_TypeIntELi0EEEjjRNS6_INS7_IT1_XT2_EXmlstSD_Li8EEvE9t_TypeIntELi0EEEis
 Args:            
   - String:          'Inlining function '''
   - Callee:          'WideType<ap_int<8>, 32u, 8u, void>::WideType()'
     DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/include/./../include/types.hpp, 
                        Line: 78, Column: 0 }
   - String:          ''' into '''
-  - Caller:          'void quant<ap_uint<256>, ap_int<32>, ap_int<8>, 32u>(hls::stream<WideType<ap_int<32>, 32u, (sizeof (ap_int<32>)) * (8), void>::t_TypeInt, 0>&, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt, 0>&, int, int)'
+  - Caller:          'void quant<ap_uint<256>, ap_int<32>, ap_int<8>, 32u>(hls::stream<WideType<ap_int<32>, 32u, (sizeof (ap_int<32>)) * (8), void>::t_TypeInt, 0>&, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt, 0>&, int, short)'
     DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp, 
                        Line: 96, Column: 0 }
   - String:          ''''
@@ -316,7 +316,7 @@ Pass:            reflow-disaggr
 Name:            DisaggrReason
 DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/include/./../include/types.hpp, 
                    Line: 80, Column: 9 }
-Function:        _Z5quantI7ap_uintILi256EE6ap_intILi32EES2_ILi8EELj32EEvRN3hls6streamIN8WideTypeIT0_XT2_EXmlstS8_Li8EEvE9t_TypeIntELi0EEEjjRNS6_INS7_IT1_XT2_EXmlstSD_Li8EEvE9t_TypeIntELi0EEEii
+Function:        _Z5quantI7ap_uintILi256EE6ap_intILi32EES2_ILi8EELj32EEvRN3hls6streamIN8WideTypeIT0_XT2_EXmlstS8_Li8EEvE9t_TypeIntELi0EEEjjRNS6_INS7_IT1_XT2_EXmlstSD_Li8EEvE9t_TypeIntELi0EEEis
 Args:            
   - String:          'Adding '''
   - Name:            outValue
@@ -328,7 +328,7 @@ Pass:            reflow-disaggr
 Name:            DisaggrReason
 DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/include/./../include/types.hpp, 
                    Line: 98, Column: 9 }
-Function:        _Z5quantI7ap_uintILi256EE6ap_intILi32EES2_ILi8EELj32EEvRN3hls6streamIN8WideTypeIT0_XT2_EXmlstS8_Li8EEvE9t_TypeIntELi0EEEjjRNS6_INS7_IT1_XT2_EXmlstSD_Li8EEvE9t_TypeIntELi0EEEii
+Function:        _Z5quantI7ap_uintILi256EE6ap_intILi32EES2_ILi8EELj32EEvRN3hls6streamIN8WideTypeIT0_XT2_EXmlstS8_Li8EEvE9t_TypeIntELi0EEEjjRNS6_INS7_IT1_XT2_EXmlstSD_Li8EEvE9t_TypeIntELi0EEEis
 Args:            
   - String:          'Adding '''
   - Name:            dataValue
@@ -432,7 +432,7 @@ Pass:            reflow-disaggr
 Name:            DisaggrSucc
 DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp, 
                    Line: 102, Column: 33 }
-Function:        _Z5quantI7ap_uintILi256EE6ap_intILi32EES2_ILi8EELj32EEvRN3hls6streamIN8WideTypeIT0_XT2_EXmlstS8_Li8EEvE9t_TypeIntELi0EEEjjRNS6_INS7_IT1_XT2_EXmlstSD_Li8EEvE9t_TypeIntELi0EEEii
+Function:        _Z5quantI7ap_uintILi256EE6ap_intILi32EES2_ILi8EELj32EEvRN3hls6streamIN8WideTypeIT0_XT2_EXmlstS8_Li8EEvE9t_TypeIntELi0EEEjjRNS6_INS7_IT1_XT2_EXmlstSD_Li8EEvE9t_TypeIntELi0EEEis
 Args:            
   - String:          'Disaggregating variable '''
   - Name:            outValue
@@ -443,7 +443,7 @@ Pass:            reflow-disaggr
 Name:            DisaggrSucc
 DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp, 
                    Line: 101, Column: 35 }
-Function:        _Z5quantI7ap_uintILi256EE6ap_intILi32EES2_ILi8EELj32EEvRN3hls6streamIN8WideTypeIT0_XT2_EXmlstS8_Li8EEvE9t_TypeIntELi0EEEjjRNS6_INS7_IT1_XT2_EXmlstSD_Li8EEvE9t_TypeIntELi0EEEii
+Function:        _Z5quantI7ap_uintILi256EE6ap_intILi32EES2_ILi8EELj32EEvRN3hls6streamIN8WideTypeIT0_XT2_EXmlstS8_Li8EEvE9t_TypeIntELi0EEEjjRNS6_INS7_IT1_XT2_EXmlstSD_Li8EEvE9t_TypeIntELi0EEEis
 Args:            
   - String:          'Disaggregating variable '''
   - Name:            dataValue
@@ -761,7 +761,7 @@ Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
 DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp, 
                    Line: 96, Column: 0 }
-Function:        _Z5quantI7ap_uintILi256EE6ap_intILi32EES2_ILi8EELj32EEvRN3hls6streamIN8WideTypeIT0_XT2_EXmlstS8_Li8EEvE9t_TypeIntELi0EEEjjRNS6_INS7_IT1_XT2_EXmlstSD_Li8EEvE9t_TypeIntELi0EEEii
+Function:        _Z5quantI7ap_uintILi256EE6ap_intILi32EES2_ILi8EELj32EEvRN3hls6streamIN8WideTypeIT0_XT2_EXmlstS8_Li8EEvE9t_TypeIntELi0EEEjjRNS6_INS7_IT1_XT2_EXmlstSD_Li8EEvE9t_TypeIntELi0EEEis
 Args:            
   - String:          'Unrolling loop '''
   - LoopName:        VITIS_LOOP_103_1
@@ -1033,14 +1033,14 @@ Pass:            reflow-inliner
 Name:            AutoInline
 DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp, 
                    Line: 96, Column: 0 }
-Function:        _Z5quantI7ap_uintILi256EE6ap_intILi32EES2_ILi8EELj32EEvRN3hls6streamIN8WideTypeIT0_XT2_EXmlstS8_Li8EEvE9t_TypeIntELi0EEEjjRNS6_INS7_IT1_XT2_EXmlstSD_Li8EEvE9t_TypeIntELi0EEEii
+Function:        _Z5quantI7ap_uintILi256EE6ap_intILi32EES2_ILi8EELj32EEvRN3hls6streamIN8WideTypeIT0_XT2_EXmlstS8_Li8EEvE9t_TypeIntELi0EEEjjRNS6_INS7_IT1_XT2_EXmlstSD_Li8EEvE9t_TypeIntELi0EEEis
 Args:            
   - String:          'Inlining function '''
   - Callee:          'WideType<ap_int<8>, 32u, 8u, void>::operator ap_uint<256> const()'
     DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/include/./../include/types.hpp, 
                        Line: 123, Column: 0 }
   - String:          ''' into '''
-  - Caller:          'void quant<ap_uint<256>, ap_int<32>, ap_int<8>, 32u>(hls::stream<WideType<ap_int<32>, 32u, (sizeof (ap_int<32>)) * (8), void>::t_TypeInt, 0>&, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt, 0>&, int, int)'
+  - Caller:          'void quant<ap_uint<256>, ap_int<32>, ap_int<8>, 32u>(hls::stream<WideType<ap_int<32>, 32u, (sizeof (ap_int<32>)) * (8), void>::t_TypeInt, 0>&, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt, 0>&, int, short)'
     DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp, 
                        Line: 96, Column: 0 }
   - String:          ''''
@@ -1105,7 +1105,7 @@ Pass:            reflow-array-partition
 Name:            ArrayXform
 DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp, 
                    Line: 101, Column: 35 }
-Function:        _Z5quantI7ap_uintILi256EE6ap_intILi32EES2_ILi8EELj32EEvRN3hls6streamIN8WideTypeIT0_XT2_EXmlstS8_Li8EEvE9t_TypeIntELi0EEEjjRNS6_INS7_IT1_XT2_EXmlstSD_Li8EEvE9t_TypeIntELi0EEEii
+Function:        _Z5quantI7ap_uintILi256EE6ap_intILi32EES2_ILi8EELj32EEvRN3hls6streamIN8WideTypeIT0_XT2_EXmlstS8_Li8EEvE9t_TypeIntELi0EEEjjRNS6_INS7_IT1_XT2_EXmlstSD_Li8EEvE9t_TypeIntELi0EEEis
 Args:            
   - String:          'Applying '
   - String:          array_partition
@@ -1124,7 +1124,7 @@ Pass:            reflow-array-partition
 Name:            ArrayXform
 DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp, 
                    Line: 102, Column: 33 }
-Function:        _Z5quantI7ap_uintILi256EE6ap_intILi32EES2_ILi8EELj32EEvRN3hls6streamIN8WideTypeIT0_XT2_EXmlstS8_Li8EEvE9t_TypeIntELi0EEEjjRNS6_INS7_IT1_XT2_EXmlstSD_Li8EEvE9t_TypeIntELi0EEEii
+Function:        _Z5quantI7ap_uintILi256EE6ap_intILi32EES2_ILi8EELj32EEvRN3hls6streamIN8WideTypeIT0_XT2_EXmlstS8_Li8EEvE9t_TypeIntELi0EEEjjRNS6_INS7_IT1_XT2_EXmlstSD_Li8EEvE9t_TypeIntELi0EEEis
 Args:            
   - String:          'Applying '
   - String:          array_partition

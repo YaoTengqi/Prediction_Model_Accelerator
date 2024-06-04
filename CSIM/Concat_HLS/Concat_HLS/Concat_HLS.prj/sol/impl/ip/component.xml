@@ -1079,14 +1079,27 @@
           </spirit:reset>
           <spirit:field>
             <spirit:name>mul1</spirit:name>
-            <spirit:description>Bit 31 to 0 of mul1</spirit:description>
+            <spirit:description>Bit 15 to 0 of mul1</spirit:description>
             <spirit:bitOffset>0</spirit:bitOffset>
-            <spirit:bitWidth spirit:format="long">32</spirit:bitWidth>
+            <spirit:bitWidth spirit:format="long">16</spirit:bitWidth>
             <spirit:access>write-only</spirit:access>
             <spirit:writeValueConstraint>
               <spirit:minimum>0</spirit:minimum>
               <spirit:maximum>0</spirit:maximum>
             </spirit:writeValueConstraint>
+            <spirit:testable spirit:testConstraint="unconstrained">false</spirit:testable>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>RESERVED</spirit:name>
+            <spirit:description>Reserved.  0s on read.</spirit:description>
+            <spirit:bitOffset>16</spirit:bitOffset>
+            <spirit:bitWidth spirit:format="long">16</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+            <spirit:writeValueConstraint>
+              <spirit:minimum>0</spirit:minimum>
+              <spirit:maximum>0</spirit:maximum>
+            </spirit:writeValueConstraint>
+            <spirit:readAction>modify</spirit:readAction>
             <spirit:testable spirit:testConstraint="unconstrained">false</spirit:testable>
           </spirit:field>
         </spirit:register>
@@ -1125,14 +1138,27 @@
           </spirit:reset>
           <spirit:field>
             <spirit:name>mul2</spirit:name>
-            <spirit:description>Bit 31 to 0 of mul2</spirit:description>
+            <spirit:description>Bit 15 to 0 of mul2</spirit:description>
             <spirit:bitOffset>0</spirit:bitOffset>
-            <spirit:bitWidth spirit:format="long">32</spirit:bitWidth>
+            <spirit:bitWidth spirit:format="long">16</spirit:bitWidth>
             <spirit:access>write-only</spirit:access>
             <spirit:writeValueConstraint>
               <spirit:minimum>0</spirit:minimum>
               <spirit:maximum>0</spirit:maximum>
             </spirit:writeValueConstraint>
+            <spirit:testable spirit:testConstraint="unconstrained">false</spirit:testable>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>RESERVED</spirit:name>
+            <spirit:description>Reserved.  0s on read.</spirit:description>
+            <spirit:bitOffset>16</spirit:bitOffset>
+            <spirit:bitWidth spirit:format="long">16</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+            <spirit:writeValueConstraint>
+              <spirit:minimum>0</spirit:minimum>
+              <spirit:maximum>0</spirit:maximum>
+            </spirit:writeValueConstraint>
+            <spirit:readAction>modify</spirit:readAction>
             <spirit:testable spirit:testConstraint="unconstrained">false</spirit:testable>
           </spirit:field>
         </spirit:register>
@@ -1342,7 +1368,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>e676ed9f</spirit:value>
+            <spirit:value>78dbffef</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1358,7 +1384,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>e0f14e98</spirit:value>
+            <spirit:value>7fbaafa0</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1374,7 +1400,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>1cc3bc91</spirit:value>
+            <spirit:value>af978d7d</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1390,7 +1416,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>09788b7a</spirit:value>
+            <spirit:value>d5b10884</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1404,7 +1430,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>11fcc83a</spirit:value>
+            <spirit:value>1f813c4c</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -2678,6 +2704,10 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
+        <spirit:name>hdl/verilog/concat_fifo_w16_d3_S.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>hdl/verilog/concat_fifo_w32_d2_S.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
@@ -2714,11 +2744,11 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/concat_mul_32s_32s_32_1_1.v</spirit:name>
+        <spirit:name>hdl/verilog/concat_mul_32s_16s_32_1_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/concat_mul_64s_32s_64_1_1.v</spirit:name>
+        <spirit:name>hdl/verilog/concat_mul_32s_32s_32_1_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -2768,6 +2798,11 @@
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
+        <spirit:name>hdl/verilog/concat_fifo_w16_d3_S.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>hdl/verilog/concat_fifo_w32_d2_S.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
@@ -2813,12 +2848,12 @@
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/concat_mul_32s_32s_32_1_1.v</spirit:name>
+        <spirit:name>hdl/verilog/concat_mul_32s_16s_32_1_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/concat_mul_64s_32s_64_1_1.v</spirit:name>
+        <spirit:name>hdl/verilog/concat_mul_32s_32s_32_1_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -2878,6 +2913,10 @@
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
+        <spirit:name>hdl/vhdl/concat_fifo_w16_d3_S.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>hdl/vhdl/concat_fifo_w32_d2_S.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
@@ -2902,11 +2941,11 @@
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/concat_mul_32s_32s_32_1_1.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/concat_mul_32s_16s_32_1_1.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/concat_mul_64s_32s_64_1_1.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/concat_mul_32s_32s_32_1_1.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -2936,7 +2975,7 @@
       <spirit:file>
         <spirit:name>hdl/vhdl/concat.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_8a10b8f3</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_8ec82c39</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -2953,6 +2992,11 @@
       </spirit:file>
       <spirit:file>
         <spirit:name>hdl/vhdl/concat_entry_proc.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>hdl/vhdl/concat_fifo_w16_d3_S.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -2987,12 +3031,12 @@
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/concat_mul_32s_32s_32_1_1.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/concat_mul_32s_16s_32_1_1.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/concat_mul_64s_32s_64_1_1.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/concat_mul_32s_32s_32_1_1.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -3245,8 +3289,8 @@
       </xilinx:taxonomies>
       <xilinx:displayName>Concat</xilinx:displayName>
       <xilinx:definitionSource>HLS</xilinx:definitionSource>
-      <xilinx:coreRevision>2113581939</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2024-05-31T07:39:37Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>2113586173</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2024-06-03T06:13:24Z</xilinx:coreCreationDateTime>
       <xilinx:sdxKernelAttributes>
         <xilinx:sdx_kernel>true</xilinx:sdx_kernel>
         <xilinx:sdx_kernel_type>hls</xilinx:sdx_kernel_type>
@@ -3256,8 +3300,8 @@
       <xilinx:xilinxVersion>2022.2</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="2df400f4"/>
       <xilinx:checksum xilinx:scope="addressSpaces" xilinx:value="53ad41c2"/>
-      <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="be1149e7"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="f0992fb8"/>
+      <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="eaac9dee"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="aa8d998b"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="8ca4893a"/>
       <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="d0590f36"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="e0f7ed01"/>

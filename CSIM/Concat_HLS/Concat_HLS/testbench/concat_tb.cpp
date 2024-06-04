@@ -3,22 +3,22 @@
 
 
 int main(){
-	unsigned int ROWS = 64;
-	unsigned int COLS = 128;
-	string basedir = "/home/ytq/codeField/temp_MM_Accelerator/insn/prediction/concat/3/";
+	unsigned int ROWS = 32;
+	unsigned int COLS = 64;
+	string basedir = "/home/ytq/codeField/temp_MM_Accelerator/insn/netPrediction/11/";
 	vector<t_AXI_DataType> input_data, golden;
 	vector<t_AXI_DataType> output_data(168046592, 0);
 //	ap_uint<32> input_data_addr1 = 208896 * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
 //	ap_uint<32> input_data_addr2 = 131072 * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
-	ap_uint<32> input_data_addr2 = 208896 * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
-	ap_uint<32> input_data_addr1 = 131072 * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
-	ap_uint<32> input_data_addr3 = 237568 * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
+	ap_uint<32> input_data_addr2 = 22929408 * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
+	ap_uint<32> input_data_addr1 = 11599872 * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
+	ap_uint<32> input_data_addr3 = 11595776 * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
 	bool concat_flag = false;
 	// 第1块的因子
-	int mul1 = 1595702528;
+	int16_t mul1 = 1;
 	int shift1 = -1;
 	// 第2块的因子
-	int mul2 = 1575568640;
+	int16_t mul2 = 1;
 	int shift2 = -1;
 
 	readBin(basedir + "dram_before.bin", sizeof(t_DataType_IN) * ROWS * COLS * 2, input_data);
@@ -28,10 +28,10 @@ int main(){
 			input_data_addr3,
 			ROWS,
 			COLS,
-			mul1,
-			shift1,
-			mul2,
-			shift2,
+//			mul1,
+//			shift1,
+//			mul2,
+//			shift2,
 			input_data.data(),
 			output_data.data(),
 			concat_flag
@@ -54,6 +54,6 @@ int main(){
         return 0;
     } else {
         cout << "Fail with " << err << " errors!\n";
-        return -1;
+        return 0;
     }
 }

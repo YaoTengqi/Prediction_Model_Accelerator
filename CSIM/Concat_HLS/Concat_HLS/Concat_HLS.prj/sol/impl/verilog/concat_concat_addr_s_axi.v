@@ -35,9 +35,9 @@ module concat_concat_addr_s_axi
     output wire [31:0]                   output_data_addr3,
     output wire [31:0]                   ROWS,
     output wire [31:0]                   COLS,
-    output wire [31:0]                   mul1,
+    output wire [15:0]                   mul1,
     output wire [31:0]                   shift1,
-    output wire [31:0]                   mul2,
+    output wire [15:0]                   mul2,
     output wire [31:0]                   shift2,
     output wire [63:0]                   inputs,
     output wire [63:0]                   outputs,
@@ -84,13 +84,15 @@ module concat_concat_addr_s_axi
 //        bit 31~0 - COLS[31:0] (Read/Write)
 // 0x34 : reserved
 // 0x38 : Data signal of mul1
-//        bit 31~0 - mul1[31:0] (Read/Write)
+//        bit 15~0 - mul1[15:0] (Read/Write)
+//        others   - reserved
 // 0x3c : reserved
 // 0x40 : Data signal of shift1
 //        bit 31~0 - shift1[31:0] (Read/Write)
 // 0x44 : reserved
 // 0x48 : Data signal of mul2
-//        bit 31~0 - mul2[31:0] (Read/Write)
+//        bit 15~0 - mul2[15:0] (Read/Write)
+//        others   - reserved
 // 0x4c : reserved
 // 0x50 : Data signal of shift2
 //        bit 31~0 - shift2[31:0] (Read/Write)
@@ -186,9 +188,9 @@ localparam
     reg  [31:0]                   int_output_data_addr3 = 'b0;
     reg  [31:0]                   int_ROWS = 'b0;
     reg  [31:0]                   int_COLS = 'b0;
-    reg  [31:0]                   int_mul1 = 'b0;
+    reg  [15:0]                   int_mul1 = 'b0;
     reg  [31:0]                   int_shift1 = 'b0;
-    reg  [31:0]                   int_mul2 = 'b0;
+    reg  [15:0]                   int_mul2 = 'b0;
     reg  [31:0]                   int_shift2 = 'b0;
     reg  [63:0]                   int_inputs = 'b0;
     reg  [63:0]                   int_outputs = 'b0;
@@ -319,13 +321,13 @@ always @(posedge ACLK) begin
                     rdata <= int_COLS[31:0];
                 end
                 ADDR_MUL1_DATA_0: begin
-                    rdata <= int_mul1[31:0];
+                    rdata <= int_mul1[15:0];
                 end
                 ADDR_SHIFT1_DATA_0: begin
                     rdata <= int_shift1[31:0];
                 end
                 ADDR_MUL2_DATA_0: begin
-                    rdata <= int_mul2[31:0];
+                    rdata <= int_mul2[15:0];
                 end
                 ADDR_SHIFT2_DATA_0: begin
                     rdata <= int_shift2[31:0];
@@ -553,13 +555,13 @@ always @(posedge ACLK) begin
     end
 end
 
-// int_mul1[31:0]
+// int_mul1[15:0]
 always @(posedge ACLK) begin
     if (ARESET)
-        int_mul1[31:0] <= 0;
+        int_mul1[15:0] <= 0;
     else if (ACLK_EN) begin
         if (w_hs && waddr == ADDR_MUL1_DATA_0)
-            int_mul1[31:0] <= (WDATA[31:0] & wmask) | (int_mul1[31:0] & ~wmask);
+            int_mul1[15:0] <= (WDATA[31:0] & wmask) | (int_mul1[15:0] & ~wmask);
     end
 end
 
@@ -573,13 +575,13 @@ always @(posedge ACLK) begin
     end
 end
 
-// int_mul2[31:0]
+// int_mul2[15:0]
 always @(posedge ACLK) begin
     if (ARESET)
-        int_mul2[31:0] <= 0;
+        int_mul2[15:0] <= 0;
     else if (ACLK_EN) begin
         if (w_hs && waddr == ADDR_MUL2_DATA_0)
-            int_mul2[31:0] <= (WDATA[31:0] & wmask) | (int_mul2[31:0] & ~wmask);
+            int_mul2[15:0] <= (WDATA[31:0] & wmask) | (int_mul2[15:0] & ~wmask);
     end
 end
 

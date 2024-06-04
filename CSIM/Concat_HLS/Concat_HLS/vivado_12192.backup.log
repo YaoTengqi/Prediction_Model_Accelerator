@@ -1,0 +1,156 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Mon Jun  3 14:14:46 2024
+# Process ID: 12192
+# Current directory: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS
+# Command line: vivado
+# Log file: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/vivado.log
+# Journal file: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/vivado.jou
+# Running On: ytq, OS: Linux, CPU Frequency: 3858.125 MHz, CPU Physical cores: 8, Host memory: 67255 MB
+#-----------------------------------------------------------
+start_gui
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es:part0:1.0 available at /home/ytq/source/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/1.0/board.xml as part xcve2802-vsvh1760-2lp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158_es:part0:1.0 available at /home/ytq/source/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vhk158/es/1.0/board.xml as part xcvh1582-vsva3697-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es:part0:1.2 available at /home/ytq/source/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120/es/1.2/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es_revb:part0:1.0 available at /home/ytq/source/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120_revb/es/1.0/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk180_es:part0:1.0 available at /home/ytq/source/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk180/es/1.0/board.xml as part xcvp1802-lsvc4072-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208ld:part0:2.0 available at /home/ytq/source/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208ld/production/2.0/board.xml as part xczu58dr-fsvg1517-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at /home/ytq/source/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/production/2.0/board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670:part0:2.0 available at /home/ytq/source/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670/2.0/board.xml as part xczu67dr-fsve1156-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670ld:part0:1.0 available at /home/ytq/source/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670ld/1.0/board.xml as part xczu57dr-fsve1156-2-i specified in board_part file is either invalid or not available
+open_project /home/ytq/codeField/Prediction_Model_Accelerator/RTL/TEST_RTL/vta.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/ytq/codeField/Prediction_Model_Accelerator/RTL/TEST_RTL/ip_lib'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/ytq/source/Xilinx/Vivado/2022.2/data/ip'.
+WARNING: [BD 41-1661] One or more IPs have been locked in the design 'vta.bd'. Please run report_ip_status for more details and recommendations on how to fix this issue.
+List of locked IPs:
+vta_concat_0_0
+
+open_project: Time (s): cpu = 00:00:16 ; elapsed = 00:00:06 . Memory (MB): peak = 7301.641 ; gain = 405.934 ; free physical = 33818 ; free virtual = 46143
+report_ip_status -name ip_status 
+update_compile_order -fileset sources_1
+upgrade_ip -vlnv xilinx.com:hls:concat:1.0 [get_ips  vta_concat_0_0] -log ip_upgrade.log
+Reading block design file </home/ytq/codeField/Prediction_Model_Accelerator/RTL/TEST_RTL/vta.srcs/sources_1/bd/vta/vta.bd>...
+Adding component instance block -- xilinx.com:ip:smartconnect:1.0 - axi_smc0
+Adding component instance block -- xilinx.com:ip:axi_vip:1.1 - axi_vip_fetch
+Adding component instance block -- xilinx.com:ip:axi_vip:1.1 - axi_store_bus
+Adding component instance block -- xilinx.com:ip:axi_vip:1.1 - axi_load_bus
+Adding component instance block -- xilinx.com:ip:axis_data_fifo:2.0 - c2g_queue
+Adding component instance block -- xilinx.com:ip:axis_data_fifo:2.0 - ctrl_queue
+Adding component instance block -- xilinx.com:ip:axis_data_fifo:2.0 - g2c_queue
+Adding component instance block -- xilinx.com:ip:axis_data_fifo:2.0 - l2c_queue
+Adding component instance block -- xilinx.com:ip:axis_data_fifo:2.0 - s2c_queue
+Adding component instance block -- xilinx.com:ip:axis_data_fifo:2.0 - c2s_queue
+Adding component instance block -- xilinx.com:ip:axis_data_fifo:2.0 - c2l_queue
+Adding component instance block -- xilinx.com:ip:axis_data_fifo:2.0 - c2a_queue
+Adding component instance block -- xilinx.com:ip:axis_data_fifo:2.0 - a2c_queue
+Adding component instance block -- xilinx.com:ip:axis_data_fifo:2.0 - store_queue
+Adding component instance block -- xilinx.com:ip:axis_data_fifo:2.0 - alu_queue
+Adding component instance block -- xilinx.com:ip:axis_data_fifo:2.0 - load_acc_queue
+Adding component instance block -- xilinx.com:ip:axis_data_fifo:2.0 - load_queue
+Adding component instance block -- xilinx.com:ip:axis_data_fifo:2.0 - order_queue
+Adding component instance block -- xilinx.com:ip:axis_data_fifo:2.0 - gemm_queue
+Adding component instance block -- xilinx.com:ip:axi_vip:1.1 - axi_ctrl_bus
+Adding component instance block -- user.org:user:gemm:1.0 - gemm_0
+Adding component instance block -- xilinx.com:hls:alu:1.0 - alu_0
+Adding component instance block -- xilinx.com:hls:ctrl:1.0 - ctrl_0
+Adding component instance block -- xilinx.com:hls:fetch:1.0 - fetch_0
+Adding component instance block -- xilinx.com:hls:load:1.0 - load_0
+Adding component instance block -- xilinx.com:hls:store:1.0 - store_0
+Adding component instance block -- xilinx.com:ip:axi_vip:1.1 - axi_concat_bus
+Adding component instance block -- xilinx.com:hls:reshape:1.0 - reshape_0
+Adding component instance block -- xilinx.com:ip:axi_vip:1.1 - axi_reshape_bus
+Adding component instance block -- xilinx.com:ip:axi_vip:1.1 - axi_sparse_bus
+Adding component instance block -- user.org:user:saxi_full_file_v1_0:1.0 - saxi_full_file_v1_0_0
+Adding component instance block -- xilinx.com:hls:concat:1.0 - concat_0
+Adding component instance block -- xilinx.com:hls:sparse:1.0 - sparse_0
+Successfully read diagram <vta> from block design file </home/ytq/codeField/Prediction_Model_Accelerator/RTL/TEST_RTL/vta.srcs/sources_1/bd/vta/vta.bd>
+Upgrading '/home/ytq/codeField/Prediction_Model_Accelerator/RTL/TEST_RTL/vta.srcs/sources_1/bd/vta/vta.bd'
+INFO: [IP_Flow 19-3422] Upgraded vta_concat_0_0 (Concat 1.0) from revision 2113576424 to revision 2113586173
+Wrote  : </home/ytq/codeField/Prediction_Model_Accelerator/RTL/TEST_RTL/vta.srcs/sources_1/bd/vta/vta.bd> 
+Wrote  : </home/ytq/codeField/Prediction_Model_Accelerator/RTL/TEST_RTL/vta.srcs/sources_1/bd/vta/ui/bd_93fd4ca3.ui> 
+INFO: [Coretcl 2-1525] Wrote upgrade log to '/home/ytq/codeField/Prediction_Model_Accelerator/RTL/TEST_RTL/ip_upgrade.log'.
+upgrade_ip: Time (s): cpu = 00:00:11 ; elapsed = 00:00:05 . Memory (MB): peak = 8239.328 ; gain = 0.000 ; free physical = 33531 ; free virtual = 45929
+export_ip_user_files -of_objects [get_ips vta_concat_0_0] -no_script -sync -force -quiet
+generate_target all [get_files  /home/ytq/codeField/Prediction_Model_Accelerator/RTL/TEST_RTL/vta.srcs/sources_1/bd/vta/vta.bd]
+INFO: [xilinx.com:ip:smartconnect:1.0-1] vta_axi_smc0_0: SmartConnect vta_axi_smc0_0 is in High-performance Mode.
+WARNING: [BD 41-237] Bus Interface property AWUSER_WIDTH does not match between /saxi_full_file_v1_0_0/s00_axi(1) and /axi_smc0/M00_AXI(0)
+WARNING: [BD 41-237] Bus Interface property ARUSER_WIDTH does not match between /saxi_full_file_v1_0_0/s00_axi(1) and /axi_smc0/M00_AXI(0)
+WARNING: [BD 41-237] Bus Interface property WUSER_WIDTH does not match between /saxi_full_file_v1_0_0/s00_axi(1) and /axi_smc0/M00_AXI(0)
+WARNING: [BD 41-237] Bus Interface property RUSER_WIDTH does not match between /saxi_full_file_v1_0_0/s00_axi(1) and /axi_smc0/M00_AXI(0)
+WARNING: [BD 41-237] Bus Interface property BUSER_WIDTH does not match between /saxi_full_file_v1_0_0/s00_axi(1) and /axi_smc0/M00_AXI(0)
+Wrote  : </home/ytq/codeField/Prediction_Model_Accelerator/RTL/TEST_RTL/vta.srcs/sources_1/bd/vta/vta.bd> 
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_smc0/S06_AXI_arlock'(1) to pin: '/concat_0/m_axi_concat_data_ARLOCK'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_smc0/S06_AXI_awlock'(1) to pin: '/concat_0/m_axi_concat_data_AWLOCK'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_smc0/S00_AXI_arlock'(1) to pin: '/fetch_0/m_axi_ins_port_ARLOCK'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_smc0/S05_AXI_arlock'(1) to pin: '/load_0/m_axi_acc_mem_port_ARLOCK'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_smc0/S01_AXI_arlock'(1) to pin: '/load_0/m_axi_inp_mem_port_ARLOCK'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_smc0/S04_AXI_arlock'(1) to pin: '/load_0/m_axi_uop_mem_port_ARLOCK'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_smc0/S03_AXI_arlock'(1) to pin: '/load_0/m_axi_wgt_mem_port_ARLOCK'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_smc0/S07_AXI_arlock'(1) to pin: '/reshape_0/m_axi_reshape_data_ARLOCK'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_smc0/S07_AXI_awlock'(1) to pin: '/reshape_0/m_axi_reshape_data_AWLOCK'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_smc0/S08_AXI_arlock'(1) to pin: '/sparse_0/m_axi_sparse_data_ARLOCK'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_smc0/S08_AXI_awlock'(1) to pin: '/sparse_0/m_axi_sparse_data_AWLOCK'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_smc0/S02_AXI_awlock'(1) to pin: '/store_0/m_axi_data_port_AWLOCK'(2) - Only lower order bits will be connected.
+Verilog Output written to : /home/ytq/codeField/Prediction_Model_Accelerator/RTL/TEST_RTL/vta.gen/sources_1/bd/vta/synth/vta.v
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_smc0/S06_AXI_arlock'(1) to pin: '/concat_0/m_axi_concat_data_ARLOCK'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_smc0/S06_AXI_awlock'(1) to pin: '/concat_0/m_axi_concat_data_AWLOCK'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_smc0/S00_AXI_arlock'(1) to pin: '/fetch_0/m_axi_ins_port_ARLOCK'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_smc0/S05_AXI_arlock'(1) to pin: '/load_0/m_axi_acc_mem_port_ARLOCK'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_smc0/S01_AXI_arlock'(1) to pin: '/load_0/m_axi_inp_mem_port_ARLOCK'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_smc0/S04_AXI_arlock'(1) to pin: '/load_0/m_axi_uop_mem_port_ARLOCK'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_smc0/S03_AXI_arlock'(1) to pin: '/load_0/m_axi_wgt_mem_port_ARLOCK'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_smc0/S07_AXI_arlock'(1) to pin: '/reshape_0/m_axi_reshape_data_ARLOCK'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_smc0/S07_AXI_awlock'(1) to pin: '/reshape_0/m_axi_reshape_data_AWLOCK'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_smc0/S08_AXI_arlock'(1) to pin: '/sparse_0/m_axi_sparse_data_ARLOCK'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_smc0/S08_AXI_awlock'(1) to pin: '/sparse_0/m_axi_sparse_data_AWLOCK'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_smc0/S02_AXI_awlock'(1) to pin: '/store_0/m_axi_data_port_AWLOCK'(2) - Only lower order bits will be connected.
+Verilog Output written to : /home/ytq/codeField/Prediction_Model_Accelerator/RTL/TEST_RTL/vta.gen/sources_1/bd/vta/sim/vta.v
+Verilog Output written to : /home/ytq/codeField/Prediction_Model_Accelerator/RTL/TEST_RTL/vta.gen/sources_1/bd/vta/hdl/vta_wrapper.v
+Exporting to file /home/ytq/codeField/Prediction_Model_Accelerator/RTL/TEST_RTL/vta.gen/sources_1/bd/vta/ip/vta_axi_smc0_0/bd_0/hw_handoff/vta_axi_smc0_0.hwh
+Generated Hardware Definition File /home/ytq/codeField/Prediction_Model_Accelerator/RTL/TEST_RTL/vta.gen/sources_1/bd/vta/ip/vta_axi_smc0_0/bd_0/synth/vta_axi_smc0_0.hwdef
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_smc0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block concat_0 .
+Exporting to file /home/ytq/codeField/Prediction_Model_Accelerator/RTL/TEST_RTL/vta.gen/sources_1/bd/vta/hw_handoff/vta.hwh
+Generated Hardware Definition File /home/ytq/codeField/Prediction_Model_Accelerator/RTL/TEST_RTL/vta.gen/sources_1/bd/vta/synth/vta.hwdef
+generate_target: Time (s): cpu = 00:00:41 ; elapsed = 00:00:36 . Memory (MB): peak = 9349.516 ; gain = 350.801 ; free physical = 33091 ; free virtual = 45528
+catch { config_ip_cache -export [get_ips -all vta_axi_smc0_0] }
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: vta_axi_smc0_0
+INFO: [IP_Flow 19-6922] IPCACHE: Exporting cached entry e2e7fa40c068c4eb to dir: /home/ytq/codeField/Prediction_Model_Accelerator/RTL/TEST_RTL/vta.gen/sources_1/bd/vta/ip/vta_axi_smc0_0
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file /home/ytq/codeField/Prediction_Model_Accelerator/RTL/TEST_RTL/vta.cache/ip/2022.2/e/2/e2e7fa40c068c4eb/vta_axi_smc0_0_sim_netlist.v to /home/ytq/codeField/Prediction_Model_Accelerator/RTL/TEST_RTL/vta.gen/sources_1/bd/vta/ip/vta_axi_smc0_0/vta_axi_smc0_0_sim_netlist.v.
+INFO: [IP_Flow 19-6926] IPCACHE: added file to list for BOM: /home/ytq/codeField/Prediction_Model_Accelerator/RTL/TEST_RTL/vta.gen/sources_1/bd/vta/ip/vta_axi_smc0_0/vta_axi_smc0_0_sim_netlist.v
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file /home/ytq/codeField/Prediction_Model_Accelerator/RTL/TEST_RTL/vta.cache/ip/2022.2/e/2/e2e7fa40c068c4eb/vta_axi_smc0_0_stub.vhdl to /home/ytq/codeField/Prediction_Model_Accelerator/RTL/TEST_RTL/vta.gen/sources_1/bd/vta/ip/vta_axi_smc0_0/vta_axi_smc0_0_stub.vhdl.
+INFO: [IP_Flow 19-6926] IPCACHE: added file to list for BOM: /home/ytq/codeField/Prediction_Model_Accelerator/RTL/TEST_RTL/vta.gen/sources_1/bd/vta/ip/vta_axi_smc0_0/vta_axi_smc0_0_stub.vhdl
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file /home/ytq/codeField/Prediction_Model_Accelerator/RTL/TEST_RTL/vta.cache/ip/2022.2/e/2/e2e7fa40c068c4eb/vta_axi_smc0_0_sim_netlist.vhdl to /home/ytq/codeField/Prediction_Model_Accelerator/RTL/TEST_RTL/vta.gen/sources_1/bd/vta/ip/vta_axi_smc0_0/vta_axi_smc0_0_sim_netlist.vhdl.
+INFO: [IP_Flow 19-6926] IPCACHE: added file to list for BOM: /home/ytq/codeField/Prediction_Model_Accelerator/RTL/TEST_RTL/vta.gen/sources_1/bd/vta/ip/vta_axi_smc0_0/vta_axi_smc0_0_sim_netlist.vhdl
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file /home/ytq/codeField/Prediction_Model_Accelerator/RTL/TEST_RTL/vta.cache/ip/2022.2/e/2/e2e7fa40c068c4eb/vta_axi_smc0_0_stub.v to /home/ytq/codeField/Prediction_Model_Accelerator/RTL/TEST_RTL/vta.gen/sources_1/bd/vta/ip/vta_axi_smc0_0/vta_axi_smc0_0_stub.v.
+INFO: [IP_Flow 19-6926] IPCACHE: added file to list for BOM: /home/ytq/codeField/Prediction_Model_Accelerator/RTL/TEST_RTL/vta.gen/sources_1/bd/vta/ip/vta_axi_smc0_0/vta_axi_smc0_0_stub.v
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file /home/ytq/codeField/Prediction_Model_Accelerator/RTL/TEST_RTL/vta.cache/ip/2022.2/e/2/e2e7fa40c068c4eb/vta_axi_smc0_0.dcp to /home/ytq/codeField/Prediction_Model_Accelerator/RTL/TEST_RTL/vta.gen/sources_1/bd/vta/ip/vta_axi_smc0_0/vta_axi_smc0_0.dcp.
+INFO: [IP_Flow 19-6926] IPCACHE: added file to list for BOM: /home/ytq/codeField/Prediction_Model_Accelerator/RTL/TEST_RTL/vta.gen/sources_1/bd/vta/ip/vta_axi_smc0_0/vta_axi_smc0_0.dcp
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP vta_axi_smc0_0, cache-ID = e2e7fa40c068c4eb; cache size = 3749.503 MB.
+catch { config_ip_cache -export [get_ips -all vta_concat_0_0] }
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: vta_concat_0_0
+export_ip_user_files -of_objects [get_files /home/ytq/codeField/Prediction_Model_Accelerator/RTL/TEST_RTL/vta.srcs/sources_1/bd/vta/vta.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] /home/ytq/codeField/Prediction_Model_Accelerator/RTL/TEST_RTL/vta.srcs/sources_1/bd/vta/vta.bd]
+launch_runs vta_concat_0_0_synth_1 -jobs 16
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: vta_concat_0_0
+[Mon Jun  3 14:16:07 2024] Launched vta_concat_0_0_synth_1...
+Run output will be captured here: /home/ytq/codeField/Prediction_Model_Accelerator/RTL/TEST_RTL/vta.runs/vta_concat_0_0_synth_1/runme.log
+export_simulation -of_objects [get_files /home/ytq/codeField/Prediction_Model_Accelerator/RTL/TEST_RTL/vta.srcs/sources_1/bd/vta/vta.bd] -directory /home/ytq/codeField/Prediction_Model_Accelerator/RTL/TEST_RTL/vta.ip_user_files/sim_scripts -ip_user_files_dir /home/ytq/codeField/Prediction_Model_Accelerator/RTL/TEST_RTL/vta.ip_user_files -ipstatic_source_dir /home/ytq/codeField/Prediction_Model_Accelerator/RTL/TEST_RTL/vta.ip_user_files/ipstatic -lib_map_path [list {modelsim=/home/ytq/codeField/Prediction_Model_Accelerator/RTL/TEST_RTL/vta.cache/compile_simlib/modelsim} {questa=/home/ytq/codeField/Prediction_Model_Accelerator/RTL/TEST_RTL/vta.cache/compile_simlib/questa} {xcelium=/home/ytq/codeField/Prediction_Model_Accelerator/RTL/TEST_RTL/vta.cache/compile_simlib/xcelium} {vcs=/home/ytq/codeField/Prediction_Model_Accelerator/RTL/TEST_RTL/vta.cache/compile_simlib/vcs} {riviera=/home/ytq/codeField/Prediction_Model_Accelerator/RTL/TEST_RTL/vta.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: vta_concat_0_0
+[Mon Jun  3 14:16:30 2024] Launched vta_concat_0_0_synth_1, synth_1...
+Run output will be captured here:
+vta_concat_0_0_synth_1: /home/ytq/codeField/Prediction_Model_Accelerator/RTL/TEST_RTL/vta.runs/vta_concat_0_0_synth_1/runme.log
+synth_1: /home/ytq/codeField/Prediction_Model_Accelerator/RTL/TEST_RTL/vta.runs/synth_1/runme.log
+[Mon Jun  3 14:16:30 2024] Launched impl_1...
+Run output will be captured here: /home/ytq/codeField/Prediction_Model_Accelerator/RTL/TEST_RTL/vta.runs/impl_1/runme.log
+regenerate_bd_layout
+regenerate_bd_layout -routing
+exit
+INFO: [Common 17-206] Exiting Vivado at Mon Jun  3 14:22:35 2024...

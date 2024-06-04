@@ -2,29 +2,97 @@
 # Vivado v2022.2 (64-bit)
 # SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
 # IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
-# Start of session at: Tue May 14 16:46:33 2024
-# Process ID: 5229
+# Start of session at: Mon Jun  3 14:22:39 2024
+# Process ID: 29171
 # Current directory: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS
 # Command line: vivado
 # Log file: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/vivado.log
 # Journal file: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/vivado.jou
-# Running On: ytq, OS: Linux, CPU Frequency: 4658.098 MHz, CPU Physical cores: 8, Host memory: 67255 MB
+# Running On: ytq, OS: Linux, CPU Frequency: 4544.272 MHz, CPU Physical cores: 8, Host memory: 67255 MB
 #-----------------------------------------------------------
 start_gui
-open_project /home/ytq/codeField/Prediction_Model_Accelerator/RTL/TEST_RTL/vta.xpr
+open_project /home/ytq/codeField/Prediction_Model_Accelerator/BOARD/vta.xpr
 update_compile_order -fileset sources_1
-launch_simulation
-open_wave_config /home/ytq/codeField/Prediction_Model_Accelerator/RTL/TEST_RTL/control_tb_behav.wcfg
-source concat_tb.tcl
-run all
-relaunch_sim
-run all
-relaunch_sim
-run all
-relaunch_sim
-run all
-relaunch_sim
-run all
-relaunch_sim
-run all
-close_sim
+open_bd_design {/home/ytq/codeField/Prediction_Model_Accelerator/BOARD/vta.srcs/sources_1/bd/vta/vta.bd}
+report_ip_status -name ip_status 
+upgrade_ip -vlnv xilinx.com:hls:concat:1.0 [get_ips  vta_concat_0_0] -log ip_upgrade.log
+export_ip_user_files -of_objects [get_ips vta_concat_0_0] -no_script -sync -force -quiet
+generate_target all [get_files  /home/ytq/codeField/Prediction_Model_Accelerator/BOARD/vta.srcs/sources_1/bd/vta/vta.bd]
+catch { config_ip_cache -export [get_ips -all vta_axi_smc0_0] }
+catch { config_ip_cache -export [get_ips -all vta_axi_smc0_1] }
+catch { config_ip_cache -export [get_ips -all vta_concat_0_0] }
+export_ip_user_files -of_objects [get_files /home/ytq/codeField/Prediction_Model_Accelerator/BOARD/vta.srcs/sources_1/bd/vta/vta.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] /home/ytq/codeField/Prediction_Model_Accelerator/BOARD/vta.srcs/sources_1/bd/vta/vta.bd]
+launch_runs vta_axi_smc0_1_synth_1 vta_axi_smc0_0_synth_1 vta_concat_0_0_synth_1 -jobs 16
+wait_on_run vta_axi_smc0_1_synth_1
+wait_on_run vta_axi_smc0_0_synth_1
+wait_on_run vta_concat_0_0_synth_1
+export_simulation -of_objects [get_files /home/ytq/codeField/Prediction_Model_Accelerator/BOARD/vta.srcs/sources_1/bd/vta/vta.bd] -directory /home/ytq/codeField/Prediction_Model_Accelerator/BOARD/vta.ip_user_files/sim_scripts -ip_user_files_dir /home/ytq/codeField/Prediction_Model_Accelerator/BOARD/vta.ip_user_files -ipstatic_source_dir /home/ytq/codeField/Prediction_Model_Accelerator/BOARD/vta.ip_user_files/ipstatic -lib_map_path [list {modelsim=/home/ytq/codeField/Prediction_Model_Accelerator/BOARD/vta.cache/compile_simlib/modelsim} {questa=/home/ytq/codeField/Prediction_Model_Accelerator/BOARD/vta.cache/compile_simlib/questa} {xcelium=/home/ytq/codeField/Prediction_Model_Accelerator/BOARD/vta.cache/compile_simlib/xcelium} {vcs=/home/ytq/codeField/Prediction_Model_Accelerator/BOARD/vta.cache/compile_simlib/vcs} {riviera=/home/ytq/codeField/Prediction_Model_Accelerator/BOARD/vta.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+wait_on_run impl_1
+open_hw_manager
+open_run impl_1
+report_utilization -name utilization_1
+open_bd_design {/home/ytq/codeField/Prediction_Model_Accelerator/BOARD/vta.srcs/sources_1/bd/vta/vta.bd}
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:hls:layernorm:1.0 layernorm_0
+endgroup
+connect_bd_net [get_bd_pins zynq_ultra_ps_e_0/pl_clk0] [get_bd_pins layernorm_0/ap_clk]
+regenerate_bd_layout
+regenerate_bd_layout -routing
+save_bd_design
+connect_bd_net [get_bd_pins proc_sys_reset_0/peripheral_aresetn] [get_bd_pins layernorm_0/ap_rst_n]
+save_bd_design
+connect_bd_intf_net [get_bd_intf_pins layernorm_0/m_axi_ln_data] [get_bd_intf_pins axi_smc0/S08_AXI]
+connect_bd_intf_net [get_bd_intf_pins layernorm_0/m_axi_ln_paras] [get_bd_intf_pins axi_smc0/S09_AXI]
+save_bd_design
+connect_bd_intf_net [get_bd_intf_pins axi_smc1/M06_AXI] [get_bd_intf_pins layernorm_0/s_axi_ln_addr]
+save_bd_design
+regenerate_bd_layout
+regenerate_bd_layout -routing
+update_ip_catalog -rebuild -scan_changes
+report_ip_status -name ip_status
+upgrade_ip -vlnv xilinx.com:hls:sparse:1.0 [get_ips  vta_sparse_0_0] -log ip_upgrade.log
+export_ip_user_files -of_objects [get_ips vta_sparse_0_0] -no_script -sync -force -quiet
+generate_target all [get_files  /home/ytq/codeField/Prediction_Model_Accelerator/BOARD/vta.srcs/sources_1/bd/vta/vta.bd]
+catch { config_ip_cache -export [get_ips -all vta_axi_smc0_0] }
+catch { config_ip_cache -export [get_ips -all vta_axi_smc0_1] }
+catch { config_ip_cache -export [get_ips -all vta_sparse_0_0] }
+catch { config_ip_cache -export [get_ips -all vta_layernorm_0_0] }
+export_ip_user_files -of_objects [get_files /home/ytq/codeField/Prediction_Model_Accelerator/BOARD/vta.srcs/sources_1/bd/vta/vta.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] /home/ytq/codeField/Prediction_Model_Accelerator/BOARD/vta.srcs/sources_1/bd/vta/vta.bd]
+launch_runs vta_axi_smc0_1_synth_1 vta_axi_smc0_0_synth_1 vta_sparse_0_0_synth_1 -jobs 16
+wait_on_run vta_axi_smc0_1_synth_1
+wait_on_run vta_axi_smc0_0_synth_1
+wait_on_run vta_sparse_0_0_synth_1
+export_simulation -of_objects [get_files /home/ytq/codeField/Prediction_Model_Accelerator/BOARD/vta.srcs/sources_1/bd/vta/vta.bd] -directory /home/ytq/codeField/Prediction_Model_Accelerator/BOARD/vta.ip_user_files/sim_scripts -ip_user_files_dir /home/ytq/codeField/Prediction_Model_Accelerator/BOARD/vta.ip_user_files -ipstatic_source_dir /home/ytq/codeField/Prediction_Model_Accelerator/BOARD/vta.ip_user_files/ipstatic -lib_map_path [list {modelsim=/home/ytq/codeField/Prediction_Model_Accelerator/BOARD/vta.cache/compile_simlib/modelsim} {questa=/home/ytq/codeField/Prediction_Model_Accelerator/BOARD/vta.cache/compile_simlib/questa} {xcelium=/home/ytq/codeField/Prediction_Model_Accelerator/BOARD/vta.cache/compile_simlib/xcelium} {vcs=/home/ytq/codeField/Prediction_Model_Accelerator/BOARD/vta.cache/compile_simlib/vcs} {riviera=/home/ytq/codeField/Prediction_Model_Accelerator/BOARD/vta.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+wait_on_run impl_1
+open_run synth_1 -name synth_1
+open_run synth_1 -name synth_1
+report_utilization -name utilization_1
+connect_hw_server -allow_non_jtag
+open_hw_target
+set_property PROGRAM.FILE {/home/ytq/codeField/Prediction_Model_Accelerator/BOARD/vta.runs/impl_1/vta_top_wrapper.bit} [get_hw_devices xczu7_0]
+set_property PROBES.FILE {/home/ytq/codeField/Prediction_Model_Accelerator/BOARD/vta.runs/impl_1/vta_top_wrapper.ltx} [get_hw_devices xczu7_0]
+set_property FULL_PROBES.FILE {/home/ytq/codeField/Prediction_Model_Accelerator/BOARD/vta.runs/impl_1/vta_top_wrapper.ltx} [get_hw_devices xczu7_0]
+current_hw_device [get_hw_devices xczu7_0]
+refresh_hw_device [lindex [get_hw_devices xczu7_0] 0]
+current_hw_device [get_hw_devices arm_dap_1]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices arm_dap_1] 0]
+current_hw_device [get_hw_devices xczu7_0]
+set_property PROBES.FILE {/home/ytq/codeField/Prediction_Model_Accelerator/BOARD/vta.runs/impl_1/vta_top_wrapper.ltx} [get_hw_devices xczu7_0]
+set_property FULL_PROBES.FILE {/home/ytq/codeField/Prediction_Model_Accelerator/BOARD/vta.runs/impl_1/vta_top_wrapper.ltx} [get_hw_devices xczu7_0]
+set_property PROGRAM.FILE {/home/ytq/codeField/Prediction_Model_Accelerator/BOARD/vta.runs/impl_1/vta_top_wrapper.bit} [get_hw_devices xczu7_0]
+program_hw_devices [get_hw_devices xczu7_0]
+refresh_hw_device [lindex [get_hw_devices xczu7_0] 0]
+display_hw_ila_data [ get_hw_ila_data hw_ila_data_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xczu7_0] -filter {CELL_NAME=~"u_ila_0"}]]
+set_property PROBES.FILE {/home/ytq/codeField/Prediction_Model_Accelerator/BOARD/vta.runs/impl_1/vta_top_wrapper.ltx} [get_hw_devices xczu7_0]
+set_property FULL_PROBES.FILE {/home/ytq/codeField/Prediction_Model_Accelerator/BOARD/vta.runs/impl_1/vta_top_wrapper.ltx} [get_hw_devices xczu7_0]
+set_property PROGRAM.FILE {/home/ytq/codeField/Prediction_Model_Accelerator/BOARD/vta.runs/impl_1/vta_top_wrapper.bit} [get_hw_devices xczu7_0]
+program_hw_devices [get_hw_devices xczu7_0]
+refresh_hw_device [lindex [get_hw_devices xczu7_0] 0]
+display_hw_ila_data [ get_hw_ila_data hw_ila_data_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xczu7_0] -filter {CELL_NAME=~"u_ila_0"}]]
+save_wave_config {/home/ytq/codeField/Prediction_Model_Accelerator/BOARD/vta.hw/hw_1/wave/hw_ila_data_1/hw_ila_data_1.wcfg}

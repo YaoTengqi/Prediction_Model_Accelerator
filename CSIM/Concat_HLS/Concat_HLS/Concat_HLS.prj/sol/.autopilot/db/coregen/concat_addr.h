@@ -33,13 +33,15 @@
 //        bit 31~0 - COLS[31:0] (Read/Write)
 // 0x34 : reserved
 // 0x38 : Data signal of mul1
-//        bit 31~0 - mul1[31:0] (Read/Write)
+//        bit 15~0 - mul1[15:0] (Read/Write)
+//        others   - reserved
 // 0x3c : reserved
 // 0x40 : Data signal of shift1
 //        bit 31~0 - shift1[31:0] (Read/Write)
 // 0x44 : reserved
 // 0x48 : Data signal of mul2
-//        bit 31~0 - mul2[31:0] (Read/Write)
+//        bit 15~0 - mul2[15:0] (Read/Write)
+//        others   - reserved
 // 0x4c : reserved
 // 0x50 : Data signal of shift2
 //        bit 31~0 - shift2[31:0] (Read/Write)
@@ -77,11 +79,11 @@
 #define CONCAT_ADDR_ADDR_COLS_DATA              0x30
 #define CONCAT_ADDR_BITS_COLS_DATA              32
 #define CONCAT_ADDR_ADDR_MUL1_DATA              0x38
-#define CONCAT_ADDR_BITS_MUL1_DATA              32
+#define CONCAT_ADDR_BITS_MUL1_DATA              16
 #define CONCAT_ADDR_ADDR_SHIFT1_DATA            0x40
 #define CONCAT_ADDR_BITS_SHIFT1_DATA            32
 #define CONCAT_ADDR_ADDR_MUL2_DATA              0x48
-#define CONCAT_ADDR_BITS_MUL2_DATA              32
+#define CONCAT_ADDR_BITS_MUL2_DATA              16
 #define CONCAT_ADDR_ADDR_SHIFT2_DATA            0x50
 #define CONCAT_ADDR_BITS_SHIFT2_DATA            32
 #define CONCAT_ADDR_ADDR_INPUTS_DATA            0x58

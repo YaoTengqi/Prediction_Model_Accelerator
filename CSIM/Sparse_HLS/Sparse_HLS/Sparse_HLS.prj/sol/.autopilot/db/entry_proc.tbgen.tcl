@@ -19,8 +19,8 @@ set C_modelArgList {
 	{ outputs_c int 64 regular {fifo 1}  }
 	{ quant_shift int 32 regular  }
 	{ quant_shift_c int 32 regular {fifo 1}  }
-	{ quant_mul int 32 regular  }
-	{ quant_mul_c int 32 regular {fifo 1}  }
+	{ quant_mul int 16 regular  }
+	{ quant_mul_c int 16 regular {fifo 1}  }
 }
 set C_modelArgMapList {[ 
 	{ "Name" : "output_data_addr3", "interface" : "wire", "bitwidth" : 32, "direction" : "READONLY"} , 
@@ -29,8 +29,8 @@ set C_modelArgMapList {[
  	{ "Name" : "outputs_c", "interface" : "fifo", "bitwidth" : 64, "direction" : "WRITEONLY"} , 
  	{ "Name" : "quant_shift", "interface" : "wire", "bitwidth" : 32, "direction" : "READONLY"} , 
  	{ "Name" : "quant_shift_c", "interface" : "fifo", "bitwidth" : 32, "direction" : "WRITEONLY"} , 
- 	{ "Name" : "quant_mul", "interface" : "wire", "bitwidth" : 32, "direction" : "READONLY"} , 
- 	{ "Name" : "quant_mul_c", "interface" : "fifo", "bitwidth" : 32, "direction" : "WRITEONLY"} ]}
+ 	{ "Name" : "quant_mul", "interface" : "wire", "bitwidth" : 16, "direction" : "READONLY"} , 
+ 	{ "Name" : "quant_mul_c", "interface" : "fifo", "bitwidth" : 16, "direction" : "WRITEONLY"} ]}
 # RTL Port declarations: 
 set portNum 34
 set portList { 
@@ -62,8 +62,8 @@ set portList {
 	{ quant_shift_c_fifo_cap sc_in sc_lv 3 signal 5 } 
 	{ quant_shift_c_full_n sc_in sc_logic 1 signal 5 } 
 	{ quant_shift_c_write sc_out sc_logic 1 signal 5 } 
-	{ quant_mul sc_in sc_lv 32 signal 6 } 
-	{ quant_mul_c_din sc_out sc_lv 32 signal 7 } 
+	{ quant_mul sc_in sc_lv 16 signal 6 } 
+	{ quant_mul_c_din sc_out sc_lv 16 signal 7 } 
 	{ quant_mul_c_num_data_valid sc_in sc_lv 3 signal 7 } 
 	{ quant_mul_c_fifo_cap sc_in sc_lv 3 signal 7 } 
 	{ quant_mul_c_full_n sc_in sc_logic 1 signal 7 } 
@@ -98,8 +98,8 @@ set NewPortList {[
  	{ "name": "quant_shift_c_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "quant_shift_c", "role": "fifo_cap" }} , 
  	{ "name": "quant_shift_c_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "quant_shift_c", "role": "full_n" }} , 
  	{ "name": "quant_shift_c_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "quant_shift_c", "role": "write" }} , 
- 	{ "name": "quant_mul", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "quant_mul", "role": "default" }} , 
- 	{ "name": "quant_mul_c_din", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "quant_mul_c", "role": "din" }} , 
+ 	{ "name": "quant_mul", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "quant_mul", "role": "default" }} , 
+ 	{ "name": "quant_mul_c_din", "direction": "out", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "quant_mul_c", "role": "din" }} , 
  	{ "name": "quant_mul_c_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "quant_mul_c", "role": "num_data_valid" }} , 
  	{ "name": "quant_mul_c_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "quant_mul_c", "role": "fifo_cap" }} , 
  	{ "name": "quant_mul_c_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "quant_mul_c", "role": "full_n" }} , 
@@ -167,6 +167,6 @@ set Spec2ImplPortList {
 	outputs_c { ap_fifo {  { outputs_c_din fifo_port_we 1 64 }  { outputs_c_num_data_valid fifo_status_num_data_valid 0 4 }  { outputs_c_fifo_cap fifo_update 0 4 }  { outputs_c_full_n fifo_status 0 1 }  { outputs_c_write fifo_data 1 1 } } }
 	quant_shift { ap_none {  { quant_shift in_data 0 32 } } }
 	quant_shift_c { ap_fifo {  { quant_shift_c_din fifo_port_we 1 32 }  { quant_shift_c_num_data_valid fifo_status_num_data_valid 0 3 }  { quant_shift_c_fifo_cap fifo_update 0 3 }  { quant_shift_c_full_n fifo_status 0 1 }  { quant_shift_c_write fifo_data 1 1 } } }
-	quant_mul { ap_none {  { quant_mul in_data 0 32 } } }
-	quant_mul_c { ap_fifo {  { quant_mul_c_din fifo_port_we 1 32 }  { quant_mul_c_num_data_valid fifo_status_num_data_valid 0 3 }  { quant_mul_c_fifo_cap fifo_update 0 3 }  { quant_mul_c_full_n fifo_status 0 1 }  { quant_mul_c_write fifo_data 1 1 } } }
+	quant_mul { ap_none {  { quant_mul in_data 0 16 } } }
+	quant_mul_c { ap_fifo {  { quant_mul_c_din fifo_port_we 1 16 }  { quant_mul_c_num_data_valid fifo_status_num_data_valid 0 3 }  { quant_mul_c_fifo_cap fifo_update 0 3 }  { quant_mul_c_full_n fifo_status 0 1 }  { quant_mul_c_write fifo_data 1 1 } } }
 }

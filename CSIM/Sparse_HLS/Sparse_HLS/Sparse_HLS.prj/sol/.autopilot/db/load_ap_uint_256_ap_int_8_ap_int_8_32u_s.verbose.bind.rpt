@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'load_ap_uint_256_ap_int_8_ap_int_8_32u_s'
 ================================================================
-* Date:           Thu May 30 14:40:32 2024
+* Date:           Mon Jun  3 15:12:28 2024
 
 * Version:        2022.2 (Build 3670227 on Oct 13 2022)
 * Project:        Sparse_HLS.prj
@@ -187,12 +187,12 @@ ST_1 : Operation 101 [1/1] (0.00ns)   --->   "%fm_loop_num = partselect i27 @_ss
 ST_1 : Operation 102 [1/1] (0.00ns)   --->   "%shl_ln = bitconcatenate i37 @_ssdm_op_BitConcatenate.i37.i32.i5, i32 %input_data_addr1_read, i5 0" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:23]   --->   Operation 102 'bitconcatenate' 'shl_ln' <Predicate = true> <Delay = 0.00>
 ST_1 : Operation 103 [1/1] (0.00ns)   --->   "%zext_ln23 = zext i37 %shl_ln" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:23]   --->   Operation 103 'zext' 'zext_ln23' <Predicate = true> <Delay = 0.00>
 ST_1 : Operation 104 [1/1] (1.08ns)   --->   "%add_ln23 = add i64 %zext_ln23, i64 %inputs_read" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:23]   --->   Operation 104 'add' 'add_ln23' <Predicate = true> <Delay = 1.08> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.08> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 105 [1/1] (0.00ns)   --->   "%trunc_ln4 = partselect i59 @_ssdm_op_PartSelect.i59.i64.i32.i32, i64 %add_ln23, i32 5, i32 63" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:23]   --->   Operation 105 'partselect' 'trunc_ln4' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 105 [1/1] (0.00ns)   --->   "%trunc_ln3 = partselect i59 @_ssdm_op_PartSelect.i59.i64.i32.i32, i64 %add_ln23, i32 5, i32 63" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:23]   --->   Operation 105 'partselect' 'trunc_ln3' <Predicate = true> <Delay = 0.00>
 ST_1 : Operation 106 [1/1] (0.42ns)   --->   "%store_ln23 = store i27 0, i27 %i" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:23]   --->   Operation 106 'store' 'store_ln23' <Predicate = true> <Delay = 0.42>
 
 State 2 <SV = 1> <Delay = 7.30>
 ST_2 : Operation 107 [1/1] (0.00ns)   --->   "%zext_ln21 = zext i27 %fm_loop_num" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:21]   --->   Operation 107 'zext' 'zext_ln21' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 108 [1/1] (0.00ns)   --->   "%sext_ln23 = sext i59 %trunc_ln4" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:23]   --->   Operation 108 'sext' 'sext_ln23' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 108 [1/1] (0.00ns)   --->   "%sext_ln23 = sext i59 %trunc_ln3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:23]   --->   Operation 108 'sext' 'sext_ln23' <Predicate = true> <Delay = 0.00>
 ST_2 : Operation 109 [1/1] (0.00ns)   --->   "%sparse_data_addr = getelementptr i256 %sparse_data, i64 %sext_ln23" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:23]   --->   Operation 109 'getelementptr' 'sparse_data_addr' <Predicate = true> <Delay = 0.00>
 ST_2 : Operation 110 [38/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr, i32 %zext_ln21" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:23]   --->   Operation 110 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
 
@@ -332,7 +332,7 @@ ST_40 : Operation 168 [1/1] (0.00ns)   --->   "%j = alloca i32 1"   --->   Opera
 ST_40 : Operation 169 [1/1] (0.00ns)   --->   "%shl_ln1 = bitconcatenate i37 @_ssdm_op_BitConcatenate.i37.i32.i5, i32 %input_data_addr2_read, i5 0" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:27]   --->   Operation 169 'bitconcatenate' 'shl_ln1' <Predicate = (icmp_ln23)> <Delay = 0.00>
 ST_40 : Operation 170 [1/1] (0.00ns)   --->   "%zext_ln27 = zext i37 %shl_ln1" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:27]   --->   Operation 170 'zext' 'zext_ln27' <Predicate = (icmp_ln23)> <Delay = 0.00>
 ST_40 : Operation 171 [1/1] (1.08ns)   --->   "%add_ln27 = add i64 %zext_ln27, i64 %inputs_read" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:27]   --->   Operation 171 'add' 'add_ln27' <Predicate = (icmp_ln23)> <Delay = 1.08> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.08> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_40 : Operation 172 [1/1] (0.00ns)   --->   "%trunc_ln5 = partselect i59 @_ssdm_op_PartSelect.i59.i64.i32.i32, i64 %add_ln27, i32 5, i32 63" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:27]   --->   Operation 172 'partselect' 'trunc_ln5' <Predicate = (icmp_ln23)> <Delay = 0.00>
+ST_40 : Operation 172 [1/1] (0.00ns)   --->   "%trunc_ln4 = partselect i59 @_ssdm_op_PartSelect.i59.i64.i32.i32, i64 %add_ln27, i32 5, i32 63" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:27]   --->   Operation 172 'partselect' 'trunc_ln4' <Predicate = (icmp_ln23)> <Delay = 0.00>
 ST_40 : Operation 173 [1/1] (0.42ns)   --->   "%store_ln27 = store i27 0, i27 %j" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:27]   --->   Operation 173 'store' 'store_ln27' <Predicate = (icmp_ln23)> <Delay = 0.42>
 
 State 41 <SV = 40> <Delay = 7.30>
@@ -345,7 +345,7 @@ ST_42 : Operation 177 [1/1] (1.23ns)   --->   "%store_ln25 = store i256 %sparse_
 ST_42 : Operation 178 [1/1] (0.00ns)   --->   "%br_ln23 = br void %for.inc" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:23]   --->   Operation 178 'br' 'br_ln23' <Predicate = true> <Delay = 0.00>
 
 State 43 <SV = 40> <Delay = 7.30>
-ST_43 : Operation 179 [1/1] (0.00ns)   --->   "%sext_ln27 = sext i59 %trunc_ln5" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:27]   --->   Operation 179 'sext' 'sext_ln27' <Predicate = true> <Delay = 0.00>
+ST_43 : Operation 179 [1/1] (0.00ns)   --->   "%sext_ln27 = sext i59 %trunc_ln4" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:27]   --->   Operation 179 'sext' 'sext_ln27' <Predicate = true> <Delay = 0.00>
 ST_43 : Operation 180 [1/1] (0.00ns)   --->   "%sparse_data_addr_1 = getelementptr i256 %sparse_data, i64 %sext_ln27" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:27]   --->   Operation 180 'getelementptr' 'sparse_data_addr_1' <Predicate = true> <Delay = 0.00>
 ST_43 : Operation 181 [38/38] (7.30ns)   --->   "%empty_65 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %sparse_data_addr_1, i32 %zext_ln22" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:27]   --->   Operation 181 'readreq' 'empty_65' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
 
@@ -469,7 +469,7 @@ ST_81 : Operation 223 [1/1] (0.96ns)   --->   "%add_ln27_1 = add i27 %j_1, i27 1
 ST_81 : Operation 224 [1/1] (0.00ns)   --->   "%br_ln27 = br i1 %icmp_ln27, void %for.inc28.split, void %VITIS_LOOP_32_3.loopexit" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:27]   --->   Operation 224 'br' 'br_ln27' <Predicate = true> <Delay = 0.00>
 ST_81 : Operation 225 [1/1] (0.42ns)   --->   "%store_ln27 = store i27 %add_ln27_1, i27 %j" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:27]   --->   Operation 225 'store' 'store_ln27' <Predicate = (!icmp_ln27)> <Delay = 0.42>
 ST_81 : Operation 226 [1/1] (0.00ns)   --->   "%block = alloca i32 1"   --->   Operation 226 'alloca' 'block' <Predicate = (icmp_ln27)> <Delay = 0.00>
-ST_81 : Operation 227 [1/1] (0.00ns)   --->   "%trunc_ln6 = partselect i27 @_ssdm_op_PartSelect.i27.i32.i32.i32, i32 %fm_COLS_read, i32 5, i32 31" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:32]   --->   Operation 227 'partselect' 'trunc_ln6' <Predicate = (icmp_ln27)> <Delay = 0.00>
+ST_81 : Operation 227 [1/1] (0.00ns)   --->   "%trunc_ln5 = partselect i27 @_ssdm_op_PartSelect.i27.i32.i32.i32, i32 %fm_COLS_read, i32 5, i32 31" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:32]   --->   Operation 227 'partselect' 'trunc_ln5' <Predicate = (icmp_ln27)> <Delay = 0.00>
 ST_81 : Operation 228 [1/1] (0.42ns)   --->   "%store_ln32 = store i27 0, i27 %block" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:32]   --->   Operation 228 'store' 'store_ln32' <Predicate = (icmp_ln27)> <Delay = 0.42>
 ST_81 : Operation 229 [1/1] (0.00ns)   --->   "%br_ln32 = br void %VITIS_LOOP_34_4" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:32]   --->   Operation 229 'br' 'br_ln32' <Predicate = (icmp_ln27)> <Delay = 0.00>
 
@@ -484,7 +484,7 @@ ST_83 : Operation 234 [1/1] (0.00ns)   --->   "%br_ln27 = br void %for.inc28" [/
 
 State 84 <SV = 79> <Delay = 1.02>
 ST_84 : Operation 235 [1/1] (0.00ns)   --->   "%block_3 = load i27 %block"   --->   Operation 235 'load' 'block_3' <Predicate = true> <Delay = 0.00>
-ST_84 : Operation 236 [1/1] (1.02ns)   --->   "%icmp_ln32 = icmp_eq  i27 %block_3, i27 %trunc_ln6" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:32]   --->   Operation 236 'icmp' 'icmp_ln32' <Predicate = true> <Delay = 1.02> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.02> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_84 : Operation 236 [1/1] (1.02ns)   --->   "%icmp_ln32 = icmp_eq  i27 %block_3, i27 %trunc_ln5" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:32]   --->   Operation 236 'icmp' 'icmp_ln32' <Predicate = true> <Delay = 1.02> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.02> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
 ST_84 : Operation 237 [1/1] (0.96ns)   --->   "%block_4 = add i27 %block_3, i27 1" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:32]   --->   Operation 237 'add' 'block_4' <Predicate = true> <Delay = 0.96> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.96> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
 ST_84 : Operation 238 [1/1] (0.00ns)   --->   "%br_ln32 = br i1 %icmp_ln32, void %VITIS_LOOP_34_4.split, void %for.end64.loopexit" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:32]   --->   Operation 238 'br' 'br_ln32' <Predicate = true> <Delay = 0.00>
 ST_84 : Operation 239 [1/1] (0.00ns)   --->   "%specloopname_ln32 = specloopname void @_ssdm_op_SpecLoopName, void @empty_13" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:32]   --->   Operation 239 'specloopname' 'specloopname_ln32' <Predicate = (!icmp_ln32)> <Delay = 0.00>
@@ -619,7 +619,7 @@ fm_loop_num             (partselect    ) [ 0011111111111111111111111111111111111
 shl_ln                  (bitconcatenate) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
 zext_ln23               (zext          ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
 add_ln23                (add           ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
-trunc_ln4               (partselect    ) [ 00100000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
+trunc_ln3               (partselect    ) [ 00100000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
 store_ln23              (store         ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
 zext_ln21               (zext          ) [ 00011111111111111111111111111111111111110000000000000000000000000000000000000000000000000]
 sext_ln23               (sext          ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
@@ -649,7 +649,7 @@ j                       (alloca        ) [ 0000000000000000000000000000000000000
 shl_ln1                 (bitconcatenate) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
 zext_ln27               (zext          ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
 add_ln27                (add           ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
-trunc_ln5               (partselect    ) [ 00000000000000000000000000000000000000000001000000000000000000000000000000000000000000000]
+trunc_ln4               (partselect    ) [ 00000000000000000000000000000000000000000001000000000000000000000000000000000000000000000]
 store_ln27              (store         ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
 sparse_data_addr_read   (read          ) [ 00000000000000000000000000000000000000000010000000000000000000000000000000000000000000000]
 specloopname_ln23       (specloopname  ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
@@ -667,7 +667,7 @@ add_ln27_1              (add           ) [ 0000000000000000000000000000000000000
 br_ln27                 (br            ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
 store_ln27              (store         ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
 block                   (alloca        ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000000011111111]
-trunc_ln6               (partselect    ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000000000011111]
+trunc_ln5               (partselect    ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000000000011111]
 store_ln32              (store         ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
 br_ln32                 (br            ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
 sparse_data_addr_1_read (read          ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000000000100000]
@@ -2304,7 +2304,7 @@ br_ln39                 (br            ) [ 0000000000000000000000000000000000000
 </bind>
 </comp>
 
-<comp id="480" class="1004" name="trunc_ln4_fu_480">
+<comp id="480" class="1004" name="trunc_ln3_fu_480">
 <pin_list>
 <pin id="481" dir="0" index="0" bw="59" slack="0"/>
 <pin id="482" dir="0" index="1" bw="64" slack="0"/>
@@ -2314,7 +2314,7 @@ br_ln39                 (br            ) [ 0000000000000000000000000000000000000
 </pin_list>
 <bind>
 <opcode="partselect(1002) " fcode="partselect"/>
-<opset="trunc_ln4/1 "/>
+<opset="trunc_ln3/1 "/>
 </bind>
 </comp>
 
@@ -2495,7 +2495,7 @@ br_ln39                 (br            ) [ 0000000000000000000000000000000000000
 </bind>
 </comp>
 
-<comp id="567" class="1004" name="trunc_ln5_fu_567">
+<comp id="567" class="1004" name="trunc_ln4_fu_567">
 <pin_list>
 <pin id="568" dir="0" index="0" bw="59" slack="0"/>
 <pin id="569" dir="0" index="1" bw="64" slack="0"/>
@@ -2505,7 +2505,7 @@ br_ln39                 (br            ) [ 0000000000000000000000000000000000000
 </pin_list>
 <bind>
 <opcode="partselect(1002) " fcode="partselect"/>
-<opset="trunc_ln5/40 "/>
+<opset="trunc_ln4/40 "/>
 </bind>
 </comp>
 
@@ -2602,7 +2602,7 @@ br_ln39                 (br            ) [ 0000000000000000000000000000000000000
 </bind>
 </comp>
 
-<comp id="615" class="1004" name="trunc_ln6_fu_615">
+<comp id="615" class="1004" name="trunc_ln5_fu_615">
 <pin_list>
 <pin id="616" dir="0" index="0" bw="27" slack="0"/>
 <pin id="617" dir="0" index="1" bw="32" slack="78"/>
@@ -2612,7 +2612,7 @@ br_ln39                 (br            ) [ 0000000000000000000000000000000000000
 </pin_list>
 <bind>
 <opcode="partselect(1002) " fcode="partselect"/>
-<opset="trunc_ln6/81 "/>
+<opset="trunc_ln5/81 "/>
 </bind>
 </comp>
 
@@ -3388,13 +3388,13 @@ br_ln39                 (br            ) [ 0000000000000000000000000000000000000
 </bind>
 </comp>
 
-<comp id="1107" class="1005" name="trunc_ln4_reg_1107">
+<comp id="1107" class="1005" name="trunc_ln3_reg_1107">
 <pin_list>
 <pin id="1108" dir="0" index="0" bw="59" slack="1"/>
 <pin id="1109" dir="1" index="1" bw="59" slack="1"/>
 </pin_list>
 <bind>
-<opset="trunc_ln4 "/>
+<opset="trunc_ln3 "/>
 </bind>
 </comp>
 
@@ -3478,13 +3478,13 @@ br_ln39                 (br            ) [ 0000000000000000000000000000000000000
 </bind>
 </comp>
 
-<comp id="1158" class="1005" name="trunc_ln5_reg_1158">
+<comp id="1158" class="1005" name="trunc_ln4_reg_1158">
 <pin_list>
 <pin id="1159" dir="0" index="0" bw="59" slack="1"/>
 <pin id="1160" dir="1" index="1" bw="59" slack="1"/>
 </pin_list>
 <bind>
-<opset="trunc_ln5 "/>
+<opset="trunc_ln4 "/>
 </bind>
 </comp>
 
@@ -3528,13 +3528,13 @@ br_ln39                 (br            ) [ 0000000000000000000000000000000000000
 </bind>
 </comp>
 
-<comp id="1189" class="1005" name="trunc_ln6_reg_1189">
+<comp id="1189" class="1005" name="trunc_ln5_reg_1189">
 <pin_list>
 <pin id="1190" dir="0" index="0" bw="27" slack="1"/>
 <pin id="1191" dir="1" index="1" bw="27" slack="1"/>
 </pin_list>
 <bind>
-<opset="trunc_ln6 "/>
+<opset="trunc_ln5 "/>
 </bind>
 </comp>
 
@@ -4770,7 +4770,7 @@ br_ln39                 (br            ) [ 0000000000000000000000000000000000000
 		fm_loop_num : 1
 		zext_ln23 : 1
 		add_ln23 : 2
-		trunc_ln4 : 3
+		trunc_ln3 : 3
 		store_ln23 : 1
 	State 2
 		sparse_data_addr : 1
@@ -4822,7 +4822,7 @@ br_ln39                 (br            ) [ 0000000000000000000000000000000000000
 		store_ln23 : 2
 		zext_ln27 : 1
 		add_ln27 : 2
-		trunc_ln5 : 3
+		trunc_ln4 : 3
 		store_ln27 : 1
 	State 41
 	State 42
@@ -4995,10 +4995,10 @@ br_ln39                 (br            ) [ 0000000000000000000000000000000000000
 |          |          grp_readreq_fu_329         |    0    |    0    |    0    |
 |----------|-------------------------------------|---------|---------|---------|
 |          |          fm_loop_num_fu_452         |    0    |    0    |    0    |
-|          |           trunc_ln4_fu_480          |    0    |    0    |    0    |
+|          |           trunc_ln3_fu_480          |    0    |    0    |    0    |
 |          |          am_loop_num_fu_514         |    0    |    0    |    0    |
-|          |           trunc_ln5_fu_567          |    0    |    0    |    0    |
-|          |           trunc_ln6_fu_615          |    0    |    0    |    0    |
+|          |           trunc_ln4_fu_567          |    0    |    0    |    0    |
+|          |           trunc_ln5_fu_615          |    0    |    0    |    0    |
 |          |          l_val_V_95_fu_679          |    0    |    0    |    0    |
 |          |          l_val_V_96_fu_689          |    0    |    0    |    0    |
 |          |          l_val_V_97_fu_699          |    0    |    0    |    0    |
@@ -5128,10 +5128,10 @@ Memories:
 |   sparse_data_addr_1_reg_1168  |   256  |
 | sparse_data_addr_read_reg_1163 |   256  |
 |    sparse_data_addr_reg_1117   |   256  |
+|       trunc_ln3_reg_1107       |   59   |
 |      trunc_ln44_1_reg_1397     |    8   |
-|       trunc_ln4_reg_1107       |   59   |
-|       trunc_ln5_reg_1158       |   59   |
-|       trunc_ln6_reg_1189       |   27   |
+|       trunc_ln4_reg_1158       |   59   |
+|       trunc_ln5_reg_1189       |   27   |
 |       zext_ln21_reg_1112       |   32   |
 |       zext_ln22_reg_1138       |   32   |
 |      zext_ln23_1_reg_1143      |   64   |

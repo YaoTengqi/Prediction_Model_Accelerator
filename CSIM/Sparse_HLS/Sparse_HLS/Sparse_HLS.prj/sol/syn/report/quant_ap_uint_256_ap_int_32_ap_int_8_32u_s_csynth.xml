@@ -18,7 +18,7 @@
 <PipelineType>no</PipelineType>
 <SummaryOfTimingAnalysis>
 <unit>ns</unit>
-<EstimatedClockPeriod>7.003</EstimatedClockPeriod>
+<EstimatedClockPeriod>6.365</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
@@ -35,9 +35,9 @@
 
 <AreaEstimates>
 <Resources>
-<DSP>227</DSP>
-<FF>3427</FF>
-<LUT>20377</LUT>
+<DSP>67</DSP>
+<FF>1265</FF>
+<LUT>9689</LUT>
 <BRAM_18K>0</BRAM_18K>
 <URAM>0</URAM>
 </Resources>
@@ -411,7 +411,7 @@
 <IOProtocol>ap_fifo</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>in</Dir>
-<Bits>32</Bits>
+<Bits>16</Bits>
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>

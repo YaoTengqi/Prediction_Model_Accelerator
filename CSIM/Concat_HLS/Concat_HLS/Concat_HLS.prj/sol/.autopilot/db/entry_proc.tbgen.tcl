@@ -15,12 +15,12 @@ set C_modelType { void 0 }
 set C_modelArgList {
 	{ output_data_addr3 int 32 regular  }
 	{ output_data_addr3_c int 32 regular {fifo 1}  }
-	{ mul1 int 32 regular  }
-	{ mul1_c int 32 regular {fifo 1}  }
+	{ mul1 int 16 regular  }
+	{ mul1_c int 16 regular {fifo 1}  }
 	{ shift1 int 32 regular  }
 	{ shift1_c int 32 regular {fifo 1}  }
-	{ mul2 int 32 regular  }
-	{ mul2_c int 32 regular {fifo 1}  }
+	{ mul2 int 16 regular  }
+	{ mul2_c int 16 regular {fifo 1}  }
 	{ shift2 int 32 regular  }
 	{ shift2_c int 32 regular {fifo 1}  }
 	{ outputs int 64 regular  }
@@ -29,12 +29,12 @@ set C_modelArgList {
 set C_modelArgMapList {[ 
 	{ "Name" : "output_data_addr3", "interface" : "wire", "bitwidth" : 32, "direction" : "READONLY"} , 
  	{ "Name" : "output_data_addr3_c", "interface" : "fifo", "bitwidth" : 32, "direction" : "WRITEONLY"} , 
- 	{ "Name" : "mul1", "interface" : "wire", "bitwidth" : 32, "direction" : "READONLY"} , 
- 	{ "Name" : "mul1_c", "interface" : "fifo", "bitwidth" : 32, "direction" : "WRITEONLY"} , 
+ 	{ "Name" : "mul1", "interface" : "wire", "bitwidth" : 16, "direction" : "READONLY"} , 
+ 	{ "Name" : "mul1_c", "interface" : "fifo", "bitwidth" : 16, "direction" : "WRITEONLY"} , 
  	{ "Name" : "shift1", "interface" : "wire", "bitwidth" : 32, "direction" : "READONLY"} , 
  	{ "Name" : "shift1_c", "interface" : "fifo", "bitwidth" : 32, "direction" : "WRITEONLY"} , 
- 	{ "Name" : "mul2", "interface" : "wire", "bitwidth" : 32, "direction" : "READONLY"} , 
- 	{ "Name" : "mul2_c", "interface" : "fifo", "bitwidth" : 32, "direction" : "WRITEONLY"} , 
+ 	{ "Name" : "mul2", "interface" : "wire", "bitwidth" : 16, "direction" : "READONLY"} , 
+ 	{ "Name" : "mul2_c", "interface" : "fifo", "bitwidth" : 16, "direction" : "WRITEONLY"} , 
  	{ "Name" : "shift2", "interface" : "wire", "bitwidth" : 32, "direction" : "READONLY"} , 
  	{ "Name" : "shift2_c", "interface" : "fifo", "bitwidth" : 32, "direction" : "WRITEONLY"} , 
  	{ "Name" : "outputs", "interface" : "wire", "bitwidth" : 64, "direction" : "READONLY"} , 
@@ -58,8 +58,8 @@ set portList {
 	{ output_data_addr3_c_fifo_cap sc_in sc_lv 3 signal 1 } 
 	{ output_data_addr3_c_full_n sc_in sc_logic 1 signal 1 } 
 	{ output_data_addr3_c_write sc_out sc_logic 1 signal 1 } 
-	{ mul1 sc_in sc_lv 32 signal 2 } 
-	{ mul1_c_din sc_out sc_lv 32 signal 3 } 
+	{ mul1 sc_in sc_lv 16 signal 2 } 
+	{ mul1_c_din sc_out sc_lv 16 signal 3 } 
 	{ mul1_c_num_data_valid sc_in sc_lv 3 signal 3 } 
 	{ mul1_c_fifo_cap sc_in sc_lv 3 signal 3 } 
 	{ mul1_c_full_n sc_in sc_logic 1 signal 3 } 
@@ -70,8 +70,8 @@ set portList {
 	{ shift1_c_fifo_cap sc_in sc_lv 3 signal 5 } 
 	{ shift1_c_full_n sc_in sc_logic 1 signal 5 } 
 	{ shift1_c_write sc_out sc_logic 1 signal 5 } 
-	{ mul2 sc_in sc_lv 32 signal 6 } 
-	{ mul2_c_din sc_out sc_lv 32 signal 7 } 
+	{ mul2 sc_in sc_lv 16 signal 6 } 
+	{ mul2_c_din sc_out sc_lv 16 signal 7 } 
 	{ mul2_c_num_data_valid sc_in sc_lv 3 signal 7 } 
 	{ mul2_c_fifo_cap sc_in sc_lv 3 signal 7 } 
 	{ mul2_c_full_n sc_in sc_logic 1 signal 7 } 
@@ -106,8 +106,8 @@ set NewPortList {[
  	{ "name": "output_data_addr3_c_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "output_data_addr3_c", "role": "fifo_cap" }} , 
  	{ "name": "output_data_addr3_c_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "output_data_addr3_c", "role": "full_n" }} , 
  	{ "name": "output_data_addr3_c_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "output_data_addr3_c", "role": "write" }} , 
- 	{ "name": "mul1", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "mul1", "role": "default" }} , 
- 	{ "name": "mul1_c_din", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "mul1_c", "role": "din" }} , 
+ 	{ "name": "mul1", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "mul1", "role": "default" }} , 
+ 	{ "name": "mul1_c_din", "direction": "out", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "mul1_c", "role": "din" }} , 
  	{ "name": "mul1_c_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "mul1_c", "role": "num_data_valid" }} , 
  	{ "name": "mul1_c_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "mul1_c", "role": "fifo_cap" }} , 
  	{ "name": "mul1_c_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "mul1_c", "role": "full_n" }} , 
@@ -118,8 +118,8 @@ set NewPortList {[
  	{ "name": "shift1_c_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "shift1_c", "role": "fifo_cap" }} , 
  	{ "name": "shift1_c_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "shift1_c", "role": "full_n" }} , 
  	{ "name": "shift1_c_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "shift1_c", "role": "write" }} , 
- 	{ "name": "mul2", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "mul2", "role": "default" }} , 
- 	{ "name": "mul2_c_din", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "mul2_c", "role": "din" }} , 
+ 	{ "name": "mul2", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "mul2", "role": "default" }} , 
+ 	{ "name": "mul2_c_din", "direction": "out", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "mul2_c", "role": "din" }} , 
  	{ "name": "mul2_c_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "mul2_c", "role": "num_data_valid" }} , 
  	{ "name": "mul2_c_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "mul2_c", "role": "fifo_cap" }} , 
  	{ "name": "mul2_c_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "mul2_c", "role": "full_n" }} , 
@@ -207,12 +207,12 @@ set PipelineEnableSignalInfo {[
 set Spec2ImplPortList { 
 	output_data_addr3 { ap_none {  { output_data_addr3 in_data 0 32 } } }
 	output_data_addr3_c { ap_fifo {  { output_data_addr3_c_din fifo_port_we 1 32 }  { output_data_addr3_c_num_data_valid fifo_status_num_data_valid 0 3 }  { output_data_addr3_c_fifo_cap fifo_update 0 3 }  { output_data_addr3_c_full_n fifo_status 0 1 }  { output_data_addr3_c_write fifo_data 1 1 } } }
-	mul1 { ap_none {  { mul1 in_data 0 32 } } }
-	mul1_c { ap_fifo {  { mul1_c_din fifo_port_we 1 32 }  { mul1_c_num_data_valid fifo_status_num_data_valid 0 3 }  { mul1_c_fifo_cap fifo_update 0 3 }  { mul1_c_full_n fifo_status 0 1 }  { mul1_c_write fifo_data 1 1 } } }
+	mul1 { ap_none {  { mul1 in_data 0 16 } } }
+	mul1_c { ap_fifo {  { mul1_c_din fifo_port_we 1 16 }  { mul1_c_num_data_valid fifo_status_num_data_valid 0 3 }  { mul1_c_fifo_cap fifo_update 0 3 }  { mul1_c_full_n fifo_status 0 1 }  { mul1_c_write fifo_data 1 1 } } }
 	shift1 { ap_none {  { shift1 in_data 0 32 } } }
 	shift1_c { ap_fifo {  { shift1_c_din fifo_port_we 1 32 }  { shift1_c_num_data_valid fifo_status_num_data_valid 0 3 }  { shift1_c_fifo_cap fifo_update 0 3 }  { shift1_c_full_n fifo_status 0 1 }  { shift1_c_write fifo_data 1 1 } } }
-	mul2 { ap_none {  { mul2 in_data 0 32 } } }
-	mul2_c { ap_fifo {  { mul2_c_din fifo_port_we 1 32 }  { mul2_c_num_data_valid fifo_status_num_data_valid 0 3 }  { mul2_c_fifo_cap fifo_update 0 3 }  { mul2_c_full_n fifo_status 0 1 }  { mul2_c_write fifo_data 1 1 } } }
+	mul2 { ap_none {  { mul2 in_data 0 16 } } }
+	mul2_c { ap_fifo {  { mul2_c_din fifo_port_we 1 16 }  { mul2_c_num_data_valid fifo_status_num_data_valid 0 3 }  { mul2_c_fifo_cap fifo_update 0 3 }  { mul2_c_full_n fifo_status 0 1 }  { mul2_c_write fifo_data 1 1 } } }
 	shift2 { ap_none {  { shift2 in_data 0 32 } } }
 	shift2_c { ap_fifo {  { shift2_c_din fifo_port_we 1 32 }  { shift2_c_num_data_valid fifo_status_num_data_valid 0 3 }  { shift2_c_fifo_cap fifo_update 0 3 }  { shift2_c_full_n fifo_status 0 1 }  { shift2_c_write fifo_data 1 1 } } }
 	outputs { ap_none {  { outputs in_data 0 64 } } }

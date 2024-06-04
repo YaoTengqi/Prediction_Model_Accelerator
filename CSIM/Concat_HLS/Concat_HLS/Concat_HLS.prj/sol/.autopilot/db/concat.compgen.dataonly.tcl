@@ -44,7 +44,7 @@ COLS {
 }
 mul1 { 
 	dir I
-	width 32
+	width 16
 	depth 1
 	mode ap_none
 	offset 56
@@ -60,7 +60,7 @@ shift1 {
 }
 mul2 { 
 	dir I
-	width 32
+	width 16
 	depth 1
 	mode ap_none
 	offset 72

@@ -23,5 +23,5 @@ void sparse(
 	t_AXI_DataType *inputs,
 	t_AXI_DataType *outputs,
 	int shift,
-	int mul,
+	int16_t mul,
 	bool &sparse_flag);

@@ -4,6 +4,7 @@
     <logs>
       <synLog/>
       <csimLog>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="Sparse_HLS" solutionName="solution1" date="2024-06-03T15:10:04.748+0800"/>
         <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="Sparse_HLS" solutionName="solution1" date="2024-05-30T14:35:29.386+0800"/>
         <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="Sparse_HLS" solutionName="solution1" date="2024-05-30T14:33:55.264+0800"/>
         <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="Sparse_HLS" solutionName="solution1" date="2024-05-30T14:31:34.378+0800"/>

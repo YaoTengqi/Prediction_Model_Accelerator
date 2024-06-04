@@ -7,7 +7,7 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="sparse_sparse,hls_ip_2022_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xczu7ev-ffvc1156-2-e,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=7.300000,HLS_SYN_LAT=-1,HLS_SYN_TPT=-1,HLS_SYN_MEM=88,HLS_SYN_DSP=0,HLS_SYN_FF=9525,HLS_SYN_LUT=28528,HLS_VERSION=2022_2}" *)
+(* CORE_GENERATION_INFO="sparse_sparse,hls_ip_2022_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xczu7ev-ffvc1156-2-e,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=7.300000,HLS_SYN_LAT=-1,HLS_SYN_TPT=-1,HLS_SYN_MEM=88,HLS_SYN_DSP=0,HLS_SYN_FF=7347,HLS_SYN_LUT=17808,HLS_VERSION=2022_2}" *)
 
 module sparse (
         s_axi_sparse_addr_AWVALID,
@@ -175,7 +175,7 @@ wire   [31:0] fm_COLS;
 wire   [63:0] inputs;
 wire   [63:0] outputs;
 wire   [31:0] quant_shift;
-wire   [31:0] quant_mul;
+wire   [15:0] quant_mul;
 wire    sparse_flag;
 wire    ap_start;
 wire    ap_ready;
@@ -209,7 +209,7 @@ wire   [63:0] entry_proc_U0_outputs_c_din;
 wire    entry_proc_U0_outputs_c_write;
 wire   [31:0] entry_proc_U0_quant_shift_c_din;
 wire    entry_proc_U0_quant_shift_c_write;
-wire   [31:0] entry_proc_U0_quant_mul_c_din;
+wire   [15:0] entry_proc_U0_quant_mul_c_din;
 wire    entry_proc_U0_quant_mul_c_write;
 wire    load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_start;
 wire    load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_done;
@@ -352,7 +352,7 @@ wire   [2:0] quant_shift_c_num_data_valid;
 wire   [2:0] quant_shift_c_fifo_cap;
 wire    quant_shift_c_empty_n;
 wire    quant_mul_c_full_n;
-wire   [31:0] quant_mul_c_dout;
+wire   [15:0] quant_mul_c_dout;
 wire   [2:0] quant_mul_c_num_data_valid;
 wire   [2:0] quant_mul_c_fifo_cap;
 wire    quant_mul_c_empty_n;
@@ -926,7 +926,7 @@ sparse_fifo_w32_d4_S quant_shift_c_U(
     .if_read(quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_quant_shift_read)
 );
 
-sparse_fifo_w32_d4_S quant_mul_c_U(
+sparse_fifo_w16_d4_S quant_mul_c_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
     .if_read_ce(1'b1),

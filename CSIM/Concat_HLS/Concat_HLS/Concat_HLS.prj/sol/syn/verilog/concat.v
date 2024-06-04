@@ -7,7 +7,7 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="concat_concat,hls_ip_2022_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xczu7ev-ffvc1156-2-e,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=7.300000,HLS_SYN_LAT=-1,HLS_SYN_TPT=-1,HLS_SYN_MEM=30,HLS_SYN_DSP=0,HLS_SYN_FF=9108,HLS_SYN_LUT=45410,HLS_VERSION=2022_2}" *)
+(* CORE_GENERATION_INFO="concat_concat,hls_ip_2022_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xczu7ev-ffvc1156-2-e,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=7.300000,HLS_SYN_LAT=-1,HLS_SYN_TPT=-1,HLS_SYN_MEM=30,HLS_SYN_DSP=0,HLS_SYN_FF=6620,HLS_SYN_LUT=27102,HLS_VERSION=2022_2}" *)
 
 module concat (
         s_axi_concat_addr_AWVALID,
@@ -170,9 +170,9 @@ wire   [31:0] input_data_addr2;
 wire   [31:0] output_data_addr3;
 wire   [31:0] ROWS;
 wire   [31:0] COLS;
-wire   [31:0] mul1;
+wire   [15:0] mul1;
 wire   [31:0] shift1;
-wire   [31:0] mul2;
+wire   [15:0] mul2;
 wire   [31:0] shift2;
 wire   [63:0] inputs;
 wire   [63:0] outputs;
@@ -205,11 +205,11 @@ wire    entry_proc_U0_start_out;
 wire    entry_proc_U0_start_write;
 wire   [31:0] entry_proc_U0_output_data_addr3_c_din;
 wire    entry_proc_U0_output_data_addr3_c_write;
-wire   [31:0] entry_proc_U0_mul1_c_din;
+wire   [15:0] entry_proc_U0_mul1_c_din;
 wire    entry_proc_U0_mul1_c_write;
 wire   [31:0] entry_proc_U0_shift1_c_din;
 wire    entry_proc_U0_shift1_c_write;
-wire   [31:0] entry_proc_U0_mul2_c_din;
+wire   [15:0] entry_proc_U0_mul2_c_din;
 wire    entry_proc_U0_mul2_c_write;
 wire   [31:0] entry_proc_U0_shift2_c_din;
 wire    entry_proc_U0_shift2_c_write;
@@ -326,7 +326,7 @@ wire   [2:0] output_data_addr3_c_num_data_valid;
 wire   [2:0] output_data_addr3_c_fifo_cap;
 wire    output_data_addr3_c_empty_n;
 wire    mul1_c_full_n;
-wire   [31:0] mul1_c_dout;
+wire   [15:0] mul1_c_dout;
 wire   [2:0] mul1_c_num_data_valid;
 wire   [2:0] mul1_c_fifo_cap;
 wire    mul1_c_empty_n;
@@ -336,7 +336,7 @@ wire   [2:0] shift1_c_num_data_valid;
 wire   [2:0] shift1_c_fifo_cap;
 wire    shift1_c_empty_n;
 wire    mul2_c_full_n;
-wire   [31:0] mul2_c_dout;
+wire   [15:0] mul2_c_dout;
 wire   [2:0] mul2_c_num_data_valid;
 wire   [2:0] mul2_c_fifo_cap;
 wire    mul2_c_empty_n;
@@ -818,7 +818,7 @@ concat_fifo_w32_d4_S output_data_addr3_c_U(
     .if_read(store_ap_uint_256_ap_int_8_32u_U0_input_data_addr3_read)
 );
 
-concat_fifo_w32_d3_S mul1_c_U(
+concat_fifo_w16_d3_S mul1_c_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
     .if_read_ce(1'b1),
@@ -848,7 +848,7 @@ concat_fifo_w32_d3_S shift1_c_U(
     .if_read(requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_shift1_read)
 );
 
-concat_fifo_w32_d3_S mul2_c_U(
+concat_fifo_w16_d3_S mul2_c_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
     .if_read_ce(1'b1),

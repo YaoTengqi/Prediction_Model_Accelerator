@@ -27,8 +27,8 @@ port (
     output_data_addr3_c_fifo_cap : IN STD_LOGIC_VECTOR (2 downto 0);
     output_data_addr3_c_full_n : IN STD_LOGIC;
     output_data_addr3_c_write : OUT STD_LOGIC;
-    mul1 : IN STD_LOGIC_VECTOR (31 downto 0);
-    mul1_c_din : OUT STD_LOGIC_VECTOR (31 downto 0);
+    mul1 : IN STD_LOGIC_VECTOR (15 downto 0);
+    mul1_c_din : OUT STD_LOGIC_VECTOR (15 downto 0);
     mul1_c_num_data_valid : IN STD_LOGIC_VECTOR (2 downto 0);
     mul1_c_fifo_cap : IN STD_LOGIC_VECTOR (2 downto 0);
     mul1_c_full_n : IN STD_LOGIC;
@@ -39,8 +39,8 @@ port (
     shift1_c_fifo_cap : IN STD_LOGIC_VECTOR (2 downto 0);
     shift1_c_full_n : IN STD_LOGIC;
     shift1_c_write : OUT STD_LOGIC;
-    mul2 : IN STD_LOGIC_VECTOR (31 downto 0);
-    mul2_c_din : OUT STD_LOGIC_VECTOR (31 downto 0);
+    mul2 : IN STD_LOGIC_VECTOR (15 downto 0);
+    mul2_c_din : OUT STD_LOGIC_VECTOR (15 downto 0);
     mul2_c_num_data_valid : IN STD_LOGIC_VECTOR (2 downto 0);
     mul2_c_fifo_cap : IN STD_LOGIC_VECTOR (2 downto 0);
     mul2_c_full_n : IN STD_LOGIC;

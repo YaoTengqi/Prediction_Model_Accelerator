@@ -6,7 +6,7 @@ if {${::AESL::PGuard_rtl_comp_handler}} {
 
 
 if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler concat_fifo_w32_d3_S BINDTYPE {storage} TYPE {fifo} IMPL {srl} ALLOW_PRAGMA 1 INSTNAME {mul1_c_U}
+	::AP::rtl_comp_handler concat_fifo_w16_d3_S BINDTYPE {storage} TYPE {fifo} IMPL {srl} ALLOW_PRAGMA 1 INSTNAME {mul1_c_U}
 }
 
 
@@ -16,7 +16,7 @@ if {${::AESL::PGuard_rtl_comp_handler}} {
 
 
 if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler concat_fifo_w32_d3_S BINDTYPE {storage} TYPE {fifo} IMPL {srl} ALLOW_PRAGMA 1 INSTNAME {mul2_c_U}
+	::AP::rtl_comp_handler concat_fifo_w16_d3_S BINDTYPE {storage} TYPE {fifo} IMPL {srl} ALLOW_PRAGMA 1 INSTNAME {mul2_c_U}
 }
 
 
@@ -126,7 +126,7 @@ COLS {
 }
 mul1 { 
 	dir I
-	width 32
+	width 16
 	depth 1
 	mode ap_none
 	offset 56
@@ -142,7 +142,7 @@ shift1 {
 }
 mul2 { 
 	dir I
-	width 32
+	width 16
 	depth 1
 	mode ap_none
 	offset 72

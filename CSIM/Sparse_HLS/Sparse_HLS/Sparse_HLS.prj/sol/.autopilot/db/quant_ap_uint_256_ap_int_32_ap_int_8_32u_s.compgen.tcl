@@ -93,7 +93,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_quant_mul \
     op interface \
-    ports { quant_mul_dout { I 32 vector } quant_mul_num_data_valid { I 3 vector } quant_mul_fifo_cap { I 3 vector } quant_mul_empty_n { I 1 bit } quant_mul_read { O 1 bit } } \
+    ports { quant_mul_dout { I 16 vector } quant_mul_num_data_valid { I 3 vector } quant_mul_fifo_cap { I 3 vector } quant_mul_empty_n { I 1 bit } quant_mul_read { O 1 bit } } \
 } "
 }
 

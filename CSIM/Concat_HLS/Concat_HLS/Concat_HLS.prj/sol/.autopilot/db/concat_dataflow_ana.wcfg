@@ -462,8 +462,8 @@
                   <obj_property name="ObjectShortName">mul1_blk_n</obj_property>
                </wvobject>
                <wvobject type="logic" fp_name="/apatb_concat_top/AESL_inst_concat/requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0/mul1_dout">
-                  <obj_property name="ElementShortName">mul1_dout[31:0]</obj_property>
-                  <obj_property name="ObjectShortName">mul1_dout[31:0]</obj_property>
+                  <obj_property name="ElementShortName">mul1_dout[15:0]</obj_property>
+                  <obj_property name="ObjectShortName">mul1_dout[15:0]</obj_property>
                </wvobject>
                <wvobject type="logic" fp_name="/apatb_concat_top/AESL_inst_concat/requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0/mul1_empty_n">
                   <obj_property name="ElementShortName">mul1_empty_n</obj_property>
@@ -502,8 +502,8 @@
                   <obj_property name="ObjectShortName">mul2_blk_n</obj_property>
                </wvobject>
                <wvobject type="logic" fp_name="/apatb_concat_top/AESL_inst_concat/requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0/mul2_dout">
-                  <obj_property name="ElementShortName">mul2_dout[31:0]</obj_property>
-                  <obj_property name="ObjectShortName">mul2_dout[31:0]</obj_property>
+                  <obj_property name="ElementShortName">mul2_dout[15:0]</obj_property>
+                  <obj_property name="ObjectShortName">mul2_dout[15:0]</obj_property>
                </wvobject>
                <wvobject type="logic" fp_name="/apatb_concat_top/AESL_inst_concat/requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0/mul2_empty_n">
                   <obj_property name="ElementShortName">mul2_empty_n</obj_property>

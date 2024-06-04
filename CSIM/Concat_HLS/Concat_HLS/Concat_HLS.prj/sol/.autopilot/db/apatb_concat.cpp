@@ -973,10 +973,10 @@ namespace hls::sim
 
 
 extern "C"
-void concat_hw_stub_wrapper(hls::sim::Byte<4>, hls::sim::Byte<4>, hls::sim::Byte<4>, hls::sim::Byte<4>, hls::sim::Byte<4>, hls::sim::Byte<4>, hls::sim::Byte<4>, hls::sim::Byte<4>, hls::sim::Byte<4>, void*, void*, void*);
+void concat_hw_stub_wrapper(hls::sim::Byte<4>, hls::sim::Byte<4>, hls::sim::Byte<4>, hls::sim::Byte<4>, hls::sim::Byte<4>, hls::sim::Byte<2>, hls::sim::Byte<4>, hls::sim::Byte<2>, hls::sim::Byte<4>, void*, void*, void*);
 
 extern "C"
-void apatb_concat_hw(hls::sim::Byte<4> __xlx_apatb_param_input_data_addr1, hls::sim::Byte<4> __xlx_apatb_param_input_data_addr2, hls::sim::Byte<4> __xlx_apatb_param_output_data_addr3, hls::sim::Byte<4> __xlx_apatb_param_ROWS, hls::sim::Byte<4> __xlx_apatb_param_COLS, hls::sim::Byte<4> __xlx_apatb_param_mul1, hls::sim::Byte<4> __xlx_apatb_param_shift1, hls::sim::Byte<4> __xlx_apatb_param_mul2, hls::sim::Byte<4> __xlx_apatb_param_shift2, void* __xlx_apatb_param_inputs, void* __xlx_apatb_param_outputs, void* __xlx_apatb_param_concat_flag)
+void apatb_concat_hw(hls::sim::Byte<4> __xlx_apatb_param_input_data_addr1, hls::sim::Byte<4> __xlx_apatb_param_input_data_addr2, hls::sim::Byte<4> __xlx_apatb_param_output_data_addr3, hls::sim::Byte<4> __xlx_apatb_param_ROWS, hls::sim::Byte<4> __xlx_apatb_param_COLS, hls::sim::Byte<2> __xlx_apatb_param_mul1, hls::sim::Byte<4> __xlx_apatb_param_shift1, hls::sim::Byte<2> __xlx_apatb_param_mul2, hls::sim::Byte<4> __xlx_apatb_param_shift2, void* __xlx_apatb_param_inputs, void* __xlx_apatb_param_outputs, void* __xlx_apatb_param_concat_flag)
 {
   static hls::sim::Register port0 {
     .name = "input_data_addr1",
@@ -1035,7 +1035,7 @@ void apatb_concat_hw(hls::sim::Byte<4> __xlx_apatb_param_input_data_addr1, hls::
 
   static hls::sim::Register port5 {
     .name = "mul1",
-    .width = 32,
+    .width = 16,
 #ifdef POST_CHECK
 #else
     .owriter = nullptr,
@@ -1057,7 +1057,7 @@ void apatb_concat_hw(hls::sim::Byte<4> __xlx_apatb_param_input_data_addr1, hls::
 
   static hls::sim::Register port7 {
     .name = "mul2",
-    .width = 32,
+    .width = 16,
 #ifdef POST_CHECK
 #else
     .owriter = nullptr,

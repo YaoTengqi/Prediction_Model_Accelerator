@@ -820,10 +820,10 @@ entry:29 %add_ln23 = add i64 %zext_ln23, i64 %inputs_read
 
 <Node id="45" bw="59" op_0_bw="59" op_1_bw="64" op_2_bw="32" op_3_bw="32">
 <![CDATA[
-entry:30 %trunc_ln4 = partselect i59 @_ssdm_op_PartSelect.i59.i64.i32.i32, i64 %add_ln23, i32 5, i32 63
+entry:30 %trunc_ln3 = partselect i59 @_ssdm_op_PartSelect.i59.i64.i32.i32, i64 %add_ln23, i32 5, i32 63
 
 ]]></Node>
-<StgValue><ssdm name="trunc_ln4"/></StgValue>
+<StgValue><ssdm name="trunc_ln3"/></StgValue>
 </operation>
 
 <operation id="106" st_id="1" stage="1" lat="1">
@@ -868,7 +868,7 @@ entry:23 %zext_ln21 = zext i27 %fm_loop_num
 
 <Node id="46" bw="64" op_0_bw="59">
 <![CDATA[
-entry:31 %sext_ln23 = sext i59 %trunc_ln4
+entry:31 %sext_ln23 = sext i59 %trunc_ln3
 
 ]]></Node>
 <StgValue><ssdm name="sext_ln23"/></StgValue>
@@ -1948,10 +1948,10 @@ VITIS_LOOP_27_2.loopexit:3 %add_ln27 = add i64 %zext_ln27, i64 %inputs_read
 
 <Node id="69" bw="59" op_0_bw="59" op_1_bw="64" op_2_bw="32" op_3_bw="32">
 <![CDATA[
-VITIS_LOOP_27_2.loopexit:4 %trunc_ln5 = partselect i59 @_ssdm_op_PartSelect.i59.i64.i32.i32, i64 %add_ln27, i32 5, i32 63
+VITIS_LOOP_27_2.loopexit:4 %trunc_ln4 = partselect i59 @_ssdm_op_PartSelect.i59.i64.i32.i32, i64 %add_ln27, i32 5, i32 63
 
 ]]></Node>
-<StgValue><ssdm name="trunc_ln5"/></StgValue>
+<StgValue><ssdm name="trunc_ln4"/></StgValue>
 </operation>
 
 <operation id="173" st_id="40" stage="1" lat="1">
@@ -2063,7 +2063,7 @@ for.inc.split:5 %br_ln23 = br void %for.inc
 
 <Node id="70" bw="64" op_0_bw="59">
 <![CDATA[
-VITIS_LOOP_27_2.loopexit:5 %sext_ln27 = sext i59 %trunc_ln5
+VITIS_LOOP_27_2.loopexit:5 %sext_ln27 = sext i59 %trunc_ln4
 
 ]]></Node>
 <StgValue><ssdm name="sext_ln27"/></StgValue>
@@ -2900,10 +2900,10 @@ VITIS_LOOP_32_3.loopexit:0 %block = alloca i32 1
 
 <Node id="90" bw="27" op_0_bw="27" op_1_bw="32" op_2_bw="32" op_3_bw="32">
 <![CDATA[
-VITIS_LOOP_32_3.loopexit:1 %trunc_ln6 = partselect i27 @_ssdm_op_PartSelect.i27.i32.i32.i32, i32 %fm_COLS_read, i32 5, i32 31
+VITIS_LOOP_32_3.loopexit:1 %trunc_ln5 = partselect i27 @_ssdm_op_PartSelect.i27.i32.i32.i32, i32 %fm_COLS_read, i32 5, i32 31
 
 ]]></Node>
-<StgValue><ssdm name="trunc_ln6"/></StgValue>
+<StgValue><ssdm name="trunc_ln5"/></StgValue>
 </operation>
 
 <operation id="228" st_id="81" stage="1" lat="1">
@@ -3046,7 +3046,7 @@ VITIS_LOOP_34_4:0 %block_3 = load i27 %block
 
 <Node id="95" bw="1" op_0_bw="27" op_1_bw="27">
 <![CDATA[
-VITIS_LOOP_34_4:1 %icmp_ln32 = icmp_eq  i27 %block_3, i27 %trunc_ln6
+VITIS_LOOP_34_4:1 %icmp_ln32 = icmp_eq  i27 %block_3, i27 %trunc_ln5
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln32"/></StgValue>

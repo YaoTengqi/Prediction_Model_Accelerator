@@ -372,7 +372,7 @@ end
         .token_out_vec(token_out_vec_3),
         .dl_detect_out(dl_in_vec[3]));
 
-    assign proc_3_data_FIFO_blk[0] = 1'b0 | (~quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94.data_out1_blk_n) | (~quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.fm_COLS_blk_n);
+    assign proc_3_data_FIFO_blk[0] = 1'b0 | (~quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96.data_out1_blk_n) | (~quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.fm_COLS_blk_n);
     assign proc_3_data_PIPO_blk[0] = 1'b0;
     assign proc_3_start_FIFO_blk[0] = 1'b0;
     assign proc_3_TLF_FIFO_blk[0] = 1'b0;
@@ -386,7 +386,7 @@ end
     assign proc_3_input_sync_blk[1] = 1'b0;
     assign proc_3_output_sync_blk[1] = 1'b0;
     assign proc_dep_vld_vec_3[1] = dl_detect_out ? proc_dep_vld_vec_3_reg[1] : (proc_3_data_FIFO_blk[1] | proc_3_data_PIPO_blk[1] | proc_3_start_FIFO_blk[1] | proc_3_TLF_FIFO_blk[1] | proc_3_input_sync_blk[1] | proc_3_output_sync_blk[1]);
-    assign proc_3_data_FIFO_blk[2] = 1'b0 | (~quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94.quant_out2_blk_n) | (~quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.fm_ROWS_c_blk_n) | (~quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.fm_COLS_c_blk_n);
+    assign proc_3_data_FIFO_blk[2] = 1'b0 | (~quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96.quant_out2_blk_n) | (~quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.fm_ROWS_c_blk_n) | (~quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.fm_COLS_c_blk_n);
     assign proc_3_data_PIPO_blk[2] = 1'b0;
     assign proc_3_start_FIFO_blk[2] = 1'b0;
     assign proc_3_TLF_FIFO_blk[2] = 1'b0;

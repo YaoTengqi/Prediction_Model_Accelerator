@@ -92,7 +92,7 @@ void quant(hls::stream<typename WideType<t_Quant_DataType, nPE>::t_TypeInt> &dat
 			unsigned int fm_COLS,
 			hls::stream<typename WideType<t_DataType_OUT, nPE>::t_TypeInt> &requant_stream_out,
 			int quant_shift,
-			int quant_mul
+			int16_t quant_mul
 			){
 	// 量化赋值操作
     int64_t ONE = static_cast<int64_t> (1);
@@ -101,7 +101,7 @@ void quant(hls::stream<typename WideType<t_Quant_DataType, nPE>::t_TypeInt> &dat
 		WideType<t_Quant_DataType, nPE> dataValue = data_stream_out.read();
 		WideType<t_DataType_OUT, nPE> outValue;
 		for(int j = 0; j < nPE; j++){
-			int64_t temp = static_cast<int64_t>(dataValue[j]);
+			int32_t temp = static_cast<int32_t>(dataValue[j]);
 			int right_shift = quant_shift > 0 ? quant_shift : 0;
 		    int left_shift = quant_shift > 0 ? 0 : (-quant_shift);
 		    if (left_shift > 0){
@@ -109,7 +109,7 @@ void quant(hls::stream<typename WideType<t_Quant_DataType, nPE>::t_TypeInt> &dat
 		    }
 		    temp = temp * quant_mul;
 		    int total_right_shift = right_shift + 31;
-		    int64_t pos_rounding_value = (ONE << (total_right_shift - ONE));
+		    int32_t pos_rounding_value = (ONE << (total_right_shift - ONE));
 		    temp = temp + pos_rounding_value;
 		    temp = temp >> total_right_shift;
 		    // cilp到[-128:127]

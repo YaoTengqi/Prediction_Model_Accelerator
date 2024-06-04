@@ -93,7 +93,7 @@ input  [2:0] quant_shift_num_data_valid;
 input  [2:0] quant_shift_fifo_cap;
 input   quant_shift_empty_n;
 output   quant_shift_read;
-input  [31:0] quant_mul_dout;
+input  [15:0] quant_mul_dout;
 input  [2:0] quant_mul_num_data_valid;
 input  [2:0] quant_mul_fifo_cap;
 input   quant_mul_empty_n;
@@ -130,34 +130,36 @@ reg    quant_shift_blk_n;
 reg    quant_mul_blk_n;
 reg    fm_ROWS_c_blk_n;
 reg    fm_COLS_c_blk_n;
-reg   [31:0] quant_mul_read_reg_184;
-reg   [26:0] div_cast_reg_189;
+reg   [15:0] quant_mul_read_reg_191;
+reg   [31:0] quant_shift_read_reg_196;
+reg   [26:0] div_cast_reg_203;
 wire   [31:0] left_shift_fu_136_p3;
-reg   [31:0] left_shift_reg_194;
-wire  signed [31:0] total_right_shift_fu_150_p3;
-reg   [31:0] total_right_shift_reg_200;
-wire   [63:0] pos_rounding_value_fu_172_p2;
-reg   [63:0] pos_rounding_value_reg_205;
-wire   [0:0] cmp12_fu_178_p2;
-reg   [0:0] cmp12_reg_210;
+reg   [31:0] left_shift_reg_208;
 wire    ap_CS_fsm_state2;
-wire    grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_ap_start;
-wire    grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_ap_done;
-wire    grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_ap_idle;
-wire    grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_ap_ready;
-wire    grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_data_out1_read;
-wire   [255:0] grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_quant_out2_din;
-wire    grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_quant_out2_write;
-reg    grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_ap_start_reg;
+wire   [0:0] cmp12_fu_145_p2;
+reg   [0:0] cmp12_reg_213;
+wire  signed [31:0] total_right_shift_fu_157_p3;
+reg   [31:0] total_right_shift_reg_218;
+wire   [31:0] empty_fu_186_p1;
+reg   [31:0] empty_reg_223;
+wire    grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_ap_start;
+wire    grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_ap_done;
+wire    grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_ap_idle;
+wire    grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_ap_ready;
+wire    grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_data_out1_read;
+wire   [255:0] grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_quant_out2_din;
+wire    grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_quant_out2_write;
+reg    grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_ap_start_reg;
 wire    ap_CS_fsm_state3;
 reg    ap_block_state1;
-wire   [31:0] mul_fu_108_p2;
-wire   [0:0] cmp6_fu_124_p2;
-wire   [31:0] sub_fu_130_p2;
-wire   [31:0] quant_shift_op_fu_144_p2;
-wire  signed [32:0] total_right_shift_cast_fu_158_p1;
-wire   [32:0] sub15_fu_162_p2;
-wire  signed [63:0] sub15_cast_fu_168_p1;
+wire   [31:0] mul_fu_110_p2;
+wire   [0:0] cmp6_fu_126_p2;
+wire   [31:0] sub_fu_131_p2;
+wire   [31:0] quant_shift_op_fu_152_p2;
+wire  signed [32:0] total_right_shift_cast_fu_166_p1;
+wire   [32:0] sub16_fu_170_p2;
+wire  signed [63:0] sub16_cast_fu_176_p1;
+wire   [63:0] shl17_fu_180_p2;
 reg   [2:0] ap_NS_fsm;
 reg    ap_ST_fsm_state1_blk;
 wire    ap_ST_fsm_state2_blk;
@@ -168,32 +170,32 @@ wire    ap_ce_reg;
 initial begin
 #0 ap_done_reg = 1'b0;
 #0 ap_CS_fsm = 3'd1;
-#0 grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_ap_start_reg = 1'b0;
+#0 grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_ap_start_reg = 1'b0;
 end
 
-sparse_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1 grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94(
+sparse_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1 grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst),
-    .ap_start(grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_ap_start),
-    .ap_done(grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_ap_done),
-    .ap_idle(grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_ap_idle),
-    .ap_ready(grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_ap_ready),
+    .ap_start(grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_ap_start),
+    .ap_done(grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_ap_done),
+    .ap_idle(grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_ap_idle),
+    .ap_ready(grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_ap_ready),
     .data_out1_dout(data_out1_dout),
     .data_out1_num_data_valid(7'd0),
     .data_out1_fifo_cap(7'd0),
     .data_out1_empty_n(data_out1_empty_n),
-    .data_out1_read(grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_data_out1_read),
-    .quant_out2_din(grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_quant_out2_din),
+    .data_out1_read(grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_data_out1_read),
+    .quant_out2_din(grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_quant_out2_din),
     .quant_out2_num_data_valid(2'd0),
     .quant_out2_fifo_cap(2'd0),
     .quant_out2_full_n(quant_out2_full_n),
-    .quant_out2_write(grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_quant_out2_write),
-    .div_cast(div_cast_reg_189),
-    .sh_prom(left_shift_reg_194),
-    .cmp12(cmp12_reg_210),
-    .conv(quant_mul_read_reg_184),
-    .pos_rounding_value(pos_rounding_value_reg_205),
-    .sh_prom18(total_right_shift_reg_200)
+    .quant_out2_write(grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_quant_out2_write),
+    .div_cast(div_cast_reg_203),
+    .left_shift(left_shift_reg_208),
+    .cmp12(cmp12_reg_213),
+    .conv13(quant_mul_read_reg_191),
+    .pos_rounding_value(empty_reg_223),
+    .total_right_shift(total_right_shift_reg_218)
 );
 
 sparse_mul_32s_32s_32_1_1 #(
@@ -205,7 +207,7 @@ sparse_mul_32s_32s_32_1_1 #(
 mul_32s_32s_32_1_1_U78(
     .din0(fm_COLS_dout),
     .din1(fm_ROWS_dout),
-    .dout(mul_fu_108_p2)
+    .dout(mul_fu_110_p2)
 );
 
 always @ (posedge ap_clk) begin
@@ -222,7 +224,7 @@ always @ (posedge ap_clk) begin
     end else begin
         if ((ap_continue == 1'b1)) begin
             ap_done_reg <= 1'b0;
-        end else if (((1'b1 == ap_CS_fsm_state3) & (grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_ap_done == 1'b1))) begin
+        end else if (((1'b1 == ap_CS_fsm_state3) & (grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_ap_done == 1'b1))) begin
             ap_done_reg <= 1'b1;
         end
     end
@@ -230,29 +232,30 @@ end
 
 always @ (posedge ap_clk) begin
     if (ap_rst == 1'b1) begin
-        grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_ap_start_reg <= 1'b0;
+        grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_ap_start_reg <= 1'b0;
     end else begin
         if ((1'b1 == ap_CS_fsm_state2)) begin
-            grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_ap_start_reg <= 1'b1;
-        end else if ((grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_ap_ready == 1'b1)) begin
-            grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_ap_start_reg <= 1'b0;
+            grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_ap_start_reg <= 1'b1;
+        end else if ((grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_ap_ready == 1'b1)) begin
+            grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_ap_start_reg <= 1'b0;
         end
     end
 end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state2)) begin
-        cmp12_reg_210 <= cmp12_fu_178_p2;
+        cmp12_reg_213 <= cmp12_fu_145_p2;
+        empty_reg_223 <= empty_fu_186_p1;
+        left_shift_reg_208 <= left_shift_fu_136_p3;
+        total_right_shift_reg_218 <= total_right_shift_fu_157_p3;
     end
 end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state1)) begin
-        div_cast_reg_189 <= {{mul_fu_108_p2[31:5]}};
-        left_shift_reg_194 <= left_shift_fu_136_p3;
-        pos_rounding_value_reg_205 <= pos_rounding_value_fu_172_p2;
-        quant_mul_read_reg_184 <= quant_mul_dout;
-        total_right_shift_reg_200 <= total_right_shift_fu_150_p3;
+        div_cast_reg_203 <= {{mul_fu_110_p2[31:5]}};
+        quant_mul_read_reg_191 <= quant_mul_dout;
+        quant_shift_read_reg_196 <= quant_shift_dout;
     end
 end
 
@@ -267,7 +270,7 @@ end
 assign ap_ST_fsm_state2_blk = 1'b0;
 
 always @ (*) begin
-    if ((grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_ap_done == 1'b0)) begin
+    if ((grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_ap_done == 1'b0)) begin
         ap_ST_fsm_state3_blk = 1'b1;
     end else begin
         ap_ST_fsm_state3_blk = 1'b0;
@@ -275,7 +278,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state3) & (grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_ap_done == 1'b1))) begin
+    if (((1'b1 == ap_CS_fsm_state3) & (grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_ap_done == 1'b1))) begin
         ap_done = 1'b1;
     end else begin
         ap_done = ap_done_reg;
@@ -291,7 +294,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state3) & (grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_ap_done == 1'b1))) begin
+    if (((1'b1 == ap_CS_fsm_state3) & (grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_ap_done == 1'b1))) begin
         ap_ready = 1'b1;
     end else begin
         ap_ready = 1'b0;
@@ -300,7 +303,7 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state3)) begin
-        data_out1_read = grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_data_out1_read;
+        data_out1_read = grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_data_out1_read;
     end else begin
         data_out1_read = 1'b0;
     end
@@ -388,7 +391,7 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state3)) begin
-        quant_out2_write = grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_quant_out2_write;
+        quant_out2_write = grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_quant_out2_write;
     end else begin
         quant_out2_write = 1'b0;
     end
@@ -423,7 +426,7 @@ always @ (*) begin
             ap_NS_fsm = ap_ST_fsm_state3;
         end
         ap_ST_fsm_state3 : begin
-            if (((1'b1 == ap_CS_fsm_state3) & (grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_ap_done == 1'b1))) begin
+            if (((1'b1 == ap_CS_fsm_state3) & (grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_ap_done == 1'b1))) begin
                 ap_NS_fsm = ap_ST_fsm_state1;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state3;
@@ -445,32 +448,34 @@ always @ (*) begin
     ap_block_state1 = ((ap_start == 1'b0) | (fm_COLS_c_full_n == 1'b0) | (fm_ROWS_c_full_n == 1'b0) | (quant_mul_empty_n == 1'b0) | (quant_shift_empty_n == 1'b0) | (fm_COLS_empty_n == 1'b0) | (fm_ROWS_empty_n == 1'b0) | (ap_done_reg == 1'b1));
 end
 
-assign cmp12_fu_178_p2 = (($signed(left_shift_reg_194) > $signed(32'd0)) ? 1'b1 : 1'b0);
+assign cmp12_fu_145_p2 = (($signed(left_shift_fu_136_p3) > $signed(32'd0)) ? 1'b1 : 1'b0);
 
-assign cmp6_fu_124_p2 = (($signed(quant_shift_dout) > $signed(32'd0)) ? 1'b1 : 1'b0);
+assign cmp6_fu_126_p2 = (($signed(quant_shift_read_reg_196) > $signed(32'd0)) ? 1'b1 : 1'b0);
+
+assign empty_fu_186_p1 = shl17_fu_180_p2[31:0];
 
 assign fm_COLS_c_din = fm_COLS_dout;
 
 assign fm_ROWS_c_din = fm_ROWS_dout;
 
-assign grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_ap_start = grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_ap_start_reg;
+assign grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_ap_start = grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_ap_start_reg;
 
-assign left_shift_fu_136_p3 = ((cmp6_fu_124_p2[0:0] == 1'b1) ? 32'd0 : sub_fu_130_p2);
+assign left_shift_fu_136_p3 = ((cmp6_fu_126_p2[0:0] == 1'b1) ? 32'd0 : sub_fu_131_p2);
 
-assign pos_rounding_value_fu_172_p2 = 64'd1 << sub15_cast_fu_168_p1;
+assign quant_out2_din = grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_quant_out2_din;
 
-assign quant_out2_din = grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_quant_out2_din;
+assign quant_shift_op_fu_152_p2 = (quant_shift_read_reg_196 + 32'd31);
 
-assign quant_shift_op_fu_144_p2 = (quant_shift_dout + 32'd31);
+assign shl17_fu_180_p2 = 64'd1 << sub16_cast_fu_176_p1;
 
-assign sub15_cast_fu_168_p1 = $signed(sub15_fu_162_p2);
+assign sub16_cast_fu_176_p1 = $signed(sub16_fu_170_p2);
 
-assign sub15_fu_162_p2 = ($signed(total_right_shift_cast_fu_158_p1) + $signed(33'd8589934591));
+assign sub16_fu_170_p2 = ($signed(total_right_shift_cast_fu_166_p1) + $signed(33'd8589934591));
 
-assign sub_fu_130_p2 = (32'd0 - quant_shift_dout);
+assign sub_fu_131_p2 = (32'd0 - quant_shift_read_reg_196);
 
-assign total_right_shift_cast_fu_158_p1 = total_right_shift_fu_150_p3;
+assign total_right_shift_cast_fu_166_p1 = total_right_shift_fu_157_p3;
 
-assign total_right_shift_fu_150_p3 = ((cmp6_fu_124_p2[0:0] == 1'b1) ? quant_shift_op_fu_144_p2 : 32'd31);
+assign total_right_shift_fu_157_p3 = ((cmp6_fu_126_p2[0:0] == 1'b1) ? quant_shift_op_fu_152_p2 : 32'd31);
 
 endmodule //sparse_quant_ap_uint_256_ap_int_32_ap_int_8_32u_s

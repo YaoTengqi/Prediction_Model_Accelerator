@@ -6,7 +6,14 @@
       <simLog/>
       <mgLog/>
       <packageLog/>
-      <csimLog/>
+      <csimLog>
+        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="Concat_HLS" solutionName="solution1" date="2024-06-04T10:30:58.333+0800"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="Concat_HLS" solutionName="solution1" date="2024-06-04T10:30:25.266+0800"/>
+        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="Concat_HLS" solutionName="solution1" date="2024-06-04T10:29:48.801+0800"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="Concat_HLS" solutionName="solution1" date="2024-06-03T13:55:19.870+0800"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="Concat_HLS" solutionName="solution1" date="2024-06-03T13:54:25.193+0800"/>
+        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="Concat_HLS" solutionName="solution1" date="2024-06-03T13:53:23.881+0800"/>
+      </csimLog>
     </logs>
   </errorLogs>
   <warningLogs>

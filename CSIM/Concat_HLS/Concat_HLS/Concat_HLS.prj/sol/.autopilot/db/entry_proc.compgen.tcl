@@ -48,7 +48,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_mul1 \
     op interface \
-    ports { mul1 { I 32 vector } } \
+    ports { mul1 { I 16 vector } } \
 } "
 }
 
@@ -63,7 +63,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_mul1_c \
     op interface \
-    ports { mul1_c_din { O 32 vector } mul1_c_num_data_valid { I 3 vector } mul1_c_fifo_cap { I 3 vector } mul1_c_full_n { I 1 bit } mul1_c_write { O 1 bit } } \
+    ports { mul1_c_din { O 16 vector } mul1_c_num_data_valid { I 3 vector } mul1_c_fifo_cap { I 3 vector } mul1_c_full_n { I 1 bit } mul1_c_write { O 1 bit } } \
 } "
 }
 
@@ -108,7 +108,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_mul2 \
     op interface \
-    ports { mul2 { I 32 vector } } \
+    ports { mul2 { I 16 vector } } \
 } "
 }
 
@@ -123,7 +123,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_mul2_c \
     op interface \
-    ports { mul2_c_din { O 32 vector } mul2_c_num_data_valid { I 3 vector } mul2_c_fifo_cap { I 3 vector } mul2_c_full_n { I 1 bit } mul2_c_write { O 1 bit } } \
+    ports { mul2_c_din { O 16 vector } mul2_c_num_data_valid { I 3 vector } mul2_c_fifo_cap { I 3 vector } mul2_c_full_n { I 1 bit } mul2_c_write { O 1 bit } } \
 } "
 }
 

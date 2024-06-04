@@ -1,6 +1,6 @@
 # This script segment is generated automatically by AutoPilot
 
-set name concat_mul_64s_32s_64_1_1
+set name concat_mul_32s_16s_32_1_1
 if {${::AESL::PGuard_rtl_comp_handler}} {
 	::AP::rtl_comp_handler $name BINDTYPE {op} TYPE {mul} IMPL {auto} LATENCY 0 ALLOW_PRAGMA 1
 }
@@ -69,7 +69,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_mul1 \
     op interface \
-    ports { mul1_dout { I 32 vector } mul1_num_data_valid { I 3 vector } mul1_fifo_cap { I 3 vector } mul1_empty_n { I 1 bit } mul1_read { O 1 bit } } \
+    ports { mul1_dout { I 16 vector } mul1_num_data_valid { I 3 vector } mul1_fifo_cap { I 3 vector } mul1_empty_n { I 1 bit } mul1_read { O 1 bit } } \
 } "
 }
 
@@ -99,7 +99,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_mul2 \
     op interface \
-    ports { mul2_dout { I 32 vector } mul2_num_data_valid { I 3 vector } mul2_fifo_cap { I 3 vector } mul2_empty_n { I 1 bit } mul2_read { O 1 bit } } \
+    ports { mul2_dout { I 16 vector } mul2_num_data_valid { I 3 vector } mul2_fifo_cap { I 3 vector } mul2_empty_n { I 1 bit } mul2_read { O 1 bit } } \
 } "
 }
 

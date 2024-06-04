@@ -43,7 +43,7 @@ port (
     inputs                :out  STD_LOGIC_VECTOR(63 downto 0);
     outputs               :out  STD_LOGIC_VECTOR(63 downto 0);
     quant_shift           :out  STD_LOGIC_VECTOR(31 downto 0);
-    quant_mul             :out  STD_LOGIC_VECTOR(31 downto 0);
+    quant_mul             :out  STD_LOGIC_VECTOR(15 downto 0);
     sparse_flag           :in   STD_LOGIC_VECTOR(0 downto 0);
     sparse_flag_ap_vld    :in   STD_LOGIC;
     ap_start              :out  STD_LOGIC;
@@ -108,7 +108,8 @@ end entity sparse_sparse_addr_s_axi;
 --        bit 31~0 - quant_shift[31:0] (Read/Write)
 -- 0x64 : reserved
 -- 0x68 : Data signal of quant_mul
---        bit 31~0 - quant_mul[31:0] (Read/Write)
+--        bit 15~0 - quant_mul[15:0] (Read/Write)
+--        others   - reserved
 -- 0x6c : reserved
 -- 0x70 : Data signal of sparse_flag
 --        bit 0  - sparse_flag[0] (Read)
@@ -191,7 +192,7 @@ architecture behave of sparse_sparse_addr_s_axi is
     signal int_inputs          : UNSIGNED(63 downto 0) := (others => '0');
     signal int_outputs         : UNSIGNED(63 downto 0) := (others => '0');
     signal int_quant_shift     : UNSIGNED(31 downto 0) := (others => '0');
-    signal int_quant_mul       : UNSIGNED(31 downto 0) := (others => '0');
+    signal int_quant_mul       : UNSIGNED(15 downto 0) := (others => '0');
     signal int_sparse_flag_ap_vld : STD_LOGIC;
     signal int_sparse_flag     : UNSIGNED(0 downto 0) := (others => '0');
 
@@ -347,7 +348,7 @@ begin
                     when ADDR_QUANT_SHIFT_DATA_0 =>
                         rdata_data <= RESIZE(int_quant_shift(31 downto 0), 32);
                     when ADDR_QUANT_MUL_DATA_0 =>
-                        rdata_data <= RESIZE(int_quant_mul(31 downto 0), 32);
+                        rdata_data <= RESIZE(int_quant_mul(15 downto 0), 32);
                     when ADDR_SPARSE_FLAG_DATA_0 =>
                         rdata_data <= RESIZE(int_sparse_flag(0 downto 0), 32);
                     when ADDR_SPARSE_FLAG_CTRL =>
@@ -685,7 +686,7 @@ begin
         if (ACLK'event and ACLK = '1') then
             if (ACLK_EN = '1') then
                 if (w_hs = '1' and waddr = ADDR_QUANT_MUL_DATA_0) then
-                    int_quant_mul(31 downto 0) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_quant_mul(31 downto 0));
+                    int_quant_mul(15 downto 0) <= (UNSIGNED(WDATA(15 downto 0)) and wmask(15 downto 0)) or ((not wmask(15 downto 0)) and int_quant_mul(15 downto 0));
                 end if;
             end if;
         end if;

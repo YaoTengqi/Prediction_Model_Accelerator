@@ -6,7 +6,7 @@
 
 `timescale 1 ns / 1 ps
 
-module sparse_mul_64s_32s_64_1_1(din0, din1, dout);
+module concat_mul_32s_16s_32_1_1(din0, din1, dout);
 parameter ID = 1;
 parameter NUM_STAGE = 0;
 parameter din0_WIDTH = 14;

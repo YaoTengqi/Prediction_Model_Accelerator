@@ -11,7 +11,7 @@ void sparse(
 	t_AXI_DataType *inputs,
 	t_AXI_DataType *outputs,
 	int quant_shift,
-	int quant_mul,
+	int16_t quant_mul,
 	bool &sparse_flag)
 {
 // 硬件绑定

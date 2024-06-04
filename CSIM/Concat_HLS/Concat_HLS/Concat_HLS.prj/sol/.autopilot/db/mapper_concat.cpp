@@ -238,8 +238,8 @@ class AESL_RUNTIME_BC {
 };
 using hls::sim::Byte;
 struct __cosim_s32__ { char data[32]; };
-extern "C" void concat(Byte<32>*, int, int, int, int, int, int, int, int, int, int, int, volatile void *);
-extern "C" void apatb_concat_hw(int __xlx_apatb_param_input_data_addr1, int __xlx_apatb_param_input_data_addr2, int __xlx_apatb_param_output_data_addr3, int __xlx_apatb_param_ROWS, int __xlx_apatb_param_COLS, int __xlx_apatb_param_mul1, int __xlx_apatb_param_shift1, int __xlx_apatb_param_mul2, int __xlx_apatb_param_shift2, volatile void * __xlx_apatb_param_inputs, volatile void * __xlx_apatb_param_outputs, volatile void * __xlx_apatb_param_concat_flag) {
+extern "C" void concat(Byte<32>*, int, int, int, int, int, short, int, short, int, int, int, volatile void *);
+extern "C" void apatb_concat_hw(int __xlx_apatb_param_input_data_addr1, int __xlx_apatb_param_input_data_addr2, int __xlx_apatb_param_output_data_addr3, int __xlx_apatb_param_ROWS, int __xlx_apatb_param_COLS, short __xlx_apatb_param_mul1, int __xlx_apatb_param_shift1, short __xlx_apatb_param_mul2, int __xlx_apatb_param_shift2, volatile void * __xlx_apatb_param_inputs, volatile void * __xlx_apatb_param_outputs, volatile void * __xlx_apatb_param_concat_flag) {
 using hls::sim::createStream;
   // Collect __xlx_inputs_outputs__tmp_vec
 std::vector<Byte<32>> __xlx_inputs_outputs__tmp_vec;

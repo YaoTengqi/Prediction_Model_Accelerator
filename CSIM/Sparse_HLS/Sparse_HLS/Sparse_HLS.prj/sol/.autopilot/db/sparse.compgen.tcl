@@ -16,7 +16,7 @@ if {${::AESL::PGuard_rtl_comp_handler}} {
 
 
 if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler sparse_fifo_w32_d4_S BINDTYPE {storage} TYPE {fifo} IMPL {srl} ALLOW_PRAGMA 1 INSTNAME {quant_mul_c_U}
+	::AP::rtl_comp_handler sparse_fifo_w16_d4_S BINDTYPE {storage} TYPE {fifo} IMPL {srl} ALLOW_PRAGMA 1 INSTNAME {quant_mul_c_U}
 }
 
 
@@ -186,7 +186,7 @@ quant_shift {
 }
 quant_mul { 
 	dir I
-	width 32
+	width 16
 	depth 1
 	mode ap_none
 	offset 104

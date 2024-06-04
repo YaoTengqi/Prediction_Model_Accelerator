@@ -1,6 +1,6 @@
 # This script segment is generated automatically by AutoPilot
 
-set name sparse_mul_64s_32s_64_1_1
+set name sparse_mul_32s_16s_32_1_1
 if {${::AESL::PGuard_rtl_comp_handler}} {
 	::AP::rtl_comp_handler $name BINDTYPE {op} TYPE {mul} IMPL {auto} LATENCY 0 ALLOW_PRAGMA 1
 }
@@ -47,14 +47,14 @@ eval "cg_default_interface_gen_dc { \
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
     id 72 \
-    name sh_prom \
+    name left_shift \
     type other \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_sh_prom \
+    corename dc_left_shift \
     op interface \
-    ports { sh_prom { I 32 vector } } \
+    ports { left_shift { I 32 vector } } \
 } "
 }
 
@@ -77,14 +77,14 @@ eval "cg_default_interface_gen_dc { \
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
     id 74 \
-    name conv \
+    name conv13 \
     type other \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_conv \
+    corename dc_conv13 \
     op interface \
-    ports { conv { I 32 vector } } \
+    ports { conv13 { I 16 vector } } \
 } "
 }
 
@@ -99,7 +99,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_pos_rounding_value \
     op interface \
-    ports { pos_rounding_value { I 64 vector } } \
+    ports { pos_rounding_value { I 32 vector } } \
 } "
 }
 
@@ -107,14 +107,14 @@ eval "cg_default_interface_gen_dc { \
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
     id 76 \
-    name sh_prom18 \
+    name total_right_shift \
     type other \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_sh_prom18 \
+    corename dc_total_right_shift \
     op interface \
-    ports { sh_prom18 { I 32 vector } } \
+    ports { total_right_shift { I 32 vector } } \
 } "
 }
 
