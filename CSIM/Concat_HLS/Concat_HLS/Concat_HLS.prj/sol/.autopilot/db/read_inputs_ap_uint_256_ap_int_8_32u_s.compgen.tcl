@@ -16,7 +16,7 @@ if {${::AESL::PGuard_autoexp_gen}} {
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 15 \
+    id 7 \
     name concat_data \
     type other \
     dir I \
@@ -31,7 +31,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 16 \
+    id 8 \
     name inputs \
     type other \
     dir I \
@@ -46,7 +46,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 17 \
+    id 9 \
     name input_data_addr1 \
     type other \
     dir I \
@@ -61,7 +61,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 18 \
+    id 10 \
     name input_data_addr2 \
     type other \
     dir I \
@@ -76,7 +76,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 19 \
+    id 11 \
     name ROWS \
     type other \
     dir I \
@@ -91,7 +91,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 20 \
+    id 12 \
     name COLS \
     type other \
     dir I \
@@ -106,7 +106,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 21 \
+    id 13 \
     name input_stream \
     type fifo \
     dir O \
@@ -121,30 +121,30 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 22 \
-    name ROWS_c9 \
+    id 14 \
+    name ROWS_c \
     type fifo \
     dir O \
     reset_level 1 \
     sync_rst true \
-    corename dc_ROWS_c9 \
+    corename dc_ROWS_c \
     op interface \
-    ports { ROWS_c9_din { O 32 vector } ROWS_c9_num_data_valid { I 2 vector } ROWS_c9_fifo_cap { I 2 vector } ROWS_c9_full_n { I 1 bit } ROWS_c9_write { O 1 bit } } \
+    ports { ROWS_c_din { O 32 vector } ROWS_c_num_data_valid { I 2 vector } ROWS_c_fifo_cap { I 2 vector } ROWS_c_full_n { I 1 bit } ROWS_c_write { O 1 bit } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 23 \
-    name COLS_c10 \
+    id 15 \
+    name COLS_c \
     type fifo \
     dir O \
     reset_level 1 \
     sync_rst true \
-    corename dc_COLS_c10 \
+    corename dc_COLS_c \
     op interface \
-    ports { COLS_c10_din { O 32 vector } COLS_c10_num_data_valid { I 2 vector } COLS_c10_fifo_cap { I 2 vector } COLS_c10_full_n { I 1 bit } COLS_c10_write { O 1 bit } } \
+    ports { COLS_c_din { O 32 vector } COLS_c_num_data_valid { I 2 vector } COLS_c_fifo_cap { I 2 vector } COLS_c_full_n { I 1 bit } COLS_c_write { O 1 bit } } \
 } "
 }
 

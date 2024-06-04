@@ -63,74 +63,6 @@ Args:
   - String:          ''''
 ...
 --- !Passed
-Pass:            inline
-Name:            AlwaysInline
-DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp, 
-                   Line: 87, Column: 4 }
-Function:        _Z7requantI7ap_uintILi256EE6ap_intILi8EES3_Lj32EEvRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEjjsisiRNS5_IS6_IT1_XdvstS8_stSC_EXmlstSC_Li8EEvELi0EEE
-Args:            
-  - String:          'Inlining function '''
-  - Callee:          'WideType<ap_int<8>, 32u, 8u, void>::operator[](unsigned int)'
-    DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/include/./../include/types.hpp, 
-                       Line: 59, Column: 0 }
-  - String:          ''' into '''
-  - Caller:          'void requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>(hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&, unsigned int, unsigned int, short, int, short, int, hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&)'
-    DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp, 
-                       Line: 36, Column: 0 }
-  - String:          ''''
-...
---- !Passed
-Pass:            inline
-Name:            AlwaysInline
-DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp, 
-                   Line: 71, Column: 19 }
-Function:        _Z7requantI7ap_uintILi256EE6ap_intILi8EES3_Lj32EEvRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEjjsisiRNS5_IS6_IT1_XdvstS8_stSC_EXmlstSC_Li8EEvELi0EEE
-Args:            
-  - String:          'Inlining function '''
-  - Callee:          'WideType<ap_int<8>, 32u, 8u, void>::operator[](unsigned int)'
-    DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/include/./../include/types.hpp, 
-                       Line: 59, Column: 0 }
-  - String:          ''' into '''
-  - Caller:          'void requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>(hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&, unsigned int, unsigned int, short, int, short, int, hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&)'
-    DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp, 
-                       Line: 36, Column: 0 }
-  - String:          ''''
-...
---- !Passed
-Pass:            inline
-Name:            AlwaysInline
-DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp, 
-                   Line: 60, Column: 4 }
-Function:        _Z7requantI7ap_uintILi256EE6ap_intILi8EES3_Lj32EEvRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEjjsisiRNS5_IS6_IT1_XdvstS8_stSC_EXmlstSC_Li8EEvELi0EEE
-Args:            
-  - String:          'Inlining function '''
-  - Callee:          'WideType<ap_int<8>, 32u, 8u, void>::operator[](unsigned int)'
-    DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/include/./../include/types.hpp, 
-                       Line: 59, Column: 0 }
-  - String:          ''' into '''
-  - Caller:          'void requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>(hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&, unsigned int, unsigned int, short, int, short, int, hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&)'
-    DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp, 
-                       Line: 36, Column: 0 }
-  - String:          ''''
-...
---- !Passed
-Pass:            inline
-Name:            AlwaysInline
-DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp, 
-                   Line: 46, Column: 19 }
-Function:        _Z7requantI7ap_uintILi256EE6ap_intILi8EES3_Lj32EEvRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEjjsisiRNS5_IS6_IT1_XdvstS8_stSC_EXmlstSC_Li8EEvELi0EEE
-Args:            
-  - String:          'Inlining function '''
-  - Callee:          'WideType<ap_int<8>, 32u, 8u, void>::operator[](unsigned int)'
-    DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/include/./../include/types.hpp, 
-                       Line: 59, Column: 0 }
-  - String:          ''' into '''
-  - Caller:          'void requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>(hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&, unsigned int, unsigned int, short, int, short, int, hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&)'
-    DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp, 
-                       Line: 36, Column: 0 }
-  - String:          ''''
-...
---- !Passed
 Pass:            reflow-disaggr
 Name:            DisaggrReason
 DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/include/./../include/types.hpp, 
@@ -139,30 +71,6 @@ Function:        _Z5storeI7ap_uintILi256EE6ap_intILi8EELj32EEvjjjRN3hls6streamI8
 Args:            
   - String:          'Adding '''
   - Name:            tmp
-  - String:          ''' into disaggregation list because there''s '
-  - String:          array-partition pragma applied on the struct field
-...
---- !Passed
-Pass:            reflow-disaggr
-Name:            DisaggrReason
-DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/include/./../include/types.hpp, 
-                   Line: 80, Column: 9 }
-Function:        _Z7requantI7ap_uintILi256EE6ap_intILi8EES3_Lj32EEvRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEjjsisiRNS5_IS6_IT1_XdvstS8_stSC_EXmlstSC_Li8EEvELi0EEE
-Args:            
-  - String:          'Adding '''
-  - Name:            secondBlockValue
-  - String:          ''' into disaggregation list because there''s '
-  - String:          array-partition pragma applied on the struct field
-...
---- !Passed
-Pass:            reflow-disaggr
-Name:            DisaggrReason
-DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/include/./../include/types.hpp, 
-                   Line: 80, Column: 9 }
-Function:        _Z7requantI7ap_uintILi256EE6ap_intILi8EES3_Lj32EEvRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEjjsisiRNS5_IS6_IT1_XdvstS8_stSC_EXmlstSC_Li8EEvELi0EEE
-Args:            
-  - String:          'Adding '''
-  - Name:            firstBlockValue
   - String:          ''' into disaggregation list because there''s '
   - String:          array-partition pragma applied on the struct field
 ...
@@ -215,28 +123,6 @@ Args:
 --- !Passed
 Pass:            reflow-disaggr
 Name:            DisaggrSucc
-DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp, 
-                   Line: 69, Column: 75 }
-Function:        _Z7requantI7ap_uintILi256EE6ap_intILi8EES3_Lj32EEvRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEjjsisiRNS5_IS6_IT1_XdvstS8_stSC_EXmlstSC_Li8EEvELi0EEE
-Args:            
-  - String:          'Disaggregating variable '''
-  - Name:            secondBlockValue
-  - String:          ''''
-...
---- !Passed
-Pass:            reflow-disaggr
-Name:            DisaggrSucc
-DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp, 
-                   Line: 44, Column: 75 }
-Function:        _Z7requantI7ap_uintILi256EE6ap_intILi8EES3_Lj32EEvRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEjjsisiRNS5_IS6_IT1_XdvstS8_stSC_EXmlstSC_Li8EEvELi0EEE
-Args:            
-  - String:          'Disaggregating variable '''
-  - Name:            firstBlockValue
-  - String:          ''''
-...
---- !Passed
-Pass:            reflow-disaggr
-Name:            DisaggrSucc
 Function:        _Z5storeI7ap_uintILi256EE6ap_intILi8EELj32EEvjjjRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEPS8_Rb
 Args:            
   - String:          'Disaggregating variable '''
@@ -263,72 +149,6 @@ Function:        _ZN8WideTypeI6ap_intILi8EELj32ELj8EvEcvK7ap_uintILi256EEEv
 Args:            
   - String:          'Loop '''
   - LoopName:        VITIS_LOOP_125_1
-  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
-...
---- !Passed
-Pass:            reflow-infer-unroll
-Name:            ImplicitUnroll
-DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp, 
-                   Line: 68, Column: 19 }
-Function:        _Z7requantI7ap_uintILi256EE6ap_intILi8EES3_Lj32EEvRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEjjsisiRNS5_IS6_IT1_XdvstS8_stSC_EXmlstSC_Li8EEvELi0EEE
-Args:            
-  - String:          'Loop '''
-  - LoopName:        VITIS_LOOP_68_3
-  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
-...
---- !Passed
-Pass:            reflow-infer-unroll
-Name:            ImplicitUnroll
-DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/include/./../include/types.hpp, 
-                   Line: 78, Column: 5 }
-Function:        _Z7requantI7ap_uintILi256EE6ap_intILi8EES3_Lj32EEvRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEjjsisiRNS5_IS6_IT1_XdvstS8_stSC_EXmlstSC_Li8EEvELi0EEE
-Args:            
-  - String:          'Loop '''
-  - LoopName:        anonymous
-  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
-...
---- !Passed
-Pass:            reflow-infer-unroll
-Name:            ImplicitUnroll
-DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp, 
-                   Line: 70, Column: 20 }
-Function:        _Z7requantI7ap_uintILi256EE6ap_intILi8EES3_Lj32EEvRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEjjsisiRNS5_IS6_IT1_XdvstS8_stSC_EXmlstSC_Li8EEvELi0EEE
-Args:            
-  - String:          'Loop '''
-  - LoopName:        VITIS_LOOP_70_4
-  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
-...
---- !Passed
-Pass:            reflow-infer-unroll
-Name:            ImplicitUnroll
-DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp, 
-                   Line: 43, Column: 19 }
-Function:        _Z7requantI7ap_uintILi256EE6ap_intILi8EES3_Lj32EEvRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEjjsisiRNS5_IS6_IT1_XdvstS8_stSC_EXmlstSC_Li8EEvELi0EEE
-Args:            
-  - String:          'Loop '''
-  - LoopName:        VITIS_LOOP_43_1
-  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
-...
---- !Passed
-Pass:            reflow-infer-unroll
-Name:            ImplicitUnroll
-DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/include/./../include/types.hpp, 
-                   Line: 78, Column: 5 }
-Function:        _Z7requantI7ap_uintILi256EE6ap_intILi8EES3_Lj32EEvRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEjjsisiRNS5_IS6_IT1_XdvstS8_stSC_EXmlstSC_Li8EEvELi0EEE
-Args:            
-  - String:          'Loop '''
-  - LoopName:        anonymous
-  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
-...
---- !Passed
-Pass:            reflow-infer-unroll
-Name:            ImplicitUnroll
-DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp, 
-                   Line: 45, Column: 20 }
-Function:        _Z7requantI7ap_uintILi256EE6ap_intILi8EES3_Lj32EEvRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEjjsisiRNS5_IS6_IT1_XdvstS8_stSC_EXmlstSC_Li8EEvELi0EEE
-Args:            
-  - String:          'Loop '''
-  - LoopName:        VITIS_LOOP_45_2
   - String:          ''' is marked as complete unroll implied by the pipeline pragma'
 ...
 --- !Passed
@@ -401,7 +221,7 @@ Args:
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
 DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp, 
-                   Line: 100, Column: 0 }
+                   Line: 111, Column: 0 }
 Function:        _Z5storeI7ap_uintILi256EE6ap_intILi8EELj32EEvjjjRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEPS8_Rb
 Args:            
   - String:          'Unrolling loop '''
@@ -428,74 +248,6 @@ Args:
   - String:          ') '
   - String:          'in function '''
   - String:          'WideType<ap_int<8>, 32u, 8u, void>::operator ap_uint<256> const'
-  - String:          ''' completely with a factor of '
-  - Factor:          '32'
-...
---- !Passed
-Pass:            reflow-pragma-loop-unroll
-Name:            PragmaFullyUnroll
-DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp, 
-                   Line: 36, Column: 0 }
-Function:        _Z7requantI7ap_uintILi256EE6ap_intILi8EES3_Lj32EEvRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEjjsisiRNS5_IS6_IT1_XdvstS8_stSC_EXmlstSC_Li8EEvELi0EEE
-Args:            
-  - String:          'Unrolling loop '''
-  - LoopName:        anonymous
-  - String:          ''' ('
-  - LoopLoc:         '/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/include/./../include/types.hpp:78:5'
-  - String:          ') '
-  - String:          'in function '''
-  - String:          'requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>'
-  - String:          ''' completely with a factor of '
-  - Factor:          '32'
-...
---- !Passed
-Pass:            reflow-pragma-loop-unroll
-Name:            PragmaFullyUnroll
-DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp, 
-                   Line: 36, Column: 0 }
-Function:        _Z7requantI7ap_uintILi256EE6ap_intILi8EES3_Lj32EEvRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEjjsisiRNS5_IS6_IT1_XdvstS8_stSC_EXmlstSC_Li8EEvELi0EEE
-Args:            
-  - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_70_4
-  - String:          ''' ('
-  - LoopLoc:         '/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:70:20'
-  - String:          ') '
-  - String:          'in function '''
-  - String:          'requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>'
-  - String:          ''' completely with a factor of '
-  - Factor:          '32'
-...
---- !Passed
-Pass:            reflow-pragma-loop-unroll
-Name:            PragmaFullyUnroll
-DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp, 
-                   Line: 36, Column: 0 }
-Function:        _Z7requantI7ap_uintILi256EE6ap_intILi8EES3_Lj32EEvRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEjjsisiRNS5_IS6_IT1_XdvstS8_stSC_EXmlstSC_Li8EEvELi0EEE
-Args:            
-  - String:          'Unrolling loop '''
-  - LoopName:        anonymous
-  - String:          ''' ('
-  - LoopLoc:         '/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/include/./../include/types.hpp:78:5'
-  - String:          ') '
-  - String:          'in function '''
-  - String:          'requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>'
-  - String:          ''' completely with a factor of '
-  - Factor:          '32'
-...
---- !Passed
-Pass:            reflow-pragma-loop-unroll
-Name:            PragmaFullyUnroll
-DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp, 
-                   Line: 36, Column: 0 }
-Function:        _Z7requantI7ap_uintILi256EE6ap_intILi8EES3_Lj32EEvRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEjjsisiRNS5_IS6_IT1_XdvstS8_stSC_EXmlstSC_Li8EEvELi0EEE
-Args:            
-  - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_45_2
-  - String:          ''' ('
-  - LoopLoc:         '/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:45:20'
-  - String:          ') '
-  - String:          'in function '''
-  - String:          'requant<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>'
   - String:          ''' completely with a factor of '
   - Factor:          '32'
 ...
@@ -571,7 +323,7 @@ Args:
 Pass:            reflow-inliner
 Name:            AutoInline
 DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp, 
-                   Line: 100, Column: 0 }
+                   Line: 111, Column: 0 }
 Function:        _Z5storeI7ap_uintILi256EE6ap_intILi8EELj32EEvjjjRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEPS8_Rb
 Args:            
   - String:          'Inlining function '''
@@ -581,32 +333,15 @@ Args:
   - String:          ''' into '''
   - Caller:          'void store<ap_uint<256>, ap_int<8>, 32u>(unsigned int, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&, ap_uint<256>*, bool&)'
     DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp, 
-                       Line: 100, Column: 0 }
+                       Line: 111, Column: 0 }
   - String:          ''''
 ...
 --- !Passed
 Pass:            reflow-aggr
 Name:            AggrSucc
 DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/concat.cpp, 
-                   Line: 34, Column: 77 }
-Function:        _Z6concatjjjjjsisiP7ap_uintILi256EES1_Rb
-Args:            
-  - String:          'Aggregating '
-  - HwTyName:        'fifo (hls::stream)'
-  - String:          ' variable '''
-  - Name:            output_stream
-  - String:          ''' with '
-  - AggregateTypeName: 'compact=bit'
-  - String:          ' mode in '
-  - Bitwidth:        '256'
-  - String:          '-bits'
-...
---- !Passed
-Pass:            reflow-aggr
-Name:            AggrSucc
-DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/concat.cpp, 
                    Line: 32, Column: 77 }
-Function:        _Z6concatjjjjjsisiP7ap_uintILi256EES1_Rb
+Function:        _Z6concatjjjjjP7ap_uintILi256EES1_Rb
 Args:            
   - String:          'Aggregating '
   - HwTyName:        'fifo (hls::stream)'
@@ -686,7 +421,7 @@ Args:
 Pass:            reflow-burst-inference
 Name:            BurstInferred
 DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp, 
-                   Line: 103, Column: 20 }
+                   Line: 114, Column: 20 }
 Function:        _Z5storeI7ap_uintILi256EE6ap_intILi8EELj32EEvjjjRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEPS8_Rb
 Args:            
   - String:          'Sequential '
@@ -705,13 +440,13 @@ Args:
   - String:          ' '
   - BundleName:      concat_data
   - String:          ' '
-  - LoopName:        VITIS_LOOP_103_1
+  - LoopName:        VITIS_LOOP_114_1
   - String:          ' '
-  - LoopLoc:         '/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:103:20'
+  - LoopLoc:         '/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:114:20'
   - String:          ' '
   - Function:        'void store<ap_uint<256>, ap_int<8>, 32u>(unsigned int, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&, ap_uint<256>*, bool&)'
     DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp, 
-                       Line: 100, Column: 0 }
+                       Line: 111, Column: 0 }
   - String:          ' '
 ...
 --- !Missed
@@ -772,7 +507,7 @@ Args:
 Pass:            reflow-burst-widen
 Name:            GreaterOrEqualThreshold
 DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp, 
-                   Line: 103, Column: 20 }
+                   Line: 114, Column: 20 }
 Function:        _Z5storeI7ap_uintILi256EE6ap_intILi8EELj32EEvjjjRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEPS8_Rb
 Args:            
   - String:          'Could not widen since type '
@@ -786,36 +521,14 @@ Args:
   - String:          ' '
   - BundleName:      concat_data
   - String:          ' '
-  - LoopName:        VITIS_LOOP_103_1
+  - LoopName:        VITIS_LOOP_114_1
   - String:          ' '
-  - LoopLoc:         '/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:103:20'
+  - LoopLoc:         '/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:114:20'
   - String:          ' '
   - Function:        'void store<ap_uint<256>, ap_int<8>, 32u>(unsigned int, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&, ap_uint<256>*, bool&)'
     DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp, 
-                       Line: 100, Column: 0 }
+                       Line: 111, Column: 0 }
   - String:          ' '
-...
---- !Passed
-Pass:            reflow-infer-unroll
-Name:            ImplicitUnroll
-DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp, 
-                   Line: 68, Column: 19 }
-Function:        _Z7requantI7ap_uintILi256EE6ap_intILi8EES3_Lj32EEvRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEjjsisiRNS5_IS6_IT1_XdvstS8_stSC_EXmlstSC_Li8EEvELi0EEE
-Args:            
-  - String:          'Loop '''
-  - LoopName:        VITIS_LOOP_68_3
-  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
-...
---- !Passed
-Pass:            reflow-infer-unroll
-Name:            ImplicitUnroll
-DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp, 
-                   Line: 43, Column: 19 }
-Function:        _Z7requantI7ap_uintILi256EE6ap_intILi8EES3_Lj32EEvRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEjjsisiRNS5_IS6_IT1_XdvstS8_stSC_EXmlstSC_Li8EEvELi0EEE
-Args:            
-  - String:          'Loop '''
-  - LoopName:        VITIS_LOOP_43_1
-  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
 ...
 --- !Passed
 Pass:            reflow-infer-unroll
@@ -951,7 +664,7 @@ Args:
 Pass:            reflow-burst-summary
 Name:            BurstInferredVerboseSummary
 DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp, 
-                   Line: 103, Column: 20 }
+                   Line: 114, Column: 20 }
 Function:        _Z5storeI7ap_uintILi256EE6ap_intILi8EELj32EEvjjjRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEPS8_Rb.1
 Args:            
   - String:          'Multiple burst '
@@ -969,20 +682,20 @@ Args:
   - String:          ' '
   - BundleName:      concat_data
   - String:          ' '
-  - LoopName:        VITIS_LOOP_103_1
+  - LoopName:        VITIS_LOOP_114_1
   - String:          ' '
-  - LoopLoc:         '/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:103:20'
+  - LoopLoc:         '/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:114:20'
   - String:          ' '
   - Function:        'void store<ap_uint<256>, ap_int<8>, 32u>(unsigned int, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, (sizeof (ap_uint<256>)) / (sizeof (ap_int<8>)), (sizeof (ap_int<8>)) * (8), void>, 0>&, ap_uint<256>*, bool&) (.1)'
     DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp, 
-                       Line: 100, Column: 0 }
+                       Line: 111, Column: 0 }
   - String:          ' '
 ...
 --- !Passed
 Pass:            reflow-burst-summary
 Name:            BurstInferredSummary
 DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp, 
-                   Line: 103, Column: 20 }
+                   Line: 114, Column: 20 }
 Function:        _Z5storeI7ap_uintILi256EE6ap_intILi8EELj32EEvjjjRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEPS8_Rb.1
 Args:            
   - String:          'Multiple burst '
@@ -992,36 +705,14 @@ Args:
   - String:          ' length and bit width '
   - Width:           '256'
   - String:          ' in loop '''
-  - LoopName:        VITIS_LOOP_103_1
+  - LoopName:        VITIS_LOOP_114_1
   - String:          '''('
-  - LoopLoc:         '/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:103:20'
+  - LoopLoc:         '/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:114:20'
   - String:          ')'
   - String:          ' has been inferred on bundle '''
   - BundleName:      concat_data
   - String:          '''.'
   - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
-...
---- !Passed
-Pass:            reflow-infer-unroll
-Name:            ImplicitUnroll
-DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp, 
-                   Line: 68, Column: 19 }
-Function:        _Z7requantI7ap_uintILi256EE6ap_intILi8EES3_Lj32EEvRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEjjsisiRNS5_IS6_IT1_XdvstS8_stSC_EXmlstSC_Li8EEvELi0EEE.1
-Args:            
-  - String:          'Loop '''
-  - LoopName:        VITIS_LOOP_68_3
-  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
-...
---- !Passed
-Pass:            reflow-infer-unroll
-Name:            ImplicitUnroll
-DebugLoc:        { File: /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp, 
-                   Line: 43, Column: 19 }
-Function:        _Z7requantI7ap_uintILi256EE6ap_intILi8EES3_Lj32EEvRN3hls6streamI8WideTypeIT0_XdvstT_stS7_EXmlstS7_Li8EEvELi0EEEjjsisiRNS5_IS6_IT1_XdvstS8_stSC_EXmlstSC_Li8EEvELi0EEE.1
-Args:            
-  - String:          'Loop '''
-  - LoopName:        VITIS_LOOP_43_1
-  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
 ...
 --- !Passed
 Pass:            reflow-infer-unroll

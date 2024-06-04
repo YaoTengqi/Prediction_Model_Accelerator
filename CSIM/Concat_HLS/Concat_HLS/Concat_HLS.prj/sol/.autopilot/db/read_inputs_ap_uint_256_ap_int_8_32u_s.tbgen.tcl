@@ -20,8 +20,8 @@ set C_modelArgList {
 	{ ROWS int 32 regular  }
 	{ COLS int 32 regular  }
 	{ input_stream int 256 regular {fifo 1 volatile }  }
-	{ ROWS_c9 int 32 regular {fifo 1}  }
-	{ COLS_c10 int 32 regular {fifo 1}  }
+	{ ROWS_c int 32 regular {fifo 1}  }
+	{ COLS_c int 32 regular {fifo 1}  }
 }
 set C_modelArgMapList {[ 
 	{ "Name" : "concat_data", "interface" : "axi_master", "bitwidth" : 256, "direction" : "READONLY", "bitSlice":[ {"cElement": [{"cName": "inputs","offset": { "type": "dynamic","port_name": "inputs","bundle": "concat_addr"},"direction": "READONLY"},{"cName": "outputs","offset": { "type": "dynamic","port_name": "outputs","bundle": "concat_addr"},"direction": "WRITEONLY"}]}]} , 
@@ -31,8 +31,8 @@ set C_modelArgMapList {[
  	{ "Name" : "ROWS", "interface" : "wire", "bitwidth" : 32, "direction" : "READONLY"} , 
  	{ "Name" : "COLS", "interface" : "wire", "bitwidth" : 32, "direction" : "READONLY"} , 
  	{ "Name" : "input_stream", "interface" : "fifo", "bitwidth" : 256, "direction" : "WRITEONLY"} , 
- 	{ "Name" : "ROWS_c9", "interface" : "fifo", "bitwidth" : 32, "direction" : "WRITEONLY"} , 
- 	{ "Name" : "COLS_c10", "interface" : "fifo", "bitwidth" : 32, "direction" : "WRITEONLY"} ]}
+ 	{ "Name" : "ROWS_c", "interface" : "fifo", "bitwidth" : 32, "direction" : "WRITEONLY"} , 
+ 	{ "Name" : "COLS_c", "interface" : "fifo", "bitwidth" : 32, "direction" : "WRITEONLY"} ]}
 # RTL Port declarations: 
 set portNum 73
 set portList { 
@@ -99,16 +99,16 @@ set portList {
 	{ input_stream_fifo_cap sc_in sc_lv 7 signal 6 } 
 	{ input_stream_full_n sc_in sc_logic 1 signal 6 } 
 	{ input_stream_write sc_out sc_logic 1 signal 6 } 
-	{ ROWS_c9_din sc_out sc_lv 32 signal 7 } 
-	{ ROWS_c9_num_data_valid sc_in sc_lv 2 signal 7 } 
-	{ ROWS_c9_fifo_cap sc_in sc_lv 2 signal 7 } 
-	{ ROWS_c9_full_n sc_in sc_logic 1 signal 7 } 
-	{ ROWS_c9_write sc_out sc_logic 1 signal 7 } 
-	{ COLS_c10_din sc_out sc_lv 32 signal 8 } 
-	{ COLS_c10_num_data_valid sc_in sc_lv 2 signal 8 } 
-	{ COLS_c10_fifo_cap sc_in sc_lv 2 signal 8 } 
-	{ COLS_c10_full_n sc_in sc_logic 1 signal 8 } 
-	{ COLS_c10_write sc_out sc_logic 1 signal 8 } 
+	{ ROWS_c_din sc_out sc_lv 32 signal 7 } 
+	{ ROWS_c_num_data_valid sc_in sc_lv 2 signal 7 } 
+	{ ROWS_c_fifo_cap sc_in sc_lv 2 signal 7 } 
+	{ ROWS_c_full_n sc_in sc_logic 1 signal 7 } 
+	{ ROWS_c_write sc_out sc_logic 1 signal 7 } 
+	{ COLS_c_din sc_out sc_lv 32 signal 8 } 
+	{ COLS_c_num_data_valid sc_in sc_lv 2 signal 8 } 
+	{ COLS_c_fifo_cap sc_in sc_lv 2 signal 8 } 
+	{ COLS_c_full_n sc_in sc_logic 1 signal 8 } 
+	{ COLS_c_write sc_out sc_logic 1 signal 8 } 
 }
 set NewPortList {[ 
 	{ "name": "ap_clk", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "clock", "bundle":{"name": "ap_clk", "role": "default" }} , 
@@ -174,16 +174,16 @@ set NewPortList {[
  	{ "name": "input_stream_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":7, "type": "signal", "bundle":{"name": "input_stream", "role": "fifo_cap" }} , 
  	{ "name": "input_stream_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "input_stream", "role": "full_n" }} , 
  	{ "name": "input_stream_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "input_stream", "role": "write" }} , 
- 	{ "name": "ROWS_c9_din", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "ROWS_c9", "role": "din" }} , 
- 	{ "name": "ROWS_c9_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "ROWS_c9", "role": "num_data_valid" }} , 
- 	{ "name": "ROWS_c9_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "ROWS_c9", "role": "fifo_cap" }} , 
- 	{ "name": "ROWS_c9_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "ROWS_c9", "role": "full_n" }} , 
- 	{ "name": "ROWS_c9_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "ROWS_c9", "role": "write" }} , 
- 	{ "name": "COLS_c10_din", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "COLS_c10", "role": "din" }} , 
- 	{ "name": "COLS_c10_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "COLS_c10", "role": "num_data_valid" }} , 
- 	{ "name": "COLS_c10_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "COLS_c10", "role": "fifo_cap" }} , 
- 	{ "name": "COLS_c10_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "COLS_c10", "role": "full_n" }} , 
- 	{ "name": "COLS_c10_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "COLS_c10", "role": "write" }}  ]}
+ 	{ "name": "ROWS_c_din", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "ROWS_c", "role": "din" }} , 
+ 	{ "name": "ROWS_c_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "ROWS_c", "role": "num_data_valid" }} , 
+ 	{ "name": "ROWS_c_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "ROWS_c", "role": "fifo_cap" }} , 
+ 	{ "name": "ROWS_c_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "ROWS_c", "role": "full_n" }} , 
+ 	{ "name": "ROWS_c_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "ROWS_c", "role": "write" }} , 
+ 	{ "name": "COLS_c_din", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "COLS_c", "role": "din" }} , 
+ 	{ "name": "COLS_c_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "COLS_c", "role": "num_data_valid" }} , 
+ 	{ "name": "COLS_c_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "COLS_c", "role": "fifo_cap" }} , 
+ 	{ "name": "COLS_c_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "COLS_c", "role": "full_n" }} , 
+ 	{ "name": "COLS_c_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "COLS_c", "role": "write" }}  ]}
 
 set RtlHierarchyInfo {[
 	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1"],
@@ -213,18 +213,18 @@ set RtlHierarchyInfo {[
 			{"Name" : "input_stream", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["0"], "DependentChan" : "0", "DependentChanDepth" : "64", "DependentChanType" : "0",
 				"BlockSignal" : [
 					{"Name" : "input_stream_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "ROWS_c9", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["0"], "DependentChan" : "0", "DependentChanDepth" : "2", "DependentChanType" : "2",
+			{"Name" : "ROWS_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["0"], "DependentChan" : "0", "DependentChanDepth" : "2", "DependentChanType" : "2",
 				"BlockSignal" : [
-					{"Name" : "ROWS_c9_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "COLS_c10", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["0"], "DependentChan" : "0", "DependentChanDepth" : "2", "DependentChanType" : "2",
+					{"Name" : "ROWS_c_blk_n", "Type" : "RtlSignal"}]},
+			{"Name" : "COLS_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["0"], "DependentChan" : "0", "DependentChanDepth" : "2", "DependentChanType" : "2",
 				"BlockSignal" : [
-					{"Name" : "COLS_c10_blk_n", "Type" : "RtlSignal"}]}],
+					{"Name" : "COLS_c_blk_n", "Type" : "RtlSignal"}]}],
 		"Loop" : [
 			{"Name" : "VITIS_LOOP_15_1", "PipelineType" : "no",
 				"LoopDec" : {"FSMBitwidth" : "83", "FirstState" : "ap_ST_fsm_state40", "LastState" : ["ap_ST_fsm_state42"], "QuitState" : ["ap_ST_fsm_state40"], "PreState" : ["ap_ST_fsm_state39"], "PostState" : ["ap_ST_fsm_state43"], "OneDepthLoop" : "0", "OneStateBlock": ""}},
 			{"Name" : "VITIS_LOOP_20_2", "PipelineType" : "no",
 				"LoopDec" : {"FSMBitwidth" : "83", "FirstState" : "ap_ST_fsm_state81", "LastState" : ["ap_ST_fsm_state83"], "QuitState" : ["ap_ST_fsm_state81"], "PreState" : ["ap_ST_fsm_state1", "ap_ST_fsm_state80"], "PostState" : ["ap_ST_fsm_state1"], "OneDepthLoop" : "0", "OneStateBlock": ""}}]},
-	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mul_32s_32s_32_1_1_U13", "Parent" : "0"}]}
+	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mul_32s_32s_32_1_1_U5", "Parent" : "0"}]}
 
 
 set ArgLastReadFirstWriteLatency {
@@ -236,8 +236,8 @@ set ArgLastReadFirstWriteLatency {
 		ROWS {Type I LastRead 0 FirstWrite -1}
 		COLS {Type I LastRead 0 FirstWrite -1}
 		input_stream {Type O LastRead -1 FirstWrite 41}
-		ROWS_c9 {Type O LastRead -1 FirstWrite 0}
-		COLS_c10 {Type O LastRead -1 FirstWrite 0}}}
+		ROWS_c {Type O LastRead -1 FirstWrite 0}
+		COLS_c {Type O LastRead -1 FirstWrite 0}}}
 
 set hasDtUnsupportedChannel 0
 
@@ -257,6 +257,6 @@ set Spec2ImplPortList {
 	ROWS { ap_none {  { ROWS in_data 0 32 } } }
 	COLS { ap_none {  { COLS in_data 0 32 } } }
 	input_stream { ap_fifo {  { input_stream_din fifo_port_we 1 256 }  { input_stream_num_data_valid fifo_status_num_data_valid 0 7 }  { input_stream_fifo_cap fifo_update 0 7 }  { input_stream_full_n fifo_status 0 1 }  { input_stream_write fifo_data 1 1 } } }
-	ROWS_c9 { ap_fifo {  { ROWS_c9_din fifo_port_we 1 32 }  { ROWS_c9_num_data_valid fifo_status_num_data_valid 0 2 }  { ROWS_c9_fifo_cap fifo_update 0 2 }  { ROWS_c9_full_n fifo_status 0 1 }  { ROWS_c9_write fifo_data 1 1 } } }
-	COLS_c10 { ap_fifo {  { COLS_c10_din fifo_port_we 1 32 }  { COLS_c10_num_data_valid fifo_status_num_data_valid 0 2 }  { COLS_c10_fifo_cap fifo_update 0 2 }  { COLS_c10_full_n fifo_status 0 1 }  { COLS_c10_write fifo_data 1 1 } } }
+	ROWS_c { ap_fifo {  { ROWS_c_din fifo_port_we 1 32 }  { ROWS_c_num_data_valid fifo_status_num_data_valid 0 2 }  { ROWS_c_fifo_cap fifo_update 0 2 }  { ROWS_c_full_n fifo_status 0 1 }  { ROWS_c_write fifo_data 1 1 } } }
+	COLS_c { ap_fifo {  { COLS_c_din fifo_port_we 1 32 }  { COLS_c_num_data_valid fifo_status_num_data_valid 0 2 }  { COLS_c_fifo_cap fifo_update 0 2 }  { COLS_c_full_n fifo_status 0 1 }  { COLS_c_write fifo_data 1 1 } } }
 }

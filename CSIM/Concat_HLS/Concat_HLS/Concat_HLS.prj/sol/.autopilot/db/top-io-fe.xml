@@ -26,47 +26,27 @@
           <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="48"/>
         </hw>
       </arg>
-      <arg id="5" access_type="r" src_name="mul1" src_type="short" src_isptr="0" src_bitwidth="16" src_size_or_depth="1">
-        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="concat_addr" hw_bitwidth="16" hw_size_or_depth="1" hw_kernel_support="true">
+      <arg id="5" access_type="rw" src_name="inputs" src_type="ap_uint&lt;256&gt;*" src_isptr="1" src_bitwidth="256" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="MAXI" hw_name="concat_data" hw_bitwidth="256" hw_size_or_depth="0" hw_kernel_support="true">
+          <constraint constraint_type="pragma interface" mode="m_axi" register_option="0" offset="slave" latency="32" num_read_outstanding="16" num_write_outstanding="16" max_read_burst_length="16" max_write_burst_length="16" max_widen_bitwidth="0"/>
+          <constraint constraint_type="bitwidth" orig_bitwidth="256" final_bitwidth="256"/>
+        </hw>
+        <hw hw_usage="address" hw_interface="S_AXILite" hw_name="concat_addr" hw_bitwidth="256" hw_size_or_depth="0" hw_kernel_support="true">
           <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="56"/>
         </hw>
       </arg>
-      <arg id="6" access_type="r" src_name="shift1" src_type="int" src_isptr="0" src_bitwidth="32" src_size_or_depth="1">
-        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="concat_addr" hw_bitwidth="32" hw_size_or_depth="1" hw_kernel_support="true">
-          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="64"/>
-        </hw>
-      </arg>
-      <arg id="7" access_type="r" src_name="mul2" src_type="short" src_isptr="0" src_bitwidth="16" src_size_or_depth="1">
-        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="concat_addr" hw_bitwidth="16" hw_size_or_depth="1" hw_kernel_support="true">
-          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="72"/>
-        </hw>
-      </arg>
-      <arg id="8" access_type="r" src_name="shift2" src_type="int" src_isptr="0" src_bitwidth="32" src_size_or_depth="1">
-        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="concat_addr" hw_bitwidth="32" hw_size_or_depth="1" hw_kernel_support="true">
-          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="80"/>
-        </hw>
-      </arg>
-      <arg id="9" access_type="rw" src_name="inputs" src_type="ap_uint&lt;256&gt;*" src_isptr="1" src_bitwidth="256" src_size_or_depth="1">
+      <arg id="6" access_type="rw" src_name="outputs" src_type="ap_uint&lt;256&gt;*" src_isptr="1" src_bitwidth="256" src_size_or_depth="1">
         <hw hw_usage="data" hw_interface="MAXI" hw_name="concat_data" hw_bitwidth="256" hw_size_or_depth="0" hw_kernel_support="true">
           <constraint constraint_type="pragma interface" mode="m_axi" register_option="0" offset="slave" latency="32" num_read_outstanding="16" num_write_outstanding="16" max_read_burst_length="16" max_write_burst_length="16" max_widen_bitwidth="0"/>
           <constraint constraint_type="bitwidth" orig_bitwidth="256" final_bitwidth="256"/>
         </hw>
         <hw hw_usage="address" hw_interface="S_AXILite" hw_name="concat_addr" hw_bitwidth="256" hw_size_or_depth="0" hw_kernel_support="true">
-          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="88"/>
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="68"/>
         </hw>
       </arg>
-      <arg id="10" access_type="rw" src_name="outputs" src_type="ap_uint&lt;256&gt;*" src_isptr="1" src_bitwidth="256" src_size_or_depth="1">
-        <hw hw_usage="data" hw_interface="MAXI" hw_name="concat_data" hw_bitwidth="256" hw_size_or_depth="0" hw_kernel_support="true">
-          <constraint constraint_type="pragma interface" mode="m_axi" register_option="0" offset="slave" latency="32" num_read_outstanding="16" num_write_outstanding="16" max_read_burst_length="16" max_write_burst_length="16" max_widen_bitwidth="0"/>
-          <constraint constraint_type="bitwidth" orig_bitwidth="256" final_bitwidth="256"/>
-        </hw>
-        <hw hw_usage="address" hw_interface="S_AXILite" hw_name="concat_addr" hw_bitwidth="256" hw_size_or_depth="0" hw_kernel_support="true">
-          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="100"/>
-        </hw>
-      </arg>
-      <arg id="11" access_type="w" src_name="concat_flag" src_type="bool&amp;" src_isptr="1" src_bitwidth="1" src_size_or_depth="1">
+      <arg id="7" access_type="w" src_name="concat_flag" src_type="bool&amp;" src_isptr="1" src_bitwidth="1" src_size_or_depth="1">
         <hw hw_usage="data" hw_interface="S_AXILite" hw_name="concat_addr" hw_bitwidth="1" hw_size_or_depth="1" hw_kernel_support="true">
-          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="112"/>
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="80"/>
         </hw>
       </arg>
     </args>

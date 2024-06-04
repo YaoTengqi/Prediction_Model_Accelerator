@@ -24,30 +24,6 @@ module concat_entry_proc (
         output_data_addr3_c_fifo_cap,
         output_data_addr3_c_full_n,
         output_data_addr3_c_write,
-        mul1,
-        mul1_c_din,
-        mul1_c_num_data_valid,
-        mul1_c_fifo_cap,
-        mul1_c_full_n,
-        mul1_c_write,
-        shift1,
-        shift1_c_din,
-        shift1_c_num_data_valid,
-        shift1_c_fifo_cap,
-        shift1_c_full_n,
-        shift1_c_write,
-        mul2,
-        mul2_c_din,
-        mul2_c_num_data_valid,
-        mul2_c_fifo_cap,
-        mul2_c_full_n,
-        mul2_c_write,
-        shift2,
-        shift2_c_din,
-        shift2_c_num_data_valid,
-        shift2_c_fifo_cap,
-        shift2_c_full_n,
-        shift2_c_write,
         outputs,
         outputs_c_din,
         outputs_c_num_data_valid,
@@ -74,30 +50,6 @@ input  [2:0] output_data_addr3_c_num_data_valid;
 input  [2:0] output_data_addr3_c_fifo_cap;
 input   output_data_addr3_c_full_n;
 output   output_data_addr3_c_write;
-input  [15:0] mul1;
-output  [15:0] mul1_c_din;
-input  [2:0] mul1_c_num_data_valid;
-input  [2:0] mul1_c_fifo_cap;
-input   mul1_c_full_n;
-output   mul1_c_write;
-input  [31:0] shift1;
-output  [31:0] shift1_c_din;
-input  [2:0] shift1_c_num_data_valid;
-input  [2:0] shift1_c_fifo_cap;
-input   shift1_c_full_n;
-output   shift1_c_write;
-input  [15:0] mul2;
-output  [15:0] mul2_c_din;
-input  [2:0] mul2_c_num_data_valid;
-input  [2:0] mul2_c_fifo_cap;
-input   mul2_c_full_n;
-output   mul2_c_write;
-input  [31:0] shift2;
-output  [31:0] shift2_c_din;
-input  [2:0] shift2_c_num_data_valid;
-input  [2:0] shift2_c_fifo_cap;
-input   shift2_c_full_n;
-output   shift2_c_write;
 input  [63:0] outputs;
 output  [63:0] outputs_c_din;
 input  [2:0] outputs_c_num_data_valid;
@@ -109,10 +61,6 @@ reg ap_done;
 reg ap_idle;
 reg start_write;
 reg output_data_addr3_c_write;
-reg mul1_c_write;
-reg shift1_c_write;
-reg mul2_c_write;
-reg shift2_c_write;
 reg outputs_c_write;
 
 reg    real_start;
@@ -122,10 +70,6 @@ reg    ap_done_reg;
 wire    ap_CS_fsm_state1;
 reg    internal_ap_ready;
 reg    output_data_addr3_c_blk_n;
-reg    mul1_c_blk_n;
-reg    shift1_c_blk_n;
-reg    mul2_c_blk_n;
-reg    shift2_c_blk_n;
 reg    outputs_c_blk_n;
 reg    ap_block_state1;
 reg   [0:0] ap_NS_fsm;
@@ -153,7 +97,7 @@ always @ (posedge ap_clk) begin
     end else begin
         if ((ap_continue == 1'b1)) begin
             ap_done_reg <= 1'b0;
-        end else if ((~((real_start == 1'b0) | (outputs_c_full_n == 1'b0) | (shift2_c_full_n == 1'b0) | (mul2_c_full_n == 1'b0) | (shift1_c_full_n == 1'b0) | (mul1_c_full_n == 1'b0) | (output_data_addr3_c_full_n == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
+        end else if ((~((real_start == 1'b0) | (outputs_c_full_n == 1'b0) | (output_data_addr3_c_full_n == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
             ap_done_reg <= 1'b1;
         end
     end
@@ -172,7 +116,7 @@ always @ (posedge ap_clk) begin
 end
 
 always @ (*) begin
-    if (((real_start == 1'b0) | (outputs_c_full_n == 1'b0) | (shift2_c_full_n == 1'b0) | (mul2_c_full_n == 1'b0) | (shift1_c_full_n == 1'b0) | (mul1_c_full_n == 1'b0) | (output_data_addr3_c_full_n == 1'b0) | (ap_done_reg == 1'b1))) begin
+    if (((real_start == 1'b0) | (outputs_c_full_n == 1'b0) | (output_data_addr3_c_full_n == 1'b0) | (ap_done_reg == 1'b1))) begin
         ap_ST_fsm_state1_blk = 1'b1;
     end else begin
         ap_ST_fsm_state1_blk = 1'b0;
@@ -180,7 +124,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((~((real_start == 1'b0) | (outputs_c_full_n == 1'b0) | (shift2_c_full_n == 1'b0) | (mul2_c_full_n == 1'b0) | (shift1_c_full_n == 1'b0) | (mul1_c_full_n == 1'b0) | (output_data_addr3_c_full_n == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
+    if ((~((real_start == 1'b0) | (outputs_c_full_n == 1'b0) | (output_data_addr3_c_full_n == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
         ap_done = 1'b1;
     end else begin
         ap_done = ap_done_reg;
@@ -196,42 +140,10 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((~((real_start == 1'b0) | (outputs_c_full_n == 1'b0) | (shift2_c_full_n == 1'b0) | (mul2_c_full_n == 1'b0) | (shift1_c_full_n == 1'b0) | (mul1_c_full_n == 1'b0) | (output_data_addr3_c_full_n == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
+    if ((~((real_start == 1'b0) | (outputs_c_full_n == 1'b0) | (output_data_addr3_c_full_n == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
         internal_ap_ready = 1'b1;
     end else begin
         internal_ap_ready = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if ((~((real_start == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
-        mul1_c_blk_n = mul1_c_full_n;
-    end else begin
-        mul1_c_blk_n = 1'b1;
-    end
-end
-
-always @ (*) begin
-    if ((~((real_start == 1'b0) | (outputs_c_full_n == 1'b0) | (shift2_c_full_n == 1'b0) | (mul2_c_full_n == 1'b0) | (shift1_c_full_n == 1'b0) | (mul1_c_full_n == 1'b0) | (output_data_addr3_c_full_n == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
-        mul1_c_write = 1'b1;
-    end else begin
-        mul1_c_write = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if ((~((real_start == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
-        mul2_c_blk_n = mul2_c_full_n;
-    end else begin
-        mul2_c_blk_n = 1'b1;
-    end
-end
-
-always @ (*) begin
-    if ((~((real_start == 1'b0) | (outputs_c_full_n == 1'b0) | (shift2_c_full_n == 1'b0) | (mul2_c_full_n == 1'b0) | (shift1_c_full_n == 1'b0) | (mul1_c_full_n == 1'b0) | (output_data_addr3_c_full_n == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
-        mul2_c_write = 1'b1;
-    end else begin
-        mul2_c_write = 1'b0;
     end
 end
 
@@ -244,7 +156,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((~((real_start == 1'b0) | (outputs_c_full_n == 1'b0) | (shift2_c_full_n == 1'b0) | (mul2_c_full_n == 1'b0) | (shift1_c_full_n == 1'b0) | (mul1_c_full_n == 1'b0) | (output_data_addr3_c_full_n == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
+    if ((~((real_start == 1'b0) | (outputs_c_full_n == 1'b0) | (output_data_addr3_c_full_n == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
         output_data_addr3_c_write = 1'b1;
     end else begin
         output_data_addr3_c_write = 1'b0;
@@ -260,7 +172,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((~((real_start == 1'b0) | (outputs_c_full_n == 1'b0) | (shift2_c_full_n == 1'b0) | (mul2_c_full_n == 1'b0) | (shift1_c_full_n == 1'b0) | (mul1_c_full_n == 1'b0) | (output_data_addr3_c_full_n == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
+    if ((~((real_start == 1'b0) | (outputs_c_full_n == 1'b0) | (output_data_addr3_c_full_n == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
         outputs_c_write = 1'b1;
     end else begin
         outputs_c_write = 1'b0;
@@ -272,38 +184,6 @@ always @ (*) begin
         real_start = 1'b0;
     end else begin
         real_start = ap_start;
-    end
-end
-
-always @ (*) begin
-    if ((~((real_start == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
-        shift1_c_blk_n = shift1_c_full_n;
-    end else begin
-        shift1_c_blk_n = 1'b1;
-    end
-end
-
-always @ (*) begin
-    if ((~((real_start == 1'b0) | (outputs_c_full_n == 1'b0) | (shift2_c_full_n == 1'b0) | (mul2_c_full_n == 1'b0) | (shift1_c_full_n == 1'b0) | (mul1_c_full_n == 1'b0) | (output_data_addr3_c_full_n == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
-        shift1_c_write = 1'b1;
-    end else begin
-        shift1_c_write = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if ((~((real_start == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
-        shift2_c_blk_n = shift2_c_full_n;
-    end else begin
-        shift2_c_blk_n = 1'b1;
-    end
-end
-
-always @ (*) begin
-    if ((~((real_start == 1'b0) | (outputs_c_full_n == 1'b0) | (shift2_c_full_n == 1'b0) | (mul2_c_full_n == 1'b0) | (shift1_c_full_n == 1'b0) | (mul1_c_full_n == 1'b0) | (output_data_addr3_c_full_n == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
-        shift2_c_write = 1'b1;
-    end else begin
-        shift2_c_write = 1'b0;
     end
 end
 
@@ -329,22 +209,14 @@ end
 assign ap_CS_fsm_state1 = ap_CS_fsm[32'd0];
 
 always @ (*) begin
-    ap_block_state1 = ((real_start == 1'b0) | (outputs_c_full_n == 1'b0) | (shift2_c_full_n == 1'b0) | (mul2_c_full_n == 1'b0) | (shift1_c_full_n == 1'b0) | (mul1_c_full_n == 1'b0) | (output_data_addr3_c_full_n == 1'b0) | (ap_done_reg == 1'b1));
+    ap_block_state1 = ((real_start == 1'b0) | (outputs_c_full_n == 1'b0) | (output_data_addr3_c_full_n == 1'b0) | (ap_done_reg == 1'b1));
 end
 
 assign ap_ready = internal_ap_ready;
 
-assign mul1_c_din = mul1;
-
-assign mul2_c_din = mul2;
-
 assign output_data_addr3_c_din = output_data_addr3;
 
 assign outputs_c_din = outputs;
-
-assign shift1_c_din = shift1;
-
-assign shift2_c_din = shift2;
 
 assign start_out = real_start;
 

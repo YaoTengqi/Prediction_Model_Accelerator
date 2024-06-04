@@ -10,7 +10,7 @@ if {${::AESL::PGuard_autoexp_gen}} {
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 105 \
+    id 21 \
     name ROWS \
     type fifo \
     dir I \
@@ -25,7 +25,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 106 \
+    id 22 \
     name COLS \
     type fifo \
     dir I \
@@ -40,7 +40,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 107 \
+    id 23 \
     name input_data_addr3 \
     type fifo \
     dir I \
@@ -55,22 +55,22 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 108 \
-    name output_stream \
+    id 24 \
+    name input_stream \
     type fifo \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_output_stream \
+    corename dc_input_stream \
     op interface \
-    ports { output_stream_dout { I 256 vector } output_stream_num_data_valid { I 7 vector } output_stream_fifo_cap { I 7 vector } output_stream_empty_n { I 1 bit } output_stream_read { O 1 bit } } \
+    ports { input_stream_dout { I 256 vector } input_stream_num_data_valid { I 7 vector } input_stream_fifo_cap { I 7 vector } input_stream_empty_n { I 1 bit } input_stream_read { O 1 bit } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 109 \
+    id 25 \
     name concat_data \
     type other \
     dir O \
@@ -85,7 +85,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 110 \
+    id 26 \
     name outputs \
     type fifo \
     dir I \
@@ -100,7 +100,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 111 \
+    id 27 \
     name concat_flag \
     type other \
     dir O \

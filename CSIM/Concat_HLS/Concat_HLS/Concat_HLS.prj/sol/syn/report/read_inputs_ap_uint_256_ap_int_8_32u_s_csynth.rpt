@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'read_inputs_ap_uint_256_ap_int_8_32u_s'
 ================================================================
-* Date:           Mon Jun  3 14:13:11 2024
+* Date:           Tue Jun  4 10:53:55 2024
 
 * Version:        2022.2 (Build 3670227 on Oct 13 2022)
 * Project:        Concat_HLS.prj
@@ -71,13 +71,13 @@
 
 + Detail: 
     * Instance: 
-    +------------------------+--------------------+---------+----+---+----+-----+
-    |        Instance        |       Module       | BRAM_18K| DSP| FF| LUT| URAM|
-    +------------------------+--------------------+---------+----+---+----+-----+
-    |mul_32s_32s_32_1_1_U13  |mul_32s_32s_32_1_1  |        0|   3|  0|  20|    0|
-    +------------------------+--------------------+---------+----+---+----+-----+
-    |Total                   |                    |        0|   3|  0|  20|    0|
-    +------------------------+--------------------+---------+----+---+----+-----+
+    +-----------------------+--------------------+---------+----+---+----+-----+
+    |        Instance       |       Module       | BRAM_18K| DSP| FF| LUT| URAM|
+    +-----------------------+--------------------+---------+----+---+----+-----+
+    |mul_32s_32s_32_1_1_U5  |mul_32s_32s_32_1_1  |        0|   3|  0|  20|    0|
+    +-----------------------+--------------------+---------+----+---+----+-----+
+    |Total                  |                    |        0|   3|  0|  20|    0|
+    +-----------------------+--------------------+---------+----+---+----+-----+
 
     * DSP: 
     N/A
@@ -108,13 +108,13 @@
     +--------------------------+-----+-----------+-----+-----------+
     |           Name           | LUT | Input Size| Bits| Total Bits|
     +--------------------------+-----+-----------+-----+-----------+
-    |COLS_c10_blk_n            |    9|          2|    1|          2|
-    |ROWS_c9_blk_n             |    9|          2|    1|          2|
+    |COLS_c_blk_n              |    9|          2|    1|          2|
+    |ROWS_c_blk_n              |    9|          2|    1|          2|
     |ap_NS_fsm                 |  441|         84|    1|         84|
     |ap_done                   |    9|          2|    1|          2|
     |concat_data_blk_n_AR      |    9|          2|    1|          2|
     |concat_data_blk_n_R       |    9|          2|    1|          2|
-    |i_2_fu_98                 |    9|          2|   27|         54|
+    |i_1_fu_98                 |    9|          2|   27|         54|
     |i_fu_94                   |    9|          2|   27|         54|
     |input_stream_blk_n        |    9|          2|    1|          2|
     |input_stream_din          |   14|          3|  256|        768|
@@ -131,13 +131,13 @@
     |ap_done_reg           |    1|   0|    1|          0|
     |div_cast_reg_341      |   27|   0|   32|          5|
     |div_reg_335           |   27|   0|   27|          0|
-    |i_2_fu_98             |   27|   0|   27|          0|
+    |i_1_fu_98             |   27|   0|   27|          0|
     |i_fu_94               |   27|   0|   27|          0|
     |icmp_ln15_reg_347     |    1|   0|    1|          0|
     |p_Val2_1_reg_398      |  256|   0|  256|          0|
     |p_Val2_s_reg_384      |  256|   0|  256|          0|
     |trunc_ln15_1_reg_358  |   59|   0|   59|          0|
-    |trunc_ln3_reg_379     |   59|   0|   59|          0|
+    |trunc_ln1_reg_379     |   59|   0|   59|          0|
     +----------------------+-----+----+-----+-----------+
     |Total                 |  823|   0|  828|          5|
     +----------------------+-----+----+-----+-----------+
@@ -214,15 +214,15 @@
 |input_stream_fifo_cap        |   in|    7|     ap_fifo|                               input_stream|       pointer|
 |input_stream_full_n          |   in|    1|     ap_fifo|                               input_stream|       pointer|
 |input_stream_write           |  out|    1|     ap_fifo|                               input_stream|       pointer|
-|ROWS_c9_din                  |  out|   32|     ap_fifo|                                    ROWS_c9|       pointer|
-|ROWS_c9_num_data_valid       |   in|    2|     ap_fifo|                                    ROWS_c9|       pointer|
-|ROWS_c9_fifo_cap             |   in|    2|     ap_fifo|                                    ROWS_c9|       pointer|
-|ROWS_c9_full_n               |   in|    1|     ap_fifo|                                    ROWS_c9|       pointer|
-|ROWS_c9_write                |  out|    1|     ap_fifo|                                    ROWS_c9|       pointer|
-|COLS_c10_din                 |  out|   32|     ap_fifo|                                   COLS_c10|       pointer|
-|COLS_c10_num_data_valid      |   in|    2|     ap_fifo|                                   COLS_c10|       pointer|
-|COLS_c10_fifo_cap            |   in|    2|     ap_fifo|                                   COLS_c10|       pointer|
-|COLS_c10_full_n              |   in|    1|     ap_fifo|                                   COLS_c10|       pointer|
-|COLS_c10_write               |  out|    1|     ap_fifo|                                   COLS_c10|       pointer|
+|ROWS_c_din                   |  out|   32|     ap_fifo|                                     ROWS_c|       pointer|
+|ROWS_c_num_data_valid        |   in|    2|     ap_fifo|                                     ROWS_c|       pointer|
+|ROWS_c_fifo_cap              |   in|    2|     ap_fifo|                                     ROWS_c|       pointer|
+|ROWS_c_full_n                |   in|    1|     ap_fifo|                                     ROWS_c|       pointer|
+|ROWS_c_write                 |  out|    1|     ap_fifo|                                     ROWS_c|       pointer|
+|COLS_c_din                   |  out|   32|     ap_fifo|                                     COLS_c|       pointer|
+|COLS_c_num_data_valid        |   in|    2|     ap_fifo|                                     COLS_c|       pointer|
+|COLS_c_fifo_cap              |   in|    2|     ap_fifo|                                     COLS_c|       pointer|
+|COLS_c_full_n                |   in|    1|     ap_fifo|                                     COLS_c|       pointer|
+|COLS_c_write                 |  out|    1|     ap_fifo|                                     COLS_c|       pointer|
 +-----------------------------+-----+-----+------------+-------------------------------------------+--------------+
 

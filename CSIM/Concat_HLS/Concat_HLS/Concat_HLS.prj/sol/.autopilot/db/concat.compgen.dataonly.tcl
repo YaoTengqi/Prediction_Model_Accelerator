@@ -42,61 +42,29 @@ COLS {
 	offset 48
 	offset_end 55
 }
-mul1 { 
-	dir I
-	width 16
-	depth 1
-	mode ap_none
-	offset 56
-	offset_end 63
-}
-shift1 { 
-	dir I
-	width 32
-	depth 1
-	mode ap_none
-	offset 64
-	offset_end 71
-}
-mul2 { 
-	dir I
-	width 16
-	depth 1
-	mode ap_none
-	offset 72
-	offset_end 79
-}
-shift2 { 
-	dir I
-	width 32
-	depth 1
-	mode ap_none
-	offset 80
-	offset_end 87
-}
 inputs { 
 	dir I
 	width 64
 	depth 1
 	mode ap_none
-	offset 88
-	offset_end 99
+	offset 56
+	offset_end 67
 }
 outputs { 
 	dir I
 	width 64
 	depth 1
 	mode ap_none
-	offset 100
-	offset_end 111
+	offset 68
+	offset_end 79
 }
 concat_flag { 
 	dir O
 	width 1
 	depth 1
 	mode ap_vld
-	offset 112
-	offset_end 119
+	offset 80
+	offset_end 87
 }
 ap_start { }
 ap_done { }

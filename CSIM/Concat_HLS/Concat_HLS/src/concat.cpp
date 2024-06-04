@@ -22,10 +22,10 @@ void concat(
 #pragma HLS INTERFACE mode = s_axilite port = output_data_addr3 bundle = concat_addr
 #pragma HLS INTERFACE mode = s_axilite port = ROWS bundle = concat_addr
 #pragma HLS INTERFACE mode = s_axilite port = COLS bundle = concat_addr
-#pragma HLS INTERFACE mode = s_axilite port = mul1 bundle = concat_addr
-#pragma HLS INTERFACE mode = s_axilite port = shift1 bundle = concat_addr
-#pragma HLS INTERFACE mode = s_axilite port = mul2 bundle = concat_addr
-#pragma HLS INTERFACE mode = s_axilite port = shift2 bundle = concat_addr
+//#pragma HLS INTERFACE mode = s_axilite port = mul1 bundle = concat_addr
+//#pragma HLS INTERFACE mode = s_axilite port = shift1 bundle = concat_addr
+//#pragma HLS INTERFACE mode = s_axilite port = mul2 bundle = concat_addr
+//#pragma HLS INTERFACE mode = s_axilite port = shift2 bundle = concat_addr
 #pragma HLS INTERFACE mode = s_axilite port = concat_flag bundle = concat_addr
 #pragma HLS INTERFACE mode = s_axilite port = return bundle = concat_addr // 开始信号
 

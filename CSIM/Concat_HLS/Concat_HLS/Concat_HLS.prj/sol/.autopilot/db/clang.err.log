@@ -1,9 +1,0 @@
-In file included from /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/concat.cpp:1:
-In file included from /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/concat.hpp:11:
-/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:41:9: warning: Only for/while loops support the 'Unroll ' [-Wignored-hls-attributes]
-#pragma HLS UNROLL factor=2
-        ^~~~
-/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:67:9: warning: Only for/while loops support the 'Unroll ' [-Wignored-hls-attributes]
-#pragma HLS UNROLL factor=2
-        ^~~~
-2 warnings generated.

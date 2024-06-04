@@ -238,8 +238,8 @@ class AESL_RUNTIME_BC {
 };
 using hls::sim::Byte;
 struct __cosim_s32__ { char data[32]; };
-extern "C" void concat(Byte<32>*, int, int, int, int, int, short, int, short, int, int, int, volatile void *);
-extern "C" void apatb_concat_hw(int __xlx_apatb_param_input_data_addr1, int __xlx_apatb_param_input_data_addr2, int __xlx_apatb_param_output_data_addr3, int __xlx_apatb_param_ROWS, int __xlx_apatb_param_COLS, short __xlx_apatb_param_mul1, int __xlx_apatb_param_shift1, short __xlx_apatb_param_mul2, int __xlx_apatb_param_shift2, volatile void * __xlx_apatb_param_inputs, volatile void * __xlx_apatb_param_outputs, volatile void * __xlx_apatb_param_concat_flag) {
+extern "C" void concat(Byte<32>*, int, int, int, int, int, int, int, volatile void *);
+extern "C" void apatb_concat_hw(int __xlx_apatb_param_input_data_addr1, int __xlx_apatb_param_input_data_addr2, int __xlx_apatb_param_output_data_addr3, int __xlx_apatb_param_ROWS, int __xlx_apatb_param_COLS, volatile void * __xlx_apatb_param_inputs, volatile void * __xlx_apatb_param_outputs, volatile void * __xlx_apatb_param_concat_flag) {
 using hls::sim::createStream;
   // Collect __xlx_inputs_outputs__tmp_vec
 std::vector<Byte<32>> __xlx_inputs_outputs__tmp_vec;
@@ -256,7 +256,7 @@ __xlx_inputs_outputs__tmp_vec.push_back(((Byte<32>*)__xlx_apatb_param_outputs)[i
   int __xlx_offset_param_outputs = 1;
   int __xlx_offset_byte_param_outputs = 1*32;
   // DUT call
-  concat(__xlx_inputs_outputs__tmp_vec.data(), __xlx_apatb_param_input_data_addr1, __xlx_apatb_param_input_data_addr2, __xlx_apatb_param_output_data_addr3, __xlx_apatb_param_ROWS, __xlx_apatb_param_COLS, __xlx_apatb_param_mul1, __xlx_apatb_param_shift1, __xlx_apatb_param_mul2, __xlx_apatb_param_shift2, __xlx_offset_byte_param_inputs, __xlx_offset_byte_param_outputs, __xlx_apatb_param_concat_flag);
+  concat(__xlx_inputs_outputs__tmp_vec.data(), __xlx_apatb_param_input_data_addr1, __xlx_apatb_param_input_data_addr2, __xlx_apatb_param_output_data_addr3, __xlx_apatb_param_ROWS, __xlx_apatb_param_COLS, __xlx_offset_byte_param_inputs, __xlx_offset_byte_param_outputs, __xlx_apatb_param_concat_flag);
 // print __xlx_apatb_param_inputs
 for (size_t i = 0; i < __xlx_size_param_inputs; ++i) {
 ((Byte<32>*)__xlx_apatb_param_inputs)[i] = __xlx_inputs_outputs__tmp_vec[__xlx_offset_param_inputs+i];

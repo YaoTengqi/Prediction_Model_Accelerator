@@ -28,14 +28,6 @@ using namespace std;
 #define AUTOTB_TVOUT_ROWS "../tv/cdatafile/c.concat.autotvout_ROWS.dat"
 #define AUTOTB_TVIN_COLS "../tv/cdatafile/c.concat.autotvin_COLS.dat"
 #define AUTOTB_TVOUT_COLS "../tv/cdatafile/c.concat.autotvout_COLS.dat"
-#define AUTOTB_TVIN_mul1 "../tv/cdatafile/c.concat.autotvin_mul1.dat"
-#define AUTOTB_TVOUT_mul1 "../tv/cdatafile/c.concat.autotvout_mul1.dat"
-#define AUTOTB_TVIN_shift1 "../tv/cdatafile/c.concat.autotvin_shift1.dat"
-#define AUTOTB_TVOUT_shift1 "../tv/cdatafile/c.concat.autotvout_shift1.dat"
-#define AUTOTB_TVIN_mul2 "../tv/cdatafile/c.concat.autotvin_mul2.dat"
-#define AUTOTB_TVOUT_mul2 "../tv/cdatafile/c.concat.autotvout_mul2.dat"
-#define AUTOTB_TVIN_shift2 "../tv/cdatafile/c.concat.autotvin_shift2.dat"
-#define AUTOTB_TVOUT_shift2 "../tv/cdatafile/c.concat.autotvout_shift2.dat"
 #define AUTOTB_TVIN_inputs "../tv/cdatafile/c.concat.autotvin_inputs.dat"
 #define AUTOTB_TVOUT_inputs "../tv/cdatafile/c.concat.autotvout_inputs.dat"
 #define AUTOTB_TVIN_outputs "../tv/cdatafile/c.concat.autotvin_outputs.dat"
@@ -973,10 +965,10 @@ namespace hls::sim
 
 
 extern "C"
-void concat_hw_stub_wrapper(hls::sim::Byte<4>, hls::sim::Byte<4>, hls::sim::Byte<4>, hls::sim::Byte<4>, hls::sim::Byte<4>, hls::sim::Byte<2>, hls::sim::Byte<4>, hls::sim::Byte<2>, hls::sim::Byte<4>, void*, void*, void*);
+void concat_hw_stub_wrapper(hls::sim::Byte<4>, hls::sim::Byte<4>, hls::sim::Byte<4>, hls::sim::Byte<4>, hls::sim::Byte<4>, void*, void*, void*);
 
 extern "C"
-void apatb_concat_hw(hls::sim::Byte<4> __xlx_apatb_param_input_data_addr1, hls::sim::Byte<4> __xlx_apatb_param_input_data_addr2, hls::sim::Byte<4> __xlx_apatb_param_output_data_addr3, hls::sim::Byte<4> __xlx_apatb_param_ROWS, hls::sim::Byte<4> __xlx_apatb_param_COLS, hls::sim::Byte<2> __xlx_apatb_param_mul1, hls::sim::Byte<4> __xlx_apatb_param_shift1, hls::sim::Byte<2> __xlx_apatb_param_mul2, hls::sim::Byte<4> __xlx_apatb_param_shift2, void* __xlx_apatb_param_inputs, void* __xlx_apatb_param_outputs, void* __xlx_apatb_param_concat_flag)
+void apatb_concat_hw(hls::sim::Byte<4> __xlx_apatb_param_input_data_addr1, hls::sim::Byte<4> __xlx_apatb_param_input_data_addr2, hls::sim::Byte<4> __xlx_apatb_param_output_data_addr3, hls::sim::Byte<4> __xlx_apatb_param_ROWS, hls::sim::Byte<4> __xlx_apatb_param_COLS, void* __xlx_apatb_param_inputs, void* __xlx_apatb_param_outputs, void* __xlx_apatb_param_concat_flag)
 {
   static hls::sim::Register port0 {
     .name = "input_data_addr1",
@@ -1033,52 +1025,8 @@ void apatb_concat_hw(hls::sim::Byte<4> __xlx_apatb_param_input_data_addr1, hls::
   };
   port4.param = &__xlx_apatb_param_COLS;
 
-  static hls::sim::Register port5 {
-    .name = "mul1",
-    .width = 16,
-#ifdef POST_CHECK
-#else
-    .owriter = nullptr,
-    .iwriter = new hls::sim::Writer(AUTOTB_TVIN_mul1),
-#endif
-  };
-  port5.param = &__xlx_apatb_param_mul1;
-
-  static hls::sim::Register port6 {
-    .name = "shift1",
-    .width = 32,
-#ifdef POST_CHECK
-#else
-    .owriter = nullptr,
-    .iwriter = new hls::sim::Writer(AUTOTB_TVIN_shift1),
-#endif
-  };
-  port6.param = &__xlx_apatb_param_shift1;
-
-  static hls::sim::Register port7 {
-    .name = "mul2",
-    .width = 16,
-#ifdef POST_CHECK
-#else
-    .owriter = nullptr,
-    .iwriter = new hls::sim::Writer(AUTOTB_TVIN_mul2),
-#endif
-  };
-  port7.param = &__xlx_apatb_param_mul2;
-
-  static hls::sim::Register port8 {
-    .name = "shift2",
-    .width = 32,
-#ifdef POST_CHECK
-#else
-    .owriter = nullptr,
-    .iwriter = new hls::sim::Writer(AUTOTB_TVIN_shift2),
-#endif
-  };
-  port8.param = &__xlx_apatb_param_shift2;
-
   hls::sim::Byte<4> __xlx_offset_byte_param_inputs;
-  static hls::sim::Register port9 {
+  static hls::sim::Register port5 {
     .name = "inputs",
     .width = 32,
 #ifdef POST_CHECK
@@ -1087,10 +1035,10 @@ void apatb_concat_hw(hls::sim::Byte<4> __xlx_apatb_param_input_data_addr1, hls::
     .iwriter = new hls::sim::Writer(AUTOTB_TVIN_inputs),
 #endif
   };
-  port9.param = &__xlx_offset_byte_param_inputs;
+  port5.param = &__xlx_offset_byte_param_inputs;
 
   hls::sim::Byte<4> __xlx_offset_byte_param_outputs;
-  static hls::sim::Register port10 {
+  static hls::sim::Register port6 {
     .name = "outputs",
     .width = 32,
 #ifdef POST_CHECK
@@ -1099,9 +1047,9 @@ void apatb_concat_hw(hls::sim::Byte<4> __xlx_apatb_param_input_data_addr1, hls::
     .iwriter = new hls::sim::Writer(AUTOTB_TVIN_outputs),
 #endif
   };
-  port10.param = &__xlx_offset_byte_param_outputs;
+  port6.param = &__xlx_offset_byte_param_outputs;
 
-  static hls::sim::Register port11 {
+  static hls::sim::Register port7 {
     .name = "concat_flag",
     .width = 1,
 #ifdef POST_CHECK
@@ -1111,12 +1059,12 @@ void apatb_concat_hw(hls::sim::Byte<4> __xlx_apatb_param_input_data_addr1, hls::
     .iwriter = new hls::sim::Writer(AUTOTB_TVIN_concat_flag),
 #endif
   };
-  port11.param = __xlx_apatb_param_concat_flag;
+  port7.param = __xlx_apatb_param_concat_flag;
 
 #ifdef USE_BINARY_TV_FILE
-  static hls::sim::Memory<hls::sim::Input, hls::sim::Output> port12 {
+  static hls::sim::Memory<hls::sim::Input, hls::sim::Output> port8 {
 #else
-  static hls::sim::Memory<hls::sim::Reader, hls::sim::Writer> port12 {
+  static hls::sim::Memory<hls::sim::Reader, hls::sim::Writer> port8 {
 #endif
     .width = 256,
     .asize = 32,
@@ -1143,17 +1091,17 @@ void apatb_concat_hw(hls::sim::Byte<4> __xlx_apatb_param_input_data_addr1, hls::
   };
   __xlx_offset_byte_param_inputs = 0*32;
   __xlx_offset_byte_param_outputs = 1*32;
-  port12.param = { __xlx_apatb_param_inputs, __xlx_apatb_param_outputs };
-  port12.depth = { 1, 1 };
-  port12.offset = { 0, 1 };
-  port12.hasWrite = { true, true };
+  port8.param = { __xlx_apatb_param_inputs, __xlx_apatb_param_outputs };
+  port8.depth = { 1, 1 };
+  port8.offset = { 0, 1 };
+  port8.hasWrite = { true, true };
 
   refine_signal_handler();
   try {
 #ifdef POST_CHECK
     CodeState = ENTER_WRAPC_PC;
-    check(port11);
-    check(port12);
+    check(port7);
+    check(port8);
 #else
     static hls::sim::RefTCL tcl("../tv/cdatafile/ref.tcl");
     CodeState = DUMP_INPUTS;
@@ -1166,10 +1114,6 @@ void apatb_concat_hw(hls::sim::Byte<4> __xlx_apatb_param_input_data_addr1, hls::
     dump(port6, port6.iwriter, tcl.AESL_transaction);
     dump(port7, port7.iwriter, tcl.AESL_transaction);
     dump(port8, port8.iwriter, tcl.AESL_transaction);
-    dump(port9, port9.iwriter, tcl.AESL_transaction);
-    dump(port10, port10.iwriter, tcl.AESL_transaction);
-    dump(port11, port11.iwriter, tcl.AESL_transaction);
-    dump(port12, port12.iwriter, tcl.AESL_transaction);
     port0.doTCL(tcl);
     port1.doTCL(tcl);
     port2.doTCL(tcl);
@@ -1179,15 +1123,11 @@ void apatb_concat_hw(hls::sim::Byte<4> __xlx_apatb_param_input_data_addr1, hls::
     port6.doTCL(tcl);
     port7.doTCL(tcl);
     port8.doTCL(tcl);
-    port9.doTCL(tcl);
-    port10.doTCL(tcl);
-    port11.doTCL(tcl);
-    port12.doTCL(tcl);
     CodeState = CALL_C_DUT;
-    concat_hw_stub_wrapper(__xlx_apatb_param_input_data_addr1, __xlx_apatb_param_input_data_addr2, __xlx_apatb_param_output_data_addr3, __xlx_apatb_param_ROWS, __xlx_apatb_param_COLS, __xlx_apatb_param_mul1, __xlx_apatb_param_shift1, __xlx_apatb_param_mul2, __xlx_apatb_param_shift2, __xlx_apatb_param_inputs, __xlx_apatb_param_outputs, __xlx_apatb_param_concat_flag);
+    concat_hw_stub_wrapper(__xlx_apatb_param_input_data_addr1, __xlx_apatb_param_input_data_addr2, __xlx_apatb_param_output_data_addr3, __xlx_apatb_param_ROWS, __xlx_apatb_param_COLS, __xlx_apatb_param_inputs, __xlx_apatb_param_outputs, __xlx_apatb_param_concat_flag);
     CodeState = DUMP_OUTPUTS;
-    dump(port11, port11.owriter, tcl.AESL_transaction);
-    dump(port12, port12.owriter, tcl.AESL_transaction);
+    dump(port7, port7.owriter, tcl.AESL_transaction);
+    dump(port8, port8.owriter, tcl.AESL_transaction);
     tcl.AESL_transaction++;
 #endif
   } catch (const hls::sim::SimException &e) {

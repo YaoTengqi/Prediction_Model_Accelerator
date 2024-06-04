@@ -11,8 +11,8 @@ module concat_start_for_store_ap_uint_256_ap_int_8_32u_U0
 #(parameter
     MEM_STYLE   = "shiftReg",
     DATA_WIDTH  = 1,
-    ADDR_WIDTH  = 2,
-    DEPTH       = 3)
+    ADDR_WIDTH  = 1,
+    DEPTH       = 2)
 (
     // system signal
     input  wire                  clk,
@@ -107,8 +107,8 @@ endmodule
 module concat_start_for_store_ap_uint_256_ap_int_8_32u_U0_ShiftReg
 #(parameter
     DATA_WIDTH  = 1,
-    ADDR_WIDTH  = 2,
-    DEPTH       = 3)
+    ADDR_WIDTH  = 1,
+    DEPTH       = 2)
 (
     input  wire                  clk,
     input  wire                  we,

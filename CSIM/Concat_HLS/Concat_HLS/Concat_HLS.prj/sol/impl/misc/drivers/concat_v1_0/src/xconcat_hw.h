@@ -38,34 +38,20 @@
 // 0x30 : Data signal of COLS
 //        bit 31~0 - COLS[31:0] (Read/Write)
 // 0x34 : reserved
-// 0x38 : Data signal of mul1
-//        bit 15~0 - mul1[15:0] (Read/Write)
-//        others   - reserved
-// 0x3c : reserved
-// 0x40 : Data signal of shift1
-//        bit 31~0 - shift1[31:0] (Read/Write)
-// 0x44 : reserved
-// 0x48 : Data signal of mul2
-//        bit 15~0 - mul2[15:0] (Read/Write)
-//        others   - reserved
-// 0x4c : reserved
-// 0x50 : Data signal of shift2
-//        bit 31~0 - shift2[31:0] (Read/Write)
-// 0x54 : reserved
-// 0x58 : Data signal of inputs
+// 0x38 : Data signal of inputs
 //        bit 31~0 - inputs[31:0] (Read/Write)
-// 0x5c : Data signal of inputs
+// 0x3c : Data signal of inputs
 //        bit 31~0 - inputs[63:32] (Read/Write)
-// 0x60 : reserved
-// 0x64 : Data signal of outputs
+// 0x40 : reserved
+// 0x44 : Data signal of outputs
 //        bit 31~0 - outputs[31:0] (Read/Write)
-// 0x68 : Data signal of outputs
+// 0x48 : Data signal of outputs
 //        bit 31~0 - outputs[63:32] (Read/Write)
-// 0x6c : reserved
-// 0x70 : Data signal of concat_flag
+// 0x4c : reserved
+// 0x50 : Data signal of concat_flag
 //        bit 0  - concat_flag[0] (Read)
 //        others - reserved
-// 0x74 : Control signal of concat_flag
+// 0x54 : Control signal of concat_flag
 //        bit 0  - concat_flag_ap_vld (Read/COR)
 //        others - reserved
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
@@ -84,19 +70,11 @@
 #define XCONCAT_CONCAT_ADDR_BITS_ROWS_DATA              32
 #define XCONCAT_CONCAT_ADDR_ADDR_COLS_DATA              0x30
 #define XCONCAT_CONCAT_ADDR_BITS_COLS_DATA              32
-#define XCONCAT_CONCAT_ADDR_ADDR_MUL1_DATA              0x38
-#define XCONCAT_CONCAT_ADDR_BITS_MUL1_DATA              16
-#define XCONCAT_CONCAT_ADDR_ADDR_SHIFT1_DATA            0x40
-#define XCONCAT_CONCAT_ADDR_BITS_SHIFT1_DATA            32
-#define XCONCAT_CONCAT_ADDR_ADDR_MUL2_DATA              0x48
-#define XCONCAT_CONCAT_ADDR_BITS_MUL2_DATA              16
-#define XCONCAT_CONCAT_ADDR_ADDR_SHIFT2_DATA            0x50
-#define XCONCAT_CONCAT_ADDR_BITS_SHIFT2_DATA            32
-#define XCONCAT_CONCAT_ADDR_ADDR_INPUTS_DATA            0x58
+#define XCONCAT_CONCAT_ADDR_ADDR_INPUTS_DATA            0x38
 #define XCONCAT_CONCAT_ADDR_BITS_INPUTS_DATA            64
-#define XCONCAT_CONCAT_ADDR_ADDR_OUTPUTS_DATA           0x64
+#define XCONCAT_CONCAT_ADDR_ADDR_OUTPUTS_DATA           0x44
 #define XCONCAT_CONCAT_ADDR_BITS_OUTPUTS_DATA           64
-#define XCONCAT_CONCAT_ADDR_ADDR_CONCAT_FLAG_DATA       0x70
+#define XCONCAT_CONCAT_ADDR_ADDR_CONCAT_FLAG_DATA       0x50
 #define XCONCAT_CONCAT_ADDR_BITS_CONCAT_FLAG_DATA       1
-#define XCONCAT_CONCAT_ADDR_ADDR_CONCAT_FLAG_CTRL       0x74
+#define XCONCAT_CONCAT_ADDR_ADDR_CONCAT_FLAG_CTRL       0x54
 

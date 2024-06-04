@@ -1,52 +1,17 @@
 # This script segment is generated automatically by AutoPilot
 
 if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler concat_fifo_w32_d4_S BINDTYPE {storage} TYPE {fifo} IMPL {srl} ALLOW_PRAGMA 1 INSTNAME {output_data_addr3_c_U}
+	::AP::rtl_comp_handler concat_fifo_w32_d3_S BINDTYPE {storage} TYPE {fifo} IMPL {srl} ALLOW_PRAGMA 1 INSTNAME {output_data_addr3_c_U}
 }
 
 
 if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler concat_fifo_w16_d3_S BINDTYPE {storage} TYPE {fifo} IMPL {srl} ALLOW_PRAGMA 1 INSTNAME {mul1_c_U}
-}
-
-
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler concat_fifo_w32_d3_S BINDTYPE {storage} TYPE {fifo} IMPL {srl} ALLOW_PRAGMA 1 INSTNAME {shift1_c_U}
-}
-
-
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler concat_fifo_w16_d3_S BINDTYPE {storage} TYPE {fifo} IMPL {srl} ALLOW_PRAGMA 1 INSTNAME {mul2_c_U}
-}
-
-
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler concat_fifo_w32_d3_S BINDTYPE {storage} TYPE {fifo} IMPL {srl} ALLOW_PRAGMA 1 INSTNAME {shift2_c_U}
-}
-
-
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler concat_fifo_w64_d4_S BINDTYPE {storage} TYPE {fifo} IMPL {srl} ALLOW_PRAGMA 1 INSTNAME {outputs_c_U}
+	::AP::rtl_comp_handler concat_fifo_w64_d3_S BINDTYPE {storage} TYPE {fifo} IMPL {srl} ALLOW_PRAGMA 1 INSTNAME {outputs_c_U}
 }
 
 
 if {${::AESL::PGuard_rtl_comp_handler}} {
 	::AP::rtl_comp_handler concat_fifo_w256_d64_A BINDTYPE {storage} TYPE {fifo} IMPL {memory} ALLOW_PRAGMA 1 INSTNAME {input_stream_U}
-}
-
-
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler concat_fifo_w32_d2_S BINDTYPE {storage} TYPE {fifo} IMPL {srl} ALLOW_PRAGMA 1 INSTNAME {ROWS_c9_U}
-}
-
-
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler concat_fifo_w32_d2_S BINDTYPE {storage} TYPE {fifo} IMPL {srl} ALLOW_PRAGMA 1 INSTNAME {COLS_c10_U}
-}
-
-
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler concat_fifo_w256_d64_A BINDTYPE {storage} TYPE {fifo} IMPL {memory} ALLOW_PRAGMA 1 INSTNAME {output_stream_U}
 }
 
 
@@ -57,11 +22,6 @@ if {${::AESL::PGuard_rtl_comp_handler}} {
 
 if {${::AESL::PGuard_rtl_comp_handler}} {
 	::AP::rtl_comp_handler concat_fifo_w32_d2_S BINDTYPE {storage} TYPE {fifo} IMPL {srl} ALLOW_PRAGMA 1 INSTNAME {COLS_c_U}
-}
-
-
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler concat_start_for_requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0 BINDTYPE {storage} TYPE {fifo} IMPL {srl} ALLOW_PRAGMA 1 INSTNAME {start_for_requant_ap_uint_256_ap_int_8_ap_int_8_32u_U0_U}
 }
 
 
@@ -124,61 +84,29 @@ COLS {
 	offset 48
 	offset_end 55
 }
-mul1 { 
-	dir I
-	width 16
-	depth 1
-	mode ap_none
-	offset 56
-	offset_end 63
-}
-shift1 { 
-	dir I
-	width 32
-	depth 1
-	mode ap_none
-	offset 64
-	offset_end 71
-}
-mul2 { 
-	dir I
-	width 16
-	depth 1
-	mode ap_none
-	offset 72
-	offset_end 79
-}
-shift2 { 
-	dir I
-	width 32
-	depth 1
-	mode ap_none
-	offset 80
-	offset_end 87
-}
 inputs { 
 	dir I
 	width 64
 	depth 1
 	mode ap_none
-	offset 88
-	offset_end 99
+	offset 56
+	offset_end 67
 }
 outputs { 
 	dir I
 	width 64
 	depth 1
 	mode ap_none
-	offset 100
-	offset_end 111
+	offset 68
+	offset_end 79
 }
 concat_flag { 
 	dir O
 	width 1
 	depth 1
 	mode ap_vld
-	offset 112
-	offset_end 119
+	offset 80
+	offset_end 87
 }
 ap_start { }
 ap_done { }
@@ -194,7 +122,7 @@ dict set axilite_register_dict concat_addr $port_concat_addr
 if {${::AESL::PGuard_simmodel_gen}} {
 	if {[info proc ::AESL_LIB_XILADAPTER::s_axilite_gen] == "::AESL_LIB_XILADAPTER::s_axilite_gen"} {
 		eval "::AESL_LIB_XILADAPTER::s_axilite_gen { \
-			id 126 \
+			id 34 \
 			corename concat_concat_addr_axilite \
 			name concat_concat_addr_s_axi \
 			ports {$port_concat_addr} \
