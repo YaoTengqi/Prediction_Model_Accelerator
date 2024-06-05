@@ -9,7 +9,7 @@ int main()
 	int fm_ROWS = 32;
 	int fm_COLS = 512;
 	int quant_flag = 3;
-	int16_t matmul_mul[4] = {1246,213,1197,130};
+	int matmul_mul[4] = {1246581376,2139844096,1197571584,1302173056};
     int matmul_shift[4] = {7,9,8,9};
     int quant_shift = matmul_shift[quant_flag];
     int quant_mul = matmul_mul[quant_flag];
@@ -47,6 +47,6 @@ int main()
 	else
 	{
 		cout << "Fail with " << err << " errors!\n";
-		return 0;
+		return -1;
 	}
 }
