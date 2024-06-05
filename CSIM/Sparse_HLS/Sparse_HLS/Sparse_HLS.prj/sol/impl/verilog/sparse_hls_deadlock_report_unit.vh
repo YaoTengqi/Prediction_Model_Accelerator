@@ -518,7 +518,7 @@
                 3 : begin
                     case(index2)
                     2: begin
-                        if (~quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96.data_out1_blk_n) begin
+                        if (~quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94.data_out1_blk_n) begin
                             if (~data_out_U.if_empty_n) begin
                                 $display("//      Blocked by empty input FIFO 'sparse_sparse.data_out_U' written by process 'sparse_sparse.mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0'");
                                 $fdisplay(fp, "Dependence_Channel_path sparse_sparse.data_out_U");
@@ -558,7 +558,7 @@
                         end
                     end
                     4: begin
-                        if (~quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96.quant_out2_blk_n) begin
+                        if (~quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94.quant_out2_blk_n) begin
                             if (~quant_out_U.if_empty_n) begin
                                 $display("//      Blocked by empty input FIFO 'sparse_sparse.quant_out_U' written by process 'sparse_sparse.store_ap_uint_256_ap_int_8_ap_int_8_32u_U0'");
                                 $fdisplay(fp, "Dependence_Channel_path sparse_sparse.quant_out_U");

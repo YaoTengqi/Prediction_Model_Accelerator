@@ -96,7 +96,7 @@ end;
 architecture behav of sparse is 
     attribute CORE_GENERATION_INFO : STRING;
     attribute CORE_GENERATION_INFO of behav : architecture is
-    "sparse_sparse,hls_ip_2022_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xczu7ev-ffvc1156-2-e,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=7.300000,HLS_SYN_LAT=-1,HLS_SYN_TPT=-1,HLS_SYN_MEM=88,HLS_SYN_DSP=0,HLS_SYN_FF=7347,HLS_SYN_LUT=17808,HLS_VERSION=2022_2}";
+    "sparse_sparse,hls_ip_2022_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xczu7ev-ffvc1156-2-e,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=7.300000,HLS_SYN_LAT=-1,HLS_SYN_TPT=-1,HLS_SYN_MEM=88,HLS_SYN_DSP=0,HLS_SYN_FF=9525,HLS_SYN_LUT=28528,HLS_VERSION=2022_2}";
     constant C_S_AXI_DATA_WIDTH : INTEGER range 63 downto 0 := 20;
     constant ap_const_logic_1 : STD_LOGIC := '1';
     constant C_M_AXI_DATA_WIDTH : INTEGER range 63 downto 0 := 20;
@@ -118,7 +118,7 @@ architecture behav of sparse is
     signal inputs : STD_LOGIC_VECTOR (63 downto 0);
     signal outputs : STD_LOGIC_VECTOR (63 downto 0);
     signal quant_shift : STD_LOGIC_VECTOR (31 downto 0);
-    signal quant_mul : STD_LOGIC_VECTOR (15 downto 0);
+    signal quant_mul : STD_LOGIC_VECTOR (31 downto 0);
     signal sparse_flag : STD_LOGIC;
     signal ap_start : STD_LOGIC;
     signal ap_ready : STD_LOGIC;
@@ -152,7 +152,7 @@ architecture behav of sparse is
     signal entry_proc_U0_outputs_c_write : STD_LOGIC;
     signal entry_proc_U0_quant_shift_c_din : STD_LOGIC_VECTOR (31 downto 0);
     signal entry_proc_U0_quant_shift_c_write : STD_LOGIC;
-    signal entry_proc_U0_quant_mul_c_din : STD_LOGIC_VECTOR (15 downto 0);
+    signal entry_proc_U0_quant_mul_c_din : STD_LOGIC_VECTOR (31 downto 0);
     signal entry_proc_U0_quant_mul_c_write : STD_LOGIC;
     signal load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_start : STD_LOGIC;
     signal load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_done : STD_LOGIC;
@@ -295,7 +295,7 @@ architecture behav of sparse is
     signal quant_shift_c_fifo_cap : STD_LOGIC_VECTOR (2 downto 0);
     signal quant_shift_c_empty_n : STD_LOGIC;
     signal quant_mul_c_full_n : STD_LOGIC;
-    signal quant_mul_c_dout : STD_LOGIC_VECTOR (15 downto 0);
+    signal quant_mul_c_dout : STD_LOGIC_VECTOR (31 downto 0);
     signal quant_mul_c_num_data_valid : STD_LOGIC_VECTOR (2 downto 0);
     signal quant_mul_c_fifo_cap : STD_LOGIC_VECTOR (2 downto 0);
     signal quant_mul_c_empty_n : STD_LOGIC;
@@ -403,8 +403,8 @@ architecture behav of sparse is
         quant_shift_c_fifo_cap : IN STD_LOGIC_VECTOR (2 downto 0);
         quant_shift_c_full_n : IN STD_LOGIC;
         quant_shift_c_write : OUT STD_LOGIC;
-        quant_mul : IN STD_LOGIC_VECTOR (15 downto 0);
-        quant_mul_c_din : OUT STD_LOGIC_VECTOR (15 downto 0);
+        quant_mul : IN STD_LOGIC_VECTOR (31 downto 0);
+        quant_mul_c_din : OUT STD_LOGIC_VECTOR (31 downto 0);
         quant_mul_c_num_data_valid : IN STD_LOGIC_VECTOR (2 downto 0);
         quant_mul_c_fifo_cap : IN STD_LOGIC_VECTOR (2 downto 0);
         quant_mul_c_full_n : IN STD_LOGIC;
@@ -591,7 +591,7 @@ architecture behav of sparse is
         quant_shift_fifo_cap : IN STD_LOGIC_VECTOR (2 downto 0);
         quant_shift_empty_n : IN STD_LOGIC;
         quant_shift_read : OUT STD_LOGIC;
-        quant_mul_dout : IN STD_LOGIC_VECTOR (15 downto 0);
+        quant_mul_dout : IN STD_LOGIC_VECTOR (31 downto 0);
         quant_mul_num_data_valid : IN STD_LOGIC_VECTOR (2 downto 0);
         quant_mul_fifo_cap : IN STD_LOGIC_VECTOR (2 downto 0);
         quant_mul_empty_n : IN STD_LOGIC;
@@ -738,23 +738,6 @@ architecture behav of sparse is
         if_full_n : OUT STD_LOGIC;
         if_write : IN STD_LOGIC;
         if_dout : OUT STD_LOGIC_VECTOR (31 downto 0);
-        if_num_data_valid : OUT STD_LOGIC_VECTOR (2 downto 0);
-        if_fifo_cap : OUT STD_LOGIC_VECTOR (2 downto 0);
-        if_empty_n : OUT STD_LOGIC;
-        if_read : IN STD_LOGIC );
-    end component;
-
-
-    component sparse_fifo_w16_d4_S IS
-    port (
-        clk : IN STD_LOGIC;
-        reset : IN STD_LOGIC;
-        if_read_ce : IN STD_LOGIC;
-        if_write_ce : IN STD_LOGIC;
-        if_din : IN STD_LOGIC_VECTOR (15 downto 0);
-        if_full_n : OUT STD_LOGIC;
-        if_write : IN STD_LOGIC;
-        if_dout : OUT STD_LOGIC_VECTOR (15 downto 0);
         if_num_data_valid : OUT STD_LOGIC_VECTOR (2 downto 0);
         if_fifo_cap : OUT STD_LOGIC_VECTOR (2 downto 0);
         if_empty_n : OUT STD_LOGIC;
@@ -961,7 +944,7 @@ architecture behav of sparse is
         inputs : OUT STD_LOGIC_VECTOR (63 downto 0);
         outputs : OUT STD_LOGIC_VECTOR (63 downto 0);
         quant_shift : OUT STD_LOGIC_VECTOR (31 downto 0);
-        quant_mul : OUT STD_LOGIC_VECTOR (15 downto 0);
+        quant_mul : OUT STD_LOGIC_VECTOR (31 downto 0);
         sparse_flag : IN STD_LOGIC;
         sparse_flag_ap_vld : IN STD_LOGIC;
         ap_start : OUT STD_LOGIC;
@@ -1556,7 +1539,7 @@ begin
         if_empty_n => quant_shift_c_empty_n,
         if_read => quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_quant_shift_read);
 
-    quant_mul_c_U : component sparse_fifo_w16_d4_S
+    quant_mul_c_U : component sparse_fifo_w32_d4_S
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,

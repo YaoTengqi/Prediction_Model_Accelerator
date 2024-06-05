@@ -40,7 +40,7 @@ module sparse_sparse_addr_s_axi
     output wire [63:0]                   inputs,
     output wire [63:0]                   outputs,
     output wire [31:0]                   quant_shift,
-    output wire [15:0]                   quant_mul,
+    output wire [31:0]                   quant_mul,
     input  wire [0:0]                    sparse_flag,
     input  wire                          sparse_flag_ap_vld,
     output wire                          ap_start,
@@ -103,8 +103,7 @@ module sparse_sparse_addr_s_axi
 //        bit 31~0 - quant_shift[31:0] (Read/Write)
 // 0x64 : reserved
 // 0x68 : Data signal of quant_mul
-//        bit 15~0 - quant_mul[15:0] (Read/Write)
-//        others   - reserved
+//        bit 31~0 - quant_mul[31:0] (Read/Write)
 // 0x6c : reserved
 // 0x70 : Data signal of sparse_flag
 //        bit 0  - sparse_flag[0] (Read)
@@ -192,7 +191,7 @@ localparam
     reg  [63:0]                   int_inputs = 'b0;
     reg  [63:0]                   int_outputs = 'b0;
     reg  [31:0]                   int_quant_shift = 'b0;
-    reg  [15:0]                   int_quant_mul = 'b0;
+    reg  [31:0]                   int_quant_mul = 'b0;
     reg                           int_sparse_flag_ap_vld;
     reg  [0:0]                    int_sparse_flag = 'b0;
 
@@ -341,7 +340,7 @@ always @(posedge ACLK) begin
                     rdata <= int_quant_shift[31:0];
                 end
                 ADDR_QUANT_MUL_DATA_0: begin
-                    rdata <= int_quant_mul[15:0];
+                    rdata <= int_quant_mul[31:0];
                 end
                 ADDR_SPARSE_FLAG_DATA_0: begin
                     rdata <= int_sparse_flag[0:0];
@@ -624,13 +623,13 @@ always @(posedge ACLK) begin
     end
 end
 
-// int_quant_mul[15:0]
+// int_quant_mul[31:0]
 always @(posedge ACLK) begin
     if (ARESET)
-        int_quant_mul[15:0] <= 0;
+        int_quant_mul[31:0] <= 0;
     else if (ACLK_EN) begin
         if (w_hs && waddr == ADDR_QUANT_MUL_DATA_0)
-            int_quant_mul[15:0] <= (WDATA[31:0] & wmask) | (int_quant_mul[15:0] & ~wmask);
+            int_quant_mul[31:0] <= (WDATA[31:0] & wmask) | (int_quant_mul[31:0] & ~wmask);
     end
 end
 

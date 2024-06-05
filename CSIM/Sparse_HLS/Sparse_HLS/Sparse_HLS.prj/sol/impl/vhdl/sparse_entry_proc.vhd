@@ -39,8 +39,8 @@ port (
     quant_shift_c_fifo_cap : IN STD_LOGIC_VECTOR (2 downto 0);
     quant_shift_c_full_n : IN STD_LOGIC;
     quant_shift_c_write : OUT STD_LOGIC;
-    quant_mul : IN STD_LOGIC_VECTOR (15 downto 0);
-    quant_mul_c_din : OUT STD_LOGIC_VECTOR (15 downto 0);
+    quant_mul : IN STD_LOGIC_VECTOR (31 downto 0);
+    quant_mul_c_din : OUT STD_LOGIC_VECTOR (31 downto 0);
     quant_mul_c_num_data_valid : IN STD_LOGIC_VECTOR (2 downto 0);
     quant_mul_c_fifo_cap : IN STD_LOGIC_VECTOR (2 downto 0);
     quant_mul_c_full_n : IN STD_LOGIC;

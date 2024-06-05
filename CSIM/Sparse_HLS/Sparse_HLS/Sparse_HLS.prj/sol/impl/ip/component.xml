@@ -1240,27 +1240,14 @@
           </spirit:reset>
           <spirit:field>
             <spirit:name>quant_mul</spirit:name>
-            <spirit:description>Bit 15 to 0 of quant_mul</spirit:description>
+            <spirit:description>Bit 31 to 0 of quant_mul</spirit:description>
             <spirit:bitOffset>0</spirit:bitOffset>
-            <spirit:bitWidth spirit:format="long">16</spirit:bitWidth>
+            <spirit:bitWidth spirit:format="long">32</spirit:bitWidth>
             <spirit:access>write-only</spirit:access>
             <spirit:writeValueConstraint>
               <spirit:minimum>0</spirit:minimum>
               <spirit:maximum>0</spirit:maximum>
             </spirit:writeValueConstraint>
-            <spirit:testable spirit:testConstraint="unconstrained">false</spirit:testable>
-          </spirit:field>
-          <spirit:field>
-            <spirit:name>RESERVED</spirit:name>
-            <spirit:description>Reserved.  0s on read.</spirit:description>
-            <spirit:bitOffset>16</spirit:bitOffset>
-            <spirit:bitWidth spirit:format="long">16</spirit:bitWidth>
-            <spirit:access>read-only</spirit:access>
-            <spirit:writeValueConstraint>
-              <spirit:minimum>0</spirit:minimum>
-              <spirit:maximum>0</spirit:maximum>
-            </spirit:writeValueConstraint>
-            <spirit:readAction>modify</spirit:readAction>
             <spirit:testable spirit:testConstraint="unconstrained">false</spirit:testable>
           </spirit:field>
         </spirit:register>
@@ -1355,7 +1342,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>7d636a3d</spirit:value>
+            <spirit:value>76312455</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1371,7 +1358,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>f0cc1356</spirit:value>
+            <spirit:value>f0976107</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1387,7 +1374,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>bcc29411</spirit:value>
+            <spirit:value>fb4e4dad</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1403,7 +1390,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>bdf03c61</spirit:value>
+            <spirit:value>89395a20</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1417,7 +1404,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>ecb51957</spirit:value>
+            <spirit:value>14aeb8a6</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -2691,10 +2678,6 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/sparse_fifo_w16_d4_S.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>hdl/verilog/sparse_fifo_w32_d2_S.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
@@ -2755,11 +2738,11 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/sparse_mul_32s_16s_32_1_1.v</spirit:name>
+        <spirit:name>hdl/verilog/sparse_mul_32s_32s_32_1_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/sparse_mul_32s_32s_32_1_1.v</spirit:name>
+        <spirit:name>hdl/verilog/sparse_mul_64s_32s_64_1_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -2829,11 +2812,6 @@
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/sparse_fifo_w16_d4_S.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>hdl/verilog/sparse_fifo_w32_d2_S.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
@@ -2909,12 +2887,12 @@
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/sparse_mul_32s_16s_32_1_1.v</spirit:name>
+        <spirit:name>hdl/verilog/sparse_mul_32s_32s_32_1_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/sparse_mul_32s_32s_32_1_1.v</spirit:name>
+        <spirit:name>hdl/verilog/sparse_mul_64s_32s_64_1_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -2999,10 +2977,6 @@
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/sparse_fifo_w16_d4_S.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>hdl/vhdl/sparse_fifo_w32_d2_S.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
@@ -3051,11 +3025,11 @@
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/sparse_mul_32s_16s_32_1_1.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/sparse_mul_32s_32s_32_1_1.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/sparse_mul_32s_32s_32_1_1.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/sparse_mul_64s_32s_64_1_1.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -3105,7 +3079,7 @@
       <spirit:file>
         <spirit:name>hdl/vhdl/sparse.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_1544a929</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_efad8250</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -3122,11 +3096,6 @@
       </spirit:file>
       <spirit:file>
         <spirit:name>hdl/vhdl/sparse_fifo_w8_d128_S.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/vhdl/sparse_fifo_w16_d4_S.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -3191,12 +3160,12 @@
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/sparse_mul_32s_16s_32_1_1.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/sparse_mul_32s_32s_32_1_1.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/sparse_mul_32s_32s_32_1_1.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/sparse_mul_64s_32s_64_1_1.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -3474,8 +3443,8 @@
       </xilinx:taxonomies>
       <xilinx:displayName>Sparse</xilinx:displayName>
       <xilinx:definitionSource>HLS</xilinx:definitionSource>
-      <xilinx:coreRevision>2113586232</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2024-06-03T07:12:41Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>2113589233</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2024-06-05T09:13:42Z</xilinx:coreCreationDateTime>
       <xilinx:sdxKernelAttributes>
         <xilinx:sdx_kernel>true</xilinx:sdx_kernel>
         <xilinx:sdx_kernel_type>hls</xilinx:sdx_kernel_type>
@@ -3485,8 +3454,8 @@
       <xilinx:xilinxVersion>2022.2</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="8d4d23de"/>
       <xilinx:checksum xilinx:scope="addressSpaces" xilinx:value="465d27c9"/>
-      <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="1cfae374"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="d757304f"/>
+      <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="f0a1f9c9"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="ef094c8e"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="0f649fab"/>
       <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="65bbc4b1"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="1ae6137e"/>

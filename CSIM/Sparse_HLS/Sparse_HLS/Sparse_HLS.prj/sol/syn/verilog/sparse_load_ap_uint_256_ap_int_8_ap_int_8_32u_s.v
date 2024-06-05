@@ -323,7 +323,7 @@ reg    am_ROWS_c_blk_n;
 reg    fm_ROWS_c11_blk_n;
 reg    fm_COLS_c13_blk_n;
 reg   [26:0] fm_loop_num_reg_1101;
-reg   [58:0] trunc_ln3_reg_1107;
+reg   [58:0] trunc_ln4_reg_1107;
 wire   [31:0] zext_ln21_fu_495_p1;
 wire    ap_CS_fsm_state39;
 wire   [26:0] am_loop_num_fu_514_p4;
@@ -333,13 +333,13 @@ reg   [31:0] zext_ln22_reg_1138;
 wire   [63:0] zext_ln23_1_fu_531_p1;
 reg   [63:0] zext_ln23_1_reg_1143;
 wire    ap_CS_fsm_state40;
-reg   [58:0] trunc_ln4_reg_1158;
+reg   [58:0] trunc_ln5_reg_1158;
 wire   [0:0] icmp_ln23_fu_535_p2;
 reg   [255:0] sparse_data_addr_read_reg_1163;
 wire   [63:0] zext_ln27_1_fu_595_p1;
 reg   [63:0] zext_ln27_1_reg_1174;
 wire    ap_CS_fsm_state81;
-reg   [26:0] trunc_ln5_reg_1189;
+reg   [26:0] trunc_ln6_reg_1189;
 wire   [0:0] icmp_ln27_fu_599_p2;
 reg   [255:0] sparse_data_addr_1_read_reg_1194;
 wire   [26:0] block_4_fu_637_p2;
@@ -427,7 +427,7 @@ wire   [31:0] mul_ln22_fu_509_p2;
 wire   [36:0] shl_ln1_fu_551_p3;
 wire   [63:0] zext_ln27_fu_558_p1;
 wire   [63:0] add_ln27_fu_562_p2;
-wire  signed [31:0] trunc_ln5_fu_615_p1;
+wire  signed [31:0] trunc_ln6_fu_615_p1;
 wire   [3:0] empty_66_fu_643_p1;
 wire  signed [31:0] icmp_ln34_fu_660_p1;
 wire  signed [31:0] icmp_ln39_fu_989_p1;
@@ -775,7 +775,7 @@ end
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state1)) begin
         fm_loop_num_reg_1101 <= {{mul_ln21_fu_446_p2[31:5]}};
-        trunc_ln3_reg_1107 <= {{add_ln23_fu_474_p2[63:5]}};
+        trunc_ln4_reg_1107 <= {{add_ln23_fu_474_p2[63:5]}};
     end
 end
 
@@ -848,13 +848,13 @@ end
 
 always @ (posedge ap_clk) begin
     if (((icmp_ln23_fu_535_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state40))) begin
-        trunc_ln4_reg_1158 <= {{add_ln27_fu_562_p2[63:5]}};
+        trunc_ln5_reg_1158 <= {{add_ln27_fu_562_p2[63:5]}};
     end
 end
 
 always @ (posedge ap_clk) begin
     if (((icmp_ln27_fu_599_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state81))) begin
-        trunc_ln5_reg_1189 <= {{trunc_ln5_fu_615_p1[31:5]}};
+        trunc_ln6_reg_1189 <= {{trunc_ln6_fu_615_p1[31:5]}};
     end
 end
 
@@ -1744,7 +1744,7 @@ assign icmp_ln23_fu_535_p2 = ((i_fu_232 == fm_loop_num_reg_1101) ? 1'b1 : 1'b0);
 
 assign icmp_ln27_fu_599_p2 = ((j_fu_244 == am_loop_num_reg_1133) ? 1'b1 : 1'b0);
 
-assign icmp_ln32_fu_632_p2 = ((block_fu_248 == trunc_ln5_reg_1189) ? 1'b1 : 1'b0);
+assign icmp_ln32_fu_632_p2 = ((block_fu_248 == trunc_ln6_reg_1189) ? 1'b1 : 1'b0);
 
 assign icmp_ln34_fu_660_p1 = am_ROWS;
 
@@ -1816,9 +1816,9 @@ assign m_axi_sparse_data_WVALID = 1'b0;
 
 assign mul_fu_647_p3 = {{empty_66_fu_643_p1}, {5'd0}};
 
-assign sext_ln23_fu_499_p1 = $signed(trunc_ln3_reg_1107);
+assign sext_ln23_fu_499_p1 = $signed(trunc_ln4_reg_1107);
 
-assign sext_ln27_fu_582_p1 = $signed(trunc_ln4_reg_1158);
+assign sext_ln27_fu_582_p1 = $signed(trunc_ln5_reg_1158);
 
 assign shl_ln1_fu_551_p3 = {{input_data_addr2}, {5'd0}};
 
@@ -1832,7 +1832,7 @@ assign trunc_ln44_1_fu_1052_p1 = col_reg_411[7:0];
 
 assign trunc_ln44_fu_1048_p1 = col_reg_411[8:0];
 
-assign trunc_ln5_fu_615_p1 = fm_COLS;
+assign trunc_ln6_fu_615_p1 = fm_COLS;
 
 assign zext_ln21_fu_495_p1 = fm_loop_num_reg_1101;
 

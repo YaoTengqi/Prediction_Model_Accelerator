@@ -52,8 +52,7 @@
 //        bit 31~0 - quant_shift[31:0] (Read/Write)
 // 0x64 : reserved
 // 0x68 : Data signal of quant_mul
-//        bit 15~0 - quant_mul[15:0] (Read/Write)
-//        others   - reserved
+//        bit 31~0 - quant_mul[31:0] (Read/Write)
 // 0x6c : reserved
 // 0x70 : Data signal of sparse_flag
 //        bit 0  - sparse_flag[0] (Read)
@@ -88,7 +87,7 @@
 #define SPARSE_ADDR_ADDR_QUANT_SHIFT_DATA       0x60
 #define SPARSE_ADDR_BITS_QUANT_SHIFT_DATA       32
 #define SPARSE_ADDR_ADDR_QUANT_MUL_DATA         0x68
-#define SPARSE_ADDR_BITS_QUANT_MUL_DATA         16
+#define SPARSE_ADDR_BITS_QUANT_MUL_DATA         32
 #define SPARSE_ADDR_ADDR_SPARSE_FLAG_DATA       0x70
 #define SPARSE_ADDR_BITS_SPARSE_FLAG_DATA       1
 #define SPARSE_ADDR_ADDR_SPARSE_FLAG_CTRL       0x74

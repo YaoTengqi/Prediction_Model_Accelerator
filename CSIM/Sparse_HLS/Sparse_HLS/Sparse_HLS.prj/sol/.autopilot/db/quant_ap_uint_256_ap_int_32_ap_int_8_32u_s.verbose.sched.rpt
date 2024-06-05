@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'quant_ap_uint_256_ap_int_32_ap_int_8_32u_s'
 ================================================================
-* Date:           Mon Jun  3 15:12:29 2024
+* Date:           Wed Jun  5 17:13:29 2024
 
 * Version:        2022.2 (Build 3670227 on Oct 13 2022)
 * Project:        Sparse_HLS.prj
@@ -20,7 +20,7 @@
     +--------+----------+----------+------------+
     |  Clock |  Target  | Estimated| Uncertainty|
     +--------+----------+----------+------------+
-    |ap_clk  |  10.00 ns|  6.365 ns|     2.70 ns|
+    |ap_clk  |  10.00 ns|  7.003 ns|     2.70 ns|
     +--------+----------+----------+------------+
 
 + Latency: 
@@ -76,8 +76,8 @@ IsGatedGlobalClock: 0
 
 * FSM state operations: 
 
-State 1 <SV = 0> <Delay = 5.25>
-ST_1 : Operation 4 [1/1] (1.83ns)   --->   "%quant_mul_read = read i16 @_ssdm_op_Read.ap_fifo.i16P0A, i16 %quant_mul"   --->   Operation 4 'read' 'quant_mul_read' <Predicate = true> <Delay = 1.83> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.83> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 16> <Depth = 4> <FIFO>
+State 1 <SV = 0> <Delay = 5.77>
+ST_1 : Operation 4 [1/1] (1.83ns)   --->   "%quant_mul_read = read i32 @_ssdm_op_Read.ap_fifo.i32P0A, i32 %quant_mul"   --->   Operation 4 'read' 'quant_mul_read' <Predicate = true> <Delay = 1.83> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.83> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 4> <FIFO>
 ST_1 : Operation 5 [1/1] (1.83ns)   --->   "%quant_shift_read = read i32 @_ssdm_op_Read.ap_fifo.i32P0A, i32 %quant_shift"   --->   Operation 5 'read' 'quant_shift_read' <Predicate = true> <Delay = 1.83> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.83> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 4> <FIFO>
 ST_1 : Operation 6 [1/1] (1.83ns)   --->   "%fm_COLS_read = read i32 @_ssdm_op_Read.ap_fifo.i32P0A, i32 %fm_COLS"   --->   Operation 6 'read' 'fm_COLS_read' <Predicate = true> <Delay = 1.83> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.83> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 2> <FIFO>
 ST_1 : Operation 7 [1/1] (1.83ns)   --->   "%write_ln0 = write void @_ssdm_op_Write.ap_fifo.i32P0A, i32 %fm_COLS_c, i32 %fm_COLS_read"   --->   Operation 7 'write' 'write_ln0' <Predicate = true> <Delay = 1.83> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.83> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 2> <FIFO>
@@ -85,33 +85,32 @@ ST_1 : Operation 8 [1/1] (1.83ns)   --->   "%fm_ROWS_read = read i32 @_ssdm_op_R
 ST_1 : Operation 9 [1/1] (1.83ns)   --->   "%write_ln0 = write void @_ssdm_op_Write.ap_fifo.i32P0A, i32 %fm_ROWS_c, i32 %fm_ROWS_read"   --->   Operation 9 'write' 'write_ln0' <Predicate = true> <Delay = 1.83> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.83> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 2> <FIFO>
 ST_1 : Operation 10 [1/1] (3.42ns)   --->   "%mul = mul i32 %fm_COLS_read, i32 %fm_ROWS_read"   --->   Operation 10 'mul' 'mul' <Predicate = true> <Delay = 3.42> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 0> <II = 1> <Delay = 3.42> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
 ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%div_cast = partselect i27 @_ssdm_op_PartSelect.i27.i32.i32.i32, i32 %mul, i32 5, i32 31"   --->   Operation 11 'partselect' 'div_cast' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.99ns)   --->   "%cmp6 = icmp_sgt  i32 %quant_shift_read, i32 0"   --->   Operation 12 'icmp' 'cmp6' <Predicate = true> <Delay = 0.99> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 13 [1/1] (1.01ns)   --->   "%sub = sub i32 0, i32 %quant_shift_read"   --->   Operation 13 'sub' 'sub' <Predicate = true> <Delay = 1.01> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 14 [1/1] (0.44ns)   --->   "%left_shift = select i1 %cmp6, i32 0, i32 %sub"   --->   Operation 14 'select' 'left_shift' <Predicate = true> <Delay = 0.44> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.44> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 15 [1/1] (1.01ns)   --->   "%quant_shift_op = add i32 %quant_shift_read, i32 31"   --->   Operation 15 'add' 'quant_shift_op' <Predicate = true> <Delay = 1.01> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 16 [1/1] (0.44ns)   --->   "%total_right_shift = select i1 %cmp6, i32 %quant_shift_op, i32 31"   --->   Operation 16 'select' 'total_right_shift' <Predicate = true> <Delay = 0.44> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.44> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%total_right_shift_cast = sext i32 %total_right_shift"   --->   Operation 17 'sext' 'total_right_shift_cast' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (1.01ns)   --->   "%sub15 = add i33 %total_right_shift_cast, i33 8589934591"   --->   Operation 18 'add' 'sub15' <Predicate = true> <Delay = 1.01> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%sub15_cast = sext i33 %sub15"   --->   Operation 19 'sext' 'sub15_cast' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (1.46ns)   --->   "%pos_rounding_value = shl i64 1, i64 %sub15_cast"   --->   Operation 20 'shl' 'pos_rounding_value' <Predicate = true> <Delay = 1.46> <CoreInst = "Shifter">   --->   Core 75 'Shifter' <Latency = 0> <II = 1> <Delay = 1.46> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
 
-State 2 <SV = 1> <Delay = 5.39>
-ST_2 : Operation 12 [1/1] (0.99ns)   --->   "%cmp6 = icmp_sgt  i32 %quant_shift_read, i32 0"   --->   Operation 12 'icmp' 'cmp6' <Predicate = true> <Delay = 0.99> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 13 [1/1] (1.01ns)   --->   "%sub = sub i32 0, i32 %quant_shift_read"   --->   Operation 13 'sub' 'sub' <Predicate = true> <Delay = 1.01> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 14 [1/1] (0.44ns)   --->   "%left_shift = select i1 %cmp6, i32 0, i32 %sub"   --->   Operation 14 'select' 'left_shift' <Predicate = true> <Delay = 0.44> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.44> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
-ST_2 : Operation 15 [1/1] (0.99ns)   --->   "%cmp12 = icmp_sgt  i32 %left_shift, i32 0"   --->   Operation 15 'icmp' 'cmp12' <Predicate = true> <Delay = 0.99> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 16 [1/1] (1.01ns)   --->   "%quant_shift_op = add i32 %quant_shift_read, i32 31"   --->   Operation 16 'add' 'quant_shift_op' <Predicate = true> <Delay = 1.01> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 17 [1/1] (0.44ns)   --->   "%total_right_shift = select i1 %cmp6, i32 %quant_shift_op, i32 31"   --->   Operation 17 'select' 'total_right_shift' <Predicate = true> <Delay = 0.44> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.44> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
-ST_2 : Operation 18 [1/1] (0.00ns)   --->   "%total_right_shift_cast = sext i32 %total_right_shift"   --->   Operation 18 'sext' 'total_right_shift_cast' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 19 [1/1] (1.01ns)   --->   "%sub16 = add i33 %total_right_shift_cast, i33 8589934591"   --->   Operation 19 'add' 'sub16' <Predicate = true> <Delay = 1.01> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 20 [1/1] (0.00ns)   --->   "%sub16_cast = sext i33 %sub16"   --->   Operation 20 'sext' 'sub16_cast' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 21 [1/1] (1.46ns)   --->   "%shl17 = shl i64 1, i64 %sub16_cast"   --->   Operation 21 'shl' 'shl17' <Predicate = true> <Delay = 1.46> <CoreInst = "Shifter">   --->   Core 75 'Shifter' <Latency = 0> <II = 1> <Delay = 1.46> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 22 [1/1] (0.00ns)   --->   "%empty = trunc i64 %shl17"   --->   Operation 22 'trunc' 'empty' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 23 [1/1] (0.00ns)   --->   "%empty_64 = wait i32 @_ssdm_op_Wait"   --->   Operation 23 'wait' 'empty_64' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 24 [2/2] (1.45ns)   --->   "%call_ln0 = call void @quant<ap_uint<256>, ap_int<32>, ap_int<8>, 32u>_Pipeline_VITIS_LOOP_100_1, i27 %div_cast, i1024 %data_out1, i32 %left_shift, i1 %cmp12, i16 %quant_mul_read, i32 %empty, i32 %total_right_shift, i256 %quant_out2"   --->   Operation 24 'call' 'call_ln0' <Predicate = true> <Delay = 1.45> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+State 2 <SV = 1> <Delay = 2.44>
+ST_2 : Operation 21 [1/1] (0.99ns)   --->   "%cmp12 = icmp_sgt  i32 %left_shift, i32 0"   --->   Operation 21 'icmp' 'cmp12' <Predicate = true> <Delay = 0.99> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 22 [1/1] (0.00ns)   --->   "%empty = wait i32 @_ssdm_op_Wait"   --->   Operation 22 'wait' 'empty' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 23 [2/2] (1.45ns)   --->   "%call_ln0 = call void @quant<ap_uint<256>, ap_int<32>, ap_int<8>, 32u>_Pipeline_VITIS_LOOP_100_1, i27 %div_cast, i1024 %data_out1, i32 %left_shift, i1 %cmp12, i32 %quant_mul_read, i64 %pos_rounding_value, i32 %total_right_shift, i256 %quant_out2"   --->   Operation 23 'call' 'call_ln0' <Predicate = true> <Delay = 1.45> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
 
 State 3 <SV = 2> <Delay = 0.00>
-ST_3 : Operation 25 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i16 %quant_mul, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @ScalarProp_str, i32 4294967295, i32 0"   --->   Operation 25 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 26 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %quant_shift, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @ScalarProp_str, i32 4294967295, i32 0"   --->   Operation 26 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 27 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %fm_COLS, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @ScalarProp_str, i32 4294967295, i32 0"   --->   Operation 27 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 28 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %fm_COLS_c, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @ScalarProp_str, i32 4294967295, i32 0"   --->   Operation 28 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 29 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %fm_ROWS, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @ScalarProp_str, i32 4294967295, i32 0"   --->   Operation 29 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 30 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %fm_ROWS_c, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @ScalarProp_str, i32 4294967295, i32 0"   --->   Operation 30 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 31 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i256 %quant_out2, void @empty_17, i32 0, i32 0, void @empty_25, i32 0, i32 0, void @empty_25, void @empty_25, void @empty_25, i32 0, i32 0, i32 0, i32 0, void @empty_25, void @empty_25, i32 4294967295, i32 0"   --->   Operation 31 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 32 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1024 %data_out1, void @empty_17, i32 0, i32 0, void @empty_25, i32 0, i32 0, void @empty_25, void @empty_25, void @empty_25, i32 0, i32 0, i32 0, i32 0, void @empty_25, void @empty_25, i32 4294967295, i32 0"   --->   Operation 32 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 33 [1/2] (0.00ns)   --->   "%call_ln0 = call void @quant<ap_uint<256>, ap_int<32>, ap_int<8>, 32u>_Pipeline_VITIS_LOOP_100_1, i27 %div_cast, i1024 %data_out1, i32 %left_shift, i1 %cmp12, i16 %quant_mul_read, i32 %empty, i32 %total_right_shift, i256 %quant_out2"   --->   Operation 33 'call' 'call_ln0' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_3 : Operation 34 [1/1] (0.00ns)   --->   "%ret_ln123 = ret" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:123]   --->   Operation 34 'ret' 'ret_ln123' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 24 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %quant_mul, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @ScalarProp_str, i32 4294967295, i32 0"   --->   Operation 24 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 25 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %quant_shift, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @ScalarProp_str, i32 4294967295, i32 0"   --->   Operation 25 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 26 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %fm_COLS, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @ScalarProp_str, i32 4294967295, i32 0"   --->   Operation 26 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 27 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %fm_COLS_c, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @ScalarProp_str, i32 4294967295, i32 0"   --->   Operation 27 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 28 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %fm_ROWS, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @ScalarProp_str, i32 4294967295, i32 0"   --->   Operation 28 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 29 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %fm_ROWS_c, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @ScalarProp_str, i32 4294967295, i32 0"   --->   Operation 29 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 30 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i256 %quant_out2, void @empty_17, i32 0, i32 0, void @empty_25, i32 0, i32 0, void @empty_25, void @empty_25, void @empty_25, i32 0, i32 0, i32 0, i32 0, void @empty_25, void @empty_25, i32 4294967295, i32 0"   --->   Operation 30 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 31 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1024 %data_out1, void @empty_17, i32 0, i32 0, void @empty_25, i32 0, i32 0, void @empty_25, void @empty_25, void @empty_25, i32 0, i32 0, i32 0, i32 0, void @empty_25, void @empty_25, i32 4294967295, i32 0"   --->   Operation 31 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 32 [1/2] (0.00ns)   --->   "%call_ln0 = call void @quant<ap_uint<256>, ap_int<32>, ap_int<8>, 32u>_Pipeline_VITIS_LOOP_100_1, i27 %div_cast, i1024 %data_out1, i32 %left_shift, i1 %cmp12, i32 %quant_mul_read, i64 %pos_rounding_value, i32 %total_right_shift, i256 %quant_out2"   --->   Operation 32 'call' 'call_ln0' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_3 : Operation 33 [1/1] (0.00ns)   --->   "%ret_ln123 = ret" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:123]   --->   Operation 33 'ret' 'ret_ln123' <Predicate = true> <Delay = 0.00>
 
 
 ============================================================
@@ -119,18 +118,18 @@ ST_3 : Operation 34 [1/1] (0.00ns)   --->   "%ret_ln123 = ret" [/home/ytq/codeFi
 ============================================================
 Target clock period: 10ns, clock uncertainty: 2.7ns.
 
- <State 1>: 5.26ns
+ <State 1>: 5.78ns
 The critical path consists of the following:
-	fifo read operation ('fm_COLS_read') on port 'fm_COLS' [14]  (1.84 ns)
-	'mul' operation ('mul') [23]  (3.42 ns)
-
- <State 2>: 5.39ns
-The critical path consists of the following:
+	fifo read operation ('quant_shift_read') on port 'quant_shift' [12]  (1.84 ns)
 	'add' operation ('quant_shift_op') [29]  (1.02 ns)
 	'select' operation ('total_right_shift') [30]  (0.449 ns)
-	'add' operation ('sub16') [32]  (1.02 ns)
-	'shl' operation ('shl17') [34]  (1.46 ns)
-	'call' operation ('call_ln0') to 'quant<ap_uint<256>, ap_int<32>, ap_int<8>, 32u>_Pipeline_VITIS_LOOP_100_1' [37]  (1.45 ns)
+	'add' operation ('sub15') [32]  (1.02 ns)
+	'shl' operation ('pos_rounding_value') [34]  (1.46 ns)
+
+ <State 2>: 2.44ns
+The critical path consists of the following:
+	'icmp' operation ('cmp12') [28]  (0.991 ns)
+	'call' operation ('call_ln0') to 'quant<ap_uint<256>, ap_int<32>, ap_int<8>, 32u>_Pipeline_VITIS_LOOP_100_1' [36]  (1.45 ns)
 
  <State 3>: 0ns
 The critical path consists of the following:

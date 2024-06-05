@@ -125,7 +125,7 @@ set DataType "int"
 set Port [list $PortName $Interface $DataType $Pointer $Dims $Const    $Volatile $ArrayOpt]
 lappend PortList $Port
 set PortName "quant_mul"
-set BitWidth "16"
+set BitWidth "32"
 set ArrayOpt ""
 set Const "0"
 set Volatile "0"
@@ -133,7 +133,7 @@ set Pointer "0"
 set Reference "0"
 set Dims [list 0]
 set Interface "wire"
-set DataType "short"
+set DataType "int"
 set Port [list $PortName $Interface $DataType $Pointer $Dims $Const    $Volatile $ArrayOpt]
 lappend PortList $Port
 set PortName "sparse_flag"

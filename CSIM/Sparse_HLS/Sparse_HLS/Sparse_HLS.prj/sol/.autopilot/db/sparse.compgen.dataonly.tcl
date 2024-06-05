@@ -84,7 +84,7 @@ quant_shift {
 }
 quant_mul { 
 	dir I
-	width 16
+	width 32
 	depth 1
 	mode ap_none
 	offset 104

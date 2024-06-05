@@ -43,7 +43,7 @@ port (
     quant_shift_fifo_cap : IN STD_LOGIC_VECTOR (2 downto 0);
     quant_shift_empty_n : IN STD_LOGIC;
     quant_shift_read : OUT STD_LOGIC;
-    quant_mul_dout : IN STD_LOGIC_VECTOR (15 downto 0);
+    quant_mul_dout : IN STD_LOGIC_VECTOR (31 downto 0);
     quant_mul_num_data_valid : IN STD_LOGIC_VECTOR (2 downto 0);
     quant_mul_fifo_cap : IN STD_LOGIC_VECTOR (2 downto 0);
     quant_mul_empty_n : IN STD_LOGIC;
@@ -91,38 +91,36 @@ attribute shreg_extract : string;
     signal quant_mul_blk_n : STD_LOGIC;
     signal fm_ROWS_c_blk_n : STD_LOGIC;
     signal fm_COLS_c_blk_n : STD_LOGIC;
-    signal quant_mul_read_reg_191 : STD_LOGIC_VECTOR (15 downto 0);
-    signal quant_shift_read_reg_196 : STD_LOGIC_VECTOR (31 downto 0);
-    signal div_cast_reg_203 : STD_LOGIC_VECTOR (26 downto 0);
+    signal quant_mul_read_reg_184 : STD_LOGIC_VECTOR (31 downto 0);
+    signal div_cast_reg_189 : STD_LOGIC_VECTOR (26 downto 0);
     signal left_shift_fu_136_p3 : STD_LOGIC_VECTOR (31 downto 0);
-    signal left_shift_reg_208 : STD_LOGIC_VECTOR (31 downto 0);
+    signal left_shift_reg_194 : STD_LOGIC_VECTOR (31 downto 0);
+    signal total_right_shift_fu_150_p3 : STD_LOGIC_VECTOR (31 downto 0);
+    signal total_right_shift_reg_200 : STD_LOGIC_VECTOR (31 downto 0);
+    signal pos_rounding_value_fu_172_p2 : STD_LOGIC_VECTOR (63 downto 0);
+    signal pos_rounding_value_reg_205 : STD_LOGIC_VECTOR (63 downto 0);
+    signal cmp12_fu_178_p2 : STD_LOGIC_VECTOR (0 downto 0);
+    signal cmp12_reg_210 : STD_LOGIC_VECTOR (0 downto 0);
     signal ap_CS_fsm_state2 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state2 : signal is "none";
-    signal cmp12_fu_145_p2 : STD_LOGIC_VECTOR (0 downto 0);
-    signal cmp12_reg_213 : STD_LOGIC_VECTOR (0 downto 0);
-    signal total_right_shift_fu_157_p3 : STD_LOGIC_VECTOR (31 downto 0);
-    signal total_right_shift_reg_218 : STD_LOGIC_VECTOR (31 downto 0);
-    signal empty_fu_186_p1 : STD_LOGIC_VECTOR (31 downto 0);
-    signal empty_reg_223 : STD_LOGIC_VECTOR (31 downto 0);
-    signal grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_ap_start : STD_LOGIC;
-    signal grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_ap_done : STD_LOGIC;
-    signal grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_ap_idle : STD_LOGIC;
-    signal grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_ap_ready : STD_LOGIC;
-    signal grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_data_out1_read : STD_LOGIC;
-    signal grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_quant_out2_din : STD_LOGIC_VECTOR (255 downto 0);
-    signal grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_quant_out2_write : STD_LOGIC;
-    signal grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_ap_start_reg : STD_LOGIC := '0';
+    signal grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_ap_start : STD_LOGIC;
+    signal grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_ap_done : STD_LOGIC;
+    signal grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_ap_idle : STD_LOGIC;
+    signal grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_ap_ready : STD_LOGIC;
+    signal grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_data_out1_read : STD_LOGIC;
+    signal grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_quant_out2_din : STD_LOGIC_VECTOR (255 downto 0);
+    signal grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_quant_out2_write : STD_LOGIC;
+    signal grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_ap_start_reg : STD_LOGIC := '0';
     signal ap_CS_fsm_state3 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state3 : signal is "none";
     signal ap_block_state1 : BOOLEAN;
-    signal mul_fu_110_p2 : STD_LOGIC_VECTOR (31 downto 0);
-    signal cmp6_fu_126_p2 : STD_LOGIC_VECTOR (0 downto 0);
-    signal sub_fu_131_p2 : STD_LOGIC_VECTOR (31 downto 0);
-    signal quant_shift_op_fu_152_p2 : STD_LOGIC_VECTOR (31 downto 0);
-    signal total_right_shift_cast_fu_166_p1 : STD_LOGIC_VECTOR (32 downto 0);
-    signal sub16_fu_170_p2 : STD_LOGIC_VECTOR (32 downto 0);
-    signal sub16_cast_fu_176_p1 : STD_LOGIC_VECTOR (63 downto 0);
-    signal shl17_fu_180_p2 : STD_LOGIC_VECTOR (63 downto 0);
+    signal mul_fu_108_p2 : STD_LOGIC_VECTOR (31 downto 0);
+    signal cmp6_fu_124_p2 : STD_LOGIC_VECTOR (0 downto 0);
+    signal sub_fu_130_p2 : STD_LOGIC_VECTOR (31 downto 0);
+    signal quant_shift_op_fu_144_p2 : STD_LOGIC_VECTOR (31 downto 0);
+    signal total_right_shift_cast_fu_158_p1 : STD_LOGIC_VECTOR (32 downto 0);
+    signal sub15_fu_162_p2 : STD_LOGIC_VECTOR (32 downto 0);
+    signal sub15_cast_fu_168_p1 : STD_LOGIC_VECTOR (63 downto 0);
     signal ap_NS_fsm : STD_LOGIC_VECTOR (2 downto 0);
     signal ap_ST_fsm_state1_blk : STD_LOGIC;
     signal ap_ST_fsm_state2_blk : STD_LOGIC;
@@ -148,11 +146,11 @@ attribute shreg_extract : string;
         quant_out2_full_n : IN STD_LOGIC;
         quant_out2_write : OUT STD_LOGIC;
         div_cast : IN STD_LOGIC_VECTOR (26 downto 0);
-        left_shift : IN STD_LOGIC_VECTOR (31 downto 0);
+        sh_prom : IN STD_LOGIC_VECTOR (31 downto 0);
         cmp12 : IN STD_LOGIC_VECTOR (0 downto 0);
-        conv13 : IN STD_LOGIC_VECTOR (15 downto 0);
-        pos_rounding_value : IN STD_LOGIC_VECTOR (31 downto 0);
-        total_right_shift : IN STD_LOGIC_VECTOR (31 downto 0) );
+        conv : IN STD_LOGIC_VECTOR (31 downto 0);
+        pos_rounding_value : IN STD_LOGIC_VECTOR (63 downto 0);
+        sh_prom18 : IN STD_LOGIC_VECTOR (31 downto 0) );
     end component;
 
 
@@ -172,30 +170,30 @@ attribute shreg_extract : string;
 
 
 begin
-    grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96 : component sparse_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1
+    grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94 : component sparse_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst,
-        ap_start => grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_ap_start,
-        ap_done => grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_ap_done,
-        ap_idle => grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_ap_idle,
-        ap_ready => grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_ap_ready,
+        ap_start => grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_ap_start,
+        ap_done => grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_ap_done,
+        ap_idle => grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_ap_idle,
+        ap_ready => grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_ap_ready,
         data_out1_dout => data_out1_dout,
         data_out1_num_data_valid => ap_const_lv7_0,
         data_out1_fifo_cap => ap_const_lv7_0,
         data_out1_empty_n => data_out1_empty_n,
-        data_out1_read => grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_data_out1_read,
-        quant_out2_din => grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_quant_out2_din,
+        data_out1_read => grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_data_out1_read,
+        quant_out2_din => grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_quant_out2_din,
         quant_out2_num_data_valid => ap_const_lv2_0,
         quant_out2_fifo_cap => ap_const_lv2_0,
         quant_out2_full_n => quant_out2_full_n,
-        quant_out2_write => grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_quant_out2_write,
-        div_cast => div_cast_reg_203,
-        left_shift => left_shift_reg_208,
-        cmp12 => cmp12_reg_213,
-        conv13 => quant_mul_read_reg_191,
-        pos_rounding_value => empty_reg_223,
-        total_right_shift => total_right_shift_reg_218);
+        quant_out2_write => grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_quant_out2_write,
+        div_cast => div_cast_reg_189,
+        sh_prom => left_shift_reg_194,
+        cmp12 => cmp12_reg_210,
+        conv => quant_mul_read_reg_184,
+        pos_rounding_value => pos_rounding_value_reg_205,
+        sh_prom18 => total_right_shift_reg_200);
 
     mul_32s_32s_32_1_1_U78 : component sparse_mul_32s_32s_32_1_1
     generic map (
@@ -207,7 +205,7 @@ begin
     port map (
         din0 => fm_COLS_dout,
         din1 => fm_ROWS_dout,
-        dout => mul_fu_110_p2);
+        dout => mul_fu_108_p2);
 
 
 
@@ -233,7 +231,7 @@ begin
             else
                 if ((ap_continue = ap_const_logic_1)) then 
                     ap_done_reg <= ap_const_logic_0;
-                elsif (((ap_const_logic_1 = ap_CS_fsm_state3) and (grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_ap_done = ap_const_logic_1))) then 
+                elsif (((ap_const_logic_1 = ap_CS_fsm_state3) and (grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_ap_done = ap_const_logic_1))) then 
                     ap_done_reg <= ap_const_logic_1;
                 end if; 
             end if;
@@ -241,16 +239,16 @@ begin
     end process;
 
 
-    grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_ap_start_reg_assign_proc : process(ap_clk)
+    grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_ap_start_reg_assign_proc : process(ap_clk)
     begin
         if (ap_clk'event and ap_clk =  '1') then
             if (ap_rst = '1') then
-                grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_ap_start_reg <= ap_const_logic_0;
+                grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_ap_start_reg <= ap_const_logic_0;
             else
                 if ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-                    grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_ap_start_reg <= ap_const_logic_1;
-                elsif ((grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_ap_ready = ap_const_logic_1)) then 
-                    grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_ap_start_reg <= ap_const_logic_0;
+                    grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_ap_start_reg <= ap_const_logic_1;
+                elsif ((grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_ap_ready = ap_const_logic_1)) then 
+                    grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_ap_start_reg <= ap_const_logic_0;
                 end if; 
             end if;
         end if;
@@ -260,10 +258,7 @@ begin
     begin
         if (ap_clk'event and ap_clk = '1') then
             if ((ap_const_logic_1 = ap_CS_fsm_state2)) then
-                cmp12_reg_213 <= cmp12_fu_145_p2;
-                empty_reg_223 <= empty_fu_186_p1;
-                left_shift_reg_208 <= left_shift_fu_136_p3;
-                total_right_shift_reg_218 <= total_right_shift_fu_157_p3;
+                cmp12_reg_210 <= cmp12_fu_178_p2;
             end if;
         end if;
     end process;
@@ -271,14 +266,16 @@ begin
     begin
         if (ap_clk'event and ap_clk = '1') then
             if ((ap_const_logic_1 = ap_CS_fsm_state1)) then
-                div_cast_reg_203 <= mul_fu_110_p2(31 downto 5);
-                quant_mul_read_reg_191 <= quant_mul_dout;
-                quant_shift_read_reg_196 <= quant_shift_dout;
+                div_cast_reg_189 <= mul_fu_108_p2(31 downto 5);
+                left_shift_reg_194 <= left_shift_fu_136_p3;
+                pos_rounding_value_reg_205 <= pos_rounding_value_fu_172_p2;
+                quant_mul_read_reg_184 <= quant_mul_dout;
+                total_right_shift_reg_200 <= total_right_shift_fu_150_p3;
             end if;
         end if;
     end process;
 
-    ap_NS_fsm_assign_proc : process (ap_start, ap_done_reg, ap_CS_fsm, ap_CS_fsm_state1, fm_ROWS_empty_n, fm_COLS_empty_n, quant_shift_empty_n, quant_mul_empty_n, fm_ROWS_c_full_n, fm_COLS_c_full_n, grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_ap_done, ap_CS_fsm_state3)
+    ap_NS_fsm_assign_proc : process (ap_start, ap_done_reg, ap_CS_fsm, ap_CS_fsm_state1, fm_ROWS_empty_n, fm_COLS_empty_n, quant_shift_empty_n, quant_mul_empty_n, fm_ROWS_c_full_n, fm_COLS_c_full_n, grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_ap_done, ap_CS_fsm_state3)
     begin
         case ap_CS_fsm is
             when ap_ST_fsm_state1 => 
@@ -290,7 +287,7 @@ begin
             when ap_ST_fsm_state2 => 
                 ap_NS_fsm <= ap_ST_fsm_state3;
             when ap_ST_fsm_state3 => 
-                if (((ap_const_logic_1 = ap_CS_fsm_state3) and (grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_ap_done = ap_const_logic_1))) then
+                if (((ap_const_logic_1 = ap_CS_fsm_state3) and (grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_ap_done = ap_const_logic_1))) then
                     ap_NS_fsm <= ap_ST_fsm_state1;
                 else
                     ap_NS_fsm <= ap_ST_fsm_state3;
@@ -314,9 +311,9 @@ begin
 
     ap_ST_fsm_state2_blk <= ap_const_logic_0;
 
-    ap_ST_fsm_state3_blk_assign_proc : process(grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_ap_done)
+    ap_ST_fsm_state3_blk_assign_proc : process(grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_ap_done)
     begin
-        if ((grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_ap_done = ap_const_logic_0)) then 
+        if ((grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_ap_done = ap_const_logic_0)) then 
             ap_ST_fsm_state3_blk <= ap_const_logic_1;
         else 
             ap_ST_fsm_state3_blk <= ap_const_logic_0;
@@ -330,9 +327,9 @@ begin
     end process;
 
 
-    ap_done_assign_proc : process(ap_done_reg, grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_ap_done, ap_CS_fsm_state3)
+    ap_done_assign_proc : process(ap_done_reg, grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_ap_done, ap_CS_fsm_state3)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state3) and (grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_ap_done = ap_const_logic_1))) then 
+        if (((ap_const_logic_1 = ap_CS_fsm_state3) and (grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_ap_done = ap_const_logic_1))) then 
             ap_done <= ap_const_logic_1;
         else 
             ap_done <= ap_done_reg;
@@ -350,28 +347,27 @@ begin
     end process;
 
 
-    ap_ready_assign_proc : process(grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_ap_done, ap_CS_fsm_state3)
+    ap_ready_assign_proc : process(grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_ap_done, ap_CS_fsm_state3)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state3) and (grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_ap_done = ap_const_logic_1))) then 
+        if (((ap_const_logic_1 = ap_CS_fsm_state3) and (grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_ap_done = ap_const_logic_1))) then 
             ap_ready <= ap_const_logic_1;
         else 
             ap_ready <= ap_const_logic_0;
         end if; 
     end process;
 
-    cmp12_fu_145_p2 <= "1" when (signed(left_shift_fu_136_p3) > signed(ap_const_lv32_0)) else "0";
-    cmp6_fu_126_p2 <= "1" when (signed(quant_shift_read_reg_196) > signed(ap_const_lv32_0)) else "0";
+    cmp12_fu_178_p2 <= "1" when (signed(left_shift_reg_194) > signed(ap_const_lv32_0)) else "0";
+    cmp6_fu_124_p2 <= "1" when (signed(quant_shift_dout) > signed(ap_const_lv32_0)) else "0";
 
-    data_out1_read_assign_proc : process(grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_data_out1_read, ap_CS_fsm_state3)
+    data_out1_read_assign_proc : process(grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_data_out1_read, ap_CS_fsm_state3)
     begin
         if ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
-            data_out1_read <= grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_data_out1_read;
+            data_out1_read <= grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_data_out1_read;
         else 
             data_out1_read <= ap_const_logic_0;
         end if; 
     end process;
 
-    empty_fu_186_p1 <= shl17_fu_180_p2(32 - 1 downto 0);
 
     fm_COLS_blk_n_assign_proc : process(ap_start, ap_done_reg, ap_CS_fsm_state1, fm_COLS_empty_n)
     begin
@@ -454,10 +450,11 @@ begin
         end if; 
     end process;
 
-    grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_ap_start <= grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_ap_start_reg;
+    grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_ap_start <= grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_ap_start_reg;
     left_shift_fu_136_p3 <= 
-        ap_const_lv32_0 when (cmp6_fu_126_p2(0) = '1') else 
-        sub_fu_131_p2;
+        ap_const_lv32_0 when (cmp6_fu_124_p2(0) = '1') else 
+        sub_fu_130_p2;
+    pos_rounding_value_fu_172_p2 <= std_logic_vector(shift_left(unsigned(ap_const_lv64_1),to_integer(unsigned('0' & sub15_cast_fu_168_p1(31-1 downto 0)))));
 
     quant_mul_blk_n_assign_proc : process(ap_start, ap_done_reg, ap_CS_fsm_state1, quant_mul_empty_n)
     begin
@@ -478,12 +475,12 @@ begin
         end if; 
     end process;
 
-    quant_out2_din <= grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_quant_out2_din;
+    quant_out2_din <= grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_quant_out2_din;
 
-    quant_out2_write_assign_proc : process(grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_quant_out2_write, ap_CS_fsm_state3)
+    quant_out2_write_assign_proc : process(grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_quant_out2_write, ap_CS_fsm_state3)
     begin
         if ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
-            quant_out2_write <= grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_96_quant_out2_write;
+            quant_out2_write <= grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94_quant_out2_write;
         else 
             quant_out2_write <= ap_const_logic_0;
         end if; 
@@ -499,7 +496,7 @@ begin
         end if; 
     end process;
 
-    quant_shift_op_fu_152_p2 <= std_logic_vector(unsigned(quant_shift_read_reg_196) + unsigned(ap_const_lv32_1F));
+    quant_shift_op_fu_144_p2 <= std_logic_vector(unsigned(quant_shift_dout) + unsigned(ap_const_lv32_1F));
 
     quant_shift_read_assign_proc : process(ap_start, ap_done_reg, ap_CS_fsm_state1, fm_ROWS_empty_n, fm_COLS_empty_n, quant_shift_empty_n, quant_mul_empty_n, fm_ROWS_c_full_n, fm_COLS_c_full_n)
     begin
@@ -510,14 +507,13 @@ begin
         end if; 
     end process;
 
-    shl17_fu_180_p2 <= std_logic_vector(shift_left(unsigned(ap_const_lv64_1),to_integer(unsigned('0' & sub16_cast_fu_176_p1(31-1 downto 0)))));
-        sub16_cast_fu_176_p1 <= std_logic_vector(IEEE.numeric_std.resize(signed(sub16_fu_170_p2),64));
+        sub15_cast_fu_168_p1 <= std_logic_vector(IEEE.numeric_std.resize(signed(sub15_fu_162_p2),64));
 
-    sub16_fu_170_p2 <= std_logic_vector(signed(total_right_shift_cast_fu_166_p1) + signed(ap_const_lv33_1FFFFFFFF));
-    sub_fu_131_p2 <= std_logic_vector(unsigned(ap_const_lv32_0) - unsigned(quant_shift_read_reg_196));
-        total_right_shift_cast_fu_166_p1 <= std_logic_vector(IEEE.numeric_std.resize(signed(total_right_shift_fu_157_p3),33));
+    sub15_fu_162_p2 <= std_logic_vector(signed(total_right_shift_cast_fu_158_p1) + signed(ap_const_lv33_1FFFFFFFF));
+    sub_fu_130_p2 <= std_logic_vector(unsigned(ap_const_lv32_0) - unsigned(quant_shift_dout));
+        total_right_shift_cast_fu_158_p1 <= std_logic_vector(IEEE.numeric_std.resize(signed(total_right_shift_fu_150_p3),33));
 
-    total_right_shift_fu_157_p3 <= 
-        quant_shift_op_fu_152_p2 when (cmp6_fu_126_p2(0) = '1') else 
+    total_right_shift_fu_150_p3 <= 
+        quant_shift_op_fu_144_p2 when (cmp6_fu_124_p2(0) = '1') else 
         ap_const_lv32_1F;
 end behav;

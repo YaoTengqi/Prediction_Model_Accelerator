@@ -973,10 +973,10 @@ namespace hls::sim
 
 
 extern "C"
-void sparse_hw_stub_wrapper(hls::sim::Byte<4>, hls::sim::Byte<4>, hls::sim::Byte<4>, hls::sim::Byte<4>, hls::sim::Byte<4>, hls::sim::Byte<4>, hls::sim::Byte<4>, void*, void*, hls::sim::Byte<4>, hls::sim::Byte<2>, void*);
+void sparse_hw_stub_wrapper(hls::sim::Byte<4>, hls::sim::Byte<4>, hls::sim::Byte<4>, hls::sim::Byte<4>, hls::sim::Byte<4>, hls::sim::Byte<4>, hls::sim::Byte<4>, void*, void*, hls::sim::Byte<4>, hls::sim::Byte<4>, void*);
 
 extern "C"
-void apatb_sparse_hw(hls::sim::Byte<4> __xlx_apatb_param_input_data_addr1, hls::sim::Byte<4> __xlx_apatb_param_input_data_addr2, hls::sim::Byte<4> __xlx_apatb_param_output_data_addr3, hls::sim::Byte<4> __xlx_apatb_param_am_ROWS, hls::sim::Byte<4> __xlx_apatb_param_am_COLS, hls::sim::Byte<4> __xlx_apatb_param_fm_ROWS, hls::sim::Byte<4> __xlx_apatb_param_fm_COLS, void* __xlx_apatb_param_inputs, void* __xlx_apatb_param_outputs, hls::sim::Byte<4> __xlx_apatb_param_quant_shift, hls::sim::Byte<2> __xlx_apatb_param_quant_mul, void* __xlx_apatb_param_sparse_flag)
+void apatb_sparse_hw(hls::sim::Byte<4> __xlx_apatb_param_input_data_addr1, hls::sim::Byte<4> __xlx_apatb_param_input_data_addr2, hls::sim::Byte<4> __xlx_apatb_param_output_data_addr3, hls::sim::Byte<4> __xlx_apatb_param_am_ROWS, hls::sim::Byte<4> __xlx_apatb_param_am_COLS, hls::sim::Byte<4> __xlx_apatb_param_fm_ROWS, hls::sim::Byte<4> __xlx_apatb_param_fm_COLS, void* __xlx_apatb_param_inputs, void* __xlx_apatb_param_outputs, hls::sim::Byte<4> __xlx_apatb_param_quant_shift, hls::sim::Byte<4> __xlx_apatb_param_quant_mul, void* __xlx_apatb_param_sparse_flag)
 {
   static hls::sim::Register port0 {
     .name = "input_data_addr1",
@@ -1092,7 +1092,7 @@ void apatb_sparse_hw(hls::sim::Byte<4> __xlx_apatb_param_input_data_addr1, hls::
 
   static hls::sim::Register port10 {
     .name = "quant_mul",
-    .width = 16,
+    .width = 32,
 #ifdef POST_CHECK
 #else
     .owriter = nullptr,
