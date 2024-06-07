@@ -236,7 +236,7 @@ set NewPortList {[
  	{ "name": "fm_COLS_c13_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "fm_COLS_c13", "role": "write" }}  ]}
 
 set RtlHierarchyInfo {[
-	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3", "4", "5"],
+	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3", "4", "5", "6", "7"],
 		"CDFG" : "load_ap_uint_256_ap_int_8_ap_int_8_32u_s",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1", "real_start" : "1",
@@ -281,21 +281,27 @@ set RtlHierarchyInfo {[
 				"BlockSignal" : [
 					{"Name" : "fm_COLS_c13_blk_n", "Type" : "RtlSignal"}]}],
 		"Loop" : [
-			{"Name" : "VITIS_LOOP_23_1", "PipelineType" : "no",
-				"LoopDec" : {"FSMBitwidth" : "88", "FirstState" : "ap_ST_fsm_state40", "LastState" : ["ap_ST_fsm_state42"], "QuitState" : ["ap_ST_fsm_state40"], "PreState" : ["ap_ST_fsm_state39"], "PostState" : ["ap_ST_fsm_state43"], "OneDepthLoop" : "0", "OneStateBlock": ""}},
-			{"Name" : "VITIS_LOOP_27_2", "PipelineType" : "no",
-				"LoopDec" : {"FSMBitwidth" : "88", "FirstState" : "ap_ST_fsm_state81", "LastState" : ["ap_ST_fsm_state83"], "QuitState" : ["ap_ST_fsm_state81"], "PreState" : ["ap_ST_fsm_state80"], "PostState" : ["ap_ST_fsm_state84"], "OneDepthLoop" : "0", "OneStateBlock": ""}},
-			{"Name" : "VITIS_LOOP_39_5", "PipelineType" : "no",
-				"LoopDec" : {"FSMBitwidth" : "88", "FirstState" : "ap_ST_fsm_state87", "LastState" : ["ap_ST_fsm_state88"], "QuitState" : ["ap_ST_fsm_state87"], "PreState" : ["ap_ST_fsm_state86"], "PostState" : ["ap_ST_fsm_state85"], "OneDepthLoop" : "0", "OneStateBlock": ""}},
-			{"Name" : "VITIS_LOOP_34_4", "PipelineType" : "no",
-				"LoopDec" : {"FSMBitwidth" : "88", "FirstState" : "ap_ST_fsm_state85", "LastState" : ["ap_ST_fsm_state87"], "QuitState" : ["ap_ST_fsm_state85"], "PreState" : ["ap_ST_fsm_state84"], "PostState" : ["ap_ST_fsm_state84"], "OneDepthLoop" : "0", "OneStateBlock": ""}},
-			{"Name" : "VITIS_LOOP_32_3", "PipelineType" : "no",
-				"LoopDec" : {"FSMBitwidth" : "88", "FirstState" : "ap_ST_fsm_state84", "LastState" : ["ap_ST_fsm_state85"], "QuitState" : ["ap_ST_fsm_state84"], "PreState" : ["ap_ST_fsm_state81"], "PostState" : ["ap_ST_fsm_state1"], "OneDepthLoop" : "0", "OneStateBlock": ""}}]},
+			{"Name" : "VITIS_LOOP_28_1", "PipelineType" : "no",
+				"LoopDec" : {"FSMBitwidth" : "93", "FirstState" : "ap_ST_fsm_state40", "LastState" : ["ap_ST_fsm_state42"], "QuitState" : ["ap_ST_fsm_state40"], "PreState" : ["ap_ST_fsm_state39"], "PostState" : ["ap_ST_fsm_state43"], "OneDepthLoop" : "0", "OneStateBlock": ""}},
+			{"Name" : "VITIS_LOOP_32_2", "PipelineType" : "no",
+				"LoopDec" : {"FSMBitwidth" : "93", "FirstState" : "ap_ST_fsm_state81", "LastState" : ["ap_ST_fsm_state83"], "QuitState" : ["ap_ST_fsm_state81"], "PreState" : ["ap_ST_fsm_state80"], "PostState" : ["ap_ST_fsm_state84"], "OneDepthLoop" : "0", "OneStateBlock": ""}},
+			{"Name" : "VITIS_LOOP_41_4", "PipelineType" : "no",
+				"LoopDec" : {"FSMBitwidth" : "93", "FirstState" : "ap_ST_fsm_state86", "LastState" : ["ap_ST_fsm_state87"], "QuitState" : ["ap_ST_fsm_state86"], "PreState" : ["ap_ST_fsm_state85"], "PostState" : ["ap_ST_fsm_state84"], "OneDepthLoop" : "0", "OneStateBlock": ""}},
+			{"Name" : "VITIS_LOOP_36_3", "PipelineType" : "no",
+				"LoopDec" : {"FSMBitwidth" : "93", "FirstState" : "ap_ST_fsm_state84", "LastState" : ["ap_ST_fsm_state86"], "QuitState" : ["ap_ST_fsm_state84"], "PreState" : ["ap_ST_fsm_state81"], "PostState" : ["ap_ST_fsm_state88"], "OneDepthLoop" : "0", "OneStateBlock": ""}},
+			{"Name" : "VITIS_LOOP_54_6", "PipelineType" : "no",
+				"LoopDec" : {"FSMBitwidth" : "93", "FirstState" : "ap_ST_fsm_state89", "LastState" : ["ap_ST_fsm_state91"], "QuitState" : ["ap_ST_fsm_state89"], "PreState" : ["ap_ST_fsm_state88"], "PostState" : ["ap_ST_fsm_state92"], "OneDepthLoop" : "0", "OneStateBlock": ""}},
+			{"Name" : "VITIS_LOOP_60_7", "PipelineType" : "no",
+				"LoopDec" : {"FSMBitwidth" : "93", "FirstState" : "ap_ST_fsm_state92", "LastState" : ["ap_ST_fsm_state93"], "QuitState" : ["ap_ST_fsm_state92"], "PreState" : ["ap_ST_fsm_state89"], "PostState" : ["ap_ST_fsm_state88"], "OneDepthLoop" : "0", "OneStateBlock": ""}},
+			{"Name" : "VITIS_LOOP_52_5", "PipelineType" : "no",
+				"LoopDec" : {"FSMBitwidth" : "93", "FirstState" : "ap_ST_fsm_state88", "LastState" : ["ap_ST_fsm_state92"], "QuitState" : ["ap_ST_fsm_state88"], "PreState" : ["ap_ST_fsm_state84"], "PostState" : ["ap_ST_fsm_state1"], "OneDepthLoop" : "0", "OneStateBlock": ""}}]},
 	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.am_ram_V_U", "Parent" : "0"},
 	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.fm_ram_V_U", "Parent" : "0"},
-	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mul_32s_32s_32_1_1_U9", "Parent" : "0"},
-	{"ID" : "4", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mul_32s_32s_32_1_1_U10", "Parent" : "0"},
-	{"ID" : "5", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mux_325_8_1_1_U11", "Parent" : "0"}]}
+	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.idx_ram_U", "Parent" : "0"},
+	{"ID" : "4", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.count_ram_U", "Parent" : "0"},
+	{"ID" : "5", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mul_32s_32s_32_1_1_U9", "Parent" : "0"},
+	{"ID" : "6", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mul_32s_32s_32_1_1_U10", "Parent" : "0"},
+	{"ID" : "7", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mux_325_8_1_1_U11", "Parent" : "0"}]}
 
 
 set ArgLastReadFirstWriteLatency {
@@ -307,7 +313,7 @@ set ArgLastReadFirstWriteLatency {
 		sparse_data {Type I LastRead 79 FirstWrite -1}
 		inputs {Type I LastRead 0 FirstWrite -1}
 		idx_stream4 {Type O LastRead -1 FirstWrite 83}
-		count_stream5 {Type O LastRead -1 FirstWrite 82}
+		count_stream5 {Type O LastRead -1 FirstWrite 83}
 		fm_stream3 {Type O LastRead -1 FirstWrite 83}
 		input_data_addr1 {Type I LastRead 0 FirstWrite -1}
 		input_data_addr2 {Type I LastRead 38 FirstWrite -1}

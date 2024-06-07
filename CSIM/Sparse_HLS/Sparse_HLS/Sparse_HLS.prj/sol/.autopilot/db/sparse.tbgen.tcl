@@ -178,7 +178,7 @@ set NewPortList {[
  	{ "name": "m_axi_sparse_data_BUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "sparse_data", "role": "BUSER" }}  ]}
 
 set RtlHierarchyInfo {[
-	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3", "4", "10", "11", "47", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67", "68"],
+	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3", "4", "12", "13", "49", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "70"],
 		"CDFG" : "sparse",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
@@ -196,12 +196,12 @@ set RtlHierarchyInfo {[
 			{"ID" : "3", "Name" : "entry_proc_U0"},
 			{"ID" : "4", "Name" : "load_ap_uint_256_ap_int_8_ap_int_8_32u_U0"}],
 		"OutputProcess" : [
-			{"ID" : "47", "Name" : "store_ap_uint_256_ap_int_8_ap_int_8_32u_U0"}],
+			{"ID" : "49", "Name" : "store_ap_uint_256_ap_int_8_ap_int_8_32u_U0"}],
 		"Port" : [
 			{"Name" : "sparse_data", "Type" : "MAXI", "Direction" : "IO",
 				"SubConnect" : [
 					{"ID" : "4", "SubInstance" : "load_ap_uint_256_ap_int_8_ap_int_8_32u_U0", "Port" : "sparse_data"},
-					{"ID" : "47", "SubInstance" : "store_ap_uint_256_ap_int_8_ap_int_8_32u_U0", "Port" : "sparse_data"}]},
+					{"ID" : "49", "SubInstance" : "store_ap_uint_256_ap_int_8_ap_int_8_32u_U0", "Port" : "sparse_data"}]},
 			{"Name" : "input_data_addr1", "Type" : "None", "Direction" : "I"},
 			{"Name" : "input_data_addr2", "Type" : "None", "Direction" : "I"},
 			{"Name" : "output_data_addr3", "Type" : "None", "Direction" : "I"},
@@ -215,7 +215,7 @@ set RtlHierarchyInfo {[
 			{"Name" : "quant_mul", "Type" : "None", "Direction" : "I"},
 			{"Name" : "sparse_flag", "Type" : "Vld", "Direction" : "O",
 				"SubConnect" : [
-					{"ID" : "47", "SubInstance" : "store_ap_uint_256_ap_int_8_ap_int_8_32u_U0", "Port" : "sparse_flag"}]}]},
+					{"ID" : "49", "SubInstance" : "store_ap_uint_256_ap_int_8_ap_int_8_32u_U0", "Port" : "sparse_flag"}]}]},
 	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.sparse_addr_s_axi_U", "Parent" : "0"},
 	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.sparse_data_m_axi_U", "Parent" : "0"},
 	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.entry_proc_U0", "Parent" : "0",
@@ -234,22 +234,22 @@ set RtlHierarchyInfo {[
 		"IsBlackBox" : "0",
 		"Port" : [
 			{"Name" : "output_data_addr3", "Type" : "None", "Direction" : "I"},
-			{"Name" : "output_data_addr3_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["47"], "DependentChan" : "51", "DependentChanDepth" : "5", "DependentChanType" : "2",
+			{"Name" : "output_data_addr3_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["49"], "DependentChan" : "53", "DependentChanDepth" : "5", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "output_data_addr3_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "outputs", "Type" : "None", "Direction" : "I"},
-			{"Name" : "outputs_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["47"], "DependentChan" : "52", "DependentChanDepth" : "5", "DependentChanType" : "2",
+			{"Name" : "outputs_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["49"], "DependentChan" : "54", "DependentChanDepth" : "5", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "outputs_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "quant_shift", "Type" : "None", "Direction" : "I"},
-			{"Name" : "quant_shift_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["11"], "DependentChan" : "53", "DependentChanDepth" : "4", "DependentChanType" : "2",
+			{"Name" : "quant_shift_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["13"], "DependentChan" : "55", "DependentChanDepth" : "4", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "quant_shift_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "quant_mul", "Type" : "None", "Direction" : "I"},
-			{"Name" : "quant_mul_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["11"], "DependentChan" : "54", "DependentChanDepth" : "4", "DependentChanType" : "2",
+			{"Name" : "quant_mul_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["13"], "DependentChan" : "56", "DependentChanDepth" : "4", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "quant_mul_c_blk_n", "Type" : "RtlSignal"}]}]},
-	{"ID" : "4", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.load_ap_uint_256_ap_int_8_ap_int_8_32u_U0", "Parent" : "0", "Child" : ["5", "6", "7", "8", "9"],
+	{"ID" : "4", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.load_ap_uint_256_ap_int_8_ap_int_8_32u_U0", "Parent" : "0", "Child" : ["5", "6", "7", "8", "9", "10", "11"],
 		"CDFG" : "load_ap_uint_256_ap_int_8_ap_int_8_32u_s",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1", "real_start" : "1",
@@ -273,43 +273,49 @@ set RtlHierarchyInfo {[
 					{"Name" : "sparse_data_blk_n_AR", "Type" : "RtlSignal"},
 					{"Name" : "sparse_data_blk_n_R", "Type" : "RtlSignal"}]},
 			{"Name" : "inputs", "Type" : "None", "Direction" : "I"},
-			{"Name" : "idx_stream4", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["10"], "DependentChan" : "55", "DependentChanDepth" : "128", "DependentChanType" : "0",
+			{"Name" : "idx_stream4", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["12"], "DependentChan" : "57", "DependentChanDepth" : "128", "DependentChanType" : "0",
 				"BlockSignal" : [
 					{"Name" : "idx_stream4_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "count_stream5", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["10"], "DependentChan" : "56", "DependentChanDepth" : "64", "DependentChanType" : "0",
+			{"Name" : "count_stream5", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["12"], "DependentChan" : "58", "DependentChanDepth" : "64", "DependentChanType" : "0",
 				"BlockSignal" : [
 					{"Name" : "count_stream5_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "fm_stream3", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["10"], "DependentChan" : "57", "DependentChanDepth" : "128", "DependentChanType" : "0",
+			{"Name" : "fm_stream3", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["12"], "DependentChan" : "59", "DependentChanDepth" : "128", "DependentChanType" : "0",
 				"BlockSignal" : [
 					{"Name" : "fm_stream3_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "input_data_addr1", "Type" : "None", "Direction" : "I"},
 			{"Name" : "input_data_addr2", "Type" : "None", "Direction" : "I"},
-			{"Name" : "am_ROWS_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["10"], "DependentChan" : "58", "DependentChanDepth" : "2", "DependentChanType" : "2",
+			{"Name" : "am_ROWS_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["12"], "DependentChan" : "60", "DependentChanDepth" : "2", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "am_ROWS_c_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "fm_ROWS_c11", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["11"], "DependentChan" : "59", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "fm_ROWS_c11", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["13"], "DependentChan" : "61", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "fm_ROWS_c11_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "fm_COLS_c13", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["10"], "DependentChan" : "60", "DependentChanDepth" : "2", "DependentChanType" : "2",
+			{"Name" : "fm_COLS_c13", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["12"], "DependentChan" : "62", "DependentChanDepth" : "2", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "fm_COLS_c13_blk_n", "Type" : "RtlSignal"}]}],
 		"Loop" : [
-			{"Name" : "VITIS_LOOP_23_1", "PipelineType" : "no",
-				"LoopDec" : {"FSMBitwidth" : "88", "FirstState" : "ap_ST_fsm_state40", "LastState" : ["ap_ST_fsm_state42"], "QuitState" : ["ap_ST_fsm_state40"], "PreState" : ["ap_ST_fsm_state39"], "PostState" : ["ap_ST_fsm_state43"], "OneDepthLoop" : "0", "OneStateBlock": ""}},
-			{"Name" : "VITIS_LOOP_27_2", "PipelineType" : "no",
-				"LoopDec" : {"FSMBitwidth" : "88", "FirstState" : "ap_ST_fsm_state81", "LastState" : ["ap_ST_fsm_state83"], "QuitState" : ["ap_ST_fsm_state81"], "PreState" : ["ap_ST_fsm_state80"], "PostState" : ["ap_ST_fsm_state84"], "OneDepthLoop" : "0", "OneStateBlock": ""}},
-			{"Name" : "VITIS_LOOP_39_5", "PipelineType" : "no",
-				"LoopDec" : {"FSMBitwidth" : "88", "FirstState" : "ap_ST_fsm_state87", "LastState" : ["ap_ST_fsm_state88"], "QuitState" : ["ap_ST_fsm_state87"], "PreState" : ["ap_ST_fsm_state86"], "PostState" : ["ap_ST_fsm_state85"], "OneDepthLoop" : "0", "OneStateBlock": ""}},
-			{"Name" : "VITIS_LOOP_34_4", "PipelineType" : "no",
-				"LoopDec" : {"FSMBitwidth" : "88", "FirstState" : "ap_ST_fsm_state85", "LastState" : ["ap_ST_fsm_state87"], "QuitState" : ["ap_ST_fsm_state85"], "PreState" : ["ap_ST_fsm_state84"], "PostState" : ["ap_ST_fsm_state84"], "OneDepthLoop" : "0", "OneStateBlock": ""}},
-			{"Name" : "VITIS_LOOP_32_3", "PipelineType" : "no",
-				"LoopDec" : {"FSMBitwidth" : "88", "FirstState" : "ap_ST_fsm_state84", "LastState" : ["ap_ST_fsm_state85"], "QuitState" : ["ap_ST_fsm_state84"], "PreState" : ["ap_ST_fsm_state81"], "PostState" : ["ap_ST_fsm_state1"], "OneDepthLoop" : "0", "OneStateBlock": ""}}]},
+			{"Name" : "VITIS_LOOP_28_1", "PipelineType" : "no",
+				"LoopDec" : {"FSMBitwidth" : "93", "FirstState" : "ap_ST_fsm_state40", "LastState" : ["ap_ST_fsm_state42"], "QuitState" : ["ap_ST_fsm_state40"], "PreState" : ["ap_ST_fsm_state39"], "PostState" : ["ap_ST_fsm_state43"], "OneDepthLoop" : "0", "OneStateBlock": ""}},
+			{"Name" : "VITIS_LOOP_32_2", "PipelineType" : "no",
+				"LoopDec" : {"FSMBitwidth" : "93", "FirstState" : "ap_ST_fsm_state81", "LastState" : ["ap_ST_fsm_state83"], "QuitState" : ["ap_ST_fsm_state81"], "PreState" : ["ap_ST_fsm_state80"], "PostState" : ["ap_ST_fsm_state84"], "OneDepthLoop" : "0", "OneStateBlock": ""}},
+			{"Name" : "VITIS_LOOP_41_4", "PipelineType" : "no",
+				"LoopDec" : {"FSMBitwidth" : "93", "FirstState" : "ap_ST_fsm_state86", "LastState" : ["ap_ST_fsm_state87"], "QuitState" : ["ap_ST_fsm_state86"], "PreState" : ["ap_ST_fsm_state85"], "PostState" : ["ap_ST_fsm_state84"], "OneDepthLoop" : "0", "OneStateBlock": ""}},
+			{"Name" : "VITIS_LOOP_36_3", "PipelineType" : "no",
+				"LoopDec" : {"FSMBitwidth" : "93", "FirstState" : "ap_ST_fsm_state84", "LastState" : ["ap_ST_fsm_state86"], "QuitState" : ["ap_ST_fsm_state84"], "PreState" : ["ap_ST_fsm_state81"], "PostState" : ["ap_ST_fsm_state88"], "OneDepthLoop" : "0", "OneStateBlock": ""}},
+			{"Name" : "VITIS_LOOP_54_6", "PipelineType" : "no",
+				"LoopDec" : {"FSMBitwidth" : "93", "FirstState" : "ap_ST_fsm_state89", "LastState" : ["ap_ST_fsm_state91"], "QuitState" : ["ap_ST_fsm_state89"], "PreState" : ["ap_ST_fsm_state88"], "PostState" : ["ap_ST_fsm_state92"], "OneDepthLoop" : "0", "OneStateBlock": ""}},
+			{"Name" : "VITIS_LOOP_60_7", "PipelineType" : "no",
+				"LoopDec" : {"FSMBitwidth" : "93", "FirstState" : "ap_ST_fsm_state92", "LastState" : ["ap_ST_fsm_state93"], "QuitState" : ["ap_ST_fsm_state92"], "PreState" : ["ap_ST_fsm_state89"], "PostState" : ["ap_ST_fsm_state88"], "OneDepthLoop" : "0", "OneStateBlock": ""}},
+			{"Name" : "VITIS_LOOP_52_5", "PipelineType" : "no",
+				"LoopDec" : {"FSMBitwidth" : "93", "FirstState" : "ap_ST_fsm_state88", "LastState" : ["ap_ST_fsm_state92"], "QuitState" : ["ap_ST_fsm_state88"], "PreState" : ["ap_ST_fsm_state84"], "PostState" : ["ap_ST_fsm_state1"], "OneDepthLoop" : "0", "OneStateBlock": ""}}]},
 	{"ID" : "5", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.load_ap_uint_256_ap_int_8_ap_int_8_32u_U0.am_ram_V_U", "Parent" : "4"},
 	{"ID" : "6", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.load_ap_uint_256_ap_int_8_ap_int_8_32u_U0.fm_ram_V_U", "Parent" : "4"},
-	{"ID" : "7", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.load_ap_uint_256_ap_int_8_ap_int_8_32u_U0.mul_32s_32s_32_1_1_U9", "Parent" : "4"},
-	{"ID" : "8", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.load_ap_uint_256_ap_int_8_ap_int_8_32u_U0.mul_32s_32s_32_1_1_U10", "Parent" : "4"},
-	{"ID" : "9", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.load_ap_uint_256_ap_int_8_ap_int_8_32u_U0.mux_325_8_1_1_U11", "Parent" : "4"},
-	{"ID" : "10", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0", "Parent" : "0",
+	{"ID" : "7", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.load_ap_uint_256_ap_int_8_ap_int_8_32u_U0.idx_ram_U", "Parent" : "4"},
+	{"ID" : "8", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.load_ap_uint_256_ap_int_8_ap_int_8_32u_U0.count_ram_U", "Parent" : "4"},
+	{"ID" : "9", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.load_ap_uint_256_ap_int_8_ap_int_8_32u_U0.mul_32s_32s_32_1_1_U9", "Parent" : "4"},
+	{"ID" : "10", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.load_ap_uint_256_ap_int_8_ap_int_8_32u_U0.mul_32s_32s_32_1_1_U10", "Parent" : "4"},
+	{"ID" : "11", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.load_ap_uint_256_ap_int_8_ap_int_8_32u_U0.mux_325_8_1_1_U11", "Parent" : "4"},
+	{"ID" : "12", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0", "Parent" : "0",
 		"CDFG" : "mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_s",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1", "real_start" : "0",
@@ -326,35 +332,35 @@ set RtlHierarchyInfo {[
 		"StartSource" : "4",
 		"StartFifo" : "start_for_mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_U",
 		"Port" : [
-			{"Name" : "am_ROWS", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["4"], "DependentChan" : "58", "DependentChanDepth" : "2", "DependentChanType" : "2",
+			{"Name" : "am_ROWS", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["4"], "DependentChan" : "60", "DependentChanDepth" : "2", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "am_ROWS_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "fm_COLS", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["4"], "DependentChan" : "60", "DependentChanDepth" : "2", "DependentChanType" : "2",
+			{"Name" : "fm_COLS", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["4"], "DependentChan" : "62", "DependentChanDepth" : "2", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "fm_COLS_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "fm_stream3", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["4"], "DependentChan" : "57", "DependentChanDepth" : "128", "DependentChanType" : "0",
+			{"Name" : "fm_stream3", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["4"], "DependentChan" : "59", "DependentChanDepth" : "128", "DependentChanType" : "0",
 				"BlockSignal" : [
 					{"Name" : "fm_stream3_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "idx_stream4", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["4"], "DependentChan" : "55", "DependentChanDepth" : "128", "DependentChanType" : "0",
+			{"Name" : "idx_stream4", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["4"], "DependentChan" : "57", "DependentChanDepth" : "128", "DependentChanType" : "0",
 				"BlockSignal" : [
 					{"Name" : "idx_stream4_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "count_stream5", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["4"], "DependentChan" : "56", "DependentChanDepth" : "64", "DependentChanType" : "0",
+			{"Name" : "count_stream5", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["4"], "DependentChan" : "58", "DependentChanDepth" : "64", "DependentChanType" : "0",
 				"BlockSignal" : [
 					{"Name" : "count_stream5_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "data_out1", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["11"], "DependentChan" : "61", "DependentChanDepth" : "64", "DependentChanType" : "0",
+			{"Name" : "data_out1", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["13"], "DependentChan" : "63", "DependentChanDepth" : "64", "DependentChanType" : "0",
 				"BlockSignal" : [
 					{"Name" : "data_out1_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "fm_COLS_c12", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["11"], "DependentChan" : "62", "DependentChanDepth" : "2", "DependentChanType" : "2",
+			{"Name" : "fm_COLS_c12", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["13"], "DependentChan" : "64", "DependentChanDepth" : "2", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "fm_COLS_c12_blk_n", "Type" : "RtlSignal"}]}],
 		"Loop" : [
-			{"Name" : "VITIS_LOOP_73_3", "PipelineType" : "no",
+			{"Name" : "VITIS_LOOP_87_3", "PipelineType" : "no",
 				"LoopDec" : {"FSMBitwidth" : "4", "FirstState" : "ap_ST_fsm_state4", "LastState" : ["ap_ST_fsm_state4"], "QuitState" : ["ap_ST_fsm_state4"], "PreState" : ["ap_ST_fsm_state3"], "PostState" : ["ap_ST_fsm_state3"], "OneDepthLoop" : "1", "OneStateBlock": "ap_ST_fsm_state4_blk"}},
-			{"Name" : "VITIS_LOOP_68_2", "PipelineType" : "no",
+			{"Name" : "VITIS_LOOP_81_2", "PipelineType" : "no",
 				"LoopDec" : {"FSMBitwidth" : "4", "FirstState" : "ap_ST_fsm_state3", "LastState" : ["ap_ST_fsm_state4"], "QuitState" : ["ap_ST_fsm_state3"], "PreState" : ["ap_ST_fsm_state2"], "PostState" : ["ap_ST_fsm_state2"], "OneDepthLoop" : "0", "OneStateBlock": ""}},
-			{"Name" : "VITIS_LOOP_66_1", "PipelineType" : "no",
+			{"Name" : "VITIS_LOOP_79_1", "PipelineType" : "no",
 				"LoopDec" : {"FSMBitwidth" : "4", "FirstState" : "ap_ST_fsm_state2", "LastState" : ["ap_ST_fsm_state3"], "QuitState" : ["ap_ST_fsm_state2"], "PreState" : ["ap_ST_fsm_state1"], "PostState" : ["ap_ST_fsm_state1"], "OneDepthLoop" : "0", "OneStateBlock": ""}}]},
-	{"ID" : "11", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0", "Parent" : "0", "Child" : ["12", "46"],
+	{"ID" : "13", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0", "Parent" : "0", "Child" : ["14", "48"],
 		"CDFG" : "quant_ap_uint_256_ap_int_32_ap_int_8_32u_s",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1", "real_start" : "0",
@@ -371,32 +377,32 @@ set RtlHierarchyInfo {[
 		"StartSource" : "3",
 		"StartFifo" : "start_for_quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_U",
 		"Port" : [
-			{"Name" : "data_out1", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["10"], "DependentChan" : "61", "DependentChanDepth" : "64", "DependentChanType" : "0",
+			{"Name" : "data_out1", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["12"], "DependentChan" : "63", "DependentChanDepth" : "64", "DependentChanType" : "0",
 				"SubConnect" : [
-					{"ID" : "12", "SubInstance" : "grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94", "Port" : "data_out1", "Inst_start_state" : "2", "Inst_end_state" : "3"}]},
-			{"Name" : "fm_ROWS", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["4"], "DependentChan" : "59", "DependentChanDepth" : "3", "DependentChanType" : "2",
+					{"ID" : "14", "SubInstance" : "grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1_fu_94", "Port" : "data_out1", "Inst_start_state" : "2", "Inst_end_state" : "3"}]},
+			{"Name" : "fm_ROWS", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["4"], "DependentChan" : "61", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "fm_ROWS_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "fm_COLS", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["10"], "DependentChan" : "62", "DependentChanDepth" : "2", "DependentChanType" : "2",
+			{"Name" : "fm_COLS", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["12"], "DependentChan" : "64", "DependentChanDepth" : "2", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "fm_COLS_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "quant_out2", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["47"], "DependentChan" : "63", "DependentChanDepth" : "2", "DependentChanType" : "0",
+			{"Name" : "quant_out2", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["49"], "DependentChan" : "65", "DependentChanDepth" : "2", "DependentChanType" : "0",
 				"SubConnect" : [
-					{"ID" : "12", "SubInstance" : "grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94", "Port" : "quant_out2", "Inst_start_state" : "2", "Inst_end_state" : "3"}]},
-			{"Name" : "quant_shift", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["3"], "DependentChan" : "53", "DependentChanDepth" : "4", "DependentChanType" : "2",
+					{"ID" : "14", "SubInstance" : "grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1_fu_94", "Port" : "quant_out2", "Inst_start_state" : "2", "Inst_end_state" : "3"}]},
+			{"Name" : "quant_shift", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["3"], "DependentChan" : "55", "DependentChanDepth" : "4", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "quant_shift_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "quant_mul", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["3"], "DependentChan" : "54", "DependentChanDepth" : "4", "DependentChanType" : "2",
+			{"Name" : "quant_mul", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["3"], "DependentChan" : "56", "DependentChanDepth" : "4", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "quant_mul_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "fm_ROWS_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["47"], "DependentChan" : "64", "DependentChanDepth" : "2", "DependentChanType" : "2",
+			{"Name" : "fm_ROWS_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["49"], "DependentChan" : "66", "DependentChanDepth" : "2", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "fm_ROWS_c_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "fm_COLS_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["47"], "DependentChan" : "65", "DependentChanDepth" : "2", "DependentChanType" : "2",
+			{"Name" : "fm_COLS_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["49"], "DependentChan" : "67", "DependentChanDepth" : "2", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "fm_COLS_c_blk_n", "Type" : "RtlSignal"}]}]},
-	{"ID" : "12", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94", "Parent" : "11", "Child" : ["13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45"],
-		"CDFG" : "quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1",
+	{"ID" : "14", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1_fu_94", "Parent" : "13", "Child" : ["15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47"],
+		"CDFG" : "quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
@@ -423,43 +429,43 @@ set RtlHierarchyInfo {[
 				"BlockSignal" : [
 					{"Name" : "quant_out2_blk_n", "Type" : "RtlSignal"}]}],
 		"Loop" : [
-			{"Name" : "VITIS_LOOP_100_1", "PipelineType" : "UPC",
+			{"Name" : "VITIS_LOOP_113_1", "PipelineType" : "UPC",
 				"LoopDec" : {"FSMBitwidth" : "1", "FirstState" : "ap_ST_fsm_pp0_stage0", "FirstStateIter" : "ap_enable_reg_pp0_iter0", "FirstStateBlock" : "ap_block_pp0_stage0_subdone", "LastState" : "ap_ST_fsm_pp0_stage0", "LastStateIter" : "ap_enable_reg_pp0_iter3", "LastStateBlock" : "ap_block_pp0_stage0_subdone", "QuitState" : "ap_ST_fsm_pp0_stage0", "QuitStateIter" : "ap_enable_reg_pp0_iter3", "QuitStateBlock" : "ap_block_pp0_stage0_subdone", "OneDepthLoop" : "0", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
-	{"ID" : "13", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94.mul_64s_32s_64_1_1_U37", "Parent" : "12"},
-	{"ID" : "14", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94.mul_64s_32s_64_1_1_U38", "Parent" : "12"},
-	{"ID" : "15", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94.mul_64s_32s_64_1_1_U39", "Parent" : "12"},
-	{"ID" : "16", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94.mul_64s_32s_64_1_1_U40", "Parent" : "12"},
-	{"ID" : "17", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94.mul_64s_32s_64_1_1_U41", "Parent" : "12"},
-	{"ID" : "18", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94.mul_64s_32s_64_1_1_U42", "Parent" : "12"},
-	{"ID" : "19", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94.mul_64s_32s_64_1_1_U43", "Parent" : "12"},
-	{"ID" : "20", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94.mul_64s_32s_64_1_1_U44", "Parent" : "12"},
-	{"ID" : "21", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94.mul_64s_32s_64_1_1_U45", "Parent" : "12"},
-	{"ID" : "22", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94.mul_64s_32s_64_1_1_U46", "Parent" : "12"},
-	{"ID" : "23", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94.mul_64s_32s_64_1_1_U47", "Parent" : "12"},
-	{"ID" : "24", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94.mul_64s_32s_64_1_1_U48", "Parent" : "12"},
-	{"ID" : "25", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94.mul_64s_32s_64_1_1_U49", "Parent" : "12"},
-	{"ID" : "26", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94.mul_64s_32s_64_1_1_U50", "Parent" : "12"},
-	{"ID" : "27", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94.mul_64s_32s_64_1_1_U51", "Parent" : "12"},
-	{"ID" : "28", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94.mul_64s_32s_64_1_1_U52", "Parent" : "12"},
-	{"ID" : "29", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94.mul_64s_32s_64_1_1_U53", "Parent" : "12"},
-	{"ID" : "30", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94.mul_64s_32s_64_1_1_U54", "Parent" : "12"},
-	{"ID" : "31", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94.mul_64s_32s_64_1_1_U55", "Parent" : "12"},
-	{"ID" : "32", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94.mul_64s_32s_64_1_1_U56", "Parent" : "12"},
-	{"ID" : "33", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94.mul_64s_32s_64_1_1_U57", "Parent" : "12"},
-	{"ID" : "34", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94.mul_64s_32s_64_1_1_U58", "Parent" : "12"},
-	{"ID" : "35", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94.mul_64s_32s_64_1_1_U59", "Parent" : "12"},
-	{"ID" : "36", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94.mul_64s_32s_64_1_1_U60", "Parent" : "12"},
-	{"ID" : "37", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94.mul_64s_32s_64_1_1_U61", "Parent" : "12"},
-	{"ID" : "38", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94.mul_64s_32s_64_1_1_U62", "Parent" : "12"},
-	{"ID" : "39", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94.mul_64s_32s_64_1_1_U63", "Parent" : "12"},
-	{"ID" : "40", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94.mul_64s_32s_64_1_1_U64", "Parent" : "12"},
-	{"ID" : "41", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94.mul_64s_32s_64_1_1_U65", "Parent" : "12"},
-	{"ID" : "42", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94.mul_64s_32s_64_1_1_U66", "Parent" : "12"},
-	{"ID" : "43", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94.mul_64s_32s_64_1_1_U67", "Parent" : "12"},
-	{"ID" : "44", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94.mul_64s_32s_64_1_1_U68", "Parent" : "12"},
-	{"ID" : "45", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94.flow_control_loop_pipe_sequential_init_U", "Parent" : "12"},
-	{"ID" : "46", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.mul_32s_32s_32_1_1_U78", "Parent" : "11"},
-	{"ID" : "47", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.store_ap_uint_256_ap_int_8_ap_int_8_32u_U0", "Parent" : "0", "Child" : ["48", "50"],
+	{"ID" : "15", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1_fu_94.mul_64s_32s_64_1_1_U39", "Parent" : "14"},
+	{"ID" : "16", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1_fu_94.mul_64s_32s_64_1_1_U40", "Parent" : "14"},
+	{"ID" : "17", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1_fu_94.mul_64s_32s_64_1_1_U41", "Parent" : "14"},
+	{"ID" : "18", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1_fu_94.mul_64s_32s_64_1_1_U42", "Parent" : "14"},
+	{"ID" : "19", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1_fu_94.mul_64s_32s_64_1_1_U43", "Parent" : "14"},
+	{"ID" : "20", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1_fu_94.mul_64s_32s_64_1_1_U44", "Parent" : "14"},
+	{"ID" : "21", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1_fu_94.mul_64s_32s_64_1_1_U45", "Parent" : "14"},
+	{"ID" : "22", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1_fu_94.mul_64s_32s_64_1_1_U46", "Parent" : "14"},
+	{"ID" : "23", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1_fu_94.mul_64s_32s_64_1_1_U47", "Parent" : "14"},
+	{"ID" : "24", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1_fu_94.mul_64s_32s_64_1_1_U48", "Parent" : "14"},
+	{"ID" : "25", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1_fu_94.mul_64s_32s_64_1_1_U49", "Parent" : "14"},
+	{"ID" : "26", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1_fu_94.mul_64s_32s_64_1_1_U50", "Parent" : "14"},
+	{"ID" : "27", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1_fu_94.mul_64s_32s_64_1_1_U51", "Parent" : "14"},
+	{"ID" : "28", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1_fu_94.mul_64s_32s_64_1_1_U52", "Parent" : "14"},
+	{"ID" : "29", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1_fu_94.mul_64s_32s_64_1_1_U53", "Parent" : "14"},
+	{"ID" : "30", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1_fu_94.mul_64s_32s_64_1_1_U54", "Parent" : "14"},
+	{"ID" : "31", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1_fu_94.mul_64s_32s_64_1_1_U55", "Parent" : "14"},
+	{"ID" : "32", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1_fu_94.mul_64s_32s_64_1_1_U56", "Parent" : "14"},
+	{"ID" : "33", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1_fu_94.mul_64s_32s_64_1_1_U57", "Parent" : "14"},
+	{"ID" : "34", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1_fu_94.mul_64s_32s_64_1_1_U58", "Parent" : "14"},
+	{"ID" : "35", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1_fu_94.mul_64s_32s_64_1_1_U59", "Parent" : "14"},
+	{"ID" : "36", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1_fu_94.mul_64s_32s_64_1_1_U60", "Parent" : "14"},
+	{"ID" : "37", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1_fu_94.mul_64s_32s_64_1_1_U61", "Parent" : "14"},
+	{"ID" : "38", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1_fu_94.mul_64s_32s_64_1_1_U62", "Parent" : "14"},
+	{"ID" : "39", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1_fu_94.mul_64s_32s_64_1_1_U63", "Parent" : "14"},
+	{"ID" : "40", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1_fu_94.mul_64s_32s_64_1_1_U64", "Parent" : "14"},
+	{"ID" : "41", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1_fu_94.mul_64s_32s_64_1_1_U65", "Parent" : "14"},
+	{"ID" : "42", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1_fu_94.mul_64s_32s_64_1_1_U66", "Parent" : "14"},
+	{"ID" : "43", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1_fu_94.mul_64s_32s_64_1_1_U67", "Parent" : "14"},
+	{"ID" : "44", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1_fu_94.mul_64s_32s_64_1_1_U68", "Parent" : "14"},
+	{"ID" : "45", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1_fu_94.mul_64s_32s_64_1_1_U69", "Parent" : "14"},
+	{"ID" : "46", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1_fu_94.mul_64s_32s_64_1_1_U70", "Parent" : "14"},
+	{"ID" : "47", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1_fu_94.flow_control_loop_pipe_sequential_init_U", "Parent" : "14"},
+	{"ID" : "48", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.mul_32s_32s_32_1_1_U80", "Parent" : "13"},
+	{"ID" : "49", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.store_ap_uint_256_ap_int_8_ap_int_8_32u_U0", "Parent" : "0", "Child" : ["50", "52"],
 		"CDFG" : "store_ap_uint_256_ap_int_8_ap_int_8_32u_s",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1", "real_start" : "0",
@@ -476,30 +482,30 @@ set RtlHierarchyInfo {[
 		"StartSource" : "3",
 		"StartFifo" : "start_for_store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_U",
 		"Port" : [
-			{"Name" : "quant_out2", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["11"], "DependentChan" : "63", "DependentChanDepth" : "2", "DependentChanType" : "0",
+			{"Name" : "quant_out2", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["13"], "DependentChan" : "65", "DependentChanDepth" : "2", "DependentChanType" : "0",
 				"SubConnect" : [
-					{"ID" : "48", "SubInstance" : "grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_140_1_fu_124", "Port" : "quant_out2", "Inst_start_state" : "3", "Inst_end_state" : "4"}]},
+					{"ID" : "50", "SubInstance" : "grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124", "Port" : "quant_out2", "Inst_start_state" : "3", "Inst_end_state" : "4"}]},
 			{"Name" : "sparse_data", "Type" : "MAXI", "Direction" : "O",
 				"BlockSignal" : [
 					{"Name" : "sparse_data_blk_n_AW", "Type" : "RtlSignal"},
 					{"Name" : "sparse_data_blk_n_B", "Type" : "RtlSignal"}],
 				"SubConnect" : [
-					{"ID" : "48", "SubInstance" : "grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_140_1_fu_124", "Port" : "sparse_data", "Inst_start_state" : "3", "Inst_end_state" : "4"}]},
-			{"Name" : "outputs", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["3"], "DependentChan" : "52", "DependentChanDepth" : "5", "DependentChanType" : "2",
+					{"ID" : "50", "SubInstance" : "grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124", "Port" : "sparse_data", "Inst_start_state" : "3", "Inst_end_state" : "4"}]},
+			{"Name" : "outputs", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["3"], "DependentChan" : "54", "DependentChanDepth" : "5", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "outputs_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "output_data_addr3", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["3"], "DependentChan" : "51", "DependentChanDepth" : "5", "DependentChanType" : "2",
+			{"Name" : "output_data_addr3", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["3"], "DependentChan" : "53", "DependentChanDepth" : "5", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "output_data_addr3_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "ROWS", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["11"], "DependentChan" : "64", "DependentChanDepth" : "2", "DependentChanType" : "2",
+			{"Name" : "ROWS", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["13"], "DependentChan" : "66", "DependentChanDepth" : "2", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "ROWS_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "COLS", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["11"], "DependentChan" : "65", "DependentChanDepth" : "2", "DependentChanType" : "2",
+			{"Name" : "COLS", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["13"], "DependentChan" : "67", "DependentChanDepth" : "2", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "COLS_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "sparse_flag", "Type" : "Vld", "Direction" : "O"}]},
-	{"ID" : "48", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.store_ap_uint_256_ap_int_8_ap_int_8_32u_U0.grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_140_1_fu_124", "Parent" : "47", "Child" : ["49"],
-		"CDFG" : "store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_140_1",
+	{"ID" : "50", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.store_ap_uint_256_ap_int_8_ap_int_8_32u_U0.grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124", "Parent" : "49", "Child" : ["51"],
+		"CDFG" : "store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
@@ -516,34 +522,34 @@ set RtlHierarchyInfo {[
 			{"Name" : "sparse_data", "Type" : "MAXI", "Direction" : "O",
 				"BlockSignal" : [
 					{"Name" : "sparse_data_blk_n_W", "Type" : "RtlSignal"}]},
-			{"Name" : "sext_ln140", "Type" : "None", "Direction" : "I"},
+			{"Name" : "sext_ln153", "Type" : "None", "Direction" : "I"},
 			{"Name" : "loop_num", "Type" : "None", "Direction" : "I"},
 			{"Name" : "quant_out2", "Type" : "Fifo", "Direction" : "I",
 				"BlockSignal" : [
 					{"Name" : "quant_out2_blk_n", "Type" : "RtlSignal"}]}],
 		"Loop" : [
-			{"Name" : "VITIS_LOOP_140_1", "PipelineType" : "UPC",
+			{"Name" : "VITIS_LOOP_153_1", "PipelineType" : "UPC",
 				"LoopDec" : {"FSMBitwidth" : "1", "FirstState" : "ap_ST_fsm_pp0_stage0", "FirstStateIter" : "ap_enable_reg_pp0_iter0", "FirstStateBlock" : "ap_block_pp0_stage0_subdone", "LastState" : "ap_ST_fsm_pp0_stage0", "LastStateIter" : "ap_enable_reg_pp0_iter2", "LastStateBlock" : "ap_block_pp0_stage0_subdone", "QuitState" : "ap_ST_fsm_pp0_stage0", "QuitStateIter" : "ap_enable_reg_pp0_iter1", "QuitStateBlock" : "ap_block_pp0_stage0_subdone", "OneDepthLoop" : "0", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
-	{"ID" : "49", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.store_ap_uint_256_ap_int_8_ap_int_8_32u_U0.grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_140_1_fu_124.flow_control_loop_pipe_sequential_init_U", "Parent" : "48"},
-	{"ID" : "50", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.store_ap_uint_256_ap_int_8_ap_int_8_32u_U0.mul_32s_32s_32_1_1_U91", "Parent" : "47"},
-	{"ID" : "51", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.output_data_addr3_c_U", "Parent" : "0"},
-	{"ID" : "52", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.outputs_c_U", "Parent" : "0"},
-	{"ID" : "53", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.quant_shift_c_U", "Parent" : "0"},
-	{"ID" : "54", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.quant_mul_c_U", "Parent" : "0"},
-	{"ID" : "55", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.idx_stream_U", "Parent" : "0"},
-	{"ID" : "56", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.count_stream_U", "Parent" : "0"},
-	{"ID" : "57", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.fm_stream_U", "Parent" : "0"},
-	{"ID" : "58", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.am_ROWS_c_U", "Parent" : "0"},
-	{"ID" : "59", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.fm_ROWS_c11_U", "Parent" : "0"},
-	{"ID" : "60", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.fm_COLS_c13_U", "Parent" : "0"},
-	{"ID" : "61", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.data_out_U", "Parent" : "0"},
-	{"ID" : "62", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.fm_COLS_c12_U", "Parent" : "0"},
-	{"ID" : "63", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.quant_out_U", "Parent" : "0"},
-	{"ID" : "64", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.fm_ROWS_c_U", "Parent" : "0"},
-	{"ID" : "65", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.fm_COLS_c_U", "Parent" : "0"},
-	{"ID" : "66", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.start_for_quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_U", "Parent" : "0"},
-	{"ID" : "67", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.start_for_store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_U", "Parent" : "0"},
-	{"ID" : "68", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.start_for_mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_U", "Parent" : "0"}]}
+	{"ID" : "51", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.store_ap_uint_256_ap_int_8_ap_int_8_32u_U0.grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124.flow_control_loop_pipe_sequential_init_U", "Parent" : "50"},
+	{"ID" : "52", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.store_ap_uint_256_ap_int_8_ap_int_8_32u_U0.mul_32s_32s_32_1_1_U93", "Parent" : "49"},
+	{"ID" : "53", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.output_data_addr3_c_U", "Parent" : "0"},
+	{"ID" : "54", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.outputs_c_U", "Parent" : "0"},
+	{"ID" : "55", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.quant_shift_c_U", "Parent" : "0"},
+	{"ID" : "56", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.quant_mul_c_U", "Parent" : "0"},
+	{"ID" : "57", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.idx_stream_U", "Parent" : "0"},
+	{"ID" : "58", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.count_stream_U", "Parent" : "0"},
+	{"ID" : "59", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.fm_stream_U", "Parent" : "0"},
+	{"ID" : "60", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.am_ROWS_c_U", "Parent" : "0"},
+	{"ID" : "61", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.fm_ROWS_c11_U", "Parent" : "0"},
+	{"ID" : "62", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.fm_COLS_c13_U", "Parent" : "0"},
+	{"ID" : "63", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.data_out_U", "Parent" : "0"},
+	{"ID" : "64", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.fm_COLS_c12_U", "Parent" : "0"},
+	{"ID" : "65", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.quant_out_U", "Parent" : "0"},
+	{"ID" : "66", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.fm_ROWS_c_U", "Parent" : "0"},
+	{"ID" : "67", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.fm_COLS_c_U", "Parent" : "0"},
+	{"ID" : "68", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.start_for_quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_U", "Parent" : "0"},
+	{"ID" : "69", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.start_for_store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_U", "Parent" : "0"},
+	{"ID" : "70", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.start_for_mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_U", "Parent" : "0"}]}
 
 
 set ArgLastReadFirstWriteLatency {
@@ -578,7 +584,7 @@ set ArgLastReadFirstWriteLatency {
 		sparse_data {Type I LastRead 79 FirstWrite -1}
 		inputs {Type I LastRead 0 FirstWrite -1}
 		idx_stream4 {Type O LastRead -1 FirstWrite 83}
-		count_stream5 {Type O LastRead -1 FirstWrite 82}
+		count_stream5 {Type O LastRead -1 FirstWrite 83}
 		fm_stream3 {Type O LastRead -1 FirstWrite 83}
 		input_data_addr1 {Type I LastRead 0 FirstWrite -1}
 		input_data_addr2 {Type I LastRead 38 FirstWrite -1}
@@ -602,7 +608,7 @@ set ArgLastReadFirstWriteLatency {
 		quant_mul {Type I LastRead 0 FirstWrite -1}
 		fm_ROWS_c {Type O LastRead -1 FirstWrite 0}
 		fm_COLS_c {Type O LastRead -1 FirstWrite 0}}
-	quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1 {
+	quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1 {
 		div_cast {Type I LastRead 0 FirstWrite -1}
 		data_out1 {Type I LastRead 1 FirstWrite -1}
 		sh_prom {Type I LastRead 0 FirstWrite -1}
@@ -619,9 +625,9 @@ set ArgLastReadFirstWriteLatency {
 		ROWS {Type I LastRead 0 FirstWrite -1}
 		COLS {Type I LastRead 0 FirstWrite -1}
 		sparse_flag {Type O LastRead -1 FirstWrite 39}}
-	store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_140_1 {
+	store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1 {
 		sparse_data {Type O LastRead -1 FirstWrite 2}
-		sext_ln140 {Type I LastRead 0 FirstWrite -1}
+		sext_ln153 {Type I LastRead 0 FirstWrite -1}
 		loop_num {Type I LastRead 0 FirstWrite -1}
 		quant_out2 {Type I LastRead 1 FirstWrite -1}}}
 

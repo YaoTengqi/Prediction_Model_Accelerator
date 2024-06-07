@@ -70240,32 +70240,45 @@ void load(
  int idx_count = 0, count_count = 0;
  int fm_loop_num = fm_ROWS * fm_COLS * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
  int am_loop_num = am_ROWS * am_COLS * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
- VITIS_LOOP_23_1: for (int i = 0; i < fm_loop_num; i++)
+ uint8_t idx_ram[2048];
+ uint8_t count_ram[32];
+ int idx_num = 0;
+ int count_num = 0;
+#pragma HLS PIPELINE
+ VITIS_LOOP_28_1: for (int i = 0; i < fm_loop_num; i++)
  {
   fm_ram[i] = inputs[input_data_addr1 + i];
  }
- VITIS_LOOP_27_2: for (int j = 0; j < am_loop_num; j++)
+ VITIS_LOOP_32_2: for (int j = 0; j < am_loop_num; j++)
  {
   am_ram[j] = inputs[input_data_addr2 + j];
  }
-#pragma HLS PIPELINE
- VITIS_LOOP_32_3: for (int block = 0; block < (fm_COLS / nPE); block++)
+ VITIS_LOOP_36_3: for (int row = 0; row < am_ROWS; row++)
  {
-  VITIS_LOOP_34_4: for (int row = 0; row < am_ROWS; row++)
-  {
-   int count = 0;
-   WideType<t_DataType_IN, nPE> am_value = am_ram[row];
+  int count = 0;
+  WideType<t_DataType_IN, nPE> am_value = am_ram[row];
 #pragma HLS UNROLL
- VITIS_LOOP_39_5: for (int col = 0; col < am_COLS; col++)
+ VITIS_LOOP_41_4: for (int col = 0; col < am_COLS; col++)
+  {
+   if (am_value[col] != 0)
    {
-    if (am_value[col] != 0)
-    {
-     count++;
-     idx_stream.write(col);
-     WideType<t_DataType_IN, nPE> fm_value = fm_ram[block * nPE + col];
-     fm_stream.write(fm_value);
-    }
+    count++;
+    idx_ram[idx_num++] = col;
    }
+  }
+  count_ram[count_num++] = count;
+ }
+#pragma HLS PIPELINE
+ VITIS_LOOP_52_5: for (int block = 0; block < (fm_COLS / nPE); block++)
+ {
+  VITIS_LOOP_54_6: for(int i = 0; i < idx_num; i++){
+   int col = idx_ram[i];
+   idx_stream.write(col);
+   WideType<t_DataType_IN, nPE> fm_value = fm_ram[block * nPE + col];
+   fm_stream.write(fm_value);
+  }
+  VITIS_LOOP_60_7: for(int j = 0; j < count_num; j++){
+   int count = count_ram[j];
    count_stream.write(count);
   }
  }
@@ -70283,22 +70296,22 @@ void mul(
  hls::stream<typename WideType<t_Quant_DataType, nPE>::t_TypeInt> &data_stream_out)
 {
 #pragma HLS PIPELINE II = 1
- VITIS_LOOP_66_1: for (int block = 0; block < (fm_COLS / nPE); block++)
+ VITIS_LOOP_79_1: for (int block = 0; block < (fm_COLS / nPE); block++)
  {
-  VITIS_LOOP_68_2: for (int row = 0; row < am_ROWS; row++)
+  VITIS_LOOP_81_2: for (int row = 0; row < am_ROWS; row++)
   {
    int idx_count = count_stream.read();
    t_Quant_DataType ZERO = 0;
    WideType<t_Quant_DataType, nPE> result = ZERO;
-   VITIS_LOOP_73_3: for (int count = 0; count < idx_count; count++)
+#pragma HLS UNROLL
+ VITIS_LOOP_87_3: for (int count = 0; count < idx_count; count++)
    {
     uint8_t idx = idx_stream.read();
 
     WideType<t_DataType_IN, nPE> fm_value = fm_stream.read();
-    VITIS_LOOP_78_4: for (int pe = 0; pe < nPE; pe++)
+    VITIS_LOOP_92_4: for (int pe = 0; pe < nPE; pe++)
     {
-#pragma HLS UNROLL
- result[pe] = result[pe] + static_cast<t_Quant_DataType>(fm_value[pe] * 127);
+     result[pe] = result[pe] + static_cast<t_Quant_DataType>(fm_value[pe] * 127);
     }
    }
    data_stream_out.write(result);
@@ -70317,10 +70330,10 @@ void quant(hls::stream<typename WideType<t_Quant_DataType, nPE>::t_TypeInt> &dat
 
     int64_t ONE = static_cast<int64_t> (1);
 
- VITIS_LOOP_100_1: for (int i = 0; i < fm_ROWS * fm_COLS / nPE; i++){
+ VITIS_LOOP_113_1: for (int i = 0; i < fm_ROWS * fm_COLS / nPE; i++){
   WideType<t_Quant_DataType, nPE> dataValue = data_stream_out.read();
   WideType<t_DataType_OUT, nPE> outValue;
-  VITIS_LOOP_103_2: for(int j = 0; j < nPE; j++){
+  VITIS_LOOP_116_2: for(int j = 0; j < nPE; j++){
    int64_t temp = static_cast<int64_t>(dataValue[j]);
    int right_shift = quant_shift > 0 ? quant_shift : 0;
       int left_shift = quant_shift > 0 ? 0 : (-quant_shift);
@@ -70357,7 +70370,7 @@ void store(
  unsigned int loop_num = ROWS * COLS / nPE;
  WideType<t_DataType_IN, nPE> data;
  int count = 0;
- VITIS_LOOP_140_1: for (int i = 0; i < loop_num; i++)
+ VITIS_LOOP_153_1: for (int i = 0; i < loop_num; i++)
  {
 #pragma HLS PIPELINE
  data = data_stream_out.read();

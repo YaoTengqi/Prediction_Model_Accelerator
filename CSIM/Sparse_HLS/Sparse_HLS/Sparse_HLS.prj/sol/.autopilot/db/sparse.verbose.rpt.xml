@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'sparse'" level="0">
-<item name = "Date">Wed Jun  5 17:13:33 2024
+<item name = "Date">Fri Jun  7 17:07:39 2024
 </item>
 <item name = "Version">2022.2 (Build 3670227 on Oct 13 2022)</item>
 <item name = "Project">Sparse_HLS.prj</item>
@@ -54,7 +54,7 @@
 <column name="DSP">-, -, -, -, -</column>
 <column name="Expression">-, -, 0, 14, -</column>
 <column name="FIFO">72, -, 1599, 1136, -</column>
-<column name="Instance">16, 236, 7924, 27360, 0</column>
+<column name="Instance">17, 236, 8189, 27619, 0</column>
 <column name="Memory">-, -, -, -, -</column>
 <column name="Multiplexer">-, -, -, 18, -</column>
 <column name="Register">-, -, 2, -, -</column>
@@ -67,7 +67,7 @@
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP, FF, LUT, URAM</keys>
 <column name="entry_proc_U0">entry_proc, 0, 0, 3, 56, 0</column>
-<column name="load_ap_uint_256_ap_int_8_ap_int_8_32u_U0">load_ap_uint_256_ap_int_8_ap_int_8_32u_s, 16, 6, 1451, 1354, 0</column>
+<column name="load_ap_uint_256_ap_int_8_ap_int_8_32u_U0">load_ap_uint_256_ap_int_8_ap_int_8_32u_s, 17, 6, 1716, 1613, 0</column>
 <column name="mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0">mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_s, 0, 0, 966, 2283, 0</column>
 <column name="quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0">quant_ap_uint_256_ap_int_32_ap_int_8_32u_s, 0, 227, 3427, 20377, 0</column>
 <column name="sparse_addr_s_axi_U">sparse_addr_s_axi, 0, 0, 525, 874, 0</column>

@@ -851,63 +851,73 @@
         ^~~
         VITIS_LOOP_710_1: 
 /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp:70176:9: note: FIX-IT applied suggested code changes
-/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp:70243:2: warning: Added loop label VITIS_LOOP_23_1:   [xilinx-label-all-loops]
+/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp:70248:2: warning: Added loop label VITIS_LOOP_28_1:   [xilinx-label-all-loops]
  for (int i = 0; i < fm_loop_num; i++)
  ^~~
- VITIS_LOOP_23_1: 
-/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp:70243:2: note: FIX-IT applied suggested code changes
-/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp:70247:2: warning: Added loop label VITIS_LOOP_27_2:   [xilinx-label-all-loops]
+ VITIS_LOOP_28_1: 
+/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp:70248:2: note: FIX-IT applied suggested code changes
+/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp:70252:2: warning: Added loop label VITIS_LOOP_32_2:   [xilinx-label-all-loops]
  for (int j = 0; j < am_loop_num; j++)
  ^~~
- VITIS_LOOP_27_2: 
-/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp:70247:2: note: FIX-IT applied suggested code changes
-/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp:70252:2: warning: Added loop label VITIS_LOOP_32_3:   [xilinx-label-all-loops]
- for (int block = 0; block < (fm_COLS / nPE); block++)
- ^~~
- VITIS_LOOP_32_3: 
+ VITIS_LOOP_32_2: 
 /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp:70252:2: note: FIX-IT applied suggested code changes
-/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp:70254:3: warning: Added loop label VITIS_LOOP_34_4:   [xilinx-label-all-loops]
-  for (int row = 0; row < am_ROWS; row++)
-  ^~~
-  VITIS_LOOP_34_4: 
-/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp:70254:3: note: FIX-IT applied suggested code changes
-/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp:70259:2: warning: Added loop label VITIS_LOOP_39_5:   [xilinx-label-all-loops]
+/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp:70256:2: warning: Added loop label VITIS_LOOP_36_3:   [xilinx-label-all-loops]
+ for (int row = 0; row < am_ROWS; row++)
+ ^~~
+ VITIS_LOOP_36_3: 
+/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp:70256:2: note: FIX-IT applied suggested code changes
+/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp:70261:2: warning: Added loop label VITIS_LOOP_41_4:   [xilinx-label-all-loops]
  for (int col = 0; col < am_COLS; col++)
  ^~~
- VITIS_LOOP_39_5: 
-/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp:70259:2: note: FIX-IT applied suggested code changes
-/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp:70286:2: warning: Added loop label VITIS_LOOP_66_1:   [xilinx-label-all-loops]
+ VITIS_LOOP_41_4: 
+/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp:70261:2: note: FIX-IT applied suggested code changes
+/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp:70272:2: warning: Added loop label VITIS_LOOP_52_5:   [xilinx-label-all-loops]
  for (int block = 0; block < (fm_COLS / nPE); block++)
  ^~~
- VITIS_LOOP_66_1: 
-/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp:70286:2: note: FIX-IT applied suggested code changes
-/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp:70288:3: warning: Added loop label VITIS_LOOP_68_2:   [xilinx-label-all-loops]
+ VITIS_LOOP_52_5: 
+/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp:70272:2: note: FIX-IT applied suggested code changes
+/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp:70274:3: warning: Added loop label VITIS_LOOP_54_6:   [xilinx-label-all-loops]
+  for(int i = 0; i < idx_num; i++){
+  ^~~
+  VITIS_LOOP_54_6: 
+/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp:70274:3: note: FIX-IT applied suggested code changes
+/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp:70280:3: warning: Added loop label VITIS_LOOP_60_7:   [xilinx-label-all-loops]
+  for(int j = 0; j < count_num; j++){
+  ^~~
+  VITIS_LOOP_60_7: 
+/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp:70280:3: note: FIX-IT applied suggested code changes
+/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp:70299:2: warning: Added loop label VITIS_LOOP_79_1:   [xilinx-label-all-loops]
+ for (int block = 0; block < (fm_COLS / nPE); block++)
+ ^~~
+ VITIS_LOOP_79_1: 
+/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp:70299:2: note: FIX-IT applied suggested code changes
+/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp:70301:3: warning: Added loop label VITIS_LOOP_81_2:   [xilinx-label-all-loops]
   for (int row = 0; row < am_ROWS; row++)
   ^~~
-  VITIS_LOOP_68_2: 
-/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp:70288:3: note: FIX-IT applied suggested code changes
-/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp:70293:4: warning: Added loop label VITIS_LOOP_73_3:   [xilinx-label-all-loops]
-   for (int count = 0; count < idx_count; count++)
-   ^~~
-   VITIS_LOOP_73_3: 
-/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp:70293:4: note: FIX-IT applied suggested code changes
-/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp:70298:5: warning: Added loop label VITIS_LOOP_78_4:   [xilinx-label-all-loops]
+  VITIS_LOOP_81_2: 
+/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp:70301:3: note: FIX-IT applied suggested code changes
+/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp:70307:2: warning: Added loop label VITIS_LOOP_87_3:   [xilinx-label-all-loops]
+ for (int count = 0; count < idx_count; count++)
+ ^~~
+ VITIS_LOOP_87_3: 
+/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp:70307:2: note: FIX-IT applied suggested code changes
+/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp:70312:5: warning: Added loop label VITIS_LOOP_92_4:   [xilinx-label-all-loops]
     for (int pe = 0; pe < nPE; pe++)
     ^~~
-    VITIS_LOOP_78_4: 
-/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp:70298:5: note: FIX-IT applied suggested code changes
-/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp:70320:2: warning: Added loop label VITIS_LOOP_100_1:   [xilinx-label-all-loops]
+    VITIS_LOOP_92_4: 
+/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp:70312:5: note: FIX-IT applied suggested code changes
+/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp:70333:2: warning: Added loop label VITIS_LOOP_113_1:   [xilinx-label-all-loops]
  for (int i = 0; i < fm_ROWS * fm_COLS / nPE; i++){
  ^~~
- VITIS_LOOP_100_1: 
-/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp:70320:2: note: FIX-IT applied suggested code changes
-/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp:70323:3: warning: Added loop label VITIS_LOOP_103_2:   [xilinx-label-all-loops]
+ VITIS_LOOP_113_1: 
+/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp:70333:2: note: FIX-IT applied suggested code changes
+/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp:70336:3: warning: Added loop label VITIS_LOOP_116_2:   [xilinx-label-all-loops]
   for(int j = 0; j < nPE; j++){
   ^~~
-  VITIS_LOOP_103_2: 
-/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp:70323:3: note: FIX-IT applied suggested code changes
-/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp:70360:2: warning: Added loop label VITIS_LOOP_140_1:   [xilinx-label-all-loops]
+  VITIS_LOOP_116_2: 
+/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp:70336:3: note: FIX-IT applied suggested code changes
+/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp:70373:2: warning: Added loop label VITIS_LOOP_153_1:   [xilinx-label-all-loops]
  for (int i = 0; i < loop_num; i++)
  ^~~
- VITIS_LOOP_140_1: 
-/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp:70360:2: note: FIX-IT applied suggested code changes
+ VITIS_LOOP_153_1: 
+/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.autopilot/db/sparse.pp.0.cpp:70373:2: note: FIX-IT applied suggested code changes

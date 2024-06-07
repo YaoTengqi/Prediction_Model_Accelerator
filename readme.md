@@ -215,7 +215,7 @@ void sparse(
 
 | 函数名                                                       | 返回值 | 解释                                                         |
 | ------------------------------------------------------------ | ------ | ------------------------------------------------------------ |
-| void load(<br/>	unsigned int am_ROWS,<br/>	unsigned int am_COLS,<br/>	unsigned int fm_ROWS,<br/>	unsigned int fm_COLS,<br/>	t_AXI_DataType *inputs,<br/>	hls::stream<uint8_t> &idx_stream,<br/>	hls::stream<uint8_t> &count_stream,<br/>	hls::stream<typename WideType<t_DataType_IN, nPE>::t_TypeInt> &fm_stream,<br/>	uint32_t input_data_addr1,<br/>	uint32_t input_data_addr2) | /      | 1.特征矩阵fm将以ram[][\]的形式从inputs中接受数据;<br/>**2.根据邻接矩阵am得出哪一列不为0，并计数count，处理完邻接矩阵am的一行后将count写入count_ram，并将处理好的idx(哪一列数据不为0)写入idx_ram**<br/>**3.把ram的大小都定好，防止编译成AXI_LITE接口，需要AXI接口**<br/>4.将fm_ram的数据位宽改为和PE位宽相同，这样一次可以读出整个PE的数据，提高计算效率(5.22)，并改为数据流的格式使其通过RTL仿真 |
+| void load(<br/>	unsigned int am_ROWS,<br/>	unsigned int am_COLS,<br/>	unsigned int fm_ROWS,<br/>	unsigned int fm_COLS,<br/>	t_AXI_DataType *inputs,<br/>	hls::stream<uint8_t> &idx_stream,<br/>	hls::stream<uint8_t> &count_stream,<br/>	hls::stream<typename WideType<t_DataType_IN, nPE>::t_TypeInt> &fm_stream,<br/>	uint32_t input_data_addr1,<br/>	uint32_t input_data_addr2) | /      | 1.特征矩阵fm将以ram[][\]的形式从inputs中接受数据;<br/>**2.根据邻接矩阵am得出哪一列不为0，并计数count，处理完邻接矩阵am的一行后将count写入count_ram，并将处理好的idx(哪一列数据不为0)写入idx_ram**<br/>**3.把ram的大小都定好，防止编译成AXI_LITE接口，需要AXI接口**<br/>4.将fm_ram的数据位宽改为和PE位宽相同，这样一次可以读出整个PE的数据，提高计算效率(2024.5.22)，并改为数据流的格式使其通过RTL仿真<br>5. 2024.6.7将idx_stream以及count_stream的写入形式从判断每次循环判断改为判断一次并复制**BLOCKS**次，减少了访存次数以及判断次数，提高计算效率；时间从366us降低至103us，提升百分比为**71.76%** |
 | ~~void **decode**(hls::stream<typename WideType<t_DataType_IN, nPE>::t_TypeInt> &data_stream_am, hls::stream<typename WideType<uint8_t, 128>::t_TypeInt> &idx_stream, hls::stream<typename WideType<uint8_t, 32>::t_TypeInt> &count_stream, unsigned int am_ROWS,unsigned int am_COLS)~~ | /      | ~~根据邻接矩阵am得出哪一列不为0，并计数count，处理完邻接矩阵am的一行后将count写入count_stream，并将处理好的idx(哪一列数据不为0)写入idx_stream~~ |
 | void mul(<br/>	unsigned int am_ROWS,<br/>	unsigned int am_COLS,<br/>	unsigned int fm_ROWS,<br/>	unsigned int fm_COLS,<br/>	hls::stream<typename WideType<t_DataType_OUT, nPE>::t_TypeInt> &fm_stream,<br/>	hls::stream<uint8_t> &idx_stream,<br/>	hls::stream<uint8_t> &count_stream,<br/>	hls::stream<typename WideType<t_Quant_DataType, nPE>::t_TypeInt> &data_stream_out) | /      | 共四层循环最外层(1st.)为循环ROWS(结果的行数为32)；第2nd.层循环为分为了几块(fm_COLS/PE = 512/32);第3rd.层为这一行有几个不为0的数据(count数)；最后一层(4th.)为PE的大小(为32)，取相应的result_ram[i\][j] += ram[idx][pe\].<br/>data_out_stream在第3rd.层写入``result(data_out_stream.write(result))``<br/>~~用result_ram来存储中间结果，最后直接``memcpy``到outputs中，省去了``store``函数~~(不如用数据流的形式效果好，**数据流形式可以并行计算**) |
 | void quant(hls::stream<typename WideType<t_Quant_DataType, nPE>::t_TypeInt> &data_stream_out,<br/>			unsigned int fm_ROWS,<br/>			unsigned int fm_COLS,<br/>			hls::stream<typename WideType<t_DataType_OUT, nPE>::t_TypeInt> &requant_stream_out,<br/>			int quant_shift,<br/>			int quant_mul<br/>			) | /      | 新加的量化操作，完成对数据的量化提升结果精度                 |
@@ -231,10 +231,10 @@ void sparse(
 
 ### 5.时间测试
 
-|      数据大小      |                   时间                    |
-| :----------------: | :---------------------------------------: |
-| 稠密邻接矩阵32*512 | 367.935000us- 0.98500us = **366.95000us** |
-| 稀疏邻接矩阵32*512 | 367.775000us- 0.98500us = **366.79000us** |
+|      数据大小      |                             时间                             |
+| :----------------: | :----------------------------------------------------------: |
+| 稠密邻接矩阵32*512 |          367.935000us - 0.98500us = **366.95000us**          |
+| 稀疏邻接矩阵32*512 | ~~367.775000us- 0.98500us = **366.79000us**~~<br>修改load模块逻辑后时间下降至<br>104.595000us - 0.98500us = **103.61us**<br>提升百分比为**71.76%** |
 
 
 

@@ -319,7 +319,7 @@ entry:26 %empty = wait i32 @_ssdm_op_Wait
 
 <Node id="36" bw="0" op_0_bw="0" op_1_bw="27" op_2_bw="1024" op_3_bw="32" op_4_bw="1" op_5_bw="32" op_6_bw="64" op_7_bw="32" op_8_bw="256" op_9_bw="0">
 <![CDATA[
-entry:27 %call_ln0 = call void @quant<ap_uint<256>, ap_int<32>, ap_int<8>, 32u>_Pipeline_VITIS_LOOP_100_1, i27 %div_cast, i1024 %data_out1, i32 %left_shift, i1 %cmp12, i32 %quant_mul_read, i64 %pos_rounding_value, i32 %total_right_shift, i256 %quant_out2
+entry:27 %call_ln0 = call void @quant<ap_uint<256>, ap_int<32>, ap_int<8>, 32u>_Pipeline_VITIS_LOOP_113_1, i27 %div_cast, i1024 %data_out1, i32 %left_shift, i1 %cmp12, i32 %quant_mul_read, i64 %pos_rounding_value, i32 %total_right_shift, i256 %quant_out2
 
 ]]></Node>
 <StgValue><ssdm name="call_ln0"/></StgValue>
@@ -427,7 +427,7 @@ entry:10 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %f
 
 <Node id="21" bw="0" op_0_bw="0" op_1_bw="256" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0" op_17_bw="32" op_18_bw="32">
 <![CDATA[
-entry:12 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i256 %quant_out2, void @empty_17, i32 0, i32 0, void @empty_25, i32 0, i32 0, void @empty_25, void @empty_25, void @empty_25, i32 0, i32 0, i32 0, i32 0, void @empty_25, void @empty_25, i32 4294967295, i32 0
+entry:12 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i256 %quant_out2, void @empty_9, i32 0, i32 0, void @empty_6, i32 0, i32 0, void @empty_6, void @empty_6, void @empty_6, i32 0, i32 0, i32 0, i32 0, void @empty_6, void @empty_6, i32 4294967295, i32 0
 
 ]]></Node>
 <StgValue><ssdm name="specinterface_ln0"/></StgValue>
@@ -442,7 +442,7 @@ entry:12 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i256 %
 
 <Node id="22" bw="0" op_0_bw="0" op_1_bw="1024" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0" op_17_bw="32" op_18_bw="32">
 <![CDATA[
-entry:13 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1024 %data_out1, void @empty_17, i32 0, i32 0, void @empty_25, i32 0, i32 0, void @empty_25, void @empty_25, void @empty_25, i32 0, i32 0, i32 0, i32 0, void @empty_25, void @empty_25, i32 4294967295, i32 0
+entry:13 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1024 %data_out1, void @empty_9, i32 0, i32 0, void @empty_6, i32 0, i32 0, void @empty_6, void @empty_6, void @empty_6, i32 0, i32 0, i32 0, i32 0, void @empty_6, void @empty_6, i32 4294967295, i32 0
 
 ]]></Node>
 <StgValue><ssdm name="specinterface_ln0"/></StgValue>
@@ -457,7 +457,7 @@ entry:13 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1024 
 
 <Node id="36" bw="0" op_0_bw="0" op_1_bw="27" op_2_bw="1024" op_3_bw="32" op_4_bw="1" op_5_bw="32" op_6_bw="64" op_7_bw="32" op_8_bw="256" op_9_bw="0">
 <![CDATA[
-entry:27 %call_ln0 = call void @quant<ap_uint<256>, ap_int<32>, ap_int<8>, 32u>_Pipeline_VITIS_LOOP_100_1, i27 %div_cast, i1024 %data_out1, i32 %left_shift, i1 %cmp12, i32 %quant_mul_read, i64 %pos_rounding_value, i32 %total_right_shift, i256 %quant_out2
+entry:27 %call_ln0 = call void @quant<ap_uint<256>, ap_int<32>, ap_int<8>, 32u>_Pipeline_VITIS_LOOP_113_1, i27 %div_cast, i1024 %data_out1, i32 %left_shift, i1 %cmp12, i32 %quant_mul_read, i64 %pos_rounding_value, i32 %total_right_shift, i256 %quant_out2
 
 ]]></Node>
 <StgValue><ssdm name="call_ln0"/></StgValue>
@@ -472,10 +472,10 @@ entry:27 %call_ln0 = call void @quant<ap_uint<256>, ap_int<32>, ap_int<8>, 32u>_
 
 <Node id="37" bw="0">
 <![CDATA[
-entry:28 %ret_ln123 = ret
+entry:28 %ret_ln136 = ret
 
 ]]></Node>
-<StgValue><ssdm name="ret_ln123"/></StgValue>
+<StgValue><ssdm name="ret_ln136"/></StgValue>
 </operation>
 </state>
 </state_list>

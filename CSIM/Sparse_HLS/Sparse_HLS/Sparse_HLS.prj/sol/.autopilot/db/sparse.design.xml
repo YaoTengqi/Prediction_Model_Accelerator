@@ -29,8 +29,8 @@
 <ID>331</ID>
 <InstancesList>
 <Instance>
-<InstName>grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1_fu_94</InstName>
-<ModuleName>quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1</ModuleName>
+<InstName>grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1_fu_94</InstName>
+<ModuleName>quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1</ModuleName>
 <IsCompInst>true</IsCompInst>
 <ID>94</ID>
 </Instance>
@@ -43,8 +43,8 @@
 <ID>343</ID>
 <InstancesList>
 <Instance>
-<InstName>grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_140_1_fu_124</InstName>
-<ModuleName>store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_140_1</ModuleName>
+<InstName>grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124</InstName>
+<ModuleName>store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1</ModuleName>
 <IsCompInst>true</IsCompInst>
 <ID>124</ID>
 </Instance>
@@ -473,13 +473,15 @@
 <Module>
 <Name>load_ap_uint_256_ap_int_8_ap_int_8_32u_s</Name>
 <Loops>
-<VITIS_LOOP_23_1></VITIS_LOOP_23_1>
-<VITIS_LOOP_27_2></VITIS_LOOP_27_2>
-<VITIS_LOOP_32_3>
-<VITIS_LOOP_34_4>
-<VITIS_LOOP_39_5></VITIS_LOOP_39_5>
-</VITIS_LOOP_34_4>
-</VITIS_LOOP_32_3>
+<VITIS_LOOP_28_1></VITIS_LOOP_28_1>
+<VITIS_LOOP_32_2></VITIS_LOOP_32_2>
+<VITIS_LOOP_36_3>
+<VITIS_LOOP_41_4></VITIS_LOOP_41_4>
+</VITIS_LOOP_36_3>
+<VITIS_LOOP_52_5>
+<VITIS_LOOP_54_6></VITIS_LOOP_54_6>
+<VITIS_LOOP_60_7></VITIS_LOOP_60_7>
+</VITIS_LOOP_52_5>
 </Loops>
 <PerformanceEstimates>
 <SummaryOfTimingAnalysis>
@@ -499,8 +501,8 @@
 <PipelineType>no</PipelineType>
 </SummaryOfOverallLatency>
 <SummaryOfLoopLatency>
-<VITIS_LOOP_23_1>
-<Name>VITIS_LOOP_23_1</Name>
+<VITIS_LOOP_28_1>
+<Name>VITIS_LOOP_28_1</Name>
 <Slack>7.30</Slack>
 <TripCount>undef</TripCount>
 <Latency>undef</Latency>
@@ -510,9 +512,9 @@
 <PipelineType>no</PipelineType>
 <InstanceList>
 </InstanceList>
-</VITIS_LOOP_23_1>
-<VITIS_LOOP_27_2>
-<Name>VITIS_LOOP_27_2</Name>
+</VITIS_LOOP_28_1>
+<VITIS_LOOP_32_2>
+<Name>VITIS_LOOP_32_2</Name>
 <Slack>7.30</Slack>
 <TripCount>undef</TripCount>
 <Latency>undef</Latency>
@@ -522,9 +524,9 @@
 <PipelineType>no</PipelineType>
 <InstanceList>
 </InstanceList>
-</VITIS_LOOP_27_2>
-<VITIS_LOOP_32_3>
-<Name>VITIS_LOOP_32_3</Name>
+</VITIS_LOOP_32_2>
+<VITIS_LOOP_36_3>
+<Name>VITIS_LOOP_36_3</Name>
 <Slack>7.30</Slack>
 <TripCount>undef</TripCount>
 <Latency>undef</Latency>
@@ -534,19 +536,8 @@
 <PipelineType>no</PipelineType>
 <InstanceList>
 </InstanceList>
-<VITIS_LOOP_34_4>
-<Name>VITIS_LOOP_34_4</Name>
-<Slack>7.30</Slack>
-<TripCount>undef</TripCount>
-<Latency>undef</Latency>
-<AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
-<IterationLatency>undef</IterationLatency>
-<PipelineDepth>undef</PipelineDepth>
-<PipelineType>no</PipelineType>
-<InstanceList>
-</InstanceList>
-<VITIS_LOOP_39_5>
-<Name>VITIS_LOOP_39_5</Name>
+<VITIS_LOOP_41_4>
+<Name>VITIS_LOOP_41_4</Name>
 <Slack>7.30</Slack>
 <TripCount>undef</TripCount>
 <Latency>undef</Latency>
@@ -556,23 +547,58 @@
 <PipelineType>no</PipelineType>
 <InstanceList>
 </InstanceList>
-</VITIS_LOOP_39_5>
-</VITIS_LOOP_34_4>
-</VITIS_LOOP_32_3>
+</VITIS_LOOP_41_4>
+</VITIS_LOOP_36_3>
+<VITIS_LOOP_52_5>
+<Name>VITIS_LOOP_52_5</Name>
+<Slack>7.30</Slack>
+<TripCount>undef</TripCount>
+<Latency>undef</Latency>
+<AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
+<IterationLatency>undef</IterationLatency>
+<PipelineDepth>undef</PipelineDepth>
+<PipelineType>no</PipelineType>
+<InstanceList>
+</InstanceList>
+<VITIS_LOOP_54_6>
+<Name>VITIS_LOOP_54_6</Name>
+<Slack>7.30</Slack>
+<TripCount>undef</TripCount>
+<Latency>undef</Latency>
+<AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
+<IterationLatency>3</IterationLatency>
+<PipelineDepth>3</PipelineDepth>
+<PipelineType>no</PipelineType>
+<InstanceList>
+</InstanceList>
+</VITIS_LOOP_54_6>
+<VITIS_LOOP_60_7>
+<Name>VITIS_LOOP_60_7</Name>
+<Slack>7.30</Slack>
+<TripCount>undef</TripCount>
+<Latency>undef</Latency>
+<AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
+<IterationLatency>2</IterationLatency>
+<PipelineDepth>2</PipelineDepth>
+<PipelineType>no</PipelineType>
+<InstanceList>
+</InstanceList>
+</VITIS_LOOP_60_7>
+</VITIS_LOOP_52_5>
 </SummaryOfLoopLatency>
 </PerformanceEstimates>
 <AreaEstimates>
 <Resources>
-<BRAM_18K>16</BRAM_18K>
+<BRAM_18K>17</BRAM_18K>
 <AVAIL_BRAM>624</AVAIL_BRAM>
 <UTIL_BRAM>2</UTIL_BRAM>
 <DSP>6</DSP>
 <AVAIL_DSP>1728</AVAIL_DSP>
 <UTIL_DSP>~0</UTIL_DSP>
-<FF>1451</FF>
+<FF>1716</FF>
 <AVAIL_FF>460800</AVAIL_FF>
 <UTIL_FF>~0</UTIL_FF>
-<LUT>1354</LUT>
+<LUT>1613</LUT>
 <AVAIL_LUT>230400</AVAIL_LUT>
 <UTIL_LUT>~0</UTIL_LUT>
 <URAM>0</URAM>
@@ -1609,11 +1635,11 @@
 <Module>
 <Name>mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_s</Name>
 <Loops>
-<VITIS_LOOP_66_1>
-<VITIS_LOOP_68_2>
-<VITIS_LOOP_73_3></VITIS_LOOP_73_3>
-</VITIS_LOOP_68_2>
-</VITIS_LOOP_66_1>
+<VITIS_LOOP_79_1>
+<VITIS_LOOP_81_2>
+<VITIS_LOOP_87_3></VITIS_LOOP_87_3>
+</VITIS_LOOP_81_2>
+</VITIS_LOOP_79_1>
 </Loops>
 <PerformanceEstimates>
 <SummaryOfTimingAnalysis>
@@ -1633,8 +1659,8 @@
 <PipelineType>no</PipelineType>
 </SummaryOfOverallLatency>
 <SummaryOfLoopLatency>
-<VITIS_LOOP_66_1>
-<Name>VITIS_LOOP_66_1</Name>
+<VITIS_LOOP_79_1>
+<Name>VITIS_LOOP_79_1</Name>
 <Slack>7.30</Slack>
 <TripCount>undef</TripCount>
 <Latency>undef</Latency>
@@ -1644,8 +1670,8 @@
 <PipelineType>no</PipelineType>
 <InstanceList>
 </InstanceList>
-<VITIS_LOOP_68_2>
-<Name>VITIS_LOOP_68_2</Name>
+<VITIS_LOOP_81_2>
+<Name>VITIS_LOOP_81_2</Name>
 <Slack>7.30</Slack>
 <TripCount>undef</TripCount>
 <Latency>undef</Latency>
@@ -1660,8 +1686,8 @@
 <PipelineType>no</PipelineType>
 <InstanceList>
 </InstanceList>
-<VITIS_LOOP_73_3>
-<Name>VITIS_LOOP_73_3</Name>
+<VITIS_LOOP_87_3>
+<Name>VITIS_LOOP_87_3</Name>
 <Slack>7.30</Slack>
 <TripCount>
 <range>
@@ -1676,9 +1702,9 @@
 <PipelineType>no</PipelineType>
 <InstanceList>
 </InstanceList>
-</VITIS_LOOP_73_3>
-</VITIS_LOOP_68_2>
-</VITIS_LOOP_66_1>
+</VITIS_LOOP_87_3>
+</VITIS_LOOP_81_2>
+</VITIS_LOOP_79_1>
 </SummaryOfLoopLatency>
 </PerformanceEstimates>
 <AreaEstimates>
@@ -2166,9 +2192,9 @@
 </InterfaceSummary>
 </Module>
 <Module>
-<Name>quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_100_1</Name>
+<Name>quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1</Name>
 <Loops>
-<VITIS_LOOP_100_1></VITIS_LOOP_100_1>
+<VITIS_LOOP_113_1></VITIS_LOOP_113_1>
 </Loops>
 <PerformanceEstimates>
 <SummaryOfTimingAnalysis>
@@ -2187,8 +2213,8 @@
 <PipelineType>no</PipelineType>
 </SummaryOfOverallLatency>
 <SummaryOfLoopLatency>
-<VITIS_LOOP_100_1>
-<Name>VITIS_LOOP_100_1</Name>
+<VITIS_LOOP_113_1>
+<Name>VITIS_LOOP_113_1</Name>
 <Slack>7.30</Slack>
 <TripCount>undef</TripCount>
 <Latency>undef</Latency>
@@ -2198,7 +2224,7 @@
 <PipelineType>yes</PipelineType>
 <InstanceList>
 </InstanceList>
-</VITIS_LOOP_100_1>
+</VITIS_LOOP_113_1>
 </SummaryOfLoopLatency>
 </PerformanceEstimates>
 <AreaEstimates>
@@ -2223,7 +2249,7 @@
 <InterfaceSummary>
 <RtlPorts>
 <name>ap_clk</name>
-<Object>quant&lt;ap_uint&lt;256&gt;, ap_int&lt;32&gt;, ap_int&lt;8&gt;, 32u&gt;_Pipeline_VITIS_LOOP_100_1</Object>
+<Object>quant&lt;ap_uint&lt;256&gt;, ap_int&lt;32&gt;, ap_int&lt;8&gt;, 32u&gt;_Pipeline_VITIS_LOOP_113_1</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -2234,7 +2260,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_rst</name>
-<Object>quant&lt;ap_uint&lt;256&gt;, ap_int&lt;32&gt;, ap_int&lt;8&gt;, 32u&gt;_Pipeline_VITIS_LOOP_100_1</Object>
+<Object>quant&lt;ap_uint&lt;256&gt;, ap_int&lt;32&gt;, ap_int&lt;8&gt;, 32u&gt;_Pipeline_VITIS_LOOP_113_1</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -2245,7 +2271,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_start</name>
-<Object>quant&lt;ap_uint&lt;256&gt;, ap_int&lt;32&gt;, ap_int&lt;8&gt;, 32u&gt;_Pipeline_VITIS_LOOP_100_1</Object>
+<Object>quant&lt;ap_uint&lt;256&gt;, ap_int&lt;32&gt;, ap_int&lt;8&gt;, 32u&gt;_Pipeline_VITIS_LOOP_113_1</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -2256,7 +2282,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_done</name>
-<Object>quant&lt;ap_uint&lt;256&gt;, ap_int&lt;32&gt;, ap_int&lt;8&gt;, 32u&gt;_Pipeline_VITIS_LOOP_100_1</Object>
+<Object>quant&lt;ap_uint&lt;256&gt;, ap_int&lt;32&gt;, ap_int&lt;8&gt;, 32u&gt;_Pipeline_VITIS_LOOP_113_1</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -2267,7 +2293,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_idle</name>
-<Object>quant&lt;ap_uint&lt;256&gt;, ap_int&lt;32&gt;, ap_int&lt;8&gt;, 32u&gt;_Pipeline_VITIS_LOOP_100_1</Object>
+<Object>quant&lt;ap_uint&lt;256&gt;, ap_int&lt;32&gt;, ap_int&lt;8&gt;, 32u&gt;_Pipeline_VITIS_LOOP_113_1</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -2278,7 +2304,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_ready</name>
-<Object>quant&lt;ap_uint&lt;256&gt;, ap_int&lt;32&gt;, ap_int&lt;8&gt;, 32u&gt;_Pipeline_VITIS_LOOP_100_1</Object>
+<Object>quant&lt;ap_uint&lt;256&gt;, ap_int&lt;32&gt;, ap_int&lt;8&gt;, 32u&gt;_Pipeline_VITIS_LOOP_113_1</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -3024,9 +3050,9 @@
 </InterfaceSummary>
 </Module>
 <Module>
-<Name>store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_140_1</Name>
+<Name>store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1</Name>
 <Loops>
-<VITIS_LOOP_140_1></VITIS_LOOP_140_1>
+<VITIS_LOOP_153_1></VITIS_LOOP_153_1>
 </Loops>
 <PerformanceEstimates>
 <SummaryOfTimingAnalysis>
@@ -3045,8 +3071,8 @@
 <PipelineType>no</PipelineType>
 </SummaryOfOverallLatency>
 <SummaryOfLoopLatency>
-<VITIS_LOOP_140_1>
-<Name>VITIS_LOOP_140_1</Name>
+<VITIS_LOOP_153_1>
+<Name>VITIS_LOOP_153_1</Name>
 <Slack>7.30</Slack>
 <TripCount>undef</TripCount>
 <Latency>2 ~ ?</Latency>
@@ -3056,7 +3082,7 @@
 <PipelineType>yes</PipelineType>
 <InstanceList>
 </InstanceList>
-</VITIS_LOOP_140_1>
+</VITIS_LOOP_153_1>
 </SummaryOfLoopLatency>
 </PerformanceEstimates>
 <AreaEstimates>
@@ -3081,7 +3107,7 @@
 <InterfaceSummary>
 <RtlPorts>
 <name>ap_clk</name>
-<Object>store&lt;ap_uint&lt;256&gt;, ap_int&lt;8&gt;, ap_int&lt;8&gt;, 32u&gt;_Pipeline_VITIS_LOOP_140_1</Object>
+<Object>store&lt;ap_uint&lt;256&gt;, ap_int&lt;8&gt;, ap_int&lt;8&gt;, 32u&gt;_Pipeline_VITIS_LOOP_153_1</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -3092,7 +3118,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_rst</name>
-<Object>store&lt;ap_uint&lt;256&gt;, ap_int&lt;8&gt;, ap_int&lt;8&gt;, 32u&gt;_Pipeline_VITIS_LOOP_140_1</Object>
+<Object>store&lt;ap_uint&lt;256&gt;, ap_int&lt;8&gt;, ap_int&lt;8&gt;, 32u&gt;_Pipeline_VITIS_LOOP_153_1</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -3103,7 +3129,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_start</name>
-<Object>store&lt;ap_uint&lt;256&gt;, ap_int&lt;8&gt;, ap_int&lt;8&gt;, 32u&gt;_Pipeline_VITIS_LOOP_140_1</Object>
+<Object>store&lt;ap_uint&lt;256&gt;, ap_int&lt;8&gt;, ap_int&lt;8&gt;, 32u&gt;_Pipeline_VITIS_LOOP_153_1</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -3114,7 +3140,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_done</name>
-<Object>store&lt;ap_uint&lt;256&gt;, ap_int&lt;8&gt;, ap_int&lt;8&gt;, 32u&gt;_Pipeline_VITIS_LOOP_140_1</Object>
+<Object>store&lt;ap_uint&lt;256&gt;, ap_int&lt;8&gt;, ap_int&lt;8&gt;, 32u&gt;_Pipeline_VITIS_LOOP_153_1</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -3125,7 +3151,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_idle</name>
-<Object>store&lt;ap_uint&lt;256&gt;, ap_int&lt;8&gt;, ap_int&lt;8&gt;, 32u&gt;_Pipeline_VITIS_LOOP_140_1</Object>
+<Object>store&lt;ap_uint&lt;256&gt;, ap_int&lt;8&gt;, ap_int&lt;8&gt;, 32u&gt;_Pipeline_VITIS_LOOP_153_1</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -3136,7 +3162,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_ready</name>
-<Object>store&lt;ap_uint&lt;256&gt;, ap_int&lt;8&gt;, ap_int&lt;8&gt;, 32u&gt;_Pipeline_VITIS_LOOP_140_1</Object>
+<Object>store&lt;ap_uint&lt;256&gt;, ap_int&lt;8&gt;, ap_int&lt;8&gt;, 32u&gt;_Pipeline_VITIS_LOOP_153_1</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -3707,8 +3733,8 @@
 <Attribute>unknown</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>sext_ln140</name>
-<Object>sext_ln140</Object>
+<name>sext_ln153</name>
+<Object>sext_ln153</Object>
 <Type>scalar</Type>
 <Scope></Scope>
 <IOProtocol>ap_none</IOProtocol>
@@ -4673,16 +4699,16 @@
 </PerformanceEstimates>
 <AreaEstimates>
 <Resources>
-<BRAM_18K>88</BRAM_18K>
+<BRAM_18K>89</BRAM_18K>
 <AVAIL_BRAM>624</AVAIL_BRAM>
 <UTIL_BRAM>14</UTIL_BRAM>
 <DSP>236</DSP>
 <AVAIL_DSP>1728</AVAIL_DSP>
 <UTIL_DSP>13</UTIL_DSP>
-<FF>9525</FF>
+<FF>9790</FF>
 <AVAIL_FF>460800</AVAIL_FF>
 <UTIL_FF>2</UTIL_FF>
-<LUT>28528</LUT>
+<LUT>28787</LUT>
 <AVAIL_LUT>230400</AVAIL_LUT>
 <UTIL_LUT>12</UTIL_LUT>
 <URAM>0</URAM>

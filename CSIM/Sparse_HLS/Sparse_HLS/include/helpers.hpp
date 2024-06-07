@@ -20,6 +20,11 @@ void load(
 	int idx_count = 0, count_count = 0;
 	int fm_loop_num = fm_ROWS * fm_COLS * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
 	int am_loop_num = am_ROWS * am_COLS * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
+	uint8_t idx_ram[128];
+	uint8_t count_ram[32];
+	int idx_num = 0;
+	int count_num = 0;
+#pragma HLS PIPELINE
 	for (int i = 0; i < fm_loop_num; i++)
 	{
 		fm_ram[i] = inputs[input_data_addr1 + i]; // load feature matrix
@@ -28,24 +33,32 @@ void load(
 	{
 		am_ram[j] = inputs[input_data_addr2 + j]; // load adjacency matrix
 	}
+	for (int row = 0; row < am_ROWS; row++)
+	{ // 获取idx和count
+		int count = 0;
+		WideType<t_DataType_IN, nPE> am_value = am_ram[row];
+#pragma HLS UNROLL
+		for (int col = 0; col < am_COLS; col++)
+		{
+			if (am_value[col] != 0)
+			{
+				count++;
+				idx_ram[idx_num++] = col;
+			}
+		}
+		count_ram[count_num++] = count;
+	}
 #pragma HLS PIPELINE
 	for (int block = 0; block < (fm_COLS / nPE); block++)
 	{
-		for (int row = 0; row < am_ROWS; row++)
-		{ // 获取idx和count
-			int count = 0;
-			WideType<t_DataType_IN, nPE> am_value = am_ram[row];
-#pragma HLS UNROLL
-			for (int col = 0; col < am_COLS; col++)
-			{
-				if (am_value[col] != 0)
-				{
-					count++;
-					idx_stream.write(col);
-					WideType<t_DataType_IN, nPE> fm_value = fm_ram[block * nPE + col];
-					fm_stream.write(fm_value);
-				}
-			}
+		for(int i = 0; i < idx_num; i++){
+			int col = idx_ram[i];
+			idx_stream.write(col);
+			WideType<t_DataType_IN, nPE> fm_value = fm_ram[block * nPE + col];
+			fm_stream.write(fm_value);
+		}
+		for(int j = 0; j < count_num; j++){
+			int count = count_ram[j];
 			count_stream.write(count);
 		}
 	}
@@ -70,6 +83,7 @@ void mul(
 			int idx_count = count_stream.read();
 			t_Quant_DataType ZERO = 0;
 			WideType<t_Quant_DataType, nPE> result = ZERO;
+#pragma HLS UNROLL
 			for (int count = 0; count < idx_count; count++)
 			{ // 根据idx_stream取出对应行的fm_stream值
 				uint8_t idx = idx_stream.read();
@@ -77,7 +91,6 @@ void mul(
 				WideType<t_DataType_IN, nPE> fm_value = fm_stream.read();
 				for (int pe = 0; pe < nPE; pe++)
 				{ // 每次计算一个PE
-#pragma HLS UNROLL
 					result[pe] = result[pe] + static_cast<t_Quant_DataType>(fm_value[pe] * 127);
 				}
 			}
