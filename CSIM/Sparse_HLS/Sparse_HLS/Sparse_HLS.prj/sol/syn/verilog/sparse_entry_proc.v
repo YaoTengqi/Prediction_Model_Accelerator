@@ -18,12 +18,6 @@ module sparse_entry_proc (
         ap_ready,
         start_out,
         start_write,
-        output_data_addr3,
-        output_data_addr3_c_din,
-        output_data_addr3_c_num_data_valid,
-        output_data_addr3_c_fifo_cap,
-        output_data_addr3_c_full_n,
-        output_data_addr3_c_write,
         outputs,
         outputs_c_din,
         outputs_c_num_data_valid,
@@ -56,12 +50,6 @@ output   ap_idle;
 output   ap_ready;
 output   start_out;
 output   start_write;
-input  [31:0] output_data_addr3;
-output  [31:0] output_data_addr3_c_din;
-input  [3:0] output_data_addr3_c_num_data_valid;
-input  [3:0] output_data_addr3_c_fifo_cap;
-input   output_data_addr3_c_full_n;
-output   output_data_addr3_c_write;
 input  [63:0] outputs;
 output  [63:0] outputs_c_din;
 input  [3:0] outputs_c_num_data_valid;
@@ -70,21 +58,20 @@ input   outputs_c_full_n;
 output   outputs_c_write;
 input  [31:0] quant_shift;
 output  [31:0] quant_shift_c_din;
-input  [2:0] quant_shift_c_num_data_valid;
-input  [2:0] quant_shift_c_fifo_cap;
+input  [3:0] quant_shift_c_num_data_valid;
+input  [3:0] quant_shift_c_fifo_cap;
 input   quant_shift_c_full_n;
 output   quant_shift_c_write;
 input  [31:0] quant_mul;
 output  [31:0] quant_mul_c_din;
-input  [2:0] quant_mul_c_num_data_valid;
-input  [2:0] quant_mul_c_fifo_cap;
+input  [3:0] quant_mul_c_num_data_valid;
+input  [3:0] quant_mul_c_fifo_cap;
 input   quant_mul_c_full_n;
 output   quant_mul_c_write;
 
 reg ap_done;
 reg ap_idle;
 reg start_write;
-reg output_data_addr3_c_write;
 reg outputs_c_write;
 reg quant_shift_c_write;
 reg quant_mul_c_write;
@@ -95,7 +82,6 @@ reg    ap_done_reg;
 (* fsm_encoding = "none" *) reg   [0:0] ap_CS_fsm;
 wire    ap_CS_fsm_state1;
 reg    internal_ap_ready;
-reg    output_data_addr3_c_blk_n;
 reg    outputs_c_blk_n;
 reg    quant_shift_c_blk_n;
 reg    quant_mul_c_blk_n;
@@ -125,7 +111,7 @@ always @ (posedge ap_clk) begin
     end else begin
         if ((ap_continue == 1'b1)) begin
             ap_done_reg <= 1'b0;
-        end else if ((~((real_start == 1'b0) | (quant_mul_c_full_n == 1'b0) | (quant_shift_c_full_n == 1'b0) | (outputs_c_full_n == 1'b0) | (output_data_addr3_c_full_n == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
+        end else if ((~((real_start == 1'b0) | (quant_mul_c_full_n == 1'b0) | (quant_shift_c_full_n == 1'b0) | (outputs_c_full_n == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
             ap_done_reg <= 1'b1;
         end
     end
@@ -144,7 +130,7 @@ always @ (posedge ap_clk) begin
 end
 
 always @ (*) begin
-    if (((real_start == 1'b0) | (quant_mul_c_full_n == 1'b0) | (quant_shift_c_full_n == 1'b0) | (outputs_c_full_n == 1'b0) | (output_data_addr3_c_full_n == 1'b0) | (ap_done_reg == 1'b1))) begin
+    if (((real_start == 1'b0) | (quant_mul_c_full_n == 1'b0) | (quant_shift_c_full_n == 1'b0) | (outputs_c_full_n == 1'b0) | (ap_done_reg == 1'b1))) begin
         ap_ST_fsm_state1_blk = 1'b1;
     end else begin
         ap_ST_fsm_state1_blk = 1'b0;
@@ -152,7 +138,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((~((real_start == 1'b0) | (quant_mul_c_full_n == 1'b0) | (quant_shift_c_full_n == 1'b0) | (outputs_c_full_n == 1'b0) | (output_data_addr3_c_full_n == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
+    if ((~((real_start == 1'b0) | (quant_mul_c_full_n == 1'b0) | (quant_shift_c_full_n == 1'b0) | (outputs_c_full_n == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
         ap_done = 1'b1;
     end else begin
         ap_done = ap_done_reg;
@@ -168,26 +154,10 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((~((real_start == 1'b0) | (quant_mul_c_full_n == 1'b0) | (quant_shift_c_full_n == 1'b0) | (outputs_c_full_n == 1'b0) | (output_data_addr3_c_full_n == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
+    if ((~((real_start == 1'b0) | (quant_mul_c_full_n == 1'b0) | (quant_shift_c_full_n == 1'b0) | (outputs_c_full_n == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
         internal_ap_ready = 1'b1;
     end else begin
         internal_ap_ready = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if ((~((real_start == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
-        output_data_addr3_c_blk_n = output_data_addr3_c_full_n;
-    end else begin
-        output_data_addr3_c_blk_n = 1'b1;
-    end
-end
-
-always @ (*) begin
-    if ((~((real_start == 1'b0) | (quant_mul_c_full_n == 1'b0) | (quant_shift_c_full_n == 1'b0) | (outputs_c_full_n == 1'b0) | (output_data_addr3_c_full_n == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
-        output_data_addr3_c_write = 1'b1;
-    end else begin
-        output_data_addr3_c_write = 1'b0;
     end
 end
 
@@ -200,7 +170,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((~((real_start == 1'b0) | (quant_mul_c_full_n == 1'b0) | (quant_shift_c_full_n == 1'b0) | (outputs_c_full_n == 1'b0) | (output_data_addr3_c_full_n == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
+    if ((~((real_start == 1'b0) | (quant_mul_c_full_n == 1'b0) | (quant_shift_c_full_n == 1'b0) | (outputs_c_full_n == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
         outputs_c_write = 1'b1;
     end else begin
         outputs_c_write = 1'b0;
@@ -216,7 +186,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((~((real_start == 1'b0) | (quant_mul_c_full_n == 1'b0) | (quant_shift_c_full_n == 1'b0) | (outputs_c_full_n == 1'b0) | (output_data_addr3_c_full_n == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
+    if ((~((real_start == 1'b0) | (quant_mul_c_full_n == 1'b0) | (quant_shift_c_full_n == 1'b0) | (outputs_c_full_n == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
         quant_mul_c_write = 1'b1;
     end else begin
         quant_mul_c_write = 1'b0;
@@ -232,7 +202,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((~((real_start == 1'b0) | (quant_mul_c_full_n == 1'b0) | (quant_shift_c_full_n == 1'b0) | (outputs_c_full_n == 1'b0) | (output_data_addr3_c_full_n == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
+    if ((~((real_start == 1'b0) | (quant_mul_c_full_n == 1'b0) | (quant_shift_c_full_n == 1'b0) | (outputs_c_full_n == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
         quant_shift_c_write = 1'b1;
     end else begin
         quant_shift_c_write = 1'b0;
@@ -269,12 +239,10 @@ end
 assign ap_CS_fsm_state1 = ap_CS_fsm[32'd0];
 
 always @ (*) begin
-    ap_block_state1 = ((real_start == 1'b0) | (quant_mul_c_full_n == 1'b0) | (quant_shift_c_full_n == 1'b0) | (outputs_c_full_n == 1'b0) | (output_data_addr3_c_full_n == 1'b0) | (ap_done_reg == 1'b1));
+    ap_block_state1 = ((real_start == 1'b0) | (quant_mul_c_full_n == 1'b0) | (quant_shift_c_full_n == 1'b0) | (outputs_c_full_n == 1'b0) | (ap_done_reg == 1'b1));
 end
 
 assign ap_ready = internal_ap_ready;
-
-assign output_data_addr3_c_din = output_data_addr3;
 
 assign outputs_c_din = outputs;
 

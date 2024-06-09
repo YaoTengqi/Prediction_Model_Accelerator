@@ -45,11 +45,11 @@ module sparse_mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_s (
         data_out1_fifo_cap,
         data_out1_full_n,
         data_out1_write,
-        fm_COLS_c12_din,
-        fm_COLS_c12_num_data_valid,
-        fm_COLS_c12_fifo_cap,
-        fm_COLS_c12_full_n,
-        fm_COLS_c12_write
+        fm_COLS_c15_din,
+        fm_COLS_c15_num_data_valid,
+        fm_COLS_c15_fifo_cap,
+        fm_COLS_c15_full_n,
+        fm_COLS_c15_write
 );
 
 parameter    ap_ST_fsm_state1 = 4'd1;
@@ -94,11 +94,11 @@ input  [6:0] data_out1_num_data_valid;
 input  [6:0] data_out1_fifo_cap;
 input   data_out1_full_n;
 output   data_out1_write;
-output  [31:0] fm_COLS_c12_din;
-input  [1:0] fm_COLS_c12_num_data_valid;
-input  [1:0] fm_COLS_c12_fifo_cap;
-input   fm_COLS_c12_full_n;
-output   fm_COLS_c12_write;
+output  [31:0] fm_COLS_c15_din;
+input  [1:0] fm_COLS_c15_num_data_valid;
+input  [1:0] fm_COLS_c15_fifo_cap;
+input   fm_COLS_c15_full_n;
+output   fm_COLS_c15_write;
 
 reg ap_done;
 reg ap_idle;
@@ -109,7 +109,7 @@ reg fm_stream3_read;
 reg idx_stream4_read;
 reg count_stream5_read;
 reg data_out1_write;
-reg fm_COLS_c12_write;
+reg fm_COLS_c15_write;
 
 reg    ap_done_reg;
 (* fsm_encoding = "none" *) reg   [3:0] ap_CS_fsm;
@@ -124,7 +124,7 @@ reg    count_stream5_blk_n;
 wire    ap_CS_fsm_state3;
 wire   [0:0] icmp_ln81_fu_658_p2;
 reg    data_out1_blk_n;
-reg    fm_COLS_c12_blk_n;
+reg    fm_COLS_c15_blk_n;
 reg   [31:0] am_ROWS_read_reg_2540;
 reg   [26:0] trunc_ln_reg_2545;
 wire   [26:0] block_2_fu_652_p2;
@@ -495,7 +495,7 @@ always @ (posedge ap_clk) begin
 end
 
 always @ (posedge ap_clk) begin
-    if ((~((ap_start == 1'b0) | (fm_COLS_c12_full_n == 1'b0) | (fm_COLS_empty_n == 1'b0) | (1'b0 == am_ROWS_empty_n) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
+    if ((~((ap_start == 1'b0) | (fm_COLS_c15_full_n == 1'b0) | (fm_COLS_empty_n == 1'b0) | (1'b0 == am_ROWS_empty_n) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
         block_fu_206 <= 27'd0;
     end else if ((~((icmp_ln81_fu_658_p2 == 1'd0) & (count_stream5_empty_n == 1'b0)) & (icmp_ln81_fu_658_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state3))) begin
         block_fu_206 <= block_2_reg_2553;
@@ -808,7 +808,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((~((ap_start == 1'b0) | (fm_COLS_c12_full_n == 1'b0) | (fm_COLS_empty_n == 1'b0) | (1'b0 == am_ROWS_empty_n) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
+    if ((~((ap_start == 1'b0) | (fm_COLS_c15_full_n == 1'b0) | (fm_COLS_empty_n == 1'b0) | (1'b0 == am_ROWS_empty_n) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
         am_ROWS_read = 1'b1;
     end else begin
         am_ROWS_read = 1'b0;
@@ -816,7 +816,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((ap_start == 1'b0) | (fm_COLS_c12_full_n == 1'b0) | (fm_COLS_empty_n == 1'b0) | (1'b0 == am_ROWS_empty_n) | (ap_done_reg == 1'b1))) begin
+    if (((ap_start == 1'b0) | (fm_COLS_c15_full_n == 1'b0) | (fm_COLS_empty_n == 1'b0) | (1'b0 == am_ROWS_empty_n) | (ap_done_reg == 1'b1))) begin
         ap_ST_fsm_state1_blk = 1'b1;
     end else begin
         ap_ST_fsm_state1_blk = 1'b0;
@@ -907,22 +907,22 @@ end
 
 always @ (*) begin
     if ((~((ap_start == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
-        fm_COLS_c12_blk_n = fm_COLS_c12_full_n;
+        fm_COLS_c15_blk_n = fm_COLS_c15_full_n;
     end else begin
-        fm_COLS_c12_blk_n = 1'b1;
+        fm_COLS_c15_blk_n = 1'b1;
     end
 end
 
 always @ (*) begin
-    if ((~((ap_start == 1'b0) | (fm_COLS_c12_full_n == 1'b0) | (fm_COLS_empty_n == 1'b0) | (1'b0 == am_ROWS_empty_n) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
-        fm_COLS_c12_write = 1'b1;
+    if ((~((ap_start == 1'b0) | (fm_COLS_c15_full_n == 1'b0) | (fm_COLS_empty_n == 1'b0) | (1'b0 == am_ROWS_empty_n) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
+        fm_COLS_c15_write = 1'b1;
     end else begin
-        fm_COLS_c12_write = 1'b0;
+        fm_COLS_c15_write = 1'b0;
     end
 end
 
 always @ (*) begin
-    if ((~((ap_start == 1'b0) | (fm_COLS_c12_full_n == 1'b0) | (fm_COLS_empty_n == 1'b0) | (1'b0 == am_ROWS_empty_n) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
+    if ((~((ap_start == 1'b0) | (fm_COLS_c15_full_n == 1'b0) | (fm_COLS_empty_n == 1'b0) | (1'b0 == am_ROWS_empty_n) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
         fm_COLS_read = 1'b1;
     end else begin
         fm_COLS_read = 1'b0;
@@ -964,7 +964,7 @@ end
 always @ (*) begin
     case (ap_CS_fsm)
         ap_ST_fsm_state1 : begin
-            if ((~((ap_start == 1'b0) | (fm_COLS_c12_full_n == 1'b0) | (fm_COLS_empty_n == 1'b0) | (1'b0 == am_ROWS_empty_n) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
+            if ((~((ap_start == 1'b0) | (fm_COLS_c15_full_n == 1'b0) | (fm_COLS_empty_n == 1'b0) | (1'b0 == am_ROWS_empty_n) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
                 ap_NS_fsm = ap_ST_fsm_state2;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state1;
@@ -1074,7 +1074,7 @@ assign ap_CS_fsm_state3 = ap_CS_fsm[32'd2];
 assign ap_CS_fsm_state4 = ap_CS_fsm[32'd3];
 
 always @ (*) begin
-    ap_block_state1 = ((ap_start == 1'b0) | (fm_COLS_c12_full_n == 1'b0) | (fm_COLS_empty_n == 1'b0) | (1'b0 == am_ROWS_empty_n) | (ap_done_reg == 1'b1));
+    ap_block_state1 = ((ap_start == 1'b0) | (fm_COLS_c15_full_n == 1'b0) | (fm_COLS_empty_n == 1'b0) | (1'b0 == am_ROWS_empty_n) | (ap_done_reg == 1'b1));
 end
 
 always @ (*) begin
@@ -1091,7 +1091,7 @@ assign count_1_fu_678_p2 = (count_reg_618 + 8'd1);
 
 assign data_out1_din = $signed(p_Result_s_fu_2460_p33);
 
-assign fm_COLS_c12_din = fm_COLS_dout;
+assign fm_COLS_c15_din = fm_COLS_dout;
 
 assign icmp_ln79_fu_647_p2 = ((block_fu_206 == trunc_ln_reg_2545) ? 1'b1 : 1'b0);
 

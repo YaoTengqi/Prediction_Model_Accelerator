@@ -14,7 +14,7 @@ entity sparse_start_for_quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0 is
         MEM_STYLE         : string  := "shiftReg"; 
         DATA_WIDTH        : integer := 1;
         ADDR_WIDTH        : integer := 2;
-        DEPTH             : integer := 3);
+        DEPTH             : integer := 4);
     port (
         clk               : in  std_logic;
         reset             : in  std_logic;
@@ -39,7 +39,7 @@ architecture rtl of sparse_start_for_quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0
     generic (
         DATA_WIDTH : integer := 1;
         ADDR_WIDTH : integer := 2;
-        DEPTH      : integer := 3);
+        DEPTH      : integer := 4);
     port (
         clk        : in std_logic;
         we         : in std_logic;
@@ -138,7 +138,7 @@ entity sparse_start_for_quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_ShiftReg is
     generic (
         DATA_WIDTH : integer := 1;
         ADDR_WIDTH : integer := 2;
-        DEPTH      : integer := 3);
+        DEPTH      : integer := 4);
     port (
         clk        : in std_logic;
         we         : in std_logic;

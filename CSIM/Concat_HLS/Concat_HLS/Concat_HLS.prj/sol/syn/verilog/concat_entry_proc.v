@@ -11,19 +11,10 @@ module concat_entry_proc (
         ap_clk,
         ap_rst,
         ap_start,
-        start_full_n,
         ap_done,
         ap_continue,
         ap_idle,
         ap_ready,
-        start_out,
-        start_write,
-        output_data_addr3,
-        output_data_addr3_c_din,
-        output_data_addr3_c_num_data_valid,
-        output_data_addr3_c_fifo_cap,
-        output_data_addr3_c_full_n,
-        output_data_addr3_c_write,
         outputs,
         outputs_c_din,
         outputs_c_num_data_valid,
@@ -37,19 +28,10 @@ parameter    ap_ST_fsm_state1 = 1'd1;
 input   ap_clk;
 input   ap_rst;
 input   ap_start;
-input   start_full_n;
 output   ap_done;
 input   ap_continue;
 output   ap_idle;
 output   ap_ready;
-output   start_out;
-output   start_write;
-input  [31:0] output_data_addr3;
-output  [31:0] output_data_addr3_c_din;
-input  [2:0] output_data_addr3_c_num_data_valid;
-input  [2:0] output_data_addr3_c_fifo_cap;
-input   output_data_addr3_c_full_n;
-output   output_data_addr3_c_write;
 input  [63:0] outputs;
 output  [63:0] outputs_c_din;
 input  [2:0] outputs_c_num_data_valid;
@@ -59,17 +41,12 @@ output   outputs_c_write;
 
 reg ap_done;
 reg ap_idle;
-reg start_write;
-reg output_data_addr3_c_write;
+reg ap_ready;
 reg outputs_c_write;
 
-reg    real_start;
-reg    start_once_reg;
 reg    ap_done_reg;
 (* fsm_encoding = "none" *) reg   [0:0] ap_CS_fsm;
 wire    ap_CS_fsm_state1;
-reg    internal_ap_ready;
-reg    output_data_addr3_c_blk_n;
 reg    outputs_c_blk_n;
 reg    ap_block_state1;
 reg   [0:0] ap_NS_fsm;
@@ -78,7 +55,6 @@ wire    ap_ce_reg;
 
 // power-on initialization
 initial begin
-#0 start_once_reg = 1'b0;
 #0 ap_done_reg = 1'b0;
 #0 ap_CS_fsm = 1'd1;
 end
@@ -97,26 +73,14 @@ always @ (posedge ap_clk) begin
     end else begin
         if ((ap_continue == 1'b1)) begin
             ap_done_reg <= 1'b0;
-        end else if ((~((real_start == 1'b0) | (outputs_c_full_n == 1'b0) | (output_data_addr3_c_full_n == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
+        end else if ((~((ap_start == 1'b0) | (outputs_c_full_n == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
             ap_done_reg <= 1'b1;
         end
     end
 end
 
-always @ (posedge ap_clk) begin
-    if (ap_rst == 1'b1) begin
-        start_once_reg <= 1'b0;
-    end else begin
-        if (((real_start == 1'b1) & (internal_ap_ready == 1'b0))) begin
-            start_once_reg <= 1'b1;
-        end else if ((internal_ap_ready == 1'b1)) begin
-            start_once_reg <= 1'b0;
-        end
-    end
-end
-
 always @ (*) begin
-    if (((real_start == 1'b0) | (outputs_c_full_n == 1'b0) | (output_data_addr3_c_full_n == 1'b0) | (ap_done_reg == 1'b1))) begin
+    if (((ap_start == 1'b0) | (outputs_c_full_n == 1'b0) | (ap_done_reg == 1'b1))) begin
         ap_ST_fsm_state1_blk = 1'b1;
     end else begin
         ap_ST_fsm_state1_blk = 1'b0;
@@ -124,7 +88,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((~((real_start == 1'b0) | (outputs_c_full_n == 1'b0) | (output_data_addr3_c_full_n == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
+    if ((~((ap_start == 1'b0) | (outputs_c_full_n == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
         ap_done = 1'b1;
     end else begin
         ap_done = ap_done_reg;
@@ -132,7 +96,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((real_start == 1'b0) & (1'b1 == ap_CS_fsm_state1))) begin
+    if (((ap_start == 1'b0) & (1'b1 == ap_CS_fsm_state1))) begin
         ap_idle = 1'b1;
     end else begin
         ap_idle = 1'b0;
@@ -140,31 +104,15 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((~((real_start == 1'b0) | (outputs_c_full_n == 1'b0) | (output_data_addr3_c_full_n == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
-        internal_ap_ready = 1'b1;
+    if ((~((ap_start == 1'b0) | (outputs_c_full_n == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
+        ap_ready = 1'b1;
     end else begin
-        internal_ap_ready = 1'b0;
+        ap_ready = 1'b0;
     end
 end
 
 always @ (*) begin
-    if ((~((real_start == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
-        output_data_addr3_c_blk_n = output_data_addr3_c_full_n;
-    end else begin
-        output_data_addr3_c_blk_n = 1'b1;
-    end
-end
-
-always @ (*) begin
-    if ((~((real_start == 1'b0) | (outputs_c_full_n == 1'b0) | (output_data_addr3_c_full_n == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
-        output_data_addr3_c_write = 1'b1;
-    end else begin
-        output_data_addr3_c_write = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if ((~((real_start == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
+    if ((~((ap_start == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
         outputs_c_blk_n = outputs_c_full_n;
     end else begin
         outputs_c_blk_n = 1'b1;
@@ -172,26 +120,10 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((~((real_start == 1'b0) | (outputs_c_full_n == 1'b0) | (output_data_addr3_c_full_n == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
+    if ((~((ap_start == 1'b0) | (outputs_c_full_n == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
         outputs_c_write = 1'b1;
     end else begin
         outputs_c_write = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if (((start_full_n == 1'b0) & (start_once_reg == 1'b0))) begin
-        real_start = 1'b0;
-    end else begin
-        real_start = ap_start;
-    end
-end
-
-always @ (*) begin
-    if (((real_start == 1'b1) & (start_once_reg == 1'b0))) begin
-        start_write = 1'b1;
-    end else begin
-        start_write = 1'b0;
     end
 end
 
@@ -209,15 +141,9 @@ end
 assign ap_CS_fsm_state1 = ap_CS_fsm[32'd0];
 
 always @ (*) begin
-    ap_block_state1 = ((real_start == 1'b0) | (outputs_c_full_n == 1'b0) | (output_data_addr3_c_full_n == 1'b0) | (ap_done_reg == 1'b1));
+    ap_block_state1 = ((ap_start == 1'b0) | (outputs_c_full_n == 1'b0) | (ap_done_reg == 1'b1));
 end
 
-assign ap_ready = internal_ap_ready;
-
-assign output_data_addr3_c_din = output_data_addr3;
-
 assign outputs_c_din = outputs;
-
-assign start_out = real_start;
 
 endmodule //concat_entry_proc

@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'quant_ap_uint_256_ap_int_32_ap_int_8_32u_s'" level="0">
-<item name = "Date">Fri Jun  7 17:07:38 2024
+<item name = "Date">Sun Jun  9 10:52:47 2024
 </item>
 <item name = "Version">2022.2 (Build 3670227 on Oct 13 2022)</item>
 <item name = "Project">Sparse_HLS.prj</item>
@@ -62,7 +62,7 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP, FF, LUT, URAM</keys>
-<column name="mul_32s_32s_32_1_1_U80">mul_32s_32s_32_1_1, 0, 3, 0, 20, 0</column>
+<column name="mul_32s_32s_32_1_1_U81">mul_32s_32s_32_1_1, 0, 3, 0, 20, 0</column>
 <column name="grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1_fu_94">quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1, 0, 224, 3234, 19853, 0</column>
 </table>
 </item>
@@ -153,13 +153,13 @@
 <column name="quant_out2_full_n">in, 1, ap_fifo, quant_out2, pointer</column>
 <column name="quant_out2_write">out, 1, ap_fifo, quant_out2, pointer</column>
 <column name="quant_shift_dout">in, 32, ap_fifo, quant_shift, pointer</column>
-<column name="quant_shift_num_data_valid">in, 3, ap_fifo, quant_shift, pointer</column>
-<column name="quant_shift_fifo_cap">in, 3, ap_fifo, quant_shift, pointer</column>
+<column name="quant_shift_num_data_valid">in, 4, ap_fifo, quant_shift, pointer</column>
+<column name="quant_shift_fifo_cap">in, 4, ap_fifo, quant_shift, pointer</column>
 <column name="quant_shift_empty_n">in, 1, ap_fifo, quant_shift, pointer</column>
 <column name="quant_shift_read">out, 1, ap_fifo, quant_shift, pointer</column>
 <column name="quant_mul_dout">in, 32, ap_fifo, quant_mul, pointer</column>
-<column name="quant_mul_num_data_valid">in, 3, ap_fifo, quant_mul, pointer</column>
-<column name="quant_mul_fifo_cap">in, 3, ap_fifo, quant_mul, pointer</column>
+<column name="quant_mul_num_data_valid">in, 4, ap_fifo, quant_mul, pointer</column>
+<column name="quant_mul_fifo_cap">in, 4, ap_fifo, quant_mul, pointer</column>
 <column name="quant_mul_empty_n">in, 1, ap_fifo, quant_mul, pointer</column>
 <column name="quant_mul_read">out, 1, ap_fifo, quant_mul, pointer</column>
 <column name="fm_ROWS_c_din">out, 32, ap_fifo, fm_ROWS_c, pointer</column>

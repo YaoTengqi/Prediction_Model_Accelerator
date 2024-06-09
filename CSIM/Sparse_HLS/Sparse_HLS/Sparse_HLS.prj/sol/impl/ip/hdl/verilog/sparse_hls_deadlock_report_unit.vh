@@ -1,5 +1,5 @@
    
-    parameter PROC_NUM = 5;
+    parameter PROC_NUM = 6;
     parameter ST_IDLE = 3'b000;
     parameter ST_FILTER_FAKE = 3'b001;
     parameter ST_DL_DETECTED = 3'b010;
@@ -194,15 +194,18 @@
                     proc_path = "sparse_sparse.entry_proc_U0";
                 end
                 1 : begin
-                    proc_path = "sparse_sparse.load_ap_uint_256_ap_int_8_ap_int_8_32u_U0";
+                    proc_path = "sparse_sparse.Block_entry4_proc_U0";
                 end
                 2 : begin
-                    proc_path = "sparse_sparse.mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0";
+                    proc_path = "sparse_sparse.load_ap_uint_256_ap_int_8_ap_int_8_32u_U0";
                 end
                 3 : begin
-                    proc_path = "sparse_sparse.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0";
+                    proc_path = "sparse_sparse.mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0";
                 end
                 4 : begin
+                    proc_path = "sparse_sparse.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0";
+                end
+                5 : begin
                     proc_path = "sparse_sparse.store_ap_uint_256_ap_int_8_ap_int_8_32u_U0";
                 end
                 default : begin
@@ -267,19 +270,7 @@
             case (index1)
                 0 : begin
                     case(index2)
-                    4: begin
-                        if (~entry_proc_U0.output_data_addr3_c_blk_n) begin
-                            if (~output_data_addr3_c_U.if_empty_n) begin
-                                $display("//      Blocked by empty input FIFO 'sparse_sparse.output_data_addr3_c_U' written by process 'sparse_sparse.store_ap_uint_256_ap_int_8_ap_int_8_32u_U0'");
-                                $fdisplay(fp, "Dependence_Channel_path sparse_sparse.output_data_addr3_c_U");
-                                $fdisplay(fp, "Dependence_Channel_status EMPTY");
-                            end
-                            else if (~output_data_addr3_c_U.if_full_n) begin
-                                $display("//      Blocked by full output FIFO 'sparse_sparse.output_data_addr3_c_U' read by process 'sparse_sparse.store_ap_uint_256_ap_int_8_ap_int_8_32u_U0'");
-                                $fdisplay(fp, "Dependence_Channel_path sparse_sparse.output_data_addr3_c_U");
-                                $fdisplay(fp, "Dependence_Channel_status FULL");
-                            end
-                        end
+                    5: begin
                         if (~entry_proc_U0.outputs_c_blk_n) begin
                             if (~outputs_c_U.if_empty_n) begin
                                 $display("//      Blocked by empty input FIFO 'sparse_sparse.outputs_c_U' written by process 'sparse_sparse.store_ap_uint_256_ap_int_8_ap_int_8_32u_U0'");
@@ -292,11 +283,8 @@
                                 $fdisplay(fp, "Dependence_Channel_status FULL");
                             end
                         end
-                        if (~start_for_store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_U.if_full_n & entry_proc_U0.ap_start & ~entry_proc_U0.real_start & (trans_in_cnt_1 == trans_out_cnt_1) & ~start_for_store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_U.if_read) begin
-                            $display("//      Blocked by full output start propagation FIFO 'sparse_sparse.start_for_store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_U' read by process 'sparse_sparse.store_ap_uint_256_ap_int_8_ap_int_8_32u_U0',");
-                        end
                     end
-                    3: begin
+                    4: begin
                         if (~entry_proc_U0.quant_shift_c_blk_n) begin
                             if (~quant_shift_c_U.if_empty_n) begin
                                 $display("//      Blocked by empty input FIFO 'sparse_sparse.quant_shift_c_U' written by process 'sparse_sparse.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0'");
@@ -326,6 +314,11 @@
                         end
                     end
                     1: begin
+                        if (ap_sync_entry_proc_U0_ap_ready & entry_proc_U0.ap_idle & ~ap_sync_Block_entry4_proc_U0_ap_ready) begin
+                            $display("//      Blocked by input sync logic with process : 'sparse_sparse.Block_entry4_proc_U0'");
+                        end
+                    end
+                    2: begin
                         if (ap_sync_entry_proc_U0_ap_ready & entry_proc_U0.ap_idle & ~ap_sync_load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_ready) begin
                             $display("//      Blocked by input sync logic with process : 'sparse_sparse.load_ap_uint_256_ap_int_8_ap_int_8_32u_U0'");
                         end
@@ -334,8 +327,22 @@
                 end
                 1 : begin
                     case(index2)
+                    0: begin
+                        if (ap_sync_Block_entry4_proc_U0_ap_ready & Block_entry4_proc_U0.ap_idle & ~ap_sync_entry_proc_U0_ap_ready) begin
+                            $display("//      Blocked by input sync logic with process : 'sparse_sparse.entry_proc_U0'");
+                        end
+                    end
                     2: begin
-                        if (~load_ap_uint_256_ap_int_8_ap_int_8_32u_U0.idx_stream4_blk_n) begin
+                        if (ap_sync_Block_entry4_proc_U0_ap_ready & Block_entry4_proc_U0.ap_idle & ~ap_sync_load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_ready) begin
+                            $display("//      Blocked by input sync logic with process : 'sparse_sparse.load_ap_uint_256_ap_int_8_ap_int_8_32u_U0'");
+                        end
+                    end
+                    endcase
+                end
+                2 : begin
+                    case(index2)
+                    3: begin
+                        if (~load_ap_uint_256_ap_int_8_ap_int_8_32u_U0.idx_stream_blk_n) begin
                             if (~idx_stream_U.if_empty_n) begin
                                 $display("//      Blocked by empty input FIFO 'sparse_sparse.idx_stream_U' written by process 'sparse_sparse.mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0'");
                                 $fdisplay(fp, "Dependence_Channel_path sparse_sparse.idx_stream_U");
@@ -347,7 +354,7 @@
                                 $fdisplay(fp, "Dependence_Channel_status FULL");
                             end
                         end
-                        if (~load_ap_uint_256_ap_int_8_ap_int_8_32u_U0.count_stream5_blk_n) begin
+                        if (~load_ap_uint_256_ap_int_8_ap_int_8_32u_U0.count_stream_blk_n) begin
                             if (~count_stream_U.if_empty_n) begin
                                 $display("//      Blocked by empty input FIFO 'sparse_sparse.count_stream_U' written by process 'sparse_sparse.mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0'");
                                 $fdisplay(fp, "Dependence_Channel_path sparse_sparse.count_stream_U");
@@ -359,7 +366,7 @@
                                 $fdisplay(fp, "Dependence_Channel_status FULL");
                             end
                         end
-                        if (~load_ap_uint_256_ap_int_8_ap_int_8_32u_U0.fm_stream3_blk_n) begin
+                        if (~load_ap_uint_256_ap_int_8_ap_int_8_32u_U0.fm_stream_blk_n) begin
                             if (~fm_stream_U.if_empty_n) begin
                                 $display("//      Blocked by empty input FIFO 'sparse_sparse.fm_stream_U' written by process 'sparse_sparse.mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0'");
                                 $fdisplay(fp, "Dependence_Channel_path sparse_sparse.fm_stream_U");
@@ -383,15 +390,15 @@
                                 $fdisplay(fp, "Dependence_Channel_status FULL");
                             end
                         end
-                        if (~load_ap_uint_256_ap_int_8_ap_int_8_32u_U0.fm_COLS_c13_blk_n) begin
-                            if (~fm_COLS_c13_U.if_empty_n) begin
-                                $display("//      Blocked by empty input FIFO 'sparse_sparse.fm_COLS_c13_U' written by process 'sparse_sparse.mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0'");
-                                $fdisplay(fp, "Dependence_Channel_path sparse_sparse.fm_COLS_c13_U");
+                        if (~load_ap_uint_256_ap_int_8_ap_int_8_32u_U0.fm_COLS_c16_blk_n) begin
+                            if (~fm_COLS_c16_U.if_empty_n) begin
+                                $display("//      Blocked by empty input FIFO 'sparse_sparse.fm_COLS_c16_U' written by process 'sparse_sparse.mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path sparse_sparse.fm_COLS_c16_U");
                                 $fdisplay(fp, "Dependence_Channel_status EMPTY");
                             end
-                            else if (~fm_COLS_c13_U.if_full_n) begin
-                                $display("//      Blocked by full output FIFO 'sparse_sparse.fm_COLS_c13_U' read by process 'sparse_sparse.mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0'");
-                                $fdisplay(fp, "Dependence_Channel_path sparse_sparse.fm_COLS_c13_U");
+                            else if (~fm_COLS_c16_U.if_full_n) begin
+                                $display("//      Blocked by full output FIFO 'sparse_sparse.fm_COLS_c16_U' read by process 'sparse_sparse.mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path sparse_sparse.fm_COLS_c16_U");
                                 $fdisplay(fp, "Dependence_Channel_status FULL");
                             end
                         end
@@ -399,16 +406,45 @@
                             $display("//      Blocked by full output start propagation FIFO 'sparse_sparse.start_for_mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_U' read by process 'sparse_sparse.mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0',");
                         end
                     end
-                    3: begin
-                        if (~load_ap_uint_256_ap_int_8_ap_int_8_32u_U0.fm_ROWS_c11_blk_n) begin
-                            if (~fm_ROWS_c11_U.if_empty_n) begin
-                                $display("//      Blocked by empty input FIFO 'sparse_sparse.fm_ROWS_c11_U' written by process 'sparse_sparse.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0'");
-                                $fdisplay(fp, "Dependence_Channel_path sparse_sparse.fm_ROWS_c11_U");
+                    1: begin
+                        if (~input_data_addr1_assign_cast_loc_channel_U.if_empty_n & load_ap_uint_256_ap_int_8_ap_int_8_32u_U0.ap_idle & ~input_data_addr1_assign_cast_loc_channel_U.if_write) begin
+                            if (~input_data_addr1_assign_cast_loc_channel_U.if_empty_n) begin
+                                $display("//      Blocked by empty input FIFO 'sparse_sparse.input_data_addr1_assign_cast_loc_channel_U' written by process 'sparse_sparse.Block_entry4_proc_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path sparse_sparse.input_data_addr1_assign_cast_loc_channel_U");
                                 $fdisplay(fp, "Dependence_Channel_status EMPTY");
                             end
-                            else if (~fm_ROWS_c11_U.if_full_n) begin
-                                $display("//      Blocked by full output FIFO 'sparse_sparse.fm_ROWS_c11_U' read by process 'sparse_sparse.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0'");
-                                $fdisplay(fp, "Dependence_Channel_path sparse_sparse.fm_ROWS_c11_U");
+                            else if (~input_data_addr1_assign_cast_loc_channel_U.if_full_n) begin
+                                $display("//      Blocked by full output FIFO 'sparse_sparse.input_data_addr1_assign_cast_loc_channel_U' read by process 'sparse_sparse.Block_entry4_proc_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path sparse_sparse.input_data_addr1_assign_cast_loc_channel_U");
+                                $fdisplay(fp, "Dependence_Channel_status FULL");
+                            end
+                        end
+                        if (~input_data_addr2_assign_cast_loc_channel_U.if_empty_n & load_ap_uint_256_ap_int_8_ap_int_8_32u_U0.ap_idle & ~input_data_addr2_assign_cast_loc_channel_U.if_write) begin
+                            if (~input_data_addr2_assign_cast_loc_channel_U.if_empty_n) begin
+                                $display("//      Blocked by empty input FIFO 'sparse_sparse.input_data_addr2_assign_cast_loc_channel_U' written by process 'sparse_sparse.Block_entry4_proc_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path sparse_sparse.input_data_addr2_assign_cast_loc_channel_U");
+                                $fdisplay(fp, "Dependence_Channel_status EMPTY");
+                            end
+                            else if (~input_data_addr2_assign_cast_loc_channel_U.if_full_n) begin
+                                $display("//      Blocked by full output FIFO 'sparse_sparse.input_data_addr2_assign_cast_loc_channel_U' read by process 'sparse_sparse.Block_entry4_proc_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path sparse_sparse.input_data_addr2_assign_cast_loc_channel_U");
+                                $fdisplay(fp, "Dependence_Channel_status FULL");
+                            end
+                        end
+                        if (ap_sync_load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_ready & load_ap_uint_256_ap_int_8_ap_int_8_32u_U0.ap_idle & ~ap_sync_Block_entry4_proc_U0_ap_ready) begin
+                            $display("//      Blocked by input sync logic with process : 'sparse_sparse.Block_entry4_proc_U0'");
+                        end
+                    end
+                    4: begin
+                        if (~load_ap_uint_256_ap_int_8_ap_int_8_32u_U0.fm_ROWS_c14_blk_n) begin
+                            if (~fm_ROWS_c14_U.if_empty_n) begin
+                                $display("//      Blocked by empty input FIFO 'sparse_sparse.fm_ROWS_c14_U' written by process 'sparse_sparse.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path sparse_sparse.fm_ROWS_c14_U");
+                                $fdisplay(fp, "Dependence_Channel_status EMPTY");
+                            end
+                            else if (~fm_ROWS_c14_U.if_full_n) begin
+                                $display("//      Blocked by full output FIFO 'sparse_sparse.fm_ROWS_c14_U' read by process 'sparse_sparse.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path sparse_sparse.fm_ROWS_c14_U");
                                 $fdisplay(fp, "Dependence_Channel_status FULL");
                             end
                         end
@@ -420,9 +456,9 @@
                     end
                     endcase
                 end
-                2 : begin
+                3 : begin
                     case(index2)
-                    1: begin
+                    2: begin
                         if (~mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0.am_ROWS_blk_n) begin
                             if (~am_ROWS_c_U.if_empty_n) begin
                                 $display("//      Blocked by empty input FIFO 'sparse_sparse.am_ROWS_c_U' written by process 'sparse_sparse.load_ap_uint_256_ap_int_8_ap_int_8_32u_U0'");
@@ -436,14 +472,14 @@
                             end
                         end
                         if (~mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0.fm_COLS_blk_n) begin
-                            if (~fm_COLS_c13_U.if_empty_n) begin
-                                $display("//      Blocked by empty input FIFO 'sparse_sparse.fm_COLS_c13_U' written by process 'sparse_sparse.load_ap_uint_256_ap_int_8_ap_int_8_32u_U0'");
-                                $fdisplay(fp, "Dependence_Channel_path sparse_sparse.fm_COLS_c13_U");
+                            if (~fm_COLS_c16_U.if_empty_n) begin
+                                $display("//      Blocked by empty input FIFO 'sparse_sparse.fm_COLS_c16_U' written by process 'sparse_sparse.load_ap_uint_256_ap_int_8_ap_int_8_32u_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path sparse_sparse.fm_COLS_c16_U");
                                 $fdisplay(fp, "Dependence_Channel_status EMPTY");
                             end
-                            else if (~fm_COLS_c13_U.if_full_n) begin
-                                $display("//      Blocked by full output FIFO 'sparse_sparse.fm_COLS_c13_U' read by process 'sparse_sparse.load_ap_uint_256_ap_int_8_ap_int_8_32u_U0'");
-                                $fdisplay(fp, "Dependence_Channel_path sparse_sparse.fm_COLS_c13_U");
+                            else if (~fm_COLS_c16_U.if_full_n) begin
+                                $display("//      Blocked by full output FIFO 'sparse_sparse.fm_COLS_c16_U' read by process 'sparse_sparse.load_ap_uint_256_ap_int_8_ap_int_8_32u_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path sparse_sparse.fm_COLS_c16_U");
                                 $fdisplay(fp, "Dependence_Channel_status FULL");
                             end
                         end
@@ -487,7 +523,7 @@
                             $display("//      Blocked by missing 'ap_start' from start propagation FIFO 'sparse_sparse.start_for_mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_U' written by process 'sparse_sparse.load_ap_uint_256_ap_int_8_ap_int_8_32u_U0',");
                         end
                     end
-                    3: begin
+                    4: begin
                         if (~mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0.data_out1_blk_n) begin
                             if (~data_out_U.if_empty_n) begin
                                 $display("//      Blocked by empty input FIFO 'sparse_sparse.data_out_U' written by process 'sparse_sparse.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0'");
@@ -500,24 +536,24 @@
                                 $fdisplay(fp, "Dependence_Channel_status FULL");
                             end
                         end
-                        if (~mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0.fm_COLS_c12_blk_n) begin
-                            if (~fm_COLS_c12_U.if_empty_n) begin
-                                $display("//      Blocked by empty input FIFO 'sparse_sparse.fm_COLS_c12_U' written by process 'sparse_sparse.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0'");
-                                $fdisplay(fp, "Dependence_Channel_path sparse_sparse.fm_COLS_c12_U");
+                        if (~mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0.fm_COLS_c15_blk_n) begin
+                            if (~fm_COLS_c15_U.if_empty_n) begin
+                                $display("//      Blocked by empty input FIFO 'sparse_sparse.fm_COLS_c15_U' written by process 'sparse_sparse.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path sparse_sparse.fm_COLS_c15_U");
                                 $fdisplay(fp, "Dependence_Channel_status EMPTY");
                             end
-                            else if (~fm_COLS_c12_U.if_full_n) begin
-                                $display("//      Blocked by full output FIFO 'sparse_sparse.fm_COLS_c12_U' read by process 'sparse_sparse.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0'");
-                                $fdisplay(fp, "Dependence_Channel_path sparse_sparse.fm_COLS_c12_U");
+                            else if (~fm_COLS_c15_U.if_full_n) begin
+                                $display("//      Blocked by full output FIFO 'sparse_sparse.fm_COLS_c15_U' read by process 'sparse_sparse.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path sparse_sparse.fm_COLS_c15_U");
                                 $fdisplay(fp, "Dependence_Channel_status FULL");
                             end
                         end
                     end
                     endcase
                 end
-                3 : begin
+                4 : begin
                     case(index2)
-                    2: begin
+                    3: begin
                         if (~quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1_fu_94.data_out1_blk_n) begin
                             if (~data_out_U.if_empty_n) begin
                                 $display("//      Blocked by empty input FIFO 'sparse_sparse.data_out_U' written by process 'sparse_sparse.mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0'");
@@ -531,33 +567,33 @@
                             end
                         end
                         if (~quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.fm_COLS_blk_n) begin
-                            if (~fm_COLS_c12_U.if_empty_n) begin
-                                $display("//      Blocked by empty input FIFO 'sparse_sparse.fm_COLS_c12_U' written by process 'sparse_sparse.mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0'");
-                                $fdisplay(fp, "Dependence_Channel_path sparse_sparse.fm_COLS_c12_U");
+                            if (~fm_COLS_c15_U.if_empty_n) begin
+                                $display("//      Blocked by empty input FIFO 'sparse_sparse.fm_COLS_c15_U' written by process 'sparse_sparse.mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path sparse_sparse.fm_COLS_c15_U");
                                 $fdisplay(fp, "Dependence_Channel_status EMPTY");
                             end
-                            else if (~fm_COLS_c12_U.if_full_n) begin
-                                $display("//      Blocked by full output FIFO 'sparse_sparse.fm_COLS_c12_U' read by process 'sparse_sparse.mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0'");
-                                $fdisplay(fp, "Dependence_Channel_path sparse_sparse.fm_COLS_c12_U");
+                            else if (~fm_COLS_c15_U.if_full_n) begin
+                                $display("//      Blocked by full output FIFO 'sparse_sparse.fm_COLS_c15_U' read by process 'sparse_sparse.mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path sparse_sparse.fm_COLS_c15_U");
                                 $fdisplay(fp, "Dependence_Channel_status FULL");
                             end
                         end
                     end
-                    1: begin
+                    2: begin
                         if (~quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.fm_ROWS_blk_n) begin
-                            if (~fm_ROWS_c11_U.if_empty_n) begin
-                                $display("//      Blocked by empty input FIFO 'sparse_sparse.fm_ROWS_c11_U' written by process 'sparse_sparse.load_ap_uint_256_ap_int_8_ap_int_8_32u_U0'");
-                                $fdisplay(fp, "Dependence_Channel_path sparse_sparse.fm_ROWS_c11_U");
+                            if (~fm_ROWS_c14_U.if_empty_n) begin
+                                $display("//      Blocked by empty input FIFO 'sparse_sparse.fm_ROWS_c14_U' written by process 'sparse_sparse.load_ap_uint_256_ap_int_8_ap_int_8_32u_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path sparse_sparse.fm_ROWS_c14_U");
                                 $fdisplay(fp, "Dependence_Channel_status EMPTY");
                             end
-                            else if (~fm_ROWS_c11_U.if_full_n) begin
-                                $display("//      Blocked by full output FIFO 'sparse_sparse.fm_ROWS_c11_U' read by process 'sparse_sparse.load_ap_uint_256_ap_int_8_ap_int_8_32u_U0'");
-                                $fdisplay(fp, "Dependence_Channel_path sparse_sparse.fm_ROWS_c11_U");
+                            else if (~fm_ROWS_c14_U.if_full_n) begin
+                                $display("//      Blocked by full output FIFO 'sparse_sparse.fm_ROWS_c14_U' read by process 'sparse_sparse.load_ap_uint_256_ap_int_8_ap_int_8_32u_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path sparse_sparse.fm_ROWS_c14_U");
                                 $fdisplay(fp, "Dependence_Channel_status FULL");
                             end
                         end
                     end
-                    4: begin
+                    5: begin
                         if (~quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1_fu_94.quant_out2_blk_n) begin
                             if (~quant_out_U.if_empty_n) begin
                                 $display("//      Blocked by empty input FIFO 'sparse_sparse.quant_out_U' written by process 'sparse_sparse.store_ap_uint_256_ap_int_8_ap_int_8_32u_U0'");
@@ -626,10 +662,10 @@
                     end
                     endcase
                 end
-                4 : begin
+                5 : begin
                     case(index2)
-                    3: begin
-                        if (~store_ap_uint_256_ap_int_8_ap_int_8_32u_U0.grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124.quant_out2_blk_n) begin
+                    4: begin
+                        if (~store_ap_uint_256_ap_int_8_ap_int_8_32u_U0.grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126.quant_out_blk_n) begin
                             if (~quant_out_U.if_empty_n) begin
                                 $display("//      Blocked by empty input FIFO 'sparse_sparse.quant_out_U' written by process 'sparse_sparse.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0'");
                                 $fdisplay(fp, "Dependence_Channel_path sparse_sparse.quant_out_U");
@@ -641,7 +677,7 @@
                                 $fdisplay(fp, "Dependence_Channel_status FULL");
                             end
                         end
-                        if (~store_ap_uint_256_ap_int_8_ap_int_8_32u_U0.ROWS_blk_n) begin
+                        if (~store_ap_uint_256_ap_int_8_ap_int_8_32u_U0.fm_ROWS_blk_n) begin
                             if (~fm_ROWS_c_U.if_empty_n) begin
                                 $display("//      Blocked by empty input FIFO 'sparse_sparse.fm_ROWS_c_U' written by process 'sparse_sparse.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0'");
                                 $fdisplay(fp, "Dependence_Channel_path sparse_sparse.fm_ROWS_c_U");
@@ -653,7 +689,7 @@
                                 $fdisplay(fp, "Dependence_Channel_status FULL");
                             end
                         end
-                        if (~store_ap_uint_256_ap_int_8_ap_int_8_32u_U0.COLS_blk_n) begin
+                        if (~store_ap_uint_256_ap_int_8_ap_int_8_32u_U0.fm_COLS_blk_n) begin
                             if (~fm_COLS_c_U.if_empty_n) begin
                                 $display("//      Blocked by empty input FIFO 'sparse_sparse.fm_COLS_c_U' written by process 'sparse_sparse.quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0'");
                                 $fdisplay(fp, "Dependence_Channel_path sparse_sparse.fm_COLS_c_U");
@@ -679,20 +715,19 @@
                                 $fdisplay(fp, "Dependence_Channel_status FULL");
                             end
                         end
-                        if (~store_ap_uint_256_ap_int_8_ap_int_8_32u_U0.output_data_addr3_blk_n) begin
-                            if (~output_data_addr3_c_U.if_empty_n) begin
-                                $display("//      Blocked by empty input FIFO 'sparse_sparse.output_data_addr3_c_U' written by process 'sparse_sparse.entry_proc_U0'");
-                                $fdisplay(fp, "Dependence_Channel_path sparse_sparse.output_data_addr3_c_U");
+                    end
+                    1: begin
+                        if (~output_data_addr3_assign_cast_loc_channel_U.if_empty_n & store_ap_uint_256_ap_int_8_ap_int_8_32u_U0.ap_idle & ~output_data_addr3_assign_cast_loc_channel_U.if_write) begin
+                            if (~output_data_addr3_assign_cast_loc_channel_U.if_empty_n) begin
+                                $display("//      Blocked by empty input FIFO 'sparse_sparse.output_data_addr3_assign_cast_loc_channel_U' written by process 'sparse_sparse.Block_entry4_proc_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path sparse_sparse.output_data_addr3_assign_cast_loc_channel_U");
                                 $fdisplay(fp, "Dependence_Channel_status EMPTY");
                             end
-                            else if (~output_data_addr3_c_U.if_full_n) begin
-                                $display("//      Blocked by full output FIFO 'sparse_sparse.output_data_addr3_c_U' read by process 'sparse_sparse.entry_proc_U0'");
-                                $fdisplay(fp, "Dependence_Channel_path sparse_sparse.output_data_addr3_c_U");
+                            else if (~output_data_addr3_assign_cast_loc_channel_U.if_full_n) begin
+                                $display("//      Blocked by full output FIFO 'sparse_sparse.output_data_addr3_assign_cast_loc_channel_U' read by process 'sparse_sparse.Block_entry4_proc_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path sparse_sparse.output_data_addr3_assign_cast_loc_channel_U");
                                 $fdisplay(fp, "Dependence_Channel_status FULL");
                             end
-                        end
-                        if (~start_for_store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_U.if_empty_n & store_ap_uint_256_ap_int_8_ap_int_8_32u_U0.ap_idle & ~start_for_store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_U.if_write) begin
-                            $display("//      Blocked by missing 'ap_start' from start propagation FIFO 'sparse_sparse.start_for_store_ap_uint_256_ap_int_8_ap_int_8_32u_U0_U' written by process 'sparse_sparse.entry_proc_U0',");
                         end
                     end
                     endcase

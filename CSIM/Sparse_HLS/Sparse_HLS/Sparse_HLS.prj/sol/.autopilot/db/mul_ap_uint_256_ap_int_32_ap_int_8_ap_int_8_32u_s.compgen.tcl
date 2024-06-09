@@ -10,7 +10,7 @@ if {${::AESL::PGuard_autoexp_gen}} {
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 32 \
+    id 33 \
     name am_ROWS \
     type fifo \
     dir I \
@@ -25,7 +25,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 33 \
+    id 34 \
     name fm_COLS \
     type fifo \
     dir I \
@@ -40,7 +40,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 34 \
+    id 35 \
     name fm_stream3 \
     type fifo \
     dir I \
@@ -55,7 +55,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 35 \
+    id 36 \
     name idx_stream4 \
     type fifo \
     dir I \
@@ -70,7 +70,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 36 \
+    id 37 \
     name count_stream5 \
     type fifo \
     dir I \
@@ -85,7 +85,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 37 \
+    id 38 \
     name data_out1 \
     type fifo \
     dir O \
@@ -100,15 +100,15 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 38 \
-    name fm_COLS_c12 \
+    id 39 \
+    name fm_COLS_c15 \
     type fifo \
     dir O \
     reset_level 1 \
     sync_rst true \
-    corename dc_fm_COLS_c12 \
+    corename dc_fm_COLS_c15 \
     op interface \
-    ports { fm_COLS_c12_din { O 32 vector } fm_COLS_c12_num_data_valid { I 2 vector } fm_COLS_c12_fifo_cap { I 2 vector } fm_COLS_c12_full_n { I 1 bit } fm_COLS_c12_write { O 1 bit } } \
+    ports { fm_COLS_c15_din { O 32 vector } fm_COLS_c15_num_data_valid { I 2 vector } fm_COLS_c15_fifo_cap { I 2 vector } fm_COLS_c15_full_n { I 1 bit } fm_COLS_c15_write { O 1 bit } } \
 } "
 }
 

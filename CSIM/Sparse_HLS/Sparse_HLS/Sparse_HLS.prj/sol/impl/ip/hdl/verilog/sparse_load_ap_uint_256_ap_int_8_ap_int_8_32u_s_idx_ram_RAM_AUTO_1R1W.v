@@ -13,8 +13,8 @@ module sparse_load_ap_uint_256_ap_int_8_ap_int_8_32u_s_idx_ram_RAM_AUTO_1R1W (
     reset, clk);
 
 parameter DataWidth = 8;
-parameter AddressWidth = 11;
-parameter AddressRange = 2048;
+parameter AddressWidth = 7;
+parameter AddressRange = 128;
  
 input[AddressWidth-1:0] address0;
 input ce0;

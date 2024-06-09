@@ -140,8 +140,8 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>quant_out2_dout</name>
-<Object>quant_out2</Object>
+<name>quant_out_dout</name>
+<Object>quant_out</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>ap_fifo</IOProtocol>
@@ -151,8 +151,8 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>quant_out2_num_data_valid</name>
-<Object>quant_out2</Object>
+<name>quant_out_num_data_valid</name>
+<Object>quant_out</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>ap_fifo</IOProtocol>
@@ -162,8 +162,8 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>quant_out2_fifo_cap</name>
-<Object>quant_out2</Object>
+<name>quant_out_fifo_cap</name>
+<Object>quant_out</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>ap_fifo</IOProtocol>
@@ -173,8 +173,8 @@
 <Attribute>unknown</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>quant_out2_empty_n</name>
-<Object>quant_out2</Object>
+<name>quant_out_empty_n</name>
+<Object>quant_out</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>ap_fifo</IOProtocol>
@@ -184,8 +184,8 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>quant_out2_read</name>
-<Object>quant_out2</Object>
+<name>quant_out_read</name>
+<Object>quant_out</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>ap_fifo</IOProtocol>

@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'quant_ap_uint_256_ap_int_32_ap_int_8_32u_s'
 ================================================================
-* Date:           Fri Jun  7 17:07:35 2024
+* Date:           Sun Jun  9 10:52:43 2024
 
 * Version:        2022.2 (Build 3670227 on Oct 13 2022)
 * Project:        Sparse_HLS.prj
@@ -81,9 +81,9 @@ IsGatedGlobalClock: 0
 
 * FSM state operations: 
 
-State 1 <SV = 0> <Delay = 5.77>
-ST_1 : Operation 4 [1/1] (1.83ns)   --->   "%quant_mul_read = read i32 @_ssdm_op_Read.ap_fifo.i32P0A, i32 %quant_mul"   --->   Operation 4 'read' 'quant_mul_read' <Predicate = true> <Delay = 1.83> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.83> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 4> <FIFO>
-ST_1 : Operation 5 [1/1] (1.83ns)   --->   "%quant_shift_read = read i32 @_ssdm_op_Read.ap_fifo.i32P0A, i32 %quant_shift"   --->   Operation 5 'read' 'quant_shift_read' <Predicate = true> <Delay = 1.83> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.83> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 4> <FIFO>
+State 1 <SV = 0> <Delay = 5.80>
+ST_1 : Operation 4 [1/1] (1.86ns)   --->   "%quant_mul_read = read i32 @_ssdm_op_Read.ap_fifo.i32P0A, i32 %quant_mul"   --->   Operation 4 'read' 'quant_mul_read' <Predicate = true> <Delay = 1.86> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.86> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 5> <FIFO>
+ST_1 : Operation 5 [1/1] (1.86ns)   --->   "%quant_shift_read = read i32 @_ssdm_op_Read.ap_fifo.i32P0A, i32 %quant_shift"   --->   Operation 5 'read' 'quant_shift_read' <Predicate = true> <Delay = 1.86> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.86> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 5> <FIFO>
 ST_1 : Operation 6 [1/1] (1.83ns)   --->   "%fm_COLS_read = read i32 @_ssdm_op_Read.ap_fifo.i32P0A, i32 %fm_COLS"   --->   Operation 6 'read' 'fm_COLS_read' <Predicate = true> <Delay = 1.83> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.83> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 2> <FIFO>
 ST_1 : Operation 7 [1/1] (1.83ns)   --->   "%write_ln0 = write void @_ssdm_op_Write.ap_fifo.i32P0A, i32 %fm_COLS_c, i32 %fm_COLS_read"   --->   Operation 7 'write' 'write_ln0' <Predicate = true> <Delay = 1.83> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.83> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 2> <FIFO>
 ST_1 : Operation 8 [1/1] (1.83ns)   --->   "%fm_ROWS_read = read i32 @_ssdm_op_Read.ap_fifo.i32P0A, i32 %fm_ROWS"   --->   Operation 8 'read' 'fm_ROWS_read' <Predicate = true> <Delay = 1.83> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.83> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 3> <FIFO>

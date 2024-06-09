@@ -39,8 +39,8 @@
         <Resources>
             <BRAM_18K>15</BRAM_18K>
             <DSP>6</DSP>
-            <FF>3277</FF>
-            <LUT>4243</LUT>
+            <FF>3561</FF>
+            <LUT>4442</LUT>
             <URAM>0</URAM>
         </Resources>
         <AvailableResources>
@@ -821,33 +821,39 @@
                     <InstName>entry_proc_U0</InstName>
                     <ModuleName>entry_proc</ModuleName>
                     <IsCompInst>true</IsCompInst>
-                    <ID>168</ID>
+                    <ID>164</ID>
+                </Instance>
+                <Instance>
+                    <InstName>Block_entry4_proc_U0</InstName>
+                    <ModuleName>Block_entry4_proc</ModuleName>
+                    <IsCompInst>true</IsCompInst>
+                    <ID>171</ID>
                 </Instance>
                 <Instance>
                     <InstName>read_inputs_ap_uint_256_ap_int_8_32u_U0</InstName>
                     <ModuleName>read_inputs_ap_uint_256_ap_int_8_32u_s</ModuleName>
                     <IsCompInst>true</IsCompInst>
-                    <ID>178</ID>
-                    <BindInstances>mul_32s_32s_32_1_1_U5 add_ln15_fu_215_p2 add_ln15_1_fu_254_p2 add_ln20_fu_276_p2 add_ln20_1_fu_314_p2</BindInstances>
+                    <ID>181</ID>
+                    <BindInstances>mul_32s_32s_32_1_1_U6 add_ln15_fu_217_p2 add_ln15_1_fu_256_p2 add_ln20_fu_278_p2 add_ln20_1_fu_316_p2</BindInstances>
                 </Instance>
                 <Instance>
                     <InstName>store_ap_uint_256_ap_int_8_32u_U0</InstName>
                     <ModuleName>store_ap_uint_256_ap_int_8_32u_s</ModuleName>
                     <IsCompInst>true</IsCompInst>
-                    <ID>197</ID>
+                    <ID>198</ID>
                     <InstancesList>
                         <Instance>
-                            <InstName>grp_store_ap_uint_256_ap_int_8_32u_Pipeline_VITIS_LOOP_114_1_fu_126</InstName>
+                            <InstName>grp_store_ap_uint_256_ap_int_8_32u_Pipeline_VITIS_LOOP_114_1_fu_128</InstName>
                             <ModuleName>store_ap_uint_256_ap_int_8_32u_Pipeline_VITIS_LOOP_114_1</ModuleName>
                             <IsCompInst>true</IsCompInst>
-                            <ID>126</ID>
+                            <ID>128</ID>
                             <BindInstances>add_ln114_fu_104_p2</BindInstances>
                         </Instance>
                     </InstancesList>
-                    <BindInstances>mul_32s_32s_32_1_1_U20 add_ln114_fu_170_p2</BindInstances>
+                    <BindInstances>mul_32s_32s_32_1_1_U21 add_ln114_fu_172_p2</BindInstances>
                 </Instance>
             </InstancesList>
-            <BindInstances>outputs_c_U COLS_c_U ROWS_c_U output_data_addr3_c_U input_stream_U</BindInstances>
+            <BindInstances>outputs_c_U COLS_c_U ROWS_c_U input_stream_U input_data_addr1_assign_cast_loc_channel_U input_data_addr2_assign_cast_loc_channel_U output_data_addr3_assign_cast_loc_channel_U</BindInstances>
         </TopModule>
     </RTLDesignHierarchy>
     <ModuleInformation>
@@ -872,7 +878,46 @@
             </PerformanceEstimates>
             <AreaEstimates>
                 <Resources>
-                    <FF>3</FF>
+                    <FF>2</FF>
+                    <AVAIL_FF>460800</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>20</LUT>
+                    <AVAIL_LUT>230400</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>624</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>1728</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>96</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+        </Module>
+        <Module>
+            <Name>Block_entry4_proc</Name>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>10.00</TargetClockPeriod>
+                    <ClockUncertainty>2.70</ClockUncertainty>
+                    <EstimatedClockPeriod>0.000</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>0</Best-caseLatency>
+                    <Average-caseLatency>0</Average-caseLatency>
+                    <Worst-caseLatency>0</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>0 ns</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>0 ns</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>0 ns</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>0</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>83</FF>
                     <AVAIL_FF>460800</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
                     <LUT>38</LUT>
@@ -958,11 +1003,11 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="3" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="mul" PRAGMA="" RTLNAME="mul_32s_32s_32_1_1_U5" SOURCE="" URAM="0" VARIABLE="mul"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln15_fu_215_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:15" URAM="0" VARIABLE="add_ln15"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_15_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln15_1_fu_254_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:15" URAM="0" VARIABLE="add_ln15_1"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln20_fu_276_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:20" URAM="0" VARIABLE="add_ln20"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_20_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln20_1_fu_314_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:20" URAM="0" VARIABLE="add_ln20_1"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="3" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="mul" PRAGMA="" RTLNAME="mul_32s_32s_32_1_1_U6" SOURCE="" URAM="0" VARIABLE="mul_i"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln15_fu_217_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:15" URAM="0" VARIABLE="add_ln15"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_15_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln15_1_fu_256_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:15" URAM="0" VARIABLE="add_ln15_1"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln20_fu_278_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:20" URAM="0" VARIABLE="add_ln20"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_20_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln20_1_fu_316_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:20" URAM="0" VARIABLE="add_ln20_1"/>
             </BindNodes>
         </Module>
         <Module>
@@ -1050,7 +1095,7 @@
                     <FF>446</FF>
                     <AVAIL_FF>460800</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>670</LUT>
+                    <LUT>661</LUT>
                     <AVAIL_LUT>230400</AVAIL_LUT>
                     <UTIL_LUT>~0</UTIL_LUT>
                     <BRAM_18K>0</BRAM_18K>
@@ -1062,8 +1107,8 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="3" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="mul" PRAGMA="" RTLNAME="mul_32s_32s_32_1_1_U20" SOURCE="" URAM="0" VARIABLE="mul11"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln114_fu_170_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:114" URAM="0" VARIABLE="add_ln114"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="3" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="mul" PRAGMA="" RTLNAME="mul_32s_32s_32_1_1_U21" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:105" URAM="0" VARIABLE="mul11_i"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln114_fu_172_p2" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:114" URAM="0" VARIABLE="add_ln114"/>
             </BindNodes>
         </Module>
         <Module>
@@ -1099,10 +1144,10 @@
                     <DSP>6</DSP>
                     <AVAIL_DSP>1728</AVAIL_DSP>
                     <UTIL_DSP>~0</UTIL_DSP>
-                    <FF>3277</FF>
+                    <FF>3561</FF>
                     <AVAIL_FF>460800</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>4243</LUT>
+                    <LUT>4442</LUT>
                     <AVAIL_LUT>230400</AVAIL_LUT>
                     <UTIL_LUT>1</UTIL_LUT>
                     <URAM>0</URAM>
@@ -1111,11 +1156,13 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="outputs_c_U" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/concat.cpp:37" URAM="0" VARIABLE="outputs_c"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="COLS_c_U" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/concat.cpp:37" URAM="0" VARIABLE="COLS_c"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="ROWS_c_U" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/concat.cpp:37" URAM="0" VARIABLE="ROWS_c"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="output_data_addr3_c_U" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/concat.cpp:37" URAM="0" VARIABLE="output_data_addr3_c"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="outputs_c_U" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/concat.cpp:41" URAM="0" VARIABLE="outputs_c"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="COLS_c_U" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/concat.cpp:41" URAM="0" VARIABLE="COLS_c"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="ROWS_c_U" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/concat.cpp:41" URAM="0" VARIABLE="ROWS_c"/>
                 <BindNode BINDTYPE="storage" BRAM="15" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="memory" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="input_stream_U" SOURCE="" URAM="0" VARIABLE="input_stream"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="input_data_addr1_assign_cast_loc_channel_U" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/concat.cpp:41" URAM="0" VARIABLE="input_data_addr1_assign_cast_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="input_data_addr2_assign_cast_loc_channel_U" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/concat.cpp:41" URAM="0" VARIABLE="input_data_addr2_assign_cast_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="output_data_addr3_assign_cast_loc_channel_U" SOURCE="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/concat.cpp:41" URAM="0" VARIABLE="output_data_addr3_assign_cast_loc_channel"/>
             </BindNodes>
         </Module>
     </ModuleInformation>
@@ -1594,7 +1641,9 @@
         <Pragma type="interface" location="src/concat.cpp:29" status="valid" parentFunction="concat" variable="" isDirective="0" options="mode = s_axilite port = concat_flag bundle = concat_addr"/>
         <Pragma type="interface" location="src/concat.cpp:30" status="valid" parentFunction="concat" variable="" isDirective="0" options="mode = s_axilite port = return bundle = concat_addr"/>
         <Pragma type="stream" location="src/concat.cpp:33" status="valid" parentFunction="concat" variable="" isDirective="0" options="variable = input_stream depth = 64"/>
-        <Pragma type="dataflow" location="src/concat.cpp:37" status="valid" parentFunction="concat" variable="" isDirective="0" options=""/>
+        <Pragma type="dataflow" location="src/concat.cpp:41" status="warning" parentFunction="concat" variable="" isDirective="0" options="">
+            <Msg msg_id="214-114" msg_severity="WARNING" msg_body="Since the only kind of statements allowed in a canonical dataflow region are variable declarations and function calls, the compiler may not be able to correctly handle the region"/>
+        </Pragma>
     </PragmaReport>
 </profile>
 

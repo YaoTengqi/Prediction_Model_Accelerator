@@ -39,13 +39,13 @@ port (
     quant_out2_full_n : IN STD_LOGIC;
     quant_out2_write : OUT STD_LOGIC;
     quant_shift_dout : IN STD_LOGIC_VECTOR (31 downto 0);
-    quant_shift_num_data_valid : IN STD_LOGIC_VECTOR (2 downto 0);
-    quant_shift_fifo_cap : IN STD_LOGIC_VECTOR (2 downto 0);
+    quant_shift_num_data_valid : IN STD_LOGIC_VECTOR (3 downto 0);
+    quant_shift_fifo_cap : IN STD_LOGIC_VECTOR (3 downto 0);
     quant_shift_empty_n : IN STD_LOGIC;
     quant_shift_read : OUT STD_LOGIC;
     quant_mul_dout : IN STD_LOGIC_VECTOR (31 downto 0);
-    quant_mul_num_data_valid : IN STD_LOGIC_VECTOR (2 downto 0);
-    quant_mul_fifo_cap : IN STD_LOGIC_VECTOR (2 downto 0);
+    quant_mul_num_data_valid : IN STD_LOGIC_VECTOR (3 downto 0);
+    quant_mul_fifo_cap : IN STD_LOGIC_VECTOR (3 downto 0);
     quant_mul_empty_n : IN STD_LOGIC;
     quant_mul_read : OUT STD_LOGIC;
     fm_ROWS_c_din : OUT STD_LOGIC_VECTOR (31 downto 0);
@@ -195,7 +195,7 @@ begin
         pos_rounding_value => pos_rounding_value_reg_205,
         sh_prom18 => total_right_shift_reg_200);
 
-    mul_32s_32s_32_1_1_U80 : component sparse_mul_32s_32s_32_1_1
+    mul_32s_32s_32_1_1_U81 : component sparse_mul_32s_32s_32_1_1
     generic map (
         ID => 1,
         NUM_STAGE => 1,

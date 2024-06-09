@@ -10,7 +10,7 @@ if {${::AESL::PGuard_autoexp_gen}} {
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 89 \
+    id 90 \
     name sparse_data \
     type other \
     dir O \
@@ -25,7 +25,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 90 \
+    id 91 \
     name sext_ln153 \
     type other \
     dir I \
@@ -40,7 +40,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 91 \
+    id 92 \
     name loop_num \
     type other \
     dir I \
@@ -55,15 +55,15 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 92 \
-    name quant_out2 \
+    id 93 \
+    name quant_out \
     type fifo \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_quant_out2 \
+    corename dc_quant_out \
     op interface \
-    ports { quant_out2_dout { I 256 vector } quant_out2_num_data_valid { I 2 vector } quant_out2_fifo_cap { I 2 vector } quant_out2_empty_n { I 1 bit } quant_out2_read { O 1 bit } } \
+    ports { quant_out_dout { I 256 vector } quant_out_num_data_valid { I 2 vector } quant_out_fifo_cap { I 2 vector } quant_out_empty_n { I 1 bit } quant_out_read { O 1 bit } } \
 } "
 }
 

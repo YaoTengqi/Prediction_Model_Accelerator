@@ -14,11 +14,11 @@ module sparse_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1 
         ap_done,
         ap_idle,
         ap_ready,
-        quant_out2_dout,
-        quant_out2_num_data_valid,
-        quant_out2_fifo_cap,
-        quant_out2_empty_n,
-        quant_out2_read,
+        quant_out_dout,
+        quant_out_num_data_valid,
+        quant_out_fifo_cap,
+        quant_out_empty_n,
+        quant_out_read,
         m_axi_sparse_data_AWVALID,
         m_axi_sparse_data_AWREADY,
         m_axi_sparse_data_AWADDR,
@@ -77,11 +77,11 @@ input   ap_start;
 output   ap_done;
 output   ap_idle;
 output   ap_ready;
-input  [255:0] quant_out2_dout;
-input  [1:0] quant_out2_num_data_valid;
-input  [1:0] quant_out2_fifo_cap;
-input   quant_out2_empty_n;
-output   quant_out2_read;
+input  [255:0] quant_out_dout;
+input  [1:0] quant_out_num_data_valid;
+input  [1:0] quant_out_fifo_cap;
+input   quant_out_empty_n;
+output   quant_out_read;
 output   m_axi_sparse_data_AWVALID;
 input   m_axi_sparse_data_AWREADY;
 output  [63:0] m_axi_sparse_data_AWADDR;
@@ -132,7 +132,7 @@ input  [58:0] sext_ln153;
 input  [26:0] loop_num;
 
 reg ap_idle;
-reg quant_out2_read;
+reg quant_out_read;
 reg m_axi_sparse_data_WVALID;
 
 (* fsm_encoding = "none" *) reg   [0:0] ap_CS_fsm;
@@ -152,7 +152,7 @@ wire    ap_loop_exit_ready;
 reg    ap_ready_int;
 reg    sparse_data_blk_n_W;
 wire    ap_block_pp0_stage0;
-reg    quant_out2_blk_n;
+reg    quant_out_blk_n;
 reg    ap_block_pp0_stage0_11001;
 reg   [255:0] p_Val2_s_reg_141;
 reg    ap_condition_exit_pp0_iter1_stage0;
@@ -254,7 +254,7 @@ end
 
 always @ (posedge ap_clk) begin
     if (((icmp_ln153_reg_132 == 1'd0) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        p_Val2_s_reg_141 <= quant_out2_dout;
+        p_Val2_s_reg_141 <= quant_out_dout;
     end
 end
 
@@ -324,17 +324,17 @@ end
 
 always @ (*) begin
     if (((icmp_ln153_reg_132 == 1'd0) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0))) begin
-        quant_out2_blk_n = quant_out2_empty_n;
+        quant_out_blk_n = quant_out_empty_n;
     end else begin
-        quant_out2_blk_n = 1'b1;
+        quant_out_blk_n = 1'b1;
     end
 end
 
 always @ (*) begin
     if (((icmp_ln153_reg_132 == 1'd0) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        quant_out2_read = 1'b1;
+        quant_out_read = 1'b1;
     end else begin
-        quant_out2_read = 1'b0;
+        quant_out_read = 1'b0;
     end
 end
 
@@ -364,21 +364,21 @@ assign ap_CS_fsm_pp0_stage0 = ap_CS_fsm[32'd0];
 assign ap_block_pp0_stage0 = ~(1'b1 == 1'b1);
 
 always @ (*) begin
-    ap_block_pp0_stage0_01001 = ((icmp_ln153_reg_132 == 1'd0) & (quant_out2_empty_n == 1'b0) & (ap_enable_reg_pp0_iter1 == 1'b1));
+    ap_block_pp0_stage0_01001 = ((icmp_ln153_reg_132 == 1'd0) & (quant_out_empty_n == 1'b0) & (ap_enable_reg_pp0_iter1 == 1'b1));
 end
 
 always @ (*) begin
-    ap_block_pp0_stage0_11001 = (((icmp_ln153_reg_132 == 1'd0) & (quant_out2_empty_n == 1'b0) & (ap_enable_reg_pp0_iter1 == 1'b1)) | ((m_axi_sparse_data_WREADY == 1'b0) & (ap_enable_reg_pp0_iter2 == 1'b1)));
+    ap_block_pp0_stage0_11001 = (((icmp_ln153_reg_132 == 1'd0) & (quant_out_empty_n == 1'b0) & (ap_enable_reg_pp0_iter1 == 1'b1)) | ((m_axi_sparse_data_WREADY == 1'b0) & (ap_enable_reg_pp0_iter2 == 1'b1)));
 end
 
 always @ (*) begin
-    ap_block_pp0_stage0_subdone = (((icmp_ln153_reg_132 == 1'd0) & (quant_out2_empty_n == 1'b0) & (ap_enable_reg_pp0_iter1 == 1'b1)) | ((m_axi_sparse_data_WREADY == 1'b0) & (ap_enable_reg_pp0_iter2 == 1'b1)));
+    ap_block_pp0_stage0_subdone = (((icmp_ln153_reg_132 == 1'd0) & (quant_out_empty_n == 1'b0) & (ap_enable_reg_pp0_iter1 == 1'b1)) | ((m_axi_sparse_data_WREADY == 1'b0) & (ap_enable_reg_pp0_iter2 == 1'b1)));
 end
 
 assign ap_block_state1_pp0_stage0_iter0 = ~(1'b1 == 1'b1);
 
 always @ (*) begin
-    ap_block_state2_pp0_stage0_iter1 = ((icmp_ln153_reg_132 == 1'd0) & (quant_out2_empty_n == 1'b0));
+    ap_block_state2_pp0_stage0_iter1 = ((icmp_ln153_reg_132 == 1'd0) & (quant_out_empty_n == 1'b0));
 end
 
 assign ap_block_state3_pp0_stage0_iter2 = ~(1'b1 == 1'b1);

@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'read_inputs_ap_uint_256_ap_int_8_32u_s'" level="0">
-<item name = "Date">Tue Jun  4 10:53:55 2024
+<item name = "Date">Sun Jun  9 11:14:03 2024
 </item>
 <item name = "Version">2022.2 (Build 3670227 on Oct 13 2022)</item>
 <item name = "Project">Concat_HLS.prj</item>
@@ -63,7 +63,7 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP, FF, LUT, URAM</keys>
-<column name="mul_32s_32s_32_1_1_U5">mul_32s_32s_32_1_1, 0, 3, 0, 20, 0</column>
+<column name="mul_32s_32s_32_1_1_U6">mul_32s_32s_32_1_1, 0, 3, 0, 20, 0</column>
 </table>
 </item>
 <item name = "DSP"><table name="" hasTotal="0">
@@ -80,13 +80,13 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="add_ln15_1_fu_254_p2">+, 0, 0, 34, 27, 1</column>
-<column name="add_ln15_fu_215_p2">+, 0, 0, 71, 64, 64</column>
-<column name="add_ln20_1_fu_314_p2">+, 0, 0, 34, 27, 1</column>
-<column name="add_ln20_fu_276_p2">+, 0, 0, 71, 64, 64</column>
-<column name="icmp_ln15_1_fu_249_p2">icmp, 0, 0, 17, 27, 27</column>
-<column name="icmp_ln15_fu_197_p2">icmp, 0, 0, 17, 27, 1</column>
-<column name="icmp_ln20_fu_309_p2">icmp, 0, 0, 17, 27, 27</column>
+<column name="add_ln15_1_fu_256_p2">+, 0, 0, 34, 27, 1</column>
+<column name="add_ln15_fu_217_p2">+, 0, 0, 71, 64, 64</column>
+<column name="add_ln20_1_fu_316_p2">+, 0, 0, 34, 27, 1</column>
+<column name="add_ln20_fu_278_p2">+, 0, 0, 71, 64, 64</column>
+<column name="icmp_ln15_1_fu_251_p2">icmp, 0, 0, 17, 27, 27</column>
+<column name="icmp_ln15_fu_199_p2">icmp, 0, 0, 17, 27, 1</column>
+<column name="icmp_ln20_fu_311_p2">icmp, 0, 0, 17, 27, 27</column>
 <column name="ap_block_state1">or, 0, 0, 2, 1, 1</column>
 </table>
 </item>
@@ -98,8 +98,8 @@
 <column name="ap_done">9, 2, 1, 2</column>
 <column name="concat_data_blk_n_AR">9, 2, 1, 2</column>
 <column name="concat_data_blk_n_R">9, 2, 1, 2</column>
-<column name="i_1_fu_98">9, 2, 27, 54</column>
-<column name="i_fu_94">9, 2, 27, 54</column>
+<column name="i_1_fu_100">9, 2, 27, 54</column>
+<column name="i_fu_96">9, 2, 27, 54</column>
 <column name="input_stream_blk_n">9, 2, 1, 2</column>
 <column name="input_stream_din">14, 3, 256, 768</column>
 <column name="m_axi_concat_data_ARADDR">14, 3, 64, 192</column>
@@ -109,15 +109,15 @@
 <keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
 <column name="ap_CS_fsm">83, 0, 83, 0</column>
 <column name="ap_done_reg">1, 0, 1, 0</column>
-<column name="div_cast_reg_341">27, 0, 32, 5</column>
-<column name="div_reg_335">27, 0, 27, 0</column>
-<column name="i_1_fu_98">27, 0, 27, 0</column>
-<column name="i_fu_94">27, 0, 27, 0</column>
-<column name="icmp_ln15_reg_347">1, 0, 1, 0</column>
-<column name="p_Val2_1_reg_398">256, 0, 256, 0</column>
-<column name="p_Val2_s_reg_384">256, 0, 256, 0</column>
-<column name="trunc_ln15_1_reg_358">59, 0, 59, 0</column>
-<column name="trunc_ln1_reg_379">59, 0, 59, 0</column>
+<column name="div_i_cast_reg_343">27, 0, 32, 5</column>
+<column name="div_i_reg_337">27, 0, 27, 0</column>
+<column name="i_1_fu_100">27, 0, 27, 0</column>
+<column name="i_fu_96">27, 0, 27, 0</column>
+<column name="icmp_ln15_reg_349">1, 0, 1, 0</column>
+<column name="p_Val2_1_reg_400">256, 0, 256, 0</column>
+<column name="p_Val2_s_reg_386">256, 0, 256, 0</column>
+<column name="trunc_ln15_1_reg_360">59, 0, 59, 0</column>
+<column name="trunc_ln1_reg_381">59, 0, 59, 0</column>
 </table>
 </item>
 </section>
@@ -181,8 +181,8 @@
 <column name="m_axi_concat_data_BID">in, 1, m_axi, concat_data, pointer</column>
 <column name="m_axi_concat_data_BUSER">in, 1, m_axi, concat_data, pointer</column>
 <column name="inputs">in, 64, ap_none, inputs, scalar</column>
-<column name="input_data_addr1">in, 32, ap_none, input_data_addr1, scalar</column>
-<column name="input_data_addr2">in, 32, ap_none, input_data_addr2, scalar</column>
+<column name="p_read">in, 27, ap_none, p_read, scalar</column>
+<column name="p_read1">in, 27, ap_none, p_read1, scalar</column>
 <column name="ROWS">in, 32, ap_none, ROWS, scalar</column>
 <column name="COLS">in, 32, ap_none, COLS, scalar</column>
 <column name="input_stream_din">out, 256, ap_fifo, input_stream, pointer</column>

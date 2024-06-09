@@ -106,7 +106,7 @@ newFuncRoot:4 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i
 
 <Node id="10" bw="0" op_0_bw="0" op_1_bw="256" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0" op_17_bw="32" op_18_bw="32">
 <![CDATA[
-newFuncRoot:5 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i256 %quant_out2, void @empty_9, i32 0, i32 0, void @empty_6, i32 0, i32 0, void @empty_6, void @empty_6, void @empty_6, i32 0, i32 0, i32 0, i32 0, void @empty_6, void @empty_6, i32 4294967295, i32 0
+newFuncRoot:5 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i256 %quant_out, void @empty_9, i32 0, i32 0, void @empty_6, i32 0, i32 0, void @empty_6, void @empty_6, void @empty_6, i32 0, i32 0, i32 0, i32 0, void @empty_6, void @empty_6, i32 4294967295, i32 0
 
 ]]></Node>
 <StgValue><ssdm name="specinterface_ln0"/></StgValue>
@@ -136,7 +136,7 @@ newFuncRoot:6 %store_ln0 = store i27 0, i27 %i
 
 <Node id="12" bw="0" op_0_bw="0">
 <![CDATA[
-newFuncRoot:7 %br_ln0 = br void %for.body.i.i
+newFuncRoot:7 %br_ln0 = br void %for.body.i.i.i
 
 ]]></Node>
 <StgValue><ssdm name="br_ln0"/></StgValue>
@@ -151,7 +151,7 @@ newFuncRoot:7 %br_ln0 = br void %for.body.i.i
 
 <Node id="14" bw="27" op_0_bw="27" op_1_bw="0">
 <![CDATA[
-for.body.i.i:0 %i_1 = load i27 %i
+for.body.i.i.i:0 %i_1 = load i27 %i
 
 ]]></Node>
 <StgValue><ssdm name="i_1"/></StgValue>
@@ -166,7 +166,7 @@ for.body.i.i:0 %i_1 = load i27 %i
 
 <Node id="16" bw="1" op_0_bw="27" op_1_bw="27">
 <![CDATA[
-for.body.i.i:2 %icmp_ln153 = icmp_eq  i27 %i_1, i27 %loop_num_read
+for.body.i.i.i:2 %icmp_ln153 = icmp_eq  i27 %i_1, i27 %loop_num_read
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln153"/></StgValue>
@@ -181,7 +181,7 @@ for.body.i.i:2 %icmp_ln153 = icmp_eq  i27 %i_1, i27 %loop_num_read
 
 <Node id="18" bw="27" op_0_bw="27" op_1_bw="27">
 <![CDATA[
-for.body.i.i:4 %add_ln153 = add i27 %i_1, i27 1
+for.body.i.i.i:4 %add_ln153 = add i27 %i_1, i27 1
 
 ]]></Node>
 <StgValue><ssdm name="add_ln153"/></StgValue>
@@ -196,7 +196,7 @@ for.body.i.i:4 %add_ln153 = add i27 %i_1, i27 1
 
 <Node id="19" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
 <![CDATA[
-for.body.i.i:5 %br_ln153 = br i1 %icmp_ln153, void %for.body.i.i.split, void %for.end.loopexit.exitStub
+for.body.i.i.i:5 %br_ln153 = br i1 %icmp_ln153, void %for.body.i.i.split.i, void %for.end.loopexit.i.exitStub
 
 ]]></Node>
 <StgValue><ssdm name="br_ln153"/></StgValue>
@@ -212,7 +212,7 @@ for.body.i.i:5 %br_ln153 = br i1 %icmp_ln153, void %for.body.i.i.split, void %fo
 
 <Node id="25" bw="0" op_0_bw="27" op_1_bw="27" op_2_bw="0" op_3_bw="0">
 <![CDATA[
-for.body.i.i.split:4 %store_ln153 = store i27 %add_ln153, i27 %i
+for.body.i.i.split.i:4 %store_ln153 = store i27 %add_ln153, i27 %i
 
 ]]></Node>
 <StgValue><ssdm name="store_ln153"/></StgValue>
@@ -230,7 +230,7 @@ for.body.i.i.split:4 %store_ln153 = store i27 %add_ln153, i27 %i
 
 <Node id="15" bw="256" op_0_bw="256" op_1_bw="64">
 <![CDATA[
-for.body.i.i:1 %sparse_data_addr = getelementptr i256 %sparse_data, i64 %sext_ln153_cast
+for.body.i.i.i:1 %sparse_data_addr = getelementptr i256 %sparse_data, i64 %sext_ln153_cast
 
 ]]></Node>
 <StgValue><ssdm name="sparse_data_addr"/></StgValue>
@@ -245,7 +245,7 @@ for.body.i.i:1 %sparse_data_addr = getelementptr i256 %sparse_data, i64 %sext_ln
 
 <Node id="17" bw="32" op_0_bw="32" op_1_bw="64" op_2_bw="64" op_3_bw="64">
 <![CDATA[
-for.body.i.i:3 %empty = speclooptripcount i32 @_ssdm_op_SpecLoopTripCount, i64 1, i64 18446744073709551615, i64 0
+for.body.i.i.i:3 %empty = speclooptripcount i32 @_ssdm_op_SpecLoopTripCount, i64 1, i64 18446744073709551615, i64 0
 
 ]]></Node>
 <StgValue><ssdm name="empty"/></StgValue>
@@ -261,7 +261,7 @@ for.body.i.i:3 %empty = speclooptripcount i32 @_ssdm_op_SpecLoopTripCount, i64 1
 
 <Node id="23" bw="256" op_0_bw="256" op_1_bw="256">
 <![CDATA[
-for.body.i.i.split:2 %p_Val2_s = read i256 @_ssdm_op_Read.ap_fifo.volatile.i256P0A, i256 %quant_out2
+for.body.i.i.split.i:2 %p_Val2_s = read i256 @_ssdm_op_Read.ap_fifo.volatile.i256P0A, i256 %quant_out
 
 ]]></Node>
 <StgValue><ssdm name="p_Val2_s"/></StgValue>
@@ -277,7 +277,7 @@ for.body.i.i.split:2 %p_Val2_s = read i256 @_ssdm_op_Read.ap_fifo.volatile.i256P
 
 <Node id="28" bw="0">
 <![CDATA[
-for.end.loopexit.exitStub:0 %ret_ln0 = ret
+for.end.loopexit.i.exitStub:0 %ret_ln0 = ret
 
 ]]></Node>
 <StgValue><ssdm name="ret_ln0"/></StgValue>
@@ -295,7 +295,7 @@ for.end.loopexit.exitStub:0 %ret_ln0 = ret
 
 <Node id="21" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32" op_3_bw="32" op_4_bw="32" op_5_bw="0">
 <![CDATA[
-for.body.i.i.split:0 %specpipeline_ln155 = specpipeline void @_ssdm_op_SpecPipeline, i32 4294967295, i32 0, i32 0, i32 0, void @empty_6
+for.body.i.i.split.i:0 %specpipeline_ln155 = specpipeline void @_ssdm_op_SpecPipeline, i32 4294967295, i32 0, i32 0, i32 0, void @empty_6
 
 ]]></Node>
 <StgValue><ssdm name="specpipeline_ln155"/></StgValue>
@@ -310,7 +310,7 @@ for.body.i.i.split:0 %specpipeline_ln155 = specpipeline void @_ssdm_op_SpecPipel
 
 <Node id="22" bw="0" op_0_bw="0" op_1_bw="0">
 <![CDATA[
-for.body.i.i.split:1 %specloopname_ln152 = specloopname void @_ssdm_op_SpecLoopName, void @empty_22
+for.body.i.i.split.i:1 %specloopname_ln152 = specloopname void @_ssdm_op_SpecLoopName, void @empty_22
 
 ]]></Node>
 <StgValue><ssdm name="specloopname_ln152"/></StgValue>
@@ -325,7 +325,7 @@ for.body.i.i.split:1 %specloopname_ln152 = specloopname void @_ssdm_op_SpecLoopN
 
 <Node id="24" bw="0" op_0_bw="0" op_1_bw="256" op_2_bw="256" op_3_bw="32">
 <![CDATA[
-for.body.i.i.split:3 %write_ln157 = write void @_ssdm_op_Write.m_axi.p1i256, i256 %sparse_data_addr, i256 %p_Val2_s, i32 4294967295
+for.body.i.i.split.i:3 %write_ln157 = write void @_ssdm_op_Write.m_axi.p1i256, i256 %sparse_data_addr, i256 %p_Val2_s, i32 4294967295
 
 ]]></Node>
 <StgValue><ssdm name="write_ln157"/></StgValue>
@@ -340,7 +340,7 @@ for.body.i.i.split:3 %write_ln157 = write void @_ssdm_op_Write.m_axi.p1i256, i25
 
 <Node id="26" bw="0" op_0_bw="0">
 <![CDATA[
-for.body.i.i.split:5 %br_ln153 = br void %for.body.i.i
+for.body.i.i.split.i:5 %br_ln153 = br void %for.body.i.i.i
 
 ]]></Node>
 <StgValue><ssdm name="br_ln153"/></StgValue>

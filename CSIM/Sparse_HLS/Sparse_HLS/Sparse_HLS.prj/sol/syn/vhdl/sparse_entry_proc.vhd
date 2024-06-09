@@ -21,12 +21,6 @@ port (
     ap_ready : OUT STD_LOGIC;
     start_out : OUT STD_LOGIC;
     start_write : OUT STD_LOGIC;
-    output_data_addr3 : IN STD_LOGIC_VECTOR (31 downto 0);
-    output_data_addr3_c_din : OUT STD_LOGIC_VECTOR (31 downto 0);
-    output_data_addr3_c_num_data_valid : IN STD_LOGIC_VECTOR (3 downto 0);
-    output_data_addr3_c_fifo_cap : IN STD_LOGIC_VECTOR (3 downto 0);
-    output_data_addr3_c_full_n : IN STD_LOGIC;
-    output_data_addr3_c_write : OUT STD_LOGIC;
     outputs : IN STD_LOGIC_VECTOR (63 downto 0);
     outputs_c_din : OUT STD_LOGIC_VECTOR (63 downto 0);
     outputs_c_num_data_valid : IN STD_LOGIC_VECTOR (3 downto 0);
@@ -35,14 +29,14 @@ port (
     outputs_c_write : OUT STD_LOGIC;
     quant_shift : IN STD_LOGIC_VECTOR (31 downto 0);
     quant_shift_c_din : OUT STD_LOGIC_VECTOR (31 downto 0);
-    quant_shift_c_num_data_valid : IN STD_LOGIC_VECTOR (2 downto 0);
-    quant_shift_c_fifo_cap : IN STD_LOGIC_VECTOR (2 downto 0);
+    quant_shift_c_num_data_valid : IN STD_LOGIC_VECTOR (3 downto 0);
+    quant_shift_c_fifo_cap : IN STD_LOGIC_VECTOR (3 downto 0);
     quant_shift_c_full_n : IN STD_LOGIC;
     quant_shift_c_write : OUT STD_LOGIC;
     quant_mul : IN STD_LOGIC_VECTOR (31 downto 0);
     quant_mul_c_din : OUT STD_LOGIC_VECTOR (31 downto 0);
-    quant_mul_c_num_data_valid : IN STD_LOGIC_VECTOR (2 downto 0);
-    quant_mul_c_fifo_cap : IN STD_LOGIC_VECTOR (2 downto 0);
+    quant_mul_c_num_data_valid : IN STD_LOGIC_VECTOR (3 downto 0);
+    quant_mul_c_fifo_cap : IN STD_LOGIC_VECTOR (3 downto 0);
     quant_mul_c_full_n : IN STD_LOGIC;
     quant_mul_c_write : OUT STD_LOGIC );
 end;
@@ -65,7 +59,6 @@ attribute shreg_extract : string;
     signal ap_CS_fsm_state1 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state1 : signal is "none";
     signal internal_ap_ready : STD_LOGIC;
-    signal output_data_addr3_c_blk_n : STD_LOGIC;
     signal outputs_c_blk_n : STD_LOGIC;
     signal quant_shift_c_blk_n : STD_LOGIC;
     signal quant_mul_c_blk_n : STD_LOGIC;
@@ -100,7 +93,7 @@ begin
             else
                 if ((ap_continue = ap_const_logic_1)) then 
                     ap_done_reg <= ap_const_logic_0;
-                elsif ((not(((real_start = ap_const_logic_0) or (quant_mul_c_full_n = ap_const_logic_0) or (quant_shift_c_full_n = ap_const_logic_0) or (outputs_c_full_n = ap_const_logic_0) or (output_data_addr3_c_full_n = ap_const_logic_0) or (ap_done_reg = ap_const_logic_1))) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
+                elsif ((not(((real_start = ap_const_logic_0) or (quant_mul_c_full_n = ap_const_logic_0) or (quant_shift_c_full_n = ap_const_logic_0) or (outputs_c_full_n = ap_const_logic_0) or (ap_done_reg = ap_const_logic_1))) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
                     ap_done_reg <= ap_const_logic_1;
                 end if; 
             end if;
@@ -124,7 +117,7 @@ begin
     end process;
 
 
-    ap_NS_fsm_assign_proc : process (real_start, ap_done_reg, ap_CS_fsm, ap_CS_fsm_state1, output_data_addr3_c_full_n, outputs_c_full_n, quant_shift_c_full_n, quant_mul_c_full_n)
+    ap_NS_fsm_assign_proc : process (real_start, ap_done_reg, ap_CS_fsm, ap_CS_fsm_state1, outputs_c_full_n, quant_shift_c_full_n, quant_mul_c_full_n)
     begin
         case ap_CS_fsm is
             when ap_ST_fsm_state1 => 
@@ -135,9 +128,9 @@ begin
     end process;
     ap_CS_fsm_state1 <= ap_CS_fsm(0);
 
-    ap_ST_fsm_state1_blk_assign_proc : process(real_start, ap_done_reg, output_data_addr3_c_full_n, outputs_c_full_n, quant_shift_c_full_n, quant_mul_c_full_n)
+    ap_ST_fsm_state1_blk_assign_proc : process(real_start, ap_done_reg, outputs_c_full_n, quant_shift_c_full_n, quant_mul_c_full_n)
     begin
-        if (((real_start = ap_const_logic_0) or (quant_mul_c_full_n = ap_const_logic_0) or (quant_shift_c_full_n = ap_const_logic_0) or (outputs_c_full_n = ap_const_logic_0) or (output_data_addr3_c_full_n = ap_const_logic_0) or (ap_done_reg = ap_const_logic_1))) then 
+        if (((real_start = ap_const_logic_0) or (quant_mul_c_full_n = ap_const_logic_0) or (quant_shift_c_full_n = ap_const_logic_0) or (outputs_c_full_n = ap_const_logic_0) or (ap_done_reg = ap_const_logic_1))) then 
             ap_ST_fsm_state1_blk <= ap_const_logic_1;
         else 
             ap_ST_fsm_state1_blk <= ap_const_logic_0;
@@ -145,15 +138,15 @@ begin
     end process;
 
 
-    ap_block_state1_assign_proc : process(real_start, ap_done_reg, output_data_addr3_c_full_n, outputs_c_full_n, quant_shift_c_full_n, quant_mul_c_full_n)
+    ap_block_state1_assign_proc : process(real_start, ap_done_reg, outputs_c_full_n, quant_shift_c_full_n, quant_mul_c_full_n)
     begin
-                ap_block_state1 <= ((real_start = ap_const_logic_0) or (quant_mul_c_full_n = ap_const_logic_0) or (quant_shift_c_full_n = ap_const_logic_0) or (outputs_c_full_n = ap_const_logic_0) or (output_data_addr3_c_full_n = ap_const_logic_0) or (ap_done_reg = ap_const_logic_1));
+                ap_block_state1 <= ((real_start = ap_const_logic_0) or (quant_mul_c_full_n = ap_const_logic_0) or (quant_shift_c_full_n = ap_const_logic_0) or (outputs_c_full_n = ap_const_logic_0) or (ap_done_reg = ap_const_logic_1));
     end process;
 
 
-    ap_done_assign_proc : process(real_start, ap_done_reg, ap_CS_fsm_state1, output_data_addr3_c_full_n, outputs_c_full_n, quant_shift_c_full_n, quant_mul_c_full_n)
+    ap_done_assign_proc : process(real_start, ap_done_reg, ap_CS_fsm_state1, outputs_c_full_n, quant_shift_c_full_n, quant_mul_c_full_n)
     begin
-        if ((not(((real_start = ap_const_logic_0) or (quant_mul_c_full_n = ap_const_logic_0) or (quant_shift_c_full_n = ap_const_logic_0) or (outputs_c_full_n = ap_const_logic_0) or (output_data_addr3_c_full_n = ap_const_logic_0) or (ap_done_reg = ap_const_logic_1))) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
+        if ((not(((real_start = ap_const_logic_0) or (quant_mul_c_full_n = ap_const_logic_0) or (quant_shift_c_full_n = ap_const_logic_0) or (outputs_c_full_n = ap_const_logic_0) or (ap_done_reg = ap_const_logic_1))) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
             ap_done <= ap_const_logic_1;
         else 
             ap_done <= ap_done_reg;
@@ -172,33 +165,12 @@ begin
 
     ap_ready <= internal_ap_ready;
 
-    internal_ap_ready_assign_proc : process(real_start, ap_done_reg, ap_CS_fsm_state1, output_data_addr3_c_full_n, outputs_c_full_n, quant_shift_c_full_n, quant_mul_c_full_n)
+    internal_ap_ready_assign_proc : process(real_start, ap_done_reg, ap_CS_fsm_state1, outputs_c_full_n, quant_shift_c_full_n, quant_mul_c_full_n)
     begin
-        if ((not(((real_start = ap_const_logic_0) or (quant_mul_c_full_n = ap_const_logic_0) or (quant_shift_c_full_n = ap_const_logic_0) or (outputs_c_full_n = ap_const_logic_0) or (output_data_addr3_c_full_n = ap_const_logic_0) or (ap_done_reg = ap_const_logic_1))) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
+        if ((not(((real_start = ap_const_logic_0) or (quant_mul_c_full_n = ap_const_logic_0) or (quant_shift_c_full_n = ap_const_logic_0) or (outputs_c_full_n = ap_const_logic_0) or (ap_done_reg = ap_const_logic_1))) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
             internal_ap_ready <= ap_const_logic_1;
         else 
             internal_ap_ready <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    output_data_addr3_c_blk_n_assign_proc : process(real_start, ap_done_reg, ap_CS_fsm_state1, output_data_addr3_c_full_n)
-    begin
-        if ((not(((real_start = ap_const_logic_0) or (ap_done_reg = ap_const_logic_1))) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
-            output_data_addr3_c_blk_n <= output_data_addr3_c_full_n;
-        else 
-            output_data_addr3_c_blk_n <= ap_const_logic_1;
-        end if; 
-    end process;
-
-    output_data_addr3_c_din <= output_data_addr3;
-
-    output_data_addr3_c_write_assign_proc : process(real_start, ap_done_reg, ap_CS_fsm_state1, output_data_addr3_c_full_n, outputs_c_full_n, quant_shift_c_full_n, quant_mul_c_full_n)
-    begin
-        if ((not(((real_start = ap_const_logic_0) or (quant_mul_c_full_n = ap_const_logic_0) or (quant_shift_c_full_n = ap_const_logic_0) or (outputs_c_full_n = ap_const_logic_0) or (output_data_addr3_c_full_n = ap_const_logic_0) or (ap_done_reg = ap_const_logic_1))) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
-            output_data_addr3_c_write <= ap_const_logic_1;
-        else 
-            output_data_addr3_c_write <= ap_const_logic_0;
         end if; 
     end process;
 
@@ -214,9 +186,9 @@ begin
 
     outputs_c_din <= outputs;
 
-    outputs_c_write_assign_proc : process(real_start, ap_done_reg, ap_CS_fsm_state1, output_data_addr3_c_full_n, outputs_c_full_n, quant_shift_c_full_n, quant_mul_c_full_n)
+    outputs_c_write_assign_proc : process(real_start, ap_done_reg, ap_CS_fsm_state1, outputs_c_full_n, quant_shift_c_full_n, quant_mul_c_full_n)
     begin
-        if ((not(((real_start = ap_const_logic_0) or (quant_mul_c_full_n = ap_const_logic_0) or (quant_shift_c_full_n = ap_const_logic_0) or (outputs_c_full_n = ap_const_logic_0) or (output_data_addr3_c_full_n = ap_const_logic_0) or (ap_done_reg = ap_const_logic_1))) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
+        if ((not(((real_start = ap_const_logic_0) or (quant_mul_c_full_n = ap_const_logic_0) or (quant_shift_c_full_n = ap_const_logic_0) or (outputs_c_full_n = ap_const_logic_0) or (ap_done_reg = ap_const_logic_1))) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
             outputs_c_write <= ap_const_logic_1;
         else 
             outputs_c_write <= ap_const_logic_0;
@@ -235,9 +207,9 @@ begin
 
     quant_mul_c_din <= quant_mul;
 
-    quant_mul_c_write_assign_proc : process(real_start, ap_done_reg, ap_CS_fsm_state1, output_data_addr3_c_full_n, outputs_c_full_n, quant_shift_c_full_n, quant_mul_c_full_n)
+    quant_mul_c_write_assign_proc : process(real_start, ap_done_reg, ap_CS_fsm_state1, outputs_c_full_n, quant_shift_c_full_n, quant_mul_c_full_n)
     begin
-        if ((not(((real_start = ap_const_logic_0) or (quant_mul_c_full_n = ap_const_logic_0) or (quant_shift_c_full_n = ap_const_logic_0) or (outputs_c_full_n = ap_const_logic_0) or (output_data_addr3_c_full_n = ap_const_logic_0) or (ap_done_reg = ap_const_logic_1))) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
+        if ((not(((real_start = ap_const_logic_0) or (quant_mul_c_full_n = ap_const_logic_0) or (quant_shift_c_full_n = ap_const_logic_0) or (outputs_c_full_n = ap_const_logic_0) or (ap_done_reg = ap_const_logic_1))) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
             quant_mul_c_write <= ap_const_logic_1;
         else 
             quant_mul_c_write <= ap_const_logic_0;
@@ -256,9 +228,9 @@ begin
 
     quant_shift_c_din <= quant_shift;
 
-    quant_shift_c_write_assign_proc : process(real_start, ap_done_reg, ap_CS_fsm_state1, output_data_addr3_c_full_n, outputs_c_full_n, quant_shift_c_full_n, quant_mul_c_full_n)
+    quant_shift_c_write_assign_proc : process(real_start, ap_done_reg, ap_CS_fsm_state1, outputs_c_full_n, quant_shift_c_full_n, quant_mul_c_full_n)
     begin
-        if ((not(((real_start = ap_const_logic_0) or (quant_mul_c_full_n = ap_const_logic_0) or (quant_shift_c_full_n = ap_const_logic_0) or (outputs_c_full_n = ap_const_logic_0) or (output_data_addr3_c_full_n = ap_const_logic_0) or (ap_done_reg = ap_const_logic_1))) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
+        if ((not(((real_start = ap_const_logic_0) or (quant_mul_c_full_n = ap_const_logic_0) or (quant_shift_c_full_n = ap_const_logic_0) or (outputs_c_full_n = ap_const_logic_0) or (ap_done_reg = ap_const_logic_1))) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
             quant_shift_c_write <= ap_const_logic_1;
         else 
             quant_shift_c_write <= ap_const_logic_0;

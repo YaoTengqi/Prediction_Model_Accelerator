@@ -6,7 +6,7 @@ if {${::AESL::PGuard_rtl_comp_handler}} {
 }
 
 
-set id 11
+set id 12
 set name sparse_mux_325_8_1_1
 set corename simcore_mux
 set op mux
@@ -199,7 +199,7 @@ if {${::AESL::PGuard_autoexp_gen}} {
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 18 \
+    id 19 \
     name am_ROWS \
     type other \
     dir I \
@@ -214,7 +214,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 19 \
+    id 20 \
     name am_COLS \
     type other \
     dir I \
@@ -229,7 +229,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 20 \
+    id 21 \
     name fm_ROWS \
     type other \
     dir I \
@@ -244,7 +244,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 21 \
+    id 22 \
     name fm_COLS \
     type other \
     dir I \
@@ -259,7 +259,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 22 \
+    id 23 \
     name sparse_data \
     type other \
     dir I \
@@ -274,7 +274,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 23 \
+    id 24 \
     name inputs \
     type other \
     dir I \
@@ -289,30 +289,15 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 24 \
-    name idx_stream4 \
-    type fifo \
-    dir O \
-    reset_level 1 \
-    sync_rst true \
-    corename dc_idx_stream4 \
-    op interface \
-    ports { idx_stream4_din { O 8 vector } idx_stream4_num_data_valid { I 8 vector } idx_stream4_fifo_cap { I 8 vector } idx_stream4_full_n { I 1 bit } idx_stream4_write { O 1 bit } } \
-} "
-}
-
-# Direct connection:
-if {${::AESL::PGuard_autoexp_gen}} {
-eval "cg_default_interface_gen_dc { \
     id 25 \
-    name count_stream5 \
+    name idx_stream \
     type fifo \
     dir O \
     reset_level 1 \
     sync_rst true \
-    corename dc_count_stream5 \
+    corename dc_idx_stream \
     op interface \
-    ports { count_stream5_din { O 8 vector } count_stream5_num_data_valid { I 7 vector } count_stream5_fifo_cap { I 7 vector } count_stream5_full_n { I 1 bit } count_stream5_write { O 1 bit } } \
+    ports { idx_stream_din { O 8 vector } idx_stream_num_data_valid { I 8 vector } idx_stream_fifo_cap { I 8 vector } idx_stream_full_n { I 1 bit } idx_stream_write { O 1 bit } } \
 } "
 }
 
@@ -320,14 +305,14 @@ eval "cg_default_interface_gen_dc { \
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
     id 26 \
-    name fm_stream3 \
+    name count_stream \
     type fifo \
     dir O \
     reset_level 1 \
     sync_rst true \
-    corename dc_fm_stream3 \
+    corename dc_count_stream \
     op interface \
-    ports { fm_stream3_din { O 256 vector } fm_stream3_num_data_valid { I 8 vector } fm_stream3_fifo_cap { I 8 vector } fm_stream3_full_n { I 1 bit } fm_stream3_write { O 1 bit } } \
+    ports { count_stream_din { O 8 vector } count_stream_num_data_valid { I 7 vector } count_stream_fifo_cap { I 7 vector } count_stream_full_n { I 1 bit } count_stream_write { O 1 bit } } \
 } "
 }
 
@@ -335,14 +320,14 @@ eval "cg_default_interface_gen_dc { \
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
     id 27 \
-    name input_data_addr1 \
-    type other \
-    dir I \
+    name fm_stream \
+    type fifo \
+    dir O \
     reset_level 1 \
     sync_rst true \
-    corename dc_input_data_addr1 \
+    corename dc_fm_stream \
     op interface \
-    ports { input_data_addr1 { I 32 vector } } \
+    ports { fm_stream_din { O 256 vector } fm_stream_num_data_valid { I 8 vector } fm_stream_fifo_cap { I 8 vector } fm_stream_full_n { I 1 bit } fm_stream_write { O 1 bit } } \
 } "
 }
 
@@ -350,14 +335,14 @@ eval "cg_default_interface_gen_dc { \
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
     id 28 \
-    name input_data_addr2 \
+    name p_read \
     type other \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_input_data_addr2 \
+    corename dc_p_read \
     op interface \
-    ports { input_data_addr2 { I 32 vector } } \
+    ports { p_read { I 27 vector } } \
 } "
 }
 
@@ -365,6 +350,21 @@ eval "cg_default_interface_gen_dc { \
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
     id 29 \
+    name p_read1 \
+    type other \
+    dir I \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_p_read1 \
+    op interface \
+    ports { p_read1 { I 27 vector } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 30 \
     name am_ROWS_c \
     type fifo \
     dir O \
@@ -379,30 +379,30 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 30 \
-    name fm_ROWS_c11 \
+    id 31 \
+    name fm_ROWS_c14 \
     type fifo \
     dir O \
     reset_level 1 \
     sync_rst true \
-    corename dc_fm_ROWS_c11 \
+    corename dc_fm_ROWS_c14 \
     op interface \
-    ports { fm_ROWS_c11_din { O 32 vector } fm_ROWS_c11_num_data_valid { I 3 vector } fm_ROWS_c11_fifo_cap { I 3 vector } fm_ROWS_c11_full_n { I 1 bit } fm_ROWS_c11_write { O 1 bit } } \
+    ports { fm_ROWS_c14_din { O 32 vector } fm_ROWS_c14_num_data_valid { I 3 vector } fm_ROWS_c14_fifo_cap { I 3 vector } fm_ROWS_c14_full_n { I 1 bit } fm_ROWS_c14_write { O 1 bit } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 31 \
-    name fm_COLS_c13 \
+    id 32 \
+    name fm_COLS_c16 \
     type fifo \
     dir O \
     reset_level 1 \
     sync_rst true \
-    corename dc_fm_COLS_c13 \
+    corename dc_fm_COLS_c16 \
     op interface \
-    ports { fm_COLS_c13_din { O 32 vector } fm_COLS_c13_num_data_valid { I 2 vector } fm_COLS_c13_fifo_cap { I 2 vector } fm_COLS_c13_full_n { I 1 bit } fm_COLS_c13_write { O 1 bit } } \
+    ports { fm_COLS_c16_din { O 32 vector } fm_COLS_c16_num_data_valid { I 2 vector } fm_COLS_c16_fifo_cap { I 2 vector } fm_COLS_c16_full_n { I 1 bit } fm_COLS_c16_write { O 1 bit } } \
 } "
 }
 

@@ -10,7 +10,7 @@ if {${::AESL::PGuard_autoexp_gen}} {
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 81 \
+    id 82 \
     name data_out1 \
     type fifo \
     dir I \
@@ -25,7 +25,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 82 \
+    id 83 \
     name fm_ROWS \
     type fifo \
     dir I \
@@ -40,7 +40,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 83 \
+    id 84 \
     name fm_COLS \
     type fifo \
     dir I \
@@ -55,7 +55,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 84 \
+    id 85 \
     name quant_out2 \
     type fifo \
     dir O \
@@ -70,7 +70,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 85 \
+    id 86 \
     name quant_shift \
     type fifo \
     dir I \
@@ -78,22 +78,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_quant_shift \
     op interface \
-    ports { quant_shift_dout { I 32 vector } quant_shift_num_data_valid { I 3 vector } quant_shift_fifo_cap { I 3 vector } quant_shift_empty_n { I 1 bit } quant_shift_read { O 1 bit } } \
-} "
-}
-
-# Direct connection:
-if {${::AESL::PGuard_autoexp_gen}} {
-eval "cg_default_interface_gen_dc { \
-    id 86 \
-    name quant_mul \
-    type fifo \
-    dir I \
-    reset_level 1 \
-    sync_rst true \
-    corename dc_quant_mul \
-    op interface \
-    ports { quant_mul_dout { I 32 vector } quant_mul_num_data_valid { I 3 vector } quant_mul_fifo_cap { I 3 vector } quant_mul_empty_n { I 1 bit } quant_mul_read { O 1 bit } } \
+    ports { quant_shift_dout { I 32 vector } quant_shift_num_data_valid { I 4 vector } quant_shift_fifo_cap { I 4 vector } quant_shift_empty_n { I 1 bit } quant_shift_read { O 1 bit } } \
 } "
 }
 
@@ -101,6 +86,21 @@ eval "cg_default_interface_gen_dc { \
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
     id 87 \
+    name quant_mul \
+    type fifo \
+    dir I \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_quant_mul \
+    op interface \
+    ports { quant_mul_dout { I 32 vector } quant_mul_num_data_valid { I 4 vector } quant_mul_fifo_cap { I 4 vector } quant_mul_empty_n { I 1 bit } quant_mul_read { O 1 bit } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 88 \
     name fm_ROWS_c \
     type fifo \
     dir O \
@@ -115,7 +115,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 88 \
+    id 89 \
     name fm_COLS_c \
     type fifo \
     dir O \

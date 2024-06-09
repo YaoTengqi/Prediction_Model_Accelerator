@@ -17,11 +17,11 @@ port (
     ap_done : OUT STD_LOGIC;
     ap_idle : OUT STD_LOGIC;
     ap_ready : OUT STD_LOGIC;
-    quant_out2_dout : IN STD_LOGIC_VECTOR (255 downto 0);
-    quant_out2_num_data_valid : IN STD_LOGIC_VECTOR (1 downto 0);
-    quant_out2_fifo_cap : IN STD_LOGIC_VECTOR (1 downto 0);
-    quant_out2_empty_n : IN STD_LOGIC;
-    quant_out2_read : OUT STD_LOGIC;
+    quant_out_dout : IN STD_LOGIC_VECTOR (255 downto 0);
+    quant_out_num_data_valid : IN STD_LOGIC_VECTOR (1 downto 0);
+    quant_out_fifo_cap : IN STD_LOGIC_VECTOR (1 downto 0);
+    quant_out_empty_n : IN STD_LOGIC;
+    quant_out_read : OUT STD_LOGIC;
     m_axi_sparse_data_AWVALID : OUT STD_LOGIC;
     m_axi_sparse_data_AWREADY : IN STD_LOGIC;
     m_axi_sparse_data_AWADDR : OUT STD_LOGIC_VECTOR (63 downto 0);
@@ -111,7 +111,7 @@ attribute shreg_extract : string;
     signal ap_ready_int : STD_LOGIC;
     signal sparse_data_blk_n_W : STD_LOGIC;
     signal ap_block_pp0_stage0 : BOOLEAN;
-    signal quant_out2_blk_n : STD_LOGIC;
+    signal quant_out_blk_n : STD_LOGIC;
     signal ap_block_pp0_stage0_11001 : BOOLEAN;
     signal p_Val2_s_reg_141 : STD_LOGIC_VECTOR (255 downto 0);
     signal ap_condition_exit_pp0_iter1_stage0 : STD_LOGIC;
@@ -250,7 +250,7 @@ begin
     begin
         if (ap_clk'event and ap_clk = '1') then
             if (((icmp_ln153_reg_132 = ap_const_lv1_0) and (ap_const_logic_1 = ap_CS_fsm_pp0_stage0) and (ap_const_boolean_0 = ap_block_pp0_stage0_11001))) then
-                p_Val2_s_reg_141 <= quant_out2_dout;
+                p_Val2_s_reg_141 <= quant_out_dout;
             end if;
         end if;
     end process;
@@ -268,28 +268,28 @@ begin
     ap_CS_fsm_pp0_stage0 <= ap_CS_fsm(0);
         ap_block_pp0_stage0 <= not((ap_const_boolean_1 = ap_const_boolean_1));
 
-    ap_block_pp0_stage0_01001_assign_proc : process(ap_enable_reg_pp0_iter1, quant_out2_empty_n, icmp_ln153_reg_132)
+    ap_block_pp0_stage0_01001_assign_proc : process(ap_enable_reg_pp0_iter1, quant_out_empty_n, icmp_ln153_reg_132)
     begin
-                ap_block_pp0_stage0_01001 <= ((icmp_ln153_reg_132 = ap_const_lv1_0) and (quant_out2_empty_n = ap_const_logic_0) and (ap_enable_reg_pp0_iter1 = ap_const_logic_1));
+                ap_block_pp0_stage0_01001 <= ((icmp_ln153_reg_132 = ap_const_lv1_0) and (quant_out_empty_n = ap_const_logic_0) and (ap_enable_reg_pp0_iter1 = ap_const_logic_1));
     end process;
 
 
-    ap_block_pp0_stage0_11001_assign_proc : process(ap_enable_reg_pp0_iter1, ap_enable_reg_pp0_iter2, quant_out2_empty_n, icmp_ln153_reg_132, m_axi_sparse_data_WREADY)
+    ap_block_pp0_stage0_11001_assign_proc : process(ap_enable_reg_pp0_iter1, ap_enable_reg_pp0_iter2, quant_out_empty_n, icmp_ln153_reg_132, m_axi_sparse_data_WREADY)
     begin
-                ap_block_pp0_stage0_11001 <= (((icmp_ln153_reg_132 = ap_const_lv1_0) and (quant_out2_empty_n = ap_const_logic_0) and (ap_enable_reg_pp0_iter1 = ap_const_logic_1)) or ((m_axi_sparse_data_WREADY = ap_const_logic_0) and (ap_enable_reg_pp0_iter2 = ap_const_logic_1)));
+                ap_block_pp0_stage0_11001 <= (((icmp_ln153_reg_132 = ap_const_lv1_0) and (quant_out_empty_n = ap_const_logic_0) and (ap_enable_reg_pp0_iter1 = ap_const_logic_1)) or ((m_axi_sparse_data_WREADY = ap_const_logic_0) and (ap_enable_reg_pp0_iter2 = ap_const_logic_1)));
     end process;
 
 
-    ap_block_pp0_stage0_subdone_assign_proc : process(ap_enable_reg_pp0_iter1, ap_enable_reg_pp0_iter2, quant_out2_empty_n, icmp_ln153_reg_132, m_axi_sparse_data_WREADY)
+    ap_block_pp0_stage0_subdone_assign_proc : process(ap_enable_reg_pp0_iter1, ap_enable_reg_pp0_iter2, quant_out_empty_n, icmp_ln153_reg_132, m_axi_sparse_data_WREADY)
     begin
-                ap_block_pp0_stage0_subdone <= (((icmp_ln153_reg_132 = ap_const_lv1_0) and (quant_out2_empty_n = ap_const_logic_0) and (ap_enable_reg_pp0_iter1 = ap_const_logic_1)) or ((m_axi_sparse_data_WREADY = ap_const_logic_0) and (ap_enable_reg_pp0_iter2 = ap_const_logic_1)));
+                ap_block_pp0_stage0_subdone <= (((icmp_ln153_reg_132 = ap_const_lv1_0) and (quant_out_empty_n = ap_const_logic_0) and (ap_enable_reg_pp0_iter1 = ap_const_logic_1)) or ((m_axi_sparse_data_WREADY = ap_const_logic_0) and (ap_enable_reg_pp0_iter2 = ap_const_logic_1)));
     end process;
 
         ap_block_state1_pp0_stage0_iter0 <= not((ap_const_boolean_1 = ap_const_boolean_1));
 
-    ap_block_state2_pp0_stage0_iter1_assign_proc : process(quant_out2_empty_n, icmp_ln153_reg_132)
+    ap_block_state2_pp0_stage0_iter1_assign_proc : process(quant_out_empty_n, icmp_ln153_reg_132)
     begin
-                ap_block_state2_pp0_stage0_iter1 <= ((icmp_ln153_reg_132 = ap_const_lv1_0) and (quant_out2_empty_n = ap_const_logic_0));
+                ap_block_state2_pp0_stage0_iter1 <= ((icmp_ln153_reg_132 = ap_const_lv1_0) and (quant_out_empty_n = ap_const_logic_0));
     end process;
 
         ap_block_state3_pp0_stage0_iter2 <= not((ap_const_boolean_1 = ap_const_boolean_1));
@@ -409,22 +409,22 @@ begin
     end process;
 
 
-    quant_out2_blk_n_assign_proc : process(ap_CS_fsm_pp0_stage0, ap_enable_reg_pp0_iter1, quant_out2_empty_n, icmp_ln153_reg_132, ap_block_pp0_stage0)
+    quant_out_blk_n_assign_proc : process(ap_CS_fsm_pp0_stage0, ap_enable_reg_pp0_iter1, quant_out_empty_n, icmp_ln153_reg_132, ap_block_pp0_stage0)
     begin
         if (((icmp_ln153_reg_132 = ap_const_lv1_0) and (ap_enable_reg_pp0_iter1 = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_pp0_stage0) and (ap_const_boolean_0 = ap_block_pp0_stage0))) then 
-            quant_out2_blk_n <= quant_out2_empty_n;
+            quant_out_blk_n <= quant_out_empty_n;
         else 
-            quant_out2_blk_n <= ap_const_logic_1;
+            quant_out_blk_n <= ap_const_logic_1;
         end if; 
     end process;
 
 
-    quant_out2_read_assign_proc : process(ap_CS_fsm_pp0_stage0, ap_enable_reg_pp0_iter1, icmp_ln153_reg_132, ap_block_pp0_stage0_11001)
+    quant_out_read_assign_proc : process(ap_CS_fsm_pp0_stage0, ap_enable_reg_pp0_iter1, icmp_ln153_reg_132, ap_block_pp0_stage0_11001)
     begin
         if (((icmp_ln153_reg_132 = ap_const_lv1_0) and (ap_enable_reg_pp0_iter1 = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_pp0_stage0) and (ap_const_boolean_0 = ap_block_pp0_stage0_11001))) then 
-            quant_out2_read <= ap_const_logic_1;
+            quant_out_read <= ap_const_logic_1;
         else 
-            quant_out2_read <= ap_const_logic_0;
+            quant_out_read <= ap_const_logic_0;
         end if; 
     end process;
 

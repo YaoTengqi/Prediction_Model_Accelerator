@@ -7,7 +7,7 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="concat_concat,hls_ip_2022_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xczu7ev-ffvc1156-2-e,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=7.300000,HLS_SYN_LAT=-1,HLS_SYN_TPT=-1,HLS_SYN_MEM=15,HLS_SYN_DSP=0,HLS_SYN_FF=3277,HLS_SYN_LUT=4243,HLS_VERSION=2022_2}" *)
+(* CORE_GENERATION_INFO="concat_concat,hls_ip_2022_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xczu7ev-ffvc1156-2-e,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=7.300000,HLS_SYN_LAT=-1,HLS_SYN_TPT=-1,HLS_SYN_MEM=15,HLS_SYN_DSP=0,HLS_SYN_FF=3561,HLS_SYN_LUT=4442,HLS_VERSION=2022_2}" *)
 
 module concat (
         s_axi_concat_addr_AWVALID,
@@ -196,12 +196,28 @@ wire    entry_proc_U0_ap_done;
 wire    entry_proc_U0_ap_continue;
 wire    entry_proc_U0_ap_idle;
 wire    entry_proc_U0_ap_ready;
-wire    entry_proc_U0_start_out;
-wire    entry_proc_U0_start_write;
-wire   [31:0] entry_proc_U0_output_data_addr3_c_din;
-wire    entry_proc_U0_output_data_addr3_c_write;
 wire   [63:0] entry_proc_U0_outputs_c_din;
 wire    entry_proc_U0_outputs_c_write;
+wire    Block_entry4_proc_U0_ap_start;
+wire    Block_entry4_proc_U0_ap_done;
+wire    Block_entry4_proc_U0_ap_continue;
+wire    Block_entry4_proc_U0_ap_idle;
+wire    Block_entry4_proc_U0_ap_ready;
+wire   [26:0] Block_entry4_proc_U0_ap_return_0;
+wire   [26:0] Block_entry4_proc_U0_ap_return_1;
+wire   [26:0] Block_entry4_proc_U0_ap_return_2;
+wire    ap_channel_done_output_data_addr3_assign_cast_loc_channel;
+wire    output_data_addr3_assign_cast_loc_channel_full_n;
+reg    ap_sync_reg_channel_write_output_data_addr3_assign_cast_loc_channel;
+wire    ap_sync_channel_write_output_data_addr3_assign_cast_loc_channel;
+wire    ap_channel_done_input_data_addr2_assign_cast_loc_channel;
+wire    input_data_addr2_assign_cast_loc_channel_full_n;
+reg    ap_sync_reg_channel_write_input_data_addr2_assign_cast_loc_channel;
+wire    ap_sync_channel_write_input_data_addr2_assign_cast_loc_channel;
+wire    ap_channel_done_input_data_addr1_assign_cast_loc_channel;
+wire    input_data_addr1_assign_cast_loc_channel_full_n;
+reg    ap_sync_reg_channel_write_input_data_addr1_assign_cast_loc_channel;
+wire    ap_sync_channel_write_input_data_addr1_assign_cast_loc_channel;
 wire    read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_start;
 wire    read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_done;
 wire    read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_continue;
@@ -252,7 +268,6 @@ wire    store_ap_uint_256_ap_int_8_32u_U0_ap_idle;
 wire    store_ap_uint_256_ap_int_8_32u_U0_ap_ready;
 wire    store_ap_uint_256_ap_int_8_32u_U0_ROWS_read;
 wire    store_ap_uint_256_ap_int_8_32u_U0_COLS_read;
-wire    store_ap_uint_256_ap_int_8_32u_U0_input_data_addr3_read;
 wire    store_ap_uint_256_ap_int_8_32u_U0_input_stream_read;
 wire    store_ap_uint_256_ap_int_8_32u_U0_m_axi_concat_data_AWVALID;
 wire   [63:0] store_ap_uint_256_ap_int_8_32u_U0_m_axi_concat_data_AWADDR;
@@ -289,16 +304,23 @@ wire    store_ap_uint_256_ap_int_8_32u_U0_m_axi_concat_data_BREADY;
 wire    store_ap_uint_256_ap_int_8_32u_U0_outputs_read;
 wire   [0:0] store_ap_uint_256_ap_int_8_32u_U0_concat_flag;
 wire    store_ap_uint_256_ap_int_8_32u_U0_concat_flag_ap_vld;
-wire    output_data_addr3_c_full_n;
-wire   [31:0] output_data_addr3_c_dout;
-wire   [2:0] output_data_addr3_c_num_data_valid;
-wire   [2:0] output_data_addr3_c_fifo_cap;
-wire    output_data_addr3_c_empty_n;
 wire    outputs_c_full_n;
 wire   [63:0] outputs_c_dout;
 wire   [2:0] outputs_c_num_data_valid;
 wire   [2:0] outputs_c_fifo_cap;
 wire    outputs_c_empty_n;
+wire   [26:0] input_data_addr1_assign_cast_loc_channel_dout;
+wire   [1:0] input_data_addr1_assign_cast_loc_channel_num_data_valid;
+wire   [1:0] input_data_addr1_assign_cast_loc_channel_fifo_cap;
+wire    input_data_addr1_assign_cast_loc_channel_empty_n;
+wire   [26:0] input_data_addr2_assign_cast_loc_channel_dout;
+wire   [1:0] input_data_addr2_assign_cast_loc_channel_num_data_valid;
+wire   [1:0] input_data_addr2_assign_cast_loc_channel_fifo_cap;
+wire    input_data_addr2_assign_cast_loc_channel_empty_n;
+wire   [26:0] output_data_addr3_assign_cast_loc_channel_dout;
+wire   [2:0] output_data_addr3_assign_cast_loc_channel_num_data_valid;
+wire   [2:0] output_data_addr3_assign_cast_loc_channel_fifo_cap;
+wire    output_data_addr3_assign_cast_loc_channel_empty_n;
 wire    input_stream_full_n;
 wire   [255:0] input_stream_dout;
 wire   [6:0] input_stream_num_data_valid;
@@ -317,17 +339,19 @@ wire    COLS_c_empty_n;
 wire    ap_sync_ready;
 reg    ap_sync_reg_entry_proc_U0_ap_ready;
 wire    ap_sync_entry_proc_U0_ap_ready;
+reg    ap_sync_reg_Block_entry4_proc_U0_ap_ready;
+wire    ap_sync_Block_entry4_proc_U0_ap_ready;
 reg    ap_sync_reg_read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_ready;
 wire    ap_sync_read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_ready;
-wire   [0:0] start_for_store_ap_uint_256_ap_int_8_32u_U0_din;
-wire    start_for_store_ap_uint_256_ap_int_8_32u_U0_full_n;
-wire   [0:0] start_for_store_ap_uint_256_ap_int_8_32u_U0_dout;
-wire    start_for_store_ap_uint_256_ap_int_8_32u_U0_empty_n;
 wire    ap_ce_reg;
 
 // power-on initialization
 initial begin
+#0 ap_sync_reg_channel_write_output_data_addr3_assign_cast_loc_channel = 1'b0;
+#0 ap_sync_reg_channel_write_input_data_addr2_assign_cast_loc_channel = 1'b0;
+#0 ap_sync_reg_channel_write_input_data_addr1_assign_cast_loc_channel = 1'b0;
 #0 ap_sync_reg_entry_proc_U0_ap_ready = 1'b0;
+#0 ap_sync_reg_Block_entry4_proc_U0_ap_ready = 1'b0;
 #0 ap_sync_reg_read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_ready = 1'b0;
 end
 
@@ -465,25 +489,32 @@ concat_entry_proc entry_proc_U0(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst_n_inv),
     .ap_start(entry_proc_U0_ap_start),
-    .start_full_n(start_for_store_ap_uint_256_ap_int_8_32u_U0_full_n),
     .ap_done(entry_proc_U0_ap_done),
     .ap_continue(entry_proc_U0_ap_continue),
     .ap_idle(entry_proc_U0_ap_idle),
     .ap_ready(entry_proc_U0_ap_ready),
-    .start_out(entry_proc_U0_start_out),
-    .start_write(entry_proc_U0_start_write),
-    .output_data_addr3(output_data_addr3),
-    .output_data_addr3_c_din(entry_proc_U0_output_data_addr3_c_din),
-    .output_data_addr3_c_num_data_valid(output_data_addr3_c_num_data_valid),
-    .output_data_addr3_c_fifo_cap(output_data_addr3_c_fifo_cap),
-    .output_data_addr3_c_full_n(output_data_addr3_c_full_n),
-    .output_data_addr3_c_write(entry_proc_U0_output_data_addr3_c_write),
     .outputs(outputs),
     .outputs_c_din(entry_proc_U0_outputs_c_din),
     .outputs_c_num_data_valid(outputs_c_num_data_valid),
     .outputs_c_fifo_cap(outputs_c_fifo_cap),
     .outputs_c_full_n(outputs_c_full_n),
     .outputs_c_write(entry_proc_U0_outputs_c_write)
+);
+
+concat_Block_entry4_proc Block_entry4_proc_U0(
+    .ap_clk(ap_clk),
+    .ap_rst(ap_rst_n_inv),
+    .ap_start(Block_entry4_proc_U0_ap_start),
+    .ap_done(Block_entry4_proc_U0_ap_done),
+    .ap_continue(Block_entry4_proc_U0_ap_continue),
+    .ap_idle(Block_entry4_proc_U0_ap_idle),
+    .ap_ready(Block_entry4_proc_U0_ap_ready),
+    .input_data_addr1(input_data_addr1),
+    .input_data_addr2(input_data_addr2),
+    .output_data_addr3(output_data_addr3),
+    .ap_return_0(Block_entry4_proc_U0_ap_return_0),
+    .ap_return_1(Block_entry4_proc_U0_ap_return_1),
+    .ap_return_2(Block_entry4_proc_U0_ap_return_2)
 );
 
 concat_read_inputs_ap_uint_256_ap_int_8_32u_s read_inputs_ap_uint_256_ap_int_8_32u_U0(
@@ -541,8 +572,8 @@ concat_read_inputs_ap_uint_256_ap_int_8_32u_s read_inputs_ap_uint_256_ap_int_8_3
     .m_axi_concat_data_BID(1'd0),
     .m_axi_concat_data_BUSER(1'd0),
     .inputs(inputs),
-    .input_data_addr1(input_data_addr1),
-    .input_data_addr2(input_data_addr2),
+    .p_read(input_data_addr1_assign_cast_loc_channel_dout),
+    .p_read1(input_data_addr2_assign_cast_loc_channel_dout),
     .ROWS(ROWS),
     .COLS(COLS),
     .input_stream_din(read_inputs_ap_uint_256_ap_int_8_32u_U0_input_stream_din),
@@ -580,11 +611,7 @@ concat_store_ap_uint_256_ap_int_8_32u_s store_ap_uint_256_ap_int_8_32u_U0(
     .COLS_fifo_cap(COLS_c_fifo_cap),
     .COLS_empty_n(COLS_c_empty_n),
     .COLS_read(store_ap_uint_256_ap_int_8_32u_U0_COLS_read),
-    .input_data_addr3_dout(output_data_addr3_c_dout),
-    .input_data_addr3_num_data_valid(output_data_addr3_c_num_data_valid),
-    .input_data_addr3_fifo_cap(output_data_addr3_c_fifo_cap),
-    .input_data_addr3_empty_n(output_data_addr3_c_empty_n),
-    .input_data_addr3_read(store_ap_uint_256_ap_int_8_32u_U0_input_data_addr3_read),
+    .p_read(output_data_addr3_assign_cast_loc_channel_dout),
     .input_stream_dout(input_stream_dout),
     .input_stream_num_data_valid(input_stream_num_data_valid),
     .input_stream_fifo_cap(input_stream_fifo_cap),
@@ -645,22 +672,7 @@ concat_store_ap_uint_256_ap_int_8_32u_s store_ap_uint_256_ap_int_8_32u_U0(
     .concat_flag_ap_vld(store_ap_uint_256_ap_int_8_32u_U0_concat_flag_ap_vld)
 );
 
-concat_fifo_w32_d3_S output_data_addr3_c_U(
-    .clk(ap_clk),
-    .reset(ap_rst_n_inv),
-    .if_read_ce(1'b1),
-    .if_write_ce(1'b1),
-    .if_din(entry_proc_U0_output_data_addr3_c_din),
-    .if_full_n(output_data_addr3_c_full_n),
-    .if_write(entry_proc_U0_output_data_addr3_c_write),
-    .if_dout(output_data_addr3_c_dout),
-    .if_num_data_valid(output_data_addr3_c_num_data_valid),
-    .if_fifo_cap(output_data_addr3_c_fifo_cap),
-    .if_empty_n(output_data_addr3_c_empty_n),
-    .if_read(store_ap_uint_256_ap_int_8_32u_U0_input_data_addr3_read)
-);
-
-concat_fifo_w64_d3_S outputs_c_U(
+concat_fifo_w64_d4_S outputs_c_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
     .if_read_ce(1'b1),
@@ -673,6 +685,51 @@ concat_fifo_w64_d3_S outputs_c_U(
     .if_fifo_cap(outputs_c_fifo_cap),
     .if_empty_n(outputs_c_empty_n),
     .if_read(store_ap_uint_256_ap_int_8_32u_U0_outputs_read)
+);
+
+concat_fifo_w27_d2_S input_data_addr1_assign_cast_loc_channel_U(
+    .clk(ap_clk),
+    .reset(ap_rst_n_inv),
+    .if_read_ce(1'b1),
+    .if_write_ce(1'b1),
+    .if_din(Block_entry4_proc_U0_ap_return_0),
+    .if_full_n(input_data_addr1_assign_cast_loc_channel_full_n),
+    .if_write(ap_channel_done_input_data_addr1_assign_cast_loc_channel),
+    .if_dout(input_data_addr1_assign_cast_loc_channel_dout),
+    .if_num_data_valid(input_data_addr1_assign_cast_loc_channel_num_data_valid),
+    .if_fifo_cap(input_data_addr1_assign_cast_loc_channel_fifo_cap),
+    .if_empty_n(input_data_addr1_assign_cast_loc_channel_empty_n),
+    .if_read(read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_ready)
+);
+
+concat_fifo_w27_d2_S input_data_addr2_assign_cast_loc_channel_U(
+    .clk(ap_clk),
+    .reset(ap_rst_n_inv),
+    .if_read_ce(1'b1),
+    .if_write_ce(1'b1),
+    .if_din(Block_entry4_proc_U0_ap_return_1),
+    .if_full_n(input_data_addr2_assign_cast_loc_channel_full_n),
+    .if_write(ap_channel_done_input_data_addr2_assign_cast_loc_channel),
+    .if_dout(input_data_addr2_assign_cast_loc_channel_dout),
+    .if_num_data_valid(input_data_addr2_assign_cast_loc_channel_num_data_valid),
+    .if_fifo_cap(input_data_addr2_assign_cast_loc_channel_fifo_cap),
+    .if_empty_n(input_data_addr2_assign_cast_loc_channel_empty_n),
+    .if_read(read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_ready)
+);
+
+concat_fifo_w27_d3_S output_data_addr3_assign_cast_loc_channel_U(
+    .clk(ap_clk),
+    .reset(ap_rst_n_inv),
+    .if_read_ce(1'b1),
+    .if_write_ce(1'b1),
+    .if_din(Block_entry4_proc_U0_ap_return_2),
+    .if_full_n(output_data_addr3_assign_cast_loc_channel_full_n),
+    .if_write(ap_channel_done_output_data_addr3_assign_cast_loc_channel),
+    .if_dout(output_data_addr3_assign_cast_loc_channel_dout),
+    .if_num_data_valid(output_data_addr3_assign_cast_loc_channel_num_data_valid),
+    .if_fifo_cap(output_data_addr3_assign_cast_loc_channel_fifo_cap),
+    .if_empty_n(output_data_addr3_assign_cast_loc_channel_empty_n),
+    .if_read(store_ap_uint_256_ap_int_8_32u_U0_ap_ready)
 );
 
 concat_fifo_w256_d64_A input_stream_U(
@@ -720,18 +777,53 @@ concat_fifo_w32_d2_S COLS_c_U(
     .if_read(store_ap_uint_256_ap_int_8_32u_U0_COLS_read)
 );
 
-concat_start_for_store_ap_uint_256_ap_int_8_32u_U0 start_for_store_ap_uint_256_ap_int_8_32u_U0_U(
-    .clk(ap_clk),
-    .reset(ap_rst_n_inv),
-    .if_read_ce(1'b1),
-    .if_write_ce(1'b1),
-    .if_din(start_for_store_ap_uint_256_ap_int_8_32u_U0_din),
-    .if_full_n(start_for_store_ap_uint_256_ap_int_8_32u_U0_full_n),
-    .if_write(entry_proc_U0_start_write),
-    .if_dout(start_for_store_ap_uint_256_ap_int_8_32u_U0_dout),
-    .if_empty_n(start_for_store_ap_uint_256_ap_int_8_32u_U0_empty_n),
-    .if_read(store_ap_uint_256_ap_int_8_32u_U0_ap_ready)
-);
+always @ (posedge ap_clk) begin
+    if (ap_rst_n_inv == 1'b1) begin
+        ap_sync_reg_Block_entry4_proc_U0_ap_ready <= 1'b0;
+    end else begin
+        if (((ap_sync_ready & ap_start) == 1'b1)) begin
+            ap_sync_reg_Block_entry4_proc_U0_ap_ready <= 1'b0;
+        end else begin
+            ap_sync_reg_Block_entry4_proc_U0_ap_ready <= ap_sync_Block_entry4_proc_U0_ap_ready;
+        end
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (ap_rst_n_inv == 1'b1) begin
+        ap_sync_reg_channel_write_input_data_addr1_assign_cast_loc_channel <= 1'b0;
+    end else begin
+        if (((Block_entry4_proc_U0_ap_done & Block_entry4_proc_U0_ap_continue) == 1'b1)) begin
+            ap_sync_reg_channel_write_input_data_addr1_assign_cast_loc_channel <= 1'b0;
+        end else begin
+            ap_sync_reg_channel_write_input_data_addr1_assign_cast_loc_channel <= ap_sync_channel_write_input_data_addr1_assign_cast_loc_channel;
+        end
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (ap_rst_n_inv == 1'b1) begin
+        ap_sync_reg_channel_write_input_data_addr2_assign_cast_loc_channel <= 1'b0;
+    end else begin
+        if (((Block_entry4_proc_U0_ap_done & Block_entry4_proc_U0_ap_continue) == 1'b1)) begin
+            ap_sync_reg_channel_write_input_data_addr2_assign_cast_loc_channel <= 1'b0;
+        end else begin
+            ap_sync_reg_channel_write_input_data_addr2_assign_cast_loc_channel <= ap_sync_channel_write_input_data_addr2_assign_cast_loc_channel;
+        end
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (ap_rst_n_inv == 1'b1) begin
+        ap_sync_reg_channel_write_output_data_addr3_assign_cast_loc_channel <= 1'b0;
+    end else begin
+        if (((Block_entry4_proc_U0_ap_done & Block_entry4_proc_U0_ap_continue) == 1'b1)) begin
+            ap_sync_reg_channel_write_output_data_addr3_assign_cast_loc_channel <= 1'b0;
+        end else begin
+            ap_sync_reg_channel_write_output_data_addr3_assign_cast_loc_channel <= ap_sync_channel_write_output_data_addr3_assign_cast_loc_channel;
+        end
+    end
+end
 
 always @ (posedge ap_clk) begin
     if (ap_rst_n_inv == 1'b1) begin
@@ -757,9 +849,19 @@ always @ (posedge ap_clk) begin
     end
 end
 
+assign Block_entry4_proc_U0_ap_continue = (ap_sync_channel_write_output_data_addr3_assign_cast_loc_channel & ap_sync_channel_write_input_data_addr2_assign_cast_loc_channel & ap_sync_channel_write_input_data_addr1_assign_cast_loc_channel);
+
+assign Block_entry4_proc_U0_ap_start = ((ap_sync_reg_Block_entry4_proc_U0_ap_ready ^ 1'b1) & ap_start);
+
+assign ap_channel_done_input_data_addr1_assign_cast_loc_channel = ((ap_sync_reg_channel_write_input_data_addr1_assign_cast_loc_channel ^ 1'b1) & Block_entry4_proc_U0_ap_done);
+
+assign ap_channel_done_input_data_addr2_assign_cast_loc_channel = ((ap_sync_reg_channel_write_input_data_addr2_assign_cast_loc_channel ^ 1'b1) & Block_entry4_proc_U0_ap_done);
+
+assign ap_channel_done_output_data_addr3_assign_cast_loc_channel = ((ap_sync_reg_channel_write_output_data_addr3_assign_cast_loc_channel ^ 1'b1) & Block_entry4_proc_U0_ap_done);
+
 assign ap_done = store_ap_uint_256_ap_int_8_32u_U0_ap_done;
 
-assign ap_idle = (store_ap_uint_256_ap_int_8_32u_U0_ap_idle & read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_idle & entry_proc_U0_ap_idle);
+assign ap_idle = (store_ap_uint_256_ap_int_8_32u_U0_ap_idle & read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_idle & (output_data_addr3_assign_cast_loc_channel_empty_n ^ 1'b1) & (input_data_addr2_assign_cast_loc_channel_empty_n ^ 1'b1) & (input_data_addr1_assign_cast_loc_channel_empty_n ^ 1'b1) & entry_proc_U0_ap_idle & Block_entry4_proc_U0_ap_idle);
 
 assign ap_ready = ap_sync_ready;
 
@@ -767,11 +869,19 @@ always @ (*) begin
     ap_rst_n_inv = ~ap_rst_n;
 end
 
+assign ap_sync_Block_entry4_proc_U0_ap_ready = (ap_sync_reg_Block_entry4_proc_U0_ap_ready | Block_entry4_proc_U0_ap_ready);
+
+assign ap_sync_channel_write_input_data_addr1_assign_cast_loc_channel = ((input_data_addr1_assign_cast_loc_channel_full_n & ap_channel_done_input_data_addr1_assign_cast_loc_channel) | ap_sync_reg_channel_write_input_data_addr1_assign_cast_loc_channel);
+
+assign ap_sync_channel_write_input_data_addr2_assign_cast_loc_channel = ((input_data_addr2_assign_cast_loc_channel_full_n & ap_channel_done_input_data_addr2_assign_cast_loc_channel) | ap_sync_reg_channel_write_input_data_addr2_assign_cast_loc_channel);
+
+assign ap_sync_channel_write_output_data_addr3_assign_cast_loc_channel = ((output_data_addr3_assign_cast_loc_channel_full_n & ap_channel_done_output_data_addr3_assign_cast_loc_channel) | ap_sync_reg_channel_write_output_data_addr3_assign_cast_loc_channel);
+
 assign ap_sync_entry_proc_U0_ap_ready = (entry_proc_U0_ap_ready | ap_sync_reg_entry_proc_U0_ap_ready);
 
 assign ap_sync_read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_ready = (read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_ready | ap_sync_reg_read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_ready);
 
-assign ap_sync_ready = (ap_sync_read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_ready & ap_sync_entry_proc_U0_ap_ready);
+assign ap_sync_ready = (ap_sync_read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_ready & ap_sync_entry_proc_U0_ap_ready & ap_sync_Block_entry4_proc_U0_ap_ready);
 
 assign concat_data_BID = 1'd0;
 
@@ -795,12 +905,10 @@ assign entry_proc_U0_ap_start = ((ap_sync_reg_entry_proc_U0_ap_ready ^ 1'b1) & a
 
 assign read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_continue = 1'b1;
 
-assign read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_start = ((ap_sync_reg_read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_ready ^ 1'b1) & ap_start);
-
-assign start_for_store_ap_uint_256_ap_int_8_32u_U0_din = 1'b1;
+assign read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_start = (input_data_addr2_assign_cast_loc_channel_empty_n & input_data_addr1_assign_cast_loc_channel_empty_n & (ap_sync_reg_read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_ready ^ 1'b1) & ap_start);
 
 assign store_ap_uint_256_ap_int_8_32u_U0_ap_continue = 1'b1;
 
-assign store_ap_uint_256_ap_int_8_32u_U0_ap_start = start_for_store_ap_uint_256_ap_int_8_32u_U0_empty_n;
+assign store_ap_uint_256_ap_int_8_32u_U0_ap_start = output_data_addr3_assign_cast_loc_channel_empty_n;
 
 endmodule //concat

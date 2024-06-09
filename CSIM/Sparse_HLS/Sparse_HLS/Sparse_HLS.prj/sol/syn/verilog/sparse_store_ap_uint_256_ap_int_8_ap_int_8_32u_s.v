@@ -15,11 +15,11 @@ module sparse_store_ap_uint_256_ap_int_8_ap_int_8_32u_s (
         ap_continue,
         ap_idle,
         ap_ready,
-        quant_out2_dout,
-        quant_out2_num_data_valid,
-        quant_out2_fifo_cap,
-        quant_out2_empty_n,
-        quant_out2_read,
+        quant_out_dout,
+        quant_out_num_data_valid,
+        quant_out_fifo_cap,
+        quant_out_empty_n,
+        quant_out_read,
         m_axi_sparse_data_AWVALID,
         m_axi_sparse_data_AWREADY,
         m_axi_sparse_data_AWADDR,
@@ -71,21 +71,17 @@ module sparse_store_ap_uint_256_ap_int_8_ap_int_8_32u_s (
         outputs_fifo_cap,
         outputs_empty_n,
         outputs_read,
-        output_data_addr3_dout,
-        output_data_addr3_num_data_valid,
-        output_data_addr3_fifo_cap,
-        output_data_addr3_empty_n,
-        output_data_addr3_read,
-        ROWS_dout,
-        ROWS_num_data_valid,
-        ROWS_fifo_cap,
-        ROWS_empty_n,
-        ROWS_read,
-        COLS_dout,
-        COLS_num_data_valid,
-        COLS_fifo_cap,
-        COLS_empty_n,
-        COLS_read,
+        p_read,
+        fm_ROWS_dout,
+        fm_ROWS_num_data_valid,
+        fm_ROWS_fifo_cap,
+        fm_ROWS_empty_n,
+        fm_ROWS_read,
+        fm_COLS_dout,
+        fm_COLS_num_data_valid,
+        fm_COLS_fifo_cap,
+        fm_COLS_empty_n,
+        fm_COLS_read,
         sparse_flag,
         sparse_flag_ap_vld
 );
@@ -138,11 +134,11 @@ output   ap_done;
 input   ap_continue;
 output   ap_idle;
 output   ap_ready;
-input  [255:0] quant_out2_dout;
-input  [1:0] quant_out2_num_data_valid;
-input  [1:0] quant_out2_fifo_cap;
-input   quant_out2_empty_n;
-output   quant_out2_read;
+input  [255:0] quant_out_dout;
+input  [1:0] quant_out_num_data_valid;
+input  [1:0] quant_out_fifo_cap;
+input   quant_out_empty_n;
+output   quant_out_read;
 output   m_axi_sparse_data_AWVALID;
 input   m_axi_sparse_data_AWREADY;
 output  [63:0] m_axi_sparse_data_AWADDR;
@@ -194,28 +190,24 @@ input  [3:0] outputs_num_data_valid;
 input  [3:0] outputs_fifo_cap;
 input   outputs_empty_n;
 output   outputs_read;
-input  [31:0] output_data_addr3_dout;
-input  [3:0] output_data_addr3_num_data_valid;
-input  [3:0] output_data_addr3_fifo_cap;
-input   output_data_addr3_empty_n;
-output   output_data_addr3_read;
-input  [31:0] ROWS_dout;
-input  [1:0] ROWS_num_data_valid;
-input  [1:0] ROWS_fifo_cap;
-input   ROWS_empty_n;
-output   ROWS_read;
-input  [31:0] COLS_dout;
-input  [1:0] COLS_num_data_valid;
-input  [1:0] COLS_fifo_cap;
-input   COLS_empty_n;
-output   COLS_read;
+input  [26:0] p_read;
+input  [31:0] fm_ROWS_dout;
+input  [1:0] fm_ROWS_num_data_valid;
+input  [1:0] fm_ROWS_fifo_cap;
+input   fm_ROWS_empty_n;
+output   fm_ROWS_read;
+input  [31:0] fm_COLS_dout;
+input  [1:0] fm_COLS_num_data_valid;
+input  [1:0] fm_COLS_fifo_cap;
+input   fm_COLS_empty_n;
+output   fm_COLS_read;
 output  [0:0] sparse_flag;
 output   sparse_flag_ap_vld;
 
 reg ap_done;
 reg ap_idle;
 reg ap_ready;
-reg quant_out2_read;
+reg quant_out_read;
 reg m_axi_sparse_data_AWVALID;
 reg[63:0] m_axi_sparse_data_AWADDR;
 reg[0:0] m_axi_sparse_data_AWID;
@@ -231,9 +223,8 @@ reg[0:0] m_axi_sparse_data_AWUSER;
 reg m_axi_sparse_data_WVALID;
 reg m_axi_sparse_data_BREADY;
 reg outputs_read;
-reg output_data_addr3_read;
-reg ROWS_read;
-reg COLS_read;
+reg fm_ROWS_read;
+reg fm_COLS_read;
 reg[0:0] sparse_flag;
 reg sparse_flag_ap_vld;
 
@@ -244,68 +235,67 @@ reg    sparse_data_blk_n_AW;
 wire    ap_CS_fsm_state2;
 reg    sparse_data_blk_n_B;
 wire    ap_CS_fsm_state40;
-reg   [0:0] icmp_ln153_reg_215;
+reg   [0:0] icmp_ln153_reg_217;
 reg    outputs_blk_n;
-reg    output_data_addr3_blk_n;
-reg    ROWS_blk_n;
-reg    COLS_blk_n;
-wire   [26:0] loop_num_fu_140_p4;
-reg   [26:0] loop_num_reg_203;
-wire   [31:0] zext_ln150_fu_150_p1;
-reg   [31:0] zext_ln150_reg_210;
-wire   [0:0] icmp_ln153_fu_154_p2;
-reg   [58:0] trunc_ln1_reg_219;
-wire    grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_ap_start;
-wire    grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_ap_done;
-wire    grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_ap_idle;
-wire    grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_ap_ready;
-wire    grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_quant_out2_read;
-wire    grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_AWVALID;
-wire   [63:0] grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_AWADDR;
-wire   [0:0] grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_AWID;
-wire   [31:0] grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_AWLEN;
-wire   [2:0] grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_AWSIZE;
-wire   [1:0] grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_AWBURST;
-wire   [1:0] grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_AWLOCK;
-wire   [3:0] grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_AWCACHE;
-wire   [2:0] grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_AWPROT;
-wire   [3:0] grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_AWQOS;
-wire   [3:0] grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_AWREGION;
-wire   [0:0] grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_AWUSER;
-wire    grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_WVALID;
-wire   [255:0] grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_WDATA;
-wire   [31:0] grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_WSTRB;
-wire    grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_WLAST;
-wire   [0:0] grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_WID;
-wire   [0:0] grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_WUSER;
-wire    grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_ARVALID;
-wire   [63:0] grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_ARADDR;
-wire   [0:0] grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_ARID;
-wire   [31:0] grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_ARLEN;
-wire   [2:0] grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_ARSIZE;
-wire   [1:0] grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_ARBURST;
-wire   [1:0] grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_ARLOCK;
-wire   [3:0] grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_ARCACHE;
-wire   [2:0] grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_ARPROT;
-wire   [3:0] grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_ARQOS;
-wire   [3:0] grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_ARREGION;
-wire   [0:0] grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_ARUSER;
-wire    grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_RREADY;
-wire    grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_BREADY;
-reg   [26:0] ap_phi_mux_count_0_lcssa_phi_fu_117_p4;
-reg   [26:0] count_0_lcssa_reg_113;
+reg    fm_ROWS_blk_n;
+reg    fm_COLS_blk_n;
+wire   [26:0] loop_num_fu_142_p4;
+reg   [26:0] loop_num_reg_205;
+wire   [31:0] zext_ln150_fu_152_p1;
+reg   [31:0] zext_ln150_reg_212;
+wire   [0:0] icmp_ln153_fu_156_p2;
+reg   [58:0] trunc_ln1_reg_221;
+wire    grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_ap_start;
+wire    grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_ap_done;
+wire    grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_ap_idle;
+wire    grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_ap_ready;
+wire    grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_quant_out_read;
+wire    grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_AWVALID;
+wire   [63:0] grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_AWADDR;
+wire   [0:0] grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_AWID;
+wire   [31:0] grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_AWLEN;
+wire   [2:0] grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_AWSIZE;
+wire   [1:0] grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_AWBURST;
+wire   [1:0] grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_AWLOCK;
+wire   [3:0] grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_AWCACHE;
+wire   [2:0] grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_AWPROT;
+wire   [3:0] grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_AWQOS;
+wire   [3:0] grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_AWREGION;
+wire   [0:0] grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_AWUSER;
+wire    grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_WVALID;
+wire   [255:0] grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_WDATA;
+wire   [31:0] grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_WSTRB;
+wire    grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_WLAST;
+wire   [0:0] grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_WID;
+wire   [0:0] grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_WUSER;
+wire    grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_ARVALID;
+wire   [63:0] grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_ARADDR;
+wire   [0:0] grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_ARID;
+wire   [31:0] grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_ARLEN;
+wire   [2:0] grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_ARSIZE;
+wire   [1:0] grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_ARBURST;
+wire   [1:0] grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_ARLOCK;
+wire   [3:0] grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_ARCACHE;
+wire   [2:0] grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_ARPROT;
+wire   [3:0] grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_ARQOS;
+wire   [3:0] grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_ARREGION;
+wire   [0:0] grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_ARUSER;
+wire    grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_RREADY;
+wire    grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_BREADY;
+reg   [26:0] ap_phi_mux_count_0_lcssa_i_phi_fu_119_p4;
+reg   [26:0] count_0_lcssa_i_reg_115;
 reg    ap_block_state40;
 reg    ap_block_state1;
-reg    grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_ap_start_reg;
+reg    grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_ap_start_reg;
 wire    ap_CS_fsm_state3;
 wire    ap_CS_fsm_state4;
-wire  signed [63:0] sext_ln153_fu_188_p1;
+wire  signed [63:0] sext_ln153_fu_190_p1;
 reg   [0:0] sparse_flag_preg;
-wire   [0:0] icmp_ln160_fu_198_p2;
-wire   [31:0] mul_ln150_fu_134_p2;
-wire   [36:0] shl_ln_fu_160_p3;
-wire   [63:0] zext_ln153_fu_168_p1;
-wire   [63:0] add_ln153_fu_172_p2;
+wire   [0:0] icmp_ln160_fu_200_p2;
+wire   [31:0] mul_ln150_fu_136_p2;
+wire   [31:0] shl_ln_fu_162_p3;
+wire   [63:0] zext_ln153_fu_170_p1;
+wire   [63:0] add_ln153_fu_174_p2;
 reg   [39:0] ap_NS_fsm;
 reg    ap_ST_fsm_state1_blk;
 reg    ap_ST_fsm_state2_blk;
@@ -353,57 +343,57 @@ wire    ap_ce_reg;
 initial begin
 #0 ap_done_reg = 1'b0;
 #0 ap_CS_fsm = 40'd1;
-#0 grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_ap_start_reg = 1'b0;
+#0 grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_ap_start_reg = 1'b0;
 #0 sparse_flag_preg = 1'd0;
 end
 
-sparse_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1 grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124(
+sparse_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1 grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst),
-    .ap_start(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_ap_start),
-    .ap_done(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_ap_done),
-    .ap_idle(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_ap_idle),
-    .ap_ready(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_ap_ready),
-    .quant_out2_dout(quant_out2_dout),
-    .quant_out2_num_data_valid(2'd0),
-    .quant_out2_fifo_cap(2'd0),
-    .quant_out2_empty_n(quant_out2_empty_n),
-    .quant_out2_read(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_quant_out2_read),
-    .m_axi_sparse_data_AWVALID(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_AWVALID),
+    .ap_start(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_ap_start),
+    .ap_done(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_ap_done),
+    .ap_idle(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_ap_idle),
+    .ap_ready(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_ap_ready),
+    .quant_out_dout(quant_out_dout),
+    .quant_out_num_data_valid(2'd0),
+    .quant_out_fifo_cap(2'd0),
+    .quant_out_empty_n(quant_out_empty_n),
+    .quant_out_read(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_quant_out_read),
+    .m_axi_sparse_data_AWVALID(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_AWVALID),
     .m_axi_sparse_data_AWREADY(m_axi_sparse_data_AWREADY),
-    .m_axi_sparse_data_AWADDR(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_AWADDR),
-    .m_axi_sparse_data_AWID(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_AWID),
-    .m_axi_sparse_data_AWLEN(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_AWLEN),
-    .m_axi_sparse_data_AWSIZE(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_AWSIZE),
-    .m_axi_sparse_data_AWBURST(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_AWBURST),
-    .m_axi_sparse_data_AWLOCK(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_AWLOCK),
-    .m_axi_sparse_data_AWCACHE(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_AWCACHE),
-    .m_axi_sparse_data_AWPROT(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_AWPROT),
-    .m_axi_sparse_data_AWQOS(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_AWQOS),
-    .m_axi_sparse_data_AWREGION(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_AWREGION),
-    .m_axi_sparse_data_AWUSER(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_AWUSER),
-    .m_axi_sparse_data_WVALID(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_WVALID),
+    .m_axi_sparse_data_AWADDR(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_AWADDR),
+    .m_axi_sparse_data_AWID(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_AWID),
+    .m_axi_sparse_data_AWLEN(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_AWLEN),
+    .m_axi_sparse_data_AWSIZE(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_AWSIZE),
+    .m_axi_sparse_data_AWBURST(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_AWBURST),
+    .m_axi_sparse_data_AWLOCK(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_AWLOCK),
+    .m_axi_sparse_data_AWCACHE(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_AWCACHE),
+    .m_axi_sparse_data_AWPROT(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_AWPROT),
+    .m_axi_sparse_data_AWQOS(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_AWQOS),
+    .m_axi_sparse_data_AWREGION(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_AWREGION),
+    .m_axi_sparse_data_AWUSER(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_AWUSER),
+    .m_axi_sparse_data_WVALID(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_WVALID),
     .m_axi_sparse_data_WREADY(m_axi_sparse_data_WREADY),
-    .m_axi_sparse_data_WDATA(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_WDATA),
-    .m_axi_sparse_data_WSTRB(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_WSTRB),
-    .m_axi_sparse_data_WLAST(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_WLAST),
-    .m_axi_sparse_data_WID(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_WID),
-    .m_axi_sparse_data_WUSER(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_WUSER),
-    .m_axi_sparse_data_ARVALID(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_ARVALID),
+    .m_axi_sparse_data_WDATA(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_WDATA),
+    .m_axi_sparse_data_WSTRB(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_WSTRB),
+    .m_axi_sparse_data_WLAST(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_WLAST),
+    .m_axi_sparse_data_WID(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_WID),
+    .m_axi_sparse_data_WUSER(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_WUSER),
+    .m_axi_sparse_data_ARVALID(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_ARVALID),
     .m_axi_sparse_data_ARREADY(1'b0),
-    .m_axi_sparse_data_ARADDR(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_ARADDR),
-    .m_axi_sparse_data_ARID(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_ARID),
-    .m_axi_sparse_data_ARLEN(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_ARLEN),
-    .m_axi_sparse_data_ARSIZE(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_ARSIZE),
-    .m_axi_sparse_data_ARBURST(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_ARBURST),
-    .m_axi_sparse_data_ARLOCK(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_ARLOCK),
-    .m_axi_sparse_data_ARCACHE(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_ARCACHE),
-    .m_axi_sparse_data_ARPROT(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_ARPROT),
-    .m_axi_sparse_data_ARQOS(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_ARQOS),
-    .m_axi_sparse_data_ARREGION(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_ARREGION),
-    .m_axi_sparse_data_ARUSER(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_ARUSER),
+    .m_axi_sparse_data_ARADDR(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_ARADDR),
+    .m_axi_sparse_data_ARID(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_ARID),
+    .m_axi_sparse_data_ARLEN(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_ARLEN),
+    .m_axi_sparse_data_ARSIZE(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_ARSIZE),
+    .m_axi_sparse_data_ARBURST(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_ARBURST),
+    .m_axi_sparse_data_ARLOCK(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_ARLOCK),
+    .m_axi_sparse_data_ARCACHE(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_ARCACHE),
+    .m_axi_sparse_data_ARPROT(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_ARPROT),
+    .m_axi_sparse_data_ARQOS(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_ARQOS),
+    .m_axi_sparse_data_ARREGION(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_ARREGION),
+    .m_axi_sparse_data_ARUSER(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_ARUSER),
     .m_axi_sparse_data_RVALID(1'b0),
-    .m_axi_sparse_data_RREADY(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_RREADY),
+    .m_axi_sparse_data_RREADY(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_RREADY),
     .m_axi_sparse_data_RDATA(256'd0),
     .m_axi_sparse_data_RLAST(1'b0),
     .m_axi_sparse_data_RID(1'd0),
@@ -411,12 +401,12 @@ sparse_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1 grp_sto
     .m_axi_sparse_data_RUSER(1'd0),
     .m_axi_sparse_data_RRESP(2'd0),
     .m_axi_sparse_data_BVALID(m_axi_sparse_data_BVALID),
-    .m_axi_sparse_data_BREADY(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_BREADY),
+    .m_axi_sparse_data_BREADY(grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_BREADY),
     .m_axi_sparse_data_BRESP(m_axi_sparse_data_BRESP),
     .m_axi_sparse_data_BID(m_axi_sparse_data_BID),
     .m_axi_sparse_data_BUSER(m_axi_sparse_data_BUSER),
-    .sext_ln153(trunc_ln1_reg_219),
-    .loop_num(loop_num_reg_203)
+    .sext_ln153(trunc_ln1_reg_221),
+    .loop_num(loop_num_reg_205)
 );
 
 sparse_mul_32s_32s_32_1_1 #(
@@ -425,10 +415,10 @@ sparse_mul_32s_32s_32_1_1 #(
     .din0_WIDTH( 32 ),
     .din1_WIDTH( 32 ),
     .dout_WIDTH( 32 ))
-mul_32s_32s_32_1_1_U93(
-    .din0(COLS_dout),
-    .din1(ROWS_dout),
-    .dout(mul_ln150_fu_134_p2)
+mul_32s_32s_32_1_1_U94(
+    .din0(fm_COLS_dout),
+    .din1(fm_ROWS_dout),
+    .dout(mul_ln150_fu_136_p2)
 );
 
 always @ (posedge ap_clk) begin
@@ -445,7 +435,7 @@ always @ (posedge ap_clk) begin
     end else begin
         if ((ap_continue == 1'b1)) begin
             ap_done_reg <= 1'b0;
-        end else if ((~((icmp_ln153_reg_215 == 1'd0) & (m_axi_sparse_data_BVALID == 1'b0)) & (1'b1 == ap_CS_fsm_state40))) begin
+        end else if ((~((icmp_ln153_reg_217 == 1'd0) & (m_axi_sparse_data_BVALID == 1'b0)) & (1'b1 == ap_CS_fsm_state40))) begin
             ap_done_reg <= 1'b1;
         end
     end
@@ -453,12 +443,12 @@ end
 
 always @ (posedge ap_clk) begin
     if (ap_rst == 1'b1) begin
-        grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_ap_start_reg <= 1'b0;
+        grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_ap_start_reg <= 1'b0;
     end else begin
         if ((1'b1 == ap_CS_fsm_state3)) begin
-            grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_ap_start_reg <= 1'b1;
-        end else if ((grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_ap_ready == 1'b1)) begin
-            grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_ap_start_reg <= 1'b0;
+            grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_ap_start_reg <= 1'b1;
+        end else if ((grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_ap_ready == 1'b1)) begin
+            grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_ap_start_reg <= 1'b0;
         end
     end
 end
@@ -467,63 +457,31 @@ always @ (posedge ap_clk) begin
     if (ap_rst == 1'b1) begin
         sparse_flag_preg <= 1'd0;
     end else begin
-        if ((~((icmp_ln153_reg_215 == 1'd0) & (m_axi_sparse_data_BVALID == 1'b0)) & (icmp_ln160_fu_198_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state40))) begin
+        if ((~((icmp_ln153_reg_217 == 1'd0) & (m_axi_sparse_data_BVALID == 1'b0)) & (icmp_ln160_fu_200_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state40))) begin
             sparse_flag_preg <= 1'd1;
         end
     end
 end
 
 always @ (posedge ap_clk) begin
-    if ((~((ap_done_reg == 1'b1) | (ap_start == 1'b0) | (1'b0 == COLS_empty_n) | (1'b0 == ROWS_empty_n) | (output_data_addr3_empty_n == 1'b0) | (outputs_empty_n == 1'b0)) & (1'b1 == ap_CS_fsm_state1) & (icmp_ln153_fu_154_p2 == 1'd1))) begin
-        count_0_lcssa_reg_113 <= 27'd0;
-    end else if ((~((icmp_ln153_reg_215 == 1'd0) & (m_axi_sparse_data_BVALID == 1'b0)) & (1'b1 == ap_CS_fsm_state40) & (icmp_ln153_reg_215 == 1'd0))) begin
-        count_0_lcssa_reg_113 <= loop_num_reg_203;
+    if ((~((ap_done_reg == 1'b1) | (ap_start == 1'b0) | (fm_COLS_empty_n == 1'b0) | (fm_ROWS_empty_n == 1'b0) | (outputs_empty_n == 1'b0)) & (1'b1 == ap_CS_fsm_state1) & (icmp_ln153_fu_156_p2 == 1'd1))) begin
+        count_0_lcssa_i_reg_115 <= 27'd0;
+    end else if ((~((icmp_ln153_reg_217 == 1'd0) & (m_axi_sparse_data_BVALID == 1'b0)) & (1'b1 == ap_CS_fsm_state40) & (icmp_ln153_reg_217 == 1'd0))) begin
+        count_0_lcssa_i_reg_115 <= loop_num_reg_205;
     end
 end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state1)) begin
-        icmp_ln153_reg_215 <= icmp_ln153_fu_154_p2;
-        loop_num_reg_203 <= {{mul_ln150_fu_134_p2[31:5]}};
-        zext_ln150_reg_210[26 : 0] <= zext_ln150_fu_150_p1[26 : 0];
+        icmp_ln153_reg_217 <= icmp_ln153_fu_156_p2;
+        loop_num_reg_205 <= {{mul_ln150_fu_136_p2[31:5]}};
+        zext_ln150_reg_212[26 : 0] <= zext_ln150_fu_152_p1[26 : 0];
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((1'b1 == ap_CS_fsm_state1) & (icmp_ln153_fu_154_p2 == 1'd0))) begin
-        trunc_ln1_reg_219 <= {{add_ln153_fu_172_p2[63:5]}};
-    end
-end
-
-always @ (*) begin
-    if ((~((ap_done_reg == 1'b1) | (ap_start == 1'b0)) & (1'b1 == ap_CS_fsm_state1))) begin
-        COLS_blk_n = COLS_empty_n;
-    end else begin
-        COLS_blk_n = 1'b1;
-    end
-end
-
-always @ (*) begin
-    if ((~((ap_done_reg == 1'b1) | (ap_start == 1'b0) | (1'b0 == COLS_empty_n) | (1'b0 == ROWS_empty_n) | (output_data_addr3_empty_n == 1'b0) | (outputs_empty_n == 1'b0)) & (1'b1 == ap_CS_fsm_state1))) begin
-        COLS_read = 1'b1;
-    end else begin
-        COLS_read = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if ((~((ap_done_reg == 1'b1) | (ap_start == 1'b0)) & (1'b1 == ap_CS_fsm_state1))) begin
-        ROWS_blk_n = ROWS_empty_n;
-    end else begin
-        ROWS_blk_n = 1'b1;
-    end
-end
-
-always @ (*) begin
-    if ((~((ap_done_reg == 1'b1) | (ap_start == 1'b0) | (1'b0 == COLS_empty_n) | (1'b0 == ROWS_empty_n) | (output_data_addr3_empty_n == 1'b0) | (outputs_empty_n == 1'b0)) & (1'b1 == ap_CS_fsm_state1))) begin
-        ROWS_read = 1'b1;
-    end else begin
-        ROWS_read = 1'b0;
+    if (((1'b1 == ap_CS_fsm_state1) & (icmp_ln153_fu_156_p2 == 1'd0))) begin
+        trunc_ln1_reg_221 <= {{add_ln153_fu_174_p2[63:5]}};
     end
 end
 
@@ -548,7 +506,7 @@ assign ap_ST_fsm_state18_blk = 1'b0;
 assign ap_ST_fsm_state19_blk = 1'b0;
 
 always @ (*) begin
-    if (((ap_done_reg == 1'b1) | (ap_start == 1'b0) | (1'b0 == COLS_empty_n) | (1'b0 == ROWS_empty_n) | (output_data_addr3_empty_n == 1'b0) | (outputs_empty_n == 1'b0))) begin
+    if (((ap_done_reg == 1'b1) | (ap_start == 1'b0) | (fm_COLS_empty_n == 1'b0) | (fm_ROWS_empty_n == 1'b0) | (outputs_empty_n == 1'b0))) begin
         ap_ST_fsm_state1_blk = 1'b1;
     end else begin
         ap_ST_fsm_state1_blk = 1'b0;
@@ -606,7 +564,7 @@ assign ap_ST_fsm_state39_blk = 1'b0;
 assign ap_ST_fsm_state3_blk = 1'b0;
 
 always @ (*) begin
-    if (((icmp_ln153_reg_215 == 1'd0) & (m_axi_sparse_data_BVALID == 1'b0))) begin
+    if (((icmp_ln153_reg_217 == 1'd0) & (m_axi_sparse_data_BVALID == 1'b0))) begin
         ap_ST_fsm_state40_blk = 1'b1;
     end else begin
         ap_ST_fsm_state40_blk = 1'b0;
@@ -614,7 +572,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_ap_done == 1'b0)) begin
+    if ((grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_ap_done == 1'b0)) begin
         ap_ST_fsm_state4_blk = 1'b1;
     end else begin
         ap_ST_fsm_state4_blk = 1'b0;
@@ -632,7 +590,7 @@ assign ap_ST_fsm_state8_blk = 1'b0;
 assign ap_ST_fsm_state9_blk = 1'b0;
 
 always @ (*) begin
-    if ((~((icmp_ln153_reg_215 == 1'd0) & (m_axi_sparse_data_BVALID == 1'b0)) & (1'b1 == ap_CS_fsm_state40))) begin
+    if ((~((icmp_ln153_reg_217 == 1'd0) & (m_axi_sparse_data_BVALID == 1'b0)) & (1'b1 == ap_CS_fsm_state40))) begin
         ap_done = 1'b1;
     end else begin
         ap_done = ap_done_reg;
@@ -648,15 +606,15 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state40) & (icmp_ln153_reg_215 == 1'd0))) begin
-        ap_phi_mux_count_0_lcssa_phi_fu_117_p4 = loop_num_reg_203;
+    if (((1'b1 == ap_CS_fsm_state40) & (icmp_ln153_reg_217 == 1'd0))) begin
+        ap_phi_mux_count_0_lcssa_i_phi_fu_119_p4 = loop_num_reg_205;
     end else begin
-        ap_phi_mux_count_0_lcssa_phi_fu_117_p4 = count_0_lcssa_reg_113;
+        ap_phi_mux_count_0_lcssa_i_phi_fu_119_p4 = count_0_lcssa_i_reg_115;
     end
 end
 
 always @ (*) begin
-    if ((~((icmp_ln153_reg_215 == 1'd0) & (m_axi_sparse_data_BVALID == 1'b0)) & (1'b1 == ap_CS_fsm_state40))) begin
+    if ((~((icmp_ln153_reg_217 == 1'd0) & (m_axi_sparse_data_BVALID == 1'b0)) & (1'b1 == ap_CS_fsm_state40))) begin
         ap_ready = 1'b1;
     end else begin
         ap_ready = 1'b0;
@@ -664,10 +622,42 @@ always @ (*) begin
 end
 
 always @ (*) begin
+    if ((~((ap_done_reg == 1'b1) | (ap_start == 1'b0)) & (1'b1 == ap_CS_fsm_state1))) begin
+        fm_COLS_blk_n = fm_COLS_empty_n;
+    end else begin
+        fm_COLS_blk_n = 1'b1;
+    end
+end
+
+always @ (*) begin
+    if ((~((ap_done_reg == 1'b1) | (ap_start == 1'b0) | (fm_COLS_empty_n == 1'b0) | (fm_ROWS_empty_n == 1'b0) | (outputs_empty_n == 1'b0)) & (1'b1 == ap_CS_fsm_state1))) begin
+        fm_COLS_read = 1'b1;
+    end else begin
+        fm_COLS_read = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if ((~((ap_done_reg == 1'b1) | (ap_start == 1'b0)) & (1'b1 == ap_CS_fsm_state1))) begin
+        fm_ROWS_blk_n = fm_ROWS_empty_n;
+    end else begin
+        fm_ROWS_blk_n = 1'b1;
+    end
+end
+
+always @ (*) begin
+    if ((~((ap_done_reg == 1'b1) | (ap_start == 1'b0) | (fm_COLS_empty_n == 1'b0) | (fm_ROWS_empty_n == 1'b0) | (outputs_empty_n == 1'b0)) & (1'b1 == ap_CS_fsm_state1))) begin
+        fm_ROWS_read = 1'b1;
+    end else begin
+        fm_ROWS_read = 1'b0;
+    end
+end
+
+always @ (*) begin
     if (((m_axi_sparse_data_AWREADY == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
-        m_axi_sparse_data_AWADDR = sext_ln153_fu_188_p1;
+        m_axi_sparse_data_AWADDR = sext_ln153_fu_190_p1;
     end else if (((1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state3))) begin
-        m_axi_sparse_data_AWADDR = grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_AWADDR;
+        m_axi_sparse_data_AWADDR = grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_AWADDR;
     end else begin
         m_axi_sparse_data_AWADDR = 'bx;
     end
@@ -675,7 +665,7 @@ end
 
 always @ (*) begin
     if (((1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state3))) begin
-        m_axi_sparse_data_AWBURST = grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_AWBURST;
+        m_axi_sparse_data_AWBURST = grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_AWBURST;
     end else begin
         m_axi_sparse_data_AWBURST = 2'd0;
     end
@@ -683,7 +673,7 @@ end
 
 always @ (*) begin
     if (((1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state3))) begin
-        m_axi_sparse_data_AWCACHE = grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_AWCACHE;
+        m_axi_sparse_data_AWCACHE = grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_AWCACHE;
     end else begin
         m_axi_sparse_data_AWCACHE = 4'd0;
     end
@@ -691,7 +681,7 @@ end
 
 always @ (*) begin
     if (((1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state3))) begin
-        m_axi_sparse_data_AWID = grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_AWID;
+        m_axi_sparse_data_AWID = grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_AWID;
     end else begin
         m_axi_sparse_data_AWID = 1'd0;
     end
@@ -699,9 +689,9 @@ end
 
 always @ (*) begin
     if (((m_axi_sparse_data_AWREADY == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
-        m_axi_sparse_data_AWLEN = zext_ln150_reg_210;
+        m_axi_sparse_data_AWLEN = zext_ln150_reg_212;
     end else if (((1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state3))) begin
-        m_axi_sparse_data_AWLEN = grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_AWLEN;
+        m_axi_sparse_data_AWLEN = grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_AWLEN;
     end else begin
         m_axi_sparse_data_AWLEN = 'bx;
     end
@@ -709,7 +699,7 @@ end
 
 always @ (*) begin
     if (((1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state3))) begin
-        m_axi_sparse_data_AWLOCK = grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_AWLOCK;
+        m_axi_sparse_data_AWLOCK = grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_AWLOCK;
     end else begin
         m_axi_sparse_data_AWLOCK = 2'd0;
     end
@@ -717,7 +707,7 @@ end
 
 always @ (*) begin
     if (((1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state3))) begin
-        m_axi_sparse_data_AWPROT = grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_AWPROT;
+        m_axi_sparse_data_AWPROT = grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_AWPROT;
     end else begin
         m_axi_sparse_data_AWPROT = 3'd0;
     end
@@ -725,7 +715,7 @@ end
 
 always @ (*) begin
     if (((1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state3))) begin
-        m_axi_sparse_data_AWQOS = grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_AWQOS;
+        m_axi_sparse_data_AWQOS = grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_AWQOS;
     end else begin
         m_axi_sparse_data_AWQOS = 4'd0;
     end
@@ -733,7 +723,7 @@ end
 
 always @ (*) begin
     if (((1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state3))) begin
-        m_axi_sparse_data_AWREGION = grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_AWREGION;
+        m_axi_sparse_data_AWREGION = grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_AWREGION;
     end else begin
         m_axi_sparse_data_AWREGION = 4'd0;
     end
@@ -741,7 +731,7 @@ end
 
 always @ (*) begin
     if (((1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state3))) begin
-        m_axi_sparse_data_AWSIZE = grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_AWSIZE;
+        m_axi_sparse_data_AWSIZE = grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_AWSIZE;
     end else begin
         m_axi_sparse_data_AWSIZE = 3'd0;
     end
@@ -749,7 +739,7 @@ end
 
 always @ (*) begin
     if (((1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state3))) begin
-        m_axi_sparse_data_AWUSER = grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_AWUSER;
+        m_axi_sparse_data_AWUSER = grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_AWUSER;
     end else begin
         m_axi_sparse_data_AWUSER = 1'd0;
     end
@@ -759,17 +749,17 @@ always @ (*) begin
     if (((m_axi_sparse_data_AWREADY == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
         m_axi_sparse_data_AWVALID = 1'b1;
     end else if (((1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state3))) begin
-        m_axi_sparse_data_AWVALID = grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_AWVALID;
+        m_axi_sparse_data_AWVALID = grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_AWVALID;
     end else begin
         m_axi_sparse_data_AWVALID = 1'b0;
     end
 end
 
 always @ (*) begin
-    if ((~((icmp_ln153_reg_215 == 1'd0) & (m_axi_sparse_data_BVALID == 1'b0)) & (1'b1 == ap_CS_fsm_state40) & (icmp_ln153_reg_215 == 1'd0))) begin
+    if ((~((icmp_ln153_reg_217 == 1'd0) & (m_axi_sparse_data_BVALID == 1'b0)) & (1'b1 == ap_CS_fsm_state40) & (icmp_ln153_reg_217 == 1'd0))) begin
         m_axi_sparse_data_BREADY = 1'b1;
     end else if (((1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state3))) begin
-        m_axi_sparse_data_BREADY = grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_BREADY;
+        m_axi_sparse_data_BREADY = grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_BREADY;
     end else begin
         m_axi_sparse_data_BREADY = 1'b0;
     end
@@ -777,25 +767,9 @@ end
 
 always @ (*) begin
     if (((1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state3))) begin
-        m_axi_sparse_data_WVALID = grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_WVALID;
+        m_axi_sparse_data_WVALID = grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_WVALID;
     end else begin
         m_axi_sparse_data_WVALID = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if ((~((ap_done_reg == 1'b1) | (ap_start == 1'b0)) & (1'b1 == ap_CS_fsm_state1))) begin
-        output_data_addr3_blk_n = output_data_addr3_empty_n;
-    end else begin
-        output_data_addr3_blk_n = 1'b1;
-    end
-end
-
-always @ (*) begin
-    if ((~((ap_done_reg == 1'b1) | (ap_start == 1'b0) | (1'b0 == COLS_empty_n) | (1'b0 == ROWS_empty_n) | (output_data_addr3_empty_n == 1'b0) | (outputs_empty_n == 1'b0)) & (1'b1 == ap_CS_fsm_state1))) begin
-        output_data_addr3_read = 1'b1;
-    end else begin
-        output_data_addr3_read = 1'b0;
     end
 end
 
@@ -808,7 +782,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((~((ap_done_reg == 1'b1) | (ap_start == 1'b0) | (1'b0 == COLS_empty_n) | (1'b0 == ROWS_empty_n) | (output_data_addr3_empty_n == 1'b0) | (outputs_empty_n == 1'b0)) & (1'b1 == ap_CS_fsm_state1))) begin
+    if ((~((ap_done_reg == 1'b1) | (ap_start == 1'b0) | (fm_COLS_empty_n == 1'b0) | (fm_ROWS_empty_n == 1'b0) | (outputs_empty_n == 1'b0)) & (1'b1 == ap_CS_fsm_state1))) begin
         outputs_read = 1'b1;
     end else begin
         outputs_read = 1'b0;
@@ -817,9 +791,9 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state4)) begin
-        quant_out2_read = grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_quant_out2_read;
+        quant_out_read = grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_quant_out_read;
     end else begin
-        quant_out2_read = 1'b0;
+        quant_out_read = 1'b0;
     end
 end
 
@@ -832,7 +806,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state40) & (icmp_ln153_reg_215 == 1'd0))) begin
+    if (((1'b1 == ap_CS_fsm_state40) & (icmp_ln153_reg_217 == 1'd0))) begin
         sparse_data_blk_n_B = m_axi_sparse_data_BVALID;
     end else begin
         sparse_data_blk_n_B = 1'b1;
@@ -840,7 +814,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((~((icmp_ln153_reg_215 == 1'd0) & (m_axi_sparse_data_BVALID == 1'b0)) & (icmp_ln160_fu_198_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state40))) begin
+    if ((~((icmp_ln153_reg_217 == 1'd0) & (m_axi_sparse_data_BVALID == 1'b0)) & (icmp_ln160_fu_200_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state40))) begin
         sparse_flag = 1'd1;
     end else begin
         sparse_flag = sparse_flag_preg;
@@ -848,7 +822,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((~((icmp_ln153_reg_215 == 1'd0) & (m_axi_sparse_data_BVALID == 1'b0)) & (icmp_ln160_fu_198_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state40))) begin
+    if ((~((icmp_ln153_reg_217 == 1'd0) & (m_axi_sparse_data_BVALID == 1'b0)) & (icmp_ln160_fu_200_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state40))) begin
         sparse_flag_ap_vld = 1'b1;
     end else begin
         sparse_flag_ap_vld = 1'b0;
@@ -858,9 +832,9 @@ end
 always @ (*) begin
     case (ap_CS_fsm)
         ap_ST_fsm_state1 : begin
-            if ((~((ap_done_reg == 1'b1) | (ap_start == 1'b0) | (1'b0 == COLS_empty_n) | (1'b0 == ROWS_empty_n) | (output_data_addr3_empty_n == 1'b0) | (outputs_empty_n == 1'b0)) & (1'b1 == ap_CS_fsm_state1) & (icmp_ln153_fu_154_p2 == 1'd1))) begin
+            if ((~((ap_done_reg == 1'b1) | (ap_start == 1'b0) | (fm_COLS_empty_n == 1'b0) | (fm_ROWS_empty_n == 1'b0) | (outputs_empty_n == 1'b0)) & (1'b1 == ap_CS_fsm_state1) & (icmp_ln153_fu_156_p2 == 1'd1))) begin
                 ap_NS_fsm = ap_ST_fsm_state40;
-            end else if ((~((ap_done_reg == 1'b1) | (ap_start == 1'b0) | (1'b0 == COLS_empty_n) | (1'b0 == ROWS_empty_n) | (output_data_addr3_empty_n == 1'b0) | (outputs_empty_n == 1'b0)) & (1'b1 == ap_CS_fsm_state1) & (icmp_ln153_fu_154_p2 == 1'd0))) begin
+            end else if ((~((ap_done_reg == 1'b1) | (ap_start == 1'b0) | (fm_COLS_empty_n == 1'b0) | (fm_ROWS_empty_n == 1'b0) | (outputs_empty_n == 1'b0)) & (1'b1 == ap_CS_fsm_state1) & (icmp_ln153_fu_156_p2 == 1'd0))) begin
                 ap_NS_fsm = ap_ST_fsm_state2;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state1;
@@ -877,7 +851,7 @@ always @ (*) begin
             ap_NS_fsm = ap_ST_fsm_state4;
         end
         ap_ST_fsm_state4 : begin
-            if (((1'b1 == ap_CS_fsm_state4) & (grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_ap_done == 1'b1))) begin
+            if (((1'b1 == ap_CS_fsm_state4) & (grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_ap_done == 1'b1))) begin
                 ap_NS_fsm = ap_ST_fsm_state5;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state4;
@@ -989,7 +963,7 @@ always @ (*) begin
             ap_NS_fsm = ap_ST_fsm_state40;
         end
         ap_ST_fsm_state40 : begin
-            if ((~((icmp_ln153_reg_215 == 1'd0) & (m_axi_sparse_data_BVALID == 1'b0)) & (1'b1 == ap_CS_fsm_state40))) begin
+            if ((~((icmp_ln153_reg_217 == 1'd0) & (m_axi_sparse_data_BVALID == 1'b0)) & (1'b1 == ap_CS_fsm_state40))) begin
                 ap_NS_fsm = ap_ST_fsm_state1;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state40;
@@ -1001,7 +975,7 @@ always @ (*) begin
     endcase
 end
 
-assign add_ln153_fu_172_p2 = (outputs_dout + zext_ln153_fu_168_p1);
+assign add_ln153_fu_174_p2 = (outputs_dout + zext_ln153_fu_170_p1);
 
 assign ap_CS_fsm_state1 = ap_CS_fsm[32'd0];
 
@@ -1014,20 +988,20 @@ assign ap_CS_fsm_state4 = ap_CS_fsm[32'd3];
 assign ap_CS_fsm_state40 = ap_CS_fsm[32'd39];
 
 always @ (*) begin
-    ap_block_state1 = ((ap_done_reg == 1'b1) | (ap_start == 1'b0) | (1'b0 == COLS_empty_n) | (1'b0 == ROWS_empty_n) | (output_data_addr3_empty_n == 1'b0) | (outputs_empty_n == 1'b0));
+    ap_block_state1 = ((ap_done_reg == 1'b1) | (ap_start == 1'b0) | (fm_COLS_empty_n == 1'b0) | (fm_ROWS_empty_n == 1'b0) | (outputs_empty_n == 1'b0));
 end
 
 always @ (*) begin
-    ap_block_state40 = ((icmp_ln153_reg_215 == 1'd0) & (m_axi_sparse_data_BVALID == 1'b0));
+    ap_block_state40 = ((icmp_ln153_reg_217 == 1'd0) & (m_axi_sparse_data_BVALID == 1'b0));
 end
 
-assign grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_ap_start = grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_ap_start_reg;
+assign grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_ap_start = grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_ap_start_reg;
 
-assign icmp_ln153_fu_154_p2 = ((loop_num_fu_140_p4 == 27'd0) ? 1'b1 : 1'b0);
+assign icmp_ln153_fu_156_p2 = ((loop_num_fu_142_p4 == 27'd0) ? 1'b1 : 1'b0);
 
-assign icmp_ln160_fu_198_p2 = ((ap_phi_mux_count_0_lcssa_phi_fu_117_p4 == loop_num_reg_203) ? 1'b1 : 1'b0);
+assign icmp_ln160_fu_200_p2 = ((ap_phi_mux_count_0_lcssa_i_phi_fu_119_p4 == loop_num_reg_205) ? 1'b1 : 1'b0);
 
-assign loop_num_fu_140_p4 = {{mul_ln150_fu_134_p2[31:5]}};
+assign loop_num_fu_142_p4 = {{mul_ln150_fu_136_p2[31:5]}};
 
 assign m_axi_sparse_data_ARADDR = 64'd0;
 
@@ -1055,26 +1029,26 @@ assign m_axi_sparse_data_ARVALID = 1'b0;
 
 assign m_axi_sparse_data_RREADY = 1'b0;
 
-assign m_axi_sparse_data_WDATA = grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_WDATA;
+assign m_axi_sparse_data_WDATA = grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_WDATA;
 
-assign m_axi_sparse_data_WID = grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_WID;
+assign m_axi_sparse_data_WID = grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_WID;
 
-assign m_axi_sparse_data_WLAST = grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_WLAST;
+assign m_axi_sparse_data_WLAST = grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_WLAST;
 
-assign m_axi_sparse_data_WSTRB = grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_WSTRB;
+assign m_axi_sparse_data_WSTRB = grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_WSTRB;
 
-assign m_axi_sparse_data_WUSER = grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_124_m_axi_sparse_data_WUSER;
+assign m_axi_sparse_data_WUSER = grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126_m_axi_sparse_data_WUSER;
 
-assign sext_ln153_fu_188_p1 = $signed(trunc_ln1_reg_219);
+assign sext_ln153_fu_190_p1 = $signed(trunc_ln1_reg_221);
 
-assign shl_ln_fu_160_p3 = {{output_data_addr3_dout}, {5'd0}};
+assign shl_ln_fu_162_p3 = {{p_read}, {5'd0}};
 
-assign zext_ln150_fu_150_p1 = loop_num_fu_140_p4;
+assign zext_ln150_fu_152_p1 = loop_num_fu_142_p4;
 
-assign zext_ln153_fu_168_p1 = shl_ln_fu_160_p3;
+assign zext_ln153_fu_170_p1 = shl_ln_fu_162_p3;
 
 always @ (posedge ap_clk) begin
-    zext_ln150_reg_210[31:27] <= 5'b00000;
+    zext_ln150_reg_212[31:27] <= 5'b00000;
 end
 
 endmodule //sparse_store_ap_uint_256_ap_int_8_ap_int_8_32u_s

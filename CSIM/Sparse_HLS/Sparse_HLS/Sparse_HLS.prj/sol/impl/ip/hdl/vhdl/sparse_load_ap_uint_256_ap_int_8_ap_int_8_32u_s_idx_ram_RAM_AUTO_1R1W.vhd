@@ -12,8 +12,8 @@ entity sparse_load_ap_uint_256_ap_int_8_ap_int_8_32u_s_idx_ram_RAM_AUTO_1R1W is
     generic(
         MEM_TYPE        : string    := "auto"; 
         DataWidth       : integer   := 8; 
-        AddressWidth    : integer   := 11;
-        AddressRange    : integer   := 2048
+        AddressWidth    : integer   := 7;
+        AddressRange    : integer   := 128
     ); 
     port (
         address0    : in std_logic_vector(AddressWidth-1 downto 0); 

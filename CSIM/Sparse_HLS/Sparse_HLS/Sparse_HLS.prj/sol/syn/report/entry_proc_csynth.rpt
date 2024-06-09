@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'entry_proc'
 ================================================================
-* Date:           Fri Jun  7 17:07:36 2024
+* Date:           Sun Jun  9 10:52:44 2024
 
 * Version:        2022.2 (Build 3670227 on Oct 13 2022)
 * Project:        Sparse_HLS.prj
@@ -20,7 +20,7 @@
     +--------+----------+----------+------------+
     |  Clock |  Target  | Estimated| Uncertainty|
     +--------+----------+----------+------------+
-    |ap_clk  |  10.00 ns|  1.861 ns|     2.70 ns|
+    |ap_clk  |  10.00 ns|  1.885 ns|     2.70 ns|
     +--------+----------+----------+------------+
 
 + Latency: 
@@ -53,10 +53,10 @@
 |FIFO             |        -|     -|       -|       -|    -|
 |Instance         |        -|     -|       -|       -|    -|
 |Memory           |        -|     -|       -|       -|    -|
-|Multiplexer      |        -|     -|       -|      54|    -|
+|Multiplexer      |        -|     -|       -|      45|    -|
 |Register         |        -|     -|       3|       -|    -|
 +-----------------+---------+------+--------+--------+-----+
-|Total            |        0|     0|       3|      56|    0|
+|Total            |        0|     0|       3|      47|    0|
 +-----------------+---------+------+--------+--------+-----+
 |Available        |      624|  1728|  460800|  230400|   96|
 +-----------------+---------+------+--------+--------+-----+
@@ -86,18 +86,17 @@
     +-----------------+----------+----+---+----+------------+------------+
 
     * Multiplexer: 
-    +---------------------------+----+-----------+-----+-----------+
-    |            Name           | LUT| Input Size| Bits| Total Bits|
-    +---------------------------+----+-----------+-----+-----------+
-    |ap_done                    |   9|          2|    1|          2|
-    |output_data_addr3_c_blk_n  |   9|          2|    1|          2|
-    |outputs_c_blk_n            |   9|          2|    1|          2|
-    |quant_mul_c_blk_n          |   9|          2|    1|          2|
-    |quant_shift_c_blk_n        |   9|          2|    1|          2|
-    |real_start                 |   9|          2|    1|          2|
-    +---------------------------+----+-----------+-----+-----------+
-    |Total                      |  54|         12|    6|         12|
-    +---------------------------+----+-----------+-----+-----------+
+    +---------------------+----+-----------+-----+-----------+
+    |         Name        | LUT| Input Size| Bits| Total Bits|
+    +---------------------+----+-----------+-----+-----------+
+    |ap_done              |   9|          2|    1|          2|
+    |outputs_c_blk_n      |   9|          2|    1|          2|
+    |quant_mul_c_blk_n    |   9|          2|    1|          2|
+    |quant_shift_c_blk_n  |   9|          2|    1|          2|
+    |real_start           |   9|          2|    1|          2|
+    +---------------------+----+-----------+-----+-----------+
+    |Total                |  45|         10|    5|         10|
+    +---------------------+----+-----------+-----+-----------+
 
     * Register: 
     +----------------+---+----+-----+-----------+
@@ -116,42 +115,36 @@
 == Interface
 ================================================================
 * Summary: 
-+------------------------------------+-----+-----+------------+---------------------+--------------+
-|              RTL Ports             | Dir | Bits|  Protocol  |    Source Object    |    C Type    |
-+------------------------------------+-----+-----+------------+---------------------+--------------+
-|ap_clk                              |   in|    1|  ap_ctrl_hs|           entry_proc|  return value|
-|ap_rst                              |   in|    1|  ap_ctrl_hs|           entry_proc|  return value|
-|ap_start                            |   in|    1|  ap_ctrl_hs|           entry_proc|  return value|
-|start_full_n                        |   in|    1|  ap_ctrl_hs|           entry_proc|  return value|
-|ap_done                             |  out|    1|  ap_ctrl_hs|           entry_proc|  return value|
-|ap_continue                         |   in|    1|  ap_ctrl_hs|           entry_proc|  return value|
-|ap_idle                             |  out|    1|  ap_ctrl_hs|           entry_proc|  return value|
-|ap_ready                            |  out|    1|  ap_ctrl_hs|           entry_proc|  return value|
-|start_out                           |  out|    1|  ap_ctrl_hs|           entry_proc|  return value|
-|start_write                         |  out|    1|  ap_ctrl_hs|           entry_proc|  return value|
-|output_data_addr3                   |   in|   32|     ap_none|    output_data_addr3|        scalar|
-|output_data_addr3_c_din             |  out|   32|     ap_fifo|  output_data_addr3_c|       pointer|
-|output_data_addr3_c_num_data_valid  |   in|    4|     ap_fifo|  output_data_addr3_c|       pointer|
-|output_data_addr3_c_fifo_cap        |   in|    4|     ap_fifo|  output_data_addr3_c|       pointer|
-|output_data_addr3_c_full_n          |   in|    1|     ap_fifo|  output_data_addr3_c|       pointer|
-|output_data_addr3_c_write           |  out|    1|     ap_fifo|  output_data_addr3_c|       pointer|
-|outputs                             |   in|   64|     ap_none|              outputs|        scalar|
-|outputs_c_din                       |  out|   64|     ap_fifo|            outputs_c|       pointer|
-|outputs_c_num_data_valid            |   in|    4|     ap_fifo|            outputs_c|       pointer|
-|outputs_c_fifo_cap                  |   in|    4|     ap_fifo|            outputs_c|       pointer|
-|outputs_c_full_n                    |   in|    1|     ap_fifo|            outputs_c|       pointer|
-|outputs_c_write                     |  out|    1|     ap_fifo|            outputs_c|       pointer|
-|quant_shift                         |   in|   32|     ap_none|          quant_shift|        scalar|
-|quant_shift_c_din                   |  out|   32|     ap_fifo|        quant_shift_c|       pointer|
-|quant_shift_c_num_data_valid        |   in|    3|     ap_fifo|        quant_shift_c|       pointer|
-|quant_shift_c_fifo_cap              |   in|    3|     ap_fifo|        quant_shift_c|       pointer|
-|quant_shift_c_full_n                |   in|    1|     ap_fifo|        quant_shift_c|       pointer|
-|quant_shift_c_write                 |  out|    1|     ap_fifo|        quant_shift_c|       pointer|
-|quant_mul                           |   in|   32|     ap_none|            quant_mul|        scalar|
-|quant_mul_c_din                     |  out|   32|     ap_fifo|          quant_mul_c|       pointer|
-|quant_mul_c_num_data_valid          |   in|    3|     ap_fifo|          quant_mul_c|       pointer|
-|quant_mul_c_fifo_cap                |   in|    3|     ap_fifo|          quant_mul_c|       pointer|
-|quant_mul_c_full_n                  |   in|    1|     ap_fifo|          quant_mul_c|       pointer|
-|quant_mul_c_write                   |  out|    1|     ap_fifo|          quant_mul_c|       pointer|
-+------------------------------------+-----+-----+------------+---------------------+--------------+
++------------------------------+-----+-----+------------+---------------+--------------+
+|           RTL Ports          | Dir | Bits|  Protocol  | Source Object |    C Type    |
++------------------------------+-----+-----+------------+---------------+--------------+
+|ap_clk                        |   in|    1|  ap_ctrl_hs|     entry_proc|  return value|
+|ap_rst                        |   in|    1|  ap_ctrl_hs|     entry_proc|  return value|
+|ap_start                      |   in|    1|  ap_ctrl_hs|     entry_proc|  return value|
+|start_full_n                  |   in|    1|  ap_ctrl_hs|     entry_proc|  return value|
+|ap_done                       |  out|    1|  ap_ctrl_hs|     entry_proc|  return value|
+|ap_continue                   |   in|    1|  ap_ctrl_hs|     entry_proc|  return value|
+|ap_idle                       |  out|    1|  ap_ctrl_hs|     entry_proc|  return value|
+|ap_ready                      |  out|    1|  ap_ctrl_hs|     entry_proc|  return value|
+|start_out                     |  out|    1|  ap_ctrl_hs|     entry_proc|  return value|
+|start_write                   |  out|    1|  ap_ctrl_hs|     entry_proc|  return value|
+|outputs                       |   in|   64|     ap_none|        outputs|        scalar|
+|outputs_c_din                 |  out|   64|     ap_fifo|      outputs_c|       pointer|
+|outputs_c_num_data_valid      |   in|    4|     ap_fifo|      outputs_c|       pointer|
+|outputs_c_fifo_cap            |   in|    4|     ap_fifo|      outputs_c|       pointer|
+|outputs_c_full_n              |   in|    1|     ap_fifo|      outputs_c|       pointer|
+|outputs_c_write               |  out|    1|     ap_fifo|      outputs_c|       pointer|
+|quant_shift                   |   in|   32|     ap_none|    quant_shift|        scalar|
+|quant_shift_c_din             |  out|   32|     ap_fifo|  quant_shift_c|       pointer|
+|quant_shift_c_num_data_valid  |   in|    4|     ap_fifo|  quant_shift_c|       pointer|
+|quant_shift_c_fifo_cap        |   in|    4|     ap_fifo|  quant_shift_c|       pointer|
+|quant_shift_c_full_n          |   in|    1|     ap_fifo|  quant_shift_c|       pointer|
+|quant_shift_c_write           |  out|    1|     ap_fifo|  quant_shift_c|       pointer|
+|quant_mul                     |   in|   32|     ap_none|      quant_mul|        scalar|
+|quant_mul_c_din               |  out|   32|     ap_fifo|    quant_mul_c|       pointer|
+|quant_mul_c_num_data_valid    |   in|    4|     ap_fifo|    quant_mul_c|       pointer|
+|quant_mul_c_fifo_cap          |   in|    4|     ap_fifo|    quant_mul_c|       pointer|
+|quant_mul_c_full_n            |   in|    1|     ap_fifo|    quant_mul_c|       pointer|
+|quant_mul_c_write             |  out|    1|     ap_fifo|    quant_mul_c|       pointer|
++------------------------------+-----+-----+------------+---------------+--------------+
 

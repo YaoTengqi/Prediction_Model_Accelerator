@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1'
 ================================================================
-* Date:           Fri Jun  7 17:07:39 2024
+* Date:           Sun Jun  9 10:52:47 2024
 
 * Version:        2022.2 (Build 3670227 on Oct 13 2022)
 * Project:        Sparse_HLS.prj
@@ -103,7 +103,7 @@
     |ap_enable_reg_pp0_iter2  |   9|          2|    1|          2|
     |ap_sig_allocacmp_i_1     |   9|          2|   27|         54|
     |i_fu_56                  |   9|          2|   27|         54|
-    |quant_out2_blk_n         |   9|          2|    1|          2|
+    |quant_out_blk_n          |   9|          2|    1|          2|
     |sparse_data_blk_n_W      |   9|          2|    1|          2|
     +-------------------------+----+-----------+-----+-----------+
     |Total                    |  54|         12|   58|        116|
@@ -140,11 +140,11 @@
 |ap_done                     |  out|    1|  ap_ctrl_hs|  store<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>_Pipeline_VITIS_LOOP_153_1|  return value|
 |ap_idle                     |  out|    1|  ap_ctrl_hs|  store<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>_Pipeline_VITIS_LOOP_153_1|  return value|
 |ap_ready                    |  out|    1|  ap_ctrl_hs|  store<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>_Pipeline_VITIS_LOOP_153_1|  return value|
-|quant_out2_dout             |   in|  256|     ap_fifo|                                                                quant_out2|       pointer|
-|quant_out2_num_data_valid   |   in|    2|     ap_fifo|                                                                quant_out2|       pointer|
-|quant_out2_fifo_cap         |   in|    2|     ap_fifo|                                                                quant_out2|       pointer|
-|quant_out2_empty_n          |   in|    1|     ap_fifo|                                                                quant_out2|       pointer|
-|quant_out2_read             |  out|    1|     ap_fifo|                                                                quant_out2|       pointer|
+|quant_out_dout              |   in|  256|     ap_fifo|                                                                 quant_out|       pointer|
+|quant_out_num_data_valid    |   in|    2|     ap_fifo|                                                                 quant_out|       pointer|
+|quant_out_fifo_cap          |   in|    2|     ap_fifo|                                                                 quant_out|       pointer|
+|quant_out_empty_n           |   in|    1|     ap_fifo|                                                                 quant_out|       pointer|
+|quant_out_read              |  out|    1|     ap_fifo|                                                                 quant_out|       pointer|
 |m_axi_sparse_data_AWVALID   |  out|    1|       m_axi|                                                               sparse_data|       pointer|
 |m_axi_sparse_data_AWREADY   |   in|    1|       m_axi|                                                               sparse_data|       pointer|
 |m_axi_sparse_data_AWADDR    |  out|   64|       m_axi|                                                               sparse_data|       pointer|

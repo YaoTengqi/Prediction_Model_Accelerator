@@ -170,7 +170,7 @@ set NewPortList {[
  	{ "name": "m_axi_concat_data_BUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "concat_data", "role": "BUSER" }}  ]}
 
 set RtlHierarchyInfo {[
-	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3", "4", "6", "10", "11", "12", "13", "14", "15"],
+	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3", "4", "5", "7", "11", "12", "13", "14", "15", "16", "17"],
 		"CDFG" : "concat",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
@@ -186,14 +186,15 @@ set RtlHierarchyInfo {[
 		"IsBlackBox" : "0",
 		"InputProcess" : [
 			{"ID" : "3", "Name" : "entry_proc_U0"},
-			{"ID" : "4", "Name" : "read_inputs_ap_uint_256_ap_int_8_32u_U0"}],
+			{"ID" : "4", "Name" : "Block_entry4_proc_U0"},
+			{"ID" : "5", "Name" : "read_inputs_ap_uint_256_ap_int_8_32u_U0"}],
 		"OutputProcess" : [
-			{"ID" : "6", "Name" : "store_ap_uint_256_ap_int_8_32u_U0"}],
+			{"ID" : "7", "Name" : "store_ap_uint_256_ap_int_8_32u_U0"}],
 		"Port" : [
 			{"Name" : "concat_data", "Type" : "MAXI", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "6", "SubInstance" : "store_ap_uint_256_ap_int_8_32u_U0", "Port" : "concat_data"},
-					{"ID" : "4", "SubInstance" : "read_inputs_ap_uint_256_ap_int_8_32u_U0", "Port" : "concat_data"}]},
+					{"ID" : "5", "SubInstance" : "read_inputs_ap_uint_256_ap_int_8_32u_U0", "Port" : "concat_data"},
+					{"ID" : "7", "SubInstance" : "store_ap_uint_256_ap_int_8_32u_U0", "Port" : "concat_data"}]},
 			{"Name" : "input_data_addr1", "Type" : "None", "Direction" : "I"},
 			{"Name" : "input_data_addr2", "Type" : "None", "Direction" : "I"},
 			{"Name" : "output_data_addr3", "Type" : "None", "Direction" : "I"},
@@ -203,13 +204,13 @@ set RtlHierarchyInfo {[
 			{"Name" : "outputs", "Type" : "None", "Direction" : "I"},
 			{"Name" : "concat_flag", "Type" : "Vld", "Direction" : "O",
 				"SubConnect" : [
-					{"ID" : "6", "SubInstance" : "store_ap_uint_256_ap_int_8_32u_U0", "Port" : "concat_flag"}]}]},
+					{"ID" : "7", "SubInstance" : "store_ap_uint_256_ap_int_8_32u_U0", "Port" : "concat_flag"}]}]},
 	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.concat_addr_s_axi_U", "Parent" : "0"},
 	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.concat_data_m_axi_U", "Parent" : "0"},
 	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.entry_proc_U0", "Parent" : "0",
 		"CDFG" : "entry_proc",
 		"Protocol" : "ap_ctrl_hs",
-		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1", "real_start" : "1",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1", "real_start" : "0",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "1",
 		"VariableLatency" : "0", "ExactLatency" : "0", "EstimateLatencyMin" : "0", "EstimateLatencyMax" : "0",
@@ -221,15 +222,29 @@ set RtlHierarchyInfo {[
 		"HasNonBlockingOperation" : "0",
 		"IsBlackBox" : "0",
 		"Port" : [
-			{"Name" : "output_data_addr3", "Type" : "None", "Direction" : "I"},
-			{"Name" : "output_data_addr3_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["6"], "DependentChan" : "10", "DependentChanDepth" : "3", "DependentChanType" : "2",
-				"BlockSignal" : [
-					{"Name" : "output_data_addr3_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "outputs", "Type" : "None", "Direction" : "I"},
-			{"Name" : "outputs_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["6"], "DependentChan" : "11", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "outputs_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["7"], "DependentChan" : "11", "DependentChanDepth" : "4", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "outputs_c_blk_n", "Type" : "RtlSignal"}]}]},
-	{"ID" : "4", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.read_inputs_ap_uint_256_ap_int_8_32u_U0", "Parent" : "0", "Child" : ["5"],
+	{"ID" : "4", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Block_entry4_proc_U0", "Parent" : "0",
+		"CDFG" : "Block_entry4_proc",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "1",
+		"VariableLatency" : "0", "ExactLatency" : "0", "EstimateLatencyMin" : "0", "EstimateLatencyMax" : "0",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "1",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "input_data_addr1", "Type" : "None", "Direction" : "I"},
+			{"Name" : "input_data_addr2", "Type" : "None", "Direction" : "I"},
+			{"Name" : "output_data_addr3", "Type" : "None", "Direction" : "I"}]},
+	{"ID" : "5", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.read_inputs_ap_uint_256_ap_int_8_32u_U0", "Parent" : "0", "Child" : ["6"],
 		"CDFG" : "read_inputs_ap_uint_256_ap_int_8_32u_s",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1", "real_start" : "0",
@@ -249,17 +264,17 @@ set RtlHierarchyInfo {[
 					{"Name" : "concat_data_blk_n_AR", "Type" : "RtlSignal"},
 					{"Name" : "concat_data_blk_n_R", "Type" : "RtlSignal"}]},
 			{"Name" : "inputs", "Type" : "None", "Direction" : "I"},
-			{"Name" : "input_data_addr1", "Type" : "None", "Direction" : "I"},
-			{"Name" : "input_data_addr2", "Type" : "None", "Direction" : "I"},
+			{"Name" : "p_read", "Type" : "None", "Direction" : "I", "DependentProc" : ["4"], "DependentChan" : "12", "DependentChanDepth" : "2", "DependentChanType" : "1"},
+			{"Name" : "p_read1", "Type" : "None", "Direction" : "I", "DependentProc" : ["4"], "DependentChan" : "13", "DependentChanDepth" : "2", "DependentChanType" : "1"},
 			{"Name" : "ROWS", "Type" : "None", "Direction" : "I"},
 			{"Name" : "COLS", "Type" : "None", "Direction" : "I"},
-			{"Name" : "input_stream", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["6"], "DependentChan" : "12", "DependentChanDepth" : "64", "DependentChanType" : "0",
+			{"Name" : "input_stream", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["7"], "DependentChan" : "15", "DependentChanDepth" : "64", "DependentChanType" : "0",
 				"BlockSignal" : [
 					{"Name" : "input_stream_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "ROWS_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["6"], "DependentChan" : "13", "DependentChanDepth" : "2", "DependentChanType" : "2",
+			{"Name" : "ROWS_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["7"], "DependentChan" : "16", "DependentChanDepth" : "2", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "ROWS_c_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "COLS_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["6"], "DependentChan" : "14", "DependentChanDepth" : "2", "DependentChanType" : "2",
+			{"Name" : "COLS_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["7"], "DependentChan" : "17", "DependentChanDepth" : "2", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "COLS_c_blk_n", "Type" : "RtlSignal"}]}],
 		"Loop" : [
@@ -267,8 +282,8 @@ set RtlHierarchyInfo {[
 				"LoopDec" : {"FSMBitwidth" : "83", "FirstState" : "ap_ST_fsm_state40", "LastState" : ["ap_ST_fsm_state42"], "QuitState" : ["ap_ST_fsm_state40"], "PreState" : ["ap_ST_fsm_state39"], "PostState" : ["ap_ST_fsm_state43"], "OneDepthLoop" : "0", "OneStateBlock": ""}},
 			{"Name" : "VITIS_LOOP_20_2", "PipelineType" : "no",
 				"LoopDec" : {"FSMBitwidth" : "83", "FirstState" : "ap_ST_fsm_state81", "LastState" : ["ap_ST_fsm_state83"], "QuitState" : ["ap_ST_fsm_state81"], "PreState" : ["ap_ST_fsm_state1", "ap_ST_fsm_state80"], "PostState" : ["ap_ST_fsm_state1"], "OneDepthLoop" : "0", "OneStateBlock": ""}}]},
-	{"ID" : "5", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.read_inputs_ap_uint_256_ap_int_8_32u_U0.mul_32s_32s_32_1_1_U5", "Parent" : "4"},
-	{"ID" : "6", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.store_ap_uint_256_ap_int_8_32u_U0", "Parent" : "0", "Child" : ["7", "9"],
+	{"ID" : "6", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.read_inputs_ap_uint_256_ap_int_8_32u_U0.mul_32s_32s_32_1_1_U6", "Parent" : "5"},
+	{"ID" : "7", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.store_ap_uint_256_ap_int_8_32u_U0", "Parent" : "0", "Child" : ["8", "10"],
 		"CDFG" : "store_ap_uint_256_ap_int_8_32u_s",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1", "real_start" : "0",
@@ -282,32 +297,28 @@ set RtlHierarchyInfo {[
 		"InDataflowNetwork" : "1",
 		"HasNonBlockingOperation" : "0",
 		"IsBlackBox" : "0",
-		"StartSource" : "3",
-		"StartFifo" : "start_for_store_ap_uint_256_ap_int_8_32u_U0_U",
 		"Port" : [
-			{"Name" : "ROWS", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["4"], "DependentChan" : "13", "DependentChanDepth" : "2", "DependentChanType" : "2",
+			{"Name" : "ROWS", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["5"], "DependentChan" : "16", "DependentChanDepth" : "2", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "ROWS_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "COLS", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["4"], "DependentChan" : "14", "DependentChanDepth" : "2", "DependentChanType" : "2",
+			{"Name" : "COLS", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["5"], "DependentChan" : "17", "DependentChanDepth" : "2", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "COLS_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "input_data_addr3", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["3"], "DependentChan" : "10", "DependentChanDepth" : "3", "DependentChanType" : "2",
-				"BlockSignal" : [
-					{"Name" : "input_data_addr3_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "input_stream", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["4"], "DependentChan" : "12", "DependentChanDepth" : "64", "DependentChanType" : "0",
+			{"Name" : "p_read", "Type" : "None", "Direction" : "I", "DependentProc" : ["4"], "DependentChan" : "14", "DependentChanDepth" : "3", "DependentChanType" : "1"},
+			{"Name" : "input_stream", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["5"], "DependentChan" : "15", "DependentChanDepth" : "64", "DependentChanType" : "0",
 				"SubConnect" : [
-					{"ID" : "7", "SubInstance" : "grp_store_ap_uint_256_ap_int_8_32u_Pipeline_VITIS_LOOP_114_1_fu_126", "Port" : "input_stream", "Inst_start_state" : "3", "Inst_end_state" : "4"}]},
+					{"ID" : "8", "SubInstance" : "grp_store_ap_uint_256_ap_int_8_32u_Pipeline_VITIS_LOOP_114_1_fu_128", "Port" : "input_stream", "Inst_start_state" : "3", "Inst_end_state" : "4"}]},
 			{"Name" : "concat_data", "Type" : "MAXI", "Direction" : "O",
 				"BlockSignal" : [
 					{"Name" : "concat_data_blk_n_AW", "Type" : "RtlSignal"},
 					{"Name" : "concat_data_blk_n_B", "Type" : "RtlSignal"}],
 				"SubConnect" : [
-					{"ID" : "7", "SubInstance" : "grp_store_ap_uint_256_ap_int_8_32u_Pipeline_VITIS_LOOP_114_1_fu_126", "Port" : "concat_data", "Inst_start_state" : "3", "Inst_end_state" : "4"}]},
-			{"Name" : "outputs", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["3"], "DependentChan" : "11", "DependentChanDepth" : "3", "DependentChanType" : "2",
+					{"ID" : "8", "SubInstance" : "grp_store_ap_uint_256_ap_int_8_32u_Pipeline_VITIS_LOOP_114_1_fu_128", "Port" : "concat_data", "Inst_start_state" : "3", "Inst_end_state" : "4"}]},
+			{"Name" : "outputs", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["3"], "DependentChan" : "11", "DependentChanDepth" : "4", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "outputs_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "concat_flag", "Type" : "Vld", "Direction" : "O"}]},
-	{"ID" : "7", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.store_ap_uint_256_ap_int_8_32u_U0.grp_store_ap_uint_256_ap_int_8_32u_Pipeline_VITIS_LOOP_114_1_fu_126", "Parent" : "6", "Child" : ["8"],
+	{"ID" : "8", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.store_ap_uint_256_ap_int_8_32u_U0.grp_store_ap_uint_256_ap_int_8_32u_Pipeline_VITIS_LOOP_114_1_fu_128", "Parent" : "7", "Child" : ["9"],
 		"CDFG" : "store_ap_uint_256_ap_int_8_32u_Pipeline_VITIS_LOOP_114_1",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
@@ -333,14 +344,15 @@ set RtlHierarchyInfo {[
 		"Loop" : [
 			{"Name" : "VITIS_LOOP_114_1", "PipelineType" : "UPC",
 				"LoopDec" : {"FSMBitwidth" : "1", "FirstState" : "ap_ST_fsm_pp0_stage0", "FirstStateIter" : "ap_enable_reg_pp0_iter0", "FirstStateBlock" : "ap_block_pp0_stage0_subdone", "LastState" : "ap_ST_fsm_pp0_stage0", "LastStateIter" : "ap_enable_reg_pp0_iter2", "LastStateBlock" : "ap_block_pp0_stage0_subdone", "QuitState" : "ap_ST_fsm_pp0_stage0", "QuitStateIter" : "ap_enable_reg_pp0_iter1", "QuitStateBlock" : "ap_block_pp0_stage0_subdone", "OneDepthLoop" : "0", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
-	{"ID" : "8", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.store_ap_uint_256_ap_int_8_32u_U0.grp_store_ap_uint_256_ap_int_8_32u_Pipeline_VITIS_LOOP_114_1_fu_126.flow_control_loop_pipe_sequential_init_U", "Parent" : "7"},
-	{"ID" : "9", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.store_ap_uint_256_ap_int_8_32u_U0.mul_32s_32s_32_1_1_U20", "Parent" : "6"},
-	{"ID" : "10", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.output_data_addr3_c_U", "Parent" : "0"},
+	{"ID" : "9", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.store_ap_uint_256_ap_int_8_32u_U0.grp_store_ap_uint_256_ap_int_8_32u_Pipeline_VITIS_LOOP_114_1_fu_128.flow_control_loop_pipe_sequential_init_U", "Parent" : "8"},
+	{"ID" : "10", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.store_ap_uint_256_ap_int_8_32u_U0.mul_32s_32s_32_1_1_U21", "Parent" : "7"},
 	{"ID" : "11", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.outputs_c_U", "Parent" : "0"},
-	{"ID" : "12", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.input_stream_U", "Parent" : "0"},
-	{"ID" : "13", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.ROWS_c_U", "Parent" : "0"},
-	{"ID" : "14", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.COLS_c_U", "Parent" : "0"},
-	{"ID" : "15", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.start_for_store_ap_uint_256_ap_int_8_32u_U0_U", "Parent" : "0"}]}
+	{"ID" : "12", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.input_data_addr1_assign_cast_loc_channel_U", "Parent" : "0"},
+	{"ID" : "13", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.input_data_addr2_assign_cast_loc_channel_U", "Parent" : "0"},
+	{"ID" : "14", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.output_data_addr3_assign_cast_loc_channel_U", "Parent" : "0"},
+	{"ID" : "15", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.input_stream_U", "Parent" : "0"},
+	{"ID" : "16", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.ROWS_c_U", "Parent" : "0"},
+	{"ID" : "17", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.COLS_c_U", "Parent" : "0"}]}
 
 
 set ArgLastReadFirstWriteLatency {
@@ -355,15 +367,17 @@ set ArgLastReadFirstWriteLatency {
 		outputs {Type I LastRead 0 FirstWrite -1}
 		concat_flag {Type O LastRead -1 FirstWrite 39}}
 	entry_proc {
-		output_data_addr3 {Type I LastRead 0 FirstWrite -1}
-		output_data_addr3_c {Type O LastRead -1 FirstWrite 0}
 		outputs {Type I LastRead 0 FirstWrite -1}
 		outputs_c {Type O LastRead -1 FirstWrite 0}}
+	Block_entry4_proc {
+		input_data_addr1 {Type I LastRead 0 FirstWrite -1}
+		input_data_addr2 {Type I LastRead 0 FirstWrite -1}
+		output_data_addr3 {Type I LastRead 0 FirstWrite -1}}
 	read_inputs_ap_uint_256_ap_int_8_32u_s {
 		concat_data {Type I LastRead 79 FirstWrite -1}
 		inputs {Type I LastRead 0 FirstWrite -1}
-		input_data_addr1 {Type I LastRead 0 FirstWrite -1}
-		input_data_addr2 {Type I LastRead 0 FirstWrite -1}
+		p_read {Type I LastRead 0 FirstWrite -1}
+		p_read1 {Type I LastRead 0 FirstWrite -1}
 		ROWS {Type I LastRead 0 FirstWrite -1}
 		COLS {Type I LastRead 0 FirstWrite -1}
 		input_stream {Type O LastRead -1 FirstWrite 41}
@@ -372,7 +386,7 @@ set ArgLastReadFirstWriteLatency {
 	store_ap_uint_256_ap_int_8_32u_s {
 		ROWS {Type I LastRead 0 FirstWrite -1}
 		COLS {Type I LastRead 0 FirstWrite -1}
-		input_data_addr3 {Type I LastRead 0 FirstWrite -1}
+		p_read {Type I LastRead 0 FirstWrite -1}
 		input_stream {Type I LastRead 1 FirstWrite -1}
 		concat_data {Type O LastRead 4 FirstWrite 2}
 		outputs {Type I LastRead 0 FirstWrite -1}

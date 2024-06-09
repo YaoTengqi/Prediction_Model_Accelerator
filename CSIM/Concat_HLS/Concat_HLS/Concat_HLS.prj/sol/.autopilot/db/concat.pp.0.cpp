@@ -70326,6 +70326,10 @@ __attribute__((sdx_kernel("concat", 0))) void concat(
 
 
 
+ input_data_addr1 = input_data_addr1 * sizeof(ap_int<8>) / sizeof(ap_uint<256>);
+ input_data_addr2 = input_data_addr2 * sizeof(ap_int<8>) / sizeof(ap_uint<256>);
+ output_data_addr3 = output_data_addr3 * sizeof(ap_int<8>) / sizeof(ap_uint<256>);
+
 #pragma HLS DATAFLOW
  read_inputs<ap_uint<256>, ap_int<8>, 32>(inputs, input_data_addr1, input_data_addr2, ROWS, COLS, input_stream);
 

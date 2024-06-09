@@ -12,7 +12,7 @@ module sparse_start_for_quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0
     MEM_STYLE   = "shiftReg",
     DATA_WIDTH  = 1,
     ADDR_WIDTH  = 2,
-    DEPTH       = 3)
+    DEPTH       = 4)
 (
     // system signal
     input  wire                  clk,
@@ -108,7 +108,7 @@ module sparse_start_for_quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_ShiftReg
 #(parameter
     DATA_WIDTH  = 1,
     ADDR_WIDTH  = 2,
-    DEPTH       = 3)
+    DEPTH       = 4)
 (
     input  wire                  clk,
     input  wire                  we,

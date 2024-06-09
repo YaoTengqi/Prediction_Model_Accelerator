@@ -70240,7 +70240,7 @@ void load(
  int idx_count = 0, count_count = 0;
  int fm_loop_num = fm_ROWS * fm_COLS * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
  int am_loop_num = am_ROWS * am_COLS * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
- uint8_t idx_ram[2048];
+ uint8_t idx_ram[128];
  uint8_t count_ram[32];
  int idx_num = 0;
  int count_num = 0;
@@ -70452,6 +70452,11 @@ __attribute__((sdx_kernel("sparse", 0))) void sparse(
 #pragma HLS STREAM variable = count_stream depth = 64
 
  typename WideType<ap_int<8>, 32>::t_TypeInt fm_ram[512];
+
+ input_data_addr1 = input_data_addr1 * sizeof(ap_int<8>) / sizeof(ap_uint<256>);
+ input_data_addr2 = input_data_addr2 * sizeof(ap_int<8>) / sizeof(ap_uint<256>);
+ output_data_addr3 = output_data_addr3 * sizeof(ap_int<8>) / sizeof(ap_uint<256>);
+
 
 #pragma HLS DATAFLOW
  load<ap_uint<256>, ap_int<8>, ap_int<8>, 32>(am_ROWS, am_COLS, fm_ROWS, fm_COLS, inputs, idx_stream, count_stream, fm_stream, input_data_addr1, input_data_addr2);

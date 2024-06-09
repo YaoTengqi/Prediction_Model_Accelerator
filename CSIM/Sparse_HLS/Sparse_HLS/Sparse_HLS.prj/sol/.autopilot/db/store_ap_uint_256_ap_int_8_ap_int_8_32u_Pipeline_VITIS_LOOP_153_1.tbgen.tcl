@@ -16,13 +16,13 @@ set C_modelArgList {
 	{ sparse_data int 256 regular {axi_master 1}  }
 	{ sext_ln153 int 59 regular  }
 	{ loop_num int 27 regular  }
-	{ quant_out2 int 256 regular {fifo 0 volatile }  }
+	{ quant_out int 256 regular {fifo 0 volatile }  }
 }
 set C_modelArgMapList {[ 
 	{ "Name" : "sparse_data", "interface" : "axi_master", "bitwidth" : 256, "direction" : "WRITEONLY", "bitSlice":[ {"cElement": [{"cName": "inputs","offset": { "type": "dynamic","port_name": "inputs","bundle": "sparse_addr"},"direction": "READONLY"},{"cName": "outputs","offset": { "type": "dynamic","port_name": "outputs","bundle": "sparse_addr"},"direction": "WRITEONLY"}]}]} , 
  	{ "Name" : "sext_ln153", "interface" : "wire", "bitwidth" : 59, "direction" : "READONLY"} , 
  	{ "Name" : "loop_num", "interface" : "wire", "bitwidth" : 27, "direction" : "READONLY"} , 
- 	{ "Name" : "quant_out2", "interface" : "fifo", "bitwidth" : 256, "direction" : "READONLY"} ]}
+ 	{ "Name" : "quant_out", "interface" : "fifo", "bitwidth" : 256, "direction" : "READONLY"} ]}
 # RTL Port declarations: 
 set portNum 59
 set portList { 
@@ -32,11 +32,11 @@ set portList {
 	{ ap_done sc_out sc_logic 1 predone -1 } 
 	{ ap_idle sc_out sc_logic 1 done -1 } 
 	{ ap_ready sc_out sc_logic 1 ready -1 } 
-	{ quant_out2_dout sc_in sc_lv 256 signal 3 } 
-	{ quant_out2_num_data_valid sc_in sc_lv 2 signal 3 } 
-	{ quant_out2_fifo_cap sc_in sc_lv 2 signal 3 } 
-	{ quant_out2_empty_n sc_in sc_logic 1 signal 3 } 
-	{ quant_out2_read sc_out sc_logic 1 signal 3 } 
+	{ quant_out_dout sc_in sc_lv 256 signal 3 } 
+	{ quant_out_num_data_valid sc_in sc_lv 2 signal 3 } 
+	{ quant_out_fifo_cap sc_in sc_lv 2 signal 3 } 
+	{ quant_out_empty_n sc_in sc_logic 1 signal 3 } 
+	{ quant_out_read sc_out sc_logic 1 signal 3 } 
 	{ m_axi_sparse_data_AWVALID sc_out sc_logic 1 signal 0 } 
 	{ m_axi_sparse_data_AWREADY sc_in sc_logic 1 signal 0 } 
 	{ m_axi_sparse_data_AWADDR sc_out sc_lv 64 signal 0 } 
@@ -93,11 +93,11 @@ set NewPortList {[
  	{ "name": "ap_done", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "predone", "bundle":{"name": "ap_done", "role": "default" }} , 
  	{ "name": "ap_idle", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "done", "bundle":{"name": "ap_idle", "role": "default" }} , 
  	{ "name": "ap_ready", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "ready", "bundle":{"name": "ap_ready", "role": "default" }} , 
- 	{ "name": "quant_out2_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":256, "type": "signal", "bundle":{"name": "quant_out2", "role": "dout" }} , 
- 	{ "name": "quant_out2_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "quant_out2", "role": "num_data_valid" }} , 
- 	{ "name": "quant_out2_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "quant_out2", "role": "fifo_cap" }} , 
- 	{ "name": "quant_out2_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "quant_out2", "role": "empty_n" }} , 
- 	{ "name": "quant_out2_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "quant_out2", "role": "read" }} , 
+ 	{ "name": "quant_out_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":256, "type": "signal", "bundle":{"name": "quant_out", "role": "dout" }} , 
+ 	{ "name": "quant_out_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "quant_out", "role": "num_data_valid" }} , 
+ 	{ "name": "quant_out_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "quant_out", "role": "fifo_cap" }} , 
+ 	{ "name": "quant_out_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "quant_out", "role": "empty_n" }} , 
+ 	{ "name": "quant_out_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "quant_out", "role": "read" }} , 
  	{ "name": "m_axi_sparse_data_AWVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "sparse_data", "role": "AWVALID" }} , 
  	{ "name": "m_axi_sparse_data_AWREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "sparse_data", "role": "AWREADY" }} , 
  	{ "name": "m_axi_sparse_data_AWADDR", "direction": "out", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "sparse_data", "role": "AWADDR" }} , 
@@ -168,9 +168,9 @@ set RtlHierarchyInfo {[
 					{"Name" : "sparse_data_blk_n_W", "Type" : "RtlSignal"}]},
 			{"Name" : "sext_ln153", "Type" : "None", "Direction" : "I"},
 			{"Name" : "loop_num", "Type" : "None", "Direction" : "I"},
-			{"Name" : "quant_out2", "Type" : "Fifo", "Direction" : "I",
+			{"Name" : "quant_out", "Type" : "Fifo", "Direction" : "I",
 				"BlockSignal" : [
-					{"Name" : "quant_out2_blk_n", "Type" : "RtlSignal"}]}],
+					{"Name" : "quant_out_blk_n", "Type" : "RtlSignal"}]}],
 		"Loop" : [
 			{"Name" : "VITIS_LOOP_153_1", "PipelineType" : "UPC",
 				"LoopDec" : {"FSMBitwidth" : "1", "FirstState" : "ap_ST_fsm_pp0_stage0", "FirstStateIter" : "ap_enable_reg_pp0_iter0", "FirstStateBlock" : "ap_block_pp0_stage0_subdone", "LastState" : "ap_ST_fsm_pp0_stage0", "LastStateIter" : "ap_enable_reg_pp0_iter2", "LastStateBlock" : "ap_block_pp0_stage0_subdone", "QuitState" : "ap_ST_fsm_pp0_stage0", "QuitStateIter" : "ap_enable_reg_pp0_iter1", "QuitStateBlock" : "ap_block_pp0_stage0_subdone", "OneDepthLoop" : "0", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
@@ -182,7 +182,7 @@ set ArgLastReadFirstWriteLatency {
 		sparse_data {Type O LastRead -1 FirstWrite 2}
 		sext_ln153 {Type I LastRead 0 FirstWrite -1}
 		loop_num {Type I LastRead 0 FirstWrite -1}
-		quant_out2 {Type I LastRead 1 FirstWrite -1}}}
+		quant_out {Type I LastRead 1 FirstWrite -1}}}
 
 set hasDtUnsupportedChannel 0
 
@@ -199,5 +199,5 @@ set Spec2ImplPortList {
 	 { m_axi {  { m_axi_sparse_data_AWVALID VALID 1 1 }  { m_axi_sparse_data_AWREADY READY 0 1 }  { m_axi_sparse_data_AWADDR ADDR 1 64 }  { m_axi_sparse_data_AWID ID 1 1 }  { m_axi_sparse_data_AWLEN SIZE 1 32 }  { m_axi_sparse_data_AWSIZE BURST 1 3 }  { m_axi_sparse_data_AWBURST LOCK 1 2 }  { m_axi_sparse_data_AWLOCK CACHE 1 2 }  { m_axi_sparse_data_AWCACHE PROT 1 4 }  { m_axi_sparse_data_AWPROT QOS 1 3 }  { m_axi_sparse_data_AWQOS REGION 1 4 }  { m_axi_sparse_data_AWREGION USER 1 4 }  { m_axi_sparse_data_AWUSER DATA 1 1 }  { m_axi_sparse_data_WVALID VALID 1 1 }  { m_axi_sparse_data_WREADY READY 0 1 }  { m_axi_sparse_data_WDATA FIFONUM 1 256 }  { m_axi_sparse_data_WSTRB STRB 1 32 }  { m_axi_sparse_data_WLAST LAST 1 1 }  { m_axi_sparse_data_WID ID 1 1 }  { m_axi_sparse_data_WUSER DATA 1 1 }  { m_axi_sparse_data_ARVALID VALID 1 1 }  { m_axi_sparse_data_ARREADY READY 0 1 }  { m_axi_sparse_data_ARADDR ADDR 1 64 }  { m_axi_sparse_data_ARID ID 1 1 }  { m_axi_sparse_data_ARLEN SIZE 1 32 }  { m_axi_sparse_data_ARSIZE BURST 1 3 }  { m_axi_sparse_data_ARBURST LOCK 1 2 }  { m_axi_sparse_data_ARLOCK CACHE 1 2 }  { m_axi_sparse_data_ARCACHE PROT 1 4 }  { m_axi_sparse_data_ARPROT QOS 1 3 }  { m_axi_sparse_data_ARQOS REGION 1 4 }  { m_axi_sparse_data_ARREGION USER 1 4 }  { m_axi_sparse_data_ARUSER DATA 1 1 }  { m_axi_sparse_data_RVALID VALID 0 1 }  { m_axi_sparse_data_RREADY READY 1 1 }  { m_axi_sparse_data_RDATA FIFONUM 0 256 }  { m_axi_sparse_data_RLAST LAST 0 1 }  { m_axi_sparse_data_RID ID 0 1 }  { m_axi_sparse_data_RFIFONUM LEN 0 9 }  { m_axi_sparse_data_RUSER DATA 0 1 }  { m_axi_sparse_data_RRESP RESP 0 2 }  { m_axi_sparse_data_BVALID VALID 0 1 }  { m_axi_sparse_data_BREADY READY 1 1 }  { m_axi_sparse_data_BRESP RESP 0 2 }  { m_axi_sparse_data_BID ID 0 1 }  { m_axi_sparse_data_BUSER DATA 0 1 } } }
 	sext_ln153 { ap_none {  { sext_ln153 in_data 0 59 } } }
 	loop_num { ap_none {  { loop_num in_data 0 27 } } }
-	quant_out2 { ap_fifo {  { quant_out2_dout fifo_port_we 0 256 }  { quant_out2_num_data_valid fifo_status_num_data_valid 0 2 }  { quant_out2_fifo_cap fifo_update 0 2 }  { quant_out2_empty_n fifo_status 0 1 }  { quant_out2_read fifo_data 1 1 } } }
+	quant_out { ap_fifo {  { quant_out_dout fifo_port_we 0 256 }  { quant_out_num_data_valid fifo_status_num_data_valid 0 2 }  { quant_out_fifo_cap fifo_update 0 2 }  { quant_out_empty_n fifo_status 0 1 }  { quant_out_read fifo_data 1 1 } } }
 }

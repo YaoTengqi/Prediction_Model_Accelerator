@@ -89,13 +89,13 @@ input  [1:0] quant_out2_fifo_cap;
 input   quant_out2_full_n;
 output   quant_out2_write;
 input  [31:0] quant_shift_dout;
-input  [2:0] quant_shift_num_data_valid;
-input  [2:0] quant_shift_fifo_cap;
+input  [3:0] quant_shift_num_data_valid;
+input  [3:0] quant_shift_fifo_cap;
 input   quant_shift_empty_n;
 output   quant_shift_read;
 input  [31:0] quant_mul_dout;
-input  [2:0] quant_mul_num_data_valid;
-input  [2:0] quant_mul_fifo_cap;
+input  [3:0] quant_mul_num_data_valid;
+input  [3:0] quant_mul_fifo_cap;
 input   quant_mul_empty_n;
 output   quant_mul_read;
 output  [31:0] fm_ROWS_c_din;
@@ -202,7 +202,7 @@ sparse_mul_32s_32s_32_1_1 #(
     .din0_WIDTH( 32 ),
     .din1_WIDTH( 32 ),
     .dout_WIDTH( 32 ))
-mul_32s_32s_32_1_1_U80(
+mul_32s_32s_32_1_1_U81(
     .din0(fm_COLS_dout),
     .din1(fm_ROWS_dout),
     .dout(mul_fu_108_p2)

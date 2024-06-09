@@ -96,7 +96,7 @@ end;
 architecture behav of concat is 
     attribute CORE_GENERATION_INFO : STRING;
     attribute CORE_GENERATION_INFO of behav : architecture is
-    "concat_concat,hls_ip_2022_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xczu7ev-ffvc1156-2-e,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=7.300000,HLS_SYN_LAT=-1,HLS_SYN_TPT=-1,HLS_SYN_MEM=15,HLS_SYN_DSP=0,HLS_SYN_FF=3277,HLS_SYN_LUT=4243,HLS_VERSION=2022_2}";
+    "concat_concat,hls_ip_2022_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xczu7ev-ffvc1156-2-e,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=7.300000,HLS_SYN_LAT=-1,HLS_SYN_TPT=-1,HLS_SYN_MEM=15,HLS_SYN_DSP=0,HLS_SYN_FF=3561,HLS_SYN_LUT=4442,HLS_VERSION=2022_2}";
     constant C_S_AXI_DATA_WIDTH : INTEGER range 63 downto 0 := 20;
     constant ap_const_logic_1 : STD_LOGIC := '1';
     constant C_M_AXI_DATA_WIDTH : INTEGER range 63 downto 0 := 20;
@@ -139,12 +139,28 @@ architecture behav of concat is
     signal entry_proc_U0_ap_continue : STD_LOGIC;
     signal entry_proc_U0_ap_idle : STD_LOGIC;
     signal entry_proc_U0_ap_ready : STD_LOGIC;
-    signal entry_proc_U0_start_out : STD_LOGIC;
-    signal entry_proc_U0_start_write : STD_LOGIC;
-    signal entry_proc_U0_output_data_addr3_c_din : STD_LOGIC_VECTOR (31 downto 0);
-    signal entry_proc_U0_output_data_addr3_c_write : STD_LOGIC;
     signal entry_proc_U0_outputs_c_din : STD_LOGIC_VECTOR (63 downto 0);
     signal entry_proc_U0_outputs_c_write : STD_LOGIC;
+    signal Block_entry4_proc_U0_ap_start : STD_LOGIC;
+    signal Block_entry4_proc_U0_ap_done : STD_LOGIC;
+    signal Block_entry4_proc_U0_ap_continue : STD_LOGIC;
+    signal Block_entry4_proc_U0_ap_idle : STD_LOGIC;
+    signal Block_entry4_proc_U0_ap_ready : STD_LOGIC;
+    signal Block_entry4_proc_U0_ap_return_0 : STD_LOGIC_VECTOR (26 downto 0);
+    signal Block_entry4_proc_U0_ap_return_1 : STD_LOGIC_VECTOR (26 downto 0);
+    signal Block_entry4_proc_U0_ap_return_2 : STD_LOGIC_VECTOR (26 downto 0);
+    signal ap_channel_done_output_data_addr3_assign_cast_loc_channel : STD_LOGIC;
+    signal output_data_addr3_assign_cast_loc_channel_full_n : STD_LOGIC;
+    signal ap_sync_reg_channel_write_output_data_addr3_assign_cast_loc_channel : STD_LOGIC := '0';
+    signal ap_sync_channel_write_output_data_addr3_assign_cast_loc_channel : STD_LOGIC;
+    signal ap_channel_done_input_data_addr2_assign_cast_loc_channel : STD_LOGIC;
+    signal input_data_addr2_assign_cast_loc_channel_full_n : STD_LOGIC;
+    signal ap_sync_reg_channel_write_input_data_addr2_assign_cast_loc_channel : STD_LOGIC := '0';
+    signal ap_sync_channel_write_input_data_addr2_assign_cast_loc_channel : STD_LOGIC;
+    signal ap_channel_done_input_data_addr1_assign_cast_loc_channel : STD_LOGIC;
+    signal input_data_addr1_assign_cast_loc_channel_full_n : STD_LOGIC;
+    signal ap_sync_reg_channel_write_input_data_addr1_assign_cast_loc_channel : STD_LOGIC := '0';
+    signal ap_sync_channel_write_input_data_addr1_assign_cast_loc_channel : STD_LOGIC;
     signal read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_start : STD_LOGIC;
     signal read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_done : STD_LOGIC;
     signal read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_continue : STD_LOGIC;
@@ -195,7 +211,6 @@ architecture behav of concat is
     signal store_ap_uint_256_ap_int_8_32u_U0_ap_ready : STD_LOGIC;
     signal store_ap_uint_256_ap_int_8_32u_U0_ROWS_read : STD_LOGIC;
     signal store_ap_uint_256_ap_int_8_32u_U0_COLS_read : STD_LOGIC;
-    signal store_ap_uint_256_ap_int_8_32u_U0_input_data_addr3_read : STD_LOGIC;
     signal store_ap_uint_256_ap_int_8_32u_U0_input_stream_read : STD_LOGIC;
     signal store_ap_uint_256_ap_int_8_32u_U0_m_axi_concat_data_AWVALID : STD_LOGIC;
     signal store_ap_uint_256_ap_int_8_32u_U0_m_axi_concat_data_AWADDR : STD_LOGIC_VECTOR (63 downto 0);
@@ -232,16 +247,23 @@ architecture behav of concat is
     signal store_ap_uint_256_ap_int_8_32u_U0_outputs_read : STD_LOGIC;
     signal store_ap_uint_256_ap_int_8_32u_U0_concat_flag : STD_LOGIC_VECTOR (0 downto 0);
     signal store_ap_uint_256_ap_int_8_32u_U0_concat_flag_ap_vld : STD_LOGIC;
-    signal output_data_addr3_c_full_n : STD_LOGIC;
-    signal output_data_addr3_c_dout : STD_LOGIC_VECTOR (31 downto 0);
-    signal output_data_addr3_c_num_data_valid : STD_LOGIC_VECTOR (2 downto 0);
-    signal output_data_addr3_c_fifo_cap : STD_LOGIC_VECTOR (2 downto 0);
-    signal output_data_addr3_c_empty_n : STD_LOGIC;
     signal outputs_c_full_n : STD_LOGIC;
     signal outputs_c_dout : STD_LOGIC_VECTOR (63 downto 0);
     signal outputs_c_num_data_valid : STD_LOGIC_VECTOR (2 downto 0);
     signal outputs_c_fifo_cap : STD_LOGIC_VECTOR (2 downto 0);
     signal outputs_c_empty_n : STD_LOGIC;
+    signal input_data_addr1_assign_cast_loc_channel_dout : STD_LOGIC_VECTOR (26 downto 0);
+    signal input_data_addr1_assign_cast_loc_channel_num_data_valid : STD_LOGIC_VECTOR (1 downto 0);
+    signal input_data_addr1_assign_cast_loc_channel_fifo_cap : STD_LOGIC_VECTOR (1 downto 0);
+    signal input_data_addr1_assign_cast_loc_channel_empty_n : STD_LOGIC;
+    signal input_data_addr2_assign_cast_loc_channel_dout : STD_LOGIC_VECTOR (26 downto 0);
+    signal input_data_addr2_assign_cast_loc_channel_num_data_valid : STD_LOGIC_VECTOR (1 downto 0);
+    signal input_data_addr2_assign_cast_loc_channel_fifo_cap : STD_LOGIC_VECTOR (1 downto 0);
+    signal input_data_addr2_assign_cast_loc_channel_empty_n : STD_LOGIC;
+    signal output_data_addr3_assign_cast_loc_channel_dout : STD_LOGIC_VECTOR (26 downto 0);
+    signal output_data_addr3_assign_cast_loc_channel_num_data_valid : STD_LOGIC_VECTOR (2 downto 0);
+    signal output_data_addr3_assign_cast_loc_channel_fifo_cap : STD_LOGIC_VECTOR (2 downto 0);
+    signal output_data_addr3_assign_cast_loc_channel_empty_n : STD_LOGIC;
     signal input_stream_full_n : STD_LOGIC;
     signal input_stream_dout : STD_LOGIC_VECTOR (255 downto 0);
     signal input_stream_num_data_valid : STD_LOGIC_VECTOR (6 downto 0);
@@ -260,12 +282,10 @@ architecture behav of concat is
     signal ap_sync_ready : STD_LOGIC;
     signal ap_sync_reg_entry_proc_U0_ap_ready : STD_LOGIC := '0';
     signal ap_sync_entry_proc_U0_ap_ready : STD_LOGIC;
+    signal ap_sync_reg_Block_entry4_proc_U0_ap_ready : STD_LOGIC := '0';
+    signal ap_sync_Block_entry4_proc_U0_ap_ready : STD_LOGIC;
     signal ap_sync_reg_read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_ready : STD_LOGIC := '0';
     signal ap_sync_read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_ready : STD_LOGIC;
-    signal start_for_store_ap_uint_256_ap_int_8_32u_U0_din : STD_LOGIC_VECTOR (0 downto 0);
-    signal start_for_store_ap_uint_256_ap_int_8_32u_U0_full_n : STD_LOGIC;
-    signal start_for_store_ap_uint_256_ap_int_8_32u_U0_dout : STD_LOGIC_VECTOR (0 downto 0);
-    signal start_for_store_ap_uint_256_ap_int_8_32u_U0_empty_n : STD_LOGIC;
     signal ap_ce_reg : STD_LOGIC;
 
     component concat_entry_proc IS
@@ -273,25 +293,34 @@ architecture behav of concat is
         ap_clk : IN STD_LOGIC;
         ap_rst : IN STD_LOGIC;
         ap_start : IN STD_LOGIC;
-        start_full_n : IN STD_LOGIC;
         ap_done : OUT STD_LOGIC;
         ap_continue : IN STD_LOGIC;
         ap_idle : OUT STD_LOGIC;
         ap_ready : OUT STD_LOGIC;
-        start_out : OUT STD_LOGIC;
-        start_write : OUT STD_LOGIC;
-        output_data_addr3 : IN STD_LOGIC_VECTOR (31 downto 0);
-        output_data_addr3_c_din : OUT STD_LOGIC_VECTOR (31 downto 0);
-        output_data_addr3_c_num_data_valid : IN STD_LOGIC_VECTOR (2 downto 0);
-        output_data_addr3_c_fifo_cap : IN STD_LOGIC_VECTOR (2 downto 0);
-        output_data_addr3_c_full_n : IN STD_LOGIC;
-        output_data_addr3_c_write : OUT STD_LOGIC;
         outputs : IN STD_LOGIC_VECTOR (63 downto 0);
         outputs_c_din : OUT STD_LOGIC_VECTOR (63 downto 0);
         outputs_c_num_data_valid : IN STD_LOGIC_VECTOR (2 downto 0);
         outputs_c_fifo_cap : IN STD_LOGIC_VECTOR (2 downto 0);
         outputs_c_full_n : IN STD_LOGIC;
         outputs_c_write : OUT STD_LOGIC );
+    end component;
+
+
+    component concat_Block_entry4_proc IS
+    port (
+        ap_clk : IN STD_LOGIC;
+        ap_rst : IN STD_LOGIC;
+        ap_start : IN STD_LOGIC;
+        ap_done : OUT STD_LOGIC;
+        ap_continue : IN STD_LOGIC;
+        ap_idle : OUT STD_LOGIC;
+        ap_ready : OUT STD_LOGIC;
+        input_data_addr1 : IN STD_LOGIC_VECTOR (31 downto 0);
+        input_data_addr2 : IN STD_LOGIC_VECTOR (31 downto 0);
+        output_data_addr3 : IN STD_LOGIC_VECTOR (31 downto 0);
+        ap_return_0 : OUT STD_LOGIC_VECTOR (26 downto 0);
+        ap_return_1 : OUT STD_LOGIC_VECTOR (26 downto 0);
+        ap_return_2 : OUT STD_LOGIC_VECTOR (26 downto 0) );
     end component;
 
 
@@ -351,8 +380,8 @@ architecture behav of concat is
         m_axi_concat_data_BID : IN STD_LOGIC_VECTOR (0 downto 0);
         m_axi_concat_data_BUSER : IN STD_LOGIC_VECTOR (0 downto 0);
         inputs : IN STD_LOGIC_VECTOR (63 downto 0);
-        input_data_addr1 : IN STD_LOGIC_VECTOR (31 downto 0);
-        input_data_addr2 : IN STD_LOGIC_VECTOR (31 downto 0);
+        p_read : IN STD_LOGIC_VECTOR (26 downto 0);
+        p_read1 : IN STD_LOGIC_VECTOR (26 downto 0);
         ROWS : IN STD_LOGIC_VECTOR (31 downto 0);
         COLS : IN STD_LOGIC_VECTOR (31 downto 0);
         input_stream_din : OUT STD_LOGIC_VECTOR (255 downto 0);
@@ -392,11 +421,7 @@ architecture behav of concat is
         COLS_fifo_cap : IN STD_LOGIC_VECTOR (1 downto 0);
         COLS_empty_n : IN STD_LOGIC;
         COLS_read : OUT STD_LOGIC;
-        input_data_addr3_dout : IN STD_LOGIC_VECTOR (31 downto 0);
-        input_data_addr3_num_data_valid : IN STD_LOGIC_VECTOR (2 downto 0);
-        input_data_addr3_fifo_cap : IN STD_LOGIC_VECTOR (2 downto 0);
-        input_data_addr3_empty_n : IN STD_LOGIC;
-        input_data_addr3_read : OUT STD_LOGIC;
+        p_read : IN STD_LOGIC_VECTOR (26 downto 0);
         input_stream_dout : IN STD_LOGIC_VECTOR (255 downto 0);
         input_stream_num_data_valid : IN STD_LOGIC_VECTOR (6 downto 0);
         input_stream_fifo_cap : IN STD_LOGIC_VECTOR (6 downto 0);
@@ -458,24 +483,7 @@ architecture behav of concat is
     end component;
 
 
-    component concat_fifo_w32_d3_S IS
-    port (
-        clk : IN STD_LOGIC;
-        reset : IN STD_LOGIC;
-        if_read_ce : IN STD_LOGIC;
-        if_write_ce : IN STD_LOGIC;
-        if_din : IN STD_LOGIC_VECTOR (31 downto 0);
-        if_full_n : OUT STD_LOGIC;
-        if_write : IN STD_LOGIC;
-        if_dout : OUT STD_LOGIC_VECTOR (31 downto 0);
-        if_num_data_valid : OUT STD_LOGIC_VECTOR (2 downto 0);
-        if_fifo_cap : OUT STD_LOGIC_VECTOR (2 downto 0);
-        if_empty_n : OUT STD_LOGIC;
-        if_read : IN STD_LOGIC );
-    end component;
-
-
-    component concat_fifo_w64_d3_S IS
+    component concat_fifo_w64_d4_S IS
     port (
         clk : IN STD_LOGIC;
         reset : IN STD_LOGIC;
@@ -485,6 +493,40 @@ architecture behav of concat is
         if_full_n : OUT STD_LOGIC;
         if_write : IN STD_LOGIC;
         if_dout : OUT STD_LOGIC_VECTOR (63 downto 0);
+        if_num_data_valid : OUT STD_LOGIC_VECTOR (2 downto 0);
+        if_fifo_cap : OUT STD_LOGIC_VECTOR (2 downto 0);
+        if_empty_n : OUT STD_LOGIC;
+        if_read : IN STD_LOGIC );
+    end component;
+
+
+    component concat_fifo_w27_d2_S IS
+    port (
+        clk : IN STD_LOGIC;
+        reset : IN STD_LOGIC;
+        if_read_ce : IN STD_LOGIC;
+        if_write_ce : IN STD_LOGIC;
+        if_din : IN STD_LOGIC_VECTOR (26 downto 0);
+        if_full_n : OUT STD_LOGIC;
+        if_write : IN STD_LOGIC;
+        if_dout : OUT STD_LOGIC_VECTOR (26 downto 0);
+        if_num_data_valid : OUT STD_LOGIC_VECTOR (1 downto 0);
+        if_fifo_cap : OUT STD_LOGIC_VECTOR (1 downto 0);
+        if_empty_n : OUT STD_LOGIC;
+        if_read : IN STD_LOGIC );
+    end component;
+
+
+    component concat_fifo_w27_d3_S IS
+    port (
+        clk : IN STD_LOGIC;
+        reset : IN STD_LOGIC;
+        if_read_ce : IN STD_LOGIC;
+        if_write_ce : IN STD_LOGIC;
+        if_din : IN STD_LOGIC_VECTOR (26 downto 0);
+        if_full_n : OUT STD_LOGIC;
+        if_write : IN STD_LOGIC;
+        if_dout : OUT STD_LOGIC_VECTOR (26 downto 0);
         if_num_data_valid : OUT STD_LOGIC_VECTOR (2 downto 0);
         if_fifo_cap : OUT STD_LOGIC_VECTOR (2 downto 0);
         if_empty_n : OUT STD_LOGIC;
@@ -521,21 +563,6 @@ architecture behav of concat is
         if_dout : OUT STD_LOGIC_VECTOR (31 downto 0);
         if_num_data_valid : OUT STD_LOGIC_VECTOR (1 downto 0);
         if_fifo_cap : OUT STD_LOGIC_VECTOR (1 downto 0);
-        if_empty_n : OUT STD_LOGIC;
-        if_read : IN STD_LOGIC );
-    end component;
-
-
-    component concat_start_for_store_ap_uint_256_ap_int_8_32u_U0 IS
-    port (
-        clk : IN STD_LOGIC;
-        reset : IN STD_LOGIC;
-        if_read_ce : IN STD_LOGIC;
-        if_write_ce : IN STD_LOGIC;
-        if_din : IN STD_LOGIC_VECTOR (0 downto 0);
-        if_full_n : OUT STD_LOGIC;
-        if_write : IN STD_LOGIC;
-        if_dout : OUT STD_LOGIC_VECTOR (0 downto 0);
         if_empty_n : OUT STD_LOGIC;
         if_read : IN STD_LOGIC );
     end component;
@@ -812,25 +839,32 @@ begin
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
         ap_start => entry_proc_U0_ap_start,
-        start_full_n => start_for_store_ap_uint_256_ap_int_8_32u_U0_full_n,
         ap_done => entry_proc_U0_ap_done,
         ap_continue => entry_proc_U0_ap_continue,
         ap_idle => entry_proc_U0_ap_idle,
         ap_ready => entry_proc_U0_ap_ready,
-        start_out => entry_proc_U0_start_out,
-        start_write => entry_proc_U0_start_write,
-        output_data_addr3 => output_data_addr3,
-        output_data_addr3_c_din => entry_proc_U0_output_data_addr3_c_din,
-        output_data_addr3_c_num_data_valid => output_data_addr3_c_num_data_valid,
-        output_data_addr3_c_fifo_cap => output_data_addr3_c_fifo_cap,
-        output_data_addr3_c_full_n => output_data_addr3_c_full_n,
-        output_data_addr3_c_write => entry_proc_U0_output_data_addr3_c_write,
         outputs => outputs,
         outputs_c_din => entry_proc_U0_outputs_c_din,
         outputs_c_num_data_valid => outputs_c_num_data_valid,
         outputs_c_fifo_cap => outputs_c_fifo_cap,
         outputs_c_full_n => outputs_c_full_n,
         outputs_c_write => entry_proc_U0_outputs_c_write);
+
+    Block_entry4_proc_U0 : component concat_Block_entry4_proc
+    port map (
+        ap_clk => ap_clk,
+        ap_rst => ap_rst_n_inv,
+        ap_start => Block_entry4_proc_U0_ap_start,
+        ap_done => Block_entry4_proc_U0_ap_done,
+        ap_continue => Block_entry4_proc_U0_ap_continue,
+        ap_idle => Block_entry4_proc_U0_ap_idle,
+        ap_ready => Block_entry4_proc_U0_ap_ready,
+        input_data_addr1 => input_data_addr1,
+        input_data_addr2 => input_data_addr2,
+        output_data_addr3 => output_data_addr3,
+        ap_return_0 => Block_entry4_proc_U0_ap_return_0,
+        ap_return_1 => Block_entry4_proc_U0_ap_return_1,
+        ap_return_2 => Block_entry4_proc_U0_ap_return_2);
 
     read_inputs_ap_uint_256_ap_int_8_32u_U0 : component concat_read_inputs_ap_uint_256_ap_int_8_32u_s
     port map (
@@ -888,8 +922,8 @@ begin
         m_axi_concat_data_BID => ap_const_lv1_0,
         m_axi_concat_data_BUSER => ap_const_lv1_0,
         inputs => inputs,
-        input_data_addr1 => input_data_addr1,
-        input_data_addr2 => input_data_addr2,
+        p_read => input_data_addr1_assign_cast_loc_channel_dout,
+        p_read1 => input_data_addr2_assign_cast_loc_channel_dout,
         ROWS => ROWS,
         COLS => COLS,
         input_stream_din => read_inputs_ap_uint_256_ap_int_8_32u_U0_input_stream_din,
@@ -927,11 +961,7 @@ begin
         COLS_fifo_cap => COLS_c_fifo_cap,
         COLS_empty_n => COLS_c_empty_n,
         COLS_read => store_ap_uint_256_ap_int_8_32u_U0_COLS_read,
-        input_data_addr3_dout => output_data_addr3_c_dout,
-        input_data_addr3_num_data_valid => output_data_addr3_c_num_data_valid,
-        input_data_addr3_fifo_cap => output_data_addr3_c_fifo_cap,
-        input_data_addr3_empty_n => output_data_addr3_c_empty_n,
-        input_data_addr3_read => store_ap_uint_256_ap_int_8_32u_U0_input_data_addr3_read,
+        p_read => output_data_addr3_assign_cast_loc_channel_dout,
         input_stream_dout => input_stream_dout,
         input_stream_num_data_valid => input_stream_num_data_valid,
         input_stream_fifo_cap => input_stream_fifo_cap,
@@ -991,22 +1021,7 @@ begin
         concat_flag => store_ap_uint_256_ap_int_8_32u_U0_concat_flag,
         concat_flag_ap_vld => store_ap_uint_256_ap_int_8_32u_U0_concat_flag_ap_vld);
 
-    output_data_addr3_c_U : component concat_fifo_w32_d3_S
-    port map (
-        clk => ap_clk,
-        reset => ap_rst_n_inv,
-        if_read_ce => ap_const_logic_1,
-        if_write_ce => ap_const_logic_1,
-        if_din => entry_proc_U0_output_data_addr3_c_din,
-        if_full_n => output_data_addr3_c_full_n,
-        if_write => entry_proc_U0_output_data_addr3_c_write,
-        if_dout => output_data_addr3_c_dout,
-        if_num_data_valid => output_data_addr3_c_num_data_valid,
-        if_fifo_cap => output_data_addr3_c_fifo_cap,
-        if_empty_n => output_data_addr3_c_empty_n,
-        if_read => store_ap_uint_256_ap_int_8_32u_U0_input_data_addr3_read);
-
-    outputs_c_U : component concat_fifo_w64_d3_S
+    outputs_c_U : component concat_fifo_w64_d4_S
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,
@@ -1020,6 +1035,51 @@ begin
         if_fifo_cap => outputs_c_fifo_cap,
         if_empty_n => outputs_c_empty_n,
         if_read => store_ap_uint_256_ap_int_8_32u_U0_outputs_read);
+
+    input_data_addr1_assign_cast_loc_channel_U : component concat_fifo_w27_d2_S
+    port map (
+        clk => ap_clk,
+        reset => ap_rst_n_inv,
+        if_read_ce => ap_const_logic_1,
+        if_write_ce => ap_const_logic_1,
+        if_din => Block_entry4_proc_U0_ap_return_0,
+        if_full_n => input_data_addr1_assign_cast_loc_channel_full_n,
+        if_write => ap_channel_done_input_data_addr1_assign_cast_loc_channel,
+        if_dout => input_data_addr1_assign_cast_loc_channel_dout,
+        if_num_data_valid => input_data_addr1_assign_cast_loc_channel_num_data_valid,
+        if_fifo_cap => input_data_addr1_assign_cast_loc_channel_fifo_cap,
+        if_empty_n => input_data_addr1_assign_cast_loc_channel_empty_n,
+        if_read => read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_ready);
+
+    input_data_addr2_assign_cast_loc_channel_U : component concat_fifo_w27_d2_S
+    port map (
+        clk => ap_clk,
+        reset => ap_rst_n_inv,
+        if_read_ce => ap_const_logic_1,
+        if_write_ce => ap_const_logic_1,
+        if_din => Block_entry4_proc_U0_ap_return_1,
+        if_full_n => input_data_addr2_assign_cast_loc_channel_full_n,
+        if_write => ap_channel_done_input_data_addr2_assign_cast_loc_channel,
+        if_dout => input_data_addr2_assign_cast_loc_channel_dout,
+        if_num_data_valid => input_data_addr2_assign_cast_loc_channel_num_data_valid,
+        if_fifo_cap => input_data_addr2_assign_cast_loc_channel_fifo_cap,
+        if_empty_n => input_data_addr2_assign_cast_loc_channel_empty_n,
+        if_read => read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_ready);
+
+    output_data_addr3_assign_cast_loc_channel_U : component concat_fifo_w27_d3_S
+    port map (
+        clk => ap_clk,
+        reset => ap_rst_n_inv,
+        if_read_ce => ap_const_logic_1,
+        if_write_ce => ap_const_logic_1,
+        if_din => Block_entry4_proc_U0_ap_return_2,
+        if_full_n => output_data_addr3_assign_cast_loc_channel_full_n,
+        if_write => ap_channel_done_output_data_addr3_assign_cast_loc_channel,
+        if_dout => output_data_addr3_assign_cast_loc_channel_dout,
+        if_num_data_valid => output_data_addr3_assign_cast_loc_channel_num_data_valid,
+        if_fifo_cap => output_data_addr3_assign_cast_loc_channel_fifo_cap,
+        if_empty_n => output_data_addr3_assign_cast_loc_channel_empty_n,
+        if_read => store_ap_uint_256_ap_int_8_32u_U0_ap_ready);
 
     input_stream_U : component concat_fifo_w256_d64_A
     port map (
@@ -1066,21 +1126,72 @@ begin
         if_empty_n => COLS_c_empty_n,
         if_read => store_ap_uint_256_ap_int_8_32u_U0_COLS_read);
 
-    start_for_store_ap_uint_256_ap_int_8_32u_U0_U : component concat_start_for_store_ap_uint_256_ap_int_8_32u_U0
-    port map (
-        clk => ap_clk,
-        reset => ap_rst_n_inv,
-        if_read_ce => ap_const_logic_1,
-        if_write_ce => ap_const_logic_1,
-        if_din => start_for_store_ap_uint_256_ap_int_8_32u_U0_din,
-        if_full_n => start_for_store_ap_uint_256_ap_int_8_32u_U0_full_n,
-        if_write => entry_proc_U0_start_write,
-        if_dout => start_for_store_ap_uint_256_ap_int_8_32u_U0_dout,
-        if_empty_n => start_for_store_ap_uint_256_ap_int_8_32u_U0_empty_n,
-        if_read => store_ap_uint_256_ap_int_8_32u_U0_ap_ready);
 
 
 
+
+    ap_sync_reg_Block_entry4_proc_U0_ap_ready_assign_proc : process(ap_clk)
+    begin
+        if (ap_clk'event and ap_clk =  '1') then
+            if (ap_rst_n_inv = '1') then
+                ap_sync_reg_Block_entry4_proc_U0_ap_ready <= ap_const_logic_0;
+            else
+                if (((ap_sync_ready and ap_start) = ap_const_logic_1)) then 
+                    ap_sync_reg_Block_entry4_proc_U0_ap_ready <= ap_const_logic_0;
+                else 
+                    ap_sync_reg_Block_entry4_proc_U0_ap_ready <= ap_sync_Block_entry4_proc_U0_ap_ready;
+                end if; 
+            end if;
+        end if;
+    end process;
+
+
+    ap_sync_reg_channel_write_input_data_addr1_assign_cast_loc_channel_assign_proc : process(ap_clk)
+    begin
+        if (ap_clk'event and ap_clk =  '1') then
+            if (ap_rst_n_inv = '1') then
+                ap_sync_reg_channel_write_input_data_addr1_assign_cast_loc_channel <= ap_const_logic_0;
+            else
+                if (((Block_entry4_proc_U0_ap_done and Block_entry4_proc_U0_ap_continue) = ap_const_logic_1)) then 
+                    ap_sync_reg_channel_write_input_data_addr1_assign_cast_loc_channel <= ap_const_logic_0;
+                else 
+                    ap_sync_reg_channel_write_input_data_addr1_assign_cast_loc_channel <= ap_sync_channel_write_input_data_addr1_assign_cast_loc_channel;
+                end if; 
+            end if;
+        end if;
+    end process;
+
+
+    ap_sync_reg_channel_write_input_data_addr2_assign_cast_loc_channel_assign_proc : process(ap_clk)
+    begin
+        if (ap_clk'event and ap_clk =  '1') then
+            if (ap_rst_n_inv = '1') then
+                ap_sync_reg_channel_write_input_data_addr2_assign_cast_loc_channel <= ap_const_logic_0;
+            else
+                if (((Block_entry4_proc_U0_ap_done and Block_entry4_proc_U0_ap_continue) = ap_const_logic_1)) then 
+                    ap_sync_reg_channel_write_input_data_addr2_assign_cast_loc_channel <= ap_const_logic_0;
+                else 
+                    ap_sync_reg_channel_write_input_data_addr2_assign_cast_loc_channel <= ap_sync_channel_write_input_data_addr2_assign_cast_loc_channel;
+                end if; 
+            end if;
+        end if;
+    end process;
+
+
+    ap_sync_reg_channel_write_output_data_addr3_assign_cast_loc_channel_assign_proc : process(ap_clk)
+    begin
+        if (ap_clk'event and ap_clk =  '1') then
+            if (ap_rst_n_inv = '1') then
+                ap_sync_reg_channel_write_output_data_addr3_assign_cast_loc_channel <= ap_const_logic_0;
+            else
+                if (((Block_entry4_proc_U0_ap_done and Block_entry4_proc_U0_ap_continue) = ap_const_logic_1)) then 
+                    ap_sync_reg_channel_write_output_data_addr3_assign_cast_loc_channel <= ap_const_logic_0;
+                else 
+                    ap_sync_reg_channel_write_output_data_addr3_assign_cast_loc_channel <= ap_sync_channel_write_output_data_addr3_assign_cast_loc_channel;
+                end if; 
+            end if;
+        end if;
+    end process;
 
 
     ap_sync_reg_entry_proc_U0_ap_ready_assign_proc : process(ap_clk)
@@ -1114,8 +1225,13 @@ begin
         end if;
     end process;
 
+    Block_entry4_proc_U0_ap_continue <= (ap_sync_channel_write_output_data_addr3_assign_cast_loc_channel and ap_sync_channel_write_input_data_addr2_assign_cast_loc_channel and ap_sync_channel_write_input_data_addr1_assign_cast_loc_channel);
+    Block_entry4_proc_U0_ap_start <= ((ap_sync_reg_Block_entry4_proc_U0_ap_ready xor ap_const_logic_1) and ap_start);
+    ap_channel_done_input_data_addr1_assign_cast_loc_channel <= ((ap_sync_reg_channel_write_input_data_addr1_assign_cast_loc_channel xor ap_const_logic_1) and Block_entry4_proc_U0_ap_done);
+    ap_channel_done_input_data_addr2_assign_cast_loc_channel <= ((ap_sync_reg_channel_write_input_data_addr2_assign_cast_loc_channel xor ap_const_logic_1) and Block_entry4_proc_U0_ap_done);
+    ap_channel_done_output_data_addr3_assign_cast_loc_channel <= ((ap_sync_reg_channel_write_output_data_addr3_assign_cast_loc_channel xor ap_const_logic_1) and Block_entry4_proc_U0_ap_done);
     ap_done <= store_ap_uint_256_ap_int_8_32u_U0_ap_done;
-    ap_idle <= (store_ap_uint_256_ap_int_8_32u_U0_ap_idle and read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_idle and entry_proc_U0_ap_idle);
+    ap_idle <= (store_ap_uint_256_ap_int_8_32u_U0_ap_idle and read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_idle and (output_data_addr3_assign_cast_loc_channel_empty_n xor ap_const_logic_1) and (input_data_addr2_assign_cast_loc_channel_empty_n xor ap_const_logic_1) and (input_data_addr1_assign_cast_loc_channel_empty_n xor ap_const_logic_1) and entry_proc_U0_ap_idle and Block_entry4_proc_U0_ap_idle);
     ap_ready <= ap_sync_ready;
 
     ap_rst_n_inv_assign_proc : process(ap_rst_n)
@@ -1123,9 +1239,13 @@ begin
                 ap_rst_n_inv <= not(ap_rst_n);
     end process;
 
+    ap_sync_Block_entry4_proc_U0_ap_ready <= (ap_sync_reg_Block_entry4_proc_U0_ap_ready or Block_entry4_proc_U0_ap_ready);
+    ap_sync_channel_write_input_data_addr1_assign_cast_loc_channel <= ((input_data_addr1_assign_cast_loc_channel_full_n and ap_channel_done_input_data_addr1_assign_cast_loc_channel) or ap_sync_reg_channel_write_input_data_addr1_assign_cast_loc_channel);
+    ap_sync_channel_write_input_data_addr2_assign_cast_loc_channel <= ((input_data_addr2_assign_cast_loc_channel_full_n and ap_channel_done_input_data_addr2_assign_cast_loc_channel) or ap_sync_reg_channel_write_input_data_addr2_assign_cast_loc_channel);
+    ap_sync_channel_write_output_data_addr3_assign_cast_loc_channel <= ((output_data_addr3_assign_cast_loc_channel_full_n and ap_channel_done_output_data_addr3_assign_cast_loc_channel) or ap_sync_reg_channel_write_output_data_addr3_assign_cast_loc_channel);
     ap_sync_entry_proc_U0_ap_ready <= (entry_proc_U0_ap_ready or ap_sync_reg_entry_proc_U0_ap_ready);
     ap_sync_read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_ready <= (read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_ready or ap_sync_reg_read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_ready);
-    ap_sync_ready <= (ap_sync_read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_ready and ap_sync_entry_proc_U0_ap_ready);
+    ap_sync_ready <= (ap_sync_read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_ready and ap_sync_entry_proc_U0_ap_ready and ap_sync_Block_entry4_proc_U0_ap_ready);
     concat_data_BID <= ap_const_lv1_0;
     concat_data_BRESP <= ap_const_lv2_0;
     concat_data_BUSER <= ap_const_lv1_0;
@@ -1137,8 +1257,7 @@ begin
     entry_proc_U0_ap_continue <= ap_const_logic_1;
     entry_proc_U0_ap_start <= ((ap_sync_reg_entry_proc_U0_ap_ready xor ap_const_logic_1) and ap_start);
     read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_continue <= ap_const_logic_1;
-    read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_start <= ((ap_sync_reg_read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_ready xor ap_const_logic_1) and ap_start);
-    start_for_store_ap_uint_256_ap_int_8_32u_U0_din <= (0=>ap_const_logic_1, others=>'-');
+    read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_start <= (input_data_addr2_assign_cast_loc_channel_empty_n and input_data_addr1_assign_cast_loc_channel_empty_n and (ap_sync_reg_read_inputs_ap_uint_256_ap_int_8_32u_U0_ap_ready xor ap_const_logic_1) and ap_start);
     store_ap_uint_256_ap_int_8_32u_U0_ap_continue <= ap_const_logic_1;
-    store_ap_uint_256_ap_int_8_32u_U0_ap_start <= start_for_store_ap_uint_256_ap_int_8_32u_U0_empty_n;
+    store_ap_uint_256_ap_int_8_32u_U0_ap_start <= output_data_addr3_assign_cast_loc_channel_empty_n;
 end behav;

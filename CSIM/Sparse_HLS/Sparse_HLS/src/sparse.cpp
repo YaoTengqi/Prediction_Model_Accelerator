@@ -43,6 +43,11 @@ void sparse(
 	// 特征矩阵的RAM
 	typename WideType<t_DataType_IN, nPE>::t_TypeInt fm_ram[512];
 
+	input_data_addr1 = input_data_addr1 * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
+	input_data_addr2 = input_data_addr2 * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
+	output_data_addr3 = output_data_addr3 * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
+
+
 #pragma HLS DATAFLOW
 	load<t_AXI_DataType, t_DataType_IN, t_DataType_OUT, nPE>(am_ROWS, am_COLS, fm_ROWS, fm_COLS, inputs, idx_stream, count_stream, fm_stream, input_data_addr1, input_data_addr2);
 	mul<t_AXI_DataType, t_Quant_DataType, t_DataType_IN, t_DataType_OUT, nPE>(am_ROWS, am_COLS, fm_ROWS, fm_COLS, fm_stream, idx_stream, count_stream, data_out);

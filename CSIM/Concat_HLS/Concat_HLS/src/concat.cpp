@@ -34,6 +34,10 @@ void concat(
 //	hls::stream<WideType<t_DataType_OUT, sizeof(t_AXI_DataType) / sizeof(t_DataType_OUT)>> output_stream;
 //#pragma HLS STREAM variable = output_stream depth = 64
 
+	input_data_addr1 = input_data_addr1 * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
+	input_data_addr2 = input_data_addr2 * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
+	output_data_addr3 = output_data_addr3 * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
+
 #pragma HLS DATAFLOW
 	read_inputs<t_AXI_DataType, t_DataType_IN, nPE>(inputs, input_data_addr1, input_data_addr2, ROWS, COLS, input_stream);
 //	requant<t_AXI_DataType, t_DataType_IN, t_DataType_OUT, nPE>(input_stream, ROWS, COLS, mul1, shift1, mul2, shift2, output_stream);

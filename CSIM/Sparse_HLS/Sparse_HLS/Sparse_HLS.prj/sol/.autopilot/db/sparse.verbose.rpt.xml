@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'sparse'" level="0">
-<item name = "Date">Fri Jun  7 17:07:39 2024
+<item name = "Date">Sun Jun  9 10:52:47 2024
 </item>
 <item name = "Version">2022.2 (Build 3670227 on Oct 13 2022)</item>
 <item name = "Project">Sparse_HLS.prj</item>
@@ -32,6 +32,7 @@
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
 <column name="entry_proc_U0">entry_proc, 0, 0, 0 ns, 0 ns, 0, 0, no</column>
+<column name="Block_entry4_proc_U0">Block_entry4_proc, 0, 0, 0 ns, 0 ns, 0, 0, no</column>
 <column name="load_ap_uint_256_ap_int_8_ap_int_8_32u_U0">load_ap_uint_256_ap_int_8_ap_int_8_32u_s, ?, ?, ?, ?, ?, ?, no</column>
 <column name="mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0">mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_s, ?, ?, ?, ?, ?, ?, no</column>
 <column name="quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0">quant_ap_uint_256_ap_int_32_ap_int_8_32u_s, ?, ?, ?, ?, ?, ?, no</column>
@@ -52,12 +53,12 @@
 <item name = "Summary"><table name="" hasTotal="1">
 <keys size="6">Name, BRAM_18K, DSP, FF, LUT, URAM</keys>
 <column name="DSP">-, -, -, -, -</column>
-<column name="Expression">-, -, 0, 14, -</column>
-<column name="FIFO">72, -, 1599, 1136, -</column>
-<column name="Instance">17, 236, 8189, 27619, 0</column>
+<column name="Expression">-, -, 0, 30, -</column>
+<column name="FIFO">72, -, 1797, 1268, -</column>
+<column name="Instance">17, 236, 8272, 27639, 0</column>
 <column name="Memory">-, -, -, -, -</column>
-<column name="Multiplexer">-, -, -, 18, -</column>
-<column name="Register">-, -, 2, -, -</column>
+<column name="Multiplexer">-, -, -, 54, -</column>
+<column name="Register">-, -, 6, -, -</column>
 <specialColumn name="Available">624, 1728, 460800, 230400, 96</specialColumn>
 <specialColumn name="Utilization (%)">14, 13, 2, 12, 0</specialColumn>
 </table>
@@ -66,13 +67,14 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP, FF, LUT, URAM</keys>
-<column name="entry_proc_U0">entry_proc, 0, 0, 3, 56, 0</column>
+<column name="Block_entry4_proc_U0">Block_entry4_proc, 0, 0, 83, 38, 0</column>
+<column name="entry_proc_U0">entry_proc, 0, 0, 3, 47, 0</column>
 <column name="load_ap_uint_256_ap_int_8_ap_int_8_32u_U0">load_ap_uint_256_ap_int_8_ap_int_8_32u_s, 17, 6, 1716, 1613, 0</column>
 <column name="mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0">mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_s, 0, 0, 966, 2283, 0</column>
 <column name="quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0">quant_ap_uint_256_ap_int_32_ap_int_8_32u_s, 0, 227, 3427, 20377, 0</column>
 <column name="sparse_addr_s_axi_U">sparse_addr_s_axi, 0, 0, 525, 874, 0</column>
 <column name="sparse_data_m_axi_U">sparse_data_m_axi, 0, 0, 1079, 1746, 0</column>
-<column name="store_ap_uint_256_ap_int_8_ap_int_8_32u_U0">store_ap_uint_256_ap_int_8_ap_int_8_32u_s, 0, 3, 473, 670, 0</column>
+<column name="store_ap_uint_256_ap_int_8_ap_int_8_32u_U0">store_ap_uint_256_ap_int_8_ap_int_8_32u_s, 0, 3, 473, 661, 0</column>
 </table>
 </item>
 <item name = "DSP"><table name="" hasTotal="0">
@@ -88,39 +90,57 @@
 <column name="am_ROWS_c_U">0, 99, 0, -, 2, 32, 64</column>
 <column name="count_stream_U">0, 99, 0, -, 64, 8, 512</column>
 <column name="data_out_U">57, 155, 0, -, 64, 1024, 65536</column>
-<column name="fm_COLS_c12_U">0, 99, 0, -, 2, 32, 64</column>
-<column name="fm_COLS_c13_U">0, 99, 0, -, 2, 32, 64</column>
+<column name="fm_COLS_c15_U">0, 99, 0, -, 2, 32, 64</column>
+<column name="fm_COLS_c16_U">0, 99, 0, -, 2, 32, 64</column>
 <column name="fm_COLS_c_U">0, 99, 0, -, 2, 32, 64</column>
-<column name="fm_ROWS_c11_U">0, 99, 0, -, 3, 32, 96</column>
+<column name="fm_ROWS_c14_U">0, 99, 0, -, 3, 32, 96</column>
 <column name="fm_ROWS_c_U">0, 99, 0, -, 2, 32, 64</column>
 <column name="fm_stream_U">15, 157, 0, -, 128, 256, 32768</column>
 <column name="idx_stream_U">0, 99, 0, -, 128, 8, 1024</column>
-<column name="output_data_addr3_c_U">0, 99, 0, -, 5, 32, 160</column>
-<column name="outputs_c_U">0, 99, 0, -, 5, 64, 320</column>
-<column name="quant_mul_c_U">0, 99, 0, -, 4, 32, 128</column>
+<column name="input_data_addr1_assign_cast_loc_channel_U">0, 99, 0, -, 2, 27, 54</column>
+<column name="input_data_addr2_assign_cast_loc_channel_U">0, 99, 0, -, 2, 27, 54</column>
+<column name="output_data_addr3_assign_cast_loc_channel_U">0, 99, 0, -, 5, 27, 135</column>
+<column name="outputs_c_U">0, 99, 0, -, 6, 64, 384</column>
+<column name="quant_mul_c_U">0, 99, 0, -, 5, 32, 160</column>
 <column name="quant_out_U">0, 99, 0, -, 2, 256, 512</column>
-<column name="quant_shift_c_U">0, 99, 0, -, 4, 32, 128</column>
+<column name="quant_shift_c_U">0, 99, 0, -, 5, 32, 160</column>
 </table>
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
+<column name="Block_entry4_proc_U0_ap_continue">and, 0, 0, 2, 1, 1</column>
+<column name="Block_entry4_proc_U0_ap_start">and, 0, 0, 2, 1, 1</column>
+<column name="ap_channel_done_input_data_addr1_assign_cast_loc_channel">and, 0, 0, 2, 1, 1</column>
+<column name="ap_channel_done_input_data_addr2_assign_cast_loc_channel">and, 0, 0, 2, 1, 1</column>
+<column name="ap_channel_done_output_data_addr3_assign_cast_loc_channel">and, 0, 0, 2, 1, 1</column>
 <column name="ap_idle">and, 0, 0, 2, 1, 1</column>
 <column name="ap_sync_ready">and, 0, 0, 2, 1, 1</column>
 <column name="entry_proc_U0_ap_start">and, 0, 0, 2, 1, 1</column>
-<column name="entry_proc_U0_start_full_n">and, 0, 0, 2, 1, 1</column>
 <column name="load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_start">and, 0, 0, 2, 1, 1</column>
+<column name="ap_sync_Block_entry4_proc_U0_ap_ready">or, 0, 0, 2, 1, 1</column>
+<column name="ap_sync_channel_write_input_data_addr1_assign_cast_loc_channel">or, 0, 0, 2, 1, 1</column>
+<column name="ap_sync_channel_write_input_data_addr2_assign_cast_loc_channel">or, 0, 0, 2, 1, 1</column>
+<column name="ap_sync_channel_write_output_data_addr3_assign_cast_loc_channel">or, 0, 0, 2, 1, 1</column>
 <column name="ap_sync_entry_proc_U0_ap_ready">or, 0, 0, 2, 1, 1</column>
 <column name="ap_sync_load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_ready">or, 0, 0, 2, 1, 1</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
 <keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
+<column name="ap_sync_reg_Block_entry4_proc_U0_ap_ready">9, 2, 1, 2</column>
+<column name="ap_sync_reg_channel_write_input_data_addr1_assign_cast_loc_channel">9, 2, 1, 2</column>
+<column name="ap_sync_reg_channel_write_input_data_addr2_assign_cast_loc_channel">9, 2, 1, 2</column>
+<column name="ap_sync_reg_channel_write_output_data_addr3_assign_cast_loc_channel">9, 2, 1, 2</column>
 <column name="ap_sync_reg_entry_proc_U0_ap_ready">9, 2, 1, 2</column>
 <column name="ap_sync_reg_load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_ready">9, 2, 1, 2</column>
 </table>
 </item>
 <item name = "Register"><table name="" hasTotal="1">
 <keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
+<column name="ap_sync_reg_Block_entry4_proc_U0_ap_ready">1, 0, 1, 0</column>
+<column name="ap_sync_reg_channel_write_input_data_addr1_assign_cast_loc_channel">1, 0, 1, 0</column>
+<column name="ap_sync_reg_channel_write_input_data_addr2_assign_cast_loc_channel">1, 0, 1, 0</column>
+<column name="ap_sync_reg_channel_write_output_data_addr3_assign_cast_loc_channel">1, 0, 1, 0</column>
 <column name="ap_sync_reg_entry_proc_U0_ap_ready">1, 0, 1, 0</column>
 <column name="ap_sync_reg_load_ap_uint_256_ap_int_8_ap_int_8_32u_U0_ap_ready">1, 0, 1, 0</column>
 </table>
