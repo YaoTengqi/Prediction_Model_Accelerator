@@ -51,13 +51,15 @@ void load(
 #pragma HLS PIPELINE
 	for (int block = 0; block < (fm_COLS / nPE); block++)
 	{
-		for(int i = 0; i < idx_num; i++){
+		for (int i = 0; i < idx_num; i++)
+		{
 			int col = idx_ram[i];
 			idx_stream.write(col);
 			WideType<t_DataType_IN, nPE> fm_value = fm_ram[block * nPE + col];
 			fm_stream.write(fm_value);
 		}
-		for(int j = 0; j < count_num; j++){
+		for (int j = 0; j < count_num; j++)
+		{
 			int count = count_ram[j];
 			count_stream.write(count);
 		}
@@ -101,35 +103,38 @@ void mul(
 
 template <typename t_AXI_DataType, typename t_Quant_DataType, typename t_DataType_OUT, unsigned int nPE>
 void quant(hls::stream<typename WideType<t_Quant_DataType, nPE>::t_TypeInt> &data_stream_out,
-			unsigned int fm_ROWS,
-			unsigned int fm_COLS,
-			hls::stream<typename WideType<t_DataType_OUT, nPE>::t_TypeInt> &requant_stream_out,
-			int quant_shift,
-			int quant_mul
-			){
+		   unsigned int fm_ROWS,
+		   unsigned int fm_COLS,
+		   hls::stream<typename WideType<t_DataType_OUT, nPE>::t_TypeInt> &requant_stream_out,
+		   int quant_shift,
+		   int quant_mul)
+{
 	// 量化赋值操作
-    int64_t ONE = static_cast<int64_t> (1);
-    // Requant
-	for (int i = 0; i < fm_ROWS * fm_COLS / nPE; i++){
+	int64_t ONE = static_cast<int64_t>(1);
+	// Requant
+	for (int i = 0; i < fm_ROWS * fm_COLS / nPE; i++)
+	{
 		WideType<t_Quant_DataType, nPE> dataValue = data_stream_out.read();
 		WideType<t_DataType_OUT, nPE> outValue;
-		for(int j = 0; j < nPE; j++){
+		for (int j = 0; j < nPE; j++)
+		{
 			int64_t temp = static_cast<int64_t>(dataValue[j]);
 			int right_shift = quant_shift > 0 ? quant_shift : 0;
-		    int left_shift = quant_shift > 0 ? 0 : (-quant_shift);
-		    if (left_shift > 0){
-		      temp = temp << left_shift;
-		    }
-		    temp = temp * quant_mul;
-		    int total_right_shift = right_shift + 31;
-		    int64_t pos_rounding_value = (ONE << (total_right_shift - ONE));
-		    temp = temp + pos_rounding_value;
-		    temp = temp >> total_right_shift;
-		    // cilp到[-128:127]
-		    temp = temp > 127 ? 127 : temp;
-		    temp = temp < -128 ? -128 : temp;
-//		    dataValue[j] = temp;
-		    outValue[j] = static_cast<t_DataType_OUT>(temp);
+			int left_shift = quant_shift > 0 ? 0 : (-quant_shift);
+			if (left_shift > 0)
+			{
+				temp = temp << left_shift;
+			}
+			temp = temp * quant_mul;
+			int total_right_shift = right_shift + 31;
+			int64_t pos_rounding_value = (ONE << (total_right_shift - ONE));
+			temp = temp + pos_rounding_value;
+			temp = temp >> total_right_shift;
+			// cilp到[-128:127]
+			temp = temp > 127 ? 127 : temp;
+			temp = temp < -128 ? -128 : temp;
+			//		    dataValue[j] = temp;
+			outValue[j] = static_cast<t_DataType_OUT>(temp);
 		}
 		requant_stream_out.write(outValue);
 	}
@@ -144,6 +149,8 @@ void store(
 	unsigned int COLS,
 	bool &done_flag)
 {
+	done_flag = false;
+
 	unsigned int dst_idx = output_data_addr3;
 	//	unsigned int dst_idx = 0;
 	unsigned int loop_idx = nPE * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);

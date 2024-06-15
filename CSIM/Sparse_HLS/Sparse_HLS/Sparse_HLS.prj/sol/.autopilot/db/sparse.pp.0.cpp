@@ -70271,13 +70271,15 @@ void load(
 #pragma HLS PIPELINE
  VITIS_LOOP_52_5: for (int block = 0; block < (fm_COLS / nPE); block++)
  {
-  VITIS_LOOP_54_6: for(int i = 0; i < idx_num; i++){
+  VITIS_LOOP_54_6: for (int i = 0; i < idx_num; i++)
+  {
    int col = idx_ram[i];
    idx_stream.write(col);
    WideType<t_DataType_IN, nPE> fm_value = fm_ram[block * nPE + col];
    fm_stream.write(fm_value);
   }
-  VITIS_LOOP_60_7: for(int j = 0; j < count_num; j++){
+  VITIS_LOOP_61_7: for (int j = 0; j < count_num; j++)
+  {
    int count = count_ram[j];
    count_stream.write(count);
   }
@@ -70296,20 +70298,20 @@ void mul(
  hls::stream<typename WideType<t_Quant_DataType, nPE>::t_TypeInt> &data_stream_out)
 {
 #pragma HLS PIPELINE II = 1
- VITIS_LOOP_79_1: for (int block = 0; block < (fm_COLS / nPE); block++)
+ VITIS_LOOP_81_1: for (int block = 0; block < (fm_COLS / nPE); block++)
  {
-  VITIS_LOOP_81_2: for (int row = 0; row < am_ROWS; row++)
+  VITIS_LOOP_83_2: for (int row = 0; row < am_ROWS; row++)
   {
    int idx_count = count_stream.read();
    t_Quant_DataType ZERO = 0;
    WideType<t_Quant_DataType, nPE> result = ZERO;
 #pragma HLS UNROLL
- VITIS_LOOP_87_3: for (int count = 0; count < idx_count; count++)
+ VITIS_LOOP_89_3: for (int count = 0; count < idx_count; count++)
    {
     uint8_t idx = idx_stream.read();
 
     WideType<t_DataType_IN, nPE> fm_value = fm_stream.read();
-    VITIS_LOOP_92_4: for (int pe = 0; pe < nPE; pe++)
+    VITIS_LOOP_94_4: for (int pe = 0; pe < nPE; pe++)
     {
      result[pe] = result[pe] + static_cast<t_Quant_DataType>(fm_value[pe] * 127);
     }
@@ -70321,35 +70323,38 @@ void mul(
 
 template <typename t_AXI_DataType, typename t_Quant_DataType, typename t_DataType_OUT, unsigned int nPE>
 void quant(hls::stream<typename WideType<t_Quant_DataType, nPE>::t_TypeInt> &data_stream_out,
-   unsigned int fm_ROWS,
-   unsigned int fm_COLS,
-   hls::stream<typename WideType<t_DataType_OUT, nPE>::t_TypeInt> &requant_stream_out,
-   int quant_shift,
-   int quant_mul
-   ){
+     unsigned int fm_ROWS,
+     unsigned int fm_COLS,
+     hls::stream<typename WideType<t_DataType_OUT, nPE>::t_TypeInt> &requant_stream_out,
+     int quant_shift,
+     int quant_mul)
+{
 
-    int64_t ONE = static_cast<int64_t> (1);
+ int64_t ONE = static_cast<int64_t>(1);
 
- VITIS_LOOP_113_1: for (int i = 0; i < fm_ROWS * fm_COLS / nPE; i++){
+ VITIS_LOOP_115_1: for (int i = 0; i < fm_ROWS * fm_COLS / nPE; i++)
+ {
   WideType<t_Quant_DataType, nPE> dataValue = data_stream_out.read();
   WideType<t_DataType_OUT, nPE> outValue;
-  VITIS_LOOP_116_2: for(int j = 0; j < nPE; j++){
+  VITIS_LOOP_119_2: for (int j = 0; j < nPE; j++)
+  {
    int64_t temp = static_cast<int64_t>(dataValue[j]);
    int right_shift = quant_shift > 0 ? quant_shift : 0;
-      int left_shift = quant_shift > 0 ? 0 : (-quant_shift);
-      if (left_shift > 0){
-        temp = temp << left_shift;
-      }
-      temp = temp * quant_mul;
-      int total_right_shift = right_shift + 31;
-      int64_t pos_rounding_value = (ONE << (total_right_shift - ONE));
-      temp = temp + pos_rounding_value;
-      temp = temp >> total_right_shift;
+   int left_shift = quant_shift > 0 ? 0 : (-quant_shift);
+   if (left_shift > 0)
+   {
+    temp = temp << left_shift;
+   }
+   temp = temp * quant_mul;
+   int total_right_shift = right_shift + 31;
+   int64_t pos_rounding_value = (ONE << (total_right_shift - ONE));
+   temp = temp + pos_rounding_value;
+   temp = temp >> total_right_shift;
 
-      temp = temp > 127 ? 127 : temp;
-      temp = temp < -128 ? -128 : temp;
+   temp = temp > 127 ? 127 : temp;
+   temp = temp < -128 ? -128 : temp;
 
-      outValue[j] = static_cast<t_DataType_OUT>(temp);
+   outValue[j] = static_cast<t_DataType_OUT>(temp);
   }
   requant_stream_out.write(outValue);
  }
@@ -70364,13 +70369,15 @@ void store(
  unsigned int COLS,
  bool &done_flag)
 {
+ done_flag = false;
+
  unsigned int dst_idx = output_data_addr3;
 
  unsigned int loop_idx = nPE * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
  unsigned int loop_num = ROWS * COLS / nPE;
  WideType<t_DataType_IN, nPE> data;
  int count = 0;
- VITIS_LOOP_153_1: for (int i = 0; i < loop_num; i++)
+ VITIS_LOOP_160_1: for (int i = 0; i < loop_num; i++)
  {
 #pragma HLS PIPELINE
  data = data_stream_out.read();
@@ -70439,7 +70446,6 @@ __attribute__((sdx_kernel("sparse", 0))) void sparse(
 #pragma HLS INTERFACE mode = s_axilite port = sparse_flag bundle = sparse_addr
 #pragma HLS INTERFACE mode = s_axilite port = return bundle = sparse_addr
 
-
  hls::stream<WideType<ap_int<32>, 32>::t_TypeInt> data_out;
 #pragma HLS STREAM variable = data_out depth = 64
  hls::stream<WideType<ap_int<8>, 32>::t_TypeInt> quant_out;
@@ -70456,7 +70462,6 @@ __attribute__((sdx_kernel("sparse", 0))) void sparse(
  input_data_addr1 = input_data_addr1 * sizeof(ap_int<8>) / sizeof(ap_uint<256>);
  input_data_addr2 = input_data_addr2 * sizeof(ap_int<8>) / sizeof(ap_uint<256>);
  output_data_addr3 = output_data_addr3 * sizeof(ap_int<8>) / sizeof(ap_uint<256>);
-
 
 #pragma HLS DATAFLOW
  load<ap_uint<256>, ap_int<8>, ap_int<8>, 32>(am_ROWS, am_COLS, fm_ROWS, fm_COLS, inputs, idx_stream, count_stream, fm_stream, input_data_addr1, input_data_addr2);

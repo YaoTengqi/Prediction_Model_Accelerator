@@ -12,14 +12,14 @@ set SynModuleInfo {
     }
   }
   {SRCNAME {mul<ap_uint<256>, ap_int<32>, ap_int<8>, ap_int<8>, 32u>} MODELNAME mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_s RTLNAME sparse_mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_s}
-  {SRCNAME {quant<ap_uint<256>, ap_int<32>, ap_int<8>, 32u>_Pipeline_VITIS_LOOP_113_1} MODELNAME quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1 RTLNAME sparse_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1
+  {SRCNAME {quant<ap_uint<256>, ap_int<32>, ap_int<8>, 32u>_Pipeline_VITIS_LOOP_115_1} MODELNAME quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_115_1 RTLNAME sparse_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_115_1
     SUBMODULES {
       {MODELNAME sparse_mul_64s_32s_64_1_1 RTLNAME sparse_mul_64s_32s_64_1_1 BINDTYPE op TYPE mul IMPL auto LATENCY 0 ALLOW_PRAGMA 1}
       {MODELNAME sparse_flow_control_loop_pipe_sequential_init RTLNAME sparse_flow_control_loop_pipe_sequential_init BINDTYPE interface TYPE internal_upc_flow_control INSTNAME sparse_flow_control_loop_pipe_sequential_init_U}
     }
   }
   {SRCNAME {quant<ap_uint<256>, ap_int<32>, ap_int<8>, 32u>} MODELNAME quant_ap_uint_256_ap_int_32_ap_int_8_32u_s RTLNAME sparse_quant_ap_uint_256_ap_int_32_ap_int_8_32u_s}
-  {SRCNAME {store<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>_Pipeline_VITIS_LOOP_153_1} MODELNAME store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1 RTLNAME sparse_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1}
+  {SRCNAME {store<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>_Pipeline_VITIS_LOOP_160_1} MODELNAME store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_160_1 RTLNAME sparse_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_160_1}
   {SRCNAME {store<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>} MODELNAME store_ap_uint_256_ap_int_8_ap_int_8_32u_s RTLNAME sparse_store_ap_uint_256_ap_int_8_ap_int_8_32u_s}
   {SRCNAME sparse MODELNAME sparse RTLNAME sparse IS_TOP 1
     SUBMODULES {
