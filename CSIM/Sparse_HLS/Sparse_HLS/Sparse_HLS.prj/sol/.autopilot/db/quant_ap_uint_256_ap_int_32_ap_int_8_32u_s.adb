@@ -250,7 +250,7 @@
               <coreName>FIFO_SRL</coreName>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>544106784</coreId>
+              <coreId>1198193440</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>32</bitwidth>
@@ -286,7 +286,7 @@
               <coreName>FIFO_SRL</coreName>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>208</coreId>
+              <coreId>544106784</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>32</bitwidth>
@@ -629,7 +629,7 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>3011614880</coreId>
+              <coreId>1199641840</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>27</bitwidth>
@@ -934,7 +934,7 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>1663050309</coreId>
+              <coreId>0</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>33</bitwidth>
@@ -1104,7 +1104,7 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>0</coreId>
+              <coreId>645164649</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>32</bitwidth>
@@ -1145,14 +1145,14 @@
                 <item_version>0</item_version>
               </inlineStackInfo>
               <originalName/>
-              <rtlName>grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1_fu_94</rtlName>
+              <rtlName>grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_115_1_fu_94</rtlName>
               <control/>
               <opType/>
               <implIndex/>
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>0</coreId>
+              <coreId>1196915568</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>0</bitwidth>
@@ -1185,10 +1185,10 @@
             <Obj>
               <type>0</type>
               <id>37</id>
-              <name>_ln136</name>
+              <name>_ln141</name>
               <fileName>/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp</fileName>
               <fileDirectory>..</fileDirectory>
-              <lineNumber>136</lineNumber>
+              <lineNumber>141</lineNumber>
               <contextFuncName>quant&amp;lt;ap_uint&amp;lt;256&amp;gt;, ap_int&amp;lt;32&amp;gt;, ap_int&amp;lt;8&amp;gt;, 32&amp;gt;</contextFuncName>
               <contextNormFuncName>quant_ap_uint_256_ap_int_32_ap_int_8_32_s</contextNormFuncName>
               <inlineStackInfo>
@@ -1204,7 +1204,7 @@
                         <first>/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp</first>
                         <second>quant&amp;lt;ap_uint&amp;lt;256&amp;gt;, ap_int&amp;lt;32&amp;gt;, ap_int&amp;lt;8&amp;gt;, 32&amp;gt;</second>
                       </first>
-                      <second>136</second>
+                      <second>141</second>
                     </item>
                   </second>
                 </item>
@@ -1262,7 +1262,7 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>3010098976</coreId>
+              <coreId>1918981152</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>32</bitwidth>
@@ -1293,7 +1293,7 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>3010100824</coreId>
+              <coreId>1197088976</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>32</bitwidth>
@@ -1324,7 +1324,7 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>3010099520</coreId>
+              <coreId>1330007625</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>32</bitwidth>
@@ -1355,7 +1355,7 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>3010100240</coreId>
+              <coreId>1196917440</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>33</bitwidth>
@@ -1386,7 +1386,7 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>3008771456</coreId>
+              <coreId>1196920528</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>64</bitwidth>
@@ -1399,7 +1399,7 @@
             <Obj>
               <type>2</type>
               <id>89</id>
-              <name>quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1</name>
+              <name>quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_115_1</name>
               <fileName/>
               <fileDirectory/>
               <lineNumber>0</lineNumber>
@@ -1417,13 +1417,13 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>576533049</coreId>
+              <coreId>30</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>0</bitwidth>
           </Value>
           <const_type>6</const_type>
-          <content>&lt;constant:quant&lt;ap_uint&lt;256&gt;, ap_int&lt;32&gt;, ap_int&lt;8&gt;, 32u&gt;_Pipeline_VITIS_LOOP_113_1&gt;</content>
+          <content>&lt;constant:quant&lt;ap_uint&lt;256&gt;, ap_int&lt;32&gt;, ap_int&lt;8&gt;, 32u&gt;_Pipeline_VITIS_LOOP_115_1&gt;</content>
         </item>
       </consts>
       <blocks class_id="17" tracking_level="0" version="0">
@@ -2072,7 +2072,7 @@
         <count>2</count>
         <item_version>0</item_version>
         <item class_id="36" tracking_level="0" version="0">
-          <first>grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1_fu_94 (quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1)</first>
+          <first>grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_115_1_fu_94 (quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_115_1)</first>
           <second class_id="37" tracking_level="0" version="0">
             <count>3</count>
             <item_version>0</item_version>
@@ -2651,7 +2651,7 @@
           </second>
         </item>
         <item>
-          <first>grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1_fu_94_ap_start_reg</first>
+          <first>grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_115_1_fu_94_ap_start_reg</first>
           <second>
             <count>3</count>
             <item_version>0</item_version>
@@ -2750,7 +2750,7 @@
         <count>2</count>
         <item_version>0</item_version>
         <item>
-          <first>grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1_fu_94</first>
+          <first>grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_115_1_fu_94</first>
           <second>
             <count>0</count>
             <item_version>0</item_version>
@@ -2768,7 +2768,7 @@
         <count>2</count>
         <item_version>0</item_version>
         <item class_id="40" tracking_level="0" version="0">
-          <first>grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1_fu_94 (quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1)</first>
+          <first>grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_115_1_fu_94 (quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_115_1)</first>
           <second>
             <count>1</count>
             <item_version>0</item_version>
@@ -3288,7 +3288,7 @@
       <count>1</count>
       <item_version>0</item_version>
       <item>
-        <first>grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1_fu_94</first>
+        <first>grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_115_1_fu_94</first>
         <second>
           <count>2</count>
           <item_version>0</item_version>

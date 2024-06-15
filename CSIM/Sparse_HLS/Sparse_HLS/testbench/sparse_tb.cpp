@@ -8,21 +8,24 @@ int main()
 	int am_COLS = 32;
 	int fm_ROWS = 32;
 	int fm_COLS = 512;
-	int quant_flag = 0;
-	int matmul_mul[4] = {1246581376,2139844096,1197571584,1302173056};
-    int matmul_shift[4] = {7,9,8,9};
+	int quant_flag = 1;
+	static int matmul_mul[4] = {1246581376,2139844096,1197571584,1302173056};
+	static int matmul_shift[4] = {7,9,8,9};
+//	int matmul_mul[16] = {1725677952, 1901978368, 2116203008, 1335510784,
+//            			  1917468928, 1360456448, 1648236928, 1439656320,
+//						  1608364288, 1237730944, 1122593664, 1295856256,
+//						  1651682688, 1227862016, 2081486976, 1306002944};
+//    int  matmul_shift[16] = {8, 9, 9, 9,
+//            				 8, 8, 9, 9,
+//							 8, 8, 8, 9,
+//							 8, 8, 9, 9};
     int quant_shift = matmul_shift[quant_flag];
     int quant_mul = matmul_mul[quant_flag];
-	string basedir = "/home/ytq/codeField/temp_MM_Accelerator/insn/GCN/whole_gcn/2/";
+	string basedir = "/home/ytq/codeField/temp_MM_Accelerator/insn/GCN/nochange_gcn/resnet18/5/";
 	vector<t_AXI_DataType> input_data, golden;
 	vector<t_AXI_DataType> output_data(am_ROWS * fm_COLS * sizeof(t_DataType_IN), 0);
-//	ap_uint<32> input_data_addr1 = 12288 * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
-//	ap_uint<32> input_data_addr2 = 8192 * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
-//	//	ap_uint<32> input_data_addr2 = 4096 * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
-//	ap_uint<32> input_data_addr3 = 49152 * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
 	ap_uint<32> input_data_addr1 = 12288;
 	ap_uint<32> input_data_addr2 = 8192;
-	//	ap_uint<32> input_data_addr2 = 4096 * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
 	ap_uint<32> input_data_addr3 = 49152;
 	bool sparse_flag = false;
 

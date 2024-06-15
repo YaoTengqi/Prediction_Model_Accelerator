@@ -28,7 +28,6 @@ void sparse(
 #pragma HLS INTERFACE mode = s_axilite port = quant_mul bundle = sparse_addr
 #pragma HLS INTERFACE mode = s_axilite port = sparse_flag bundle = sparse_addr
 #pragma HLS INTERFACE mode = s_axilite port = return bundle = sparse_addr // 开始信号
-
 	// 输出矩阵
 	hls::stream<WideType<t_Quant_DataType, nPE>::t_TypeInt> data_out;
 #pragma HLS STREAM variable = data_out depth = 64
@@ -46,7 +45,6 @@ void sparse(
 	input_data_addr1 = input_data_addr1 * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
 	input_data_addr2 = input_data_addr2 * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
 	output_data_addr3 = output_data_addr3 * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
-
 
 #pragma HLS DATAFLOW
 	load<t_AXI_DataType, t_DataType_IN, t_DataType_OUT, nPE>(am_ROWS, am_COLS, fm_ROWS, fm_COLS, inputs, idx_stream, count_stream, fm_stream, input_data_addr1, input_data_addr2);

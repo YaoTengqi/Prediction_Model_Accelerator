@@ -1,0 +1,33 @@
+INFO: [HLS 200-10] Running '/home/ytq/source/Xilinx/Vitis_HLS/2022.2/bin/unwrapped/lnx64.o/vitis_hls'
+INFO: [HLS 200-10] For user 'ytq' on host 'ytq' (Linux_x86_64 version 5.4.0-152-generic) on Thu Jun 13 14:21:26 CST 2024
+INFO: [HLS 200-10] On os Ubuntu 18.04.6 LTS
+INFO: [HLS 200-10] In directory '/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612'
+Sourcing Tcl script '/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/Layer_Norm.prj/sol/csim.tcl'
+INFO: [HLS 200-1510] Running: source /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/Layer_Norm.prj/sol/csim.tcl
+INFO: [HLS 200-1510] Running: open_project Layer_Norm.prj 
+INFO: [HLS 200-10] Opening project '/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/Layer_Norm.prj'.
+INFO: [HLS 200-1510] Running: set_top layernorm 
+INFO: [HLS 200-1510] Running: add_files src/layernorm.cpp -cflags -I/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/include/. 
+INFO: [HLS 200-10] Adding design file 'src/layernorm.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files -tb tb/layer_norm_tb.cpp -cflags -std=c++11 -Wno-unknown-pragmas -csimflags -Wno-unknown-pragmas 
+INFO: [HLS 200-10] Adding test bench file 'tb/layer_norm_tb.cpp' to the project
+INFO: [HLS 200-1510] Running: open_solution sol -flow_target vivado 
+INFO: [HLS 200-10] Opening solution '/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/Layer_Norm.prj/sol'.
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1611] Setting target device to 'xczu7ev-ffvc1156-2-e'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-1505.html
+INFO: [HLS 200-1464] Running solution command: config_interface -m_axi_latency=0
+INFO: [HLS 200-1510] Running: set_part xczu7ev-ffvc1156-2-e 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: config_interface -m_axi_latency 0 
+INFO: [HLS 200-1510] Running: csim_design -setup -quiet 
+Running Dispatch Server on port: 40873
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+   Compiling ../../../../tb/layer_norm_tb.cpp in debug mode
+   Generating csim.exe
+INFO: [SIM 211-1] CSim file generation done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 3.39 seconds. CPU system time: 0.21 seconds. Elapsed time: 3.63 seconds; current allocated memory: 0.000 MB.
+INFO: [HLS 200-112] Total CPU user time: 5 seconds. Total CPU system time: 0.4 seconds. Total elapsed time: 15.37 seconds; peak allocated memory: 756.398 MB.

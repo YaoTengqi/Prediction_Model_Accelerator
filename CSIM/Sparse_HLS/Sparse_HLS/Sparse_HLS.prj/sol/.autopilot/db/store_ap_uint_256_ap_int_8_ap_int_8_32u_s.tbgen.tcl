@@ -205,13 +205,13 @@ set RtlHierarchyInfo {[
 		"Port" : [
 			{"Name" : "quant_out", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["0"], "DependentChan" : "0", "DependentChanDepth" : "2", "DependentChanType" : "0",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126", "Port" : "quant_out", "Inst_start_state" : "3", "Inst_end_state" : "4"}]},
+					{"ID" : "1", "SubInstance" : "grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_160_1_fu_123", "Port" : "quant_out", "Inst_start_state" : "3", "Inst_end_state" : "4"}]},
 			{"Name" : "sparse_data", "Type" : "MAXI", "Direction" : "O",
 				"BlockSignal" : [
 					{"Name" : "sparse_data_blk_n_AW", "Type" : "RtlSignal"},
 					{"Name" : "sparse_data_blk_n_B", "Type" : "RtlSignal"}],
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126", "Port" : "sparse_data", "Inst_start_state" : "3", "Inst_end_state" : "4"}]},
+					{"ID" : "1", "SubInstance" : "grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_160_1_fu_123", "Port" : "sparse_data", "Inst_start_state" : "3", "Inst_end_state" : "4"}]},
 			{"Name" : "outputs", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["0"], "DependentChan" : "0", "DependentChanDepth" : "6", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "outputs_blk_n", "Type" : "RtlSignal"}]},
@@ -223,8 +223,8 @@ set RtlHierarchyInfo {[
 				"BlockSignal" : [
 					{"Name" : "fm_COLS_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "sparse_flag", "Type" : "Vld", "Direction" : "O"}]},
-	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126", "Parent" : "0", "Child" : ["2"],
-		"CDFG" : "store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1",
+	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_160_1_fu_123", "Parent" : "0", "Child" : ["2"],
+		"CDFG" : "store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_160_1",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
@@ -241,15 +241,15 @@ set RtlHierarchyInfo {[
 			{"Name" : "sparse_data", "Type" : "MAXI", "Direction" : "O",
 				"BlockSignal" : [
 					{"Name" : "sparse_data_blk_n_W", "Type" : "RtlSignal"}]},
-			{"Name" : "sext_ln153", "Type" : "None", "Direction" : "I"},
+			{"Name" : "sext_ln160", "Type" : "None", "Direction" : "I"},
 			{"Name" : "loop_num", "Type" : "None", "Direction" : "I"},
 			{"Name" : "quant_out", "Type" : "Fifo", "Direction" : "I",
 				"BlockSignal" : [
 					{"Name" : "quant_out_blk_n", "Type" : "RtlSignal"}]}],
 		"Loop" : [
-			{"Name" : "VITIS_LOOP_153_1", "PipelineType" : "UPC",
+			{"Name" : "VITIS_LOOP_160_1", "PipelineType" : "UPC",
 				"LoopDec" : {"FSMBitwidth" : "1", "FirstState" : "ap_ST_fsm_pp0_stage0", "FirstStateIter" : "ap_enable_reg_pp0_iter0", "FirstStateBlock" : "ap_block_pp0_stage0_subdone", "LastState" : "ap_ST_fsm_pp0_stage0", "LastStateIter" : "ap_enable_reg_pp0_iter2", "LastStateBlock" : "ap_block_pp0_stage0_subdone", "QuitState" : "ap_ST_fsm_pp0_stage0", "QuitStateIter" : "ap_enable_reg_pp0_iter1", "QuitStateBlock" : "ap_block_pp0_stage0_subdone", "OneDepthLoop" : "0", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
-	{"ID" : "2", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126.flow_control_loop_pipe_sequential_init_U", "Parent" : "1"},
+	{"ID" : "2", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_160_1_fu_123.flow_control_loop_pipe_sequential_init_U", "Parent" : "1"},
 	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mul_32s_32s_32_1_1_U94", "Parent" : "0"}]}
 
 
@@ -262,9 +262,9 @@ set ArgLastReadFirstWriteLatency {
 		fm_ROWS {Type I LastRead 0 FirstWrite -1}
 		fm_COLS {Type I LastRead 0 FirstWrite -1}
 		sparse_flag {Type O LastRead -1 FirstWrite 39}}
-	store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1 {
+	store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_160_1 {
 		sparse_data {Type O LastRead -1 FirstWrite 2}
-		sext_ln153 {Type I LastRead 0 FirstWrite -1}
+		sext_ln160 {Type I LastRead 0 FirstWrite -1}
 		loop_num {Type I LastRead 0 FirstWrite -1}
 		quant_out {Type I LastRead 1 FirstWrite -1}}}
 

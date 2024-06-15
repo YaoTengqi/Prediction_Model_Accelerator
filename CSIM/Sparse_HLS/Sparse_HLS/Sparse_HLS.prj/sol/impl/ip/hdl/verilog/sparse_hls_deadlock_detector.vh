@@ -502,7 +502,7 @@ end
         .token_out_vec(token_out_vec_4),
         .dl_detect_out(dl_in_vec[4]));
 
-    assign proc_4_data_FIFO_blk[0] = 1'b0 | (~quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1_fu_94.data_out1_blk_n) | (~quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.fm_COLS_blk_n);
+    assign proc_4_data_FIFO_blk[0] = 1'b0 | (~quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_115_1_fu_94.data_out1_blk_n) | (~quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.fm_COLS_blk_n);
     assign proc_4_data_PIPO_blk[0] = 1'b0;
     assign proc_4_start_FIFO_blk[0] = 1'b0;
     assign proc_4_TLF_FIFO_blk[0] = 1'b0;
@@ -516,7 +516,7 @@ end
     assign proc_4_input_sync_blk[1] = 1'b0;
     assign proc_4_output_sync_blk[1] = 1'b0;
     assign proc_dep_vld_vec_4[1] = dl_detect_out ? proc_dep_vld_vec_4_reg[1] : (proc_4_data_FIFO_blk[1] | proc_4_data_PIPO_blk[1] | proc_4_start_FIFO_blk[1] | proc_4_TLF_FIFO_blk[1] | proc_4_input_sync_blk[1] | proc_4_output_sync_blk[1]);
-    assign proc_4_data_FIFO_blk[2] = 1'b0 | (~quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_113_1_fu_94.quant_out2_blk_n) | (~quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.fm_ROWS_c_blk_n) | (~quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.fm_COLS_c_blk_n);
+    assign proc_4_data_FIFO_blk[2] = 1'b0 | (~quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.grp_quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_115_1_fu_94.quant_out2_blk_n) | (~quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.fm_ROWS_c_blk_n) | (~quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0.fm_COLS_c_blk_n);
     assign proc_4_data_PIPO_blk[2] = 1'b0;
     assign proc_4_start_FIFO_blk[2] = 1'b0;
     assign proc_4_TLF_FIFO_blk[2] = 1'b0;
@@ -579,7 +579,7 @@ end
         .token_out_vec(token_out_vec_5),
         .dl_detect_out(dl_in_vec[5]));
 
-    assign proc_5_data_FIFO_blk[0] = 1'b0 | (~store_ap_uint_256_ap_int_8_ap_int_8_32u_U0.grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_153_1_fu_126.quant_out_blk_n) | (~store_ap_uint_256_ap_int_8_ap_int_8_32u_U0.fm_ROWS_blk_n) | (~store_ap_uint_256_ap_int_8_ap_int_8_32u_U0.fm_COLS_blk_n);
+    assign proc_5_data_FIFO_blk[0] = 1'b0 | (~store_ap_uint_256_ap_int_8_ap_int_8_32u_U0.grp_store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_160_1_fu_123.quant_out_blk_n) | (~store_ap_uint_256_ap_int_8_ap_int_8_32u_U0.fm_ROWS_blk_n) | (~store_ap_uint_256_ap_int_8_ap_int_8_32u_U0.fm_COLS_blk_n);
     assign proc_5_data_PIPO_blk[0] = 1'b0;
     assign proc_5_start_FIFO_blk[0] = 1'b0;
     assign proc_5_TLF_FIFO_blk[0] = 1'b0;

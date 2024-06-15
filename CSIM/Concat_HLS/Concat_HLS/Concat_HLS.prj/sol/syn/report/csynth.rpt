@@ -4,7 +4,7 @@
 == Synthesis Summary Report of 'concat'
 ================================================================
 + General Information: 
-    * Date:           Sun Jun  9 11:14:03 2024
+    * Date:           Sat Jun 15 11:56:32 2024
     * Version:        2022.2 (Build 3670227 on Oct 13 2022)
     * Project:        Concat_HLS.prj
     * Solution:       sol (Vivado IP Flow Target)
@@ -23,11 +23,11 @@
     | + entry_proc                                                 |     -|  5.46|        0|   0.000|         -|        0|     -|        no|        -|        -|     2 (~0%)|   20 (~0%)|    -|
     | + Block_entry4_proc                                          |     -|  7.30|        0|   0.000|         -|        0|     -|        no|        -|        -|    83 (~0%)|   38 (~0%)|    -|
     | + read_inputs_ap_uint_256_ap_int_8_32u_s                     |     -|  0.00|        -|       -|         -|        -|     -|        no|        -|  3 (~0%)|   823 (~0%)|  824 (~0%)|    -|
-    |  o VITIS_LOOP_15_1                                           |     -|  7.30|        -|       -|         3|        -|     -|        no|        -|        -|           -|          -|    -|
+    |  o VITIS_LOOP_14_1                                           |     -|  7.30|        -|       -|         3|        -|     -|        no|        -|        -|           -|          -|    -|
     |  o VITIS_LOOP_20_2                                           |     -|  7.30|        -|       -|         3|        -|     -|        no|        -|        -|           -|          -|    -|
     | + store_ap_uint_256_ap_int_8_32u_s                           |     -|  0.00|        -|       -|         -|        -|     -|        no|        -|  3 (~0%)|   446 (~0%)|  661 (~0%)|    -|
-    |  + store_ap_uint_256_ap_int_8_32u_Pipeline_VITIS_LOOP_114_1  |     -|  0.00|        -|       -|         -|        -|     -|        no|        -|        -|   289 (~0%)|  113 (~0%)|    -|
-    |   o VITIS_LOOP_114_1                                         |     -|  7.30|        -|       -|         3|        1|     -|       yes|        -|        -|           -|          -|    -|
+    |  + store_ap_uint_256_ap_int_8_32u_Pipeline_VITIS_LOOP_115_1  |     -|  0.00|        -|       -|         -|        -|     -|        no|        -|        -|   289 (~0%)|  113 (~0%)|    -|
+    |   o VITIS_LOOP_115_1                                         |     -|  7.30|        -|       -|         3|        1|     -|       yes|        -|        -|           -|          -|    -|
     +--------------------------------------------------------------+------+------+---------+--------+----------+---------+------+----------+---------+---------+------------+-----------+-----+
 
 
@@ -127,9 +127,9 @@
 +-------------------+------------------+-----------+----------+-------+---------------------------------------------------------------------------------------------------------------+
 | HW Interface      | Loop             | Direction | Length   | Width | Location                                                                                                      |
 +-------------------+------------------+-----------+----------+-------+---------------------------------------------------------------------------------------------------------------+
-| m_axi_concat_data | VITIS_LOOP_15_1  | read      | variable | 256   | /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:15:19  |
+| m_axi_concat_data | VITIS_LOOP_14_1  | read      | variable | 256   | /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:14:19  |
 | m_axi_concat_data | VITIS_LOOP_20_2  | read      | variable | 256   | /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:20:19  |
-| m_axi_concat_data | VITIS_LOOP_114_1 | write     | variable | 256   | /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:114:20 |
+| m_axi_concat_data | VITIS_LOOP_115_1 | write     | variable | 256   | /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:115:20 |
 +-------------------+------------------+-----------+----------+-------+---------------------------------------------------------------------------------------------------------------+
 
 * Inferred Bursts and Widening Missed
@@ -137,8 +137,8 @@
 | HW Interface      | Variable | Loop             | Problem                                                                                                | Resolution | Location                                                                                                      |
 +-------------------+----------+------------------+--------------------------------------------------------------------------------------------------------+------------+---------------------------------------------------------------------------------------------------------------+
 | m_axi_concat_data | inputs   | VITIS_LOOP_20_2  | Could not widen since type i256 size is greater than or equal to the max_widen_bitwidth threshold of 0 | 214-353    | /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:20:19  |
-| m_axi_concat_data | inputs   | VITIS_LOOP_15_1  | Could not widen since type i256 size is greater than or equal to the max_widen_bitwidth threshold of 0 | 214-353    | /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:15:19  |
-| m_axi_concat_data | outputs  | VITIS_LOOP_114_1 | Could not widen since type i256 size is greater than or equal to the max_widen_bitwidth threshold of 0 | 214-353    | /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:114:20 |
+| m_axi_concat_data | inputs   | VITIS_LOOP_14_1  | Could not widen since type i256 size is greater than or equal to the max_widen_bitwidth threshold of 0 | 214-353    | /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:14:19  |
+| m_axi_concat_data | outputs  | VITIS_LOOP_115_1 | Could not widen since type i256 size is greater than or equal to the max_widen_bitwidth threshold of 0 | 214-353    | /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/src/../include/helpers.hpp:115:20 |
 +-------------------+----------+------------------+--------------------------------------------------------------------------------------------------------+------------+---------------------------------------------------------------------------------------------------------------+
 
     * Resolution URL: www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=XXX-YYY.html (replace XXX-YYY with column value)
@@ -155,15 +155,15 @@
 |   output_data_addr3_assign_cast_loc_channel_U                | -   |        | output_data_addr3_assign_cast_loc_channel | fifo | srl    | 0       |
 |  + read_inputs_ap_uint_256_ap_int_8_32u_s                    | 3   |        |                                           |      |        |         |
 |    mul_32s_32s_32_1_1_U6                                     | 3   |        | mul_i                                     | mul  | auto   | 0       |
-|    add_ln15_fu_217_p2                                        | -   |        | add_ln15                                  | add  | fabric | 0       |
-|    add_ln15_1_fu_256_p2                                      | -   |        | add_ln15_1                                | add  | fabric | 0       |
+|    add_ln14_fu_217_p2                                        | -   |        | add_ln14                                  | add  | fabric | 0       |
+|    add_ln14_1_fu_256_p2                                      | -   |        | add_ln14_1                                | add  | fabric | 0       |
 |    add_ln20_fu_278_p2                                        | -   |        | add_ln20                                  | add  | fabric | 0       |
 |    add_ln20_1_fu_316_p2                                      | -   |        | add_ln20_1                                | add  | fabric | 0       |
 |  + store_ap_uint_256_ap_int_8_32u_s                          | 3   |        |                                           |      |        |         |
 |    mul_32s_32s_32_1_1_U21                                    | 3   |        | mul11_i                                   | mul  | auto   | 0       |
-|    add_ln114_fu_172_p2                                       | -   |        | add_ln114                                 | add  | fabric | 0       |
-|   + store_ap_uint_256_ap_int_8_32u_Pipeline_VITIS_LOOP_114_1 | 0   |        |                                           |      |        |         |
-|     add_ln114_fu_104_p2                                      | -   |        | add_ln114                                 | add  | fabric | 0       |
+|    add_ln115_fu_169_p2                                       | -   |        | add_ln115                                 | add  | fabric | 0       |
+|   + store_ap_uint_256_ap_int_8_32u_Pipeline_VITIS_LOOP_115_1 | 0   |        |                                           |      |        |         |
+|     add_ln115_fu_104_p2                                      | -   |        | add_ln115                                 | add  | fabric | 0       |
 +--------------------------------------------------------------+-----+--------+-------------------------------------------+------+--------+---------+
 
 
@@ -188,16 +188,16 @@
 +----------+---------+-----------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Type     | Options | Location                    | Messages                                                                                                                                                                           |
 +----------+---------+-----------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| dataflow |         | src/concat.cpp:41 in concat | Since the only kind of statements allowed in a canonical dataflow region are variable declarations and function calls, the compiler may not be able to correctly handle the region |
+| dataflow |         | src/concat.cpp:40 in concat | Since the only kind of statements allowed in a canonical dataflow region are variable declarations and function calls, the compiler may not be able to correctly handle the region |
 +----------+---------+-----------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 * Valid Pragma Syntax
 +-----------------+----------------------------------------------------------------+--------------------------------------------------------------------+
 | Type            | Options                                                        | Location                                                           |
 +-----------------+----------------------------------------------------------------+--------------------------------------------------------------------+
-| pipeline        |                                                                | include/helpers.hpp:14 in read_inputs                              |
+| pipeline        |                                                                | include/helpers.hpp:13 in read_inputs                              |
 | pipeline        |                                                                | include/helpers.hpp:19 in read_inputs                              |
-| pipeline        |                                                                | include/helpers.hpp:115 in store                                   |
+| pipeline        |                                                                | include/helpers.hpp:117 in store                                   |
 | inline          |                                                                | include/types.hpp:53 in getval                                     |
 | inline          |                                                                | include/types.hpp:60 in operator[]                                 |
 | inline          |                                                                | include/types.hpp:67 in operator[]                                 |

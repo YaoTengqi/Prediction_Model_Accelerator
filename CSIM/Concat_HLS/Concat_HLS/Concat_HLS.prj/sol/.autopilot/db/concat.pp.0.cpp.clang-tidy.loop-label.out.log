@@ -851,18 +851,18 @@
         ^~~
         VITIS_LOOP_710_1: 
 /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/Concat_HLS.prj/sol/.autopilot/db/concat.pp.0.cpp:70176:9: note: FIX-IT applied suggested code changes
-/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/Concat_HLS.prj/sol/.autopilot/db/concat.pp.0.cpp:70235:2: warning: Added loop label VITIS_LOOP_15_1:   [xilinx-label-all-loops]
- for (int i = 0; i < ROWS * COLS * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType); i++){
+/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/Concat_HLS.prj/sol/.autopilot/db/concat.pp.0.cpp:70234:2: warning: Added loop label VITIS_LOOP_14_1:   [xilinx-label-all-loops]
+ for (int i = 0; i < ROWS * COLS * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType); i++)
  ^~~
- VITIS_LOOP_15_1: 
-/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/Concat_HLS.prj/sol/.autopilot/db/concat.pp.0.cpp:70235:2: note: FIX-IT applied suggested code changes
+ VITIS_LOOP_14_1: 
+/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/Concat_HLS.prj/sol/.autopilot/db/concat.pp.0.cpp:70234:2: note: FIX-IT applied suggested code changes
 /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/Concat_HLS.prj/sol/.autopilot/db/concat.pp.0.cpp:70240:2: warning: Added loop label VITIS_LOOP_20_2:   [xilinx-label-all-loops]
- for (int i = 0; i < ROWS * COLS * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType); i++){
+ for (int i = 0; i < ROWS * COLS * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType); i++)
  ^~~
  VITIS_LOOP_20_2: 
 /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/Concat_HLS.prj/sol/.autopilot/db/concat.pp.0.cpp:70240:2: note: FIX-IT applied suggested code changes
-/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/Concat_HLS.prj/sol/.autopilot/db/concat.pp.0.cpp:70256:2: warning: Added loop label VITIS_LOOP_114_1:   [xilinx-label-all-loops]
- for (int i = 0; i < ROWS * COLS * 2 * sizeof(t_DataType_OUT) / sizeof(t_AXI_DataType); i++){
+/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/Concat_HLS.prj/sol/.autopilot/db/concat.pp.0.cpp:70258:2: warning: Added loop label VITIS_LOOP_115_1:   [xilinx-label-all-loops]
+ for (int i = 0; i < ROWS * COLS * 2 * sizeof(t_DataType_OUT) / sizeof(t_AXI_DataType); i++)
  ^~~
- VITIS_LOOP_114_1: 
-/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/Concat_HLS.prj/sol/.autopilot/db/concat.pp.0.cpp:70256:2: note: FIX-IT applied suggested code changes
+ VITIS_LOOP_115_1: 
+/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/Concat_HLS/Concat_HLS.prj/sol/.autopilot/db/concat.pp.0.cpp:70258:2: note: FIX-IT applied suggested code changes

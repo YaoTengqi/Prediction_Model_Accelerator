@@ -86,7 +86,7 @@
 <InstanceList>
 </InstanceList>
 </VITIS_LOOP_54_6>
-<VITIS_LOOP_60_7>
+<VITIS_LOOP_61_7>
 <Slack>7.30</Slack>
 <TripCount>undef</TripCount>
 <Latency>undef</Latency>
@@ -94,7 +94,7 @@
 <IterationLatency>2</IterationLatency>
 <InstanceList>
 </InstanceList>
-</VITIS_LOOP_60_7>
+</VITIS_LOOP_61_7>
 </VITIS_LOOP_52_5>
 </SummaryOfLoopLatency>
 </PerformanceEstimates>

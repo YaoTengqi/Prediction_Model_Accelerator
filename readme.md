@@ -243,6 +243,10 @@ void sparse(
 |     从inpus放入RAM后在写入fm_stream     | 时间：**0.368ms!!!** |
 | 结论：先放入RAM再写入流中会快10倍左右！ |                      |
 
+优化前的计算顺序
+
+![](SOURCE/optimize.png)
+
 ### 5.时间测试
 
 |      数据大小      |                             时间                             |

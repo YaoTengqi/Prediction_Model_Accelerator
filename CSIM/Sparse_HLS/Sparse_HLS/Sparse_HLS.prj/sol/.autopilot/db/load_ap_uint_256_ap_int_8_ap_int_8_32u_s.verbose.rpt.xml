@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'load_ap_uint_256_ap_int_8_ap_int_8_32u_s'" level="0">
-<item name = "Date">Sun Jun  9 10:52:45 2024
+<item name = "Date">Sat Jun 15 11:56:38 2024
 </item>
 <item name = "Version">2022.2 (Build 3670227 on Oct 13 2022)</item>
 <item name = "Project">Sparse_HLS.prj</item>
@@ -41,7 +41,7 @@
 <column name=" + VITIS_LOOP_41_4">?, ?, 2, -, -, ?, no</column>
 <column name="- VITIS_LOOP_52_5">?, ?, ?, -, -, ?, no</column>
 <column name=" + VITIS_LOOP_54_6">?, ?, 3, -, -, ?, no</column>
-<column name=" + VITIS_LOOP_60_7">?, ?, 2, -, -, ?, no</column>
+<column name=" + VITIS_LOOP_61_7">?, ?, 2, -, -, ?, no</column>
 </table>
 </item>
 </section>
@@ -98,8 +98,8 @@
 <column name="add_ln41_fu_1086_p2">+, 0, 0, 39, 32, 1</column>
 <column name="add_ln49_fu_747_p2">+, 0, 0, 39, 32, 1</column>
 <column name="add_ln54_fu_1217_p2">+, 0, 0, 38, 31, 1</column>
-<column name="add_ln57_fu_1227_p2">+, 0, 0, 16, 9, 9</column>
-<column name="add_ln60_fu_1252_p2">+, 0, 0, 38, 31, 1</column>
+<column name="add_ln58_fu_1227_p2">+, 0, 0, 16, 9, 9</column>
+<column name="add_ln61_fu_1252_p2">+, 0, 0, 38, 31, 1</column>
 <column name="block_4_fu_1184_p2">+, 0, 0, 34, 27, 1</column>
 <column name="count_2_fu_1140_p2">+, 0, 0, 39, 32, 1</column>
 <column name="idx_num_2_fu_1151_p2">+, 0, 0, 39, 32, 1</column>
@@ -111,7 +111,7 @@
 <column name="icmp_ln41_fu_1081_p2">icmp, 0, 0, 20, 32, 32</column>
 <column name="icmp_ln52_fu_1179_p2">icmp, 0, 0, 17, 27, 27</column>
 <column name="icmp_ln54_fu_1211_p2">icmp, 0, 0, 20, 32, 32</column>
-<column name="icmp_ln60_fu_1246_p2">icmp, 0, 0, 20, 32, 32</column>
+<column name="icmp_ln61_fu_1246_p2">icmp, 0, 0, 20, 32, 32</column>
 <column name="ap_block_state1">or, 0, 0, 2, 1, 1</column>
 <column name="ap_block_state91">or, 0, 0, 2, 1, 1</column>
 </table>
@@ -154,7 +154,7 @@
 <column name="add_ln41_reg_1584">32, 0, 32, 0</column>
 <column name="add_ln49_reg_1399">32, 0, 32, 0</column>
 <column name="add_ln54_reg_1613">31, 0, 31, 0</column>
-<column name="add_ln60_reg_1636">31, 0, 31, 0</column>
+<column name="add_ln61_reg_1636">31, 0, 31, 0</column>
 <column name="am_loop_num_reg_1319">27, 0, 27, 0</column>
 <column name="ap_CS_fsm">93, 0, 93, 0</column>
 <column name="ap_done_reg">1, 0, 1, 0</column>
