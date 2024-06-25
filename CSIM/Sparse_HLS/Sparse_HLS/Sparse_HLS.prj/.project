@@ -37,6 +37,11 @@
 			<location>/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/.apc/.tb</location>
 		</link>
 		<link>
+			<name>.reference/helpers.hpp</name>
+			<type>1</type>
+			<location>/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/include/helpers.hpp</location>
+		</link>
+		<link>
 			<name>sol/constraints</name>
 			<type>2</type>
 			<location>/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/sol/.tcls</location>
