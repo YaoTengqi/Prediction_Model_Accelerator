@@ -5,7 +5,7 @@
 int main(){
 	unsigned int ROWS = 32;
 	unsigned int COLS = 64;
-	string basedir = "/home/ytq/codeField/temp_MM_Accelerator/insn/GCN/concat/1/";
+	string basedir = "/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Concat_HLS/data/";
 	vector<t_AXI_DataType> input_data, golden;
 	vector<t_AXI_DataType> output_data(168046592, 0);
 	ap_uint<32> input_data_addr1 = 11599872;

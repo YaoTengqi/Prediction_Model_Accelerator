@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
-  <source>
-    <originFiles name="layernorm.cpp" path="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/layernorm.cpp"/>
-  </source>
-  <testbench>
-    <originFiles name="layer_norm_tb.cpp" path="/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/tb/layer_norm_tb.cpp"/>
-  </testbench>
-</autopilotfilemapping:AutoPilotFileMapping>

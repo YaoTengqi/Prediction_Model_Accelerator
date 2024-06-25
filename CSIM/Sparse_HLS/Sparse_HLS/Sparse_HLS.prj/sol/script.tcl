@@ -6,7 +6,7 @@
 open_project Sparse_HLS.prj
 set_top sparse
 add_files src/sparse.cpp -cflags "-I/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/include/."
-add_files -tb testbench/sparse_tb.cpp -cflags "-std=c++11 -Wno-unknown-pragmas -Wno-unknown-pragmas" -csimflags "-Wno-unknown-pragmas"
+add_files -tb testbench/sparse_tb.cpp -cflags "-std=c++11 -Wno-unknown-pragmas" -csimflags "-Wno-unknown-pragmas"
 open_solution "sol" -flow_target vivado
 set_part {xczu7ev-ffvc1156-2-e}
 create_clock -period 10 -name default

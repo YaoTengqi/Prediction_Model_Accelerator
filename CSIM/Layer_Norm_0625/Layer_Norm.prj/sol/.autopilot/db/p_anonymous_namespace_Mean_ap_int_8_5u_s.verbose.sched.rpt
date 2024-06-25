@@ -1,0 +1,318 @@
+
+
+================================================================
+== Vitis HLS Report for 'p_anonymous_namespace_Mean_ap_int_8_5u_s'
+================================================================
+* Date:           Tue Jun 25 13:53:27 2024
+
+* Version:        2022.2 (Build 3670227 on Oct 13 2022)
+* Project:        Layer_Norm.prj
+* Solution:       sol (Vivado IP Flow Target)
+* Product family: zynquplus
+* Target device:  xczu7ev-ffvc1156-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  6.571 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute)  |  Interval | Pipeline|
+    |   min   |   max   |    min    |    max   | min | max |   Type  |
+    +---------+---------+-----------+----------+-----+-----+---------+
+    |        1|        ?|  10.000 ns|         ?|    1|    ?|       no|
+    +---------+---------+-----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +--------------------+---------+---------+----------+-----------+-----------+-------+----------+
+        |                    |  Latency (cycles) | Iteration|  Initiation Interval  |  Trip |          |
+        |      Loop Name     |   min   |   max   |  Latency |  achieved |   target  | Count | Pipelined|
+        +--------------------+---------+---------+----------+-----------+-----------+-------+----------+
+        |- VITIS_LOOP_124_1  |        1|        ?|     2 ~ ?|          -|          -|  1 ~ ?|        no|
+        | + Sum              |        0|        ?|         1|          1|          1|  1 ~ ?|       yes|
+        +--------------------+---------+---------+----------+-----------+-----------+-------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 1
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 4
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 1, States = { 3 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 4 2 
+2 --> 4 3 
+3 --> 4 3 
+4 --> 2 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 3.67>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %cols_log, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @ScalarProp_str, i32 4294967295, i32 0"   --->   Operation 5 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (1.83ns)   --->   "%cols_log_read = read i32 @_ssdm_op_Read.ap_fifo.i32P0A, i32 %cols_log"   --->   Operation 6 'read' 'cols_log_read' <Predicate = true> <Delay = 1.83> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.83> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 2> <FIFO>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %cols_log_c21, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @ScalarProp_str, i32 4294967295, i32 0"   --->   Operation 7 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (1.83ns)   --->   "%write_ln0 = write void @_ssdm_op_Write.ap_fifo.i32P0A, i32 %cols_log_c21, i32 %cols_log_read"   --->   Operation 8 'write' 'write_ln0' <Predicate = true> <Delay = 1.83> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.83> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 2> <FIFO>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %rows, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @ScalarProp_str, i32 4294967295, i32 0"   --->   Operation 9 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (1.83ns)   --->   "%rows_read = read i32 @_ssdm_op_Read.ap_fifo.i32P0A, i32 %rows"   --->   Operation 10 'read' 'rows_read' <Predicate = true> <Delay = 1.83> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.83> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 2> <FIFO>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %rows_c18, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @ScalarProp_str, i32 4294967295, i32 0"   --->   Operation 11 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (1.83ns)   --->   "%write_ln0 = write void @_ssdm_op_Write.ap_fifo.i32P0A, i32 %rows_c18, i32 %rows_read"   --->   Operation 12 'write' 'write_ln0' <Predicate = true> <Delay = 1.83> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.83> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 2> <FIFO>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i8 %mean_b7, void @empty_14, i32 0, i32 0, void @empty_13, i32 0, i32 0, void @empty_13, void @empty_13, void @empty_13, i32 0, i32 0, i32 0, i32 0, void @empty_13, void @empty_13, i32 4294967295, i32 0"   --->   Operation 13 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i8 %mean_a6, void @empty_14, i32 0, i32 0, void @empty_13, i32 0, i32 0, void @empty_13, void @empty_13, void @empty_13, i32 0, i32 0, i32 0, i32 0, void @empty_13, void @empty_13, i32 4294967295, i32 0"   --->   Operation 14 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i256 %data_copy_a1, void @empty_14, i32 0, i32 0, void @empty_13, i32 0, i32 0, void @empty_13, void @empty_13, void @empty_13, i32 0, i32 0, i32 0, i32 0, void @empty_13, void @empty_13, i32 4294967295, i32 0"   --->   Operation 15 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (1.38ns)   --->   "%cols = shl i32 1, i32 %cols_log_read" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:120]   --->   Operation 16 'shl' 'cols' <Predicate = true> <Delay = 1.38> <CoreInst = "Shifter">   --->   Core 75 'Shifter' <Latency = 0> <II = 1> <Delay = 1.38> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%trunc_ln = partselect i27 @_ssdm_op_PartSelect.i27.i32.i32.i32, i32 %cols, i32 5, i32 31" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:124]   --->   Operation 17 'partselect' 'trunc_ln' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.99ns)   --->   "%icmp_ln124_1 = icmp_eq  i32 %rows_read, i32 0" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:124]   --->   Operation 18 'icmp' 'icmp_ln124_1' <Predicate = true> <Delay = 0.99> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%br_ln124 = br i1 %icmp_ln124_1, void %Sum.split.preheader, void %for.cond.cleanup.loopexit" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:124]   --->   Operation 19 'br' 'br_ln124' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (0.42ns)   --->   "%br_ln124 = br void %Sum.split" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:124]   --->   Operation 20 'br' 'br_ln124' <Predicate = (!icmp_ln124_1)> <Delay = 0.42>
+
+State 2 <SV = 1> <Delay = 1.45>
+ST_2 : Operation 21 [1/1] (0.00ns)   --->   "%k6 = phi i32 %k, void %for.inc22, i32 0, void %Sum.split.preheader"   --->   Operation 21 'phi' 'k6' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 22 [1/1] (0.00ns)   --->   "%specloopname_ln124 = specloopname void @_ssdm_op_SpecLoopName, void @empty_24" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:124]   --->   Operation 22 'specloopname' 'specloopname_ln124' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 23 [1/1] (1.02ns)   --->   "%icmp_ln128_1 = icmp_eq  i27 %trunc_ln, i27 0" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:128]   --->   Operation 23 'icmp' 'icmp_ln128_1' <Predicate = true> <Delay = 1.02> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.02> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 24 [1/1] (0.00ns)   --->   "%empty = speclooptripcount i32 @_ssdm_op_SpecLoopTripCount, i64 1, i64 18446744073709551615, i64 0"   --->   Operation 24 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 25 [1/1] (1.01ns)   --->   "%k = add i32 %k6, i32 1" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:124]   --->   Operation 25 'add' 'k' <Predicate = true> <Delay = 1.01> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 26 [1/1] (0.42ns)   --->   "%br_ln128 = br i1 %icmp_ln128_1, void %for.inc.preheader, void %for.inc22" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:128]   --->   Operation 26 'br' 'br_ln128' <Predicate = true> <Delay = 0.42>
+ST_2 : Operation 27 [1/1] (0.42ns)   --->   "%br_ln128 = br void %for.inc" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:128]   --->   Operation 27 'br' 'br_ln128' <Predicate = (!icmp_ln128_1)> <Delay = 0.42>
+
+State 3 <SV = 2> <Delay = 6.57>
+ST_3 : Operation 28 [1/1] (0.00ns)   --->   "%j4 = phi i27 %j, void %for.inc, i27 0, void %for.inc.preheader"   --->   Operation 28 'phi' 'j4' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 29 [1/1] (0.00ns)   --->   "%sum2 = phi i32 %sum, void %for.inc, i32 0, void %for.inc.preheader"   --->   Operation 29 'phi' 'sum2' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 30 [1/1] (0.00ns)   --->   "%specpipeline_ln130 = specpipeline void @_ssdm_op_SpecPipeline, i32 1, i32 0, i32 0, i32 0, void @empty_13" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:130]   --->   Operation 30 'specpipeline' 'specpipeline_ln130' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 31 [1/1] (0.00ns)   --->   "%specloopname_ln131 = specloopname void @_ssdm_op_SpecLoopName, void @empty_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:131]   --->   Operation 31 'specloopname' 'specloopname_ln131' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 32 [1/1] (1.62ns)   --->   "%p_Val2_s = read i256 @_ssdm_op_Read.ap_fifo.volatile.i256P0A, i256 %data_copy_a1" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:131]   --->   Operation 32 'read' 'p_Val2_s' <Predicate = true> <Delay = 1.62> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.62> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 256> <Depth = 16> <FIFO>
+ST_3 : Operation 33 [1/1] (0.00ns)   --->   "%l_val_V = trunc i256 %p_Val2_s"   --->   Operation 33 'trunc' 'l_val_V' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 34 [1/1] (0.00ns)   --->   "%l_val_V_162 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 8, i32 15"   --->   Operation 34 'partselect' 'l_val_V_162' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 35 [1/1] (0.00ns)   --->   "%l_val_V_163 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 16, i32 23"   --->   Operation 35 'partselect' 'l_val_V_163' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 36 [1/1] (0.00ns)   --->   "%l_val_V_164 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 24, i32 31"   --->   Operation 36 'partselect' 'l_val_V_164' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 37 [1/1] (0.00ns)   --->   "%l_val_V_165 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 32, i32 39"   --->   Operation 37 'partselect' 'l_val_V_165' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 38 [1/1] (0.00ns)   --->   "%l_val_V_166 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 40, i32 47"   --->   Operation 38 'partselect' 'l_val_V_166' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 39 [1/1] (0.00ns)   --->   "%l_val_V_167 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 48, i32 55"   --->   Operation 39 'partselect' 'l_val_V_167' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 40 [1/1] (0.00ns)   --->   "%l_val_V_168 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 56, i32 63"   --->   Operation 40 'partselect' 'l_val_V_168' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 41 [1/1] (0.00ns)   --->   "%l_val_V_169 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 64, i32 71"   --->   Operation 41 'partselect' 'l_val_V_169' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 42 [1/1] (0.00ns)   --->   "%l_val_V_170 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 72, i32 79"   --->   Operation 42 'partselect' 'l_val_V_170' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 43 [1/1] (0.00ns)   --->   "%l_val_V_171 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 80, i32 87"   --->   Operation 43 'partselect' 'l_val_V_171' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 44 [1/1] (0.00ns)   --->   "%l_val_V_172 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 88, i32 95"   --->   Operation 44 'partselect' 'l_val_V_172' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 45 [1/1] (0.00ns)   --->   "%l_val_V_173 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 96, i32 103"   --->   Operation 45 'partselect' 'l_val_V_173' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 46 [1/1] (0.00ns)   --->   "%l_val_V_174 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 104, i32 111"   --->   Operation 46 'partselect' 'l_val_V_174' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 47 [1/1] (0.00ns)   --->   "%l_val_V_175 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 112, i32 119"   --->   Operation 47 'partselect' 'l_val_V_175' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 48 [1/1] (0.00ns)   --->   "%l_val_V_176 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 120, i32 127"   --->   Operation 48 'partselect' 'l_val_V_176' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 49 [1/1] (0.00ns)   --->   "%l_val_V_177 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 128, i32 135"   --->   Operation 49 'partselect' 'l_val_V_177' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 50 [1/1] (0.00ns)   --->   "%l_val_V_178 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 136, i32 143"   --->   Operation 50 'partselect' 'l_val_V_178' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 51 [1/1] (0.00ns)   --->   "%l_val_V_179 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 144, i32 151"   --->   Operation 51 'partselect' 'l_val_V_179' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 52 [1/1] (0.00ns)   --->   "%l_val_V_180 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 152, i32 159"   --->   Operation 52 'partselect' 'l_val_V_180' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 53 [1/1] (0.00ns)   --->   "%l_val_V_181 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 160, i32 167"   --->   Operation 53 'partselect' 'l_val_V_181' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 54 [1/1] (0.00ns)   --->   "%l_val_V_182 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 168, i32 175"   --->   Operation 54 'partselect' 'l_val_V_182' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 55 [1/1] (0.00ns)   --->   "%l_val_V_183 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 176, i32 183"   --->   Operation 55 'partselect' 'l_val_V_183' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 56 [1/1] (0.00ns)   --->   "%l_val_V_184 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 184, i32 191"   --->   Operation 56 'partselect' 'l_val_V_184' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 57 [1/1] (0.00ns)   --->   "%l_val_V_185 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 192, i32 199"   --->   Operation 57 'partselect' 'l_val_V_185' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 58 [1/1] (0.00ns)   --->   "%l_val_V_186 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 200, i32 207"   --->   Operation 58 'partselect' 'l_val_V_186' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 59 [1/1] (0.00ns)   --->   "%l_val_V_187 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 208, i32 215"   --->   Operation 59 'partselect' 'l_val_V_187' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 60 [1/1] (0.00ns)   --->   "%l_val_V_188 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 216, i32 223"   --->   Operation 60 'partselect' 'l_val_V_188' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 61 [1/1] (0.00ns)   --->   "%l_val_V_189 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 224, i32 231"   --->   Operation 61 'partselect' 'l_val_V_189' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 62 [1/1] (0.00ns)   --->   "%l_val_V_190 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 232, i32 239"   --->   Operation 62 'partselect' 'l_val_V_190' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 63 [1/1] (0.00ns)   --->   "%l_val_V_191 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 240, i32 247"   --->   Operation 63 'partselect' 'l_val_V_191' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 64 [1/1] (0.00ns)   --->   "%l_val_V_192 = partselect i8 @_ssdm_op_PartSelect.i8.i256.i32.i32, i256 %p_Val2_s, i32 248, i32 255"   --->   Operation 64 'partselect' 'l_val_V_192' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 65 [1/1] (0.00ns)   --->   "%sext_ln134 = sext i8 %l_val_V" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 65 'sext' 'sext_ln134' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 66 [1/1] (0.00ns)   --->   "%sext_ln134_1 = sext i8 %l_val_V_162" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 66 'sext' 'sext_ln134_1' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 67 [1/1] (0.00ns)   --->   "%sext_ln134_2 = sext i8 %l_val_V_163" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 67 'sext' 'sext_ln134_2' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 68 [1/1] (0.00ns)   --->   "%sext_ln134_3 = sext i8 %l_val_V_164" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 68 'sext' 'sext_ln134_3' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 69 [1/1] (0.00ns)   --->   "%sext_ln134_4 = sext i8 %l_val_V_165" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 69 'sext' 'sext_ln134_4' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 70 [1/1] (0.00ns)   --->   "%sext_ln134_5 = sext i8 %l_val_V_166" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 70 'sext' 'sext_ln134_5' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 71 [1/1] (0.00ns)   --->   "%sext_ln134_6 = sext i8 %l_val_V_167" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 71 'sext' 'sext_ln134_6' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 72 [1/1] (0.00ns)   --->   "%sext_ln134_7 = sext i8 %l_val_V_168" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 72 'sext' 'sext_ln134_7' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 73 [1/1] (0.00ns)   --->   "%sext_ln134_8 = sext i8 %l_val_V_169" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 73 'sext' 'sext_ln134_8' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 74 [1/1] (0.00ns)   --->   "%sext_ln134_9 = sext i8 %l_val_V_170" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 74 'sext' 'sext_ln134_9' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 75 [1/1] (0.00ns)   --->   "%sext_ln134_10 = sext i8 %l_val_V_171" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 75 'sext' 'sext_ln134_10' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 76 [1/1] (0.00ns)   --->   "%sext_ln134_11 = sext i8 %l_val_V_172" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 76 'sext' 'sext_ln134_11' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 77 [1/1] (0.00ns)   --->   "%sext_ln134_12 = sext i8 %l_val_V_173" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 77 'sext' 'sext_ln134_12' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 78 [1/1] (0.00ns)   --->   "%sext_ln134_13 = sext i8 %l_val_V_174" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 78 'sext' 'sext_ln134_13' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 79 [1/1] (0.00ns)   --->   "%sext_ln134_14 = sext i8 %l_val_V_175" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 79 'sext' 'sext_ln134_14' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 80 [1/1] (0.00ns)   --->   "%sext_ln134_15 = sext i8 %l_val_V_176" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 80 'sext' 'sext_ln134_15' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 81 [1/1] (0.00ns)   --->   "%sext_ln134_16 = sext i8 %l_val_V_177" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 81 'sext' 'sext_ln134_16' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 82 [1/1] (0.00ns)   --->   "%sext_ln134_17 = sext i8 %l_val_V_178" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 82 'sext' 'sext_ln134_17' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 83 [1/1] (0.00ns)   --->   "%sext_ln134_18 = sext i8 %l_val_V_179" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 83 'sext' 'sext_ln134_18' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 84 [1/1] (0.00ns)   --->   "%sext_ln134_19 = sext i8 %l_val_V_180" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 84 'sext' 'sext_ln134_19' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 85 [1/1] (0.00ns)   --->   "%sext_ln134_20 = sext i8 %l_val_V_181" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 85 'sext' 'sext_ln134_20' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 86 [1/1] (0.00ns)   --->   "%sext_ln134_21 = sext i8 %l_val_V_182" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 86 'sext' 'sext_ln134_21' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 87 [1/1] (0.00ns)   --->   "%sext_ln134_22 = sext i8 %l_val_V_183" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 87 'sext' 'sext_ln134_22' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 88 [1/1] (0.00ns)   --->   "%sext_ln134_23 = sext i8 %l_val_V_184" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 88 'sext' 'sext_ln134_23' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 89 [1/1] (0.00ns)   --->   "%sext_ln134_24 = sext i8 %l_val_V_185" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 89 'sext' 'sext_ln134_24' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 90 [1/1] (0.00ns)   --->   "%sext_ln134_25 = sext i8 %l_val_V_186" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 90 'sext' 'sext_ln134_25' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 91 [1/1] (0.00ns)   --->   "%sext_ln134_26 = sext i8 %l_val_V_187" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 91 'sext' 'sext_ln134_26' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 92 [1/1] (0.00ns)   --->   "%sext_ln134_27 = sext i8 %l_val_V_188" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 92 'sext' 'sext_ln134_27' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 93 [1/1] (0.00ns)   --->   "%sext_ln134_28 = sext i8 %l_val_V_189" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 93 'sext' 'sext_ln134_28' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 94 [1/1] (0.00ns)   --->   "%sext_ln134_29 = sext i8 %l_val_V_190" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 94 'sext' 'sext_ln134_29' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 95 [1/1] (0.00ns)   --->   "%sext_ln134_30 = sext i8 %l_val_V_191" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 95 'sext' 'sext_ln134_30' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 96 [1/1] (0.00ns)   --->   "%sext_ln134_31 = sext i8 %l_val_V_192" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 96 'sext' 'sext_ln134_31' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 97 [1/1] (0.76ns)   --->   "%add_ln134 = add i9 %sext_ln134, i9 %sext_ln134_1" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 97 'add' 'add_ln134' <Predicate = true> <Delay = 0.76> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.76> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 98 [1/1] (0.00ns)   --->   "%sext_ln134_32 = sext i9 %add_ln134" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 98 'sext' 'sext_ln134_32' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 99 [1/1] (0.76ns)   --->   "%add_ln134_1 = add i9 %sext_ln134_2, i9 %sext_ln134_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 99 'add' 'add_ln134_1' <Predicate = true> <Delay = 0.76> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.76> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 100 [1/1] (0.00ns)   --->   "%sext_ln134_33 = sext i9 %add_ln134_1" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 100 'sext' 'sext_ln134_33' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 101 [1/1] (0.77ns)   --->   "%add_ln134_2 = add i10 %sext_ln134_33, i10 %sext_ln134_32" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 101 'add' 'add_ln134_2' <Predicate = true> <Delay = 0.77> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.77> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 102 [1/1] (0.00ns)   --->   "%sext_ln134_34 = sext i10 %add_ln134_2" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 102 'sext' 'sext_ln134_34' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 103 [1/1] (0.76ns)   --->   "%add_ln134_3 = add i9 %sext_ln134_4, i9 %sext_ln134_5" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 103 'add' 'add_ln134_3' <Predicate = true> <Delay = 0.76> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.76> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 104 [1/1] (0.00ns)   --->   "%sext_ln134_35 = sext i9 %add_ln134_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 104 'sext' 'sext_ln134_35' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 105 [1/1] (0.76ns)   --->   "%add_ln134_4 = add i9 %sext_ln134_6, i9 %sext_ln134_7" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 105 'add' 'add_ln134_4' <Predicate = true> <Delay = 0.76> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.76> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 106 [1/1] (0.00ns)   --->   "%sext_ln134_36 = sext i9 %add_ln134_4" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 106 'sext' 'sext_ln134_36' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 107 [1/1] (0.77ns)   --->   "%add_ln134_5 = add i10 %sext_ln134_36, i10 %sext_ln134_35" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 107 'add' 'add_ln134_5' <Predicate = true> <Delay = 0.77> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.77> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 108 [1/1] (0.00ns)   --->   "%sext_ln134_37 = sext i10 %add_ln134_5" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 108 'sext' 'sext_ln134_37' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 109 [1/1] (0.78ns)   --->   "%add_ln134_6 = add i11 %sext_ln134_37, i11 %sext_ln134_34" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 109 'add' 'add_ln134_6' <Predicate = true> <Delay = 0.78> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 110 [1/1] (0.00ns)   --->   "%sext_ln134_38 = sext i11 %add_ln134_6" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 110 'sext' 'sext_ln134_38' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 111 [1/1] (0.76ns)   --->   "%add_ln134_7 = add i9 %sext_ln134_8, i9 %sext_ln134_9" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 111 'add' 'add_ln134_7' <Predicate = true> <Delay = 0.76> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.76> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 112 [1/1] (0.00ns)   --->   "%sext_ln134_39 = sext i9 %add_ln134_7" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 112 'sext' 'sext_ln134_39' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 113 [1/1] (0.76ns)   --->   "%add_ln134_8 = add i9 %sext_ln134_10, i9 %sext_ln134_11" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 113 'add' 'add_ln134_8' <Predicate = true> <Delay = 0.76> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.76> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 114 [1/1] (0.00ns)   --->   "%sext_ln134_40 = sext i9 %add_ln134_8" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 114 'sext' 'sext_ln134_40' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 115 [1/1] (0.77ns)   --->   "%add_ln134_9 = add i10 %sext_ln134_40, i10 %sext_ln134_39" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 115 'add' 'add_ln134_9' <Predicate = true> <Delay = 0.77> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.77> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 116 [1/1] (0.00ns)   --->   "%sext_ln134_41 = sext i10 %add_ln134_9" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 116 'sext' 'sext_ln134_41' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 117 [1/1] (0.76ns)   --->   "%add_ln134_10 = add i9 %sext_ln134_12, i9 %sext_ln134_13" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 117 'add' 'add_ln134_10' <Predicate = true> <Delay = 0.76> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.76> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 118 [1/1] (0.00ns)   --->   "%sext_ln134_42 = sext i9 %add_ln134_10" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 118 'sext' 'sext_ln134_42' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 119 [1/1] (0.76ns)   --->   "%add_ln134_11 = add i9 %sext_ln134_14, i9 %sext_ln134_15" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 119 'add' 'add_ln134_11' <Predicate = true> <Delay = 0.76> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.76> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 120 [1/1] (0.00ns)   --->   "%sext_ln134_43 = sext i9 %add_ln134_11" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 120 'sext' 'sext_ln134_43' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 121 [1/1] (0.77ns)   --->   "%add_ln134_12 = add i10 %sext_ln134_43, i10 %sext_ln134_42" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 121 'add' 'add_ln134_12' <Predicate = true> <Delay = 0.77> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.77> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 122 [1/1] (0.00ns)   --->   "%sext_ln134_44 = sext i10 %add_ln134_12" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 122 'sext' 'sext_ln134_44' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 123 [1/1] (0.78ns)   --->   "%add_ln134_13 = add i11 %sext_ln134_44, i11 %sext_ln134_41" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 123 'add' 'add_ln134_13' <Predicate = true> <Delay = 0.78> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 124 [1/1] (0.00ns)   --->   "%sext_ln134_45 = sext i11 %add_ln134_13" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 124 'sext' 'sext_ln134_45' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 125 [1/1] (0.79ns)   --->   "%add_ln134_14 = add i12 %sext_ln134_45, i12 %sext_ln134_38" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 125 'add' 'add_ln134_14' <Predicate = true> <Delay = 0.79> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.79> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 126 [1/1] (0.00ns)   --->   "%sext_ln134_46 = sext i12 %add_ln134_14" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 126 'sext' 'sext_ln134_46' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 127 [1/1] (0.76ns)   --->   "%add_ln134_15 = add i9 %sext_ln134_16, i9 %sext_ln134_17" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 127 'add' 'add_ln134_15' <Predicate = true> <Delay = 0.76> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.76> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 128 [1/1] (0.00ns)   --->   "%sext_ln134_47 = sext i9 %add_ln134_15" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 128 'sext' 'sext_ln134_47' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 129 [1/1] (0.76ns)   --->   "%add_ln134_16 = add i9 %sext_ln134_18, i9 %sext_ln134_19" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 129 'add' 'add_ln134_16' <Predicate = true> <Delay = 0.76> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.76> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 130 [1/1] (0.00ns)   --->   "%sext_ln134_48 = sext i9 %add_ln134_16" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 130 'sext' 'sext_ln134_48' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 131 [1/1] (0.77ns)   --->   "%add_ln134_17 = add i10 %sext_ln134_48, i10 %sext_ln134_47" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 131 'add' 'add_ln134_17' <Predicate = true> <Delay = 0.77> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.77> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 132 [1/1] (0.00ns)   --->   "%sext_ln134_49 = sext i10 %add_ln134_17" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 132 'sext' 'sext_ln134_49' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 133 [1/1] (0.76ns)   --->   "%add_ln134_18 = add i9 %sext_ln134_20, i9 %sext_ln134_21" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 133 'add' 'add_ln134_18' <Predicate = true> <Delay = 0.76> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.76> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 134 [1/1] (0.00ns)   --->   "%sext_ln134_50 = sext i9 %add_ln134_18" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 134 'sext' 'sext_ln134_50' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 135 [1/1] (0.76ns)   --->   "%add_ln134_19 = add i9 %sext_ln134_22, i9 %sext_ln134_23" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 135 'add' 'add_ln134_19' <Predicate = true> <Delay = 0.76> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.76> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 136 [1/1] (0.00ns)   --->   "%sext_ln134_51 = sext i9 %add_ln134_19" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 136 'sext' 'sext_ln134_51' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 137 [1/1] (0.77ns)   --->   "%add_ln134_20 = add i10 %sext_ln134_51, i10 %sext_ln134_50" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 137 'add' 'add_ln134_20' <Predicate = true> <Delay = 0.77> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.77> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 138 [1/1] (0.00ns)   --->   "%sext_ln134_52 = sext i10 %add_ln134_20" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 138 'sext' 'sext_ln134_52' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 139 [1/1] (0.78ns)   --->   "%add_ln134_21 = add i11 %sext_ln134_52, i11 %sext_ln134_49" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 139 'add' 'add_ln134_21' <Predicate = true> <Delay = 0.78> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 140 [1/1] (0.00ns)   --->   "%sext_ln134_53 = sext i11 %add_ln134_21" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 140 'sext' 'sext_ln134_53' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 141 [1/1] (0.76ns)   --->   "%add_ln134_22 = add i9 %sext_ln134_24, i9 %sext_ln134_25" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 141 'add' 'add_ln134_22' <Predicate = true> <Delay = 0.76> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.76> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 142 [1/1] (0.00ns)   --->   "%sext_ln134_54 = sext i9 %add_ln134_22" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 142 'sext' 'sext_ln134_54' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 143 [1/1] (0.76ns)   --->   "%add_ln134_23 = add i9 %sext_ln134_26, i9 %sext_ln134_27" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 143 'add' 'add_ln134_23' <Predicate = true> <Delay = 0.76> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.76> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 144 [1/1] (0.00ns)   --->   "%sext_ln134_55 = sext i9 %add_ln134_23" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 144 'sext' 'sext_ln134_55' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 145 [1/1] (0.77ns)   --->   "%add_ln134_24 = add i10 %sext_ln134_55, i10 %sext_ln134_54" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 145 'add' 'add_ln134_24' <Predicate = true> <Delay = 0.77> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.77> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 146 [1/1] (0.00ns)   --->   "%sext_ln134_56 = sext i10 %add_ln134_24" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 146 'sext' 'sext_ln134_56' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 147 [1/1] (0.76ns)   --->   "%add_ln134_25 = add i9 %sext_ln134_28, i9 %sext_ln134_29" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 147 'add' 'add_ln134_25' <Predicate = true> <Delay = 0.76> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.76> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 148 [1/1] (0.00ns)   --->   "%sext_ln134_57 = sext i9 %add_ln134_25" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 148 'sext' 'sext_ln134_57' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 149 [1/1] (0.76ns)   --->   "%add_ln134_26 = add i9 %sext_ln134_30, i9 %sext_ln134_31" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 149 'add' 'add_ln134_26' <Predicate = true> <Delay = 0.76> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.76> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 150 [1/1] (0.00ns)   --->   "%sext_ln134_58 = sext i9 %add_ln134_26" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 150 'sext' 'sext_ln134_58' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 151 [1/1] (0.77ns)   --->   "%add_ln134_27 = add i10 %sext_ln134_58, i10 %sext_ln134_57" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 151 'add' 'add_ln134_27' <Predicate = true> <Delay = 0.77> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.77> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 152 [1/1] (0.00ns)   --->   "%sext_ln134_59 = sext i10 %add_ln134_27" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 152 'sext' 'sext_ln134_59' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 153 [1/1] (0.78ns)   --->   "%add_ln134_28 = add i11 %sext_ln134_59, i11 %sext_ln134_56" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 153 'add' 'add_ln134_28' <Predicate = true> <Delay = 0.78> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 154 [1/1] (0.00ns)   --->   "%sext_ln134_60 = sext i11 %add_ln134_28" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 154 'sext' 'sext_ln134_60' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 155 [1/1] (0.79ns)   --->   "%add_ln134_29 = add i12 %sext_ln134_60, i12 %sext_ln134_53" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 155 'add' 'add_ln134_29' <Predicate = true> <Delay = 0.79> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.79> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 156 [1/1] (0.00ns)   --->   "%sext_ln134_61 = sext i12 %add_ln134_29" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 156 'sext' 'sext_ln134_61' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 157 [1/1] (0.80ns)   --->   "%add_ln134_30 = add i13 %sext_ln134_61, i13 %sext_ln134_46" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 157 'add' 'add_ln134_30' <Predicate = true> <Delay = 0.80> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.80> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 158 [1/1] (0.00ns)   --->   "%sext_ln134_62 = sext i13 %add_ln134_30" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 158 'sext' 'sext_ln134_62' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 159 [1/1] (1.01ns)   --->   "%sum = add i32 %sum2, i32 %sext_ln134_62" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134]   --->   Operation 159 'add' 'sum' <Predicate = true> <Delay = 1.01> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 160 [1/1] (0.96ns)   --->   "%j = add i27 %j4, i27 1" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:128]   --->   Operation 160 'add' 'j' <Predicate = true> <Delay = 0.96> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.96> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 161 [1/1] (1.02ns)   --->   "%icmp_ln128 = icmp_eq  i27 %j, i27 %trunc_ln" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:128]   --->   Operation 161 'icmp' 'icmp_ln128' <Predicate = true> <Delay = 1.02> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.02> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 162 [1/1] (0.00ns)   --->   "%empty_238 = speclooptripcount i32 @_ssdm_op_SpecLoopTripCount, i64 1, i64 18446744073709551615, i64 0"   --->   Operation 162 'speclooptripcount' 'empty_238' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 163 [1/1] (0.00ns)   --->   "%br_ln128 = br i1 %icmp_ln128, void %for.inc, void %for.inc22.loopexit" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:128]   --->   Operation 163 'br' 'br_ln128' <Predicate = true> <Delay = 0.00>
+
+State 4 <SV = 3> <Delay = 3.45>
+ST_4 : Operation 164 [1/1] (0.42ns)   --->   "%br_ln0 = br void %for.inc22"   --->   Operation 164 'br' 'br_ln0' <Predicate = (!icmp_ln124_1 & !icmp_ln128_1)> <Delay = 0.42>
+ST_4 : Operation 165 [1/1] (0.00ns) (grouped into LUT with out node ashr_ln137)   --->   "%sum3 = phi i32 0, void %Sum.split, i32 %sum, void %for.inc22.loopexit"   --->   Operation 165 'phi' 'sum3' <Predicate = (!icmp_ln124_1)> <Delay = 0.00>
+ST_4 : Operation 166 [1/1] (1.38ns) (out node of the LUT)   --->   "%ashr_ln137 = ashr i32 %sum3, i32 %cols_log_read" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:137]   --->   Operation 166 'ashr' 'ashr_ln137' <Predicate = (!icmp_ln124_1)> <Delay = 1.38> <CoreInst = "Shifter">   --->   Core 75 'Shifter' <Latency = 0> <II = 1> <Delay = 1.38> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 167 [1/1] (0.00ns)   --->   "%trunc_ln214 = trunc i32 %ashr_ln137"   --->   Operation 167 'trunc' 'trunc_ln214' <Predicate = (!icmp_ln124_1)> <Delay = 0.00>
+ST_4 : Operation 168 [1/1] (1.63ns)   --->   "%write_ln138 = write void @_ssdm_op_Write.ap_fifo.volatile.i8P0A, i8 %mean_a6, i8 %trunc_ln214" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:138]   --->   Operation 168 'write' 'write_ln138' <Predicate = (!icmp_ln124_1)> <Delay = 1.63> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 32> <FIFO>
+ST_4 : Operation 169 [1/1] (1.63ns)   --->   "%write_ln139 = write void @_ssdm_op_Write.ap_fifo.volatile.i8P0A, i8 %mean_b7, i8 %trunc_ln214" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:139]   --->   Operation 169 'write' 'write_ln139' <Predicate = (!icmp_ln124_1)> <Delay = 1.63> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 32> <FIFO>
+ST_4 : Operation 170 [1/1] (0.99ns)   --->   "%icmp_ln124 = icmp_eq  i32 %k, i32 %rows_read" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:124]   --->   Operation 170 'icmp' 'icmp_ln124' <Predicate = (!icmp_ln124_1)> <Delay = 0.99> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 171 [1/1] (0.00ns)   --->   "%br_ln124 = br i1 %icmp_ln124, void %Sum.split, void %for.cond.cleanup.loopexit.loopexit" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:124]   --->   Operation 171 'br' 'br_ln124' <Predicate = (!icmp_ln124_1)> <Delay = 0.00>
+ST_4 : Operation 172 [1/1] (0.00ns)   --->   "%br_ln0 = br void %for.cond.cleanup.loopexit"   --->   Operation 172 'br' 'br_ln0' <Predicate = (!icmp_ln124_1 & icmp_ln124)> <Delay = 0.00>
+ST_4 : Operation 173 [1/1] (0.00ns)   --->   "%ret_ln141 = ret" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:141]   --->   Operation 173 'ret' 'ret_ln141' <Predicate = (icmp_ln124) | (icmp_ln124_1)> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 2.7ns.
+
+ <State 1>: 3.68ns
+The critical path consists of the following:
+	fifo read operation ('cols_log_read') on port 'cols_log' [9]  (1.84 ns)
+	fifo write operation ('write_ln0') on port 'cols_log_c21' [11]  (1.84 ns)
+
+ <State 2>: 1.45ns
+The critical path consists of the following:
+	'icmp' operation ('icmp_ln128_1', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:128) [28]  (1.03 ns)
+	multiplexor before 'phi' operation ('sum') with incoming values : ('sum', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134) [174]  (0.427 ns)
+
+ <State 3>: 6.57ns
+The critical path consists of the following:
+	fifo read operation ('__Val2__', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:131) on port 'data_copy_a1' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:131) [39]  (1.62 ns)
+	'add' operation ('add_ln134_18', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134) [140]  (0.765 ns)
+	'add' operation ('add_ln134_20', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134) [144]  (0.776 ns)
+	'add' operation ('add_ln134_21', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134) [146]  (0.787 ns)
+	'add' operation ('add_ln134_29', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134) [162]  (0.798 ns)
+	'add' operation ('add_ln134_30', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134) [164]  (0.809 ns)
+	'add' operation ('sum', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134) [166]  (1.02 ns)
+
+ <State 4>: 3.45ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('sum') with incoming values : ('sum', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134) [174]  (0.427 ns)
+	'phi' operation ('sum') with incoming values : ('sum', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:134) [174]  (0 ns)
+	'ashr' operation ('op', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:137) [175]  (1.39 ns)
+	fifo write operation ('write_ln138', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:138) on port 'mean_a6' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:138) [177]  (1.64 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A
