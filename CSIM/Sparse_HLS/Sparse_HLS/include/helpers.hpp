@@ -35,33 +35,29 @@ void loadRAM(
 }
 
 template <typename t_AXI_DataType, typename t_DataType_IN, typename t_DataType_OUT, unsigned int nPE, unsigned int bigPE>
-void load(
+void addCountStream(
 	unsigned int am_ROWS,
 	unsigned int am_COLS,
 	unsigned int fm_ROWS,
 	unsigned int fm_COLS,
-	t_AXI_DataType *inputs,
 	hls::stream<typename WideType<t_DataType_IN, nPE>::t_TypeInt> &am_value_stream,
-//	hls::stream<uint8_t> &idx_stream,
+	hls::stream<uint8_t> &idx_stream,
 	hls::stream<uint8_t> &count_stream,
-	hls::stream<typename WideType<t_DataType_IN, nPE>::t_TypeInt> &fm_stream,
-	typename WideType<t_DataType_IN, nPE>::t_TypeInt fm_ram[4096],
 	uint32_t input_data_addr1,
-	uint32_t input_data_addr2)
+	uint32_t input_data_addr2,
+	int &idx_num)
 {
-
 	int idx_count = 0, count_count = 0;
 	uint8_t idx_ram[4096];
 	uint8_t count_ram[2048];
 #pragma HLS PIPELINE
-	int idx_num = 0;
+//	int idx_num = 0;
 	int count_num = 0;
 	for (int row = 0; row < am_ROWS; row++)
 	{ // 获取idx和count
 		int count = 0;
 		for (int col = 0; col < am_COLS / nPE; col++){
 			int blocks = am_COLS / nPE;
-//			WideType<t_DataType_IN, nPE> am_value = am_ram[row * blocks + col];
 			WideType<t_DataType_IN, nPE> am_value = am_value_stream.read();
 #pragma HLS UNROLL
 			for (int col_inner = 0; col_inner < nPE; col_inner++)
@@ -71,7 +67,7 @@ void load(
 					count++;
 					int idx = col * nPE + col_inner;
 					idx_ram[idx_num++] = idx;	// col_inner是某一块的offest，col * nPE就是第col块的索引起始
-//					idx_stream.write(col);
+					idx_stream.write(idx);
 				}
 			}
 		}
@@ -79,22 +75,70 @@ void load(
 		count_stream.write(count);	// 让count_stream先有值，可以快启动mul计算
 	}
 #pragma HLS PIPELINE
+	for (int block = 0; block < (fm_COLS / nPE) - 1; block++)
+	{
+		for(int i = 0; i < idx_num; i++){
+			int idx = idx_ram[i];
+			idx_stream.write(idx);
+		}
+		for (int j = 0; j < count_num; j++)
+		{
+			int count = count_ram[j];
+			count_stream.write(count);
+		}
+	}
+}
+
+template <typename t_AXI_DataType, typename t_DataType_IN, typename t_DataType_OUT, unsigned int nPE, unsigned int bigPE>
+void loadFmStream(
+	unsigned int am_ROWS,
+	unsigned int am_COLS,
+	unsigned int fm_ROWS,
+	unsigned int fm_COLS,
+	hls::stream<uint8_t> &idx_stream,
+	hls::stream<typename WideType<t_DataType_IN, nPE>::t_TypeInt> &fm_stream,
+	typename WideType<t_DataType_IN, nPE>::t_TypeInt fm_ram[4096],
+	uint32_t input_data_addr1,
+	uint32_t input_data_addr2,
+	int &idx_num)
+{
+
+//	int idx_count = 0, count_count = 0;
+//	uint8_t idx_ram[4096];
+//	uint8_t count_ram[2048];
+#pragma HLS PIPELINE
+//	int idx_num = 0;
+//	int count_num = 0;
+//	for (int row = 0; row < am_ROWS; row++)
+//	{ // 获取idx和count
+//		int count = 0;
+//		for (int col = 0; col < am_COLS / nPE; col++){
+//			int blocks = am_COLS / nPE;
+////			WideType<t_DataType_IN, nPE> am_value = am_ram[row * blocks + col];
+//			WideType<t_DataType_IN, nPE> am_value = am_value_stream.read();
+//#pragma HLS UNROLL
+//			for (int col_inner = 0; col_inner < nPE; col_inner++)
+//			{
+//				if (am_value[col_inner] != 0)
+//				{
+//					count++;
+//					int idx = col * nPE + col_inner;
+//					idx_ram[idx_num++] = idx;	// col_inner是某一块的offest，col * nPE就是第col块的索引起始
+////					idx_stream.write(col);
+//				}
+//			}
+//		}
+//		count_ram[count_num++] = count;
+//		count_stream.write(count);	// 让count_stream先有值，可以快启动mul计算
+//	}
+#pragma HLS PIPELINE
 	for (int block = 0; block < (fm_COLS / nPE); block++)
 	{
 		for (int i = 0; i < idx_num; i++)
 		{
-			int col = idx_ram[i];
-//			idx_stream.write(col);
+			int col = idx_stream.read();
 			WideType<t_DataType_IN, nPE> fm_value = fm_ram[block * bigPE + col];
-//			WideType<t_DataType_IN, nPE> fm_value = inputs[input_data_addr2 + (block * bigPE + col)];
 			fm_stream.write(fm_value);
-		}
-		for (int j = 0; j < count_num; j++)
-		{
-			if(block < (fm_COLS / nPE) - 1){ 	//
-				int count = count_ram[j];
-				count_stream.write(count);
-			}
 		}
 	}
 }
