@@ -1,0 +1,973 @@
+
+
+================================================================
+== Vitis HLS Report for 'p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_s'
+================================================================
+* Date:           Tue Jun 25 13:53:26 2024
+
+* Version:        2022.2 (Build 3670227 on Oct 13 2022)
+* Project:        Layer_Norm.prj
+* Solution:       sol (Vivado IP Flow Target)
+* Product family: zynquplus
+* Target device:  xczu7ev-ffvc1156-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  7.300 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |        ?|        ?|         ?|         ?|    ?|    ?|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +---------------------+---------+---------+----------+-----------+-----------+-------+----------+
+        |                     |  Latency (cycles) | Iteration|  Initiation Interval  |  Trip |          |
+        |      Loop Name      |   min   |   max   |  Latency |  achieved |   target  | Count | Pipelined|
+        +---------------------+---------+---------+----------+-----------+-----------+-------+----------+
+        |- VITIS_LOOP_99_1    |        ?|        ?|         ?|          -|          -|  1 ~ ?|        no|
+        | + VITIS_LOOP_102_2  |        ?|        ?|         2|          -|          -|      ?|        no|
+        +---------------------+---------+---------+----------+-----------+-----------+-------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 88
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 41 
+3 --> 4 
+4 --> 5 
+5 --> 6 
+6 --> 7 
+7 --> 8 
+8 --> 9 
+9 --> 10 
+10 --> 11 
+11 --> 12 
+12 --> 13 
+13 --> 14 
+14 --> 15 
+15 --> 16 
+16 --> 17 
+17 --> 18 
+18 --> 19 
+19 --> 20 
+20 --> 21 
+21 --> 22 
+22 --> 23 
+23 --> 24 
+24 --> 25 
+25 --> 26 
+26 --> 27 
+27 --> 28 
+28 --> 29 
+29 --> 30 
+30 --> 31 
+31 --> 32 
+32 --> 33 
+33 --> 34 
+34 --> 35 
+35 --> 36 
+36 --> 37 
+37 --> 38 
+38 --> 39 
+39 --> 40 
+40 --> 41 
+41 --> 42 43 
+42 --> 43 
+43 --> 44 83 
+44 --> 45 
+45 --> 46 
+46 --> 47 
+47 --> 48 
+48 --> 49 
+49 --> 50 
+50 --> 51 
+51 --> 52 
+52 --> 53 
+53 --> 54 
+54 --> 55 
+55 --> 56 
+56 --> 57 
+57 --> 58 
+58 --> 59 
+59 --> 60 
+60 --> 61 
+61 --> 62 
+62 --> 63 
+63 --> 64 
+64 --> 65 
+65 --> 66 
+66 --> 67 
+67 --> 68 
+68 --> 69 
+69 --> 70 
+70 --> 71 
+71 --> 72 
+72 --> 73 
+73 --> 74 
+74 --> 75 
+75 --> 76 
+76 --> 77 
+77 --> 78 
+78 --> 79 
+79 --> 80 
+80 --> 81 
+81 --> 82 
+82 --> 83 
+83 --> 84 85 
+84 --> 85 
+85 --> 87 86 
+86 --> 87 
+87 --> 88 86 
+88 --> 87 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 2.41>
+ST_1 : Operation 89 [1/1] (0.00ns)   --->   "%inputs_read = read i64 @_ssdm_op_Read.ap_auto.i64, i64 %inputs"   --->   Operation 89 'read' 'inputs_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 90 [1/1] (0.00ns)   --->   "%gamma_addr_read = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %gamma_addr"   --->   Operation 90 'read' 'gamma_addr_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 91 [1/1] (0.00ns)   --->   "%cols_log_read = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %cols_log"   --->   Operation 91 'read' 'cols_log_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 92 [1/1] (0.00ns)   --->   "%gamma_ram = alloca i64 1"   --->   Operation 92 'alloca' 'gamma_ram' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM_1P_BRAM">   --->   Core 90 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 256> <Depth = 512> <RAM>
+ST_1 : Operation 93 [1/1] (0.00ns)   --->   "%beta_ram = alloca i64 1"   --->   Operation 93 'alloca' 'beta_ram' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM_1P_BRAM">   --->   Core 90 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 256> <Depth = 512> <RAM>
+ST_1 : Operation 94 [1/1] (1.38ns)   --->   "%cols = shl i32 1, i32 %cols_log_read" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:88]   --->   Operation 94 'shl' 'cols' <Predicate = true> <Delay = 1.38> <CoreInst = "Shifter">   --->   Core 75 'Shifter' <Latency = 0> <II = 1> <Delay = 1.38> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 95 [1/1] (0.00ns)   --->   "%tmp_2 = partselect i27 @_ssdm_op_PartSelect.i27.i32.i32.i32, i32 %gamma_addr_read, i32 5, i32 31" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 95 'partselect' 'tmp_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 96 [1/1] (0.00ns)   --->   "%and_ln = bitconcatenate i32 @_ssdm_op_BitConcatenate.i32.i27.i5, i27 %tmp_2, i5 0" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 96 'bitconcatenate' 'and_ln' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 97 [1/1] (0.00ns)   --->   "%zext_ln96 = zext i32 %and_ln" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 97 'zext' 'zext_ln96' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 98 [1/1] (0.00ns)   --->   "%trunc_ln96 = trunc i64 %inputs_read" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 98 'trunc' 'trunc_ln96' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 99 [1/1] (1.08ns)   --->   "%add_ln96 = add i64 %zext_ln96, i64 %inputs_read" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 99 'add' 'add_ln96' <Predicate = true> <Delay = 1.08> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.08> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 100 [1/1] (0.00ns)   --->   "%trunc_ln96_1 = trunc i32 %cols" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 100 'trunc' 'trunc_ln96_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 101 [1/1] (0.00ns)   --->   "%lshr_ln = partselect i27 @_ssdm_op_PartSelect.i27.i32.i32.i32, i32 %cols, i32 5, i32 31" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 101 'partselect' 'lshr_ln' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 102 [1/1] (1.02ns)   --->   "%icmp_ln96 = icmp_ne  i27 %lshr_ln, i27 0" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 102 'icmp' 'icmp_ln96' <Predicate = true> <Delay = 1.02> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.02> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+
+State 2 <SV = 1> <Delay = 7.30>
+ST_2 : Operation 103 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i256 %beta5, void @empty_14, i32 0, i32 0, void @empty_13, i32 0, i32 0, void @empty_13, void @empty_13, void @empty_13, i32 0, i32 0, i32 0, i32 0, void @empty_13, void @empty_13, i32 4294967295, i32 0"   --->   Operation 103 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 104 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i256 %gamma4, void @empty_14, i32 0, i32 0, void @empty_13, i32 0, i32 0, void @empty_13, void @empty_13, void @empty_13, i32 0, i32 0, i32 0, i32 0, void @empty_13, void @empty_13, i32 4294967295, i32 0"   --->   Operation 104 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 105 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i256 %ln_paras, void @empty_22, i32 0, i32 0, void @empty_13, i32 32, i32 8, void @empty_32, void @empty_33, void @empty_13, i32 64, i32 1, i32 64, i32 64, void @empty_13, void @empty_13, i32 4294967295, i32 0"   --->   Operation 105 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 106 [1/1] (0.00ns)   --->   "%beta_addr_read = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %beta_addr"   --->   Operation 106 'read' 'beta_addr_read' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 107 [1/1] (0.00ns)   --->   "%rows_read = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %rows"   --->   Operation 107 'read' 'rows_read' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 108 [1/1] (0.00ns)   --->   "%specbramwithbyteenable_ln0 = specbramwithbyteenable void @_ssdm_op_SpecBRAMWithByteEnable, i256 %gamma_ram"   --->   Operation 108 'specbramwithbyteenable' 'specbramwithbyteenable_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 109 [1/1] (0.00ns)   --->   "%specbramwithbyteenable_ln0 = specbramwithbyteenable void @_ssdm_op_SpecBRAMWithByteEnable, i256 %beta_ram"   --->   Operation 109 'specbramwithbyteenable' 'specbramwithbyteenable_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 110 [1/1] (0.00ns)   --->   "%specmemcore_ln93 = specmemcore void @_ssdm_op_SpecMemCore, i256 %gamma_ram, i64 666, i64 18, i64 18446744073709551615" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:93]   --->   Operation 110 'specmemcore' 'specmemcore_ln93' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 111 [1/1] (0.00ns)   --->   "%specmemcore_ln94 = specmemcore void @_ssdm_op_SpecMemCore, i256 %beta_ram, i64 666, i64 18, i64 18446744073709551615" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:94]   --->   Operation 111 'specmemcore' 'specmemcore_ln94' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 112 [1/1] (0.00ns)   --->   "%zext_ln96_1 = zext i32 %cols" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 112 'zext' 'zext_ln96_1' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 113 [1/1] (0.00ns)   --->   "%zext_ln96_3 = zext i27 %lshr_ln" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 113 'zext' 'zext_ln96_3' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 114 [1/1] (0.00ns)   --->   "%zext_ln96_2 = zext i5 %trunc_ln96_1" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 114 'zext' 'zext_ln96_2' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 115 [1/1] (1.01ns)   --->   "%sub_ln96 = sub i33 %zext_ln96_1, i33 %zext_ln96_2" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 115 'sub' 'sub_ln96' <Predicate = true> <Delay = 1.01> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 116 [1/1] (0.00ns)   --->   "%trunc_ln96_2 = trunc i33 %sub_ln96" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 116 'trunc' 'trunc_ln96_2' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 117 [1/1] (0.00ns)   --->   "%br_ln96 = br i1 %icmp_ln96, void %loop-memcpy-residual-header6, void %loop-memcpy-expansion3.preheader" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 117 'br' 'br_ln96' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 118 [1/1] (0.00ns)   --->   "%p_cast = partselect i59 @_ssdm_op_PartSelect.i59.i64.i32.i32, i64 %add_ln96, i32 5, i32 63" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 118 'partselect' 'p_cast' <Predicate = (icmp_ln96)> <Delay = 0.00>
+ST_2 : Operation 119 [1/1] (0.00ns)   --->   "%p_cast_cast = sext i59 %p_cast" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 119 'sext' 'p_cast_cast' <Predicate = (icmp_ln96)> <Delay = 0.00>
+ST_2 : Operation 120 [1/1] (0.00ns)   --->   "%ln_paras_addr = getelementptr i256 %ln_paras, i64 %p_cast_cast" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 120 'getelementptr' 'ln_paras_addr' <Predicate = (icmp_ln96)> <Delay = 0.00>
+ST_2 : Operation 121 [38/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 121 'readreq' 'empty' <Predicate = (icmp_ln96)> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 3 <SV = 2> <Delay = 7.30>
+ST_3 : Operation 122 [37/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 122 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 4 <SV = 3> <Delay = 7.30>
+ST_4 : Operation 123 [36/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 123 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 5 <SV = 4> <Delay = 7.30>
+ST_5 : Operation 124 [35/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 124 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 6 <SV = 5> <Delay = 7.30>
+ST_6 : Operation 125 [34/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 125 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 7 <SV = 6> <Delay = 7.30>
+ST_7 : Operation 126 [33/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 126 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 8 <SV = 7> <Delay = 7.30>
+ST_8 : Operation 127 [32/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 127 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 9 <SV = 8> <Delay = 7.30>
+ST_9 : Operation 128 [31/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 128 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 10 <SV = 9> <Delay = 7.30>
+ST_10 : Operation 129 [30/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 129 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 11 <SV = 10> <Delay = 7.30>
+ST_11 : Operation 130 [29/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 130 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 12 <SV = 11> <Delay = 7.30>
+ST_12 : Operation 131 [28/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 131 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 13 <SV = 12> <Delay = 7.30>
+ST_13 : Operation 132 [27/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 132 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 14 <SV = 13> <Delay = 7.30>
+ST_14 : Operation 133 [26/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 133 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 15 <SV = 14> <Delay = 7.30>
+ST_15 : Operation 134 [25/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 134 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 16 <SV = 15> <Delay = 7.30>
+ST_16 : Operation 135 [24/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 135 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 17 <SV = 16> <Delay = 7.30>
+ST_17 : Operation 136 [23/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 136 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 18 <SV = 17> <Delay = 7.30>
+ST_18 : Operation 137 [22/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 137 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 19 <SV = 18> <Delay = 7.30>
+ST_19 : Operation 138 [21/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 138 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 20 <SV = 19> <Delay = 7.30>
+ST_20 : Operation 139 [20/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 139 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 21 <SV = 20> <Delay = 7.30>
+ST_21 : Operation 140 [19/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 140 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 22 <SV = 21> <Delay = 7.30>
+ST_22 : Operation 141 [18/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 141 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 23 <SV = 22> <Delay = 7.30>
+ST_23 : Operation 142 [17/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 142 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 24 <SV = 23> <Delay = 7.30>
+ST_24 : Operation 143 [16/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 143 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 25 <SV = 24> <Delay = 7.30>
+ST_25 : Operation 144 [15/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 144 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 26 <SV = 25> <Delay = 7.30>
+ST_26 : Operation 145 [14/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 145 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 27 <SV = 26> <Delay = 7.30>
+ST_27 : Operation 146 [13/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 146 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 28 <SV = 27> <Delay = 7.30>
+ST_28 : Operation 147 [12/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 147 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 29 <SV = 28> <Delay = 7.30>
+ST_29 : Operation 148 [11/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 148 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 30 <SV = 29> <Delay = 7.30>
+ST_30 : Operation 149 [10/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 149 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 31 <SV = 30> <Delay = 7.30>
+ST_31 : Operation 150 [9/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 150 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 32 <SV = 31> <Delay = 7.30>
+ST_32 : Operation 151 [8/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 151 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 33 <SV = 32> <Delay = 7.30>
+ST_33 : Operation 152 [7/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 152 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 34 <SV = 33> <Delay = 7.30>
+ST_34 : Operation 153 [6/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 153 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 35 <SV = 34> <Delay = 7.30>
+ST_35 : Operation 154 [5/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 154 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 36 <SV = 35> <Delay = 7.30>
+ST_36 : Operation 155 [4/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 155 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 37 <SV = 36> <Delay = 7.30>
+ST_37 : Operation 156 [3/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 156 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 38 <SV = 37> <Delay = 7.30>
+ST_38 : Operation 157 [2/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 157 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 39 <SV = 38> <Delay = 7.30>
+ST_39 : Operation 158 [1/38] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 158 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 40 <SV = 39> <Delay = 7.30>
+ST_40 : Operation 159 [2/2] (7.30ns)   --->   "%call_ln96 = call void @(anonymous namespace)DataMover_B<ap_int<8>, ap_uint<256>, 5u>_Pipeline_1, i256 %ln_paras, i59 %p_cast, i256 %gamma_ram, i27 %lshr_ln" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 159 'call' 'call_ln96' <Predicate = true> <Delay = 7.30> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 41 <SV = 40> <Delay = 0.75>
+ST_41 : Operation 160 [1/2] (0.00ns)   --->   "%call_ln96 = call void @(anonymous namespace)DataMover_B<ap_int<8>, ap_uint<256>, 5u>_Pipeline_1, i256 %ln_paras, i59 %p_cast, i256 %gamma_ram, i27 %lshr_ln" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 160 'call' 'call_ln96' <Predicate = (icmp_ln96)> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_41 : Operation 161 [1/1] (0.00ns)   --->   "%br_ln0 = br void %loop-memcpy-residual-header6"   --->   Operation 161 'br' 'br_ln0' <Predicate = (icmp_ln96)> <Delay = 0.00>
+ST_41 : Operation 162 [1/1] (0.75ns)   --->   "%empty_260 = icmp_ne  i5 %trunc_ln96_1, i5 0" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 162 'icmp' 'empty_260' <Predicate = true> <Delay = 0.75> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.75> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_41 : Operation 163 [1/1] (0.00ns)   --->   "%br_ln96 = br i1 %empty_260, void %post-loop-memcpy-expansion2, void %loop-memcpy-residual5.preheader" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 163 'br' 'br_ln96' <Predicate = true> <Delay = 0.00>
+
+State 42 <SV = 41> <Delay = 2.10>
+ST_42 : Operation 164 [1/1] (0.00ns)   --->   "%empty_261 = trunc i33 %sub_ln96" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 164 'trunc' 'empty_261' <Predicate = true> <Delay = 0.00>
+ST_42 : Operation 165 [2/2] (2.10ns)   --->   "%call_ln96 = call void @(anonymous namespace)DataMover_B<ap_int<8>, ap_uint<256>, 5u>_Pipeline_2, i14 %trunc_ln96_2, i33 %sub_ln96, i64 %add_ln96, i256 %ln_paras, i5 %empty_261, i5 %trunc_ln96, i256 %gamma_ram, i5 %trunc_ln96_1" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 165 'call' 'call_ln96' <Predicate = true> <Delay = 2.10> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 43 <SV = 42> <Delay = 1.08>
+ST_43 : Operation 166 [1/2] (0.00ns)   --->   "%call_ln96 = call void @(anonymous namespace)DataMover_B<ap_int<8>, ap_uint<256>, 5u>_Pipeline_2, i14 %trunc_ln96_2, i33 %sub_ln96, i64 %add_ln96, i256 %ln_paras, i5 %empty_261, i5 %trunc_ln96, i256 %gamma_ram, i5 %trunc_ln96_1" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 166 'call' 'call_ln96' <Predicate = (empty_260)> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_43 : Operation 167 [1/1] (0.00ns)   --->   "%br_ln0 = br void %post-loop-memcpy-expansion2"   --->   Operation 167 'br' 'br_ln0' <Predicate = (empty_260)> <Delay = 0.00>
+ST_43 : Operation 168 [1/1] (0.00ns)   --->   "%tmp_6 = partselect i27 @_ssdm_op_PartSelect.i27.i32.i32.i32, i32 %beta_addr_read, i32 5, i32 31" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97]   --->   Operation 168 'partselect' 'tmp_6' <Predicate = true> <Delay = 0.00>
+ST_43 : Operation 169 [1/1] (0.00ns)   --->   "%and_ln1 = bitconcatenate i32 @_ssdm_op_BitConcatenate.i32.i27.i5, i27 %tmp_6, i5 0" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97]   --->   Operation 169 'bitconcatenate' 'and_ln1' <Predicate = true> <Delay = 0.00>
+ST_43 : Operation 170 [1/1] (0.00ns)   --->   "%zext_ln97 = zext i32 %and_ln1" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97]   --->   Operation 170 'zext' 'zext_ln97' <Predicate = true> <Delay = 0.00>
+ST_43 : Operation 171 [1/1] (1.08ns)   --->   "%add_ln97 = add i64 %zext_ln97, i64 %inputs_read" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97]   --->   Operation 171 'add' 'add_ln97' <Predicate = true> <Delay = 1.08> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.08> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_43 : Operation 172 [1/1] (0.00ns)   --->   "%br_ln97 = br i1 %icmp_ln96, void %loop-memcpy-residual-header, void %loop-memcpy-expansion.preheader" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97]   --->   Operation 172 'br' 'br_ln97' <Predicate = true> <Delay = 0.00>
+
+State 44 <SV = 43> <Delay = 7.30>
+ST_44 : Operation 173 [1/1] (0.00ns)   --->   "%p_cast9 = partselect i59 @_ssdm_op_PartSelect.i59.i64.i32.i32, i64 %add_ln97, i32 5, i32 63" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97]   --->   Operation 173 'partselect' 'p_cast9' <Predicate = true> <Delay = 0.00>
+ST_44 : Operation 174 [1/1] (0.00ns)   --->   "%p_cast9_cast = sext i59 %p_cast9" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97]   --->   Operation 174 'sext' 'p_cast9_cast' <Predicate = true> <Delay = 0.00>
+ST_44 : Operation 175 [1/1] (0.00ns)   --->   "%ln_paras_addr_1 = getelementptr i256 %ln_paras, i64 %p_cast9_cast" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97]   --->   Operation 175 'getelementptr' 'ln_paras_addr_1' <Predicate = true> <Delay = 0.00>
+ST_44 : Operation 176 [38/38] (7.30ns)   --->   "%empty_257 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr_1, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97]   --->   Operation 176 'readreq' 'empty_257' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 45 <SV = 44> <Delay = 7.30>
+ST_45 : Operation 177 [37/38] (7.30ns)   --->   "%empty_257 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr_1, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97]   --->   Operation 177 'readreq' 'empty_257' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 46 <SV = 45> <Delay = 7.30>
+ST_46 : Operation 178 [36/38] (7.30ns)   --->   "%empty_257 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr_1, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97]   --->   Operation 178 'readreq' 'empty_257' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 47 <SV = 46> <Delay = 7.30>
+ST_47 : Operation 179 [35/38] (7.30ns)   --->   "%empty_257 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr_1, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97]   --->   Operation 179 'readreq' 'empty_257' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 48 <SV = 47> <Delay = 7.30>
+ST_48 : Operation 180 [34/38] (7.30ns)   --->   "%empty_257 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr_1, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97]   --->   Operation 180 'readreq' 'empty_257' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 49 <SV = 48> <Delay = 7.30>
+ST_49 : Operation 181 [33/38] (7.30ns)   --->   "%empty_257 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr_1, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97]   --->   Operation 181 'readreq' 'empty_257' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 50 <SV = 49> <Delay = 7.30>
+ST_50 : Operation 182 [32/38] (7.30ns)   --->   "%empty_257 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr_1, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97]   --->   Operation 182 'readreq' 'empty_257' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 51 <SV = 50> <Delay = 7.30>
+ST_51 : Operation 183 [31/38] (7.30ns)   --->   "%empty_257 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr_1, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97]   --->   Operation 183 'readreq' 'empty_257' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 52 <SV = 51> <Delay = 7.30>
+ST_52 : Operation 184 [30/38] (7.30ns)   --->   "%empty_257 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr_1, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97]   --->   Operation 184 'readreq' 'empty_257' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 53 <SV = 52> <Delay = 7.30>
+ST_53 : Operation 185 [29/38] (7.30ns)   --->   "%empty_257 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr_1, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97]   --->   Operation 185 'readreq' 'empty_257' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 54 <SV = 53> <Delay = 7.30>
+ST_54 : Operation 186 [28/38] (7.30ns)   --->   "%empty_257 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr_1, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97]   --->   Operation 186 'readreq' 'empty_257' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 55 <SV = 54> <Delay = 7.30>
+ST_55 : Operation 187 [27/38] (7.30ns)   --->   "%empty_257 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr_1, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97]   --->   Operation 187 'readreq' 'empty_257' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 56 <SV = 55> <Delay = 7.30>
+ST_56 : Operation 188 [26/38] (7.30ns)   --->   "%empty_257 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr_1, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97]   --->   Operation 188 'readreq' 'empty_257' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 57 <SV = 56> <Delay = 7.30>
+ST_57 : Operation 189 [25/38] (7.30ns)   --->   "%empty_257 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr_1, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97]   --->   Operation 189 'readreq' 'empty_257' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 58 <SV = 57> <Delay = 7.30>
+ST_58 : Operation 190 [24/38] (7.30ns)   --->   "%empty_257 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr_1, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97]   --->   Operation 190 'readreq' 'empty_257' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 59 <SV = 58> <Delay = 7.30>
+ST_59 : Operation 191 [23/38] (7.30ns)   --->   "%empty_257 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr_1, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97]   --->   Operation 191 'readreq' 'empty_257' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 60 <SV = 59> <Delay = 7.30>
+ST_60 : Operation 192 [22/38] (7.30ns)   --->   "%empty_257 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr_1, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97]   --->   Operation 192 'readreq' 'empty_257' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 61 <SV = 60> <Delay = 7.30>
+ST_61 : Operation 193 [21/38] (7.30ns)   --->   "%empty_257 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr_1, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97]   --->   Operation 193 'readreq' 'empty_257' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 62 <SV = 61> <Delay = 7.30>
+ST_62 : Operation 194 [20/38] (7.30ns)   --->   "%empty_257 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr_1, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97]   --->   Operation 194 'readreq' 'empty_257' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 63 <SV = 62> <Delay = 7.30>
+ST_63 : Operation 195 [19/38] (7.30ns)   --->   "%empty_257 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr_1, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97]   --->   Operation 195 'readreq' 'empty_257' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 64 <SV = 63> <Delay = 7.30>
+ST_64 : Operation 196 [18/38] (7.30ns)   --->   "%empty_257 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr_1, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97]   --->   Operation 196 'readreq' 'empty_257' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 65 <SV = 64> <Delay = 7.30>
+ST_65 : Operation 197 [17/38] (7.30ns)   --->   "%empty_257 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr_1, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97]   --->   Operation 197 'readreq' 'empty_257' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 66 <SV = 65> <Delay = 7.30>
+ST_66 : Operation 198 [16/38] (7.30ns)   --->   "%empty_257 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr_1, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97]   --->   Operation 198 'readreq' 'empty_257' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 67 <SV = 66> <Delay = 7.30>
+ST_67 : Operation 199 [15/38] (7.30ns)   --->   "%empty_257 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr_1, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97]   --->   Operation 199 'readreq' 'empty_257' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 68 <SV = 67> <Delay = 7.30>
+ST_68 : Operation 200 [14/38] (7.30ns)   --->   "%empty_257 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr_1, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97]   --->   Operation 200 'readreq' 'empty_257' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 69 <SV = 68> <Delay = 7.30>
+ST_69 : Operation 201 [13/38] (7.30ns)   --->   "%empty_257 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr_1, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97]   --->   Operation 201 'readreq' 'empty_257' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 70 <SV = 69> <Delay = 7.30>
+ST_70 : Operation 202 [12/38] (7.30ns)   --->   "%empty_257 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr_1, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97]   --->   Operation 202 'readreq' 'empty_257' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 71 <SV = 70> <Delay = 7.30>
+ST_71 : Operation 203 [11/38] (7.30ns)   --->   "%empty_257 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr_1, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97]   --->   Operation 203 'readreq' 'empty_257' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 72 <SV = 71> <Delay = 7.30>
+ST_72 : Operation 204 [10/38] (7.30ns)   --->   "%empty_257 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr_1, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97]   --->   Operation 204 'readreq' 'empty_257' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 73 <SV = 72> <Delay = 7.30>
+ST_73 : Operation 205 [9/38] (7.30ns)   --->   "%empty_257 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr_1, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97]   --->   Operation 205 'readreq' 'empty_257' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 74 <SV = 73> <Delay = 7.30>
+ST_74 : Operation 206 [8/38] (7.30ns)   --->   "%empty_257 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr_1, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97]   --->   Operation 206 'readreq' 'empty_257' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 75 <SV = 74> <Delay = 7.30>
+ST_75 : Operation 207 [7/38] (7.30ns)   --->   "%empty_257 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr_1, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97]   --->   Operation 207 'readreq' 'empty_257' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 76 <SV = 75> <Delay = 7.30>
+ST_76 : Operation 208 [6/38] (7.30ns)   --->   "%empty_257 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr_1, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97]   --->   Operation 208 'readreq' 'empty_257' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 77 <SV = 76> <Delay = 7.30>
+ST_77 : Operation 209 [5/38] (7.30ns)   --->   "%empty_257 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr_1, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97]   --->   Operation 209 'readreq' 'empty_257' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 78 <SV = 77> <Delay = 7.30>
+ST_78 : Operation 210 [4/38] (7.30ns)   --->   "%empty_257 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr_1, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97]   --->   Operation 210 'readreq' 'empty_257' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 79 <SV = 78> <Delay = 7.30>
+ST_79 : Operation 211 [3/38] (7.30ns)   --->   "%empty_257 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr_1, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97]   --->   Operation 211 'readreq' 'empty_257' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 80 <SV = 79> <Delay = 7.30>
+ST_80 : Operation 212 [2/38] (7.30ns)   --->   "%empty_257 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr_1, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97]   --->   Operation 212 'readreq' 'empty_257' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 81 <SV = 80> <Delay = 7.30>
+ST_81 : Operation 213 [1/38] (7.30ns)   --->   "%empty_257 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i256, i256 %ln_paras_addr_1, i32 %zext_ln96_3" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97]   --->   Operation 213 'readreq' 'empty_257' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 82 <SV = 81> <Delay = 7.30>
+ST_82 : Operation 214 [2/2] (7.30ns)   --->   "%call_ln97 = call void @(anonymous namespace)DataMover_B<ap_int<8>, ap_uint<256>, 5u>_Pipeline_3, i256 %ln_paras, i59 %p_cast9, i256 %beta_ram, i27 %lshr_ln" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97]   --->   Operation 214 'call' 'call_ln97' <Predicate = true> <Delay = 7.30> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 83 <SV = 82> <Delay = 0.00>
+ST_83 : Operation 215 [1/2] (0.00ns)   --->   "%call_ln97 = call void @(anonymous namespace)DataMover_B<ap_int<8>, ap_uint<256>, 5u>_Pipeline_3, i256 %ln_paras, i59 %p_cast9, i256 %beta_ram, i27 %lshr_ln" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97]   --->   Operation 215 'call' 'call_ln97' <Predicate = (icmp_ln96)> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_83 : Operation 216 [1/1] (0.00ns)   --->   "%br_ln0 = br void %loop-memcpy-residual-header"   --->   Operation 216 'br' 'br_ln0' <Predicate = (icmp_ln96)> <Delay = 0.00>
+ST_83 : Operation 217 [1/1] (0.00ns)   --->   "%br_ln96 = br i1 %empty_260, void %VITIS_LOOP_99_1, void %loop-memcpy-residual.preheader" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 217 'br' 'br_ln96' <Predicate = true> <Delay = 0.00>
+
+State 84 <SV = 83> <Delay = 2.10>
+ST_84 : Operation 218 [1/1] (0.00ns)   --->   "%empty_259 = trunc i33 %sub_ln96" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 218 'trunc' 'empty_259' <Predicate = true> <Delay = 0.00>
+ST_84 : Operation 219 [2/2] (2.10ns)   --->   "%call_ln96 = call void @(anonymous namespace)DataMover_B<ap_int<8>, ap_uint<256>, 5u>_Pipeline_4, i14 %trunc_ln96_2, i33 %sub_ln96, i64 %add_ln97, i256 %ln_paras, i5 %empty_259, i5 %trunc_ln96, i256 %beta_ram, i5 %trunc_ln96_1" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 219 'call' 'call_ln96' <Predicate = true> <Delay = 2.10> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 85 <SV = 84> <Delay = 0.99>
+ST_85 : Operation 220 [1/2] (0.00ns)   --->   "%call_ln96 = call void @(anonymous namespace)DataMover_B<ap_int<8>, ap_uint<256>, 5u>_Pipeline_4, i14 %trunc_ln96_2, i33 %sub_ln96, i64 %add_ln97, i256 %ln_paras, i5 %empty_259, i5 %trunc_ln96, i256 %beta_ram, i5 %trunc_ln96_1" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96]   --->   Operation 220 'call' 'call_ln96' <Predicate = (empty_260)> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_85 : Operation 221 [1/1] (0.00ns)   --->   "%br_ln0 = br void %VITIS_LOOP_99_1"   --->   Operation 221 'br' 'br_ln0' <Predicate = (empty_260)> <Delay = 0.00>
+ST_85 : Operation 222 [1/1] (0.99ns)   --->   "%icmp_ln99_1 = icmp_eq  i32 %rows_read, i32 0" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:99]   --->   Operation 222 'icmp' 'icmp_ln99_1' <Predicate = true> <Delay = 0.99> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_85 : Operation 223 [1/1] (0.00ns)   --->   "%br_ln99 = br i1 %icmp_ln99_1, void %VITIS_LOOP_102_2.preheader, void %for.end28" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:99]   --->   Operation 223 'br' 'br_ln99' <Predicate = true> <Delay = 0.00>
+ST_85 : Operation 224 [1/1] (0.42ns)   --->   "%br_ln99 = br void %VITIS_LOOP_102_2" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:99]   --->   Operation 224 'br' 'br_ln99' <Predicate = (!icmp_ln99_1)> <Delay = 0.42>
+
+State 86 <SV = 85> <Delay = 1.01>
+ST_86 : Operation 225 [1/1] (0.00ns)   --->   "%i46 = phi i32 %i, void %for.inc26.loopexit, i32 0, void %VITIS_LOOP_102_2.preheader"   --->   Operation 225 'phi' 'i46' <Predicate = true> <Delay = 0.00>
+ST_86 : Operation 226 [1/1] (0.00ns)   --->   "%specpipeline_ln101 = specpipeline void @_ssdm_op_SpecPipeline, i32 1, i32 0, i32 0, i32 0, void @empty_13" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:101]   --->   Operation 226 'specpipeline' 'specpipeline_ln101' <Predicate = true> <Delay = 0.00>
+ST_86 : Operation 227 [1/1] (0.00ns)   --->   "%specloopname_ln102 = specloopname void @_ssdm_op_SpecLoopName, void @empty_20" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:102]   --->   Operation 227 'specloopname' 'specloopname_ln102' <Predicate = true> <Delay = 0.00>
+ST_86 : Operation 228 [1/1] (0.00ns)   --->   "%empty_258 = speclooptripcount i32 @_ssdm_op_SpecLoopTripCount, i64 1, i64 18446744073709551615, i64 0"   --->   Operation 228 'speclooptripcount' 'empty_258' <Predicate = true> <Delay = 0.00>
+ST_86 : Operation 229 [1/1] (1.01ns)   --->   "%i = add i32 %i46, i32 1" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:99]   --->   Operation 229 'add' 'i' <Predicate = true> <Delay = 1.01> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_86 : Operation 230 [1/1] (0.42ns)   --->   "%br_ln102 = br void %for.inc" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:102]   --->   Operation 230 'br' 'br_ln102' <Predicate = true> <Delay = 0.42>
+
+State 87 <SV = 86> <Delay = 1.23>
+ST_87 : Operation 231 [1/1] (0.00ns)   --->   "%j = phi i27 %add_ln102, void %for.inc.split, i27 0, void %VITIS_LOOP_102_2" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:102]   --->   Operation 231 'phi' 'j' <Predicate = (!icmp_ln99_1)> <Delay = 0.00>
+ST_87 : Operation 232 [1/1] (0.00ns)   --->   "%zext_ln102 = zext i27 %j" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:102]   --->   Operation 232 'zext' 'zext_ln102' <Predicate = (!icmp_ln99_1)> <Delay = 0.00>
+ST_87 : Operation 233 [1/1] (1.02ns)   --->   "%icmp_ln102 = icmp_eq  i27 %j, i27 %lshr_ln" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:102]   --->   Operation 233 'icmp' 'icmp_ln102' <Predicate = (!icmp_ln99_1)> <Delay = 1.02> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.02> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_87 : Operation 234 [1/1] (0.96ns)   --->   "%add_ln102 = add i27 %j, i27 1" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:102]   --->   Operation 234 'add' 'add_ln102' <Predicate = (!icmp_ln99_1)> <Delay = 0.96> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.96> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_87 : Operation 235 [1/1] (0.00ns)   --->   "%br_ln102 = br i1 %icmp_ln102, void %for.inc.split, void %for.inc26.loopexit" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:102]   --->   Operation 235 'br' 'br_ln102' <Predicate = (!icmp_ln99_1)> <Delay = 0.00>
+ST_87 : Operation 236 [1/1] (0.00ns)   --->   "%gamma_ram_addr = getelementptr i256 %gamma_ram, i64 0, i64 %zext_ln102" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:105]   --->   Operation 236 'getelementptr' 'gamma_ram_addr' <Predicate = (!icmp_ln99_1 & !icmp_ln102)> <Delay = 0.00>
+ST_87 : Operation 237 [2/2] (1.23ns)   --->   "%gamma_ram_load = load i9 %gamma_ram_addr" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:105]   --->   Operation 237 'load' 'gamma_ram_load' <Predicate = (!icmp_ln99_1 & !icmp_ln102)> <Delay = 1.23> <CoreInst = "RAM_1P_BRAM">   --->   Core 90 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 256> <Depth = 512> <RAM>
+ST_87 : Operation 238 [1/1] (0.00ns)   --->   "%beta_ram_addr = getelementptr i256 %beta_ram, i64 0, i64 %zext_ln102" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:106]   --->   Operation 238 'getelementptr' 'beta_ram_addr' <Predicate = (!icmp_ln99_1 & !icmp_ln102)> <Delay = 0.00>
+ST_87 : Operation 239 [2/2] (1.23ns)   --->   "%beta_ram_load = load i9 %beta_ram_addr" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:106]   --->   Operation 239 'load' 'beta_ram_load' <Predicate = (!icmp_ln99_1 & !icmp_ln102)> <Delay = 1.23> <CoreInst = "RAM_1P_BRAM">   --->   Core 90 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 256> <Depth = 512> <RAM>
+ST_87 : Operation 240 [1/1] (0.99ns)   --->   "%icmp_ln99 = icmp_eq  i32 %i, i32 %rows_read" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:99]   --->   Operation 240 'icmp' 'icmp_ln99' <Predicate = (!icmp_ln99_1 & icmp_ln102)> <Delay = 0.99> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_87 : Operation 241 [1/1] (0.00ns)   --->   "%br_ln99 = br i1 %icmp_ln99, void %VITIS_LOOP_102_2, void %for.end28.loopexit" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:99]   --->   Operation 241 'br' 'br_ln99' <Predicate = (!icmp_ln99_1 & icmp_ln102)> <Delay = 0.00>
+ST_87 : Operation 242 [1/1] (0.00ns)   --->   "%br_ln0 = br void %for.end28"   --->   Operation 242 'br' 'br_ln0' <Predicate = (!icmp_ln99_1 & icmp_ln102 & icmp_ln99)> <Delay = 0.00>
+ST_87 : Operation 243 [1/1] (0.00ns)   --->   "%ret_ln109 = ret" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:109]   --->   Operation 243 'ret' 'ret_ln109' <Predicate = (icmp_ln102 & icmp_ln99) | (icmp_ln99_1)> <Delay = 0.00>
+
+State 88 <SV = 87> <Delay = 2.85>
+ST_88 : Operation 244 [1/1] (0.00ns)   --->   "%specloopname_ln102 = specloopname void @_ssdm_op_SpecLoopName, void @empty_19" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:102]   --->   Operation 244 'specloopname' 'specloopname_ln102' <Predicate = true> <Delay = 0.00>
+ST_88 : Operation 245 [1/2] (1.23ns)   --->   "%gamma_ram_load = load i9 %gamma_ram_addr" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:105]   --->   Operation 245 'load' 'gamma_ram_load' <Predicate = true> <Delay = 1.23> <CoreInst = "RAM_1P_BRAM">   --->   Core 90 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 256> <Depth = 512> <RAM>
+ST_88 : Operation 246 [1/1] (1.62ns)   --->   "%write_ln105 = write void @_ssdm_op_Write.ap_fifo.volatile.i256P0A, i256 %gamma4, i256 %gamma_ram_load" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:105]   --->   Operation 246 'write' 'write_ln105' <Predicate = true> <Delay = 1.62> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.62> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 256> <Depth = 16> <FIFO>
+ST_88 : Operation 247 [1/2] (1.23ns)   --->   "%beta_ram_load = load i9 %beta_ram_addr" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:106]   --->   Operation 247 'load' 'beta_ram_load' <Predicate = true> <Delay = 1.23> <CoreInst = "RAM_1P_BRAM">   --->   Core 90 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 256> <Depth = 512> <RAM>
+ST_88 : Operation 248 [1/1] (1.62ns)   --->   "%write_ln106 = write void @_ssdm_op_Write.ap_fifo.volatile.i256P0A, i256 %beta5, i256 %beta_ram_load" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:106]   --->   Operation 248 'write' 'write_ln106' <Predicate = true> <Delay = 1.62> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.62> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 256> <Depth = 16> <FIFO>
+ST_88 : Operation 249 [1/1] (0.00ns)   --->   "%br_ln102 = br void %for.inc" [/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:102]   --->   Operation 249 'br' 'br_ln102' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 2.7ns.
+
+ <State 1>: 2.41ns
+The critical path consists of the following:
+	wire read operation ('cols_log_read') on port 'cols_log' [16]  (0 ns)
+	'shl' operation ('cols', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:88) [21]  (1.39 ns)
+	'icmp' operation ('icmp_ln96', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) [36]  (1.03 ns)
+
+ <State 2>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) [42]  (7.3 ns)
+
+ <State 3>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) [42]  (7.3 ns)
+
+ <State 4>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) [42]  (7.3 ns)
+
+ <State 5>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) [42]  (7.3 ns)
+
+ <State 6>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) [42]  (7.3 ns)
+
+ <State 7>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) [42]  (7.3 ns)
+
+ <State 8>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) [42]  (7.3 ns)
+
+ <State 9>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) [42]  (7.3 ns)
+
+ <State 10>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) [42]  (7.3 ns)
+
+ <State 11>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) [42]  (7.3 ns)
+
+ <State 12>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) [42]  (7.3 ns)
+
+ <State 13>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) [42]  (7.3 ns)
+
+ <State 14>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) [42]  (7.3 ns)
+
+ <State 15>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) [42]  (7.3 ns)
+
+ <State 16>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) [42]  (7.3 ns)
+
+ <State 17>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) [42]  (7.3 ns)
+
+ <State 18>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) [42]  (7.3 ns)
+
+ <State 19>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) [42]  (7.3 ns)
+
+ <State 20>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) [42]  (7.3 ns)
+
+ <State 21>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) [42]  (7.3 ns)
+
+ <State 22>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) [42]  (7.3 ns)
+
+ <State 23>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) [42]  (7.3 ns)
+
+ <State 24>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) [42]  (7.3 ns)
+
+ <State 25>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) [42]  (7.3 ns)
+
+ <State 26>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) [42]  (7.3 ns)
+
+ <State 27>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) [42]  (7.3 ns)
+
+ <State 28>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) [42]  (7.3 ns)
+
+ <State 29>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) [42]  (7.3 ns)
+
+ <State 30>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) [42]  (7.3 ns)
+
+ <State 31>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) [42]  (7.3 ns)
+
+ <State 32>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) [42]  (7.3 ns)
+
+ <State 33>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) [42]  (7.3 ns)
+
+ <State 34>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) [42]  (7.3 ns)
+
+ <State 35>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) [42]  (7.3 ns)
+
+ <State 36>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) [42]  (7.3 ns)
+
+ <State 37>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) [42]  (7.3 ns)
+
+ <State 38>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) [42]  (7.3 ns)
+
+ <State 39>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) [42]  (7.3 ns)
+
+ <State 40>: 7.3ns
+The critical path consists of the following:
+	'call' operation ('call_ln96', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) to '(anonymous namespace)DataMover_B<ap_int<8>, ap_uint<256>, 5u>_Pipeline_1' [43]  (7.3 ns)
+
+ <State 41>: 0.753ns
+The critical path consists of the following:
+	'icmp' operation ('empty_260', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) [46]  (0.753 ns)
+
+ <State 42>: 2.1ns
+The critical path consists of the following:
+	'call' operation ('call_ln96', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) to '(anonymous namespace)DataMover_B<ap_int<8>, ap_uint<256>, 5u>_Pipeline_2' [50]  (2.1 ns)
+
+ <State 43>: 1.08ns
+The critical path consists of the following:
+	'add' operation ('add_ln97', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) [56]  (1.08 ns)
+
+ <State 44>: 7.3ns
+The critical path consists of the following:
+	'getelementptr' operation ('ln_paras_addr_1', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) [61]  (0 ns)
+	bus request operation ('empty_257', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) [62]  (7.3 ns)
+
+ <State 45>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_257', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) [62]  (7.3 ns)
+
+ <State 46>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_257', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) [62]  (7.3 ns)
+
+ <State 47>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_257', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) [62]  (7.3 ns)
+
+ <State 48>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_257', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) [62]  (7.3 ns)
+
+ <State 49>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_257', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) [62]  (7.3 ns)
+
+ <State 50>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_257', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) [62]  (7.3 ns)
+
+ <State 51>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_257', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) [62]  (7.3 ns)
+
+ <State 52>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_257', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) [62]  (7.3 ns)
+
+ <State 53>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_257', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) [62]  (7.3 ns)
+
+ <State 54>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_257', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) [62]  (7.3 ns)
+
+ <State 55>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_257', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) [62]  (7.3 ns)
+
+ <State 56>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_257', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) [62]  (7.3 ns)
+
+ <State 57>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_257', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) [62]  (7.3 ns)
+
+ <State 58>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_257', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) [62]  (7.3 ns)
+
+ <State 59>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_257', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) [62]  (7.3 ns)
+
+ <State 60>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_257', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) [62]  (7.3 ns)
+
+ <State 61>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_257', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) [62]  (7.3 ns)
+
+ <State 62>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_257', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) [62]  (7.3 ns)
+
+ <State 63>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_257', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) [62]  (7.3 ns)
+
+ <State 64>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_257', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) [62]  (7.3 ns)
+
+ <State 65>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_257', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) [62]  (7.3 ns)
+
+ <State 66>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_257', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) [62]  (7.3 ns)
+
+ <State 67>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_257', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) [62]  (7.3 ns)
+
+ <State 68>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_257', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) [62]  (7.3 ns)
+
+ <State 69>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_257', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) [62]  (7.3 ns)
+
+ <State 70>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_257', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) [62]  (7.3 ns)
+
+ <State 71>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_257', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) [62]  (7.3 ns)
+
+ <State 72>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_257', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) [62]  (7.3 ns)
+
+ <State 73>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_257', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) [62]  (7.3 ns)
+
+ <State 74>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_257', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) [62]  (7.3 ns)
+
+ <State 75>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_257', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) [62]  (7.3 ns)
+
+ <State 76>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_257', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) [62]  (7.3 ns)
+
+ <State 77>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_257', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) [62]  (7.3 ns)
+
+ <State 78>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_257', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) [62]  (7.3 ns)
+
+ <State 79>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_257', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) [62]  (7.3 ns)
+
+ <State 80>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_257', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) [62]  (7.3 ns)
+
+ <State 81>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty_257', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) on port 'ln_paras' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) [62]  (7.3 ns)
+
+ <State 82>: 7.3ns
+The critical path consists of the following:
+	'call' operation ('call_ln97', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:97) to '(anonymous namespace)DataMover_B<ap_int<8>, ap_uint<256>, 5u>_Pipeline_3' [63]  (7.3 ns)
+
+ <State 83>: 0ns
+The critical path consists of the following:
+
+ <State 84>: 2.1ns
+The critical path consists of the following:
+	'call' operation ('call_ln96', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:96) to '(anonymous namespace)DataMover_B<ap_int<8>, ap_uint<256>, 5u>_Pipeline_4' [69]  (2.1 ns)
+
+ <State 85>: 0.991ns
+The critical path consists of the following:
+	'icmp' operation ('icmp_ln99_1', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:99) [72]  (0.991 ns)
+
+ <State 86>: 1.02ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:99) [77]  (0 ns)
+	'add' operation ('i', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:99) [81]  (1.02 ns)
+
+ <State 87>: 1.24ns
+The critical path consists of the following:
+	'phi' operation ('j', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:102) with incoming values : ('add_ln102', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:102) [84]  (0 ns)
+	'getelementptr' operation ('gamma_ram_addr', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:105) [91]  (0 ns)
+	'load' operation ('gamma_ram_load', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:105) on array 'gamma_ram' [92]  (1.24 ns)
+
+ <State 88>: 2.86ns
+The critical path consists of the following:
+	'load' operation ('gamma_ram_load', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:105) on array 'gamma_ram' [92]  (1.24 ns)
+	fifo write operation ('write_ln105', /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:105) on port 'gamma4' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Layer_Norm_0612/src/../include/helpers.hpp:105) [93]  (1.62 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+	State 25
+	State 26
+	State 27
+	State 28
+	State 29
+	State 30
+	State 31
+	State 32
+	State 33
+	State 34
+	State 35
+	State 36
+	State 37
+	State 38
+	State 39
+	State 40
+	State 41
+	State 42
+	State 43
+	State 44
+	State 45
+	State 46
+	State 47
+	State 48
+	State 49
+	State 50
+	State 51
+	State 52
+	State 53
+	State 54
+	State 55
+	State 56
+	State 57
+	State 58
+	State 59
+	State 60
+	State 61
+	State 62
+	State 63
+	State 64
+	State 65
+	State 66
+	State 67
+	State 68
+	State 69
+	State 70
+	State 71
+	State 72
+	State 73
+	State 74
+	State 75
+	State 76
+	State 77
+	State 78
+	State 79
+	State 80
+	State 81
+	State 82
+	State 83
+	State 84
+	State 85
+	State 86
+	State 87
+	State 88
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

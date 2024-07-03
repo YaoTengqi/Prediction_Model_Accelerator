@@ -1,0 +1,1518 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="layernorm.wdb" id="1">
+         <top_modules>
+            <top_module name="apa_layernorm_top" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0ns"></ZoomStartTime>
+      <ZoomEndTime time="2000ns"></ZoomEndTime>
+      <Cursor1Time time="0ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="257"></NameColumnWidth>
+      <ValueColumnWidth column_width="84"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="2" />
+   <wvobject type="group" fp_name="HLS Process Summary Group">
+      <obj_property name="label">HLS Process Summary</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="group" fp_name="/apatb_layernorm_top/AESL_inst_layernorm//AESL_inst_layernorm_activity">
+         <obj_property name="label">AESL_inst_layernorm_activity</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="UseFullPath">true</obj_property>
+         <obj_property name="ElementShortName">AESL_inst_layernorm_activity</obj_property>
+         <obj_property name="ObjectShortName">AESL_inst_layernorm_activity</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+         <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">turquoise</obj_property>
+         <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+         <obj_property name="Render_Data">/apatb_layernorm_top/AESL_inst_layernorm//AESL_inst_layernorm_activity.dataflowTxWaveData.Cycles</obj_property>
+         <obj_property name="Value_Data">/apatb_layernorm_top/AESL_inst_layernorm//AESL_inst_layernorm_activity.dataflowTxWaveData.OutStanding</obj_property>
+         <obj_property name="Detail_Data">/apatb_layernorm_top/AESL_inst_layernorm//AESL_inst_layernorm_activity.dataflowTxTooltipData</obj_property>
+         <wvobject type="group" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/entry_proc_U0/entry_proc_U0_activity">
+            <obj_property name="label">entry_proc_U0_activity</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="UseFullPath">true</obj_property>
+            <obj_property name="ElementShortName">entry_proc_U0_activity</obj_property>
+            <obj_property name="ObjectShortName">entry_proc_U0_activity</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+            <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">turquoise</obj_property>
+            <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+            <obj_property name="Render_Data">/apatb_layernorm_top/AESL_inst_layernorm/entry_proc_U0/entry_proc_U0_activity.dataflowTxWaveData.Cycles</obj_property>
+            <obj_property name="Value_Data">/apatb_layernorm_top/AESL_inst_layernorm/entry_proc_U0/entry_proc_U0_activity.dataflowTxWaveData.OutStanding</obj_property>
+            <obj_property name="Detail_Data">/apatb_layernorm_top/AESL_inst_layernorm/entry_proc_U0/entry_proc_U0_activity.dataflowTxTooltipData</obj_property>
+         </wvobject>
+         <wvobject type="group" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0/p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0_activity">
+            <obj_property name="label">p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0_activity</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="UseFullPath">true</obj_property>
+            <obj_property name="ElementShortName">p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0_activity</obj_property>
+            <obj_property name="ObjectShortName">p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0_activity</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+            <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">turquoise</obj_property>
+            <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+            <obj_property name="Render_Data">/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0/p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0_activity.dataflowTxWaveData.Cycles</obj_property>
+            <obj_property name="Value_Data">/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0/p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0_activity.dataflowTxWaveData.OutStanding</obj_property>
+            <obj_property name="Detail_Data">/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0/p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0_activity.dataflowTxTooltipData</obj_property>
+            <wvobject type="group" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0/grp_p_anonymous_namespace_DataMover_A_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_45_3_fu_162/grp_p_anonymous_namespace_DataMover_A_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_45_3_fu_162_activity">
+               <obj_property name="label">grp_p_anonymous_namespace_DataMover_A_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_45_3_fu_162_activity</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <obj_property name="UseFullPath">true</obj_property>
+               <obj_property name="ElementShortName">grp_p_anonymous_namespace_DataMover_A_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_45_3_fu_162_activity</obj_property>
+               <obj_property name="ObjectShortName">grp_p_anonymous_namespace_DataMover_A_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_45_3_fu_162_activity</obj_property>
+               <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+               <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+               <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+               <obj_property name="CustomSignalColor">turquoise</obj_property>
+               <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+               <obj_property name="Render_Data">/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0/grp_p_anonymous_namespace_DataMover_A_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_45_3_fu_162/grp_p_anonymous_namespace_DataMover_A_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_45_3_fu_162_activity.dataflowTxWaveData.Cycles</obj_property>
+               <obj_property name="Value_Data">/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0/grp_p_anonymous_namespace_DataMover_A_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_45_3_fu_162/grp_p_anonymous_namespace_DataMover_A_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_45_3_fu_162_activity.dataflowTxWaveData.OutStanding</obj_property>
+               <obj_property name="Detail_Data">/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0/grp_p_anonymous_namespace_DataMover_A_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_45_3_fu_162/grp_p_anonymous_namespace_DataMover_A_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_45_3_fu_162_activity.dataflowTxTooltipData</obj_property>
+            </wvobject>
+            <wvobject type="group" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0/grp_p_anonymous_namespace_DataMover_A_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_35_2_fu_174/grp_p_anonymous_namespace_DataMover_A_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_35_2_fu_174_activity">
+               <obj_property name="label">grp_p_anonymous_namespace_DataMover_A_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_35_2_fu_174_activity</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <obj_property name="UseFullPath">true</obj_property>
+               <obj_property name="ElementShortName">grp_p_anonymous_namespace_DataMover_A_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_35_2_fu_174_activity</obj_property>
+               <obj_property name="ObjectShortName">grp_p_anonymous_namespace_DataMover_A_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_35_2_fu_174_activity</obj_property>
+               <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+               <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+               <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+               <obj_property name="CustomSignalColor">turquoise</obj_property>
+               <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+               <obj_property name="Render_Data">/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0/grp_p_anonymous_namespace_DataMover_A_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_35_2_fu_174/grp_p_anonymous_namespace_DataMover_A_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_35_2_fu_174_activity.dataflowTxWaveData.Cycles</obj_property>
+               <obj_property name="Value_Data">/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0/grp_p_anonymous_namespace_DataMover_A_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_35_2_fu_174/grp_p_anonymous_namespace_DataMover_A_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_35_2_fu_174_activity.dataflowTxWaveData.OutStanding</obj_property>
+               <obj_property name="Detail_Data">/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0/grp_p_anonymous_namespace_DataMover_A_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_35_2_fu_174/grp_p_anonymous_namespace_DataMover_A_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_35_2_fu_174_activity.dataflowTxTooltipData</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0/p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0_activity">
+            <obj_property name="label">p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0_activity</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="UseFullPath">true</obj_property>
+            <obj_property name="ElementShortName">p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0_activity</obj_property>
+            <obj_property name="ObjectShortName">p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0_activity</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+            <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">turquoise</obj_property>
+            <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+            <obj_property name="Render_Data">/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0/p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0_activity.dataflowTxWaveData.Cycles</obj_property>
+            <obj_property name="Value_Data">/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0/p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0_activity.dataflowTxWaveData.OutStanding</obj_property>
+            <obj_property name="Detail_Data">/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0/p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0_activity.dataflowTxTooltipData</obj_property>
+            <wvobject type="group" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0/grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_1_fu_210/grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_1_fu_210_activity">
+               <obj_property name="label">grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_1_fu_210_activity</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <obj_property name="UseFullPath">true</obj_property>
+               <obj_property name="ElementShortName">grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_1_fu_210_activity</obj_property>
+               <obj_property name="ObjectShortName">grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_1_fu_210_activity</obj_property>
+               <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+               <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+               <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+               <obj_property name="CustomSignalColor">turquoise</obj_property>
+               <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+               <obj_property name="Render_Data">/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0/grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_1_fu_210/grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_1_fu_210_activity.dataflowTxWaveData.Cycles</obj_property>
+               <obj_property name="Value_Data">/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0/grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_1_fu_210/grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_1_fu_210_activity.dataflowTxWaveData.OutStanding</obj_property>
+               <obj_property name="Detail_Data">/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0/grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_1_fu_210/grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_1_fu_210_activity.dataflowTxTooltipData</obj_property>
+            </wvobject>
+            <wvobject type="group" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0/grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_2_fu_219/grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_2_fu_219_activity">
+               <obj_property name="label">grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_2_fu_219_activity</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <obj_property name="UseFullPath">true</obj_property>
+               <obj_property name="ElementShortName">grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_2_fu_219_activity</obj_property>
+               <obj_property name="ObjectShortName">grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_2_fu_219_activity</obj_property>
+               <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+               <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+               <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+               <obj_property name="CustomSignalColor">turquoise</obj_property>
+               <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+               <obj_property name="Render_Data">/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0/grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_2_fu_219/grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_2_fu_219_activity.dataflowTxWaveData.Cycles</obj_property>
+               <obj_property name="Value_Data">/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0/grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_2_fu_219/grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_2_fu_219_activity.dataflowTxWaveData.OutStanding</obj_property>
+               <obj_property name="Detail_Data">/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0/grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_2_fu_219/grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_2_fu_219_activity.dataflowTxTooltipData</obj_property>
+            </wvobject>
+            <wvobject type="group" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0/grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_3_fu_232/grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_3_fu_232_activity">
+               <obj_property name="label">grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_3_fu_232_activity</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <obj_property name="UseFullPath">true</obj_property>
+               <obj_property name="ElementShortName">grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_3_fu_232_activity</obj_property>
+               <obj_property name="ObjectShortName">grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_3_fu_232_activity</obj_property>
+               <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+               <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+               <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+               <obj_property name="CustomSignalColor">turquoise</obj_property>
+               <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+               <obj_property name="Render_Data">/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0/grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_3_fu_232/grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_3_fu_232_activity.dataflowTxWaveData.Cycles</obj_property>
+               <obj_property name="Value_Data">/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0/grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_3_fu_232/grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_3_fu_232_activity.dataflowTxWaveData.OutStanding</obj_property>
+               <obj_property name="Detail_Data">/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0/grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_3_fu_232/grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_3_fu_232_activity.dataflowTxTooltipData</obj_property>
+            </wvobject>
+            <wvobject type="group" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0/grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_4_fu_241/grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_4_fu_241_activity">
+               <obj_property name="label">grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_4_fu_241_activity</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <obj_property name="UseFullPath">true</obj_property>
+               <obj_property name="ElementShortName">grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_4_fu_241_activity</obj_property>
+               <obj_property name="ObjectShortName">grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_4_fu_241_activity</obj_property>
+               <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+               <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+               <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+               <obj_property name="CustomSignalColor">turquoise</obj_property>
+               <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+               <obj_property name="Render_Data">/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0/grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_4_fu_241/grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_4_fu_241_activity.dataflowTxWaveData.Cycles</obj_property>
+               <obj_property name="Value_Data">/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0/grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_4_fu_241/grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_4_fu_241_activity.dataflowTxWaveData.OutStanding</obj_property>
+               <obj_property name="Detail_Data">/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0/grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_4_fu_241/grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_4_fu_241_activity.dataflowTxTooltipData</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Mean_ap_int_8_5u_U0/p_anonymous_namespace_Mean_ap_int_8_5u_U0_activity">
+            <obj_property name="label">p_anonymous_namespace_Mean_ap_int_8_5u_U0_activity</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="UseFullPath">true</obj_property>
+            <obj_property name="ElementShortName">p_anonymous_namespace_Mean_ap_int_8_5u_U0_activity</obj_property>
+            <obj_property name="ObjectShortName">p_anonymous_namespace_Mean_ap_int_8_5u_U0_activity</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+            <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">turquoise</obj_property>
+            <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+            <obj_property name="Render_Data">/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Mean_ap_int_8_5u_U0/p_anonymous_namespace_Mean_ap_int_8_5u_U0_activity.dataflowTxWaveData.Cycles</obj_property>
+            <obj_property name="Value_Data">/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Mean_ap_int_8_5u_U0/p_anonymous_namespace_Mean_ap_int_8_5u_U0_activity.dataflowTxWaveData.OutStanding</obj_property>
+            <obj_property name="Detail_Data">/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Mean_ap_int_8_5u_U0/p_anonymous_namespace_Mean_ap_int_8_5u_U0_activity.dataflowTxTooltipData</obj_property>
+         </wvobject>
+         <wvobject type="group" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_StdDev_ap_int_8_float_5u_U0/p_anonymous_namespace_StdDev_ap_int_8_float_5u_U0_activity">
+            <obj_property name="label">p_anonymous_namespace_StdDev_ap_int_8_float_5u_U0_activity</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="UseFullPath">true</obj_property>
+            <obj_property name="ElementShortName">p_anonymous_namespace_StdDev_ap_int_8_float_5u_U0_activity</obj_property>
+            <obj_property name="ObjectShortName">p_anonymous_namespace_StdDev_ap_int_8_float_5u_U0_activity</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+            <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">turquoise</obj_property>
+            <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+            <obj_property name="Render_Data">/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_StdDev_ap_int_8_float_5u_U0/p_anonymous_namespace_StdDev_ap_int_8_float_5u_U0_activity.dataflowTxWaveData.Cycles</obj_property>
+            <obj_property name="Value_Data">/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_StdDev_ap_int_8_float_5u_U0/p_anonymous_namespace_StdDev_ap_int_8_float_5u_U0_activity.dataflowTxWaveData.OutStanding</obj_property>
+            <obj_property name="Detail_Data">/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_StdDev_ap_int_8_float_5u_U0/p_anonymous_namespace_StdDev_ap_int_8_float_5u_U0_activity.dataflowTxTooltipData</obj_property>
+         </wvobject>
+         <wvobject type="group" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Norm_ap_int_8_float_5u_U0/p_anonymous_namespace_Norm_ap_int_8_float_5u_U0_activity">
+            <obj_property name="label">p_anonymous_namespace_Norm_ap_int_8_float_5u_U0_activity</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="UseFullPath">true</obj_property>
+            <obj_property name="ElementShortName">p_anonymous_namespace_Norm_ap_int_8_float_5u_U0_activity</obj_property>
+            <obj_property name="ObjectShortName">p_anonymous_namespace_Norm_ap_int_8_float_5u_U0_activity</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+            <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">turquoise</obj_property>
+            <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+            <obj_property name="Render_Data">/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Norm_ap_int_8_float_5u_U0/p_anonymous_namespace_Norm_ap_int_8_float_5u_U0_activity.dataflowTxWaveData.Cycles</obj_property>
+            <obj_property name="Value_Data">/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Norm_ap_int_8_float_5u_U0/p_anonymous_namespace_Norm_ap_int_8_float_5u_U0_activity.dataflowTxWaveData.OutStanding</obj_property>
+            <obj_property name="Detail_Data">/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Norm_ap_int_8_float_5u_U0/p_anonymous_namespace_Norm_ap_int_8_float_5u_U0_activity.dataflowTxTooltipData</obj_property>
+         </wvobject>
+         <wvobject type="group" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Store_temp_ap_int_8_ap_uint_256_5u_U0/p_anonymous_namespace_Store_temp_ap_int_8_ap_uint_256_5u_U0_activity">
+            <obj_property name="label">p_anonymous_namespace_Store_temp_ap_int_8_ap_uint_256_5u_U0_activity</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="UseFullPath">true</obj_property>
+            <obj_property name="ElementShortName">p_anonymous_namespace_Store_temp_ap_int_8_ap_uint_256_5u_U0_activity</obj_property>
+            <obj_property name="ObjectShortName">p_anonymous_namespace_Store_temp_ap_int_8_ap_uint_256_5u_U0_activity</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+            <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">turquoise</obj_property>
+            <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+            <obj_property name="Render_Data">/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Store_temp_ap_int_8_ap_uint_256_5u_U0/p_anonymous_namespace_Store_temp_ap_int_8_ap_uint_256_5u_U0_activity.dataflowTxWaveData.Cycles</obj_property>
+            <obj_property name="Value_Data">/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Store_temp_ap_int_8_ap_uint_256_5u_U0/p_anonymous_namespace_Store_temp_ap_int_8_ap_uint_256_5u_U0_activity.dataflowTxWaveData.OutStanding</obj_property>
+            <obj_property name="Detail_Data">/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Store_temp_ap_int_8_ap_uint_256_5u_U0/p_anonymous_namespace_Store_temp_ap_int_8_ap_uint_256_5u_U0_activity.dataflowTxTooltipData</obj_property>
+            <wvobject type="group" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Store_temp_ap_int_8_ap_uint_256_5u_U0/grp_p_anonymous_namespace_Store_temp_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_275_3_fu_157/grp_p_anonymous_namespace_Store_temp_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_275_3_fu_157_activity">
+               <obj_property name="label">grp_p_anonymous_namespace_Store_temp_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_275_3_fu_157_activity</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <obj_property name="UseFullPath">true</obj_property>
+               <obj_property name="ElementShortName">grp_p_anonymous_namespace_Store_temp_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_275_3_fu_157_activity</obj_property>
+               <obj_property name="ObjectShortName">grp_p_anonymous_namespace_Store_temp_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_275_3_fu_157_activity</obj_property>
+               <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+               <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+               <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+               <obj_property name="CustomSignalColor">turquoise</obj_property>
+               <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+               <obj_property name="Render_Data">/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Store_temp_ap_int_8_ap_uint_256_5u_U0/grp_p_anonymous_namespace_Store_temp_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_275_3_fu_157/grp_p_anonymous_namespace_Store_temp_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_275_3_fu_157_activity.dataflowTxWaveData.Cycles</obj_property>
+               <obj_property name="Value_Data">/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Store_temp_ap_int_8_ap_uint_256_5u_U0/grp_p_anonymous_namespace_Store_temp_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_275_3_fu_157/grp_p_anonymous_namespace_Store_temp_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_275_3_fu_157_activity.dataflowTxWaveData.OutStanding</obj_property>
+               <obj_property name="Detail_Data">/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Store_temp_ap_int_8_ap_uint_256_5u_U0/grp_p_anonymous_namespace_Store_temp_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_275_3_fu_157/grp_p_anonymous_namespace_Store_temp_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_275_3_fu_157_activity.dataflowTxTooltipData</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Store_ap_int_8_ap_uint_256_5u_U0/p_anonymous_namespace_Store_ap_int_8_ap_uint_256_5u_U0_activity">
+            <obj_property name="label">p_anonymous_namespace_Store_ap_int_8_ap_uint_256_5u_U0_activity</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="UseFullPath">true</obj_property>
+            <obj_property name="ElementShortName">p_anonymous_namespace_Store_ap_int_8_ap_uint_256_5u_U0_activity</obj_property>
+            <obj_property name="ObjectShortName">p_anonymous_namespace_Store_ap_int_8_ap_uint_256_5u_U0_activity</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+            <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">turquoise</obj_property>
+            <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+            <obj_property name="Render_Data">/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Store_ap_int_8_ap_uint_256_5u_U0/p_anonymous_namespace_Store_ap_int_8_ap_uint_256_5u_U0_activity.dataflowTxWaveData.Cycles</obj_property>
+            <obj_property name="Value_Data">/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Store_ap_int_8_ap_uint_256_5u_U0/p_anonymous_namespace_Store_ap_int_8_ap_uint_256_5u_U0_activity.dataflowTxWaveData.OutStanding</obj_property>
+            <obj_property name="Detail_Data">/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Store_ap_int_8_ap_uint_256_5u_U0/p_anonymous_namespace_Store_ap_int_8_ap_uint_256_5u_U0_activity.dataflowTxTooltipData</obj_property>
+         </wvobject>
+      </wvobject>
+   </wvobject>
+   <wvobject type="protoinst" fp_name="/apatb_layernorm_top/AESL_inst_layernorm//AESL_inst_layernorm_activity">
+      <obj_property name="ElementShortName">AESL_inst_layernorm_activity</obj_property>
+      <obj_property name="ObjectShortName">AESL_inst_layernorm_activity</obj_property>
+   </wvobject>
+   <wvobject type="group" fp_name="AESL_inst_layernorm_group">
+      <obj_property name="label">AESL_inst_layernorm</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="protoinst" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/entry_proc_U0/entry_proc_U0_activity">
+         <obj_property name="ElementShortName">entry_proc_U0_activity</obj_property>
+         <obj_property name="ObjectShortName">entry_proc_U0_activity</obj_property>
+      </wvobject>
+      <wvobject type="protoinst" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0/p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0_activity">
+         <obj_property name="ElementShortName">p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0_activity</obj_property>
+         <obj_property name="ObjectShortName">p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0_activity</obj_property>
+      </wvobject>
+      <wvobject type="protoinst" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0/p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0_activity">
+         <obj_property name="ElementShortName">p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0_activity</obj_property>
+         <obj_property name="ObjectShortName">p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0_activity</obj_property>
+      </wvobject>
+      <wvobject type="protoinst" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Mean_ap_int_8_5u_U0/p_anonymous_namespace_Mean_ap_int_8_5u_U0_activity">
+         <obj_property name="ElementShortName">p_anonymous_namespace_Mean_ap_int_8_5u_U0_activity</obj_property>
+         <obj_property name="ObjectShortName">p_anonymous_namespace_Mean_ap_int_8_5u_U0_activity</obj_property>
+      </wvobject>
+      <wvobject type="protoinst" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_StdDev_ap_int_8_float_5u_U0/p_anonymous_namespace_StdDev_ap_int_8_float_5u_U0_activity">
+         <obj_property name="ElementShortName">p_anonymous_namespace_StdDev_ap_int_8_float_5u_U0_activity</obj_property>
+         <obj_property name="ObjectShortName">p_anonymous_namespace_StdDev_ap_int_8_float_5u_U0_activity</obj_property>
+      </wvobject>
+      <wvobject type="protoinst" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Norm_ap_int_8_float_5u_U0/p_anonymous_namespace_Norm_ap_int_8_float_5u_U0_activity">
+         <obj_property name="ElementShortName">p_anonymous_namespace_Norm_ap_int_8_float_5u_U0_activity</obj_property>
+         <obj_property name="ObjectShortName">p_anonymous_namespace_Norm_ap_int_8_float_5u_U0_activity</obj_property>
+      </wvobject>
+      <wvobject type="protoinst" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Store_temp_ap_int_8_ap_uint_256_5u_U0/p_anonymous_namespace_Store_temp_ap_int_8_ap_uint_256_5u_U0_activity">
+         <obj_property name="ElementShortName">p_anonymous_namespace_Store_temp_ap_int_8_ap_uint_256_5u_U0_activity</obj_property>
+         <obj_property name="ObjectShortName">p_anonymous_namespace_Store_temp_ap_int_8_ap_uint_256_5u_U0_activity</obj_property>
+      </wvobject>
+      <wvobject type="protoinst" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Store_ap_int_8_ap_uint_256_5u_U0/p_anonymous_namespace_Store_ap_int_8_ap_uint_256_5u_U0_activity">
+         <obj_property name="ElementShortName">p_anonymous_namespace_Store_ap_int_8_ap_uint_256_5u_U0_activity</obj_property>
+         <obj_property name="ObjectShortName">p_anonymous_namespace_Store_ap_int_8_ap_uint_256_5u_U0_activity</obj_property>
+      </wvobject>
+      <wvobject type="group" fp_name="AESL_inst_layernorm_Handshake_group">
+         <obj_property name="label">Block-level handshake</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/ap_start">
+            <obj_property name="ElementShortName">ap_start</obj_property>
+            <obj_property name="ObjectShortName">ap_start</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/ap_ready">
+            <obj_property name="ElementShortName">ap_ready</obj_property>
+            <obj_property name="ObjectShortName">ap_ready</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/ap_done">
+            <obj_property name="ElementShortName">ap_done</obj_property>
+            <obj_property name="ObjectShortName">ap_done</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject type="group" fp_name="entry_proc_U0_group">
+         <obj_property name="label">entry_proc_U0</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="group" fp_name="entry_proc_U0_Input_group">
+            <obj_property name="label">Input Channels</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+         </wvobject>
+         <wvobject type="group" fp_name="entry_proc_U0_Handshake_group">
+            <obj_property name="label">Block-level handshake</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/entry_proc_U0/ap_start">
+               <obj_property name="ElementShortName">ap_start</obj_property>
+               <obj_property name="ObjectShortName">ap_start</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/entry_proc_U0/real_start">
+               <obj_property name="ElementShortName">real_start</obj_property>
+               <obj_property name="ObjectShortName">real_start</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/entry_proc_U0/ap_ready">
+               <obj_property name="ElementShortName">ap_ready</obj_property>
+               <obj_property name="ObjectShortName">ap_ready</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/entry_proc_U0/ap_done">
+               <obj_property name="ElementShortName">ap_done</obj_property>
+               <obj_property name="ObjectShortName">ap_done</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/entry_proc_U0/ap_continue">
+               <obj_property name="ElementShortName">ap_continue</obj_property>
+               <obj_property name="ObjectShortName">ap_continue</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="entry_proc_U0_Output_group">
+            <obj_property name="label">Output Channels</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="output_data_addr_c_group">
+               <obj_property name="label">output_data_addr_c(output_data_addr_c_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/entry_proc_U0/output_data_addr_c_blk_n">
+                  <obj_property name="ElementShortName">output_data_addr_c_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">output_data_addr_c_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/entry_proc_U0/output_data_addr_c_din">
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/entry_proc_U0/output_data_addr_c_full_n">
+                  <obj_property name="ElementShortName">output_data_addr_c_full_n</obj_property>
+                  <obj_property name="ObjectShortName">output_data_addr_c_full_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/entry_proc_U0/output_data_addr_c_write">
+                  <obj_property name="ElementShortName">output_data_addr_c_write</obj_property>
+                  <obj_property name="ObjectShortName">output_data_addr_c_write</obj_property>
+               </wvobject>
+            </wvobject>
+            <wvobject type="group" fp_name="outputs_c_group">
+               <obj_property name="label">outputs_c(outputs_c_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/entry_proc_U0/outputs_c_blk_n">
+                  <obj_property name="ElementShortName">outputs_c_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">outputs_c_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/entry_proc_U0/outputs_c_din">
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/entry_proc_U0/outputs_c_full_n">
+                  <obj_property name="ElementShortName">outputs_c_full_n</obj_property>
+                  <obj_property name="ObjectShortName">outputs_c_full_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/entry_proc_U0/outputs_c_write">
+                  <obj_property name="ElementShortName">outputs_c_write</obj_property>
+                  <obj_property name="ObjectShortName">outputs_c_write</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+      </wvobject>
+      <wvobject type="group" fp_name="p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0_group">
+         <obj_property name="label">p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="protoinst" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0/grp_p_anonymous_namespace_DataMover_A_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_45_3_fu_162/grp_p_anonymous_namespace_DataMover_A_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_45_3_fu_162_activity">
+            <obj_property name="ElementShortName">grp_p_anonymous_namespace_DataMover_A_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_45_3_fu_162_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_p_anonymous_namespace_DataMover_A_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_45_3_fu_162_activity</obj_property>
+         </wvobject>
+         <wvobject type="protoinst" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0/grp_p_anonymous_namespace_DataMover_A_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_35_2_fu_174/grp_p_anonymous_namespace_DataMover_A_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_35_2_fu_174_activity">
+            <obj_property name="ElementShortName">grp_p_anonymous_namespace_DataMover_A_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_35_2_fu_174_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_p_anonymous_namespace_DataMover_A_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_35_2_fu_174_activity</obj_property>
+         </wvobject>
+         <wvobject type="group" fp_name="p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0_Input_group">
+            <obj_property name="label">Input Channels</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+         </wvobject>
+         <wvobject type="group" fp_name="p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0_Handshake_group">
+            <obj_property name="label">Block-level handshake</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0/ap_start">
+               <obj_property name="ElementShortName">ap_start</obj_property>
+               <obj_property name="ObjectShortName">ap_start</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0/real_start">
+               <obj_property name="ElementShortName">real_start</obj_property>
+               <obj_property name="ObjectShortName">real_start</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0/ap_ready">
+               <obj_property name="ElementShortName">ap_ready</obj_property>
+               <obj_property name="ObjectShortName">ap_ready</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0/ap_done">
+               <obj_property name="ElementShortName">ap_done</obj_property>
+               <obj_property name="ObjectShortName">ap_done</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0/ap_continue">
+               <obj_property name="ElementShortName">ap_continue</obj_property>
+               <obj_property name="ObjectShortName">ap_continue</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0_Output_group">
+            <obj_property name="label">Output Channels</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="data_copy_a1_group">
+               <obj_property name="label">data_copy_a1(data_copy_a_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0/data_copy_a1_din">
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0/data_copy_a1_full_n">
+                  <obj_property name="ElementShortName">data_copy_a1_full_n</obj_property>
+                  <obj_property name="ObjectShortName">data_copy_a1_full_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0/data_copy_a1_write">
+                  <obj_property name="ElementShortName">data_copy_a1_write</obj_property>
+                  <obj_property name="ObjectShortName">data_copy_a1_write</obj_property>
+               </wvobject>
+            </wvobject>
+            <wvobject type="group" fp_name="data_copy_b2_group">
+               <obj_property name="label">data_copy_b2(data_copy_b_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0/data_copy_b2_din">
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0/data_copy_b2_full_n">
+                  <obj_property name="ElementShortName">data_copy_b2_full_n</obj_property>
+                  <obj_property name="ObjectShortName">data_copy_b2_full_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0/data_copy_b2_write">
+                  <obj_property name="ElementShortName">data_copy_b2_write</obj_property>
+                  <obj_property name="ObjectShortName">data_copy_b2_write</obj_property>
+               </wvobject>
+            </wvobject>
+            <wvobject type="group" fp_name="data_copy_c3_group">
+               <obj_property name="label">data_copy_c3(data_copy_c_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0/data_copy_c3_din">
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0/data_copy_c3_full_n">
+                  <obj_property name="ElementShortName">data_copy_c3_full_n</obj_property>
+                  <obj_property name="ObjectShortName">data_copy_c3_full_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0/data_copy_c3_write">
+                  <obj_property name="ElementShortName">data_copy_c3_write</obj_property>
+                  <obj_property name="ObjectShortName">data_copy_c3_write</obj_property>
+               </wvobject>
+            </wvobject>
+            <wvobject type="group" fp_name="rows_c19_group">
+               <obj_property name="label">rows_c19(rows_c19_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0/rows_c19_blk_n">
+                  <obj_property name="ElementShortName">rows_c19_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">rows_c19_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0/rows_c19_din">
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0/rows_c19_full_n">
+                  <obj_property name="ElementShortName">rows_c19_full_n</obj_property>
+                  <obj_property name="ObjectShortName">rows_c19_full_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0/rows_c19_write">
+                  <obj_property name="ElementShortName">rows_c19_write</obj_property>
+                  <obj_property name="ObjectShortName">rows_c19_write</obj_property>
+               </wvobject>
+            </wvobject>
+            <wvobject type="group" fp_name="cols_log_c22_group">
+               <obj_property name="label">cols_log_c22(cols_log_c22_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0/cols_log_c22_blk_n">
+                  <obj_property name="ElementShortName">cols_log_c22_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">cols_log_c22_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0/cols_log_c22_din">
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0/cols_log_c22_full_n">
+                  <obj_property name="ElementShortName">cols_log_c22_full_n</obj_property>
+                  <obj_property name="ObjectShortName">cols_log_c22_full_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0/cols_log_c22_write">
+                  <obj_property name="ElementShortName">cols_log_c22_write</obj_property>
+                  <obj_property name="ObjectShortName">cols_log_c22_write</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_p_anonymous_namespace_DataMover_A_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_45_3_fu_162_group">
+            <obj_property name="label">grp_p_anonymous_namespace_DataMover_A_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_45_3_fu_162</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="grp_p_anonymous_namespace_DataMover_A_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_45_3_fu_162_Handshake_group">
+               <obj_property name="label">Block-level handshake</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0/grp_p_anonymous_namespace_DataMover_A_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_45_3_fu_162/ap_start">
+                  <obj_property name="ElementShortName">ap_start</obj_property>
+                  <obj_property name="ObjectShortName">ap_start</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0/grp_p_anonymous_namespace_DataMover_A_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_45_3_fu_162/ap_ready">
+                  <obj_property name="ElementShortName">ap_ready</obj_property>
+                  <obj_property name="ObjectShortName">ap_ready</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0/grp_p_anonymous_namespace_DataMover_A_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_45_3_fu_162/ap_done">
+                  <obj_property name="ElementShortName">ap_done</obj_property>
+                  <obj_property name="ObjectShortName">ap_done</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_p_anonymous_namespace_DataMover_A_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_35_2_fu_174_group">
+            <obj_property name="label">grp_p_anonymous_namespace_DataMover_A_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_35_2_fu_174</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="grp_p_anonymous_namespace_DataMover_A_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_35_2_fu_174_Handshake_group">
+               <obj_property name="label">Block-level handshake</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0/grp_p_anonymous_namespace_DataMover_A_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_35_2_fu_174/ap_start">
+                  <obj_property name="ElementShortName">ap_start</obj_property>
+                  <obj_property name="ObjectShortName">ap_start</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0/grp_p_anonymous_namespace_DataMover_A_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_35_2_fu_174/ap_ready">
+                  <obj_property name="ElementShortName">ap_ready</obj_property>
+                  <obj_property name="ObjectShortName">ap_ready</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_A_ap_int_8_ap_uint_256_5u_U0/grp_p_anonymous_namespace_DataMover_A_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_35_2_fu_174/ap_done">
+                  <obj_property name="ElementShortName">ap_done</obj_property>
+                  <obj_property name="ObjectShortName">ap_done</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+      </wvobject>
+      <wvobject type="group" fp_name="p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0_group">
+         <obj_property name="label">p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="protoinst" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0/grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_1_fu_210/grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_1_fu_210_activity">
+            <obj_property name="ElementShortName">grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_1_fu_210_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_1_fu_210_activity</obj_property>
+         </wvobject>
+         <wvobject type="protoinst" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0/grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_2_fu_219/grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_2_fu_219_activity">
+            <obj_property name="ElementShortName">grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_2_fu_219_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_2_fu_219_activity</obj_property>
+         </wvobject>
+         <wvobject type="protoinst" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0/grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_3_fu_232/grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_3_fu_232_activity">
+            <obj_property name="ElementShortName">grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_3_fu_232_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_3_fu_232_activity</obj_property>
+         </wvobject>
+         <wvobject type="protoinst" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0/grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_4_fu_241/grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_4_fu_241_activity">
+            <obj_property name="ElementShortName">grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_4_fu_241_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_4_fu_241_activity</obj_property>
+         </wvobject>
+         <wvobject type="group" fp_name="p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0_Input_group">
+            <obj_property name="label">Input Channels</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+         </wvobject>
+         <wvobject type="group" fp_name="p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0_Handshake_group">
+            <obj_property name="label">Block-level handshake</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0/ap_start">
+               <obj_property name="ElementShortName">ap_start</obj_property>
+               <obj_property name="ObjectShortName">ap_start</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0/ap_ready">
+               <obj_property name="ElementShortName">ap_ready</obj_property>
+               <obj_property name="ObjectShortName">ap_ready</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0/ap_done">
+               <obj_property name="ElementShortName">ap_done</obj_property>
+               <obj_property name="ObjectShortName">ap_done</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0/ap_continue">
+               <obj_property name="ElementShortName">ap_continue</obj_property>
+               <obj_property name="ObjectShortName">ap_continue</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0_Output_group">
+            <obj_property name="label">Output Channels</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="gamma4_group">
+               <obj_property name="label">gamma4(gamma_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0/gamma4_blk_n">
+                  <obj_property name="ElementShortName">gamma4_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">gamma4_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0/gamma4_din">
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0/gamma4_full_n">
+                  <obj_property name="ElementShortName">gamma4_full_n</obj_property>
+                  <obj_property name="ObjectShortName">gamma4_full_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0/gamma4_write">
+                  <obj_property name="ElementShortName">gamma4_write</obj_property>
+                  <obj_property name="ObjectShortName">gamma4_write</obj_property>
+               </wvobject>
+            </wvobject>
+            <wvobject type="group" fp_name="beta5_group">
+               <obj_property name="label">beta5(beta_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0/beta5_blk_n">
+                  <obj_property name="ElementShortName">beta5_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">beta5_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0/beta5_din">
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0/beta5_full_n">
+                  <obj_property name="ElementShortName">beta5_full_n</obj_property>
+                  <obj_property name="ObjectShortName">beta5_full_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0/beta5_write">
+                  <obj_property name="ElementShortName">beta5_write</obj_property>
+                  <obj_property name="ObjectShortName">beta5_write</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_1_fu_210_group">
+            <obj_property name="label">grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_1_fu_210</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_1_fu_210_Handshake_group">
+               <obj_property name="label">Block-level handshake</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0/grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_1_fu_210/ap_start">
+                  <obj_property name="ElementShortName">ap_start</obj_property>
+                  <obj_property name="ObjectShortName">ap_start</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0/grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_1_fu_210/ap_ready">
+                  <obj_property name="ElementShortName">ap_ready</obj_property>
+                  <obj_property name="ObjectShortName">ap_ready</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0/grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_1_fu_210/ap_done">
+                  <obj_property name="ElementShortName">ap_done</obj_property>
+                  <obj_property name="ObjectShortName">ap_done</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_2_fu_219_group">
+            <obj_property name="label">grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_2_fu_219</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_2_fu_219_Handshake_group">
+               <obj_property name="label">Block-level handshake</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0/grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_2_fu_219/ap_start">
+                  <obj_property name="ElementShortName">ap_start</obj_property>
+                  <obj_property name="ObjectShortName">ap_start</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0/grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_2_fu_219/ap_ready">
+                  <obj_property name="ElementShortName">ap_ready</obj_property>
+                  <obj_property name="ObjectShortName">ap_ready</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0/grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_2_fu_219/ap_done">
+                  <obj_property name="ElementShortName">ap_done</obj_property>
+                  <obj_property name="ObjectShortName">ap_done</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_3_fu_232_group">
+            <obj_property name="label">grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_3_fu_232</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_3_fu_232_Handshake_group">
+               <obj_property name="label">Block-level handshake</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0/grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_3_fu_232/ap_start">
+                  <obj_property name="ElementShortName">ap_start</obj_property>
+                  <obj_property name="ObjectShortName">ap_start</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0/grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_3_fu_232/ap_ready">
+                  <obj_property name="ElementShortName">ap_ready</obj_property>
+                  <obj_property name="ObjectShortName">ap_ready</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0/grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_3_fu_232/ap_done">
+                  <obj_property name="ElementShortName">ap_done</obj_property>
+                  <obj_property name="ObjectShortName">ap_done</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_4_fu_241_group">
+            <obj_property name="label">grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_4_fu_241</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_4_fu_241_Handshake_group">
+               <obj_property name="label">Block-level handshake</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0/grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_4_fu_241/ap_start">
+                  <obj_property name="ElementShortName">ap_start</obj_property>
+                  <obj_property name="ObjectShortName">ap_start</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0/grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_4_fu_241/ap_ready">
+                  <obj_property name="ElementShortName">ap_ready</obj_property>
+                  <obj_property name="ObjectShortName">ap_ready</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_U0/grp_p_anonymous_namespace_DataMover_B_ap_int_8_ap_uint_256_5u_Pipeline_4_fu_241/ap_done">
+                  <obj_property name="ElementShortName">ap_done</obj_property>
+                  <obj_property name="ObjectShortName">ap_done</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+      </wvobject>
+      <wvobject type="group" fp_name="p_anonymous_namespace_Mean_ap_int_8_5u_U0_group">
+         <obj_property name="label">p_anonymous_namespace_Mean_ap_int_8_5u_U0</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="group" fp_name="p_anonymous_namespace_Mean_ap_int_8_5u_U0_Input_group">
+            <obj_property name="label">Input Channels</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="cols_log_group">
+               <obj_property name="label">cols_log(cols_log_c22_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Mean_ap_int_8_5u_U0/cols_log_blk_n">
+                  <obj_property name="ElementShortName">cols_log_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">cols_log_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Mean_ap_int_8_5u_U0/cols_log_dout">
+                  <obj_property name="ElementShortName">cols_log_dout[31:0]</obj_property>
+                  <obj_property name="ObjectShortName">cols_log_dout[31:0]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Mean_ap_int_8_5u_U0/cols_log_empty_n">
+                  <obj_property name="ElementShortName">cols_log_empty_n</obj_property>
+                  <obj_property name="ObjectShortName">cols_log_empty_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Mean_ap_int_8_5u_U0/cols_log_read">
+                  <obj_property name="ElementShortName">cols_log_read</obj_property>
+                  <obj_property name="ObjectShortName">cols_log_read</obj_property>
+               </wvobject>
+            </wvobject>
+            <wvobject type="group" fp_name="rows_group">
+               <obj_property name="label">rows(rows_c19_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Mean_ap_int_8_5u_U0/rows_blk_n">
+                  <obj_property name="ElementShortName">rows_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">rows_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Mean_ap_int_8_5u_U0/rows_dout">
+                  <obj_property name="ElementShortName">rows_dout[31:0]</obj_property>
+                  <obj_property name="ObjectShortName">rows_dout[31:0]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Mean_ap_int_8_5u_U0/rows_empty_n">
+                  <obj_property name="ElementShortName">rows_empty_n</obj_property>
+                  <obj_property name="ObjectShortName">rows_empty_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Mean_ap_int_8_5u_U0/rows_read">
+                  <obj_property name="ElementShortName">rows_read</obj_property>
+                  <obj_property name="ObjectShortName">rows_read</obj_property>
+               </wvobject>
+            </wvobject>
+            <wvobject type="group" fp_name="data_copy_a1_group">
+               <obj_property name="label">data_copy_a1(data_copy_a_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Mean_ap_int_8_5u_U0/data_copy_a1_blk_n">
+                  <obj_property name="ElementShortName">data_copy_a1_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">data_copy_a1_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Mean_ap_int_8_5u_U0/data_copy_a1_dout">
+                  <obj_property name="ElementShortName">data_copy_a1_dout[255:0]</obj_property>
+                  <obj_property name="ObjectShortName">data_copy_a1_dout[255:0]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Mean_ap_int_8_5u_U0/data_copy_a1_empty_n">
+                  <obj_property name="ElementShortName">data_copy_a1_empty_n</obj_property>
+                  <obj_property name="ObjectShortName">data_copy_a1_empty_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Mean_ap_int_8_5u_U0/data_copy_a1_read">
+                  <obj_property name="ElementShortName">data_copy_a1_read</obj_property>
+                  <obj_property name="ObjectShortName">data_copy_a1_read</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="p_anonymous_namespace_Mean_ap_int_8_5u_U0_Handshake_group">
+            <obj_property name="label">Block-level handshake</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Mean_ap_int_8_5u_U0/ap_start">
+               <obj_property name="ElementShortName">ap_start</obj_property>
+               <obj_property name="ObjectShortName">ap_start</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Mean_ap_int_8_5u_U0/ap_ready">
+               <obj_property name="ElementShortName">ap_ready</obj_property>
+               <obj_property name="ObjectShortName">ap_ready</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Mean_ap_int_8_5u_U0/ap_done">
+               <obj_property name="ElementShortName">ap_done</obj_property>
+               <obj_property name="ObjectShortName">ap_done</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Mean_ap_int_8_5u_U0/ap_continue">
+               <obj_property name="ElementShortName">ap_continue</obj_property>
+               <obj_property name="ObjectShortName">ap_continue</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="p_anonymous_namespace_Mean_ap_int_8_5u_U0_Output_group">
+            <obj_property name="label">Output Channels</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="mean_a6_group">
+               <obj_property name="label">mean_a6(mean_a_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Mean_ap_int_8_5u_U0/mean_a6_blk_n">
+                  <obj_property name="ElementShortName">mean_a6_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">mean_a6_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Mean_ap_int_8_5u_U0/mean_a6_din">
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Mean_ap_int_8_5u_U0/mean_a6_full_n">
+                  <obj_property name="ElementShortName">mean_a6_full_n</obj_property>
+                  <obj_property name="ObjectShortName">mean_a6_full_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Mean_ap_int_8_5u_U0/mean_a6_write">
+                  <obj_property name="ElementShortName">mean_a6_write</obj_property>
+                  <obj_property name="ObjectShortName">mean_a6_write</obj_property>
+               </wvobject>
+            </wvobject>
+            <wvobject type="group" fp_name="mean_b7_group">
+               <obj_property name="label">mean_b7(mean_b_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Mean_ap_int_8_5u_U0/mean_b7_blk_n">
+                  <obj_property name="ElementShortName">mean_b7_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">mean_b7_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Mean_ap_int_8_5u_U0/mean_b7_din">
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Mean_ap_int_8_5u_U0/mean_b7_full_n">
+                  <obj_property name="ElementShortName">mean_b7_full_n</obj_property>
+                  <obj_property name="ObjectShortName">mean_b7_full_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Mean_ap_int_8_5u_U0/mean_b7_write">
+                  <obj_property name="ElementShortName">mean_b7_write</obj_property>
+                  <obj_property name="ObjectShortName">mean_b7_write</obj_property>
+               </wvobject>
+            </wvobject>
+            <wvobject type="group" fp_name="rows_c18_group">
+               <obj_property name="label">rows_c18(rows_c18_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Mean_ap_int_8_5u_U0/rows_c18_blk_n">
+                  <obj_property name="ElementShortName">rows_c18_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">rows_c18_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Mean_ap_int_8_5u_U0/rows_c18_din">
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Mean_ap_int_8_5u_U0/rows_c18_full_n">
+                  <obj_property name="ElementShortName">rows_c18_full_n</obj_property>
+                  <obj_property name="ObjectShortName">rows_c18_full_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Mean_ap_int_8_5u_U0/rows_c18_write">
+                  <obj_property name="ElementShortName">rows_c18_write</obj_property>
+                  <obj_property name="ObjectShortName">rows_c18_write</obj_property>
+               </wvobject>
+            </wvobject>
+            <wvobject type="group" fp_name="cols_log_c21_group">
+               <obj_property name="label">cols_log_c21(cols_log_c21_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Mean_ap_int_8_5u_U0/cols_log_c21_blk_n">
+                  <obj_property name="ElementShortName">cols_log_c21_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">cols_log_c21_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Mean_ap_int_8_5u_U0/cols_log_c21_din">
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Mean_ap_int_8_5u_U0/cols_log_c21_full_n">
+                  <obj_property name="ElementShortName">cols_log_c21_full_n</obj_property>
+                  <obj_property name="ObjectShortName">cols_log_c21_full_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Mean_ap_int_8_5u_U0/cols_log_c21_write">
+                  <obj_property name="ElementShortName">cols_log_c21_write</obj_property>
+                  <obj_property name="ObjectShortName">cols_log_c21_write</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+      </wvobject>
+      <wvobject type="group" fp_name="p_anonymous_namespace_StdDev_ap_int_8_float_5u_U0_group">
+         <obj_property name="label">p_anonymous_namespace_StdDev_ap_int_8_float_5u_U0</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="group" fp_name="p_anonymous_namespace_StdDev_ap_int_8_float_5u_U0_Input_group">
+            <obj_property name="label">Input Channels</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="cols_log_group">
+               <obj_property name="label">cols_log(cols_log_c21_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_StdDev_ap_int_8_float_5u_U0/cols_log_blk_n">
+                  <obj_property name="ElementShortName">cols_log_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">cols_log_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_StdDev_ap_int_8_float_5u_U0/cols_log_dout">
+                  <obj_property name="ElementShortName">cols_log_dout[31:0]</obj_property>
+                  <obj_property name="ObjectShortName">cols_log_dout[31:0]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_StdDev_ap_int_8_float_5u_U0/cols_log_empty_n">
+                  <obj_property name="ElementShortName">cols_log_empty_n</obj_property>
+                  <obj_property name="ObjectShortName">cols_log_empty_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_StdDev_ap_int_8_float_5u_U0/cols_log_read">
+                  <obj_property name="ElementShortName">cols_log_read</obj_property>
+                  <obj_property name="ObjectShortName">cols_log_read</obj_property>
+               </wvobject>
+            </wvobject>
+            <wvobject type="group" fp_name="rows_group">
+               <obj_property name="label">rows(rows_c18_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_StdDev_ap_int_8_float_5u_U0/rows_blk_n">
+                  <obj_property name="ElementShortName">rows_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">rows_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_StdDev_ap_int_8_float_5u_U0/rows_dout">
+                  <obj_property name="ElementShortName">rows_dout[31:0]</obj_property>
+                  <obj_property name="ObjectShortName">rows_dout[31:0]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_StdDev_ap_int_8_float_5u_U0/rows_empty_n">
+                  <obj_property name="ElementShortName">rows_empty_n</obj_property>
+                  <obj_property name="ObjectShortName">rows_empty_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_StdDev_ap_int_8_float_5u_U0/rows_read">
+                  <obj_property name="ElementShortName">rows_read</obj_property>
+                  <obj_property name="ObjectShortName">rows_read</obj_property>
+               </wvobject>
+            </wvobject>
+            <wvobject type="group" fp_name="data_copy_b2_group">
+               <obj_property name="label">data_copy_b2(data_copy_b_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_StdDev_ap_int_8_float_5u_U0/data_copy_b2_blk_n">
+                  <obj_property name="ElementShortName">data_copy_b2_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">data_copy_b2_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_StdDev_ap_int_8_float_5u_U0/data_copy_b2_dout">
+                  <obj_property name="ElementShortName">data_copy_b2_dout[255:0]</obj_property>
+                  <obj_property name="ObjectShortName">data_copy_b2_dout[255:0]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_StdDev_ap_int_8_float_5u_U0/data_copy_b2_empty_n">
+                  <obj_property name="ElementShortName">data_copy_b2_empty_n</obj_property>
+                  <obj_property name="ObjectShortName">data_copy_b2_empty_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_StdDev_ap_int_8_float_5u_U0/data_copy_b2_read">
+                  <obj_property name="ElementShortName">data_copy_b2_read</obj_property>
+                  <obj_property name="ObjectShortName">data_copy_b2_read</obj_property>
+               </wvobject>
+            </wvobject>
+            <wvobject type="group" fp_name="mean_a6_group">
+               <obj_property name="label">mean_a6(mean_a_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_StdDev_ap_int_8_float_5u_U0/mean_a6_blk_n">
+                  <obj_property name="ElementShortName">mean_a6_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">mean_a6_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_StdDev_ap_int_8_float_5u_U0/mean_a6_dout">
+                  <obj_property name="ElementShortName">mean_a6_dout[7:0]</obj_property>
+                  <obj_property name="ObjectShortName">mean_a6_dout[7:0]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_StdDev_ap_int_8_float_5u_U0/mean_a6_empty_n">
+                  <obj_property name="ElementShortName">mean_a6_empty_n</obj_property>
+                  <obj_property name="ObjectShortName">mean_a6_empty_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_StdDev_ap_int_8_float_5u_U0/mean_a6_read">
+                  <obj_property name="ElementShortName">mean_a6_read</obj_property>
+                  <obj_property name="ObjectShortName">mean_a6_read</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="p_anonymous_namespace_StdDev_ap_int_8_float_5u_U0_Handshake_group">
+            <obj_property name="label">Block-level handshake</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_StdDev_ap_int_8_float_5u_U0/ap_start">
+               <obj_property name="ElementShortName">ap_start</obj_property>
+               <obj_property name="ObjectShortName">ap_start</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_StdDev_ap_int_8_float_5u_U0/ap_ready">
+               <obj_property name="ElementShortName">ap_ready</obj_property>
+               <obj_property name="ObjectShortName">ap_ready</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_StdDev_ap_int_8_float_5u_U0/ap_done">
+               <obj_property name="ElementShortName">ap_done</obj_property>
+               <obj_property name="ObjectShortName">ap_done</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_StdDev_ap_int_8_float_5u_U0/ap_continue">
+               <obj_property name="ElementShortName">ap_continue</obj_property>
+               <obj_property name="ObjectShortName">ap_continue</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="p_anonymous_namespace_StdDev_ap_int_8_float_5u_U0_Output_group">
+            <obj_property name="label">Output Channels</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="stddev8_group">
+               <obj_property name="label">stddev8(stddev_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_StdDev_ap_int_8_float_5u_U0/stddev8_blk_n">
+                  <obj_property name="ElementShortName">stddev8_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">stddev8_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_StdDev_ap_int_8_float_5u_U0/stddev8_din">
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_StdDev_ap_int_8_float_5u_U0/stddev8_full_n">
+                  <obj_property name="ElementShortName">stddev8_full_n</obj_property>
+                  <obj_property name="ObjectShortName">stddev8_full_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_StdDev_ap_int_8_float_5u_U0/stddev8_write">
+                  <obj_property name="ElementShortName">stddev8_write</obj_property>
+                  <obj_property name="ObjectShortName">stddev8_write</obj_property>
+               </wvobject>
+            </wvobject>
+            <wvobject type="group" fp_name="rows_c17_group">
+               <obj_property name="label">rows_c17(rows_c17_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_StdDev_ap_int_8_float_5u_U0/rows_c17_blk_n">
+                  <obj_property name="ElementShortName">rows_c17_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">rows_c17_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_StdDev_ap_int_8_float_5u_U0/rows_c17_din">
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_StdDev_ap_int_8_float_5u_U0/rows_c17_full_n">
+                  <obj_property name="ElementShortName">rows_c17_full_n</obj_property>
+                  <obj_property name="ObjectShortName">rows_c17_full_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_StdDev_ap_int_8_float_5u_U0/rows_c17_write">
+                  <obj_property name="ElementShortName">rows_c17_write</obj_property>
+                  <obj_property name="ObjectShortName">rows_c17_write</obj_property>
+               </wvobject>
+            </wvobject>
+            <wvobject type="group" fp_name="cols_log_c20_group">
+               <obj_property name="label">cols_log_c20(cols_log_c20_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_StdDev_ap_int_8_float_5u_U0/cols_log_c20_blk_n">
+                  <obj_property name="ElementShortName">cols_log_c20_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">cols_log_c20_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_StdDev_ap_int_8_float_5u_U0/cols_log_c20_din">
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_StdDev_ap_int_8_float_5u_U0/cols_log_c20_full_n">
+                  <obj_property name="ElementShortName">cols_log_c20_full_n</obj_property>
+                  <obj_property name="ObjectShortName">cols_log_c20_full_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_StdDev_ap_int_8_float_5u_U0/cols_log_c20_write">
+                  <obj_property name="ElementShortName">cols_log_c20_write</obj_property>
+                  <obj_property name="ObjectShortName">cols_log_c20_write</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+      </wvobject>
+      <wvobject type="group" fp_name="p_anonymous_namespace_Norm_ap_int_8_float_5u_U0_group">
+         <obj_property name="label">p_anonymous_namespace_Norm_ap_int_8_float_5u_U0</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="group" fp_name="p_anonymous_namespace_Norm_ap_int_8_float_5u_U0_Input_group">
+            <obj_property name="label">Input Channels</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="cols_log_group">
+               <obj_property name="label">cols_log(cols_log_c20_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Norm_ap_int_8_float_5u_U0/cols_log_blk_n">
+                  <obj_property name="ElementShortName">cols_log_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">cols_log_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Norm_ap_int_8_float_5u_U0/cols_log_dout">
+                  <obj_property name="ElementShortName">cols_log_dout[31:0]</obj_property>
+                  <obj_property name="ObjectShortName">cols_log_dout[31:0]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Norm_ap_int_8_float_5u_U0/cols_log_empty_n">
+                  <obj_property name="ElementShortName">cols_log_empty_n</obj_property>
+                  <obj_property name="ObjectShortName">cols_log_empty_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Norm_ap_int_8_float_5u_U0/cols_log_read">
+                  <obj_property name="ElementShortName">cols_log_read</obj_property>
+                  <obj_property name="ObjectShortName">cols_log_read</obj_property>
+               </wvobject>
+            </wvobject>
+            <wvobject type="group" fp_name="rows_group">
+               <obj_property name="label">rows(rows_c17_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Norm_ap_int_8_float_5u_U0/rows_blk_n">
+                  <obj_property name="ElementShortName">rows_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">rows_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Norm_ap_int_8_float_5u_U0/rows_dout">
+                  <obj_property name="ElementShortName">rows_dout[31:0]</obj_property>
+                  <obj_property name="ObjectShortName">rows_dout[31:0]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Norm_ap_int_8_float_5u_U0/rows_empty_n">
+                  <obj_property name="ElementShortName">rows_empty_n</obj_property>
+                  <obj_property name="ObjectShortName">rows_empty_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Norm_ap_int_8_float_5u_U0/rows_read">
+                  <obj_property name="ElementShortName">rows_read</obj_property>
+                  <obj_property name="ObjectShortName">rows_read</obj_property>
+               </wvobject>
+            </wvobject>
+            <wvobject type="group" fp_name="data_copy_c3_group">
+               <obj_property name="label">data_copy_c3(data_copy_c_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Norm_ap_int_8_float_5u_U0/data_copy_c3_blk_n">
+                  <obj_property name="ElementShortName">data_copy_c3_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">data_copy_c3_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Norm_ap_int_8_float_5u_U0/data_copy_c3_dout">
+                  <obj_property name="ElementShortName">data_copy_c3_dout[255:0]</obj_property>
+                  <obj_property name="ObjectShortName">data_copy_c3_dout[255:0]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Norm_ap_int_8_float_5u_U0/data_copy_c3_empty_n">
+                  <obj_property name="ElementShortName">data_copy_c3_empty_n</obj_property>
+                  <obj_property name="ObjectShortName">data_copy_c3_empty_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Norm_ap_int_8_float_5u_U0/data_copy_c3_read">
+                  <obj_property name="ElementShortName">data_copy_c3_read</obj_property>
+                  <obj_property name="ObjectShortName">data_copy_c3_read</obj_property>
+               </wvobject>
+            </wvobject>
+            <wvobject type="group" fp_name="mean_b7_group">
+               <obj_property name="label">mean_b7(mean_b_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Norm_ap_int_8_float_5u_U0/mean_b7_blk_n">
+                  <obj_property name="ElementShortName">mean_b7_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">mean_b7_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Norm_ap_int_8_float_5u_U0/mean_b7_dout">
+                  <obj_property name="ElementShortName">mean_b7_dout[7:0]</obj_property>
+                  <obj_property name="ObjectShortName">mean_b7_dout[7:0]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Norm_ap_int_8_float_5u_U0/mean_b7_empty_n">
+                  <obj_property name="ElementShortName">mean_b7_empty_n</obj_property>
+                  <obj_property name="ObjectShortName">mean_b7_empty_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Norm_ap_int_8_float_5u_U0/mean_b7_read">
+                  <obj_property name="ElementShortName">mean_b7_read</obj_property>
+                  <obj_property name="ObjectShortName">mean_b7_read</obj_property>
+               </wvobject>
+            </wvobject>
+            <wvobject type="group" fp_name="stddev8_group">
+               <obj_property name="label">stddev8(stddev_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Norm_ap_int_8_float_5u_U0/stddev8_blk_n">
+                  <obj_property name="ElementShortName">stddev8_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">stddev8_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Norm_ap_int_8_float_5u_U0/stddev8_dout">
+                  <obj_property name="ElementShortName">stddev8_dout[31:0]</obj_property>
+                  <obj_property name="ObjectShortName">stddev8_dout[31:0]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Norm_ap_int_8_float_5u_U0/stddev8_empty_n">
+                  <obj_property name="ElementShortName">stddev8_empty_n</obj_property>
+                  <obj_property name="ObjectShortName">stddev8_empty_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Norm_ap_int_8_float_5u_U0/stddev8_read">
+                  <obj_property name="ElementShortName">stddev8_read</obj_property>
+                  <obj_property name="ObjectShortName">stddev8_read</obj_property>
+               </wvobject>
+            </wvobject>
+            <wvobject type="group" fp_name="gamma4_group">
+               <obj_property name="label">gamma4(gamma_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Norm_ap_int_8_float_5u_U0/gamma4_blk_n">
+                  <obj_property name="ElementShortName">gamma4_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">gamma4_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Norm_ap_int_8_float_5u_U0/gamma4_dout">
+                  <obj_property name="ElementShortName">gamma4_dout[255:0]</obj_property>
+                  <obj_property name="ObjectShortName">gamma4_dout[255:0]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Norm_ap_int_8_float_5u_U0/gamma4_empty_n">
+                  <obj_property name="ElementShortName">gamma4_empty_n</obj_property>
+                  <obj_property name="ObjectShortName">gamma4_empty_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Norm_ap_int_8_float_5u_U0/gamma4_read">
+                  <obj_property name="ElementShortName">gamma4_read</obj_property>
+                  <obj_property name="ObjectShortName">gamma4_read</obj_property>
+               </wvobject>
+            </wvobject>
+            <wvobject type="group" fp_name="beta5_group">
+               <obj_property name="label">beta5(beta_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Norm_ap_int_8_float_5u_U0/beta5_blk_n">
+                  <obj_property name="ElementShortName">beta5_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">beta5_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Norm_ap_int_8_float_5u_U0/beta5_dout">
+                  <obj_property name="ElementShortName">beta5_dout[255:0]</obj_property>
+                  <obj_property name="ObjectShortName">beta5_dout[255:0]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Norm_ap_int_8_float_5u_U0/beta5_empty_n">
+                  <obj_property name="ElementShortName">beta5_empty_n</obj_property>
+                  <obj_property name="ObjectShortName">beta5_empty_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Norm_ap_int_8_float_5u_U0/beta5_read">
+                  <obj_property name="ElementShortName">beta5_read</obj_property>
+                  <obj_property name="ObjectShortName">beta5_read</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="p_anonymous_namespace_Norm_ap_int_8_float_5u_U0_Handshake_group">
+            <obj_property name="label">Block-level handshake</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Norm_ap_int_8_float_5u_U0/ap_start">
+               <obj_property name="ElementShortName">ap_start</obj_property>
+               <obj_property name="ObjectShortName">ap_start</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Norm_ap_int_8_float_5u_U0/real_start">
+               <obj_property name="ElementShortName">real_start</obj_property>
+               <obj_property name="ObjectShortName">real_start</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Norm_ap_int_8_float_5u_U0/ap_ready">
+               <obj_property name="ElementShortName">ap_ready</obj_property>
+               <obj_property name="ObjectShortName">ap_ready</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Norm_ap_int_8_float_5u_U0/ap_done">
+               <obj_property name="ElementShortName">ap_done</obj_property>
+               <obj_property name="ObjectShortName">ap_done</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Norm_ap_int_8_float_5u_U0/ap_continue">
+               <obj_property name="ElementShortName">ap_continue</obj_property>
+               <obj_property name="ObjectShortName">ap_continue</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="p_anonymous_namespace_Norm_ap_int_8_float_5u_U0_Output_group">
+            <obj_property name="label">Output Channels</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="norm9_group">
+               <obj_property name="label">norm9(norm_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Norm_ap_int_8_float_5u_U0/norm9_blk_n">
+                  <obj_property name="ElementShortName">norm9_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">norm9_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Norm_ap_int_8_float_5u_U0/norm9_din">
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Norm_ap_int_8_float_5u_U0/norm9_full_n">
+                  <obj_property name="ElementShortName">norm9_full_n</obj_property>
+                  <obj_property name="ObjectShortName">norm9_full_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Norm_ap_int_8_float_5u_U0/norm9_write">
+                  <obj_property name="ElementShortName">norm9_write</obj_property>
+                  <obj_property name="ObjectShortName">norm9_write</obj_property>
+               </wvobject>
+            </wvobject>
+            <wvobject type="group" fp_name="rows_c_group">
+               <obj_property name="label">rows_c(rows_c_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Norm_ap_int_8_float_5u_U0/rows_c_blk_n">
+                  <obj_property name="ElementShortName">rows_c_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">rows_c_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Norm_ap_int_8_float_5u_U0/rows_c_din">
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Norm_ap_int_8_float_5u_U0/rows_c_full_n">
+                  <obj_property name="ElementShortName">rows_c_full_n</obj_property>
+                  <obj_property name="ObjectShortName">rows_c_full_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Norm_ap_int_8_float_5u_U0/rows_c_write">
+                  <obj_property name="ElementShortName">rows_c_write</obj_property>
+                  <obj_property name="ObjectShortName">rows_c_write</obj_property>
+               </wvobject>
+            </wvobject>
+            <wvobject type="group" fp_name="cols_log_c_group">
+               <obj_property name="label">cols_log_c(cols_log_c_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Norm_ap_int_8_float_5u_U0/cols_log_c_blk_n">
+                  <obj_property name="ElementShortName">cols_log_c_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">cols_log_c_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Norm_ap_int_8_float_5u_U0/cols_log_c_din">
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Norm_ap_int_8_float_5u_U0/cols_log_c_full_n">
+                  <obj_property name="ElementShortName">cols_log_c_full_n</obj_property>
+                  <obj_property name="ObjectShortName">cols_log_c_full_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Norm_ap_int_8_float_5u_U0/cols_log_c_write">
+                  <obj_property name="ElementShortName">cols_log_c_write</obj_property>
+                  <obj_property name="ObjectShortName">cols_log_c_write</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+      </wvobject>
+      <wvobject type="group" fp_name="p_anonymous_namespace_Store_temp_ap_int_8_ap_uint_256_5u_U0_group">
+         <obj_property name="label">p_anonymous_namespace_Store_temp_ap_int_8_ap_uint_256_5u_U0</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="protoinst" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Store_temp_ap_int_8_ap_uint_256_5u_U0/grp_p_anonymous_namespace_Store_temp_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_275_3_fu_157/grp_p_anonymous_namespace_Store_temp_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_275_3_fu_157_activity">
+            <obj_property name="ElementShortName">grp_p_anonymous_namespace_Store_temp_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_275_3_fu_157_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_p_anonymous_namespace_Store_temp_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_275_3_fu_157_activity</obj_property>
+         </wvobject>
+         <wvobject type="group" fp_name="p_anonymous_namespace_Store_temp_ap_int_8_ap_uint_256_5u_U0_Input_group">
+            <obj_property name="label">Input Channels</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="cols_log_group">
+               <obj_property name="label">cols_log(cols_log_c_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Store_temp_ap_int_8_ap_uint_256_5u_U0/cols_log_blk_n">
+                  <obj_property name="ElementShortName">cols_log_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">cols_log_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Store_temp_ap_int_8_ap_uint_256_5u_U0/cols_log_dout">
+                  <obj_property name="ElementShortName">cols_log_dout[31:0]</obj_property>
+                  <obj_property name="ObjectShortName">cols_log_dout[31:0]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Store_temp_ap_int_8_ap_uint_256_5u_U0/cols_log_empty_n">
+                  <obj_property name="ElementShortName">cols_log_empty_n</obj_property>
+                  <obj_property name="ObjectShortName">cols_log_empty_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Store_temp_ap_int_8_ap_uint_256_5u_U0/cols_log_read">
+                  <obj_property name="ElementShortName">cols_log_read</obj_property>
+                  <obj_property name="ObjectShortName">cols_log_read</obj_property>
+               </wvobject>
+            </wvobject>
+            <wvobject type="group" fp_name="rows_group">
+               <obj_property name="label">rows(rows_c_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Store_temp_ap_int_8_ap_uint_256_5u_U0/rows_blk_n">
+                  <obj_property name="ElementShortName">rows_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">rows_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Store_temp_ap_int_8_ap_uint_256_5u_U0/rows_dout">
+                  <obj_property name="ElementShortName">rows_dout[31:0]</obj_property>
+                  <obj_property name="ObjectShortName">rows_dout[31:0]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Store_temp_ap_int_8_ap_uint_256_5u_U0/rows_empty_n">
+                  <obj_property name="ElementShortName">rows_empty_n</obj_property>
+                  <obj_property name="ObjectShortName">rows_empty_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Store_temp_ap_int_8_ap_uint_256_5u_U0/rows_read">
+                  <obj_property name="ElementShortName">rows_read</obj_property>
+                  <obj_property name="ObjectShortName">rows_read</obj_property>
+               </wvobject>
+            </wvobject>
+            <wvobject type="group" fp_name="norm9_group">
+               <obj_property name="label">norm9(norm_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Store_temp_ap_int_8_ap_uint_256_5u_U0/norm9_blk_n">
+                  <obj_property name="ElementShortName">norm9_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">norm9_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Store_temp_ap_int_8_ap_uint_256_5u_U0/norm9_dout">
+                  <obj_property name="ElementShortName">norm9_dout[255:0]</obj_property>
+                  <obj_property name="ObjectShortName">norm9_dout[255:0]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Store_temp_ap_int_8_ap_uint_256_5u_U0/norm9_empty_n">
+                  <obj_property name="ElementShortName">norm9_empty_n</obj_property>
+                  <obj_property name="ObjectShortName">norm9_empty_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Store_temp_ap_int_8_ap_uint_256_5u_U0/norm9_read">
+                  <obj_property name="ElementShortName">norm9_read</obj_property>
+                  <obj_property name="ObjectShortName">norm9_read</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="p_anonymous_namespace_Store_temp_ap_int_8_ap_uint_256_5u_U0_Handshake_group">
+            <obj_property name="label">Block-level handshake</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Store_temp_ap_int_8_ap_uint_256_5u_U0/ap_start">
+               <obj_property name="ElementShortName">ap_start</obj_property>
+               <obj_property name="ObjectShortName">ap_start</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Store_temp_ap_int_8_ap_uint_256_5u_U0/ap_ready">
+               <obj_property name="ElementShortName">ap_ready</obj_property>
+               <obj_property name="ObjectShortName">ap_ready</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Store_temp_ap_int_8_ap_uint_256_5u_U0/ap_done">
+               <obj_property name="ElementShortName">ap_done</obj_property>
+               <obj_property name="ObjectShortName">ap_done</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Store_temp_ap_int_8_ap_uint_256_5u_U0/ap_continue">
+               <obj_property name="ElementShortName">ap_continue</obj_property>
+               <obj_property name="ObjectShortName">ap_continue</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="p_anonymous_namespace_Store_temp_ap_int_8_ap_uint_256_5u_U0_Output_group">
+            <obj_property name="label">Output Channels</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="store_temp10_group">
+               <obj_property name="label">store_temp10(store_temp_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Store_temp_ap_int_8_ap_uint_256_5u_U0/store_temp10_din">
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Store_temp_ap_int_8_ap_uint_256_5u_U0/store_temp10_full_n">
+                  <obj_property name="ElementShortName">store_temp10_full_n</obj_property>
+                  <obj_property name="ObjectShortName">store_temp10_full_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Store_temp_ap_int_8_ap_uint_256_5u_U0/store_temp10_write">
+                  <obj_property name="ElementShortName">store_temp10_write</obj_property>
+                  <obj_property name="ObjectShortName">store_temp10_write</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_p_anonymous_namespace_Store_temp_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_275_3_fu_157_group">
+            <obj_property name="label">grp_p_anonymous_namespace_Store_temp_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_275_3_fu_157</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="grp_p_anonymous_namespace_Store_temp_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_275_3_fu_157_Handshake_group">
+               <obj_property name="label">Block-level handshake</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Store_temp_ap_int_8_ap_uint_256_5u_U0/grp_p_anonymous_namespace_Store_temp_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_275_3_fu_157/ap_start">
+                  <obj_property name="ElementShortName">ap_start</obj_property>
+                  <obj_property name="ObjectShortName">ap_start</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Store_temp_ap_int_8_ap_uint_256_5u_U0/grp_p_anonymous_namespace_Store_temp_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_275_3_fu_157/ap_ready">
+                  <obj_property name="ElementShortName">ap_ready</obj_property>
+                  <obj_property name="ObjectShortName">ap_ready</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Store_temp_ap_int_8_ap_uint_256_5u_U0/grp_p_anonymous_namespace_Store_temp_ap_int_ap_uint_5u_Pipeline_VITIS_LOOP_275_3_fu_157/ap_done">
+                  <obj_property name="ElementShortName">ap_done</obj_property>
+                  <obj_property name="ObjectShortName">ap_done</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+      </wvobject>
+      <wvobject type="group" fp_name="p_anonymous_namespace_Store_ap_int_8_ap_uint_256_5u_U0_group">
+         <obj_property name="label">p_anonymous_namespace_Store_ap_int_8_ap_uint_256_5u_U0</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="group" fp_name="p_anonymous_namespace_Store_ap_int_8_ap_uint_256_5u_U0_Input_group">
+            <obj_property name="label">Input Channels</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="addr_group">
+               <obj_property name="label">addr(output_data_addr_c_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Store_ap_int_8_ap_uint_256_5u_U0/addr_blk_n">
+                  <obj_property name="ElementShortName">addr_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">addr_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Store_ap_int_8_ap_uint_256_5u_U0/addr_dout">
+                  <obj_property name="ElementShortName">addr_dout[31:0]</obj_property>
+                  <obj_property name="ObjectShortName">addr_dout[31:0]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Store_ap_int_8_ap_uint_256_5u_U0/addr_empty_n">
+                  <obj_property name="ElementShortName">addr_empty_n</obj_property>
+                  <obj_property name="ObjectShortName">addr_empty_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Store_ap_int_8_ap_uint_256_5u_U0/addr_read">
+                  <obj_property name="ElementShortName">addr_read</obj_property>
+                  <obj_property name="ObjectShortName">addr_read</obj_property>
+               </wvobject>
+            </wvobject>
+            <wvobject type="group" fp_name="outputs_group">
+               <obj_property name="label">outputs(outputs_c_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Store_ap_int_8_ap_uint_256_5u_U0/outputs_blk_n">
+                  <obj_property name="ElementShortName">outputs_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">outputs_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Store_ap_int_8_ap_uint_256_5u_U0/outputs_dout">
+                  <obj_property name="ElementShortName">outputs_dout[63:0]</obj_property>
+                  <obj_property name="ObjectShortName">outputs_dout[63:0]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Store_ap_int_8_ap_uint_256_5u_U0/outputs_empty_n">
+                  <obj_property name="ElementShortName">outputs_empty_n</obj_property>
+                  <obj_property name="ObjectShortName">outputs_empty_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Store_ap_int_8_ap_uint_256_5u_U0/outputs_read">
+                  <obj_property name="ElementShortName">outputs_read</obj_property>
+                  <obj_property name="ObjectShortName">outputs_read</obj_property>
+               </wvobject>
+            </wvobject>
+            <wvobject type="group" fp_name="store_temp10_group">
+               <obj_property name="label">store_temp10(store_temp_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Store_ap_int_8_ap_uint_256_5u_U0/store_temp10_blk_n">
+                  <obj_property name="ElementShortName">store_temp10_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">store_temp10_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Store_ap_int_8_ap_uint_256_5u_U0/store_temp10_dout">
+                  <obj_property name="ElementShortName">store_temp10_dout[255:0]</obj_property>
+                  <obj_property name="ObjectShortName">store_temp10_dout[255:0]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Store_ap_int_8_ap_uint_256_5u_U0/store_temp10_empty_n">
+                  <obj_property name="ElementShortName">store_temp10_empty_n</obj_property>
+                  <obj_property name="ObjectShortName">store_temp10_empty_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Store_ap_int_8_ap_uint_256_5u_U0/store_temp10_read">
+                  <obj_property name="ElementShortName">store_temp10_read</obj_property>
+                  <obj_property name="ObjectShortName">store_temp10_read</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="p_anonymous_namespace_Store_ap_int_8_ap_uint_256_5u_U0_Handshake_group">
+            <obj_property name="label">Block-level handshake</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Store_ap_int_8_ap_uint_256_5u_U0/ap_start">
+               <obj_property name="ElementShortName">ap_start</obj_property>
+               <obj_property name="ObjectShortName">ap_start</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Store_ap_int_8_ap_uint_256_5u_U0/ap_ready">
+               <obj_property name="ElementShortName">ap_ready</obj_property>
+               <obj_property name="ObjectShortName">ap_ready</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Store_ap_int_8_ap_uint_256_5u_U0/ap_done">
+               <obj_property name="ElementShortName">ap_done</obj_property>
+               <obj_property name="ObjectShortName">ap_done</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_layernorm_top/AESL_inst_layernorm/p_anonymous_namespace_Store_ap_int_8_ap_uint_256_5u_U0/ap_continue">
+               <obj_property name="ElementShortName">ap_continue</obj_property>
+               <obj_property name="ObjectShortName">ap_continue</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="p_anonymous_namespace_Store_ap_int_8_ap_uint_256_5u_U0_Output_group">
+            <obj_property name="label">Output Channels</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+         </wvobject>
+      </wvobject>
+   </wvobject>
+</wave_config>
