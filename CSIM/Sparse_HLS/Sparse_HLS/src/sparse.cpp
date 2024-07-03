@@ -32,7 +32,7 @@ void sparse(
 	hls::stream<WideType<t_Quant_DataType, nPE>::t_TypeInt> data_out;
 #pragma HLS STREAM variable = data_out depth = 1024
 	hls::stream<WideType<t_DataType_OUT, nPE>::t_TypeInt> quant_out;
-#pragma HLS STREAM variable = data_out depth = 4096
+#pragma HLS STREAM variable = quant_out depth = 4096
 	hls::stream<WideType<t_DataType_IN, nPE>::t_TypeInt> am_value_stream;
 #pragma HLS STREAM variable = am_value_stream depth = 2048
 	hls::stream<WideType<t_DataType_IN, nPE>::t_TypeInt> fm_stream;
