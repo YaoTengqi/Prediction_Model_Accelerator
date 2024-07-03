@@ -75,7 +75,7 @@ all: $(TARGET)
 
 $(ObjDir)/sparse_tb.o: ../../../../testbench/sparse_tb.cpp $(ObjDir)/.dir
 	$(Echo) "   Compiling ../../../../testbench/sparse_tb.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
-	$(Verb)  $(CC) ${CCFLAG} -c -MMD -std=c++11 -Wno-unknown-pragmas -Wno-unknown-pragmas  $(IFLAG) $(DFLAG) $< -o $@ ; \
+	$(Verb)  $(CC) ${CCFLAG} -c -MMD -std=c++11 -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas  $(IFLAG) $(DFLAG) $< -o $@ ; \
 
 -include $(ObjDir)/sparse_tb.d
 

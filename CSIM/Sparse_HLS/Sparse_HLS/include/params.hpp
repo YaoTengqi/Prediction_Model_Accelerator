@@ -20,6 +20,7 @@
 //#define ROWS 40
 //#define COLS (1 << COLS_LOG)
 #define nPE 32
+#define bigPE 256
 #define AXI_DATA_WIDTH 256
 #define INP_DATA_WIDTH 8
 #define INP_ROW_DATA_WIDTH COLS * INP_DATA_WIDTH	// 一行输入数据占的位宽

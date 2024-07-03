@@ -1,30 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
-<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog"/>
-=======
 <vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
   <errorLogs>
     <logs>
       <csimLog>
-        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="Sparse_HLS.prj" solutionName="sol" date="2024-07-03T14:52:10.161+0800"/>
-        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="Sparse_HLS.prj" solutionName="sol" date="2024-07-03T14:50:15.633+0800"/>
-        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="Sparse_HLS.prj" solutionName="sol" date="2024-07-03T14:49:16.667+0800"/>
-        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="Sparse_HLS.prj" solutionName="sol" date="2024-07-03T14:48:22.306+0800"/>
-        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="Sparse_HLS.prj" solutionName="sol" date="2024-07-03T11:46:01.140+0800"/>
-        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="Sparse_HLS.prj" solutionName="sol" date="2024-07-03T11:44:52.784+0800"/>
-        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="Sparse_HLS.prj" solutionName="sol" date="2024-07-03T11:36:20.145+0800"/>
-        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="Sparse_HLS.prj" solutionName="sol" date="2024-07-02T17:46:42.730+0800"/>
-        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="Sparse_HLS.prj" solutionName="sol" date="2024-07-01T17:14:25.022+0800"/>
-        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="Sparse_HLS.prj" solutionName="sol" date="2024-07-01T16:55:48.238+0800"/>
-        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="Sparse_HLS.prj" solutionName="sol" date="2024-07-01T15:36:00.213+0800"/>
-        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="Sparse_HLS.prj" solutionName="sol" date="2024-07-01T15:26:01.435+0800"/>
-        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="Sparse_HLS.prj" solutionName="sol" date="2024-07-01T15:17:15.411+0800"/>
-        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="Sparse_HLS.prj" solutionName="sol" date="2024-07-01T15:16:06.470+0800"/>
-        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="Sparse_HLS.prj" solutionName="sol" date="2024-07-01T15:13:36.343+0800"/>
-        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="Sparse_HLS.prj" solutionName="sol" date="2024-07-01T15:12:18.156+0800"/>
-        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="Sparse_HLS.prj" solutionName="sol" date="2024-07-01T15:09:59.816+0800"/>
-        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="Sparse_HLS.prj" solutionName="sol" date="2024-07-01T15:09:19.893+0800"/>
-        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="Sparse_HLS.prj" solutionName="sol" date="2024-07-01T15:08:45.553+0800"/>
+        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="Sparse_HLS.prj" solutionName="sol" date="2024-07-03T16:22:10.733+0800"/>
       </csimLog>
     </logs>
   </errorLogs>
@@ -34,4 +13,3 @@
     </logs>
   </warningLogs>
 </vivadoHLSLog:LogRoot>
->>>>>>> 修改sparse代码，增加并行性
