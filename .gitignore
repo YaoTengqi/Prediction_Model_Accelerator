@@ -4,5 +4,9 @@ BOARD/
 temp/
 
 **/data/
+<<<<<<< HEAD
 **/sol
 **/Sparse_HLS.prj
+=======
+**/sol
+>>>>>>> 修改sparse代码，增加并行性

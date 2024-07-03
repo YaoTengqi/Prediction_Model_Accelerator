@@ -6,7 +6,11 @@
 
 source /home/ytq/source/Xilinx/Vitis_HLS/2022.2/scripts/vitis_hls/hls.tcl -notrace
 INFO: [HLS 200-10] Running '/home/ytq/source/Xilinx/Vitis_HLS/2022.2/bin/unwrapped/lnx64.o/vitis_hls'
+<<<<<<< HEAD
 INFO: [HLS 200-10] For user 'ytq' on host 'ytq' (Linux_x86_64 version 5.4.0-152-generic) on Sat Jun 15 11:55:51 CST 2024
+=======
+INFO: [HLS 200-10] For user 'ytq' on host 'ytq' (Linux_x86_64 version 5.4.0-152-generic) on Wed Jul 03 15:11:09 CST 2024
+>>>>>>> 修改sparse代码，增加并行性
 INFO: [HLS 200-10] On os Ubuntu 18.04.6 LTS
 INFO: [HLS 200-10] In directory '/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS'
 Sourcing Tcl script 'run_hls.tcl'
@@ -29,7 +33,11 @@ INFO: [HLS 200-1611] Setting target device to 'xczu7ev-ffvc1156-2-e'
 INFO: [HLS 200-1510] Running: create_clock -period 10 
 INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
 INFO: [HLS 200-1510] Running: csim_design 
+<<<<<<< HEAD
 Running Dispatch Server on port: 43987
+=======
+Running Dispatch Server on port: 45323
+>>>>>>> 修改sparse代码，增加并行性
 INFO: [SIM 211-2] *************** CSIM start ***************
 INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
    Compiling ../../../../testbench/sparse_tb.cpp in debug mode
@@ -41,16 +49,25 @@ Pass!
 INFO [HLS SIM]: The maximum depth reached by any hls::stream() instance in the design is 512
 INFO: [SIM 211-1] CSim done with 0 errors.
 INFO: [SIM 211-3] *************** CSIM finish ***************
+<<<<<<< HEAD
 INFO: [HLS 200-111] Finished Command csim_design CPU user time: 9.02 seconds. CPU system time: 0.57 seconds. Elapsed time: 9.58 seconds; current allocated memory: 0.000 MB.
 INFO: [HLS 200-1510] Running: csynth_design 
 INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 754.391 MB.
 INFO: [HLS 200-10] Analyzing design file '/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/sparse.cpp' ... 
 WARNING: [HLS 214-114] Since the only kind of statements allowed in a canonical dataflow region are variable declarations and function calls, the compiler may not be able to correctly handle the region (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/sparse.cpp:49:9)
+=======
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 7.72 seconds. CPU system time: 0.53 seconds. Elapsed time: 8.24 seconds; current allocated memory: 0.000 MB.
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 754.375 MB.
+INFO: [HLS 200-10] Analyzing design file '/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/sparse.cpp' ... 
+WARNING: [HLS 214-114] Since the only kind of statements allowed in a canonical dataflow region are variable declarations and function calls, the compiler may not be able to correctly handle the region (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/sparse.cpp:50:9)
+>>>>>>> 修改sparse代码，增加并行性
 Resolution: For help on HLS 214-114 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=214-114.html
 WARNING: [HLS 200-471] Dataflow form checks found 1 issue(s) in file /home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/sparse.cpp
 Resolution: For help on HLS 200-471 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-471.html
 WARNING: [HLS 207-5292] unused parameter 'p_Idx' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/include/./../include/types.hpp:226:32)
 WARNING: [HLS 207-5292] unused parameter 'p_Idx' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/include/./../include/types.hpp:234:38)
+<<<<<<< HEAD
 WARNING: [HLS 207-5292] unused parameter 'am_COLS' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:72:15)
 WARNING: [HLS 207-5292] unused parameter 'fm_ROWS' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:73:15)
 INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 16.72 seconds. CPU system time: 0.83 seconds. Elapsed time: 17.57 seconds; current allocated memory: 762.785 MB.
@@ -72,6 +89,34 @@ INFO: [HLS 214-131] Inlining function 'WideType<ap_int<32>, 32u, 32u, void>::ope
 INFO: [HLS 214-131] Inlining function 'WideType<ap_int<8>, 32u, 8u, void>::WideType()' into 'void quant<ap_uint<256>, ap_int<32>, ap_int<8>, 32u>(hls::stream<WideType<ap_int<32>, 32u, (sizeof (ap_int<32>)) * (8), void>::t_TypeInt, 0>&, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt, 0>&, int, int)' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:118:33)
 INFO: [HLS 214-131] Inlining function 'WideType<ap_int<8>, 32u, 8u, void>::WideType()' into 'void store<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>(hls::stream<WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt, 0>&, ap_uint<256>*, unsigned int, unsigned int, unsigned int, bool&)' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:158:31)
 INFO: [HLS 214-131] Inlining function 'WideType<ap_int<8>, 32u, 8u, void>::WideType(ap_uint<256> const&)' into 'void store<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>(hls::stream<WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt, 0>&, ap_uint<256>*, unsigned int, unsigned int, unsigned int, bool&)' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:163:9)
+=======
+WARNING: [HLS 207-5292] unused parameter 'fm_ROWS' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:41:15)
+WARNING: [HLS 207-5292] unused parameter 'inputs' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:43:18)
+WARNING: [HLS 207-5292] unused parameter 'input_data_addr1' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:49:11)
+WARNING: [HLS 207-5292] unused parameter 'input_data_addr2' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:50:11)
+WARNING: [HLS 207-5292] unused parameter 'am_COLS' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:105:15)
+WARNING: [HLS 207-5292] unused parameter 'fm_ROWS' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:106:15)
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 14.64 seconds. CPU system time: 0.58 seconds. Elapsed time: 15.21 seconds; current allocated memory: 762.883 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+INFO: [HLS 214-131] Inlining function 'WideType<ap_int<8>, 32u, 8u, void>::constructor(ap_uint<256> const&)' into 'WideType<ap_int<8>, 32u, 8u, void>::WideType(ap_uint<256> const&)' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/include/./../include/types.hpp:99:2)
+INFO: [HLS 214-131] Inlining function 'WideType<ap_int<8>, 32u, 8u, void>::WideType(ap_uint<256> const&)' into 'void loadRAM<ap_uint<256>, ap_int<8>, ap_int<8>, 32u, 256u>(unsigned int, unsigned int, unsigned int, unsigned int, ap_uint<256>*, hls::stream<WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt, 0>&, WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt*, unsigned int, unsigned int)' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:27:45)
+INFO: [HLS 214-131] Inlining function 'WideType<ap_int<8>, 32u, 8u, void>::WideType(ap_uint<256> const&)' into 'void load<ap_uint<256>, ap_int<8>, ap_int<8>, 32u, 256u>(unsigned int, unsigned int, unsigned int, unsigned int, ap_uint<256>*, hls::stream<WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt, 0>&, hls::stream<unsigned char, 0>&, hls::stream<WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt, 0>&, WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt*, unsigned int, unsigned int)' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:65:44)
+INFO: [HLS 214-131] Inlining function 'WideType<ap_int<8>, 32u, 8u, void>::WideType(ap_uint<256> const&)' into 'void load<ap_uint<256>, ap_int<8>, ap_int<8>, 32u, 256u>(unsigned int, unsigned int, unsigned int, unsigned int, ap_uint<256>*, hls::stream<WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt, 0>&, hls::stream<unsigned char, 0>&, hls::stream<WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt, 0>&, WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt*, unsigned int, unsigned int)' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:88:44)
+INFO: [HLS 214-131] Inlining function 'WideType<ap_int<8>, 32u, 8u, void>::operator[](unsigned int)' into 'void load<ap_uint<256>, ap_int<8>, ap_int<8>, 32u, 256u>(unsigned int, unsigned int, unsigned int, unsigned int, ap_uint<256>*, hls::stream<WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt, 0>&, hls::stream<unsigned char, 0>&, hls::stream<WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt, 0>&, WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt*, unsigned int, unsigned int)' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:69:9)
+INFO: [HLS 214-131] Inlining function 'WideType<ap_int<32>, 32u, 32u, void>::constructor(ap_int<32>)' into 'WideType<ap_int<32>, 32u, 32u, void>::WideType(ap_int<32>)' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/include/./../include/types.hpp:113:2)
+INFO: [HLS 214-131] Inlining function 'WideType<ap_int<32>, 32u, 32u, void>::operator[](unsigned int)' into 'void mul<ap_uint<256>, ap_int<32>, ap_int<8>, ap_int<8>, 32u>(unsigned int, unsigned int, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt, 0>&, hls::stream<unsigned char, 0>&, hls::stream<WideType<ap_int<32>, 32u, (sizeof (ap_int<32>)) * (8), void>::t_TypeInt, 0>&)' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:129:6)
+INFO: [HLS 214-131] Inlining function 'WideType<ap_int<8>, 32u, 8u, void>::operator[](unsigned int)' into 'void mul<ap_uint<256>, ap_int<32>, ap_int<8>, ap_int<8>, 32u>(unsigned int, unsigned int, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt, 0>&, hls::stream<unsigned char, 0>&, hls::stream<WideType<ap_int<32>, 32u, (sizeof (ap_int<32>)) * (8), void>::t_TypeInt, 0>&)' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:129:62)
+INFO: [HLS 214-131] Inlining function 'WideType<ap_int<32>, 32u, 32u, void>::operator[](unsigned int)' into 'void mul<ap_uint<256>, ap_int<32>, ap_int<8>, ap_int<8>, 32u>(unsigned int, unsigned int, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt, 0>&, hls::stream<unsigned char, 0>&, hls::stream<WideType<ap_int<32>, 32u, (sizeof (ap_int<32>)) * (8), void>::t_TypeInt, 0>&)' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:129:19)
+INFO: [HLS 214-131] Inlining function 'WideType<ap_int<8>, 32u, 8u, void>::WideType(ap_uint<256> const&)' into 'void mul<ap_uint<256>, ap_int<32>, ap_int<8>, ap_int<8>, 32u>(unsigned int, unsigned int, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt, 0>&, hls::stream<unsigned char, 0>&, hls::stream<WideType<ap_int<32>, 32u, (sizeof (ap_int<32>)) * (8), void>::t_TypeInt, 0>&)' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:126:45)
+INFO: [HLS 214-131] Inlining function 'WideType<ap_int<32>, 32u, 32u, void>::WideType(ap_int<32>)' into 'void mul<ap_uint<256>, ap_int<32>, ap_int<8>, ap_int<8>, 32u>(unsigned int, unsigned int, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt, 0>&, hls::stream<unsigned char, 0>&, hls::stream<WideType<ap_int<32>, 32u, (sizeof (ap_int<32>)) * (8), void>::t_TypeInt, 0>&)' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:120:45)
+INFO: [HLS 214-131] Inlining function 'WideType<ap_int<32>, 32u, 32u, void>::constructor(ap_uint<1024> const&)' into 'WideType<ap_int<32>, 32u, 32u, void>::WideType(ap_uint<1024> const&)' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/include/./../include/types.hpp:99:2)
+INFO: [HLS 214-131] Inlining function 'WideType<ap_int<32>, 32u, 32u, void>::WideType(ap_uint<1024> const&)' into 'void quant<ap_uint<256>, ap_int<32>, ap_int<8>, 32u>(hls::stream<WideType<ap_int<32>, 32u, (sizeof (ap_int<32>)) * (8), void>::t_TypeInt, 0>&, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt, 0>&, int, int)' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:150:47)
+INFO: [HLS 214-131] Inlining function 'WideType<ap_int<8>, 32u, 8u, void>::operator[](unsigned int)' into 'void quant<ap_uint<256>, ap_int<32>, ap_int<8>, 32u>(hls::stream<WideType<ap_int<32>, 32u, (sizeof (ap_int<32>)) * (8), void>::t_TypeInt, 0>&, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt, 0>&, int, int)' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:170:4)
+INFO: [HLS 214-131] Inlining function 'WideType<ap_int<32>, 32u, 32u, void>::operator[](unsigned int)' into 'void quant<ap_uint<256>, ap_int<32>, ap_int<8>, 32u>(hls::stream<WideType<ap_int<32>, 32u, (sizeof (ap_int<32>)) * (8), void>::t_TypeInt, 0>&, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt, 0>&, int, int)' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:154:40)
+INFO: [HLS 214-131] Inlining function 'WideType<ap_int<8>, 32u, 8u, void>::WideType()' into 'void quant<ap_uint<256>, ap_int<32>, ap_int<8>, 32u>(hls::stream<WideType<ap_int<32>, 32u, (sizeof (ap_int<32>)) * (8), void>::t_TypeInt, 0>&, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt, 0>&, int, int)' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:151:33)
+INFO: [HLS 214-131] Inlining function 'WideType<ap_int<8>, 32u, 8u, void>::WideType()' into 'void store<ap_uint<256>, ap_int<8>, ap_int<8>, 32u, 256u>(hls::stream<WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt, 0>&, ap_uint<256>*, unsigned int, unsigned int, unsigned int, bool&)' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:191:31)
+INFO: [HLS 214-131] Inlining function 'WideType<ap_int<8>, 32u, 8u, void>::WideType(ap_uint<256> const&)' into 'void store<ap_uint<256>, ap_int<8>, ap_int<8>, 32u, 256u>(hls::stream<WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt, 0>&, ap_uint<256>*, unsigned int, unsigned int, unsigned int, bool&)' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:196:9)
+>>>>>>> 修改sparse代码，增加并行性
 INFO: [HLS 214-377] Adding 'ref.tmp' into disaggregation list because there's array-partition pragma applied on the struct field (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/include/./../include/types.hpp:98:9)
 INFO: [HLS 214-377] Adding 'data' into disaggregation list because there's array-partition pragma applied on the struct field (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/include/./../include/types.hpp:80:9)
 INFO: [HLS 214-377] Adding 'outValue' into disaggregation list because there's array-partition pragma applied on the struct field (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/include/./../include/types.hpp:80:9)
@@ -79,6 +124,7 @@ INFO: [HLS 214-377] Adding 'dataValue' into disaggregation list because there's 
 INFO: [HLS 214-377] Adding 'result' into disaggregation list because there's array-partition pragma applied on the struct field (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/include/./../include/types.hpp:112:9)
 INFO: [HLS 214-377] Adding 'fm_value' into disaggregation list because there's array-partition pragma applied on the struct field (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/include/./../include/types.hpp:98:9)
 INFO: [HLS 214-377] Adding 'am_value' into disaggregation list because there's array-partition pragma applied on the struct field (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/include/./../include/types.hpp:98:9)
+<<<<<<< HEAD
 INFO: [HLS 214-210] Disaggregating variable 'fm_value' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:58:33)
 Resolution: For help on HLS 214-210 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=214-210.html
 INFO: [HLS 214-210] Disaggregating variable 'am_value' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:39:32)
@@ -168,11 +214,101 @@ Resolution: For help on HLS 200-936 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.
 WARNING: [HLS 200-936] Cannot unroll loop 'VITIS_LOOP_54_6' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:54) in function 'load<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>': cannot completely unroll a loop with a variable trip count.
 Resolution: For help on HLS 200-936 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-936.html
 WARNING: [HLS 200-936] Cannot unroll loop 'VITIS_LOOP_61_7' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:61) in function 'load<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>': cannot completely unroll a loop with a variable trip count.
+=======
+INFO: [HLS 214-210] Disaggregating variable 'am_value' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:27:34)
+Resolution: For help on HLS 214-210 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=214-210.html
+INFO: [HLS 214-210] Disaggregating variable 'fm_value' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:88:33)
+Resolution: For help on HLS 214-210 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=214-210.html
+INFO: [HLS 214-210] Disaggregating variable 'am_value' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:65:33)
+Resolution: For help on HLS 214-210 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=214-210.html
+INFO: [HLS 214-210] Disaggregating variable 'fm_value' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:126:34)
+Resolution: For help on HLS 214-210 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=214-210.html
+INFO: [HLS 214-210] Disaggregating variable 'result' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:120:36)
+Resolution: For help on HLS 214-210 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=214-210.html
+INFO: [HLS 214-210] Disaggregating variable 'outValue' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:151:33)
+Resolution: For help on HLS 214-210 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=214-210.html
+INFO: [HLS 214-210] Disaggregating variable 'dataValue' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:150:35)
+Resolution: For help on HLS 214-210 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=214-210.html
+INFO: [HLS 214-210] Disaggregating variable 'ref.tmp'
+Resolution: For help on HLS 214-210 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=214-210.html
+INFO: [HLS 214-210] Disaggregating variable 'data' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:191:31)
+Resolution: For help on HLS 214-210 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=214-210.html
+INFO: [HLS 214-291] Loop 'anonymous' is marked as complete unroll implied by the pipeline pragma (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/include/./../include/types.hpp:96:5)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_103_1' is marked as complete unroll implied by the pipeline pragma (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/include/./../include/types.hpp:103:20)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_114_1' is marked as complete unroll implied by the pipeline pragma (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:114:20)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_116_2' is marked as complete unroll implied by the pipeline pragma (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:116:21)
+INFO: [HLS 214-291] Loop 'anonymous' is marked as complete unroll implied by the pipeline pragma (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/include/./../include/types.hpp:110:5)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_117_1' is marked as complete unroll implied by the pipeline pragma (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/include/./../include/types.hpp:117:20)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_122_3' is marked as complete unroll implied by the pipeline pragma (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:122:20)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_127_4' is marked as complete unroll implied by the pipeline pragma (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:127:23)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_125_1' is marked as complete unroll implied by the pipeline pragma (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/include/./../include/types.hpp:125:27)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_82_4' is marked as complete unroll implied by the pipeline pragma (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:82:19)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_84_5' is marked as complete unroll implied by the pipeline pragma (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:84:20)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_92_6' is marked as complete unroll implied by the pipeline pragma (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:92:20)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_59_1' is marked as complete unroll implied by the pipeline pragma (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:59:19)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_62_2' is marked as complete unroll implied by the pipeline pragma (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:62:20)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_67_3' is marked as complete unroll implied by the pipeline pragma (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:67:19)
+INFO: [HLS 214-186] Unrolling loop 'anonymous' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/include/./../include/types.hpp:96:5) in function 'store<ap_uint<256>, ap_int<8>, ap_int<8>, 32u, 256u>' completely with a factor of 32 (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:184:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_103_1' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/include/./../include/types.hpp:103:20) in function 'store<ap_uint<256>, ap_int<8>, ap_int<8>, 32u, 256u>' completely with a factor of 32 (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:184:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_103_1' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/include/./../include/types.hpp:103:20) in function 'quant<ap_uint<256>, ap_int<32>, ap_int<8>, 32u>' completely with a factor of 32 (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:144:0)
+INFO: [HLS 214-186] Unrolling loop 'anonymous' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/include/./../include/types.hpp:110:5) in function 'mul<ap_uint<256>, ap_int<32>, ap_int<8>, ap_int<8>, 32u>' completely with a factor of 32 (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:112:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_117_1' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/include/./../include/types.hpp:117:20) in function 'mul<ap_uint<256>, ap_int<32>, ap_int<8>, ap_int<8>, 32u>' completely with a factor of 32 (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:112:0)
+INFO: [HLS 214-186] Unrolling loop 'anonymous' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/include/./../include/types.hpp:96:5) in function 'mul<ap_uint<256>, ap_int<32>, ap_int<8>, ap_int<8>, 32u>' completely with a factor of 32 (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:112:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_103_1' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/include/./../include/types.hpp:103:20) in function 'mul<ap_uint<256>, ap_int<32>, ap_int<8>, ap_int<8>, 32u>' completely with a factor of 32 (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:112:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_127_4' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:127:23) in function 'mul<ap_uint<256>, ap_int<32>, ap_int<8>, ap_int<8>, 32u>' completely with a factor of 32 (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:112:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_125_1' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/include/./../include/types.hpp:125:27) in function 'WideType<ap_int<32>, 32u, 32u, void>::operator ap_uint<1024> const' completely with a factor of 32 (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/include/./../include/types.hpp:123:0)
+INFO: [HLS 214-186] Unrolling loop 'anonymous' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/include/./../include/types.hpp:96:5) in function 'load<ap_uint<256>, ap_int<8>, ap_int<8>, 32u, 256u>' completely with a factor of 32 (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:51:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_103_1' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/include/./../include/types.hpp:103:20) in function 'load<ap_uint<256>, ap_int<8>, ap_int<8>, 32u, 256u>' completely with a factor of 32 (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:51:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_67_3' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:67:19) in function 'load<ap_uint<256>, ap_int<8>, ap_int<8>, 32u, 256u>' completely with a factor of 32 (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:51:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_103_1' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/include/./../include/types.hpp:103:20) in function 'loadRAM<ap_uint<256>, ap_int<8>, ap_int<8>, 32u, 256u>' completely with a factor of 32 (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:16:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_125_1' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/include/./../include/types.hpp:125:27) in function 'WideType<ap_int<8>, 32u, 8u, void>::operator ap_uint<256> const' completely with a factor of 32 (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/include/./../include/types.hpp:123:0)
+INFO: [HLS 214-178] Inlining function 'WideType<ap_int<8>, 32u, 8u, void>::operator ap_uint<256> const()' into 'void loadRAM<ap_uint<256>, ap_int<8>, ap_int<8>, 32u, 256u>(unsigned int, unsigned int, unsigned int, unsigned int, ap_uint<256>*, hls::stream<WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt, 0>&, WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt*, unsigned int, unsigned int)' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:16:0)
+INFO: [HLS 214-178] Inlining function 'WideType<ap_int<8>, 32u, 8u, void>::operator ap_uint<256> const()' into 'void load<ap_uint<256>, ap_int<8>, ap_int<8>, 32u, 256u>(unsigned int, unsigned int, unsigned int, unsigned int, ap_uint<256>*, hls::stream<WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt, 0>&, hls::stream<unsigned char, 0>&, hls::stream<WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt, 0>&, WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt*, unsigned int, unsigned int)' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:51:0)
+INFO: [HLS 214-178] Inlining function 'WideType<ap_int<32>, 32u, 32u, void>::operator ap_uint<1024> const()' into 'void mul<ap_uint<256>, ap_int<32>, ap_int<8>, ap_int<8>, 32u>(unsigned int, unsigned int, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt, 0>&, hls::stream<unsigned char, 0>&, hls::stream<WideType<ap_int<32>, 32u, (sizeof (ap_int<32>)) * (8), void>::t_TypeInt, 0>&)' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:112:0)
+INFO: [HLS 214-178] Inlining function 'WideType<ap_int<8>, 32u, 8u, void>::operator ap_uint<256> const()' into 'void quant<ap_uint<256>, ap_int<32>, ap_int<8>, 32u>(hls::stream<WideType<ap_int<32>, 32u, (sizeof (ap_int<32>)) * (8), void>::t_TypeInt, 0>&, unsigned int, unsigned int, hls::stream<WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt, 0>&, int, int)' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:144:0)
+INFO: [HLS 214-178] Inlining function 'WideType<ap_int<8>, 32u, 8u, void>::operator ap_uint<256> const()' into 'void store<ap_uint<256>, ap_int<8>, ap_int<8>, 32u, 256u>(hls::stream<WideType<ap_int<8>, 32u, (sizeof (ap_int<8>)) * (8), void>::t_TypeInt, 0>&, ap_uint<256>*, unsigned int, unsigned int, unsigned int, bool&)' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:184:0)
+INFO: [HLS 214-248] Applying array_partition to 'result': Complete partitioning on dimension 1. (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:120:36)
+INFO: [HLS 214-248] Applying array_partition to 'dataValue': Complete partitioning on dimension 1. (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:150:35)
+INFO: [HLS 214-248] Applying array_partition to 'outValue': Complete partitioning on dimension 1. (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:151:33)
+INFO: [HLS 214-115] Multiple burst reads of variable length and bit width 256 in loop 'VITIS_LOOP_20_1'(/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:20:19) has been inferred on bundle 'sparse_data'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:20:19)
+INFO: [HLS 214-115] Multiple burst reads of variable length and bit width 256 in loop 'VITIS_LOOP_31_4'(/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:31:19) has been inferred on bundle 'sparse_data'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:31:19)
+INFO: [HLS 214-115] Multiple burst writes of variable length and bit width 256 in loop 'VITIS_LOOP_193_1'(/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:193:20) has been inferred on bundle 'sparse_data'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:193:20)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 2.55 seconds. CPU system time: 0.29 seconds. Elapsed time: 2.84 seconds; current allocated memory: 763.531 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 763.531 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0.08 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.1 seconds; current allocated memory: 788.359 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0.16 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.16 seconds; current allocated memory: 823.844 MB.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_148_1' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:148) in function 'quant<ap_uint<256>, ap_int<32>, ap_int<8>, 32u>' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_20_1' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:20) in function 'loadRAM<ap_uint<256>, ap_int<8>, ap_int<8>, 32u, 256u>' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_25_3' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:25) in function 'loadRAM<ap_uint<256>, ap_int<8>, ap_int<8>, 32u, 256u>' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_31_4' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:31) in function 'loadRAM<ap_uint<256>, ap_int<8>, ap_int<8>, 32u, 256u>' automatically.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'VITIS_LOOP_148_1' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:148) in function 'quant<ap_uint<256>, ap_int<32>, ap_int<8>, 32u>' for pipelining.
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'mul<ap_uint<256>, ap_int<32>, ap_int<8>, ap_int<8>, 32u>' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:105:20).
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'load<ap_uint<256>, ap_int<8>, ap_int<8>, 32u, 256u>' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:54:5).
+INFO: [HLS 200-489] Unrolling loop 'VITIS_LOOP_152_2' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:151) in function 'quant<ap_uint<256>, ap_int<32>, ap_int<8>, 32u>' completely with a factor of 32.
+WARNING: [HLS 200-936] Cannot unroll loop 'VITIS_LOOP_114_1' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:114) in function 'mul<ap_uint<256>, ap_int<32>, ap_int<8>, ap_int<8>, 32u>': cannot completely unroll a loop with a variable trip count.
+Resolution: For help on HLS 200-936 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-936.html
+WARNING: [HLS 200-936] Cannot unroll loop 'VITIS_LOOP_116_2' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:116) in function 'mul<ap_uint<256>, ap_int<32>, ap_int<8>, ap_int<8>, 32u>': cannot completely unroll a loop with a variable trip count.
+Resolution: For help on HLS 200-936 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-936.html
+WARNING: [HLS 200-936] Cannot unroll loop 'VITIS_LOOP_122_3' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:122) in function 'mul<ap_uint<256>, ap_int<32>, ap_int<8>, ap_int<8>, 32u>': cannot completely unroll a loop with a variable trip count.
+Resolution: For help on HLS 200-936 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-936.html
+WARNING: [HLS 200-936] Cannot unroll loop 'VITIS_LOOP_59_1' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:57) in function 'load<ap_uint<256>, ap_int<8>, ap_int<8>, 32u, 256u>': cannot completely unroll a loop with a variable trip count.
+Resolution: For help on HLS 200-936 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-936.html
+WARNING: [HLS 200-936] Cannot unroll loop 'VITIS_LOOP_62_2' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:57) in function 'load<ap_uint<256>, ap_int<8>, ap_int<8>, 32u, 256u>': cannot completely unroll a loop with a variable trip count.
+Resolution: For help on HLS 200-936 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-936.html
+WARNING: [HLS 200-936] Cannot unroll loop 'VITIS_LOOP_82_4' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:82) in function 'load<ap_uint<256>, ap_int<8>, ap_int<8>, 32u, 256u>': cannot completely unroll a loop with a variable trip count.
+Resolution: For help on HLS 200-936 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-936.html
+WARNING: [HLS 200-936] Cannot unroll loop 'VITIS_LOOP_84_5' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:84) in function 'load<ap_uint<256>, ap_int<8>, ap_int<8>, 32u, 256u>': cannot completely unroll a loop with a variable trip count.
+Resolution: For help on HLS 200-936 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-936.html
+WARNING: [HLS 200-936] Cannot unroll loop 'VITIS_LOOP_92_6' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:92) in function 'load<ap_uint<256>, ap_int<8>, ap_int<8>, 32u, 256u>': cannot completely unroll a loop with a variable trip count.
+>>>>>>> 修改sparse代码，增加并行性
 Resolution: For help on HLS 200-936 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-936.html
 WARNING: [HLS 200-805] An internal stream 'quant_out' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/sparse.cpp:34) with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
-INFO: [XFORM 203-712] Applying dataflow to function 'sparse' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/sparse.cpp:3:1), detected/extracted 6 process function(s): 
+INFO: [XFORM 203-712] Applying dataflow to function 'sparse' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/sparse.cpp:3:1), detected/extracted 7 process function(s): 
 	 'entry_proc'
 	 'Block_entry4_proc'
+<<<<<<< HEAD
 	 'load<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>'
 	 'mul<ap_uint<256>, ap_int<32>, ap_int<8>, ap_int<8>, 32u>'
 	 'quant<ap_uint<256>, ap_int<32>, ap_int<8>, 32u>'
@@ -192,44 +328,152 @@ WARNING: [SYN 201-103] Legalizing function name 'quant<ap_uint<256>, ap_int<32>,
 WARNING: [SYN 201-103] Legalizing function name 'quant<ap_uint<256>, ap_int<32>, ap_int<8>, 32u>' to 'quant_ap_uint_256_ap_int_32_ap_int_8_32u_s'.
 WARNING: [SYN 201-103] Legalizing function name 'store<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>_Pipeline_VITIS_LOOP_160_1' to 'store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_160_1'.
 WARNING: [SYN 201-103] Legalizing function name 'store<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>' to 'store_ap_uint_256_ap_int_8_ap_int_8_32u_s'.
+=======
+	 'loadRAM<ap_uint<256>, ap_int<8>, ap_int<8>, 32u, 256u>'
+	 'load<ap_uint<256>, ap_int<8>, ap_int<8>, 32u, 256u>'
+	 'mul<ap_uint<256>, ap_int<32>, ap_int<8>, ap_int<8>, 32u>'
+	 'quant<ap_uint<256>, ap_int<32>, ap_int<8>, 32u>'
+	 'store<ap_uint<256>, ap_int<8>, ap_int<8>, 32u, 256u>'.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0.35 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.37 seconds; current allocated memory: 879.977 MB.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_24_2' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:24:28) in function 'loadRAM<ap_uint<256>, ap_int<8>, ap_int<8>, 32u, 256u>'.
+INFO: [HLS 200-472] Inferring partial write operation for 'am_ram.V' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:22:13)
+INFO: [HLS 200-472] Inferring partial write operation for 'fm_ram.V' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:33:13)
+INFO: [HLS 200-472] Inferring partial write operation for 'idx_ram' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:73:25)
+INFO: [HLS 200-472] Inferring partial write operation for 'count_ram' (/home/ytq/codeField/Prediction_Model_Accelerator/CSIM/Sparse_HLS/Sparse_HLS/src/../include/helpers.hpp:78:26)
+WARNING: [HLS 200-1449] Process loadRAM<ap_uint<256>, ap_int<8>, ap_int<8>, 32u, 256u> has both a predecessor and reads an input from its caller (see the GUI dataflow viewer). This may lead to lower throughput. Consider copying this input via a predecessor process.
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0.23 seconds. CPU system time: 0.03 seconds. Elapsed time: 0.26 seconds; current allocated memory: 1006.832 MB.
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'sparse' ...
+WARNING: [SYN 201-103] Legalizing function name 'loadRAM<ap_uint<256>, ap_int<8>, ap_int<8>, 32u, 256u>_Pipeline_VITIS_LOOP_20_1' to 'loadRAM_ap_uint_256_ap_int_8_ap_int_8_32u_256u_Pipeline_VITIS_LOOP_20_1'.
+WARNING: [SYN 201-103] Legalizing function name 'loadRAM<ap_uint<256>, ap_int<8>, ap_int<8>, 32u, 256u>_Pipeline_VITIS_LOOP_31_4' to 'loadRAM_ap_uint_256_ap_int_8_ap_int_8_32u_256u_Pipeline_VITIS_LOOP_31_4'.
+WARNING: [SYN 201-103] Legalizing function name 'loadRAM<ap_uint<256>, ap_int<8>, ap_int<8>, 32u, 256u>' to 'loadRAM_ap_uint_256_ap_int_8_ap_int_8_32u_256u_s'.
+WARNING: [SYN 201-103] Legalizing function name 'load<ap_uint<256>, ap_int<8>, ap_int<8>, 32u, 256u>' to 'load_ap_uint_256_ap_int_8_ap_int_8_32u_256u_s'.
+WARNING: [SYN 201-103] Legalizing function name 'mul<ap_uint<256>, ap_int<32>, ap_int<8>, ap_int<8>, 32u>' to 'mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_s'.
+WARNING: [SYN 201-103] Legalizing function name 'quant<ap_uint<256>, ap_int<32>, ap_int<8>, 32u>_Pipeline_VITIS_LOOP_148_1' to 'quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_148_1'.
+WARNING: [SYN 201-103] Legalizing function name 'quant<ap_uint<256>, ap_int<32>, ap_int<8>, 32u>' to 'quant_ap_uint_256_ap_int_32_ap_int_8_32u_s'.
+WARNING: [SYN 201-103] Legalizing function name 'store<ap_uint<256>, ap_int<8>, ap_int<8>, 32u, 256u>_Pipeline_VITIS_LOOP_193_1' to 'store_ap_uint_256_ap_int_8_ap_int_8_32u_256u_Pipeline_VITIS_LOOP_193_1'.
+WARNING: [SYN 201-103] Legalizing function name 'store<ap_uint<256>, ap_int<8>, ap_int<8>, 32u, 256u>' to 'store_ap_uint_256_ap_int_8_ap_int_8_32u_256u_s'.
+>>>>>>> 修改sparse代码，增加并行性
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'entry_proc' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
+<<<<<<< HEAD
 INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.06 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.09 seconds; current allocated memory: 945.051 MB.
+=======
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.07 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.09 seconds; current allocated memory: 1008.074 MB.
+>>>>>>> 修改sparse代码，增加并行性
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
+<<<<<<< HEAD
 INFO: [HLS 200-111] Finished Binding: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 945.137 MB.
+=======
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 1008.090 MB.
+>>>>>>> 修改sparse代码，增加并行性
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'Block_entry4_proc' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
+<<<<<<< HEAD
 INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 945.297 MB.
+=======
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 1008.238 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 1008.312 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'loadRAM_ap_uint_256_ap_int_8_ap_int_8_32u_256u_Pipeline_VITIS_LOOP_20_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_20_1'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 3, loop 'VITIS_LOOP_20_1'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 1009.324 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.01 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.01 seconds; current allocated memory: 1009.324 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'loadRAM_Pipeline_VITIS_LOOP_24_2_VITIS_LOOP_25_3' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln24) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_24_2_VITIS_LOOP_25_3'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 6, loop 'VITIS_LOOP_24_2_VITIS_LOOP_25_3'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 1009.680 MB.
+>>>>>>> 修改sparse代码，增加并行性
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+<<<<<<< HEAD
 INFO: [HLS 200-111] Finished Binding: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 945.320 MB.
+=======
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 1009.680 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'loadRAM_ap_uint_256_ap_int_8_ap_int_8_32u_256u_Pipeline_VITIS_LOOP_31_4' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_31_4'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 3, loop 'VITIS_LOOP_31_4'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 1009.988 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 1009.988 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'loadRAM_ap_uint_256_ap_int_8_ap_int_8_32u_256u_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.09 seconds. CPU system time: 0 seconds. Elapsed time: 0.09 seconds; current allocated memory: 1010.195 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.18 seconds. CPU system time: 0 seconds. Elapsed time: 0.19 seconds; current allocated memory: 1010.195 MB.
+>>>>>>> 修改sparse代码，增加并行性
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'load_ap_uint_256_ap_int_8_ap_int_8_32u_s' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
+<<<<<<< HEAD
 WARNING: [SCHED 204-65] Unable to satisfy pipeline directive for function 'load<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>': contains subloop(s) that are not unrolled.
 WARNING: [SCHED 204-65] Unable to satisfy pipeline directive for function 'load<ap_uint<256>, ap_int<8>, ap_int<8>, 32u>': contains subloop(s) that are not unrolled.
 INFO: [SCHED 204-11] Finished scheduling.
 INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.17 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.17 seconds; current allocated memory: 947.816 MB.
+=======
+WARNING: [SCHED 204-65] Unable to satisfy pipeline directive for function 'load<ap_uint<256>, ap_int<8>, ap_int<8>, 32u, 256u>': contains subloop(s) that are not unrolled.
+WARNING: [SCHED 204-65] Unable to satisfy pipeline directive for function 'load<ap_uint<256>, ap_int<8>, ap_int<8>, 32u, 256u>': contains subloop(s) that are not unrolled.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.34 seconds. CPU system time: 0 seconds. Elapsed time: 0.34 seconds; current allocated memory: 1021.027 MB.
+>>>>>>> 修改sparse代码，增加并行性
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
+<<<<<<< HEAD
 INFO: [HLS 200-111] Finished Binding: CPU user time: 0.39 seconds. CPU system time: 0 seconds. Elapsed time: 0.38 seconds; current allocated memory: 947.816 MB.
+=======
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.21 seconds. CPU system time: 0 seconds. Elapsed time: 0.2 seconds; current allocated memory: 1021.027 MB.
+>>>>>>> 修改sparse代码，增加并行性
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_s' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -237,12 +481,17 @@ INFO: [SCHED 204-11] Starting scheduling ...
 WARNING: [SCHED 204-65] Unable to satisfy pipeline directive for function 'mul<ap_uint<256>, ap_int<32>, ap_int<8>, ap_int<8>, 32u>': contains subloop(s) that are not unrolled.
 WARNING: [SCHED 204-65] Unable to satisfy pipeline directive for function 'mul<ap_uint<256>, ap_int<32>, ap_int<8>, ap_int<8>, 32u>': contains subloop(s) that are not unrolled.
 INFO: [SCHED 204-11] Finished scheduling.
+<<<<<<< HEAD
 INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.4 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.41 seconds; current allocated memory: 950.969 MB.
+=======
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.35 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.34 seconds; current allocated memory: 1021.027 MB.
+>>>>>>> 修改sparse代码，增加并行性
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
+<<<<<<< HEAD
 INFO: [HLS 200-111] Finished Binding: CPU user time: 0.13 seconds. CPU system time: 0 seconds. Elapsed time: 0.12 seconds; current allocated memory: 950.969 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_115_1' 
@@ -252,23 +501,43 @@ INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_115_1'.
 INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 4, loop 'VITIS_LOOP_115_1'
 INFO: [SCHED 204-11] Finished scheduling.
 INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.5 seconds. CPU system time: 0 seconds. Elapsed time: 0.51 seconds; current allocated memory: 955.293 MB.
+=======
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.1 seconds. CPU system time: 0 seconds. Elapsed time: 0.1 seconds; current allocated memory: 1021.027 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_148_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_148_1'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 5, loop 'VITIS_LOOP_148_1'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.46 seconds. CPU system time: 0 seconds. Elapsed time: 0.45 seconds; current allocated memory: 1022.113 MB.
+>>>>>>> 修改sparse代码，增加并行性
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
+<<<<<<< HEAD
 INFO: [HLS 200-111] Finished Binding: CPU user time: 0.27 seconds. CPU system time: 0 seconds. Elapsed time: 0.28 seconds; current allocated memory: 955.293 MB.
+=======
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.25 seconds. CPU system time: 0 seconds. Elapsed time: 0.26 seconds; current allocated memory: 1022.113 MB.
+>>>>>>> 修改sparse代码，增加并行性
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'quant_ap_uint_256_ap_int_32_ap_int_8_32u_s' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
+<<<<<<< HEAD
 INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.57 seconds. CPU system time: 0 seconds. Elapsed time: 0.57 seconds; current allocated memory: 955.293 MB.
+=======
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.52 seconds. CPU system time: 0 seconds. Elapsed time: 0.52 seconds; current allocated memory: 1022.113 MB.
+>>>>>>> 修改sparse代码，增加并行性
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
+<<<<<<< HEAD
 INFO: [HLS 200-111] Finished Binding: CPU user time: 0.18 seconds. CPU system time: 0 seconds. Elapsed time: 0.17 seconds; current allocated memory: 955.293 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_160_1' 
@@ -278,50 +547,142 @@ INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_160_1'.
 INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 3, loop 'VITIS_LOOP_160_1'
 INFO: [SCHED 204-11] Finished scheduling.
 INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.46 seconds. CPU system time: 0 seconds. Elapsed time: 0.47 seconds; current allocated memory: 955.293 MB.
+=======
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.16 seconds. CPU system time: 0 seconds. Elapsed time: 0.16 seconds; current allocated memory: 1022.113 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'store_ap_uint_256_ap_int_8_ap_int_8_32u_256u_Pipeline_VITIS_LOOP_193_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_193_1'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 3, loop 'VITIS_LOOP_193_1'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.43 seconds. CPU system time: 0 seconds. Elapsed time: 0.44 seconds; current allocated memory: 1022.113 MB.
+>>>>>>> 修改sparse代码，增加并行性
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
+<<<<<<< HEAD
 INFO: [HLS 200-111] Finished Binding: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 955.293 MB.
+=======
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 1022.113 MB.
+>>>>>>> 修改sparse代码，增加并行性
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'store_ap_uint_256_ap_int_8_ap_int_8_32u_s' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
+<<<<<<< HEAD
 INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.06 seconds. CPU system time: 0 seconds. Elapsed time: 0.06 seconds; current allocated memory: 955.293 MB.
+=======
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.06 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 1022.113 MB.
+>>>>>>> 修改sparse代码，增加并行性
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
+<<<<<<< HEAD
 INFO: [HLS 200-111] Finished Binding: CPU user time: 0.11 seconds. CPU system time: 0 seconds. Elapsed time: 0.11 seconds; current allocated memory: 955.293 MB.
+=======
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.1 seconds. CPU system time: 0 seconds. Elapsed time: 0.11 seconds; current allocated memory: 1022.113 MB.
+>>>>>>> 修改sparse代码，增加并行性
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'sparse' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
+<<<<<<< HEAD
 WARNING: [HLS 200-1020] Increasing the depth of FIFO output_data_addr3_assign_cast_loc_channel (from Block_entry4_proc_U0 to store_ap_uint_256_ap_int_8_ap_int_8_32u_U0) to 5 to improve performance and/or avoid deadlocks.
 INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.06 seconds. CPU system time: 0 seconds. Elapsed time: 0.06 seconds; current allocated memory: 955.359 MB.
+=======
+WARNING: [HLS 200-1020] Increasing the depth of FIFO output_data_addr3_assign_cast_loc_channel (from Block_entry4_proc_U0 to store_ap_uint_256_ap_int_8_ap_int_8_32u_256u_U0) to 6 to improve performance and/or avoid deadlocks.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.06 seconds. CPU system time: 0 seconds. Elapsed time: 0.06 seconds; current allocated memory: 1022.113 MB.
+>>>>>>> 修改sparse代码，增加并行性
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
+<<<<<<< HEAD
 INFO: [HLS 200-111] Finished Binding: CPU user time: 0.23 seconds. CPU system time: 0 seconds. Elapsed time: 0.23 seconds; current allocated memory: 955.359 MB.
+=======
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.25 seconds. CPU system time: 0 seconds. Elapsed time: 0.26 seconds; current allocated memory: 1022.113 MB.
+>>>>>>> 修改sparse代码，增加并行性
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'entry_proc' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [RTGEN 206-100] Finished creating RTL model for 'entry_proc'.
+<<<<<<< HEAD
 INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.59 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.59 seconds; current allocated memory: 955.492 MB.
+=======
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.69 seconds. CPU system time: 0 seconds. Elapsed time: 0.7 seconds; current allocated memory: 1022.113 MB.
+>>>>>>> 修改sparse代码，增加并行性
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'Block_entry4_proc' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [RTGEN 206-100] Finished creating RTL model for 'Block_entry4_proc'.
+<<<<<<< HEAD
 INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 955.949 MB.
+=======
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 1022.465 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'loadRAM_ap_uint_256_ap_int_8_ap_int_8_32u_256u_Pipeline_VITIS_LOOP_20_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'loadRAM_ap_uint_256_ap_int_8_ap_int_8_32u_256u_Pipeline_VITIS_LOOP_20_1' pipeline 'VITIS_LOOP_20_1' pipeline type 'loop pipeline'
+WARNING: [RTGEN 206-101] Setting dangling out port 'loadRAM_ap_uint_256_ap_int_8_ap_int_8_32u_256u_Pipeline_VITIS_LOOP_20_1/m_axi_sparse_data_ARVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'loadRAM_ap_uint_256_ap_int_8_ap_int_8_32u_256u_Pipeline_VITIS_LOOP_20_1/m_axi_sparse_data_ARADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'loadRAM_ap_uint_256_ap_int_8_ap_int_8_32u_256u_Pipeline_VITIS_LOOP_20_1/m_axi_sparse_data_ARID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'loadRAM_ap_uint_256_ap_int_8_ap_int_8_32u_256u_Pipeline_VITIS_LOOP_20_1/m_axi_sparse_data_ARLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'loadRAM_ap_uint_256_ap_int_8_ap_int_8_32u_256u_Pipeline_VITIS_LOOP_20_1/m_axi_sparse_data_ARSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'loadRAM_ap_uint_256_ap_int_8_ap_int_8_32u_256u_Pipeline_VITIS_LOOP_20_1/m_axi_sparse_data_ARBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'loadRAM_ap_uint_256_ap_int_8_ap_int_8_32u_256u_Pipeline_VITIS_LOOP_20_1/m_axi_sparse_data_ARLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'loadRAM_ap_uint_256_ap_int_8_ap_int_8_32u_256u_Pipeline_VITIS_LOOP_20_1/m_axi_sparse_data_ARCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'loadRAM_ap_uint_256_ap_int_8_ap_int_8_32u_256u_Pipeline_VITIS_LOOP_20_1/m_axi_sparse_data_ARPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'loadRAM_ap_uint_256_ap_int_8_ap_int_8_32u_256u_Pipeline_VITIS_LOOP_20_1/m_axi_sparse_data_ARQOS' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'loadRAM_ap_uint_256_ap_int_8_ap_int_8_32u_256u_Pipeline_VITIS_LOOP_20_1/m_axi_sparse_data_ARREGION' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'loadRAM_ap_uint_256_ap_int_8_ap_int_8_32u_256u_Pipeline_VITIS_LOOP_20_1/m_axi_sparse_data_ARUSER' to 0.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'loadRAM_ap_uint_256_ap_int_8_ap_int_8_32u_256u_Pipeline_VITIS_LOOP_20_1'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.04 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.04 seconds; current allocated memory: 1023.109 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'loadRAM_Pipeline_VITIS_LOOP_24_2_VITIS_LOOP_25_3' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'loadRAM_Pipeline_VITIS_LOOP_24_2_VITIS_LOOP_25_3' pipeline 'VITIS_LOOP_24_2_VITIS_LOOP_25_3' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_12s_12s_12ns_12_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'loadRAM_Pipeline_VITIS_LOOP_24_2_VITIS_LOOP_25_3'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 1023.918 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'loadRAM_ap_uint_256_ap_int_8_ap_int_8_32u_256u_Pipeline_VITIS_LOOP_31_4' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'loadRAM_ap_uint_256_ap_int_8_ap_int_8_32u_256u_Pipeline_VITIS_LOOP_31_4' pipeline 'VITIS_LOOP_31_4' pipeline type 'loop pipeline'
+WARNING: [RTGEN 206-101] Setting dangling out port 'loadRAM_ap_uint_256_ap_int_8_ap_int_8_32u_256u_Pipeline_VITIS_LOOP_31_4/m_axi_sparse_data_ARVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'loadRAM_ap_uint_256_ap_int_8_ap_int_8_32u_256u_Pipeline_VITIS_LOOP_31_4/m_axi_sparse_data_ARADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'loadRAM_ap_uint_256_ap_int_8_ap_int_8_32u_256u_Pipeline_VITIS_LOOP_31_4/m_axi_sparse_data_ARID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'loadRAM_ap_uint_256_ap_int_8_ap_int_8_32u_256u_Pipeline_VITIS_LOOP_31_4/m_axi_sparse_data_ARLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'loadRAM_ap_uint_256_ap_int_8_ap_int_8_32u_256u_Pipeline_VITIS_LOOP_31_4/m_axi_sparse_data_ARSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'loadRAM_ap_uint_256_ap_int_8_ap_int_8_32u_256u_Pipeline_VITIS_LOOP_31_4/m_axi_sparse_data_ARBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'loadRAM_ap_uint_256_ap_int_8_ap_int_8_32u_256u_Pipeline_VITIS_LOOP_31_4/m_axi_sparse_data_ARLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'loadRAM_ap_uint_256_ap_int_8_ap_int_8_32u_256u_Pipeline_VITIS_LOOP_31_4/m_axi_sparse_data_ARCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'loadRAM_ap_uint_256_ap_int_8_ap_int_8_32u_256u_Pipeline_VITIS_LOOP_31_4/m_axi_sparse_data_ARPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'loadRAM_ap_uint_256_ap_int_8_ap_int_8_32u_256u_Pipeline_VITIS_LOOP_31_4/m_axi_sparse_data_ARQOS' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'loadRAM_ap_uint_256_ap_int_8_ap_int_8_32u_256u_Pipeline_VITIS_LOOP_31_4/m_axi_sparse_data_ARREGION' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'loadRAM_ap_uint_256_ap_int_8_ap_int_8_32u_256u_Pipeline_VITIS_LOOP_31_4/m_axi_sparse_data_ARUSER' to 0.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'loadRAM_ap_uint_256_ap_int_8_ap_int_8_32u_256u_Pipeline_VITIS_LOOP_31_4'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.08 seconds. CPU system time: 0 seconds. Elapsed time: 0.08 seconds; current allocated memory: 1.001 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'loadRAM_ap_uint_256_ap_int_8_ap_int_8_32u_256u_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Generating core module 'mul_32ns_27ns_59_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_32s_32s_32_1_1': 2 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'loadRAM_ap_uint_256_ap_int_8_ap_int_8_32u_256u_s'.
+INFO: [RTMG 210-278] Implementing memory 'sparse_loadRAM_ap_uint_256_ap_int_8_ap_int_8_32u_256u_s_am_ram_V_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 1.003 GB.
+>>>>>>> 修改sparse代码，增加并行性
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'load_ap_uint_256_ap_int_8_ap_int_8_32u_s' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
+<<<<<<< HEAD
 INFO: [RTGEN 206-100] Generating core module 'mul_32s_32s_32_1_1': 2 instance(s).
 INFO: [RTGEN 206-100] Generating core module 'mux_325_8_1_1': 1 instance(s).
 INFO: [RTGEN 206-100] Finished creating RTL model for 'load_ap_uint_256_ap_int_8_ap_int_8_32u_s'.
@@ -330,10 +691,17 @@ INFO: [RTMG 210-278] Implementing memory 'sparse_load_ap_uint_256_ap_int_8_ap_in
 INFO: [RTMG 210-278] Implementing memory 'sparse_load_ap_uint_256_ap_int_8_ap_int_8_32u_s_idx_ram_RAM_AUTO_1R1W' using auto RAMs.
 INFO: [RTMG 210-278] Implementing memory 'sparse_load_ap_uint_256_ap_int_8_ap_int_8_32u_s_count_ram_RAM_AUTO_1R1W' using auto RAMs.
 INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 958.672 MB.
+=======
+INFO: [RTGEN 206-100] Finished creating RTL model for 'load_ap_uint_256_ap_int_8_ap_int_8_32u_256u_s'.
+INFO: [RTMG 210-278] Implementing memory 'sparse_load_ap_uint_256_ap_int_8_ap_int_8_32u_256u_s_idx_ram_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'sparse_load_ap_uint_256_ap_int_8_ap_int_8_32u_256u_s_count_ram_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.14 seconds. CPU system time: 0 seconds. Elapsed time: 0.15 seconds; current allocated memory: 1.007 GB.
+>>>>>>> 修改sparse代码，增加并行性
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_s' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [RTGEN 206-100] Finished creating RTL model for 'mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_s'.
+<<<<<<< HEAD
 INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.23 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.23 seconds; current allocated memory: 964.500 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_115_1' 
@@ -342,11 +710,23 @@ INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'quant_ap_uint_256
 INFO: [RTGEN 206-100] Generating core module 'mul_64s_32s_64_1_1': 32 instance(s).
 INFO: [RTGEN 206-100] Finished creating RTL model for 'quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_115_1'.
 INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.46 seconds. CPU system time: 0 seconds. Elapsed time: 0.47 seconds; current allocated memory: 974.125 MB.
+=======
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.64 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.66 seconds; current allocated memory: 1.019 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_148_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_148_1' pipeline 'VITIS_LOOP_148_1' pipeline type 'loop pipeline'
+INFO: [HLS 200-1552] Enabling free running pipeline (frp) architecture on pipeline 'VITIS_LOOP_148_1' in module 'quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_148_1'. Estimated max control fanout for pipeline is 7100.
+INFO: [RTGEN 206-100] Generating core module 'mul_64s_32s_64_1_1': 32 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'quant_ap_uint_256_ap_int_32_ap_int_8_32u_Pipeline_VITIS_LOOP_148_1'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.46 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.47 seconds; current allocated memory: 1.028 GB.
+>>>>>>> 修改sparse代码，增加并行性
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'quant_ap_uint_256_ap_int_32_ap_int_8_32u_s' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [RTGEN 206-100] Generating core module 'mul_32s_32s_32_1_1': 1 instance(s).
 INFO: [RTGEN 206-100] Finished creating RTL model for 'quant_ap_uint_256_ap_int_32_ap_int_8_32u_s'.
+<<<<<<< HEAD
 INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1.34 seconds. CPU system time: 0 seconds. Elapsed time: 1.34 seconds; current allocated memory: 983.312 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'store_ap_uint_256_ap_int_8_ap_int_8_32u_Pipeline_VITIS_LOOP_160_1' 
@@ -373,6 +753,34 @@ INFO: [HLS 200-10] -------------------------------------------------------------
 INFO: [RTGEN 206-100] Generating core module 'mul_32s_32s_32_1_1': 1 instance(s).
 INFO: [RTGEN 206-100] Finished creating RTL model for 'store_ap_uint_256_ap_int_8_ap_int_8_32u_s'.
 INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 985.371 MB.
+=======
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1.28 seconds. CPU system time: 0.01 seconds. Elapsed time: 1.3 seconds; current allocated memory: 1.037 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'store_ap_uint_256_ap_int_8_ap_int_8_32u_256u_Pipeline_VITIS_LOOP_193_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'store_ap_uint_256_ap_int_8_ap_int_8_32u_256u_Pipeline_VITIS_LOOP_193_1' pipeline 'VITIS_LOOP_193_1' pipeline type 'loop pipeline'
+WARNING: [RTGEN 206-101] Setting dangling out port 'store_ap_uint_256_ap_int_8_ap_int_8_32u_256u_Pipeline_VITIS_LOOP_193_1/m_axi_sparse_data_AWVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'store_ap_uint_256_ap_int_8_ap_int_8_32u_256u_Pipeline_VITIS_LOOP_193_1/m_axi_sparse_data_AWADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'store_ap_uint_256_ap_int_8_ap_int_8_32u_256u_Pipeline_VITIS_LOOP_193_1/m_axi_sparse_data_AWID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'store_ap_uint_256_ap_int_8_ap_int_8_32u_256u_Pipeline_VITIS_LOOP_193_1/m_axi_sparse_data_AWLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'store_ap_uint_256_ap_int_8_ap_int_8_32u_256u_Pipeline_VITIS_LOOP_193_1/m_axi_sparse_data_AWSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'store_ap_uint_256_ap_int_8_ap_int_8_32u_256u_Pipeline_VITIS_LOOP_193_1/m_axi_sparse_data_AWBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'store_ap_uint_256_ap_int_8_ap_int_8_32u_256u_Pipeline_VITIS_LOOP_193_1/m_axi_sparse_data_AWLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'store_ap_uint_256_ap_int_8_ap_int_8_32u_256u_Pipeline_VITIS_LOOP_193_1/m_axi_sparse_data_AWCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'store_ap_uint_256_ap_int_8_ap_int_8_32u_256u_Pipeline_VITIS_LOOP_193_1/m_axi_sparse_data_AWPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'store_ap_uint_256_ap_int_8_ap_int_8_32u_256u_Pipeline_VITIS_LOOP_193_1/m_axi_sparse_data_AWQOS' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'store_ap_uint_256_ap_int_8_ap_int_8_32u_256u_Pipeline_VITIS_LOOP_193_1/m_axi_sparse_data_AWREGION' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'store_ap_uint_256_ap_int_8_ap_int_8_32u_256u_Pipeline_VITIS_LOOP_193_1/m_axi_sparse_data_AWUSER' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'store_ap_uint_256_ap_int_8_ap_int_8_32u_256u_Pipeline_VITIS_LOOP_193_1/m_axi_sparse_data_BREADY' to 0.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'store_ap_uint_256_ap_int_8_ap_int_8_32u_256u_Pipeline_VITIS_LOOP_193_1'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.47 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.47 seconds; current allocated memory: 1.039 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'store_ap_uint_256_ap_int_8_ap_int_8_32u_256u_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Generating core module 'mul_32s_32s_32_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'store_ap_uint_256_ap_int_8_ap_int_8_32u_256u_s'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 1.040 GB.
+>>>>>>> 修改sparse代码，增加并行性
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'sparse' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -391,13 +799,16 @@ INFO: [RTGEN 206-500] Setting interface mode on port 'sparse/quant_shift' to 's_
 INFO: [RTGEN 206-500] Setting interface mode on port 'sparse/quant_mul' to 's_axilite & ap_none'.
 INFO: [RTGEN 206-500] Setting interface mode on port 'sparse/sparse_flag' to 's_axilite & ap_vld'.
 INFO: [RTGEN 206-500] Setting interface mode on function 'sparse' to 's_axilite & ap_ctrl_hs'.
-INFO: [RTGEN 206-100] Bundling port 'input_data_addr1', 'input_data_addr2', 'output_data_addr3', 'am_ROWS', 'am_COLS', 'fm_ROWS', 'fm_COLS', 'inputs', 'outputs', 'quant_shift', 'quant_mul', 'sparse_flag' to AXI-Lite port sparse_addr.
+INFO: [RTGEN 206-100] Bundling port 'input_data_addr1', 'input_data_addr2', 'output_data_addr3', 'am_ROWS', 'am_COLS', 'fm_ROWS', 'fm_COLS', 'inputs', 'outputs', 'quant_shift', 'quant_mul', 'sparse_flag' and 'return' to AXI-Lite port sparse_addr.
 INFO: [RTGEN 206-100] Finished creating RTL model for 'sparse'.
-INFO: [RTMG 210-285] Implementing FIFO 'outputs_c_U(sparse_fifo_w64_d6_S)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'quant_shift_c_U(sparse_fifo_w32_d5_S)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'quant_mul_c_U(sparse_fifo_w32_d5_S)' using Shift Registers.
+INFO: [HLS 200-741] Implementing PIPO sparse_fm_ram_V_RAM_AUTO_1R1W using a single memory for all blocks
+INFO: [RTMG 210-278] Implementing memory 'sparse_fm_ram_V_RAM_AUTO_1R1W_memcore' using auto RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'outputs_c_U(sparse_fifo_w64_d7_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'quant_shift_c_U(sparse_fifo_w32_d6_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'quant_mul_c_U(sparse_fifo_w32_d6_S)' using Shift Registers.
 INFO: [RTMG 210-285] Implementing FIFO 'input_data_addr1_assign_cast_loc_channel_U(sparse_fifo_w27_d2_S)' using Shift Registers.
 INFO: [RTMG 210-285] Implementing FIFO 'input_data_addr2_assign_cast_loc_channel_U(sparse_fifo_w27_d2_S)' using Shift Registers.
+<<<<<<< HEAD
 INFO: [RTMG 210-285] Implementing FIFO 'output_data_addr3_assign_cast_loc_channel_U(sparse_fifo_w27_d5_S)' using Shift Registers.
 INFO: [RTMG 210-285] Implementing FIFO 'idx_stream_U(sparse_fifo_w8_d128_S)' using Shift Registers.
 INFO: [RTMG 210-285] Implementing FIFO 'count_stream_U(sparse_fifo_w8_d64_S)' using Shift Registers.
@@ -407,11 +818,26 @@ INFO: [RTMG 210-285] Implementing FIFO 'fm_ROWS_c14_U(sparse_fifo_w32_d3_S)' usi
 INFO: [RTMG 210-285] Implementing FIFO 'fm_COLS_c16_U(sparse_fifo_w32_d2_S)' using Shift Registers.
 INFO: [RTMG 210-285] Implementing FIFO 'data_out_U(sparse_fifo_w1024_d64_A)' using Vivado Default RAMs.
 INFO: [RTMG 210-285] Implementing FIFO 'fm_COLS_c15_U(sparse_fifo_w32_d2_S)' using Shift Registers.
+=======
+INFO: [RTMG 210-285] Implementing FIFO 'output_data_addr3_assign_cast_loc_channel_U(sparse_fifo_w27_d6_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'am_value_stream_U(sparse_fifo_w256_d2048_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'fm_ROWS_c17_U(sparse_fifo_w32_d4_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'am_ROWS_c16_channel_U(sparse_fifo_w32_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'am_COLS_c_channel_U(sparse_fifo_w32_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'fm_COLS_c20_channel_U(sparse_fifo_w32_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'count_stream_U(sparse_fifo_w8_d1024_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'fm_stream_U(sparse_fifo_w256_d2048_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'am_ROWS_c_U(sparse_fifo_w32_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'fm_COLS_c19_U(sparse_fifo_w32_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'data_out_U(sparse_fifo_w1024_d4096_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'fm_COLS_c18_U(sparse_fifo_w32_d2_S)' using Shift Registers.
+>>>>>>> 修改sparse代码，增加并行性
 INFO: [RTMG 210-285] Implementing FIFO 'quant_out_U(sparse_fifo_w256_d2_S)' using Shift Registers.
 INFO: [RTMG 210-285] Implementing FIFO 'fm_ROWS_c_U(sparse_fifo_w32_d2_S)' using Shift Registers.
 INFO: [RTMG 210-285] Implementing FIFO 'fm_COLS_c_U(sparse_fifo_w32_d2_S)' using Shift Registers.
 INFO: [RTMG 210-285] Implementing FIFO 'start_for_quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0_U(sparse_start_for_quant_ap_uint_256_ap_int_32_ap_int_8_32u_U0)' using Shift Registers.
 INFO: [RTMG 210-285] Implementing FIFO 'start_for_mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0_U(sparse_start_for_mul_ap_uint_256_ap_int_32_ap_int_8_ap_int_8_32u_U0)' using Shift Registers.
+<<<<<<< HEAD
 INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.12 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.13 seconds; current allocated memory: 987.844 MB.
 INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 1.22 seconds. CPU system time: 0.02 seconds. Elapsed time: 1.23 seconds; current allocated memory: 991.285 MB.
 INFO: [HLS 200-1603] Design has inferred MAXI bursts and missed bursts, see Vitis HLS GUI synthesis summary report for detailed information.
@@ -421,6 +847,17 @@ INFO: [VLOG 209-307] Generating Verilog RTL for sparse.
 INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were satisfied.
 INFO: [HLS 200-789] **** Estimated Fmax: 136.99 MHz
 INFO: [HLS 200-111] Finished Command csynth_design CPU user time: 29.6 seconds. CPU system time: 1.33 seconds. Elapsed time: 30.94 seconds; current allocated memory: 246.965 MB.
+=======
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.14 seconds. CPU system time: 0 seconds. Elapsed time: 0.14 seconds; current allocated memory: 1.042 GB.
+INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 1.5 seconds. CPU system time: 0.01 seconds. Elapsed time: 1.51 seconds; current allocated memory: 1.045 GB.
+INFO: [HLS 200-1603] Design has inferred MAXI bursts and missed bursts, see Vitis HLS GUI synthesis summary report for detailed information.
+INFO: [HLS 200-111] Finished Updating report files: CPU user time: 0.95 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.97 seconds; current allocated memory: 1.057 GB.
+INFO: [VHDL 208-304] Generating VHDL RTL for sparse.
+INFO: [VLOG 209-307] Generating Verilog RTL for sparse.
+INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were satisfied.
+INFO: [HLS 200-789] **** Estimated Fmax: 205.47 MHz
+INFO: [HLS 200-111] Finished Command csynth_design CPU user time: 28.45 seconds. CPU system time: 1.06 seconds. Elapsed time: 29.51 seconds; current allocated memory: 328.801 MB.
+>>>>>>> 修改sparse代码，增加并行性
 INFO: [HLS 200-1510] Running: export_design -format ip_catalog 
 INFO: [IMPL 213-8] Exporting RTL as a Vivado IP.
 
@@ -433,9 +870,18 @@ source run_ippack.tcl -notrace
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/ytq/source/Xilinx/Vivado/2022.2/data/ip'.
+<<<<<<< HEAD
 INFO: [Common 17-206] Exiting Vivado at Sat Jun 15 11:56:51 2024...
 INFO: [HLS 200-802] Generated output file Sparse_HLS.prj/sol/impl/export.zip
 INFO: [HLS 200-111] Finished Command export_design CPU user time: 8.34 seconds. CPU system time: 0.44 seconds. Elapsed time: 8.69 seconds; current allocated memory: 6.008 MB.
 INFO: [HLS 200-1510] Running: close_project 
 INFO: [HLS 200-112] Total CPU user time: 48.47 seconds. Total CPU system time: 2.53 seconds. Total elapsed time: 60.86 seconds; peak allocated memory: 1007.332 MB.
 INFO: [Common 17-206] Exiting vitis_hls at Sat Jun 15 11:56:52 2024...
+=======
+INFO: [Common 17-206] Exiting Vivado at Wed Jul  3 15:12:05 2024...
+INFO: [HLS 200-802] Generated output file Sparse_HLS.prj/sol/impl/export.zip
+INFO: [HLS 200-111] Finished Command export_design CPU user time: 8.32 seconds. CPU system time: 0.46 seconds. Elapsed time: 8.79 seconds; current allocated memory: 5.629 MB.
+INFO: [HLS 200-1510] Running: close_project 
+INFO: [HLS 200-112] Total CPU user time: 45.92 seconds. Total CPU system time: 2.28 seconds. Total elapsed time: 58.12 seconds; peak allocated memory: 1.063 GB.
+INFO: [Common 17-206] Exiting vitis_hls at Wed Jul  3 15:12:06 2024...
+>>>>>>> 修改sparse代码，增加并行性

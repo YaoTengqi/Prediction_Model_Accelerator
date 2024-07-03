@@ -2,19 +2,58 @@
 #include "ap_int.h"
 #include "../include/types.hpp"
 
+<<<<<<< HEAD
 template <typename t_AXI_DataType, typename t_DataType_IN, typename t_DataType_OUT, unsigned int nPE>
+=======
+template <typename t_AXI_DataType, typename t_DataType_IN, typename t_DataType_OUT, unsigned int nPE, unsigned int bigPE>
+void loadRAM(
+	unsigned int am_ROWS,
+	unsigned int am_COLS,
+	unsigned int fm_ROWS,
+	unsigned int fm_COLS,
+	t_AXI_DataType *inputs,
+	hls::stream<typename WideType<t_DataType_IN, nPE>::t_TypeInt> &am_value_stream,
+	typename WideType<t_DataType_IN, nPE>::t_TypeInt fm_ram[4096],
+	uint32_t input_data_addr1,
+	uint32_t input_data_addr2)
+{
+	typename WideType<t_DataType_IN, nPE>::t_TypeInt am_ram[4096];
+	int fm_loop_num = fm_ROWS * fm_COLS * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
+	int am_loop_num = am_ROWS * am_COLS * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
+	for (int j = 0; j < am_loop_num; j++)
+	{
+		am_ram[j] = inputs[input_data_addr2 + j]; // load adjacency matrix
+	}
+	for (int row = 0; row < am_ROWS; row++){
+			for (int col = 0; col < am_COLS / nPE; col++){
+				int blocks = am_COLS / nPE;
+				WideType<t_DataType_IN, nPE> am_value = am_ram[row * blocks + col];
+				am_value_stream.write(am_value);
+		}
+	}
+	for (int i = 0; i < fm_loop_num; i++)
+	{
+		fm_ram[i] = inputs[input_data_addr1 + i]; // load feature matrix
+	}
+}
+
+template <typename t_AXI_DataType, typename t_DataType_IN, typename t_DataType_OUT, unsigned int nPE, unsigned int bigPE>
+>>>>>>> 修改sparse代码，增加并行性
 void load(
 	unsigned int am_ROWS,
 	unsigned int am_COLS,
 	unsigned int fm_ROWS,
 	unsigned int fm_COLS,
 	t_AXI_DataType *inputs,
-	hls::stream<uint8_t> &idx_stream,
+	hls::stream<typename WideType<t_DataType_IN, nPE>::t_TypeInt> &am_value_stream,
+//	hls::stream<uint8_t> &idx_stream,
 	hls::stream<uint8_t> &count_stream,
 	hls::stream<typename WideType<t_DataType_IN, nPE>::t_TypeInt> &fm_stream,
+	typename WideType<t_DataType_IN, nPE>::t_TypeInt fm_ram[4096],
 	uint32_t input_data_addr1,
 	uint32_t input_data_addr2)
 {
+<<<<<<< HEAD
 	typename WideType<t_DataType_IN, nPE>::t_TypeInt am_ram[64];
 	typename WideType<t_DataType_IN, nPE>::t_TypeInt fm_ram[512];
 	int idx_count = 0, count_count = 0;
@@ -37,16 +76,43 @@ void load(
 	{ // 获取idx和count
 		int count = 0;
 		WideType<t_DataType_IN, nPE> am_value = am_ram[row];
+=======
+
+	int idx_count = 0, count_count = 0;
+	uint8_t idx_ram[4096];
+	uint8_t count_ram[2048];
+#pragma HLS PIPELINE
+	int idx_num = 0;
+	int count_num = 0;
+	for (int row = 0; row < am_ROWS; row++)
+	{ // 获取idx和count
+		int count = 0;
+		for (int col = 0; col < am_COLS / nPE; col++){
+			int blocks = am_COLS / nPE;
+//			WideType<t_DataType_IN, nPE> am_value = am_ram[row * blocks + col];
+			WideType<t_DataType_IN, nPE> am_value = am_value_stream.read();
+>>>>>>> 修改sparse代码，增加并行性
 #pragma HLS UNROLL
 		for (int col = 0; col < am_COLS; col++)
 		{
 			if (am_value[col] != 0)
 			{
+<<<<<<< HEAD
 				count++;
 				idx_ram[idx_num++] = col;
+=======
+				if (am_value[col_inner] != 0)
+				{
+					count++;
+					int idx = col * nPE + col_inner;
+					idx_ram[idx_num++] = idx;	// col_inner是某一块的offest，col * nPE就是第col块的索引起始
+//					idx_stream.write(col);
+				}
+>>>>>>> 修改sparse代码，增加并行性
 			}
 		}
 		count_ram[count_num++] = count;
+		count_stream.write(count);	// 让count_stream先有值，可以快启动mul计算
 	}
 #pragma HLS PIPELINE
 	for (int block = 0; block < (fm_COLS / nPE); block++)
@@ -54,14 +120,22 @@ void load(
 		for (int i = 0; i < idx_num; i++)
 		{
 			int col = idx_ram[i];
+<<<<<<< HEAD
 			idx_stream.write(col);
 			WideType<t_DataType_IN, nPE> fm_value = fm_ram[block * nPE + col];
+=======
+//			idx_stream.write(col);
+			WideType<t_DataType_IN, nPE> fm_value = fm_ram[block * bigPE + col];
+//			WideType<t_DataType_IN, nPE> fm_value = inputs[input_data_addr2 + (block * bigPE + col)];
+>>>>>>> 修改sparse代码，增加并行性
 			fm_stream.write(fm_value);
 		}
 		for (int j = 0; j < count_num; j++)
 		{
-			int count = count_ram[j];
-			count_stream.write(count);
+			if(block < (fm_COLS / nPE) - 1){ 	//
+				int count = count_ram[j];
+				count_stream.write(count);
+			}
 		}
 	}
 }
@@ -73,7 +147,7 @@ void mul(
 	unsigned int fm_ROWS,
 	unsigned int fm_COLS,
 	hls::stream<typename WideType<t_DataType_OUT, nPE>::t_TypeInt> &fm_stream,
-	hls::stream<uint8_t> &idx_stream,
+//	hls::stream<uint8_t> &idx_stream,
 	hls::stream<uint8_t> &count_stream,
 	hls::stream<typename WideType<t_Quant_DataType, nPE>::t_TypeInt> &data_stream_out)
 {
@@ -88,7 +162,7 @@ void mul(
 #pragma HLS UNROLL
 			for (int count = 0; count < idx_count; count++)
 			{ // 根据idx_stream取出对应行的fm_stream值
-				uint8_t idx = idx_stream.read();
+//				uint8_t idx = idx_stream.read();
 				//			WideType<t_DataType_IN, nPE> fm_value = fm_ram[block * nPE + idx];
 				WideType<t_DataType_IN, nPE> fm_value = fm_stream.read();
 				for (int pe = 0; pe < nPE; pe++)
