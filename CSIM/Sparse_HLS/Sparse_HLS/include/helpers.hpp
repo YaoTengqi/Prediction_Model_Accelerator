@@ -45,9 +45,10 @@ void addCountStream(
 	hls::stream<uint8_t> &count_stream,
 	uint32_t input_data_addr1,
 	uint32_t input_data_addr2,
-	int &idx_num)
+	hls::stream<int> &idx_num_stream)
 {
 	int idx_count = 0, count_count = 0;
+	int idx_num = 0;
 	uint8_t idx_ram[4096];
 	uint8_t count_ram[2048];
 #pragma HLS PIPELINE
@@ -67,15 +68,16 @@ void addCountStream(
 					count++;
 					int idx = col * nPE + col_inner;
 					idx_ram[idx_num++] = idx;	// col_inner是某一块的offest，col * nPE就是第col块的索引起始
-					idx_stream.write(idx);
+//					idx_stream.write(idx);
 				}
 			}
 		}
 		count_ram[count_num++] = count;
-		count_stream.write(count);	// 让count_stream先有值，可以快启动mul计算
+//		count_stream.write(count);	// 让count_stream先有值，可以快启动mul计算
 	}
+	idx_num_stream.write(idx_num);
 #pragma HLS PIPELINE
-	for (int block = 0; block < (fm_COLS / nPE) - 1; block++)
+	for (int block = 0; block < (fm_COLS / nPE); block++)
 	{
 		for(int i = 0; i < idx_num; i++){
 			int idx = idx_ram[i];
@@ -100,8 +102,9 @@ void loadFmStream(
 	typename WideType<t_DataType_IN, nPE>::t_TypeInt fm_ram[4096],
 	uint32_t input_data_addr1,
 	uint32_t input_data_addr2,
-	int &idx_num)
+	hls::stream<int> &idx_num_stream)
 {
+	int idx_num = idx_num_stream.read();
 #pragma HLS PIPELINE
 	for (int block = 0; block < (fm_COLS / nPE); block++)
 	{

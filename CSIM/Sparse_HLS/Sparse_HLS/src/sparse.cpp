@@ -38,20 +38,21 @@ void sparse(
 	hls::stream<WideType<t_DataType_IN, nPE>::t_TypeInt> fm_stream;
 #pragma HLS STREAM variable = fm_stream depth = 2048
 	hls::stream<uint8_t> idx_stream;
-#pragma HLS STREAM variable = idx_stream depth = 1024
+#pragma HLS STREAM variable = idx_stream depth = 4096
 	hls::stream<uint8_t> count_stream;
 #pragma HLS STREAM variable = count_stream depth = 1024
+	hls::stream<int> idx_num_stream;
+#pragma HLS STREAM variable = idx_num_stream depth = 16
 
 	typename WideType<t_DataType_IN, nPE>::t_TypeInt fm_ram[4096];
-	int idx_num = 0;
 	input_data_addr1 = input_data_addr1 * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
 	input_data_addr2 = input_data_addr2 * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
 	output_data_addr3 = output_data_addr3 * sizeof(t_DataType_IN) / sizeof(t_AXI_DataType);
 
 #pragma HLS DATAFLOW
 	loadRAM<t_AXI_DataType, t_DataType_IN, t_DataType_OUT, nPE, bigPE>(am_ROWS, am_COLS, fm_ROWS, fm_COLS, inputs, am_value_stream, fm_ram, input_data_addr1, input_data_addr2);
-	addCountStream<t_AXI_DataType, t_DataType_IN, t_DataType_OUT, nPE, bigPE>(am_ROWS, am_COLS, fm_ROWS, fm_COLS, am_value_stream, idx_stream, count_stream, input_data_addr1, input_data_addr2, idx_num);
-	loadFmStream<t_AXI_DataType, t_DataType_IN, t_DataType_OUT, nPE, bigPE>(am_ROWS, am_COLS, fm_ROWS, fm_COLS, idx_stream, fm_stream, fm_ram, input_data_addr1, input_data_addr2, idx_num);
+	addCountStream<t_AXI_DataType, t_DataType_IN, t_DataType_OUT, nPE, bigPE>(am_ROWS, am_COLS, fm_ROWS, fm_COLS, am_value_stream, idx_stream, count_stream, input_data_addr1, input_data_addr2, idx_num_stream);
+	loadFmStream<t_AXI_DataType, t_DataType_IN, t_DataType_OUT, nPE, bigPE>(am_ROWS, am_COLS, fm_ROWS, fm_COLS, idx_stream, fm_stream, fm_ram, input_data_addr1, input_data_addr2, idx_num_stream);
 	mul<t_AXI_DataType, t_Quant_DataType, t_DataType_IN, t_DataType_OUT, nPE>(am_ROWS, am_COLS, fm_ROWS, fm_COLS, fm_stream, count_stream, data_out);
 	quant<t_AXI_DataType, t_Quant_DataType, t_DataType_OUT, nPE>(data_out, fm_ROWS, fm_COLS, quant_out, quant_shift, quant_mul);
 	store<t_AXI_DataType, t_DataType_IN, t_DataType_OUT, nPE, bigPE>(quant_out, outputs, output_data_addr3, fm_ROWS, fm_COLS, sparse_flag);
