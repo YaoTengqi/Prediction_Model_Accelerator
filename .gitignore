@@ -3,5 +3,5 @@ BOARD/
 temp/
 **/data
 **/sol
-**/Sparse_HLS.prj/
-
+**/Sparse_HLS.prj
+CSIM/Sparse_HLS/Sparse_HLS/Sparse_HLS.prj/
